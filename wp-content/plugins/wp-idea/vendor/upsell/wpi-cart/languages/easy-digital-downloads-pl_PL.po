@@ -1,0 +1,3695 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Digital Downloads 2.5.14\n"
+"Report-Msgid-Bugs-To: https://easydigitaldownloads.com/\n"
+"POT-Creation-Date: 2016-05-11 20:14:45+00:00\n"
+"PO-Revision-Date: Mon Aug 16 2021 12:29:09 GMT+0200 (czas środkowoeuropejski "
+"letni)\n"
+"Last-Translator: upsell <dev@upsell.pl>\n"
+"Language-Team: Polski\n"
+"Language: Polish\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
+"&&(n%100<10||n%100 >= 20)? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Loco-Target-Locale: pl_PL\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
+
+msgid "%1$s Files"
+msgstr "Pliki"
+
+msgid "%1$s Image"
+msgstr "Obrazek"
+
+msgid "%1$s License Key"
+msgstr " %1$s - klucz licencyjny"
+
+msgid "%1$s Notes"
+msgstr "Notatki"
+
+msgid "%1$s Prices"
+msgstr "Ceny"
+
+msgid "%1$s Settings"
+msgstr "%1$s Ustawienia"
+
+msgid "%1$s Stats"
+msgstr "Statystyki"
+
+msgid "%2$s published. %1$sView %2$s%3$s."
+msgstr "%2$s został opublikowany. %1$sZobacz %2$s%3$s."
+
+msgid "%2$s updated. %1$sView %2$s%3$s."
+msgstr "%2$s zaktualizowany. %1$sZobacz %2$s%3$s."
+
+msgid "%d Completed Sale"
+msgid_plural "%d Completed Sales"
+msgstr[0] "%d Zakończona transakcja"
+msgstr[1] "%d Zakończone transakcje"
+msgstr[2] "%d Zakończonych transakcji"
+
+msgid "%d customers created in %d seconds"
+msgstr "%d klientów utworzonych w %d sekund"
+
+msgid "%s &rarr; Add New"
+msgstr "%s &rarr; Dodaj nowy"
+
+msgid "%s Configuration"
+msgstr "%s Konfiguracja"
+
+msgid "%s Files"
+msgstr "Pliki"
+
+msgid "%s Notes"
+msgstr "Notatki"
+
+msgid "%s Prices"
+msgstr "Ceny"
+
+msgid "%s Requirements"
+msgstr "Produkty wymagane"
+
+msgid "%s Settings"
+msgstr "%s Ustawienia"
+
+msgid "%s that this discount code cannot be applied to."
+msgstr "%s, dla których kod ten nie może być zastosowany."
+
+msgid "(optional)"
+msgstr "(opcjonalnie)"
+
+msgid ""
+"<a href=\"%s\">Post an issue</a> on <a href=\"%s\">GitHub</a>. View <a "
+"href=\"%s\">extensions</a> or <a href=\"%s\">themes</a>."
+msgstr ""
+"<a href=\"%s\">Zgłoś problem</a> na <a href=\"%s\">GitHub</a>. Zobacz stronę z "
+"<a href=\"%s\">rozszerzeniami</a> lub <a href=\"%s\">motywami</a>."
+
+msgid "<em>button</em> | <em>text</em> - The style of the purchase link."
+msgstr ""
+"<em>button</em> | <em>text</em> - Rodzaj linku do produktu (przycisk lub "
+"tekst)."
+
+msgid ""
+"<strong>Accounting Options</strong> - If enabled, define an individual SKU "
+"or product number for this download."
+msgstr ""
+"<strong>Opcje rachunkowości</strong> - jeśli opcja jest włączona, możesz "
+"zdefiniować indywidualny SKU lub numer produktu."
+
+msgid ""
+"<strong>Additional Tax Rates</strong>: This section lets you add tax rates "
+"for specific countries and/or states/provinces in those countries."
+msgstr ""
+"<strong>Dodatkowe stawki podatkowe</strong>: ta sekcja pozwala Ci "
+"zdefiniować dodatkowe stawki podatkowe dla innych państw i / lub stanów / "
+"prowincji."
+
+msgid ""
+"<strong>Base Country</strong>: This determines the country that is loaded by "
+"default on the checkout screen for customers that do not have an address "
+"stored in their account."
+msgstr ""
+"<strong>Kraj</strong>: każdy klient, nie mający zdefiniowanego w swoim "
+"koncie adresu, będzie miał domyślnie wybrany ten kraj w momencie składania "
+"zamówienia."
+
+msgid ""
+"<strong>Base State / Province</strong>: This determines the state / province "
+"that is loaded by default on the checkout screen for customers that do not "
+"have an address stored in their account."
+msgstr ""
+"<strong>Stan / Prowincja</strong>: każdy klient, nie mający zdefiniowanego w "
+"swoim koncie adresu, będzie miał domyślnie wybrany ten stan / prowincję w "
+"momencie składania zamówienia."
+
+msgid ""
+"<strong>Code</strong> - this is the unique code that customers will enter "
+"during checkout to redeem the code."
+msgstr ""
+"<strong>Kod</strong>  - jest to unikalny kod zniżki, który klienci będą "
+"mogli wpisać podczas składania zamówienia aby uzuskać upust."
+
+msgid ""
+"<strong>Customers</strong> - This report exports all of your customers in a "
+"CSV format. It exports the customer's name and email address and the amount "
+"of products they have purchased as well as the final price of their total "
+"purchases."
+msgstr ""
+"<strong>Klienci</strong> - raport ten zawiera informacje o klientach Twojego "
+"sklepu, a dokładniej: imię / nazwisko, adres email, wartość zamówionych "
+"produktów oraz łączna kwota dokonanych płatności. Raport dostępny jest w "
+"formacie CSV."
+
+msgid ""
+"<strong>Default Tax Rate</strong>: The default tax rate is the tax rate "
+"charged to customers located in your base country / state or province."
+msgstr ""
+"<strong>Domyślna stawka podatku</strong>: jest to stawka podatku "
+"obowiązująca dla klientów z Twojego kraju bazowego."
+
+msgid ""
+"<strong>Display During Checkout</strong>: This determines whether prices are "
+"shown with taxes or without taxes on checkout. If set to Including Tax, a "
+"$10 product with a 10% tax will be shown as $11."
+msgstr ""
+"<strong>Wyświetlaj podczas zamawiania</strong>: ta opcja pozwala zdefiniować,"
+" czy ceny na stronie z podsumowaniem zamówienia, wyświetlane są z podatkiem, "
+"czy bez. Jeśli wybrana jest opcja <em>Z podatkiem</em>, to przykładowy "
+"produkt o cenie 10 PLN przy stawce podatku 23%, zostanie wyświetlony jako "
+"produkt za 12,3 PLN."
+
+msgid ""
+"<strong>Display Tax Rate on Prices</strong>: when enabled, the amount the "
+"customer is expected to pay in tax will be displayed below purchase buttons."
+msgstr ""
+"<strong>Wyświetlaj stawki podatku przy cenach</strong>: jeśli opcja ta jest "
+"zaznaczona, stawka podatku będzie wyświetlana pod każdym przyciskiem zakupu."
+
+msgid ""
+"<strong>Download History</strong> - This report exports all of the downloads "
+"you have received in the current month into a CSV. It exports the date the "
+"file was downloaded, the customer it was downloaded by, their IP address, "
+"the name of the product and the file they downloaded."
+msgstr ""
+"<strong>Historia pobrań plików</strong> - raport ten zawiera informacje o "
+"wszystkich pobraniach, które miały miejsce w danym miesiącu. Raport zawiera: "
+"datę pobrania, IP klienta, nazwę produktu i nazwę pobranego pliku. Raport "
+"dostępny jest w formacie CSV."
+
+msgid ""
+"<strong>Enable multi-option purchases</strong> - By enabling multi-option "
+"purchases customers can add multiple variable price items to their cart at "
+"once."
+msgstr ""
+"<strong>Włącz możliwość zaznaczenia kilku opcji</strong> - Pozwala dodawać "
+"do koszyka różne opcje cenowe produktu w jednym zamówieniu."
+
+msgid ""
+"<strong>Enable variable pricing</strong> - By enabling variable pricing, "
+"multiple download options and prices can be configured."
+msgstr ""
+"<strong>Włącz różne ceny</strong> - włączając opcję różnych cen, możliwe "
+"jest zdefiniowanie kilku wariacji produktu (zarówno cenowych jak i pod "
+"względem zawartości)."
+
+msgid ""
+"<strong>Expiration Date</strong> - this is the end date for the discount. "
+"After this date, the code will no longer be able to be used. This is "
+"optional."
+msgstr ""
+"<strong>Wygasa</strong> - jest to data zakończenia promocji. Po tej dacie "
+"wykorzystanie kodu nie będzie już możliwe. Podanie daty zakończenia promocji "
+"jest opcjonalne."
+
+msgid ""
+"<strong>File Download Limit</strong> - Define how many times customers are "
+"allowed to download their purchased files. Leave at 0 for unlimited. "
+"Resending the purchase receipt will permit the customer one additional "
+"download if their limit has already been reached."
+msgstr ""
+"<strong>Limit pobrań pliku</strong> - pozwala zdefiniować ile razy klient "
+"może pobrać zamówione pliki. Wpisanie 0 wyłącza limit. Ponowne wysłanie "
+"rachunku pozwoli klientowi na jedno dodatkowe pobranie, jeśli jego limit już "
+"się wyczerpał."
+
+msgid ""
+"<strong>Max Uses</strong> - this is the maximum number of times this "
+"discount can be redeemed. Once this number is reached, no more customers "
+"will be allowed to use it."
+msgstr ""
+"<strong>Maksymalna liczba użyć</strong> - jest to maksymalna liczba użyć dla "
+"tego kodu zniżkowego. Gdy limit ten zostanie osiągnięty, żaden kolejny "
+"klient nie będzie mógł wykorzystać kodu."
+
+msgid ""
+"<strong>Minimum Amount</strong> - this is the minimum purchase amount "
+"required to use this code. If a customer has less than this amount in their "
+"cart, they will be given an error. This is optional."
+msgstr ""
+"<strong>Minimalna kwota</strong> - określa minimalną kwotę zamówienia, która "
+"pozwoli na wykorzystanie kodu zniżkowego. Jeśli klient posiada w koszyku "
+"produkty na łączną kwotę mniejszą od minimalnej, zobaczy błąd. Podanie "
+"minimalnej kwoty jest opcjonalne."
+
+msgid ""
+"<strong>Name</strong> - this is the name given to the discount. Used "
+"primarily for administrative purposes."
+msgstr ""
+"<strong>Nazwa</strong> - jest to nazwa zniżki określona przede wszystkim dla "
+"celów administracyjnych."
+
+msgid ""
+"<strong>PayPal</strong> - A PayPal payment gateway is included as standard "
+"with Easy Digital Downloads. To test the PayPal gateway, you need a Sandbox "
+"account for PayPal and the site must be placed in Test Mode from the General "
+"settings tab. Please remember to enter your PayPal account email address in "
+"order for payments to get processed."
+msgstr ""
+"<strong>PayPal</strong> - bramka płatności PayPal jest standardowym "
+"składnikiem Easy Digital Downloads. Do testowania bramki PayPal niezbędne "
+"jest konto typu Sandbox oraz włączenie trybu testowego w ustawieniach "
+"ogólnych sklepu. Proszę pamiętać o wpisaniu adresu email swojego konta "
+"PayPal, aby umożliwić przyjmowanie płatności."
+
+msgid ""
+"<strong>Prices Entered with Tax</strong>: if enabled, this means that the "
+"price entered on the product edit screens is the total amount the customer "
+"will pay after taxes. For example, if enabled and the price of a product is "
+"$20, the customer will pay 20$ at checkout. The exact amount charged in tax "
+"will be calculated automatically."
+msgstr ""
+"<strong>Ceny wpisywane z podatkiem</strong>: jeśli wybrana jest opcja cen "
+"zawierających podatek, to kwota wpisywana na stronie edycji produktu, będzie "
+"dokładną kwotą którą klient zapłaci po uwzględnieniu podatków. Dla drugiej "
+"opcji, do ceny wpisanej na stronie edycji produktu, doliczony zostanie "
+"podatek o odpowiedniej stawce."
+
+msgid ""
+"<strong>Purchase Shortcode</strong> - If the automatic output of the "
+"purchase button has been disabled via the Download Configuration box, a "
+"shortcode can be used to output the button or link."
+msgstr ""
+"<strong>Shortcode</strong> - jeśli automatyczne generowanie przycisku zakupu "
+"zostało wyłączone w opcjach konfiguracyjnych, można użyć shortcode do "
+"ręcznego wygenerowania przycisku lub linku."
+
+msgid ""
+"<strong>Start Date</strong> - this is the date that this code becomes "
+"available. If a customer attempts to redeem the code prior to this date, "
+"they will be given an error. This is optional."
+msgstr ""
+"<strong>Data początkowa</strong> - jest to data od której kod zaczyna być "
+"aktywny. Jeśli klient spróbuje wykorzystać kod przed tą datą, zobaczy "
+"komunikat o błędzie. Podanie daty początkowej jest opcjonalne."
+
+msgid ""
+"<strong>Test Payment</strong> - This included gateway is great for testing "
+"your store, as it requires no payment, and leads straight to product "
+"downloads. However, please remember to turn it off once your site is live!"
+msgstr ""
+"<strong>Płatność testowa</strong> - jest to bramka, która pozwoli Ci "
+"przetestować działanie Twojego sklepu bez konieczności dokonywania realnych "
+"wpłat. Pamiętaj o wyłączeniu tej bramki, gdy sklep będzie już gotowy do "
+"udostępnienia kupującym!"
+
+msgid "<strong>Type</strong> - this is the type of discount this code awards."
+msgstr "<strong>Typ</strong> - określa typ zniżki dla tego kodu."
+
+msgid "A description of all the options are provided beside their input boxes."
+msgstr "Opisy wszystkich opcji znajdują się obok ich pól ustawień."
+
+msgid "A list of download links for each download purchased"
+msgstr "Lista linków do zakupionych plików"
+
+msgid "A plain-text list of download URLs for each download purchased"
+msgstr "Lista tekstowych adresów URL do zakupionych plików"
+
+msgid "A postfix to append to all sequential order numbers."
+msgstr "Postfiks, który zostanie dopisany do każdego sekwencyjnego numeru zamówienia."
+
+msgid "A prefix to prepend to all sequential order numbers."
+msgstr "Prefiks, który zostanie dopisany do każdego sekwencyjnego numeru zamówienia."
+
+msgid "A unique key used to identify the payment."
+msgstr "Unikalny identyfikator płatności."
+
+msgid "API Key"
+msgstr "Klucz API"
+
+msgid "API Key:"
+msgstr "Klucz API:"
+
+msgid "API Keys"
+msgstr "Klucze API"
+
+msgid "API Request:"
+msgstr "Zapytanie API"
+
+msgid "API Requests"
+msgstr "Zapytania API"
+
+msgid "API Settings"
+msgstr "Ustawienia API"
+
+msgid "API User:"
+msgstr "Użytkownik API:"
+
+msgid "API keys successfully generated."
+msgstr "Klucze API zostały wygenerowane."
+
+msgid "API keys successfully regenerated."
+msgstr "Klucze API zostały wygenerowane ponownie."
+
+msgid "API keys successfully revoked."
+msgstr "Klucze API zostały unieważnione."
+
+msgid "Abandoned"
+msgstr "Porzucone"
+
+msgctxt "Abandoned payment status"
+msgid "Abandoned"
+msgstr "Porzucone"
+
+msgid "Accepted Payment Method Icons"
+msgstr "Ikony akceptowanych metod płatności"
+
+msgid "Accounting Options:"
+msgstr "Opcje rachunkowości:"
+
+msgid "Accounting Settings"
+msgstr "Ustawienia rachunkowości"
+
+msgid "Actions"
+msgstr "Akcje"
+
+msgid "Activate"
+msgstr "Włącz"
+
+msgid "Active"
+msgstr "Aktywny"
+
+msgid "Active <span class=\"count\">(%s)</span>"
+msgid_plural "Active <span class=\"count\">(%s)</span>"
+msgstr[0] "Aktywny <span class=\"count\">(%s)</span>"
+msgstr[1] "Aktywny <span class=\"count\">(%s)</span>"
+msgstr[2] "Aktywny <span class=\"count\">(%s)</span>"
+
+msgctxt "Active discount code status"
+msgid "Active"
+msgstr "Aktywny"
+
+msgid "Add %s to Payment"
+msgstr "Dodaj %s do tej płatności"
+
+msgid "Add Discount Code"
+msgstr "Dodaj kod zniżkowy"
+
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+msgid "Add New %1$s"
+msgstr "Dodaj nowy %1$s"
+
+msgid "Add New %s Category"
+msgstr "Dodaj nową kategorię"
+
+msgid "Add New %s Tag"
+msgstr "Dodaj nowy tag"
+
+msgid "Add New Discount"
+msgstr "Dodaj nowy kod zniżkowy"
+
+msgid "Add New Download"
+msgstr "Dodaj nowy plik do pobrania"
+
+msgid "Add New File"
+msgstr "Dodaj nowy plik"
+
+msgid "Add New Payment"
+msgstr "Dodaj nową płatność"
+
+msgid "Add New Price"
+msgstr "Dodaj nową cenę"
+
+msgid "Add Note"
+msgstr "Dodaj notatkę"
+
+msgid "Add Tax Rate"
+msgstr "Dodaj stawkę podatkową"
+
+msgid "Add to Cart"
+msgstr "Dodaj do koszyka"
+
+msgid "Add to Cart Text"
+msgstr "Tekst przycisku \"Dodaj do koszyka\""
+
+msgid ""
+"Add-on plugins are available that greatly extend the default functionality "
+"of Easy Digital Downloads. There are extensions for payment processors, such "
+"as Stripe and PayPal, extensions for newsletter integrations, and many, many "
+"more."
+msgstr ""
+"Dodatkowe moduły znacznie rozszerzają możliwości Easy Digital Downloads. "
+"Możesz wybierać spośród bramek płatności, integracji z autoresponderami i "
+"wielu, wielu więcej."
+
+msgid "Added to cart"
+msgstr "Dodano do koszyka"
+
+msgid "Adding Discounts"
+msgstr "Dodawanie zniżek"
+
+msgid "Additional Display Options"
+msgstr "Dodatkowe opcje wyświetlania"
+
+msgid "Additional Updates"
+msgstr "Pozostałe zmiany"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Address (Line 2)"
+msgstr "Adres (Linia 2)"
+
+msgctxt "Address City"
+msgid "City:"
+msgstr "Miejscowość"
+
+msgctxt "Address country"
+msgid "Country:"
+msgstr "Kraj"
+
+msgid "Address line 1"
+msgstr "Ulica, nr domu / mieszkania."
+
+msgid "Address line 2"
+msgstr "Adres Linia 2"
+
+msgid ""
+"Adds a link so users can view their receipt directly on your website if they "
+"are unable to view it in the browser correctly."
+msgstr "Link do rachunku w wersji online"
+
+msgid "Adds a list of any discount codes applied to this purchase"
+msgstr "Lista kodów zniżkowych wykorzystanych przy składaniu zamówienia"
+
+msgid "After - 10$"
+msgstr "Po - 10$"
+
+msgid "Agree to Terms"
+msgstr "Zgadzam się na te warunki"
+
+msgid "Agree to Terms Label"
+msgstr "Nagłówek Warunków umowy"
+
+msgid "Agree to Terms?"
+msgstr "Akceptujesz warunki umowy?"
+
+msgid "Agreement Text"
+msgstr "Treść umowy"
+
+msgid "All"
+msgstr "Wszystkie"
+
+msgid "All %2$s"
+msgstr "Wszystkie %2$s"
+
+msgid "All %s Categories"
+msgstr "Wszystkie kategorie"
+
+msgid "All %s Tags"
+msgstr "Wszystkie tagi"
+
+msgid "All Parent categories include sales and earnings stats from child categories."
+msgstr ""
+"Wszystkie kategorie nadrzędne zawierają statystyki sprzedaży i zysków z "
+"kategorii podrzędnych."
+
+msgid "All Payments"
+msgstr "Wszystkie płatności"
+
+msgid "All Statuses"
+msgstr "Wszystkie statusy"
+
+msgid "Allow"
+msgstr "Zezwól"
+
+msgid "Allow Usage Tracking?"
+msgstr "Zezwól na śledzenie użycia"
+
+msgid "Allow User Keys"
+msgstr "Włącz Klucze Użytkowników"
+
+msgid "Allow customers to use multiple discounts on the same purchase?"
+msgstr "Zezwól klientom na użycie wielu zniżek w jednym zamówieniu."
+
+msgid "Allow item quantities to be changed."
+msgstr "Zezwól na zmianę liczby sztuk produktu."
+
+msgid "Already have an account?"
+msgstr "Masz już konto?"
+
+msgid "Amount"
+msgstr "Wartość"
+
+msgid "Amount: "
+msgstr "Wartość:"
+
+msgid "An internal error has occurred, please try again or contact support."
+msgstr ""
+"Pojawił się błąd przy składaniu zamówienia. Spróbuj ponownie lub skontaktuj "
+"się z obsługą sklepu."
+
+msgid "Any customer-specific notes related to the payment."
+msgstr "Dowolne notatki powiązane z daną płatnością."
+
+msgid "Apply"
+msgstr "Zastosuj"
+
+msgctxt "Apply discount at checkout"
+msgid "Apply"
+msgstr "Zastosuj"
+
+msgid "Apply discount only to selected %s."
+msgstr "Zastosuj zniżkę tylko do wybranych produktów."
+
+msgid "Apply discount to entire purchase."
+msgstr "Zastosuj zniżkę do całego zamówienia."
+
+msgid "Apply to whole country"
+msgstr "Zastosuj do całego kraju"
+
+msgid "Apr"
+msgstr "Kwi"
+
+msgid "Are you sure you want to delete this customer?"
+msgstr "Czy na pewno chcesz usunąć tego klienta?"
+
+msgid "Are you sure you wish to delete this %s?"
+msgstr "Czy na pewno chcesz usunąć %s?"
+
+msgid "Are you sure you wish to delete this note?"
+msgstr "Czy na pewno chcesz usunąć tę notatkę?"
+
+msgid "Are you sure you wish to delete this payment?"
+msgstr "Czy na pewno chcesz usunąć tę płatność?"
+
+msgid "Are you sure you wish to delete this tax rate?"
+msgstr "Czy na pewno chcesz usunąć tę stawkę podatkową?"
+
+msgid "Are you sure you wish to regenerate this API key?"
+msgstr "Czy na pewno chcesz wygenerować ponownie ten klucz API?"
+
+msgid "Are you sure you wish to resend the purchase receipt?"
+msgstr "Czy na pewno chcesz wysłać ponownie rachunek?"
+
+msgid "Are you sure you wish to revoke this API key?"
+msgstr "Czy na pewno unieważnić ten klucz API?"
+
+msgid "Aug"
+msgstr "Sie"
+
+msgid "Australian Dollars (&#36;)"
+msgstr "Dolar australijski (&#36;)"
+
+msgid "Average monthly earnings: %s"
+msgstr "Średnie zarobki miesięczne: %s"
+
+msgid "Average monthly sales: %s"
+msgstr "Średnia miesięczna liczba sprzedaży: %s"
+
+msgid "Banned Emails"
+msgstr "Zbanowane Emaile"
+
+msgid "Base Country"
+msgstr "Kraj"
+
+msgid "Base State / Province"
+msgstr "Stan / Prowincja"
+
+msgid "Before - $10"
+msgstr "Przed - $10"
+
+msgid "Billing Address"
+msgstr "Adres"
+
+msgid "Billing Address Line 2 (optional)"
+msgstr "Adres (opcjonalnie)"
+
+msgid "Billing City"
+msgstr "Miejscowość"
+
+msgid "Billing Country"
+msgstr "Kraj"
+
+msgid "Billing Details"
+msgstr "Dane bilingowe"
+
+msgid "Billing State / Province"
+msgstr "Województwo"
+
+msgid "Billing Zip / Postal Code"
+msgstr "Kod pocztowy"
+
+msgid "Blue"
+msgstr "Niebieski"
+
+msgid "Browse All Extensions"
+msgstr "Zobacz wszystkie dodatki"
+
+msgid "Bundle"
+msgstr "Zestaw"
+
+msgid "Bundled %s:"
+msgstr "%s w zestawie:"
+
+msgid "Button"
+msgstr "Przycisk"
+
+msgid "Button Options:"
+msgstr "Opcje przycisku:"
+
+msgid "Buttons"
+msgstr "Przyciski"
+
+msgid "Buy Now"
+msgstr "Kup Teraz"
+
+msgid "Buy Now Buttons"
+msgstr "Przyciski Kup Teraz"
+
+msgid "Buy Now Text"
+msgstr "Tekst przycisku \"Kup Teraz\""
+
+msgid "CVC"
+msgstr "CVC"
+
+msgid "Canadian Dollars (&#36;)"
+msgstr "Dolar kanadyjski (&#36;)"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Card Number"
+msgstr "Numer karty"
+
+msgid "Card name"
+msgstr "Nazwa karty"
+
+msgid "Card number"
+msgstr "Numer karty"
+
+msgid "Cart must contain all selected %s"
+msgstr "Koszyk musi zawierać wszystkie wybrane %s"
+
+msgid "Cart needs one or more of the selected %s"
+msgstr "Koszyk musi zawierać co najmniej jeden z wybranych %s"
+
+msgid "Cart restored successfully."
+msgstr "Koszyk został przywrócony."
+
+msgid "Cart saved successfully. You can restore your cart using this URL:"
+msgstr ""
+"Twój Koszyk został zapisany. Możesz go przywrócić korzystając z tego adresu "
+"URL:"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Categories: %s"
+msgstr "Kategorie: %s"
+
+msgid "Category"
+msgstr "Kategoria"
+
+msgid "Category Earnings Mix: "
+msgstr "Zyski w/g kategorii"
+
+msgid "Category Sales Mix: "
+msgstr "Sprzedaż w/g kategorii:"
+
+msgid "Ceuta"
+msgstr "Ceuta"
+
+msgid "Change the Number of Columns"
+msgstr "Zmiana liczby kolumn"
+
+msgid "Change your Billing Address"
+msgstr "Zmień adres"
+
+msgid "Change your Name"
+msgstr "Zmień dane personalne"
+
+msgid "Change your Password"
+msgstr "Zmień hasło"
+
+msgid "Cheatin&#8217; huh?"
+msgstr "Oszukujemy#8217; co?"
+
+msgid ""
+"Check this box if you would like EDD to completely remove all of its data "
+"when the plugin is deleted."
+msgstr ""
+"Zaznacz tę opcję, jeśli chcesz aby EDD całkowicie usunął swoje dane przy "
+"usuwaniu wtyczki."
+
+msgid ""
+"Check this box to allow all users to generate API keys. Users with the "
+"'manage_shop_settings' capability are always allowed to generate keys."
+msgstr ""
+"Zaznacz to pole, aby umożliwić użytkownikom generowanie kluczy API. "
+"Użytkownicy z uprawnieniem 'manage_shop_settings' mogą zawsze generować "
+"klucze."
+
+msgid ""
+"Check this box to allow entry of product SKUs. SKUs will be shown on "
+"purchase receipt and exported purchase histories."
+msgstr ""
+"Zaznacz tę opcję, aby włączyć możliwość ustawiania SKU dla produktów. SKU "
+"pojawi się na rachunku oraz w raporcie historii zamówień."
+
+msgid "Check this box to enable sequential order numbers."
+msgstr "Zaznacz, aby aktywować sekwencyjne numery zamówień."
+
+msgid ""
+"Check this if you do not want to allow users to redownload items from their "
+"purchase history."
+msgstr ""
+"Zaznacz, jeśli nie chcesz pozwolić użytkownikom na ponowne pobieranie plików "
+"z ich historii zakupów."
+
+msgid ""
+"Check this to disable all included styling of buttons, checkout fields, and "
+"all other elements."
+msgstr ""
+"Zaznacz tę opcję, jeśli chcesz wyłączyć załączone style przycisków, pól "
+"tekstowych i innych elementów."
+
+msgid "Check this to enable AJAX for the shopping cart."
+msgstr ""
+"Zaznacz, aby włączyć funkcjonalność Ajax (np. wysyłanie danych bez "
+"konieczności przeładowywania strony) dla koszyka zakupowego."
+
+msgid "Check this to enable cart saving on the checkout."
+msgstr ""
+"Zaznacz, aby włączyć możliwość zapisywania zawartości koszyka na stronie z "
+"zamówieniem."
+
+msgid "Check this to enable taxes on purchases."
+msgstr "Zaznacz tę opcję aby aktywować obsługę podatków."
+
+msgid ""
+"Check this to force users to be redirected to the secure checkout page. You "
+"must have an SSL certificate installed to use this option."
+msgstr ""
+"Zaznacz, aby wymusić przekierowanie klientów do bezpiecznej (szyfrowanej) "
+"wersji strony zakupowej. Aby korzystać z tej opcji, niezbędne jest "
+"posiadanie zainstalowanego certyfikatu SSL."
+
+msgid ""
+"Check this to show an agree to terms on the checkout that users must agree "
+"to before purchasing."
+msgstr ""
+"Zaznacz, aby pokazać Warunki umowy na stronie finalizacji zamówienia. "
+"Użytkownicy muszą zgodzić się na nie przed zakupem."
+
+msgid "Checkout"
+msgstr "Przejdź do kasy"
+
+msgid "Checkout Page"
+msgstr "Strona zamówienia"
+
+msgid "Checkout."
+msgstr "Do kasy."
+
+msgid "Choose a %s"
+msgstr "Wybierz %s"
+
+msgid "Choose a button color"
+msgstr "Wybierz kolor przycisku"
+
+msgid "Choose a style"
+msgstr "Wybierz styl"
+
+msgid ""
+"Choose a template. Click \"Save Changes\" then \"Preview Purchase Receipt\" to "
+"see the new template."
+msgstr ""
+"Wybierz szablon. Naciśnij \"Zapisz zmiany\" a następnie \"Zobacz podgląd "
+"rachunku\" żeby zobaczyć nowy szablon."
+
+msgid "Choose end date"
+msgstr "Wybierz datę końcową"
+
+msgid "Choose from most used %s tags"
+msgstr "Wybierz spośród najczęściej używanych tagów"
+
+msgid "Choose one or more %s"
+msgstr "Wybierz jeden lub więcej %s"
+
+msgid "Choose start date"
+msgstr "Wybierz datę początkową"
+
+msgid "Choose the color you want to use for the buttons."
+msgstr "Wybierz domyślny kolor przycisków"
+
+msgid "Choose the location of the currency sign."
+msgstr "Wyświetlaj symbol waluty."
+
+msgid "Choose the payment gateways you want to enable."
+msgstr "Wybierz bramki płatności, które chcesz włączyć."
+
+msgid "Choose the style you want to use for the buttons."
+msgstr "Wybierz domyślny styl przycisków"
+
+msgid ""
+"Choose your currency. Note that some payment gateways have currency "
+"restrictions."
+msgstr ""
+"Wybierz walutę. Pamiętaj, że niektóre bramki płatnicze mogą nie obsługiwać "
+"wybranej przez Ciebie waluty."
+
+msgid "City"
+msgstr "Miejscowość"
+
+msgid "Click \"Save Payment\" to create new customer"
+msgstr "Kliknij \"Zapisz płatność\" aby utworzyć nowego klienta"
+
+msgid "Click to Upgrade"
+msgstr "Kliknij aby zaktualizować."
+
+msgid "Code"
+msgstr "Kod"
+
+msgid "Complete"
+msgstr "Zakończone"
+
+msgid "Complete Purchase Text"
+msgstr "Tekst \"Zakończ zamówienie\""
+
+msgid "Complete Sales"
+msgstr "Zakończone transakcje"
+
+msgid "Completed"
+msgstr "Zakończono"
+
+msgid "Confirm Password"
+msgstr "Potwierdź hasło"
+
+msgid "Confirm password"
+msgstr "Potwierdź hasło"
+
+msgid "Confirm your password."
+msgstr "Potwierdź hasło."
+
+msgid "Copy Download Link(s)"
+msgstr "Link do panelu"
+
+msgid "Country"
+msgstr "Kraj"
+
+msgid "Country Wide"
+msgstr "Cały kraj"
+
+msgid "Create an account"
+msgstr "Załóż konto"
+
+msgid "Creating Your First Download Product"
+msgstr "Tworzenie Twojego pierwszego Produktu Cyfrowego"
+
+msgid "Credit Card Info"
+msgstr "Informacja o karcie kredytowej"
+
+msgid "Credits"
+msgstr "Podziękowania"
+
+msgid "Currency"
+msgstr "Waluta"
+
+msgid "Currency Position"
+msgstr "Pozycja walutowa"
+
+msgid "Currency Settings"
+msgstr "Ustawienia waluty"
+
+msgid "Current Month"
+msgstr "Zyski miesięczne"
+
+msgid "Custom"
+msgstr "Inny zakres"
+
+msgid "Customer"
+msgstr "Klient"
+
+msgid "Customer %d created successfully"
+msgstr "Klient %d został utworzony"
+
+msgid "Customer %s not found!"
+msgstr "Nie znaleziono klienta %s!"
+
+msgid "Customer Address"
+msgstr "Adres klienta"
+
+msgid "Customer Details"
+msgstr "Dane kupującego"
+
+msgid "Customer Email"
+msgstr "Email klienta"
+
+msgid "Customer Name"
+msgstr "Nazwa klienta"
+
+msgid "Customer Notes"
+msgstr "Notatki dot. klienta"
+
+msgid "Customer Profile"
+msgstr "Profil klienta"
+
+msgid "Customer Tools"
+msgstr "Narzędzia"
+
+msgid "Customer User ID: %s"
+msgstr "Identyfikator użytkownika klienta: %s"
+
+msgid "Customer since"
+msgstr "Klientem od"
+
+msgid "Customer successfully deleted"
+msgstr "Klient został usunięty"
+
+msgid "Customers"
+msgstr "Klienci"
+
+msgid "Czech Koruna"
+msgstr "Korona czeska"
+
+msgid "Danish Krone"
+msgstr "Korona duńska"
+
+msgid "Dark Gray"
+msgstr "Ciemny szary"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Date Created"
+msgstr "Data utworzenia"
+
+msgid "Date Range: "
+msgstr "Zakres dat:"
+
+msgctxt "Date one to date two"
+msgid "to"
+msgstr "do"
+
+msgid "Date range reports will be coming soon."
+msgstr "Raport umożliwiający określenie zakresu dat będzie dostępny niedługo."
+
+msgid "Date:"
+msgstr "Data:"
+
+msgid "Deactivate"
+msgstr "Wyłącz"
+
+msgid "Deactivate License"
+msgstr "Dezaktywuj licencję"
+
+msgid "Dear"
+msgstr "Szanowny/a"
+
+msgid "Dec"
+msgstr "Gru"
+
+msgid "Decimal Separator"
+msgstr "Separator dziesiętny"
+
+msgid "Default"
+msgstr "Domyślny"
+
+msgid "Default Button Color"
+msgstr "Domyślny kolor przycisku"
+
+msgid "Default Button Style"
+msgstr "Domyślny styl przycisku"
+
+msgid "Default Gateway"
+msgstr "Bramka domyślna"
+
+msgid "Default Template"
+msgstr "Szablon domyślny"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Delete Customer"
+msgstr "Usuń klienta"
+
+msgid "Delete Payment"
+msgstr "Usuń płatność"
+
+msgid "Delete all associated payments and records?"
+msgstr "Usunąć wszystkie powiązane płatności i dane?"
+
+msgid "Detailed Report"
+msgstr "Szczegółowy raport"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "Disable Admin Notifications"
+msgstr "Wyłącz powiadomienia administratorów"
+
+msgid "Disable Guest Checkout"
+msgstr "Wyłącz zakupy anonimowe"
+
+msgid "Disable PayPal IPN Verification"
+msgstr "Wyłącz weryfikację IPN PayPal"
+
+msgid "Disable Redownload?"
+msgstr "Wyłączyć możliwość ponownego pobrania?"
+
+msgid "Disable Styles"
+msgstr "Wyłącz style"
+
+msgid "Disable the automatic output of the purchase button"
+msgstr "Wyłącz automatyczne wyjście z przycisku zakupu"
+
+msgid "Disabled"
+msgstr "Wyłączone"
+
+msgid "Disconnect User"
+msgstr "Usuń połączenie"
+
+msgid "Discount"
+msgstr "Kod zniżkowy"
+
+msgid "Discount Applied"
+msgstr "Rabat został zastosowany"
+
+msgid "Discount Code"
+msgstr "Kod zniżkowy"
+
+msgid "Discount Codes"
+msgstr "Kody zniżkowe"
+
+msgid "Discount code added."
+msgstr "Kod zniżkowy został dodany."
+
+msgid "Discount code updated."
+msgstr "Kod został zaktualizowany"
+
+msgid ""
+"Discount codes allow you to offer buyers special discounts by having them "
+"enter predefined codes during checkout."
+msgstr ""
+"Kody zniżkowe umożliwiają zaoferowanie klientom zniżek. Kod może zostać "
+"wykorzystany przez klienta w trakcie składania zamówienia."
+
+msgid ""
+"Discount codes are setup to only be used only one time by each customer. If "
+"a customer attempts to use a code a second time, they will be given an error."
+msgstr ""
+"Kody zniżkowe mogą być ustawione tak, aby mogły być wykorzystane tylko jeden "
+"raz przez danego klienta. Jeśłi klient ten spróbuje ponownie wykorzystać "
+"taki kod, otrzyma komunikat o błędzie."
+
+msgid "Discount codes have several options:"
+msgstr "Kody zniżkowe mają kilka opcji:"
+
+msgid "Discount codes that are set to \"inactive\" cannot be redeemed."
+msgstr ""
+"Kody zniżkowe, które zostały ustawione jako \"Nieaktywne\" nie mogą zostać "
+"wykorzystane."
+
+msgid "Discount(s)"
+msgstr "Kody zniżkowe"
+
+msgid "Dismiss Notice"
+msgstr "Ukryj powiadomienie"
+
+msgid "Display Name"
+msgstr "Wyświetlana nazwa"
+
+msgid "Display Tax Rate on Prices"
+msgstr "Wyświetlaj stawki podatku przy cenach"
+
+msgid "Display a Product Grid"
+msgstr "Wyświetlanie listy produktów"
+
+msgid "Display during checkout"
+msgstr "Wyświetlaj podczas zamawiania"
+
+msgid "Display icons for the selected payment methods"
+msgstr "Wyświetlaj ikony dla wybranych metod płatności"
+
+msgid "Display the downloads categories or tags"
+msgstr "Wyświetl kategorie lub tagi plików do pobrania"
+
+msgid "Display the downloads shopping cart"
+msgstr "Wyświetl koszyk"
+
+msgid ""
+"Display the registration and login forms on the checkout page for non-logged-"
+"in users."
+msgstr ""
+"Wyświetl formularz rejestracji i logowania na stronie finalizacji zakupów "
+"dla niezalogowanych użytkowników"
+
+msgid "Do not allow"
+msgstr "Nie zezwalaj"
+
+msgid "Download"
+msgstr "Produkt"
+
+msgid "Download Files"
+msgstr "Pliki do pobrania"
+
+msgid "Download Link Expiration"
+msgstr "Termin ważności linku do pobrania"
+
+msgid "Download Method"
+msgstr "Sposób pobierania"
+
+msgid "Download Name"
+msgstr "Nazwa pliku do pobrania"
+
+msgid "Download a CSV of all payments recorded."
+msgstr "Pobierz raport CSV zawierający zestawienie wszystkich transakcji."
+
+msgid "Download a CSV of customers."
+msgstr "Pobierz raport CSV zawierający dane wszystkich klientów."
+
+msgid "Download a CSV of download products."
+msgstr "Pobierz plik CSV z kursami."
+
+msgid "Download a CSV of earnings and sales over time."
+msgstr ""
+"Pobierz raport CSV zawierający zestawienie zysków i sprzedaży w określonym "
+"przedziale czasu."
+
+msgid "Download a CSV of file downloads."
+msgstr "Pobierz raport CSV zawierający wykaz pobranych plików w wybranym okresie."
+
+msgid ""
+"Download a PDF of Sales and Earnings reports for all products for the "
+"current year."
+msgstr ""
+"Pobierz raport PDF za bieżący rok, zawierający dane o sprzedaży i zarobkach "
+"dla wszystkich produktów."
+
+msgid "Downloaded by"
+msgstr "Pobrany przez"
+
+msgid "Downloads"
+msgstr "Produkty"
+
+msgid "Downloads Cart"
+msgstr "Koszyk"
+
+msgid "Downloads Categories / Tags"
+msgstr "Kategorie / Tagi"
+
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+msgid ""
+"Each payment can be further inspected by clicking the corresponding <em>View "
+"Order Details</em> link. This will provide more information including:"
+msgstr ""
+"Każdą płatność można podejrzeć szczegółowo poprzez kliknięcie w link "
+"<em>Pokaż szczegóły płatności</em>. Dzięki temu uzyskasz dodatkowe "
+"informacje takie jak:"
+
+msgid "Earnings"
+msgstr "Zyski"
+
+msgid "Earnings Over Time"
+msgstr "Zyski w czasie"
+
+msgid "Earnings Over Time for %s"
+msgstr "Zyski w czasie dla %s"
+
+msgid "Earnings and Sales Reports"
+msgstr "Raporty sprzedaży i płatności."
+
+msgid "Earnings by Category"
+msgstr "Zyski w/g kategorii"
+
+msgid "Earnings to Date"
+msgstr "Zysk na bieżąco"
+
+msgid "Earnings:"
+msgstr "Zyski:"
+
+msgid "Easy Digital Download Extensions"
+msgstr "Rozszerzenia Easy digital Downloads"
+
+msgid "Easy Digital Download Settings"
+msgstr "Easy Digital Download - Ustawienia"
+
+msgid "Easy Digital Downloads - Upgrades"
+msgstr "Easy Digital Downloads - Aktualizacje"
+
+msgid "Easy Digital Downloads Sales Summary"
+msgstr "Podsumowanie sprzedaży WP Idea"
+
+msgid ""
+"Easy Digital Downloads is created by a worldwide team of developers who aim "
+"to provide the #1 eCommerce platform for selling digital goods through "
+"WordPress."
+msgstr ""
+"Easy Digital Downloads jest rozwijany przez zespół deweloperów z całego "
+"świata. To dzięki nim możesz korzystać z narzędzia nr 1 w sprzedaży plików "
+"cyfrowych na platformie WordPress."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade past order numbers to make them "
+"sequential, click <a href=\"%s\">here</a> to start the upgrade."
+msgstr ""
+"Easy Digital Downloads musi zaktualizować istniejące numery zamówień, aby "
+"uczynić je sekwencyjnymi. Kliknij  <a href=\"%s\">tutaj</a>, aby rozpocząć "
+"aktualizację."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade the customer database, click "
+"%shere%s to start the upgrade."
+msgstr ""
+"Easy Digital Downloads wymaga aktualizacji bazy klientów. Kliknij %stutaj%s "
+"aby rozpocząć aktualizację."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade the customer database, click <a "
+"href=\"%s\">here</a> to start the upgrade."
+msgstr ""
+"Easy Digital Downloads wymaga aktualizacji bazy klientów. Kliknij <a "
+"href=\"%s\">tutaj</a> aby rozpocząć aktualizację."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade the database, click %shere%s to "
+"start the upgrade."
+msgstr ""
+"Easy Digital Downloads wymaga aktualizacji bazy danych. Kliknij %stutaj%s "
+"aby rozpocząć aktualizację."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade the payments database, click <a "
+"href=\"%s\">here</a> to start the upgrade."
+msgstr ""
+"Easy Digital Downloads wymaga aktualizacji danych o płatnościach. Kliknij <a "
+"href=\"%s\">tutaj</a> aby rozpocząć aktualizację."
+
+msgid ""
+"Easy Digital Downloads needs to upgrade the plugin pages, click %shere%s to "
+"start the upgrade."
+msgstr ""
+"Easy Digital Downloads wymaga aktualizacji strony wtyczek. Kliknij %stutaj%s "
+"aby rozpocząć aktualizację."
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Edit %1$s"
+msgstr "Edytuj %1$s"
+
+msgid "Edit Customer"
+msgstr "Edytuj klienta"
+
+msgid "Edit Discount"
+msgstr "Edytuj upust"
+
+msgid "Edit Payment"
+msgstr "Edytuj płatność"
+
+msgid "Email"
+msgstr "Adres e-mail"
+
+msgid "Email Address"
+msgstr "Adres e-mail"
+
+msgid "Email Template"
+msgstr "Szablon powiadomienia e-mail"
+
+msgid "Email address"
+msgstr "Adres e-mail"
+
+msgid "Email already used"
+msgstr "Adres e-mail jest już zapisany w naszej bazie."
+
+msgid ""
+"Email to send purchase receipts from. This will act as the \"from\" and \"reply-"
+"to\" address."
+msgstr ""
+"Adres e-mail, z którego wysłany będzie rachunek. Pojawi się w polach OD i "
+"odpowiedz-do."
+
+msgid "Email:"
+msgstr "E-mail:"
+
+msgid "Email: %s"
+msgstr "E-mail: %s"
+
+msgid "Emails"
+msgstr "E-maile"
+
+msgid ""
+"Emails placed in the box below will not be allowed to make purchases. To ban "
+"an entire domain, enter the domain starting with \"@\"."
+msgstr ""
+"Emaile umieszczone w poniższym polu będą blokowane przy składaniu zamówienia."
+" Aby zablokować całą domenę, wpisz ją zaczynając od znaku @."
+
+msgid "Enable Ajax"
+msgstr "Włącz Ajax"
+
+msgid "Enable Cart Saving"
+msgstr "Włącz zapisywanie koszyka"
+
+msgid "Enable SKU Entry"
+msgstr "Włącz SKU"
+
+msgid "Enable Taxes"
+msgstr "Włącz podatki"
+
+msgid ""
+"Enable multi-option purchase mode. Allows multiple price options to be added "
+"to your cart at once"
+msgstr ""
+"Włącz możliwość zaznaczenia kilku opcji. Pozwala dodawać do koszyka różne "
+"opcje cenowe produktu w jednym zamówieniu."
+
+msgid "Enable variable pricing"
+msgstr "Włącz różne ceny"
+
+msgid "Enabled"
+msgstr "Włączone"
+
+msgid "End Date:"
+msgstr "Data końcowa:"
+
+msgid "Enforce SSL on Checkout"
+msgstr "Wymuś SSL przy składaniu zamówienia"
+
+msgid "Enter %s name here"
+msgstr "Wpisz nazwę %s tutaj"
+
+msgid "Enter a code for this discount, such as 10PERCENT"
+msgstr "Wpisz kod promocji, np. 10PROCENT"
+
+msgid "Enter a coupon code if you have one."
+msgstr "Wpisz kod zniżkowy jeśli go posiadasz."
+
+msgid "Enter a password"
+msgstr "Wprowadź hasło"
+
+msgid ""
+"Enter a percentage, such as 6.5. Customers not in a specific rate will be "
+"charged this rate."
+msgstr ""
+"Wpisz wartość procentową np. 6.5. Klienci spoza obszarów wyszczególnionych "
+"będą obciążani tą stawką podatku."
+
+msgid "Enter an SKU for this %s."
+msgstr "Wpisz SKU dla tego %s."
+
+msgid "Enter an email"
+msgstr "Wprowadź adres e-mail"
+
+msgid "Enter discount"
+msgstr "wprowadź kod zniżkowy"
+
+msgid "Enter tax rates for specific regions."
+msgstr "Wprowadź stawki podatkowe dla poszczególnych regionów."
+
+msgid "Enter the discount amount in %s"
+msgstr "Wpisz kwotę zniżki w %s"
+
+msgid "Enter the discount percentage. 10 = 10%"
+msgstr "Wpisz wielkość zniżki w procentach. 10 = 10%"
+
+msgid ""
+"Enter the email address(es) that should receive a notification anytime a "
+"sale is made, one per line"
+msgstr ""
+"Wpisz adres lub adresy email, na które będą wysyłane powiadomienia o "
+"sprzedaży. Każdy adres musi się znaleźć w osobnej linii."
+
+msgid ""
+"Enter the email that is sent to sale notification emails after completion of "
+"a purchase. HTML is accepted. Available template tags:"
+msgstr ""
+"Wpisz treść e-maila, który jest wysyłany do administratorów po udanej "
+"transakcji zakupu. Możesz użyć HTML. Dostępne znaczniki szablonu:"
+
+msgid ""
+"Enter the email that is sent to users after completing a successful purchase."
+" HTML is accepted. Available template tags:"
+msgstr ""
+"Wpisz treść e-maila, który jest wysyłany do użytkowników po udanej "
+"transakcji zakupu. Możesz użyć HTML. Dostępne znaczniki szablonu:"
+
+msgid ""
+"Enter the expiration date for this discount code in the format of mm/dd/yyyy."
+" For no expiration, leave blank"
+msgstr ""
+"Podaj datę ważności w formacie yyyy-mm-dd. Zostaw puste, jeśli nie chcesz "
+"określać daty ważności. "
+
+msgid "Enter the heading for the purchase receipt email"
+msgstr "Wpisz nagłówek, jaki pojawi się w wiadomości z potwierdzeniem zamówienia"
+
+msgid "Enter the name of the page style to use, or leave blank for default"
+msgstr "Wpisz nazwę stylu strony lub pozostaw pole puste aby użyć domyślnej."
+
+msgid "Enter the password confirmation"
+msgstr "Wprowadź hasło ponownie"
+
+msgid ""
+"Enter the start date for this discount code in the format of mm/dd/yyyy. For "
+"no start date, leave blank. If entered, the discount can only be used after "
+"or on this date."
+msgstr ""
+"Podaj datę początkową w formacie yyyy-mm-dd. Zostaw puste, jeśli nie chcesz "
+"określać daty początkowej. Jeśli ją podasz. upust może być użyty dopiero po "
+"tej dacie."
+
+msgid "Enter the subject line for the purchase receipt email"
+msgstr "Temat e-maila z potwierdzeniem zakupu"
+
+msgid "Enter the subject line for the sale notification email"
+msgstr "Temat e-maila z powiadomieniem o sprzedaży"
+
+msgid "Enter username"
+msgstr "Wpisz nazwę użytkownika"
+
+msgid "Enter your PayPal account's email"
+msgstr "Wprowadź adres e-mail konta PayPal"
+
+msgctxt "Entering a discount code"
+msgid "Click to enter it"
+msgstr "Kliknij aby go wpisać."
+
+msgid "Error"
+msgstr "Uwaga"
+
+msgid "Error Message"
+msgstr "Komunikat błędu"
+
+msgid "Error creating new customer"
+msgstr "Wystąpił błąd podczas tworzenia nowego klienta"
+
+msgid "Error deleting customer"
+msgstr "Błąd usuwania klienta."
+
+msgid "Estimated monthly earnings: "
+msgstr "Szacunkowe zarobki miesięczne: "
+
+msgid "Estimated monthly sales: "
+msgstr "Szacunkowa miesięczna liczba sprzedaży: "
+
+msgid "Euros (&euro;)"
+msgstr "Euro (&euro;)"
+
+msgid "Exclude Taxes"
+msgstr "Nie uwzględniaj podatków"
+
+msgid "Excluded %s"
+msgstr "%s wykluczone"
+
+msgid "Excludes sales tax."
+msgstr "Nie uwzględnia podatku."
+
+msgid "Excluding %1$s&#37; tax"
+msgstr "Do ceny należy doliczyć %1$s&#37; podatku"
+
+msgid "Excluding tax"
+msgstr "Bez podatku"
+
+msgid "Expiration"
+msgstr "Wygasa"
+
+msgid "Expiration date"
+msgstr "Wygasa"
+
+msgid "Expired"
+msgstr "Wygasa"
+
+msgid "Export"
+msgstr "Eksportuj"
+
+msgid "Export Customers in CSV"
+msgstr "Eksport klientów"
+
+msgid "Export Download History in CSV"
+msgstr "Eksport historii pobrań plików"
+
+msgid "Export Download Products in CSV"
+msgstr "Eksportuj produkty do CSV"
+
+msgid "Export Earnings and Sales Stats"
+msgstr "Eksport zarobków i statystyk sprzedaży"
+
+msgid "Export PDF of Sales and Earnings"
+msgstr "Eksport sprzedaży i zarobków"
+
+msgid "Export Payment History"
+msgstr "Eksport historii transakcji"
+
+msgid "Export Settings"
+msgstr "Eksportuj ustawienia"
+
+msgid ""
+"Export the Easy Digital Downloads settings for this site as a .json file. "
+"This allows you to easily import the configuration into another site."
+msgstr ""
+"Eksportuj ustawienia Easy Digital Downloads dla tej strony w formacie .json. "
+"Dzięki temu z łatwością przeniesiesz ustawienia do innej strony."
+
+msgid "Extensions"
+msgstr "Dodatki"
+
+msgid "Extensions for Easy Digital Downloads"
+msgstr "Dodatki do Easy Digital Downloads"
+
+msgid "Extensions for Everything"
+msgstr "Rozszerzenia do wszsytkiego"
+
+msgid "Failed"
+msgstr "Błędne"
+
+msgid "Failed Transaction Page"
+msgstr "Strona dla błędnej transakcji"
+
+msgctxt "Failed payment status"
+msgid "Failed"
+msgstr "Niepowodzenie"
+
+msgid "Failed to create customer"
+msgstr "Wystąpił błąd podczas tworzenia klienta"
+
+msgid "Failed to disconnect user from customer"
+msgstr "Rozdzielanie użytkownika od klienta nie powiodło się"
+
+msgid "Fallback Tax Rate"
+msgstr "Ogólna stawka podatkowa"
+
+msgid "Feb"
+msgstr "Lut"
+
+msgid "File"
+msgstr "Plik"
+
+msgid "File Download Limit"
+msgstr "Limit pobrań pliku"
+
+msgid "File Download Limit:"
+msgstr "Limit pobrań pliku:"
+
+msgid "File Downloads"
+msgstr "Pobrania plików"
+
+msgid "File Downloads:"
+msgstr "Pliki do pobrania:"
+
+msgid "File Name"
+msgstr "Nazwa pliku"
+
+msgid "File URL"
+msgstr "URL pliku"
+
+msgid "Files"
+msgstr "Pliki"
+
+msgid "Filter"
+msgstr "Filtruj"
+
+msgid "First Name"
+msgstr "Imię"
+
+msgid "First name"
+msgstr "Imię"
+
+msgid "Flat amount"
+msgstr "stała wartość"
+
+msgid "Flexible Product Grids"
+msgstr "Elastyczna siatka produktów"
+
+msgid ""
+"For more information, see <a href=\"%s\">using Shortcodes</a> on the WordPress."
+"org Codex or <a href=\"%s\">Easy Digital Downloads Documentation</a>"
+msgstr ""
+"Więcej informacji znajdziesz na stronie <a href=\"%s\">o Shortcode'ach</a> na  "
+"WordPress.org Codex lub w <a href=\"%s\">dokumentacji Easy Digital "
+"Downloads</a>"
+
+msgid "For more information:"
+msgstr "Więcej informacji:"
+
+msgid "Forced"
+msgstr "Wymuszony"
+
+msgid "Free"
+msgstr "Bezpłatnie"
+
+msgid "Free Download"
+msgstr "Zamawiam bezpłatnie"
+
+msgid "Free Purchase"
+msgstr "Zamówienie darmowe"
+
+msgid "From"
+msgstr "Od"
+
+msgid "From Email"
+msgstr "E-mail nadawcy"
+
+msgid "From Name"
+msgstr "Nazwa nadawcy"
+
+msgid "Full Changelog"
+msgstr "Pełna Lista Zmian"
+
+msgid "Gateway"
+msgstr "Bramka"
+
+msgid "Gateway:"
+msgstr "Bramka:"
+
+msgid "General"
+msgstr "Ustawienia ogólne"
+
+msgid "General Settings"
+msgstr "Ustawienia ogólne"
+
+msgid "Generate CSV"
+msgstr "Generuj CSV"
+
+msgid "Generate New API Keys"
+msgstr "Generuj nowy klucz API"
+
+msgid "Generate PDF"
+msgstr "Generuj PDF"
+
+msgid "Get Alerted About New Tutorials"
+msgstr "Powiadomienia o nowych tutorialach"
+
+msgid "Get Notified of Extension Releases"
+msgstr "Powiadomienia o nowych rozszerzeniach"
+
+msgid "Get the EDD Sales / Earnings tracker for iOS"
+msgstr "Pobierz aplikację pokazującą zarobki dla iOS"
+
+msgid "Getting Started"
+msgstr "Rozpocznij tutaj"
+
+msgid "Getting started with Easy Digital Downloads"
+msgstr "Rozpoczynanie pracy z Easy Digital Downloads"
+
+msgid "Go Back"
+msgstr "Wróć"
+
+msgid "Go back"
+msgstr "wróć"
+
+msgid "Go to Easy Digital Downloads Settings"
+msgstr "Przejdź do ustawień Easy Digital Downloads"
+
+msgid "Graph View"
+msgstr "Zobacz wykres"
+
+msgid "Gray"
+msgstr "Szary"
+
+msgid "Green"
+msgstr "Zielony"
+
+msgid "Have a discount code?"
+msgstr "Posiadasz kod zniżkowy?"
+
+msgid "Hello"
+msgstr "Witaj"
+
+msgid "Hide Empty Categories:"
+msgstr "Ukryj kategorie bez zawartości:"
+
+msgid "Hide Terms"
+msgstr "Ukryj warunki umowy"
+
+msgid "Hong Kong Dollar (&#36;)"
+msgstr "Dolar hongkoński (&#36;)"
+
+msgid ""
+"How long should download links be valid for? Default is 24 hours from the "
+"time they are generated. Enter a time in hours."
+msgstr ""
+"Jak długo mają być ważne linki do pobrania? Domyślnie są to 24 godziny od "
+"momentu ich wytworzenia. Wprowadź czas w godzinach."
+
+msgid "Hungarian Forint"
+msgstr "Forint"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Address"
+msgstr "Adres IP"
+
+msgid "IP:"
+msgstr "IP:"
+
+msgid "If Agree to Terms is checked, enter the agreement terms here."
+msgstr "Jeśli Warunki Umowy są włączone, wpisz warunki umowy tutaj."
+
+msgid "If a coupon or discount was used during the checkout process."
+msgstr "Czy podczas składania zamówienia został wykorzystany kupon zniżkowy."
+
+msgid ""
+"If payments are not getting marked as complete, then check this box. This "
+"forces the site to use a slightly less secure method of verifying purchases."
+msgstr ""
+"Zaznacz to pole, jeżeli płatności nie są coraz oznaczone jako zakończone. To "
+"wymusi nieco mniej bezpieczną metodę weryfikacji zakupów."
+
+msgid ""
+"If you do not wish to charge any tax on purchase, simply leave the Enable "
+"Taxes option unchecked."
+msgstr ""
+"Jeśli nie chcesz doliczać żadnego podatku do zamówień, pozostaw opcję "
+"<em>Włącz podatki</em> odznaczoną."
+
+msgid "Ignore Tax:"
+msgstr "Ignoruj podatek:"
+
+msgid "Immediately redirect to checkout after adding an item to the cart?"
+msgstr "Czy przekierować od razu do kasy po dodaniu produktu do koszyka?"
+
+msgid "Import"
+msgstr "Importuj"
+
+msgid "Import Settings"
+msgstr "Importuj ustawienia"
+
+msgid ""
+"Import the Easy Digital Downloads settings from a .json file. This file can "
+"be obtained by exporting the settings on another site using the form above."
+msgstr ""
+"Importuj ustawienia Easy Digital Downloads z pliku .json. Plik otrzymasz "
+"eksportując ustawienia innej strony."
+
+msgid "Inactive"
+msgstr "Nieaktywny"
+
+msgid "Inactive <span class=\"count\">(%s)</span>"
+msgid_plural "Inactive <span class=\"count\">(%s)</span>"
+msgstr[0] "Niektywny <span class=\"count\">(%s)</span>"
+msgstr[1] "Niektywny <span class=\"count\">(%s)</span>"
+msgstr[2] "Niektywny <span class=\"count\">(%s)</span>"
+
+msgctxt "Inactive discount code status"
+msgid "Inactive"
+msgstr "Nieaktywny"
+
+msgid "Includes %1$s&#37; tax"
+msgstr "Podana cena jest ceną brutto i zawiera podatek VAT %1$s&#37;."
+
+msgid "Including tax"
+msgstr "Z podatkiem"
+
+msgid "Inherit"
+msgstr "Dziedziczony"
+
+msgid "Insert"
+msgstr "Wstaw"
+
+msgid "Insert %s"
+msgstr "Wstaw %s"
+
+msgid "Insert Download"
+msgstr "Wstaw plik do pobrania"
+
+msgid "Insert File"
+msgstr "Wstaw plik"
+
+msgid "Insert into %s"
+msgstr "Wstaw do %s"
+
+msgid "Invalid"
+msgstr "Nieprawidłowy"
+
+msgid "Invalid Customer ID"
+msgstr "Nieprawidłowy identyfikator klienta"
+
+msgid "Invalid Customer ID Provided."
+msgstr "Podano nieprawidłowy identyfikator klienta."
+
+msgid "Invalid email"
+msgstr "Niepoprawny adres e-mail"
+
+msgid "Invalid username"
+msgstr "Nieprawidłowa nazwa użytkownika"
+
+msgid "Item Amount"
+msgstr "Kwota"
+
+msgid "Item Name"
+msgstr "Nazwa"
+
+msgid "Item Price"
+msgstr "Cena"
+
+msgid "Item Price: "
+msgstr "Cena: "
+
+msgid "Item Quantities"
+msgstr "Liczba sztuk produktu"
+
+msgid "Jan"
+msgstr "Sty"
+
+msgid "Japanese Yen (&yen;)"
+msgstr "Jen (&yen;)"
+
+msgid "July"
+msgstr "Lipiec"
+
+msgid "June"
+msgstr "Czerwiec"
+
+msgid "Key:"
+msgstr "ID:"
+
+msgid "La Rioja"
+msgstr "La Rioja"
+
+msgid "Label shown next to the agree to terms check box."
+msgstr "Etykieta pokazana obok pola  wyboru \"Akceptuję warunki umowy\"."
+
+msgid "Last Month"
+msgstr "Ostatni miesiąc"
+
+msgid "Last Name"
+msgstr "Nazwisko"
+
+msgid "Last Quarter"
+msgstr "Ostatni kwartał"
+
+msgid "Last Week"
+msgstr "Ostatni tydzień"
+
+msgid "Last Year"
+msgstr "Ostatni rok"
+
+msgid "Last name"
+msgstr "Nazwisko"
+
+msgid "Leave blank for global setting or 0 for unlimited"
+msgstr "Pozostaw puste, aby użyć wartości globalnej lub wpisz zero by wyłączyć limit"
+
+msgid "Licenses"
+msgstr "Licencje"
+
+msgid "Lifetime Value"
+msgstr "Łączna sprzedaż (LTV)"
+
+msgid "Limit this discount to a single-use per customer?"
+msgstr "Ogranicz tę zniżkę do pojedynczego wykorzystania przez danego użytkownika."
+
+msgid "Line 1"
+msgstr "Ulica, nr domu / mieszkania"
+
+msgid "Line 2"
+msgstr "Adres (opcjonalnie)"
+
+msgid "Link text . . ."
+msgstr "Tekst linku . . ."
+
+msgid "Loading"
+msgstr "Ładowanie"
+
+msgid "Log ID"
+msgstr "ID"
+
+msgid "Log In"
+msgstr "Zaloguj się"
+
+msgid "Log Type"
+msgstr "Typ logu"
+
+msgid "Log into Your Account"
+msgstr "Zaloguj się do swojego konta"
+
+msgid "Login"
+msgstr "Zaloguj się"
+
+msgid "Login Form Only"
+msgstr "Tylko formularz logowania"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Logs"
+msgstr "Logi"
+
+msgid "Lost Password"
+msgstr "Zapomniane hasło"
+
+msgid "Lost Password?"
+msgstr "Zapomniałeś swoje hasło?"
+
+msgid "Madrid"
+msgstr "Madryt"
+
+msgid "Malaysian Ringgits"
+msgstr "Ringgit malezyjski"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "Mark this product as exclusive of tax"
+msgstr "Zaznacz ten produkt jako wyłączony z podatku"
+
+msgid "Max Uses"
+msgstr "Maksymalna ilość użyć"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "Mexican Peso (&#36;)"
+msgstr "Peso meksykańskie (&#36;)"
+
+msgid "Minimum Amount"
+msgstr "Minimalna kwota"
+
+msgid "Misc"
+msgstr "Różne"
+
+msgid "Miscellaneous"
+msgstr "Różne"
+
+msgid "Monthly Average Earnings"
+msgstr "Średnie zyski miesięczne"
+
+msgid "Monthly Average Sales"
+msgstr "Średnia sprzedaż miesięczna"
+
+msgid "Monthly Earnings Avg"
+msgstr "Śr. zyski miesięczne"
+
+msgid "Monthly Sales Avg"
+msgstr "Śr. sprzedaż miesięczna"
+
+msgid "Multiple Discounts"
+msgstr "Wielokrotne zniżki"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Name on the Card"
+msgstr "Imię i nazwisko użytkownika"
+
+msgid "Name:"
+msgstr "Imię:"
+
+msgid "Name: %s"
+msgstr "Imię i nazwisko: %s"
+
+msgid "Need Even Faster Support?"
+msgstr "Potrzebujesz jeszcze szybszego wsparcia?"
+
+msgid "Need Help?"
+msgstr "Potrzebujesz pomocy?"
+
+msgid "Need to create an account?"
+msgstr "Nie masz jeszcze konta?"
+
+msgid "New %1$s"
+msgstr "Nowy %1$s"
+
+msgid "New Customer"
+msgstr "Nowy klient"
+
+msgid "New Customers require a name and email address"
+msgstr "Utworzenie nowego klienta wymaga podania jego nazwy i adresu email."
+
+msgid "New Password"
+msgstr "Nowe hasło"
+
+msgid "New Payment"
+msgstr "Nowa płatność"
+
+msgid "New Sale Notifications"
+msgstr "Powiadomienie o sprzedaży"
+
+msgid "New Sale!"
+msgstr "Nowa sprzedaż!"
+
+msgid "New Zealand Dollar (&#36;)"
+msgstr "Dolar nowozelandzki (&#36;)"
+
+msgid "Next"
+msgstr "Dalej"
+
+msgid "No %2$s found"
+msgstr "Nie znaleziono %2$s"
+
+msgid "No %2$s found in Trash"
+msgstr "Nie znaleziono %2$s w usuniętych"
+
+msgid "No Customer Notes"
+msgstr "Brak notatek dot. klienta"
+
+msgid "No Payments found"
+msgstr "Nie znaleziono płatności"
+
+msgid "No Payments found in Trash"
+msgstr "Nie znaleziono płatności w usuniętych"
+
+msgid ""
+"No checkout page has been configured. Visit <a href=\"%s\">Settings</a> to set "
+"one."
+msgstr ""
+"Nie została skonfigurowany strona \"Płacę\". Odwiedź <a href=\"%s\">Ustawienia</ "
+"a>, aby ją skonfigurować."
+
+msgid "No customer attached"
+msgstr "Brak przypisanego klienta"
+
+msgid "No customers found"
+msgstr "Nie znaleziono żadnego klienta"
+
+msgid "No customers found!"
+msgstr "Nie znaleziono żadnego klienta!"
+
+msgid "No discounts found."
+msgstr "Nie znaleziono żadnych elementów."
+
+msgid "No downloadable files found."
+msgstr "Nie znaleziono plików do pobrania."
+
+msgid "No expiration"
+msgstr "Nigdy"
+
+msgid "No payment notes"
+msgstr "Brak notatek"
+
+msgid "No start date"
+msgstr "Brak daty początkowej"
+
+msgid "No template, plain text only"
+msgstr "Bez szablonu, tylko czysty tekst"
+
+msgid "No, I will enter prices exclusive of tax"
+msgstr "Nie, będę wpisywać ceny nie zawierające podatku"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "Norwegian Krone"
+msgstr "Korona norweska"
+
+msgid ""
+"Note: Test Mode is enabled, only test payments are shown below. <a "
+"href=\"%s\">Settings</a>."
+msgstr ""
+"Uwaga: Tryb testowy jest aktywny. Tylko płatności testowe są widoczne "
+"poniżej. <a href=\"%s\">Ustawienia</a>."
+
+msgid "Notes"
+msgstr "Uwagi"
+
+msgid "Nov"
+msgstr "Lis"
+
+msgid "Number of Sales"
+msgstr "Liczba sprzedanych"
+
+msgid "Number of items in cart"
+msgstr "Liczba produktów w koszyku"
+
+msgid "Oct"
+msgstr "Paź"
+
+msgid "One or more custom CSS classes you want applied to the button."
+msgstr "Jedna lub więcej klas CSS, które chcesz zastosować do przycisku."
+
+msgid "One or more of the discounts you entered is invalid"
+msgstr "Jeden lub więcej z kodów zniżkowych jest nieprawidłowy"
+
+msgid "Option Name"
+msgstr "Nazwa opcji"
+
+msgid "Optional notes about this download."
+msgstr "Opcjonalne uwagi na temat pobieranego pliku."
+
+msgid "Options for add to cart and purchase buttons"
+msgstr "Opcje przycisków Dodaj do koszyka i Kupuję "
+
+msgid "Orange"
+msgstr "Pomarańczowy"
+
+msgid "Over 250 Extensions"
+msgstr "Ponad 250 rozszerzeń"
+
+msgid "Overview"
+msgstr "Przegląd"
+
+msgid "Parent %s Category"
+msgstr "Kategoria nadrzędna"
+
+msgid "Parent %s Category:"
+msgstr "Kategoria nadrzędna:"
+
+msgid "Parent %s Tag"
+msgstr "Tag nadrzędny"
+
+msgid "Parent %s Tag:"
+msgstr "Tag nadrzędny:"
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Password Again"
+msgstr "Wprowadź hasło ponownie"
+
+msgid "Password: %s"
+msgstr "Hasło: %s"
+
+msgid "Passwords don't match"
+msgstr "Hasła nie są identyczne"
+
+msgid "PayPal Email"
+msgstr "E-mail konta PayPal"
+
+msgid "PayPal Page Style"
+msgstr "Styl strony PayPal"
+
+msgid "Payment"
+msgstr "Płatność"
+
+msgid "Payment %s"
+msgstr "Płatność %s"
+
+msgid "Payment Details"
+msgstr "Szczegóły płatności"
+
+msgid "Payment Error"
+msgstr "Błąd transakcji"
+
+msgid "Payment Errors"
+msgstr "Błędy transakcji"
+
+msgid "Payment Gateways"
+msgstr "Bramki płatności"
+
+msgid "Payment History"
+msgstr "Historia płatności"
+
+msgid "Payment ID"
+msgstr "ID transakcji"
+
+msgid "Payment Meta"
+msgstr "Informacje o płatności"
+
+msgid "Payment Method"
+msgstr "Sposób płatności"
+
+msgid "Payment Method: "
+msgstr "Forma płatności:"
+
+msgid "Payment Methods"
+msgstr "Sposoby płatności"
+
+msgid "Payment Notes"
+msgstr "Notatki do płatności"
+
+msgid "Payment Status"
+msgstr "Status płatności"
+
+msgid ""
+"Payments can be searched by email address, user name, or filtered by status "
+"(completed, pending, etc.)"
+msgstr ""
+"Płatności mogą być przeszukiwane po adresie email, danych klienta lub "
+"filtrowane po statusie (zakończone, w toku itp.)"
+
+msgid "Pending"
+msgstr "W toku"
+
+msgid "Future"
+msgstr "Zakończone (przedsprzedaż)"
+
+msgid "Pending / Failed Sales"
+msgstr "Oczekujące / Błędne transakcje"
+
+msgid "Percentage"
+msgstr "procentowa"
+
+msgid "Permalink: %s"
+msgstr "Bezpośredni odnośnik: %s"
+
+msgid "Personal Info"
+msgstr "Zamawiający"
+
+msgid "Phenomenal Support"
+msgstr "Fenomenalne wsparcie"
+
+msgid "Philippine Pesos"
+msgstr "Peso filipińskie"
+
+msgid "Plain Text"
+msgstr "Czysty tekst"
+
+msgid "Please Wait..."
+msgstr "Proszę czekać..."
+
+msgid "Please confirm you want to delete this customer"
+msgstr "Potwierdź chęć usunięcia tego klienta"
+
+msgid "Please enter a discount code"
+msgstr "wpisz kod rabatowy"
+
+msgid "Please enter a username before applying a discount code"
+msgstr "Podaj nazwę użytkownika przed użyciem kodu zniżkowego"
+
+msgid "Please enter a valid email address"
+msgstr "Wpisz prawidłowy adres email"
+
+msgid "Please enter a valid email address."
+msgstr "Proszę wprowadzić prawidłowy adres e-mail."
+
+msgid "Please enter an email address before applying a discount code"
+msgstr "Wpisz adres e-mail przed zastosowaniem kodu rabatowego"
+
+msgid "Please enter billing state / province"
+msgstr "Podaj województwo"
+
+msgid "Please enter your billing city"
+msgstr "Podaj miejscowość"
+
+msgid "Please enter your first name"
+msgstr "Podaj swoje imię"
+
+msgid "Please enter your zip / postal code"
+msgstr "Podaj kod pocztowy"
+
+msgid "Please note after changing your password, you must log back in."
+msgstr "Uwaga: po zmianie hasła musisz się wylogować i ponownie zalogować."
+
+msgid "Please select a payment method"
+msgstr "Wybierz sposób płatności"
+
+msgid "Please select an option"
+msgstr "Wybierz opcję"
+
+msgid "Please select your billing country"
+msgstr "Wybierz kraj"
+
+msgid "Please upload a valid .json file"
+msgstr "Wskazany plik .json jest nieprawidłowy."
+
+msgid "Polish Zloty"
+msgstr "Polski Złoty [PLN]"
+
+msgid "Pounds Sterling (&pound;)"
+msgstr "Funt szterling (&pound;)"
+
+msgid "Preview Purchase Receipt"
+msgstr "Zobacz podgląd rachunku"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Price Assignment"
+msgstr "Przypisanie cen"
+
+msgid "Prices entered with tax"
+msgstr "Ceny wpisywane z podatkiem"
+
+msgid "Pricing Options:"
+msgstr "Opcje cen:"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Product Name"
+msgstr "Nazwa produktu"
+
+msgid "Product Type Options:"
+msgstr "Typ produktu:"
+
+msgid "Products"
+msgstr "Produkty"
+
+msgid "Public Key"
+msgstr "Klucz publiczny"
+
+msgid "Public key:"
+msgstr "Klucz publiczny:"
+
+msgid "Purchase"
+msgstr "Zamów"
+
+msgid "Purchase All Items"
+msgstr "Zamów wszystkie"
+
+msgid "Purchase Buttons Anywhere"
+msgstr "Przyciski zakupu w dowolnym miejscu"
+
+msgid "Purchase Confirmation"
+msgstr "Potwierdzenie zamówienia"
+
+msgid "Purchase Details for Payment #%s"
+msgstr "Szczegóły zamówienia dla płatności #%s"
+
+msgid "Purchase Email Heading"
+msgstr "Nagłówek wiadomości z potwierdzeniem"
+
+msgid "Purchase Email Subject"
+msgstr "Tytuł e-maila"
+
+msgid "Purchase History"
+msgstr "Historia zamówień"
+
+msgid "Purchase History Page"
+msgstr "Strona Historia zamówień"
+
+msgid "Purchase Key"
+msgstr "Klucz zamówienia"
+
+msgid "Purchase Receipt"
+msgstr "Potwierdzenie zakupu"
+
+msgid "Purchase Receipt Preview"
+msgstr "Podgląd rachunku"
+
+msgid "Purchase Shortcode"
+msgstr "Shortcode"
+
+msgid "Purchase Shortcode:"
+msgstr "Shortcode przycisku:"
+
+msgid "Purchase Total:"
+msgstr "Łącznie do zapłaty:"
+
+msgid "Purchase Verification Failed"
+msgstr "Weryfikacja zakupu nie powiodła się."
+
+msgid ""
+"Purchase buttons can behave as either Add to Cart or Buy Now buttons. With "
+"Buy Now buttons customers are taken straight to PayPal, giving them the most "
+"frictionless purchasing experience possible."
+msgstr ""
+"Przyciski mogą działać w dwóch trybach: jako przycisk <em>Dodaj do "
+"koszyka</em> lub jako przycisk <em>Kup Teraz</em>. Ta druga opcja przenosi "
+"klienta od razu do płatności, co maksymalnie skraca proces zakupu i zwiększa "
+"liczbę zadowolonych klientów."
+
+msgid "Purchased %s"
+msgstr "Zamówione %s"
+
+msgid "Purchased by: "
+msgstr "Kupujący:"
+
+msgid "Purchases"
+msgstr "Zamówienia"
+
+msgid "Quantity"
+msgstr "Liczba sztuk"
+
+msgid "Rate"
+msgstr "Stawka"
+
+msgid "Re-enter Password"
+msgstr "Potwierdź nowe hasło"
+
+msgid "Recalculate"
+msgstr "Przelicz"
+
+msgid "Recalculate Totals"
+msgstr "Przelicz sumę"
+
+msgid "Recent Payments"
+msgstr "Najnowsze płatności"
+
+msgid "Recent Purchases"
+msgstr "Najnowsze zamówienia"
+
+msgid "Recount Customer Stats"
+msgstr "Przelicz statystyki dla tego klienta"
+
+msgid "Recount Stats"
+msgstr "Przelicz statystyki"
+
+msgid "Red"
+msgstr "Czerwony"
+
+msgid "Redirect"
+msgstr "Przekierowany"
+
+msgid "Redirect to Checkout"
+msgstr "Przekieruj do Kasy"
+
+msgid "Refunded"
+msgstr "Zwrócone"
+
+msgctxt "Refunded payment status"
+msgid "Refunded"
+msgstr "Zwrócone"
+
+msgid "Register"
+msgstr "Zarejestruj się"
+
+msgid "Registration Form Only"
+msgstr "Tylko formularz rejestracji"
+
+msgid "Registration and Login Forms"
+msgstr "Formularz rejestracji i logowania"
+
+msgid "Reissue"
+msgstr "Generuj ponownie"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Remove %1$s Image"
+msgstr "Usuń obrazek"
+
+msgid "Remove Data on Uninstall?"
+msgstr "Usunięcie danych przy deinstalacji"
+
+msgid "Remove Rate"
+msgstr "Usuń stawkę podatkową"
+
+msgid "Report Type"
+msgstr "Typ raportu"
+
+msgid "Reports"
+msgstr "Raporty"
+
+msgid "Request Date:"
+msgstr "Data zapytania:"
+
+msgid "Request Details"
+msgstr "Szczegóły zapytania"
+
+msgid "Request IP"
+msgstr "IP zapytania"
+
+msgid "Require that users be logged-in to purchase files."
+msgstr "Użytkownik będzie musiał się zalogować, aby kontynuować zakupy."
+
+msgid "Resend Email Receipts"
+msgstr "Wyślij ponownie rachunek"
+
+msgid "Resend Purchase Receipt"
+msgstr "Wyślij ponownie rachunek"
+
+msgid "Resend Receipt"
+msgstr "Wyślij rachunek"
+
+msgid "Restore Previous Cart"
+msgstr "Przywróć poprzednią zawartość koszyka"
+
+msgid "Restore Previous Cart."
+msgstr "Przywróć poprzednią zawartość koszyka."
+
+msgid "Revoke"
+msgstr "Unieważnij"
+
+msgid "Revoked"
+msgstr "Odwołane"
+
+msgctxt "Revoked payment status"
+msgid "Revoked"
+msgstr "Odwołane"
+
+msgid "Sale"
+msgid_plural "Sales"
+msgstr[0] "Sprzedaż"
+msgstr[1] "Sprzedaż"
+msgstr[2] "Sprzedaż"
+
+msgid "Sale Notification"
+msgstr "Treść powiadomienia"
+
+msgid "Sale Notification Emails"
+msgstr "Adresy email do powiadomień"
+
+msgid "Sale Notification Subject"
+msgstr "Tytuł e-maila"
+
+msgid "Sales"
+msgstr "Sprzedaż"
+
+msgid "Sales and Earnings by Month for all Products"
+msgstr "Sprzedaż i zarobki w miesiącu dla wszystkich produków"
+
+msgid "Sales and earnings reports for the current year for all products"
+msgstr "Raporty sprzedaży i zysków za bieżący rok dla wszystkich produktów"
+
+msgid "Sales:"
+msgstr "Sprzedaż:"
+
+msgid "Sample Download File Name"
+msgstr "Przykładowa nazwa pliku"
+
+msgid "Sample Product Title"
+msgstr "Przykładowy tytuł"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Save Cart"
+msgstr "Zapisz koszyk"
+
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+msgid "Save Payment"
+msgstr "Zapisz płatność"
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "Search %2$s"
+msgstr "Szukaj %2$s"
+
+msgid "Search Customers"
+msgstr "Szukaj klientów"
+
+msgid "Search Payments"
+msgstr "Szukaj płatności"
+
+msgid "Secret Key"
+msgstr "Klucz prywatny"
+
+msgid "Secret key:"
+msgstr "Klucz prywatny:"
+
+msgid "Security code"
+msgstr "Kod CVC"
+
+msgid "Select %s relevant to this discount."
+msgstr "Wybierz %s powiązane z tą zniżką."
+
+msgid "Select Payment Method"
+msgstr "Wybierz sposób płatności"
+
+msgid "Select a Customer"
+msgstr "Wybierz klienta"
+
+msgid "Select a country"
+msgstr "Wybierz kraj"
+
+msgid "Select a page"
+msgstr "Wybierz stronę"
+
+msgid "Select a product type"
+msgstr "Wybierz typ produktu"
+
+msgid "Select a state"
+msgstr "Wybierz województwo"
+
+msgid "Select one or more %s"
+msgstr "Wybierz jeden lub więcej %s"
+
+msgid "Select the file download method. Note, not all methods work on all servers."
+msgstr "Wybierz sposób pobierania pliku. Nie każda metoda działa na każdym serwerze."
+
+msgid "Send Test Email"
+msgstr "Wyślij email testowy"
+
+msgid "Sept"
+msgstr "Wrzesień"
+
+msgid "Sequential Number Postfix"
+msgstr "Postfiks numeru sekwencyjnego"
+
+msgid "Sequential Number Prefix"
+msgstr "Prefiks zamówień sekwencyjnych"
+
+msgid "Sequential Order Numbers"
+msgstr "Sekwencyjne numery zamówień"
+
+msgid "Sequential Starting Number"
+msgstr "Numer początkowy sekwencji"
+
+msgid "Set %1$s Image"
+msgstr "Ustaw obrazek"
+
+msgid "Set To Abandoned"
+msgstr "Ustaw jako Porzucone"
+
+msgid "Set To Cancelled"
+msgstr "Ustaw jako Anulowane"
+
+msgid "Set To Completed"
+msgstr "Ustaw jako Zakończone"
+
+msgid "Set To Failed"
+msgstr "Ustaw jako Błędne"
+
+msgid "Set To Pending"
+msgstr "Ustaw jako W toku"
+
+msgid "Set To Preapproval"
+msgstr "Ustaw jako Wstępnie zatwierdzone"
+
+msgid "Set To Refunded"
+msgstr "Ustaw jako Zwrócone"
+
+msgid "Set To Revoked"
+msgstr "Ustaw jako Odwołane"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Settings updated."
+msgstr "Ustawienia zostały zapisane."
+
+msgid "Shop Accountant"
+msgstr "Księgowy Sklepu"
+
+msgid "Shop Manager"
+msgstr "Manager Sklepu"
+
+msgid "Shop Vendor"
+msgstr "Dostawca Sklepu"
+
+msgid "Shop Worker"
+msgstr "Pracownik Sklepu"
+
+msgid "Should prices on the checkout page be shown with or without tax?"
+msgstr "Ceny na stronie z zamówieniem powinny być wyświetlane z podatkiem, czy bez?"
+
+msgid "Show"
+msgstr "Pokaż"
+
+msgid "Show Register / Login Form?"
+msgstr "Pokazać formularz Zaloguj / Zarejestruj się?"
+
+msgid "Show Terms"
+msgstr "Pokaż warunki umowy"
+
+msgid "Singapore Dollar (&#36;)"
+msgstr "Dolar singapurski (&#36;)"
+
+msgid "Some countries require a notice when product prices include tax."
+msgstr "Niektóre państwa wymagają odpowiedniej informacji, gdy cena zawiera podatek."
+
+msgid "Something went wrong."
+msgstr "Coś poszło nie tak."
+
+msgid "Sorry but you have hit your download limit for this file."
+msgstr "Osiągnięto maksymalną liczbę pobrań dla tego pliku."
+
+msgid "Sorry but your download link has expired."
+msgstr "Twój link do pliku stracił ważność."
+
+msgid "Sorry, not available for variable priced products."
+msgstr "Niestety, to nie jest dostępne dla produktów ze zmienną ceną."
+
+msgid "Sorry, trouble retrieving payment receipt."
+msgstr "Przepraszamy, ale dane Twojego zamówienia nie są w tej chwili dostępne."
+
+msgid ""
+"Special notes or instructions for this product. These notes will be added to "
+"the purchase receipt."
+msgstr ""
+"Specjalne wskazówki lub informacje o tym produkcie. Te informacje będą "
+"dodane do potwierdzenia zakupu."
+
+msgid "Start Date"
+msgstr "Data początkowa"
+
+msgid "Start Date:"
+msgstr "Data początkowa:"
+
+msgid "Start date"
+msgstr "Data początkowa"
+
+msgid "State"
+msgstr "Województwo"
+
+msgid "State / Province"
+msgstr "województwo"
+
+msgctxt "State / province of address"
+msgid "State / Province:"
+msgstr "Województwo"
+
+msgid "Stats include all sales and earnings for the lifetime of the store."
+msgstr ""
+"Statystyki obejmują wszystkie dane o sprzedaży i zyskach od początku "
+"istnienia sklepu."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Status changed from %s to %s"
+msgstr "Status zmieniony z %s na %s"
+
+msgid "Status:"
+msgstr "Stan:"
+
+msgid "Stay Up to Date"
+msgstr "Pozostań na bieżąco"
+
+msgid "Step %d of approximately %d running"
+msgstr "Krok %d z około %d przewidywanych"
+
+msgid "Street Address Line 1:"
+msgstr "Adres Linia 1"
+
+msgid "Street Address Line 2:"
+msgstr "Adres Linia 2"
+
+msgid "Styles"
+msgstr "Style"
+
+msgid "Submit"
+msgstr "Zatwierdź"
+
+msgid "Subtotal"
+msgstr "Podsuma"
+
+msgid "Subtotal:"
+msgstr "Podsuma:"
+
+msgid "Success"
+msgstr "Sukces"
+
+msgid "Success Page"
+msgstr "Strona z potwierdzeniem"
+
+msgid "Swedish Krona"
+msgstr "Korona szwedzka"
+
+msgid "Swiss Franc"
+msgstr "Frank szwajcarski"
+
+msgid "System Info"
+msgstr "Informacje systemowe"
+
+msgid "Table View"
+msgstr "Zobacz tabelę"
+
+msgid "Tags"
+msgstr "Tagi"
+
+msgid "Tags: %s"
+msgstr "Tagi: %s"
+
+msgid "Taiwan New Dollars"
+msgstr "Nowy dolar tajwański"
+
+msgid "Tax"
+msgstr "Podatek"
+
+msgid "Tax Rates"
+msgstr "Stawki podatkowe"
+
+msgid "Tax Report"
+msgstr "Raport podatkowy"
+
+msgid "Taxes"
+msgstr "Podatki"
+
+msgid "Taxonomy:"
+msgstr "Taksonomia:"
+
+msgid "Terms of Agreement"
+msgstr "Warunki umowy"
+
+msgid "Test Mode"
+msgstr "Tryb testowy"
+
+msgid "Test Payment"
+msgstr "Płatność testowa"
+
+msgid "Text shown on the Add to Cart Buttons."
+msgstr "Tekst widoczny na przycisku Dodaj do koszyka."
+
+msgid "Text shown on the Buy Now Buttons."
+msgstr "Tekst widoczny na przycisku Kup Teraz."
+
+msgid "Thank you"
+msgstr "Dziękujemy!"
+
+msgid ""
+"Thank you for updating to the latest version! Easy Digital Downloads %s is "
+"ready to make your online store faster, safer, and better!"
+msgstr ""
+"Dziękujemy za zaktualizowanie do najnowszej wersji. Easy Digital Downloads "
+"%s jest gotowe by uczynić Twój sklep szybszym, bezpieczniejszym i lepszym!"
+
+msgid ""
+"Thank you for using <a href=\"%1$s\" target=\"_blank\">Easy Digital "
+"Downloads</a>! Please <a href=\"%2$s\" target=\"_blank\">rate us</a> on <a "
+"href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
+msgstr ""
+"Dziękujemy za korzystanie z <a href=\"%1$s\" target=\"_blank\">Easy Digital "
+"Downloads</a>! Proszę, <a href=\"%2$s\" target=\"_blank\">oceń nas</a> na <a "
+"href=\"%2$s\" target=\"_blank\">WordPress.org</a>"
+
+msgid "Thank you for your purchase! [edd_receipt]"
+msgstr "Dziękujemy za Twoje zamówienie! [edd_receipt]"
+
+msgid ""
+"Thank you for your purchase. Please click on the link(s) below to download "
+"your files."
+msgstr ""
+"Dziękujemy za złożenie zamówienia. Poniżej znajduje się lista linków do "
+"zakupionych plików."
+
+msgid ""
+"The %s menu is your access point for all aspects of your Easy Digital "
+"Downloads product creation and setup. To create your first product, simply "
+"click Add New and then fill out the product details."
+msgstr ""
+"Menu %s jest Twoim punktem dostępowym do tworzenia produktów i zmiany "
+"ustawień Easy Digital Downloads. Aby utworzyć Twój pierwszy produkt, po "
+"prostu kliknij Dodaj nowy i uzupełnij informacje o produkcie (opis, cena, "
+"itp.)."
+
+msgid "The <em>[purchase_link]</em> Shortcode"
+msgstr "Shortcode <em>[purchase_link]</em>"
+
+msgid "The ID of a specific download to purchase."
+msgstr "Identyfikator (ID) danego produktu."
+
+msgid "The User ID %d is already associated with a different customer."
+msgstr "Identyfikator użytkownika %d jest już powiązany z innym klientem."
+
+msgid ""
+"The [downloads] shortcode will display a product grid that works with any "
+"theme, no matter the size. It is even responsive!"
+msgstr ""
+"Shortcode [downloads] służy do wyświetlenia siatki produktów, która zadziała "
+"niezależnie od wykorzystywanego szablonu. Siatka jest również responsywna!"
+
+msgid "The button label for completing a purchase."
+msgstr "Etykieta przycisku do zakończenia zamówienia."
+
+msgid "The buyer's IP Address"
+msgstr "Adres IP kupującego"
+
+msgid "The buyer's billing address"
+msgstr "Dane bilingowe kupującego"
+
+msgid "The buyer's email address"
+msgstr "Adres email kupującego"
+
+msgid "The buyer's email address."
+msgstr "Adres email kupującego."
+
+msgid "The buyer's first name"
+msgstr "Imię kupującego"
+
+msgid "The buyer's full name, first and last"
+msgstr "Imię i nazwisko kupującego"
+
+msgid "The buyer's name."
+msgstr "Dane personalne klienta."
+
+msgid "The buyer's user name on the site, if they registered an account"
+msgstr "Nazwa użytkownika przypisana do kupującego, jeśli jest on zarejestrowany."
+
+msgid "The city for your billing address."
+msgstr "Miejscowość, w której mieszkasz."
+
+msgid "The country for your billing address."
+msgstr "Kraj, w którym mieszkasz."
+
+msgid "The date of the purchase"
+msgstr "Data zamówienia"
+
+msgid "The exact date and time the payment was completed."
+msgstr "Dokładna data i czas zakończenia transakcji."
+
+msgid "The file associated with the purchase."
+msgstr "Pliki powiązane z zamówieniem."
+
+msgid "The kind of discount to apply for this discount."
+msgstr "Sposób, w jaki ma być obliczony upust."
+
+msgid ""
+"The maximum number of times files can be downloaded for purchases. Can be "
+"overwritten for each %s."
+msgstr ""
+"Maksymalna liczba pobrań pliku dla danego zamówienia. Wartość ta może zostać "
+"nadpisana dla każdego z %s."
+
+msgid ""
+"The maximum number of times this discount can be used. Leave blank for "
+"unlimited."
+msgstr ""
+"Maksymalna ilość kodów. Zostaw puste jeśli nie chcesz określać ilości "
+"maksymalnej."
+
+msgid "The method of payment used for this purchase"
+msgstr "Forma płatności"
+
+msgid ""
+"The minimum amount that must be purchased before this discount can be used. "
+"Leave blank for no minimum."
+msgstr ""
+"Kwota minimalna, na którą musi opiewać zamówienie zanim kod będzie mógł być "
+"użyty. Zostaw puste jeśli nie chcesz określać kwoty minimalnej."
+
+msgid "The name of the payment gateway used to complete the payment."
+msgstr "Nazwa bramki płatności wykorzystanej do zrealizowania transakcji."
+
+msgid "The name of this discount"
+msgstr "Nazwa promocji"
+
+msgid ""
+"The name purchase receipts are said to come from. This should probably be "
+"your site or shop name."
+msgstr "Wpisz nazwę nadawcy. To powinna być nazwa Twojej strony lub nazwa sklepu."
+
+msgid "The password used to access your account."
+msgstr "Hasło, którego będziesz używać aby zalogować się na swoje konto."
+
+msgid "The password you entered is incorrect"
+msgstr "Podane hasło jest nieprawidłowe"
+
+msgid "The password you entered is incorrect. %sReset Password%s"
+msgstr "Podane przez Ciebie hasło jest nieprawidłowe. %sUstaw nowe hasło%s"
+
+msgid "The passwords you entered do not match. Please try again."
+msgstr "Podane przez Ciebie hasła nie są ze sobą zgodne. Spróbuj ponownie."
+
+msgid "The payment has been deleted."
+msgstr "Płatność została usunięta."
+
+msgid "The payment has been successfully updated."
+msgstr "Płatność została zaktualizowana."
+
+msgid "The payment history can be searched in several different ways:"
+msgstr "Historia płatności może być przeszukiwana na kilka sposobów:"
+
+msgid "The price of the purchase before taxes"
+msgstr "Kwota zamówienia bez podatku"
+
+msgid "The primary billing address for your credit card."
+msgstr "Adres na Twojej kacie kredytowej."
+
+msgid ""
+"The product grids can be customized in any way you wish and there is <a "
+"href=\"%s\">extensive documentation</a> to assist you."
+msgstr ""
+"Siatka produktów może być z łatwością dostosowana do Twoich wymagań. W razie "
+"potrzeby zajrzyj do <a href=\"%s\">obszernej dokumentacji</a>, która wszystko "
+"wyjaśni."
+
+msgid "The product requirements for this discount are not met."
+msgstr "Wymagania umożliwiające skorzystanie z tego kodu nie zostały spełnione."
+
+msgid "The purchase receipt has been resent."
+msgstr "Rachunek został ponownie wysłany."
+
+msgid "The selected payment gateway is not enabled"
+msgstr "Wybrany sposób płatności jest niedostępny"
+
+msgid "The settings have been imported."
+msgstr "Ustawienia zostały zaimportowane."
+
+msgid "The state or province for your billing address."
+msgstr "Województwo, w którym mieszkasz."
+
+msgid "The status of this discount code."
+msgstr "Status kodu zniżkowego"
+
+msgid "The suite, apt no, PO box, etc, associated with your billing address."
+msgstr "Dodatkowa miejsce na dłuższy adres."
+
+msgid "The symbol (usually , or .) to separate decimal points"
+msgstr "Symbol (zwykle lub.) oddzielający punkty dziesiętne"
+
+msgid "The symbol (usually , or .) to separate thousands"
+msgstr "Symbol (zazwyczaj, lub.) oddzielający tysiące"
+
+msgid "The taxed amount of the purchase"
+msgstr "Kwota zamówienia z podatkiem"
+
+msgid "The text to be displayed on the button or link."
+msgstr "Tekst, który zostanie wyświetlony na przycisku lub linku."
+
+msgid "The total price of the purchase"
+msgstr "Łączna wartość zamówienia"
+
+msgid "The unique ID number for this purchase"
+msgstr "Unikalny numer zamówienia"
+
+msgid "The unique ID number for this purchase receipt"
+msgstr "Unikalny numer rachunku"
+
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished."
+msgstr ""
+"Trwa proces aktualizacji, proszę o cierpliwość. Może to potrwać nawet klika "
+"minut. Gdy aktualizacja dobiegnie końca, nastąpi automatyczne przekierowanie."
+
+msgid "The username you entered does not exist"
+msgstr "Nie ma takiego użytkownika"
+
+msgid "The username you will use to log into your account."
+msgstr "Nazwa użytkownika, której będziesz używać aby zalogować się do swojego konta."
+
+msgid "The zip or postal code for your billing address."
+msgstr "Kod pocztowy miejsca, w którym mieszkasz."
+
+msgid "There was a problem adding your discount code, please try again."
+msgstr "Pojawił się problem z dodaniem Twojego kodu zniżkowego. Spróbuj ponownie."
+
+msgid "There was a problem updating your discount code, please try again."
+msgstr "Wystąpił problem z aktualizacją kodu zniżkowego. Spróbuj jeszcze raz."
+
+msgid "These are some sample notes added to a product."
+msgstr "To są przykładowe uwagi dodane do produktu."
+
+msgid ""
+"These extensions <em><strong>add functionality</strong></em> to your Easy "
+"Digital Downloads powered store."
+msgstr ""
+"Poniższe rozszerzenia <em><strong>dodają funkcjonalność</strong></em> do "
+"Twojego sklepu opartego o Easy Digital Downloads."
+
+msgid "This Month"
+msgstr "Ten miesiąc"
+
+msgid "This Quarter"
+msgstr "Ten kwartał"
+
+msgid "This Week"
+msgstr "Ten tydzień"
+
+msgid "This Year"
+msgstr "Ten rok"
+
+msgid "This discount has already been redeemed."
+msgstr "Podany kod zniżkowy został już wykorzystany."
+
+msgid "This discount has reached its maximum usage."
+msgstr ""
+"Ten kod zniżkowy nie jest aktywny, gdyż został wykorzystany maksymalną "
+"liczbę razy."
+
+msgid "This discount is expired."
+msgstr "Ważność tego kodu zniżkowego wygasła."
+
+msgid "This discount is invalid."
+msgstr "Podany kod zniżkowy jest nieprawidłowy."
+
+msgid "This discount is not active yet."
+msgstr "Podany kod zniżkowy jest jeszcze nieaktywny."
+
+msgid "This discount is not active."
+msgstr "Podany kod zniżkowy jest nieaktywny."
+
+msgid "This discount is not valid for the cart contents."
+msgstr "Podany kod zniżkowy nie może być wykorzystany dla takiej zawartości koszyka."
+
+msgid "This gateway will be loaded automatically with the checkout page."
+msgstr ""
+"Ta bramka będzie automatycznie uruchamiana na stronie podsumowującej "
+"zamówienie."
+
+msgid ""
+"This is the checkout page where buyers will complete their purchases. The "
+"[download_checkout] short code must be on this page."
+msgstr ""
+"Jest to strona, na której kupujący finalizują swoje zamówienie. Shortcode "
+"[download_checkout] musi znaleźć się w jej treści."
+
+msgid ""
+"This is the page buyers are sent to after completing their purchases. The "
+"[edd_receipt] short code should be on this page."
+msgstr ""
+"Jest to strona, którą zobaczy kupujący po złożeniu zamówienia. Shortcode "
+"[edd_receipt] musi znaleźć się w jej treści."
+
+msgid ""
+"This is the page buyers are sent to if their transaction is cancelled or "
+"fails"
+msgstr ""
+"Jest to strona, którą zobaczy kupujący jeśli transakcja zostanie przerwana "
+"lub nie powiedzie się z innego powodu."
+
+msgid "This option affects how you enter prices."
+msgstr "Ta opcja ma wpływ na sposób wprowadzania cen."
+
+msgid ""
+"This page shows a complete purchase history for the current user, including "
+"download links"
+msgstr ""
+"Jest to strona, na której klient może przejrzeć kompletną historię zamówień "
+"wraz z linkami do zakupionych plików."
+
+msgid "This report shows the total amount collected in sales tax for the given year."
+msgstr ""
+"Ten raport pokazuje łączną kwotę podatku od sprzedanych produktów dla danego "
+"roku."
+
+msgid ""
+"This screen allows customization of your store's styles. For complete "
+"control, you can completely disable all styles generated by the plugin."
+msgstr ""
+"Ta strona pozwala na zmianę stylów sklepu. W razie konieczności, możesz "
+"całkowicie wyłączyć style generowane przez wtyczkę."
+
+msgid ""
+"This screen allows you to customize how emails act throughout your store. "
+"You can choose a premade template, set the sender's name, email address, and "
+"subject."
+msgstr ""
+"Ta strona pozwala Ci zdefiniować wygląd emaili wysyłanych z Twojego sklepu. "
+"Możesz ustawić szablony wiadomości, nazwę nadawcy, email nadawcy oraz tematy "
+"wiadomości."
+
+msgid "This screen allows you to export your reports into a PDF or CSV format."
+msgstr "Ta strona umożliwia Ci wyeksportowanie raportów jako pliki PDF lub CSV."
+
+msgid "This screen provides access to all of your store's transactions."
+msgstr ""
+"Na tej stronie dostępne są wszystkie transakcje, które miały miejsce w Twoim "
+"sklepie."
+
+msgid ""
+"This screen provides access to settings added by most Easy Digital Downloads "
+"extensions."
+msgstr ""
+"Ta strona pozwala na zmianę ustawień większości dodatków do Easy Digital "
+"Downloads."
+
+msgid ""
+"This screen provides other miscellaneous options such as disabling jQuery, "
+"allowing guest checkout, and configuring your terms of service."
+msgstr ""
+"Ta strona pozwala na zmianę pozostałych ustawień, takich jak wyłączenie "
+"jQuery, włączenie możliwości kupowania przez gości itp. W tym miejscu "
+"zdefiniujesz również regulamin sklepu."
+
+msgid ""
+"This screen provides the most basic settings for configuring your store. You "
+"can set the currency, page templates, and turn <em>Test Mode</em> on and off."
+msgstr ""
+"Ta strona pozwala na zmianę podstawowych ustawień Twojego sklepu. Możesz np. "
+"ustawić walutę, szablony stron i włączyć lub wyłączyć <em>Tryb testowy</em>."
+
+msgid ""
+"This screen provides ways to toggle payment gateways on or off, as well as "
+"configure gateway-specific settings. Any extra payment gateway extensions "
+"you have installed will appear on this page, and can be configured to suit "
+"your needs."
+msgstr ""
+"Ta strona pozwala włączać i wyłączać poszczególne bramki płatności oraz "
+"zdefiniować ich ustawienia. Każda dodatkowa bramka, którą zainstalujesz, "
+"pojawi się na tej stronie."
+
+msgid ""
+"This screen provides you with reports for your earnings, downloads, "
+"customers and taxes."
+msgstr ""
+"Na tej stronie możesz przeglądać raporty dotyczące zarobków, pobrań, "
+"klientów i podatków."
+
+msgid "Thousands Separator"
+msgstr "Separator tysiąca"
+
+msgid "Time:"
+msgstr "Czas:"
+
+msgid "Title:"
+msgstr "Tytuł:"
+
+msgid "To"
+msgstr "Do"
+
+msgid ""
+"To export shop data (purchases, customers, etc), visit the <a "
+"href=\"%s\">Reports</a> page."
+msgstr ""
+"Jeśli chcesz wyeksportować dane sklepu (zamówienia, klienci, itp.) przejdź "
+"na stronę <a href=\"%s\">Raporty</a>."
+
+msgid "Today"
+msgstr "Dzisiaj"
+
+msgid "Tools"
+msgstr "Narzędzia"
+
+msgid "Total"
+msgstr "Łącznie"
+
+msgid "Total Earnings"
+msgstr "Łączne zyski"
+
+msgid "Total Price"
+msgstr "Łączna kwota"
+
+msgid "Total Purchased"
+msgstr "Kwota łącznie"
+
+msgid "Total Purchases"
+msgstr "Zamówień łącznie"
+
+msgid "Total Sales"
+msgstr "Łączna sprzedaż"
+
+msgid "Total Spent"
+msgstr "Łączne wydatki"
+
+msgid "Total earnings for period shown: "
+msgstr "Łączne zyski dla wybranego okresu: "
+
+msgid "Total sales for period shown: "
+msgstr "Łączna liczba sprzedaży dla wybranego okresu: "
+
+msgid "Total:"
+msgstr "Łącznie:"
+
+msgid "Totals"
+msgstr "Sumy"
+
+msgid "Tracking Settings"
+msgstr "Ustawienia śledzenia"
+
+msgid "Transaction Failed"
+msgstr "Błąd transakcji"
+
+msgid "Transaction ID"
+msgstr "ID transakcji"
+
+msgid "Transaction ID:"
+msgstr "ID transakcji:"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Type to search %s"
+msgstr "Zacznij pisać, aby zacząć wyszukiwanie %s"
+
+msgid "Type to search all %s"
+msgstr "Zacznij pisać by wyszukać produkt"
+
+msgid "US Dollars (&#36;)"
+msgstr "Dolar amerykański (&#36;)"
+
+msgid "Unlimited"
+msgstr "Bez limitu"
+
+msgid "Unlimited file downloads"
+msgstr "Pobieranie pliku bez limitu"
+
+msgid "Unnamed Customer"
+msgstr "Nienazwany klient"
+
+msgid "Update Cart"
+msgstr "Aktualizuj Koszyk"
+
+msgid "Update Customer"
+msgstr "Aktualizuj dane"
+
+msgid "Update Discount Code"
+msgstr "Aktualizuj kod zniżkowy"
+
+msgid "Update Payment"
+msgstr "Zaktualizuj płatność"
+
+msgid "Upload File"
+msgstr "Wyślij plik na serwer"
+
+msgid "Upload a File"
+msgstr "Wyślij plik na serwer"
+
+msgid ""
+"Upload or choose a logo to be displayed at the top of the purchase receipt "
+"emails. Displayed on HTML emails only."
+msgstr ""
+"Wyślij logo na serwer lub wybierz je z biblioteki mediów. Logo będzie "
+"wyświetlane na górze wysyłanych wiadomości (dotyczy tylko wiadomości HTML)."
+
+msgid "Upload or enter the file URL"
+msgstr "Wyślij plik na serwer lub wpisz jego adres URL"
+
+msgid ""
+"Uploading the downloadable files is simple. Click <em>Upload File</em> in "
+"the Download Files section and choose your download file. To add more than "
+"one file, simply click the <em>Add New</em> button."
+msgstr ""
+"Przesyłanie plików do pobrania jest bardzo proste. W sekcji Pliki kliknij "
+"<em>Wyślij plik na serwer</em> i wybierz pliki z biblioteki mediów lub dodaj "
+"nowe. Aby dodać więcej niż jeden plik, po prostu skorzystaj z przycisku "
+"<em>Dodaj nowy plik</em>."
+
+msgid "Use Once Per Customer"
+msgstr "Jednorazowy dla danego klienta"
+
+msgid "Use This File"
+msgstr "Użyj tego pliku"
+
+msgid "Use the form below to insert the short code for purchasing a %s"
+msgstr "Użyj formularza poniżej żeby skonfigurować krótki kod dla zamówienia %s"
+
+msgid ""
+"Use the tips below to get started using Easy Digital Downloads. You will be "
+"up and running in no time!"
+msgstr ""
+"Wykorzystaj poniższe wskazówki by błyskawicznie rozpocząć pracę z Easy "
+"Digital Downloads!"
+
+msgid ""
+"Use this tool to recalculate the purchase count and total value of the "
+"customer."
+msgstr ""
+"Użyj tego narzędzia aby przeliczyć wartość sprzedaży dla klienta i jego "
+"całkowitą wartość."
+
+msgid "User"
+msgstr "Użytkownik"
+
+msgid "User ID"
+msgstr "ID użytkownika"
+
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+msgid "Username already taken"
+msgstr "Nazwa użytkownika już jest zajęta"
+
+msgid "Username or Email"
+msgstr "Nazwa użytkownika lub e-mail"
+
+msgid "Username: %s"
+msgstr "Nazwa użytkownika: %s"
+
+msgid "Uses"
+msgstr "Ilość użyć"
+
+msgid "Valid"
+msgstr "Prawidłowy"
+
+msgid "View"
+msgstr "Zobacz"
+
+msgid "View %1$s"
+msgstr "Zobacz %1$s"
+
+msgid "View %s"
+msgstr "Zobacz %s"
+
+msgid "View API Log"
+msgstr "Zobacz logi API"
+
+msgid "View All"
+msgstr "Zobacz wszystkie"
+
+msgid "View Customer Details"
+msgstr "Zobacz dane kupującego"
+
+msgid "View Detailed Report"
+msgstr "Zobacz szczegółowy raport"
+
+msgid "View Details"
+msgstr "Szczegóły"
+
+msgid "View Details and Downloads"
+msgstr "Zobacz szczegóły"
+
+msgid "View File Download Log"
+msgstr "Zobacz logi kliknięć w link"
+
+msgid "View Order Details"
+msgstr "Pokaż szczegóły zamówienia"
+
+msgid "View Payment"
+msgstr "Zobacz płatność"
+
+msgid "View Request"
+msgstr "Zobacz zapytanie"
+
+msgid "View Request Details"
+msgstr "Zobacz szczegóły zapytania"
+
+msgid "View all purchases of customer"
+msgstr "Zobacz wszystkie zamówienia klienta"
+
+msgid "View customer download log"
+msgstr "Zobacz logi kliknięć w link przez klienta"
+
+msgid "View file download log for purchase"
+msgstr "Zobacz kliknięć w link panelu dla tego zamówienia"
+
+msgid "View the Full Changelog"
+msgstr "Zobacz Pełną Listę Zmian"
+
+msgid ""
+"Visit the <a href=\"%s\">documentation</a> on the Easy Digital Downloads "
+"website."
+msgstr "Odwiedź stronę z <a href=\"%s\">dokumentacją</a> Easy Digital Downloads."
+
+msgid "Visit the Extension Store"
+msgstr "Odwiedź sklep z rozszerzeniami"
+
+msgid "We will send the purchase receipt to this address."
+msgstr "Na ten adres wysłane zostanie potwierdzenie zamówienia."
+
+msgid "We will use this as well to personalize your account experience."
+msgstr ""
+"Znajomość Twojego nazwiska pozwoli nam na jeszcze lepszą komunikację z Tobą :"
+")"
+
+msgid "We will use this to personalize your account experience."
+msgstr "Znajomość Twojego imienia pozwoli nam na lepszą komunikację z Tobą."
+
+msgid "Welcome to Easy Digital Downloads"
+msgstr "Witaj w Easy Digital Downloads"
+
+msgid "Welcome to Easy Digital Downloads %s"
+msgstr "Witaj w Easy Digital Downloads %s"
+
+msgid "What state / province does your store operate from?"
+msgstr "W jakim stanie / prowincji znajduje się Twój sklep?"
+
+msgid "What's New"
+msgstr "Co nowego"
+
+msgid "Where does your store operate from?"
+msgstr "Gdzie znajduje się siedziba Twojego sklepu?"
+
+msgid ""
+"Whether to show the price on the purchase button. 1 to show the price, 0 to "
+"disable it."
+msgstr "Czy pokazywać cenę na przycisku. 1 - pokazywać, 0 - nie pokazywać."
+
+msgid ""
+"While in test mode no live transactions are processed. To fully use test "
+"mode, you must have a sandbox (test) account for the payment gateway you are "
+"testing."
+msgstr ""
+"Podczas pracy w trybie testowym żadne prawdziwe transakcje nie są "
+"przetwarzane. Aby w pełni korzystać tego trybu, musisz mieć konto testowe "
+"(sandbox) dla bramki płatności, którą testujesz."
+
+msgid "White"
+msgstr "Biały"
+
+msgid ""
+"With easily accessible shortcodes to display purchase buttons, you can add a "
+"Buy Now or Add to Cart button for any product anywhere on your site in "
+"seconds."
+msgstr ""
+"Dzięki łatwemu w użyciu shortcode wyświetlającego przycisk zamówienia "
+"produktu, możesz dodać przycisk Kup teraz lub Dodaj do koszyka dla dowolnego "
+"produktu i w dowolnym miejscu na stronie."
+
+msgid "Yellow"
+msgstr "Żółty"
+
+msgid "Yes, I will enter prices inclusive of tax"
+msgstr "Tak, będę wpisywać ceny zawierające już podatek"
+
+msgid "Yesterday"
+msgstr "Wczoraj"
+
+msgid "You are already logged in"
+msgstr "Jesteś już zalogowany"
+
+msgid "You can create any number of discount codes easily from this page."
+msgstr "Na tej stronie możesz dodawać dowolną liczbę kodów zniżkowych."
+
+msgid ""
+"You can easily change the number of columns by adding the columns=\"x\" "
+"parameter:"
+msgstr ""
+"Możesz z łatwością zmienić liczbę kolumn wyświetlanych w siatce produktów "
+"dodając atrybut columns=\"x\":"
+
+msgid "You can enter a transaction ID prefixed by 'txn:'"
+msgstr "Możesz podać identyfikator transakcji poprzedzony zapisem 'txn:'"
+
+msgid "You can enter the %s ID prefixed by '#'"
+msgstr "Możesz podać ID %s poprzedzony zapisem '#'"
+
+msgid "You can enter the 32-character purchase key"
+msgstr "Możesz podać 32-znakowy identyfikator zamówienia"
+
+msgid "You can enter the customer's IP address"
+msgstr "Możesz podać adres IP klienta"
+
+msgid "You can enter the customer's email address"
+msgstr "Możesz podać adres email klienta"
+
+msgid "You can enter the download file's name"
+msgstr "Możesz podać nazwy pobranych plików"
+
+msgid "You can enter the purchase ID"
+msgstr "Możesz podać identyfikator zamówienia"
+
+msgid "You do not have permission to delete this customer."
+msgstr "Nie posiadasz uprawnienia do usunięcia tego klienta."
+
+msgid "You do not have permission to download this file"
+msgstr "Nie masz uprawnień, aby pobrać ten plik"
+
+msgid "You do not have permission to edit this customer."
+msgstr "Nie posiadasz wystarczających uprawnień, by edytować tego klienta."
+
+msgid "You do not have permission to view this file."
+msgstr "Nie masz uprawnień, aby pobrać ten plik"
+
+msgid "You have already added this item to your cart"
+msgstr "Dodałeś już tą pozycję do koszyka"
+
+msgid "You have already purchased this item, but you may purchase it again."
+msgstr "Już kupiłeś ten plik, ale możesz kupić go ponownie jeśli chcesz."
+
+msgid "You have not made any purchases"
+msgstr "Nie dokonałeś żadnego zamówienia"
+
+msgid "You have not purchased any downloads"
+msgstr "Nie zamówiłeś żadnych plików"
+
+msgid "You have successfully added %s to your shopping cart."
+msgstr "Dodałeś %s do koszyka"
+
+msgid "You must agree to the terms of use"
+msgstr "Musisz zgodzić się na warunki użytkowania"
+
+msgid "You must choose a download"
+msgstr "Musisz wybrać plik do pobrania"
+
+msgid "You must have at least one field"
+msgstr "Musisz mieć co najmniej jedno pole"
+
+msgid "You must have at least one price"
+msgstr "Musisz mieć co najmniej jedną cenę"
+
+msgid "You must login or register to complete your purchase"
+msgstr "Musisz się zalogować lub zarejestrować, aby sfinalizować zakup"
+
+msgid "You must register or login to complete your purchase"
+msgstr "Musisz się zarejestrować lub zalogować, aby sfinalizować zakup"
+
+msgid "You need to login to edit your profile."
+msgstr "Musisz się zalogować, aby edytować swoje dane."
+
+msgid ""
+"You will also need to configure your gateway settings if you are accepting "
+"credit cards"
+msgstr ""
+"Musisz również skonfigurować ustawienia bramy, jeśli chcesz akceptować karty "
+"kredytowe"
+
+msgid "Your cart is empty"
+msgstr "Twój koszyk jest pusty"
+
+msgid "Your cart is empty."
+msgstr "Twój koszyk jest pusty."
+
+msgid "Your password"
+msgstr "Twoje hasło"
+
+msgid "Your profile has been edited successfully."
+msgstr "Twój profil został zaktualizowany."
+
+msgid "Your site name"
+msgstr "Nazwa Twojej strony"
+
+msgid "Your username"
+msgstr "Twoja nazwa użytkownika"
+
+msgid "Zip / Postal Code"
+msgstr "Kod pocztowy"
+
+msgctxt "Zip / Postal code of address"
+msgid "Zip / Postal Code:"
+msgstr "Kod pocztowy"
+
+msgid "[%s] New User Registration"
+msgstr "[%s] Rejestracja nowego użytkownika"
+
+msgid "[%s] Your username and password"
+msgstr "[%s] Twoja nazwa użytkownika i hasło"
+
+msgctxt "all dropdown items"
+msgid "All"
+msgstr "Wszystkie"
+
+msgctxt "download post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+msgctxt "download post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+msgctxt "download post type name"
+msgid "No %s found"
+msgstr "Nie znaleziono %s "
+
+msgid "excludes %s tax"
+msgstr "Nie uwzględnia %s podatku"
+
+msgid "guest"
+msgstr "gość"
+
+msgid "includes %s tax"
+msgstr "zawiera VAT %s"
+
+msgctxt "no dropdown items"
+msgid "None"
+msgstr "Brak"
+
+msgid "none"
+msgstr "brak"
+
+msgid "or checkout as a guest."
+msgstr "lub kontynuuj bez rejestracji."
+
+msgctxt "post type general name"
+msgid "Payments"
+msgstr "Płatności"
+
+msgctxt "post type singular name"
+msgid "Discount"
+msgstr "Kod promocyjny"
+
+msgctxt "post type singular name"
+msgid "Payment"
+msgstr "Płatność"
+
+msgid "remove"
+msgstr "usuń"
+
+msgctxt "singular download post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+msgctxt "taxonomy general name"
+msgid "%s Categories"
+msgstr "Kategorie"
+
+msgctxt "taxonomy general name"
+msgid "%s Tags"
+msgstr "Tagi"
+
+msgid "to"
+msgstr "do"

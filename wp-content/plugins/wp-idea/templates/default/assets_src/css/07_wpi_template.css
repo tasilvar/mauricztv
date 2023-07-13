@@ -1,0 +1,33 @@
+.wpi-template > [class*="wp-block-"] {
+    max-width: 1180px;
+    width: 100%;
+    margin: auto;
+    padding: 0 30px;
+}
+
+@media(max-width: 600px){
+    .wpi-template > [class*="wp-block-"] {
+        padding: 0 10px;
+    }
+}
+
+.wpi-template > [class*="wp-block-"].alignwide {
+    max-width: 1500px;
+}
+
+.wpi-template > [class*="wp-block-"].alignfull {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.wpi-template .wrapper {
+    text-align: left;
+    margin: 0 auto;
+    padding: 65px 15px 53px;
+    max-width: 800px;
+}
+
+.wpi-template .wrapper.wrapper--wide {
+    max-width: 1200px;
+}

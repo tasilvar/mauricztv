@@ -1,0 +1,1 @@
+<?= WPI()->templates->get_previous_lesson_nav( '<i class="fas fa-caret-left"></i> ', 'lekcja_nast_pop lekcja_pop' ); ?>

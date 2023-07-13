@@ -1,0 +1,1 @@
+<h1 class="wpi-page-title">{title}</h1>

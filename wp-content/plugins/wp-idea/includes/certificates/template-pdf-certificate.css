@@ -1,0 +1,10 @@
+body {
+    font-family: DejaVu Sans, sans-serif;
+    margin: 0;
+    padding: 4cm 5cm;
+    text-align: center;
+}
+
+@page {
+    margin: 0;
+}

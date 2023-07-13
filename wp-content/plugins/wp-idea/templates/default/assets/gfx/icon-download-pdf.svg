@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:cc="http://creativecommons.org/ns#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	version="1.1"
+	width="26"
+	height="35.176441"
+	viewBox="0 0 26 35.176441"
+	id="Capa_1"
+	xml:space="preserve"
+	inkscape:version="0.48.4 r9939"
+	sodipodi:docname="icon-download-pdf.svg"><sodipodi:namedview
+	pagecolor="#ffffff"
+	bordercolor="#666666"
+	borderopacity="1"
+	objecttolerance="10"
+	gridtolerance="10"
+	guidetolerance="10"
+	inkscape:pageopacity="0"
+	inkscape:pageshadow="2"
+	inkscape:window-width="1366"
+	inkscape:window-height="706"
+	id="namedview40"
+	showgrid="false"
+	inkscape:zoom="5.6568542"
+	inkscape:cx="-4.2187771"
+	inkscape:cy="12.965214"
+	inkscape:window-x="-8"
+	inkscape:window-y="-8"
+	inkscape:window-maximized="1"
+	inkscape:current-layer="g3030" /><metadata
+	id="metadata41"><rdf:RDF><cc:Work
+	rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+	rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+	id="defs39" />
+<style>
+	/* <![CDATA[ */
+	.fill {
+		fill: #81c0c2 /* links_color */;
+		fill-opacity: 1;
+	}
+	/* ]]> */
+</style>
+<g
+	transform="matrix(0.07475045,0,0,0.07475045,-4.5882575,0)"
+	id="g3070"
+	class="fill">
+<g
+	id="g3030"
+	class="fill">
+	<path
+	d="M 327.081,0 90.234,0 C 74.331,0 61.381,12.959 61.381,28.859 l 0,412.863 c 0,15.924 12.95,28.863 28.853,28.863 l 290.116,0 c 15.917,0 28.855,-12.939 28.855,-28.863 l 0,-352.488 z m 6.81,43.184 35.996,39.121 -35.996,0 z m 51.081,398.539 c 0,2.542 -2.081,4.629 -4.635,4.629 l -290.103,0 c -2.55,0 -4.619,-2.087 -4.619,-4.629 l 0,-412.864 c 0,-2.548 2.069,-4.613 4.619,-4.613 l 219.411,0 0,70.181 c 0,6.682 5.443,12.099 12.129,12.099 l 63.198,0 z"
+	id="path3032"
+	class="fill" />
+<text
+	x="232.74368"
+	y="294.0369"
+	id="text3106"
+	xml:space="preserve"
+	style="font-size:124.09490204px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans Bold"
+	class="fill"
+	sodipodi:linespacing="125%"><tspan
+	x="232.74368"
+	y="294.0369"
+	id="tspan3108">PDF</tspan></text>
+
+</g>
+</g>
+</svg>
