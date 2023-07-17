@@ -671,20 +671,23 @@ if (!class_exists('BPMJ_WPI')) {
             wp_enqueue_style('bpmj_eddmc_admin_style');
 
             // Select2
-            wp_register_style(
-                'bpmj_eddmc_select2_style',
-                BPMJ_EDDCM_URL . 'assets/css/select2.min.css',
-                [],
-                BPMJ_EDDCM_VERSION
-            );
-            wp_enqueue_style('bpmj_eddmc_select2_style');
-            wp_register_script(
-                'bpmj_eddmc_select2_script',
-                BPMJ_EDDCM_URL . 'assets/js/select2.min.js',
-                ['jquery'],
-                BPMJ_EDDCM_VERSION
-            );
-            wp_enqueue_script('bpmj_eddmc_select2_script');
+
+            if(!is_plugin_active('advanced-custom-fields')) {
+            // wp_register_style(
+            //     'bpmj_eddmc_select2_style',
+            //     BPMJ_EDDCM_URL . 'assets/css/select2.min.css',
+            //     [],
+            //     BPMJ_EDDCM_VERSION
+            // );
+            // wp_enqueue_style('bpmj_eddmc_select2_style');
+            // wp_register_script(
+            //     'bpmj_eddmc_select2_script',
+            //     BPMJ_EDDCM_URL . 'assets/js/select2.min.js',
+            //     ['jquery'],
+            //     BPMJ_EDDCM_VERSION
+            // );
+            // wp_enqueue_script('bpmj_eddmc_select2_script');
+        }
 
             // JQuery Interdependencies
             wp_register_script(

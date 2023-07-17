@@ -2,6 +2,7 @@
 /** @var int $product_id */
 ?>
 <div class="contenter_tresci">
+    <!-- test test test -->
 <?php
     the_title('<h2>', '</h2>');
 
@@ -9,6 +10,7 @@
 
     while ( have_posts() ) {
         the_post();
+        // echo "AAAA";
         the_content();
     }
 ?>

@@ -299,7 +299,10 @@ class Edit_Course {
 			$course = WPI()->courses->get_course_by_product( $post->ID );
 			if ( false !== $course ) {
 				if ( empty( $_GET[ 'edit_description' ] ) ) {
-				    $url = get_edit_post_link( $post->ID, 'redirect' );
+					$url = get_edit_post_link( $post->ID, 'redirect' ).'&edit_description=1';
+		// 			echo "TEST: ". $url.'&edit_description=1';
+		// exit();
+				    
 				    if (! empty( $url ) ) {
                         wp_redirect( $url );
                         exit;
@@ -3480,7 +3483,7 @@ class Edit_Course {
 		$page   = $screen->id;
 
 		// Remove ALL metaboxes for EDD products except for "submitdiv"
-		if ( ! empty( $wp_meta_boxes[ $page ] ) ) {
+		/*if ( ! empty( $wp_meta_boxes[ $page ] ) ) {
 			$submitdiv = isset( $wp_meta_boxes[ $page ][ 'side' ] ) && isset( $wp_meta_boxes[ $page ][ 'side' ][ 'core' ] ) && isset( $wp_meta_boxes[ $page ][ 'side' ][ 'core' ][ 'submitdiv' ] )
 				? $wp_meta_boxes[ $page ][ 'side' ][ 'core' ][ 'submitdiv' ]
 				: null;
@@ -3495,7 +3498,7 @@ class Edit_Course {
 			} else {
 				$wp_meta_boxes[ $page ] = array();
 			}
-		}
+		} */
 
 		// Remove title input
 		remove_post_type_support( 'download', 'title' );

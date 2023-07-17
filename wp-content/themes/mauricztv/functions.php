@@ -313,6 +313,11 @@ function my_theme_enqueue_styles() {
 	wp_enqueue_style('main-styles', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);	
 }
 
+add_shortcode('mjtest_shortcode', 'mjtest_shortcode');
+
+function mjtest_shortcode() { 
+     return "test mjshortcode: ". get_post_type( get_the_ID());
+}
 
 
 
