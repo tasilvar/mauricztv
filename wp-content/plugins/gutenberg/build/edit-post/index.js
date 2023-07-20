@@ -5434,6 +5434,7 @@ const plus = (0,external_wp_element_namespaceObject.createElement)(external_wp_p
 
 
 
+
 /**
  * Internal dependencies
  */
@@ -5454,6 +5455,10 @@ function HeaderToolbar() {
     setIsInserterOpened,
     setIsListViewOpened
   } = (0,external_wp_data_namespaceObject.useDispatch)(store_store);
+  const {
+    get: getPreference
+  } = (0,external_wp_data_namespaceObject.useSelect)(external_wp_preferences_namespaceObject.store);
+  const hasFixedToolbar = getPreference('core/edit-post', 'fixedToolbar');
   const {
     isInserterEnabled,
     isInserterOpened,
@@ -5551,7 +5556,7 @@ function HeaderToolbar() {
     icon: library_plus,
     label: showIconLabels ? shortLabel : longLabel,
     showTooltip: !showIconLabels
-  }), (isWideViewport || !showIconLabels) && (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, isLargeViewport && (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarItem, {
+  }), (isWideViewport || !showIconLabels) && (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, isLargeViewport && !hasFixedToolbar && (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarItem, {
     as: external_wp_blockEditor_namespaceObject.ToolSelector,
     showTooltip: !showIconLabels,
     variant: showIconLabels ? 'tertiary' : undefined,
@@ -6793,11 +6798,8 @@ function PostVisibilityToggle({
  * WordPress dependencies
  */
 
-
 function PostTrash() {
-  return (0,external_wp_element_namespaceObject.createElement)(external_wp_editor_namespaceObject.PostTrashCheck, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.FlexItem, {
-    isBlock: true
-  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_editor_namespaceObject.PostTrash, null)));
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_editor_namespaceObject.PostTrashCheck, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_editor_namespaceObject.PostTrash, null));
 }
 
 ;// CONCATENATED MODULE: ./packages/edit-post/build-module/components/sidebar/post-schedule/index.js
@@ -7436,7 +7438,8 @@ function PostStatus({
     style: {
       marginTop: '16px'
     },
-    spacing: 4
+    spacing: 4,
+    wrap: true
   }, (0,external_wp_element_namespaceObject.createElement)(external_wp_editor_namespaceObject.PostSwitchToDraftButton, null), (0,external_wp_element_namespaceObject.createElement)(PostTrash, null)))));
 }
 
@@ -9218,6 +9221,21 @@ const cog = (0,external_wp_element_namespaceObject.createElement)(external_wp_pr
 }));
 /* harmony default export */ const library_cog = (cog);
 
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/desktop.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const desktop = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M20.5 16h-.7V8c0-1.1-.9-2-2-2H6.2c-1.1 0-2 .9-2 2v8h-.7c-.8 0-1.5.7-1.5 1.5h20c0-.8-.7-1.5-1.5-1.5zM5.7 8c0-.3.2-.5.5-.5h11.6c.3 0 .5.2.5.5v7.6H5.7V8z"
+}));
+/* harmony default export */ const library_desktop = (desktop);
+
 ;// CONCATENATED MODULE: ./packages/icons/build-module/library/code.js
 
 
@@ -9269,18 +9287,27 @@ function useCommonCommands() {
   const {
     openGeneralSidebar,
     closeGeneralSidebar,
-    switchEditorMode
+    switchEditorMode,
+    setIsListViewOpened
   } = (0,external_wp_data_namespaceObject.useDispatch)(store_store);
   const {
     openModal
   } = (0,external_wp_data_namespaceObject.useDispatch)(store);
   const {
     editorMode,
-    activeSidebar
-  } = (0,external_wp_data_namespaceObject.useSelect)(select => ({
-    activeSidebar: select(store).getActiveComplementaryArea(store_store.name),
-    editorMode: select(store_store).getEditorMode()
-  }), []);
+    activeSidebar,
+    isListViewOpen
+  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const {
+      getEditorMode,
+      isListViewOpened
+    } = select(store_store);
+    return {
+      activeSidebar: select(store).getActiveComplementaryArea(store_store.name),
+      editorMode: getEditorMode(),
+      isListViewOpen: isListViewOpened()
+    };
+  }, []);
   const {
     toggle
   } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_preferences_namespaceObject.store);
@@ -9335,6 +9362,28 @@ function useCommonCommands() {
       close
     }) => {
       toggle('core/edit-post', 'focusMode');
+      close();
+    }
+  });
+  (0,external_wp_commands_namespaceObject.useCommand)({
+    name: 'core/toggle-fullscreen-mode',
+    label: (0,external_wp_i18n_namespaceObject.__)('Toggle fullscreen mode'),
+    icon: library_desktop,
+    callback: ({
+      close
+    }) => {
+      toggle('core/edit-post', 'fullscreenMode');
+      close();
+    }
+  });
+  (0,external_wp_commands_namespaceObject.useCommand)({
+    name: 'core/toggle-list-view',
+    label: (0,external_wp_i18n_namespaceObject.__)('Toggle list view'),
+    icon: list_view,
+    callback: ({
+      close
+    }) => {
+      setIsListViewOpened(!isListViewOpen);
       close();
     }
   });

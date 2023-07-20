@@ -1937,7 +1937,11 @@ const metadata = {
     html: false,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -2521,35 +2525,6 @@ const caption = (0,external_wp_element_namespaceObject.createElement)(external_w
 const external_wp_notices_namespaceObject = window["wp"]["notices"];
 ;// CONCATENATED MODULE: external ["wp","compose"]
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
-;// CONCATENATED MODULE: ./packages/block-library/build-module/embed/constants.js
-const ASPECT_RATIOS = [// Common video resolutions.
-{
-  ratio: '2.33',
-  className: 'wp-embed-aspect-21-9'
-}, {
-  ratio: '2.00',
-  className: 'wp-embed-aspect-18-9'
-}, {
-  ratio: '1.78',
-  className: 'wp-embed-aspect-16-9'
-}, {
-  ratio: '1.33',
-  className: 'wp-embed-aspect-4-3'
-}, // Vertical video and instagram square video support.
-{
-  ratio: '1.00',
-  className: 'wp-embed-aspect-1-1'
-}, {
-  ratio: '0.56',
-  className: 'wp-embed-aspect-9-16'
-}, {
-  ratio: '0.50',
-  className: 'wp-embed-aspect-1-2'
-}];
-const WP_EMBED_TYPE = 'wp-embed';
-
-;// CONCATENATED MODULE: external "lodash"
-const external_lodash_namespaceObject = window["lodash"];
 // EXTERNAL MODULE: ./node_modules/classnames/dedupe.js
 var dedupe = __webpack_require__(3827);
 var dedupe_default = /*#__PURE__*/__webpack_require__.n(dedupe);
@@ -2715,23 +2690,57 @@ function memize(fn, options) {
 
 
 
+;// CONCATENATED MODULE: ./packages/block-library/build-module/embed/constants.js
+const ASPECT_RATIOS = [// Common video resolutions.
+{
+  ratio: '2.33',
+  className: 'wp-embed-aspect-21-9'
+}, {
+  ratio: '2.00',
+  className: 'wp-embed-aspect-18-9'
+}, {
+  ratio: '1.78',
+  className: 'wp-embed-aspect-16-9'
+}, {
+  ratio: '1.33',
+  className: 'wp-embed-aspect-4-3'
+}, // Vertical video and instagram square video support.
+{
+  ratio: '1.00',
+  className: 'wp-embed-aspect-1-1'
+}, {
+  ratio: '0.56',
+  className: 'wp-embed-aspect-9-16'
+}, {
+  ratio: '0.50',
+  className: 'wp-embed-aspect-1-2'
+}];
+const WP_EMBED_TYPE = 'wp-embed';
+
+;// CONCATENATED MODULE: external ["wp","privateApis"]
+const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
+;// CONCATENATED MODULE: ./packages/block-library/build-module/lock-unlock.js
+/**
+ * WordPress dependencies
+ */
+
+const {
+  lock,
+  unlock
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/block-library');
+
 ;// CONCATENATED MODULE: ./packages/block-library/build-module/embed/util.js
 
-
-/**
- * Internal dependencies
- */
 
 /**
  * External dependencies
  */
 
 
-
-
 /**
  * WordPress dependencies
  */
+
 
 
 
@@ -2790,9 +2799,14 @@ const util_metadata = {
   editorStyle: "wp-block-embed-editor",
   style: "wp-block-embed"
 };
+
+
 const {
   name: DEFAULT_EMBED_BLOCK
 } = util_metadata;
+const {
+  kebabCase
+} = unlock(external_wp_blockEditor_namespaceObject.privateApis);
 /** @typedef {import('@wordpress/blocks').WPBlockVariation} WPBlockVariation */
 
 /**
@@ -3030,7 +3044,7 @@ const getAttributesFromPreview = memize((preview, title, currentClassNames, isRe
     html,
     provider_name: providerName
   } = preview;
-  const providerNameSlug = (0,external_lodash_namespaceObject.kebabCase)((providerName || title).toLowerCase());
+  const providerNameSlug = kebabCase((providerName || title).toLowerCase());
 
   if (isFromWordPress(html)) {
     type = WP_EMBED_TYPE;
@@ -3501,7 +3515,11 @@ const audio_metadata = {
     align: true,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     }
   },
   editorStyle: "wp-block-audio-editor",
@@ -3546,18 +3564,6 @@ const button_button = (0,external_wp_element_namespaceObject.createElement)(exte
   d: "M8 12.5h8V11H8v1.5Z M19 6.5H5a2 2 0 0 0-2 2V15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a2 2 0 0 0-2-2ZM5 8h14a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8.5A.5.5 0 0 1 5 8Z"
 }));
 /* harmony default export */ const library_button = (button_button);
-
-;// CONCATENATED MODULE: external ["wp","privateApis"]
-const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
-;// CONCATENATED MODULE: ./packages/block-library/build-module/lock-unlock.js
-/**
- * WordPress dependencies
- */
-
-const {
-  lock,
-  unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/block-library');
 
 ;// CONCATENATED MODULE: ./packages/block-library/build-module/utils/migrate-font-family.js
 /**
@@ -6032,7 +6038,11 @@ const categories_metadata = {
     html: false,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -6731,7 +6741,11 @@ const code_metadata = {
     },
     spacing: {
       margin: ["top", "bottom"],
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     __experimentalBorder: {
       radius: true,
@@ -7050,6 +7064,7 @@ const column_metadata = {
     html: false,
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -8656,6 +8671,7 @@ const comments_metadata = {
     html: false,
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -13301,7 +13317,8 @@ function CoverInspectorControls({
     min: 0,
     max: 100,
     step: 10,
-    required: true
+    required: true,
+    __next40pxDefaultSize: true
   }))), (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.InspectorControls, {
     group: "dimensions"
   }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalToolsPanelItem, {
@@ -14405,6 +14422,7 @@ const cover_metadata = {
     },
     color: {
       __experimentalDuotone: "> .wp-block-cover__image-background, > .wp-block-cover__video-background",
+      heading: true,
       text: true,
       background: false,
       __experimentalSkipSerialization: ["gradients"]
@@ -14625,7 +14643,11 @@ const details_metadata = {
     html: false,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -17245,7 +17267,8 @@ const file_metadata = {
         background: true,
         link: true
       }
-    }
+    },
+    interactivity: true
   },
   viewScript: "file:./view.min.js",
   editorStyle: "wp-block-file-editor",
@@ -20797,7 +20820,9 @@ const gallery_metadata = {
       blockGap: ["horizontal", "vertical"],
       __experimentalSkipSerialization: ["blockGap"],
       __experimentalDefaultControls: {
-        blockGap: true
+        blockGap: true,
+        margin: false,
+        padding: false
       }
     },
     color: {
@@ -21706,6 +21731,7 @@ const group_metadata = {
     html: false,
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -22488,7 +22514,11 @@ const {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -22653,7 +22683,11 @@ const heading_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -23121,99 +23155,52 @@ const html_init = () => initBlock({
  */
 
 
-const image_deprecated_blockAttributes = {
-  align: {
-    type: 'string'
-  },
-  url: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'img',
-    attribute: 'src'
-  },
-  alt: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'img',
-    attribute: 'alt',
-    default: ''
-  },
-  caption: {
-    type: 'string',
-    source: 'html',
-    selector: 'figcaption'
-  },
-  title: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'img',
-    attribute: 'title'
-  },
-  href: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'figure > a',
-    attribute: 'href'
-  },
-  rel: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'figure > a',
-    attribute: 'rel'
-  },
-  linkClass: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'figure > a',
-    attribute: 'class'
-  },
-  id: {
-    type: 'number'
-  },
-  width: {
-    type: 'number'
-  },
-  height: {
-    type: 'number'
-  },
-  sizeSlug: {
-    type: 'string'
-  },
-  linkDestination: {
-    type: 'string'
-  },
-  linkTarget: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'figure > a',
-    attribute: 'target'
-  }
-};
-const deprecated_blockSupports = {
-  anchor: true,
-  color: {
-    __experimentalDuotone: 'img',
-    text: false,
-    background: false
-  },
-  __experimentalBorder: {
-    radius: true,
-    __experimentalDefaultControls: {
-      radius: true
+/**
+ * Deprecation for adding the `wp-image-${id}` class to the image block for
+ * responsive images.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/4898
+ */
+
+const image_deprecated_v1 = {
+  attributes: {
+    url: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    alt: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt',
+      default: ''
+    },
+    caption: {
+      type: 'array',
+      source: 'children',
+      selector: 'figcaption'
+    },
+    href: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'a',
+      attribute: 'href'
+    },
+    id: {
+      type: 'number'
+    },
+    align: {
+      type: 'string'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
     }
-  }
-};
-const image_deprecated_deprecated = [// The following deprecation moves existing border radius styles onto the
-// inner img element where new border block support styles must be applied.
-// It will also add a new `.has-custom-border` class for existing blocks
-// with border radii set. This class is required to improve caption position
-// and styling when an image within a gallery has a custom border or
-// rounded corners.
-//
-// See: https://github.com/WordPress/gutenberg/pull/31366/
-{
-  attributes: image_deprecated_blockAttributes,
-  supports: deprecated_blockSupports,
+  },
 
   save({
     attributes
@@ -23224,19 +23211,185 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
       caption,
       align,
       href,
-      rel,
-      linkClass,
+      width,
+      height
+    } = attributes;
+    const extraImageProps = width || height ? {
+      width,
+      height
+    } : {};
+    const image = (0,external_wp_element_namespaceObject.createElement)("img", {
+      src: url,
+      alt: alt,
+      ...extraImageProps
+    });
+    let figureStyle = {};
+
+    if (width) {
+      figureStyle = {
+        width
+      };
+    } else if (align === 'left' || align === 'right') {
+      figureStyle = {
+        maxWidth: '50%'
+      };
+    }
+
+    return (0,external_wp_element_namespaceObject.createElement)("figure", {
+      className: align ? `align${align}` : null,
+      style: figureStyle
+    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
+      href: href
+    }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
+      tagName: "figcaption",
+      value: caption
+    }));
+  }
+
+};
+/**
+ * Deprecation for adding the `is-resized` class to the image block to fix
+ * captions on resized images.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/6496
+ */
+
+const image_deprecated_v2 = {
+  attributes: {
+    url: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    alt: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt',
+      default: ''
+    },
+    caption: {
+      type: 'array',
+      source: 'children',
+      selector: 'figcaption'
+    },
+    href: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'a',
+      attribute: 'href'
+    },
+    id: {
+      type: 'number'
+    },
+    align: {
+      type: 'string'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
+    }
+  },
+
+  save({
+    attributes
+  }) {
+    const {
+      url,
+      alt,
+      caption,
+      align,
+      href,
       width,
       height,
-      id,
-      linkTarget,
-      sizeSlug,
-      title
+      id
     } = attributes;
-    const newRel = !rel ? undefined : rel;
+    const image = (0,external_wp_element_namespaceObject.createElement)("img", {
+      src: url,
+      alt: alt,
+      className: id ? `wp-image-${id}` : null,
+      width: width,
+      height: height
+    });
+    return (0,external_wp_element_namespaceObject.createElement)("figure", {
+      className: align ? `align${align}` : null
+    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
+      href: href
+    }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
+      tagName: "figcaption",
+      value: caption
+    }));
+  }
+
+};
+/**
+ * Deprecation for image floats including a wrapping div.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/7721
+ */
+
+const image_deprecated_v3 = {
+  attributes: {
+    url: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    alt: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt',
+      default: ''
+    },
+    caption: {
+      type: 'array',
+      source: 'children',
+      selector: 'figcaption'
+    },
+    href: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'href'
+    },
+    id: {
+      type: 'number'
+    },
+    align: {
+      type: 'string'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
+    },
+    linkDestination: {
+      type: 'string',
+      default: 'none'
+    }
+  },
+
+  save({
+    attributes
+  }) {
+    const {
+      url,
+      alt,
+      caption,
+      align,
+      href,
+      width,
+      height,
+      id
+    } = attributes;
     const classes = classnames_default()({
       [`align${align}`]: align,
-      [`size-${sizeSlug}`]: sizeSlug,
       'is-resized': width || height
     });
     const image = (0,external_wp_element_namespaceObject.createElement)("img", {
@@ -23244,37 +23397,97 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
       alt: alt,
       className: id ? `wp-image-${id}` : null,
       width: width,
-      height: height,
-      title: title
+      height: height
     });
-    const figure = (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
-      className: linkClass,
-      href: href,
-      target: linkTarget,
-      rel: newRel
+    return (0,external_wp_element_namespaceObject.createElement)("figure", {
+      className: classes
+    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
+      href: href
     }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
       tagName: "figcaption",
       value: caption
     }));
-    return (0,external_wp_element_namespaceObject.createElement)("figure", { ...external_wp_blockEditor_namespaceObject.useBlockProps.save({
-        className: classes
-      })
-    }, figure);
   }
 
-}, {
-  attributes: { ...image_deprecated_blockAttributes,
+};
+/**
+ * Deprecation for removing the outer div wrapper around aligned images.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/38657
+ */
+
+const image_deprecated_v4 = {
+  attributes: {
+    align: {
+      type: 'string'
+    },
+    url: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    alt: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt',
+      default: ''
+    },
+    caption: {
+      type: 'string',
+      source: 'html',
+      selector: 'figcaption'
+    },
     title: {
       type: 'string',
       source: 'attribute',
       selector: 'img',
       attribute: 'title'
     },
+    href: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'href'
+    },
+    rel: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'rel'
+    },
+    linkClass: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'class'
+    },
+    id: {
+      type: 'number'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
+    },
     sizeSlug: {
       type: 'string'
+    },
+    linkDestination: {
+      type: 'string'
+    },
+    linkTarget: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'target'
     }
   },
-  supports: deprecated_blockSupports,
+  supports: {
+    anchor: true
+  },
 
   save({
     attributes
@@ -23331,8 +23544,106 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
     }, figure);
   }
 
-}, {
-  attributes: image_deprecated_blockAttributes,
+};
+/**
+ * Deprecation for moving existing border radius styles onto the inner img
+ * element where new border block support styles must be applied.
+ * It will also add a new `.has-custom-border` class for existing blocks
+ * with border radii set. This class is required to improve caption position
+ * and styling when an image within a gallery has a custom border or
+ * rounded corners.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/31366
+ */
+
+const image_deprecated_v5 = {
+  attributes: {
+    align: {
+      type: 'string'
+    },
+    url: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    alt: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt',
+      default: ''
+    },
+    caption: {
+      type: 'string',
+      source: 'html',
+      selector: 'figcaption'
+    },
+    title: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'title'
+    },
+    href: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'href'
+    },
+    rel: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'rel'
+    },
+    linkClass: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'class'
+    },
+    id: {
+      type: 'number'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
+    },
+    sizeSlug: {
+      type: 'string'
+    },
+    linkDestination: {
+      type: 'string'
+    },
+    linkTarget: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'figure > a',
+      attribute: 'target'
+    }
+  },
+  supports: {
+    anchor: true,
+    color: {
+      __experimentalDuotone: 'img',
+      text: false,
+      background: false
+    },
+    __experimentalBorder: {
+      radius: true,
+      __experimentalDefaultControls: {
+        radius: true
+      }
+    },
+    __experimentalStyle: {
+      spacing: {
+        margin: '0 0 1em 0'
+      }
+    }
+  },
 
   save({
     attributes
@@ -23343,12 +23654,19 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
       caption,
       align,
       href,
+      rel,
+      linkClass,
       width,
       height,
-      id
+      id,
+      linkTarget,
+      sizeSlug,
+      title
     } = attributes;
+    const newRel = !rel ? undefined : rel;
     const classes = classnames_default()({
       [`align${align}`]: align,
+      [`size-${sizeSlug}`]: sizeSlug,
       'is-resized': width || height
     });
     const image = (0,external_wp_element_namespaceObject.createElement)("img", {
@@ -23356,21 +23674,33 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
       alt: alt,
       className: id ? `wp-image-${id}` : null,
       width: width,
-      height: height
+      height: height,
+      title: title
     });
-    return (0,external_wp_element_namespaceObject.createElement)("figure", {
-      className: classes
-    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
-      href: href
+    const figure = (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
+      className: linkClass,
+      href: href,
+      target: linkTarget,
+      rel: newRel
     }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
       tagName: "figcaption",
       value: caption
     }));
+    return (0,external_wp_element_namespaceObject.createElement)("figure", { ...external_wp_blockEditor_namespaceObject.useBlockProps.save({
+        className: classes
+      })
+    }, figure);
   }
 
-}, {
-  attributes: image_deprecated_blockAttributes,
+};
+/**
+ * Deprecation for adding width and height as style rules on the inner img.
+ * It also updates the widht and height attributes to be strings instead of numbers.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/31366
+ */
 
+const image_deprecated_v6 = {
   save({
     attributes
   }) {
@@ -23380,76 +23710,58 @@ const image_deprecated_deprecated = [// The following deprecation moves existing
       caption,
       align,
       href,
+      rel,
+      linkClass,
       width,
       height,
-      id
+      aspectRatio,
+      scale,
+      id,
+      linkTarget,
+      sizeSlug,
+      title
     } = attributes;
+    const newRel = !rel ? undefined : rel;
+    const borderProps = (0,external_wp_blockEditor_namespaceObject.__experimentalGetElementClassName)(attributes);
+    const classes = classnames_default()({
+      [`align${align}`]: align,
+      [`size-${sizeSlug}`]: sizeSlug,
+      'is-resized': width || height,
+      'has-custom-border': !!borderProps.className || borderProps.style && Object.keys(borderProps.style).length > 0
+    });
+    const imageClasses = classnames_default()(borderProps.className, {
+      [`wp-image-${id}`]: !!id
+    });
     const image = (0,external_wp_element_namespaceObject.createElement)("img", {
       src: url,
       alt: alt,
-      className: id ? `wp-image-${id}` : null,
+      className: imageClasses || undefined,
+      style: { ...borderProps.style,
+        aspectRatio,
+        objectFit: scale
+      },
       width: width,
-      height: height
+      height: height,
+      title: title
     });
-    return (0,external_wp_element_namespaceObject.createElement)("figure", {
-      className: align ? `align${align}` : null
-    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
-      href: href
+    const figure = (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
+      className: linkClass,
+      href: href,
+      target: linkTarget,
+      rel: newRel
     }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
+      className: (0,external_wp_blockEditor_namespaceObject.__experimentalGetElementClassName)('caption'),
       tagName: "figcaption",
       value: caption
     }));
+    return (0,external_wp_element_namespaceObject.createElement)("figure", { ...external_wp_blockEditor_namespaceObject.useBlockProps.save({
+        className: classes
+      })
+    }, figure);
   }
 
-}, {
-  attributes: image_deprecated_blockAttributes,
-
-  save({
-    attributes
-  }) {
-    const {
-      url,
-      alt,
-      caption,
-      align,
-      href,
-      width,
-      height
-    } = attributes;
-    const extraImageProps = width || height ? {
-      width,
-      height
-    } : {};
-    const image = (0,external_wp_element_namespaceObject.createElement)("img", {
-      src: url,
-      alt: alt,
-      ...extraImageProps
-    });
-    let figureStyle = {};
-
-    if (width) {
-      figureStyle = {
-        width
-      };
-    } else if (align === 'left' || align === 'right') {
-      figureStyle = {
-        maxWidth: '50%'
-      };
-    }
-
-    return (0,external_wp_element_namespaceObject.createElement)("figure", {
-      className: align ? `align${align}` : null,
-      style: figureStyle
-    }, href ? (0,external_wp_element_namespaceObject.createElement)("a", {
-      href: href
-    }, image) : image, !external_wp_blockEditor_namespaceObject.RichText.isEmpty(caption) && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.RichText.Content, {
-      tagName: "figcaption",
-      value: caption
-    }));
-  }
-
-}];
-/* harmony default export */ const image_deprecated = (image_deprecated_deprecated);
+};
+/* harmony default export */ const image_deprecated = ([image_deprecated_v6, image_deprecated_v5, image_deprecated_v4, image_deprecated_v3, image_deprecated_v2, image_deprecated_v1]);
 
 ;// CONCATENATED MODULE: ./packages/icons/build-module/library/crop.js
 
@@ -24009,7 +24321,7 @@ function image_Image({
       }
     }, img);
   } else {
-    const ratio = aspectRatio && evalAspectRatio(aspectRatio) || width && height && width / height || naturalWidth / naturalHeight;
+    const ratio = aspectRatio && evalAspectRatio(aspectRatio) || width && height && width / height || naturalWidth / naturalHeight || 1;
     const currentWidth = !width && height ? height * ratio : width;
     const currentHeight = !height && width ? width / ratio : height;
     const minWidth = naturalWidth < naturalHeight ? constants_MIN_SIZE : constants_MIN_SIZE * ratio;
@@ -24510,7 +24822,9 @@ function image_save_save({
     className: imageClasses || undefined,
     style: { ...borderProps.style,
       aspectRatio,
-      objectFit: scale
+      objectFit: scale,
+      width,
+      height
     },
     width: width,
     height: height,
@@ -26680,7 +26994,11 @@ const list_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     __unstablePasteTextInline: true,
     __experimentalSelector: "ol,ul",
@@ -27441,7 +27759,11 @@ const {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     __unstablePasteTextInline: true,
     __experimentalSelector: "ol,ul",
@@ -27512,6 +27834,7 @@ const {
       __experimentalFontWeight: true,
       __experimentalLetterSpacing: true,
       __experimentalTextTransform: true,
+      __experimentalWritingMode: true,
       __experimentalDefaultControls: {
         fontSize: true
       }
@@ -29682,6 +30005,7 @@ const media_text_metadata = {
     html: false,
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -29773,25 +30097,39 @@ function MissingBlockWarning({
     originalUndelimitedContent
   } = attributes;
   const hasContent = !!originalUndelimitedContent;
-  const hasHTMLBlock = (0,external_wp_data_namespaceObject.useSelect)(select => {
+  const {
+    hasFreeformBlock,
+    hasHTMLBlock
+  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
       canInsertBlockType,
       getBlockRootClientId
     } = select(external_wp_blockEditor_namespaceObject.store);
-    return canInsertBlockType('core/html', getBlockRootClientId(clientId));
+    return {
+      hasFreeformBlock: canInsertBlockType('core/freeform', getBlockRootClientId(clientId)),
+      hasHTMLBlock: canInsertBlockType('core/html', getBlockRootClientId(clientId))
+    };
   }, [clientId]);
   const actions = [];
   let messageHTML;
+  const convertToHtmlButton = (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+    key: "convert",
+    onClick: convertToHTML,
+    variant: "primary"
+  }, (0,external_wp_i18n_namespaceObject.__)('Keep as HTML'));
 
-  if (hasContent && hasHTMLBlock) {
+  if (hasContent && !hasFreeformBlock && !originalName) {
+    if (hasHTMLBlock) {
+      messageHTML = (0,external_wp_i18n_namespaceObject.__)('It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely. Alternatively, you can refresh the page to use the Classic block.');
+      actions.push(convertToHtmlButton);
+    } else {
+      messageHTML = (0,external_wp_i18n_namespaceObject.__)('It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely. Alternatively, you can refresh the page to use the Classic block.');
+    }
+  } else if (hasContent && hasHTMLBlock) {
     messageHTML = (0,external_wp_i18n_namespaceObject.sprintf)(
     /* translators: %s: block name */
     (0,external_wp_i18n_namespaceObject.__)('Your site doesn’t include support for the "%s" block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely.'), originalName);
-    actions.push((0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
-      key: "convert",
-      onClick: convertToHTML,
-      variant: "primary"
-    }, (0,external_wp_i18n_namespaceObject.__)('Keep as HTML')));
+    actions.push(convertToHtmlButton);
   } else {
     messageHTML = (0,external_wp_i18n_namespaceObject.sprintf)(
     /* translators: %s: block name */
@@ -32256,6 +32594,8 @@ function LinkUI(props) {
   const {
     saveEntityRecord
   } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_coreData_namespaceObject.store);
+  const pagesPermissions = (0,external_wp_coreData_namespaceObject.useResourcePermissions)('pages');
+  const postsPermissions = (0,external_wp_coreData_namespaceObject.useResourcePermissions)('posts');
 
   async function handleCreate(pageTitle) {
     const postType = props.link.type || 'page';
@@ -32288,8 +32628,16 @@ function LinkUI(props) {
     opensInNewTab,
     type,
     kind
-  } = props.link; // Memoize link value to avoid overriding the LinkControl's internal state.
+  } = props.link;
+  let userCanCreate = false;
+
+  if (!type || type === 'page') {
+    userCanCreate = pagesPermissions.canCreate;
+  } else if (type === 'post') {
+    userCanCreate = postsPermissions.canCreate;
+  } // Memoize link value to avoid overriding the LinkControl's internal state.
   // This is a temporary fix. See https://github.com/WordPress/gutenberg/issues/50976#issuecomment-1568226407.
+
 
   const link = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     url,
@@ -32307,7 +32655,7 @@ function LinkUI(props) {
     className: props.className,
     value: link,
     showInitialSuggestions: true,
-    withCreateSuggestion: props.hasCreateSuggestion,
+    withCreateSuggestion: userCanCreate,
     createSuggestion: handleCreate,
     createSuggestionButtonText: searchTerm => {
       let format;
@@ -32393,7 +32741,6 @@ function AdditionalBlockContent({
     onClose: () => {
       setInsertedBlock(null);
     },
-    hasCreateSuggestion: false,
     onChange: updatedValue => {
       updateAttributes(updatedValue, setInsertedBlockAttributes(insertedBlock?.clientId), insertedBlock?.attributes);
       setInsertedBlock(null);
@@ -32650,7 +32997,7 @@ function Navigation({
   const hasUnsavedBlocks = hasUncontrolledInnerBlocks && !isEntityAvailable;
   const {
     getNavigationFallbackId
-  } = (0,external_wp_data_namespaceObject.useSelect)(external_wp_coreData_namespaceObject.store);
+  } = unlock((0,external_wp_data_namespaceObject.useSelect)(external_wp_coreData_namespaceObject.store));
   const navigationFallbackId = !(ref || hasUnsavedBlocks) ? getNavigationFallbackId() : null;
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     // If:
@@ -33785,9 +34132,10 @@ const navigation_metadata = {
           }
         }
       }
-    }
+    },
+    interactivity: true
   },
-  viewScript: ["file:./view.min.js", "file:./view-modal.min.js"],
+  viewScript: "file:./view.min.js",
   editorStyle: "wp-block-navigation-editor",
   style: "wp-block-navigation"
 };
@@ -34096,8 +34444,6 @@ function NavigationLinkEdit({
   const itemLabelPlaceholder = (0,external_wp_i18n_namespaceObject.__)('Add label…');
 
   const ref = (0,external_wp_element_namespaceObject.useRef)();
-  const pagesPermissions = (0,external_wp_coreData_namespaceObject.useResourcePermissions)('pages');
-  const postsPermissions = (0,external_wp_coreData_namespaceObject.useResourcePermissions)('posts');
   const {
     innerBlocks,
     isAtMaxNesting,
@@ -34212,14 +34558,6 @@ function NavigationLinkEdit({
     }); // Close the link editing UI.
 
     setIsLinkOpen(false);
-  }
-
-  let userCanCreate = false;
-
-  if (!type || type === 'page') {
-    userCanCreate = pagesPermissions.canCreate;
-  } else if (type === 'post') {
-    userCanCreate = postsPermissions.canCreate;
   }
 
   const {
@@ -34396,7 +34734,6 @@ function NavigationLinkEdit({
     link: attributes,
     onClose: () => setIsLinkOpen(false),
     anchor: popoverAnchor,
-    hasCreateSuggestion: userCanCreate,
     onRemove: removeLink,
     onChange: updatedValue => {
       updateAttributes(updatedValue, setAttributes, attributes);
@@ -35759,32 +36096,19 @@ function convertToNavigationLinks(pages = [], parentPageID = null) {
 function useConvertToNavigationLinks({
   clientId,
   pages,
+  parentClientId,
   parentPageID
 }) {
   const {
     replaceBlock,
     selectBlock
   } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_blockEditor_namespaceObject.store);
-  const {
-    parentNavBlockClientId
-  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
-    const {
-      getSelectedBlockClientId,
-      getBlockParentsByBlockName
-    } = select(external_wp_blockEditor_namespaceObject.store);
-
-    const _selectedBlockClientId = getSelectedBlockClientId();
-
-    return {
-      parentNavBlockClientId: getBlockParentsByBlockName(_selectedBlockClientId, 'core/navigation', true)[0]
-    };
-  }, [clientId]);
   return () => {
     const navigationLinks = convertToNavigationLinks(pages, parentPageID); // Replace the Page List block with the Navigation Links.
 
     replaceBlock(clientId, navigationLinks); // Select the Navigation block to reveal the changes.
 
-    selectBlock(parentNavBlockClientId);
+    selectBlock(parentClientId);
   };
 }
 
@@ -35796,7 +36120,7 @@ function useConvertToNavigationLinks({
  */
 
 
-const convertDescription = (0,external_wp_i18n_namespaceObject.__)('This menu is automatically kept in sync with pages on your site. You can manage the menu yourself by clicking "Edit" below.');
+const convertDescription = (0,external_wp_i18n_namespaceObject.__)('This page list is synced with the published pages on your site. Detach the page list to add, delete, or reorder pages yourself.');
 function ConvertToLinksModal({
   onClick,
   onClose,
@@ -35804,7 +36128,7 @@ function ConvertToLinksModal({
 }) {
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Modal, {
     onRequestClose: onClose,
-    title: (0,external_wp_i18n_namespaceObject.__)('Edit this menu'),
+    title: (0,external_wp_i18n_namespaceObject.__)('Edit Page List'),
     className: 'wp-block-page-list-modal',
     aria: {
       describedby: 'wp-block-page-list-modal__description'
@@ -35820,7 +36144,7 @@ function ConvertToLinksModal({
     variant: "primary",
     disabled: disabled,
     onClick: onClick
-  }, (0,external_wp_i18n_namespaceObject.__)('Edit'))));
+  }, (0,external_wp_i18n_namespaceObject.__)('Detach'))));
 }
 
 ;// CONCATENATED MODULE: ./packages/block-library/build-module/page-list/edit.js
@@ -35964,11 +36288,6 @@ function PageListEdit({
       return accumulator;
     }, new Map());
   }, [pages]);
-  const convertToNavigationLinks = useConvertToNavigationLinks({
-    clientId,
-    pages,
-    parentPageID
-  });
   const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
     className: classnames_default()('wp-block-page-list', {
       'has-text-color': !!context.textColor,
@@ -35979,8 +36298,30 @@ function PageListEdit({
     style: { ...context.style?.color
     }
   });
+  const pagesTree = (0,external_wp_element_namespaceObject.useMemo)(function makePagesTree(parentId = 0, level = 0) {
+    const childPages = pagesByParentId.get(parentId);
 
-  const getBlockList = (parentId = parentPageID) => {
+    if (!childPages?.length) {
+      return [];
+    }
+
+    return childPages.reduce((tree, page) => {
+      const hasChildren = pagesByParentId.has(page.id);
+      const item = {
+        value: page.id,
+        label: '— '.repeat(level) + page.title.rendered,
+        rawName: page.title.rendered
+      };
+      tree.push(item);
+
+      if (hasChildren) {
+        tree.push(...makePagesTree(page.id, level + 1));
+      }
+
+      return tree;
+    }, []);
+  }, [pagesByParentId]);
+  const blockList = (0,external_wp_element_namespaceObject.useMemo)(function getBlockList(parentId = parentPageID) {
     const childPages = pagesByParentId.get(parentId);
 
     if (!childPages?.length) {
@@ -36003,45 +36344,17 @@ function PageListEdit({
       template.push(item);
       return template;
     }, []);
-  };
-
-  const makePagesTree = (parentId = 0, level = 0) => {
-    const childPages = pagesByParentId.get(parentId);
-
-    if (!childPages?.length) {
-      return [];
-    }
-
-    return childPages.reduce((tree, page) => {
-      const hasChildren = pagesByParentId.has(page.id);
-      const item = {
-        value: page.id,
-        label: '— '.repeat(level) + page.title.rendered,
-        rawName: page.title.rendered
-      };
-      tree.push(item);
-
-      if (hasChildren) {
-        tree.push(...makePagesTree(page.id, level + 1));
-      }
-
-      return tree;
-    }, []);
-  };
-
-  const pagesTree = (0,external_wp_element_namespaceObject.useMemo)(makePagesTree, [pagesByParentId]);
-  const blockList = (0,external_wp_element_namespaceObject.useMemo)(getBlockList, [pagesByParentId, parentPageID]);
+  }, [pagesByParentId, parentPageID]);
   const {
     isNested,
     hasSelectedChild,
-    parentBlock,
+    parentClientId,
     hasDraggedChild,
     isChildOfNavigation
   } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
       getBlockParentsByBlockName,
       hasSelectedInnerBlock,
-      getBlockRootClientId,
       hasDraggedInnerBlock
     } = select(external_wp_blockEditor_namespaceObject.store);
     const blockParents = getBlockParentsByBlockName(clientId, 'core/navigation-submenu', true);
@@ -36051,9 +36364,15 @@ function PageListEdit({
       isChildOfNavigation: navigationBlockParents.length > 0,
       hasSelectedChild: hasSelectedInnerBlock(clientId, true),
       hasDraggedChild: hasDraggedInnerBlock(clientId, true),
-      parentBlock: getBlockRootClientId(clientId)
+      parentClientId: navigationBlockParents[0]
     };
   }, [clientId]);
+  const convertToNavigationLinks = useConvertToNavigationLinks({
+    clientId,
+    pages,
+    parentClientId,
+    parentPageID
+  });
   const innerBlocksProps = (0,external_wp_blockEditor_namespaceObject.useInnerBlocksProps)(blockProps, {
     allowedBlocks: ['core/page-list-item'],
     renderAppender: false,
@@ -36069,9 +36388,9 @@ function PageListEdit({
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     if (hasSelectedChild || hasDraggedChild) {
       openModal();
-      selectBlock(parentBlock);
+      selectBlock(parentClientId);
     }
-  }, [hasSelectedChild, hasDraggedChild, parentBlock, selectBlock, openModal]);
+  }, [hasSelectedChild, hasDraggedChild, parentClientId, selectBlock, openModal]);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     setAttributes({
       isNested
@@ -37080,6 +37399,7 @@ const {
       __experimentalFontWeight: true,
       __experimentalLetterSpacing: true,
       __experimentalTextTransform: true,
+      __experimentalWritingMode: true,
       __experimentalDefaultControls: {
         fontSize: true
       }
@@ -37196,6 +37516,7 @@ const paragraph_metadata = {
       __experimentalFontWeight: true,
       __experimentalLetterSpacing: true,
       __experimentalTextTransform: true,
+      __experimentalWritingMode: true,
       __experimentalDefaultControls: {
         fontSize: true
       }
@@ -38251,6 +38572,7 @@ const post_comments_form_metadata = {
     html: false,
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -40188,6 +40510,7 @@ const post_navigation_link_metadata = {
       __experimentalTextTransform: true,
       __experimentalTextDecoration: true,
       __experimentalLetterSpacing: true,
+      __experimentalWritingMode: true,
       __experimentalDefaultControls: {
         fontSize: true
       }
@@ -41015,7 +41338,11 @@ const post_time_to_read_metadata = {
     html: false,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -46444,6 +46771,7 @@ const quote_metadata = {
     },
     color: {
       gradients: true,
+      heading: true,
       link: true,
       __experimentalDefaultControls: {
         background: true,
@@ -46598,7 +46926,7 @@ function ReusableBlockEdit({
     uniqueId: ref
   }, canRemove && (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockControls, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarGroup, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.ToolbarButton, {
     onClick: () => convertBlockToStatic(clientId),
-    label: innerBlockCount > 1 ? (0,external_wp_i18n_namespaceObject.__)('Convert to regular blocks') : (0,external_wp_i18n_namespaceObject.__)('Convert to regular block'),
+    label: innerBlockCount > 1 ? (0,external_wp_i18n_namespaceObject.__)('Detach patterns') : (0,external_wp_i18n_namespaceObject.__)('Detach pattern'),
     icon: library_ungroup,
     showTooltip: true
   }))), (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.InspectorControls, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.PanelBody, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
@@ -48876,7 +49204,11 @@ const site_logo_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     }
   },
   styles: [{
@@ -49090,7 +49422,11 @@ const site_tagline_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -49398,7 +49734,11 @@ const site_title_metadata = {
     },
     spacing: {
       padding: true,
-      margin: true
+      margin: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -51204,7 +51544,9 @@ const social_links_metadata = {
       padding: true,
       units: ["px", "em", "rem", "vh", "vw"],
       __experimentalDefaultControls: {
-        blockGap: true
+        blockGap: true,
+        margin: true,
+        padding: false
       }
     }
   },
@@ -53831,7 +54173,11 @@ const table_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     typography: {
       fontSize: true,
@@ -56150,6 +56496,7 @@ function TermDescriptionEdit({
 const term_description_metadata = {
   $schema: "https://schemas.wp.org/trunk/block.json",
   apiVersion: 3,
+  __experimental: "fse",
   name: "core/term-description",
   title: "Term Description",
   category: "theme",
@@ -56693,7 +57040,11 @@ const verse_metadata = {
     },
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     },
     __experimentalBorder: {
       radius: true,
@@ -56864,7 +57215,11 @@ const video_deprecated_metadata = {
     align: true,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     }
   },
   editorStyle: "wp-block-video-editor",
@@ -57797,7 +58152,11 @@ const video_metadata = {
     align: true,
     spacing: {
       margin: true,
-      padding: true
+      padding: true,
+      __experimentalDefaultControls: {
+        margin: false,
+        padding: false
+      }
     }
   },
   editorStyle: "wp-block-video-editor",
@@ -57837,6 +58196,9 @@ const video_init = () => initBlock({
  */
 
 
+
+
+
 function FootnotesEdit({
   context: {
     postType,
@@ -57845,7 +58207,20 @@ function FootnotesEdit({
 }) {
   const [meta, updateMeta] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'meta', postId);
   const footnotes = meta?.footnotes ? JSON.parse(meta.footnotes) : [];
-  return (0,external_wp_element_namespaceObject.createElement)("ol", { ...(0,external_wp_blockEditor_namespaceObject.useBlockProps)()
+  const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)();
+
+  if (!footnotes.length) {
+    return (0,external_wp_element_namespaceObject.createElement)("div", { ...blockProps
+    }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Placeholder, {
+      icon: (0,external_wp_element_namespaceObject.createElement)(external_wp_blockEditor_namespaceObject.BlockIcon, {
+        icon: format_list_numbered
+      }),
+      label: (0,external_wp_i18n_namespaceObject.__)('Footnotes'),
+      instructions: (0,external_wp_i18n_namespaceObject.__)('Footnotes found in blocks within this document will be displayed here.')
+    }));
+  }
+
+  return (0,external_wp_element_namespaceObject.createElement)("ol", { ...blockProps
   }, footnotes.map(({
     id,
     content
@@ -57995,7 +58370,6 @@ const {
   supports: {
     html: false,
     multiple: false,
-    inserter: false,
     reusable: false
   },
   style: "wp-block-footnotes"
@@ -58003,11 +58377,9 @@ const {
 const formatName = 'core/footnote';
 const format = {
   title: (0,external_wp_i18n_namespaceObject.__)('Footnote'),
-  tagName: 'a',
+  tagName: 'sup',
   className: 'fn',
   attributes: {
-    id: 'id',
-    href: 'href',
     'data-fn': 'data-fn'
   },
   contentEditable: false,
@@ -58030,18 +58402,24 @@ const format = {
 
     function onClick() {
       registry.batch(() => {
-        const id = esm_browser_v4();
-        const newValue = (0,external_wp_richText_namespaceObject.insertObject)(value, {
-          type: formatName,
-          attributes: {
-            href: '#' + id,
-            id: `${id}-link`,
-            'data-fn': id
-          },
-          innerHTML: '*'
-        }, value.end, value.end);
-        newValue.start = newValue.end - 1;
-        onChange(newValue); // BFS search to find the first footnote block.
+        let id;
+
+        if (isObjectActive) {
+          const object = value.replacements[value.start];
+          id = object?.attributes?.['data-fn'];
+        } else {
+          id = esm_browser_v4();
+          const newValue = (0,external_wp_richText_namespaceObject.insertObject)(value, {
+            type: formatName,
+            attributes: {
+              'data-fn': id
+            },
+            innerHTML: `<a href="#${id}" id="${id}-link">*</a>`
+          }, value.end, value.end);
+          newValue.start = newValue.end - 1;
+          onChange(newValue);
+        } // BFS search to find the first footnote block.
+
 
         let fnBlock = null;
         {
@@ -58111,7 +58489,6 @@ const footnotes_metadata = {
   supports: {
     html: false,
     multiple: false,
-    inserter: false,
     reusable: false
   },
   style: "wp-block-footnotes"
@@ -58262,9 +58639,18 @@ const getAllBlocks = () => {
   const blocks = [// Common blocks are grouped at the top to prioritize their display
   // in various contexts — like the inserter and auto-complete components.
   build_module_paragraph_namespaceObject, build_module_image_namespaceObject, build_module_heading_namespaceObject, build_module_gallery_namespaceObject, build_module_list_namespaceObject, build_module_list_item_namespaceObject, build_module_quote_namespaceObject, // Register all remaining core blocks.
-  archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, ...(window.wp && window.wp.oldEditor ? [freeform_namespaceObject] : []), // Only add the classic block in WP Context.
-  build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_comments_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject, // theme blocks
-  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_edit_link_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
+  archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_comments_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject, // theme blocks
+  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_edit_link_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject]; // When in a WordPress context, conditionally
+  // add the classic block and TinyMCE editor
+  // under any of the following conditions:
+  //   - the current post contains a classic block
+  //   - the experiment to disable TinyMCE isn't active.
+  //   - a query argument specifies that TinyMCE should be loaded
+
+  if (window?.wp?.oldEditor && (window?.wp?.needsClassicBlock || !window?.__experimentalDisableTinymce || !!new URLSearchParams(window?.location?.search).get('requiresTinymce'))) {
+    blocks.push(freeform_namespaceObject);
+  }
+
   return blocks.filter(Boolean);
 };
 /**

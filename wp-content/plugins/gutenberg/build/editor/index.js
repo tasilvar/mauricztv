@@ -11039,6 +11039,7 @@ class PostPublishPanel extends external_wp_element_namespaceObject.Component {
     isCurrentPostScheduled,
     isEditedPostBeingScheduled,
     isEditedPostDirty,
+    isAutosavingPost,
     isSavingPost,
     isSavingNonPostEntityChanges
   } = select(store_store);
@@ -11053,7 +11054,7 @@ class PostPublishPanel extends external_wp_element_namespaceObject.Component {
     isDirty: isEditedPostDirty(),
     isPublished: isCurrentPostPublished(),
     isPublishSidebarEnabled: isPublishSidebarEnabled(),
-    isSaving: isSavingPost(),
+    isSaving: isSavingPost() && !isAutosavingPost(),
     isSavingNonPostEntityChanges: isSavingNonPostEntityChanges(),
     isScheduled: isCurrentPostScheduled()
   };
@@ -11575,9 +11576,7 @@ function PostSwitchToDraftButton({
     onClick();
   };
 
-  return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.FlexItem, {
-    isBlock: true
-  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+  return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
     className: "editor-post-switch-to-draft",
     onClick: () => {
       setShowConfirmDialog(true);
@@ -11585,8 +11584,8 @@ function PostSwitchToDraftButton({
     disabled: isSaving,
     variant: "secondary",
     style: {
-      width: '100%',
-      display: 'block'
+      flexGrow: '1',
+      justifyContent: 'center'
     }
   }, (0,external_wp_i18n_namespaceObject.__)('Switch to draft')), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalConfirmDialog, {
     isOpen: showConfirmDialog,
@@ -11637,14 +11636,14 @@ function PostSwitchToDraftButton({
 
 function PostSyncStatus() {
   const {
-    meta,
+    syncStatus,
     postType
   } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
       getEditedPostAttribute
     } = select(store_store);
     return {
-      meta: getEditedPostAttribute('meta'),
+      syncStatus: getEditedPostAttribute('wp_pattern_sync_status'),
       postType: getEditedPostAttribute('type')
     };
   }, []);
@@ -11653,7 +11652,6 @@ function PostSyncStatus() {
     return null;
   }
 
-  const syncStatus = meta?.wp_pattern_sync_status;
   const isFullySynced = !syncStatus;
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.PanelRow, {
     className: "edit-post-sync-status"
@@ -12772,28 +12770,7 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
 
 /** @typedef {import('@wordpress/block-editor').InserterMediaItem} InserterMediaItem */
 
-/**
- * Interface for inserter media category labels.
- *
- * @typedef {Object} InserterMediaCategoryLabels
- * @property {string} name                    General name of the media category. It's used in the inserter media items list.
- * @property {string} [search_items='Search'] Label for searching items. Default is ‘Search Posts’ / ‘Search Pages’.
- */
-
-/**
- * Interface for inserter media category.
- *
- * @typedef {Object} InserterMediaCategory
- * @property {string}                                                 name                 The name of the media category, that should be unique among all media categories.
- * @property {InserterMediaCategoryLabels}                            labels               Labels for the media category.
- * @property {('image'|'audio'|'video')}                              mediaType            The media type of the media category.
- * @property {(InserterMediaRequest) => Promise<InserterMediaItem[]>} fetch                The function to fetch media items for the category.
- * @property {(InserterMediaItem) => string}                          [getReportUrl]       If the media category supports reporting media items, this function should return
- *                                                                                         the report url for the media item. It accepts the `InserterMediaItem` as an argument.
- * @property {boolean}                                                [isExternalResource] If the media category is an external resource, this should be set to true.
- *                                                                                         This is used to avoid making a request to the external resource when the user
- *                                                                                         opens the inserter for the first time.
- */
+/** @typedef {import('@wordpress/block-editor').InserterMediaCategory} InserterMediaCategory */
 
 const getExternalLink = (url, text) => `<a ${getExternalLinkAttributes(url)}>${text}</a>`;
 

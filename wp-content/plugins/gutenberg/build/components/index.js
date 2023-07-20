@@ -32825,12 +32825,16 @@ const rangeHeight = () => /*#__PURE__*/emotion_react_browser_esm_css({
 },  true ? "" : 0,  true ? "" : 0);
 
 const thumbSize = 12;
+
+const deprecatedHeight = ({
+  __next40pxDefaultSize
+}) => !__next40pxDefaultSize && /*#__PURE__*/emotion_react_browser_esm_css({
+  minHeight: rangeHeightValue
+},  true ? "" : 0,  true ? "" : 0);
+
 const range_control_styles_Root = emotion_styled_base_browser_esm("div",  true ? {
   target: "e1epgpqk14"
-} : 0)( true ? {
-  name: "1se47kl",
-  styles: "-webkit-tap-highlight-color:transparent;align-items:flex-start;display:flex;justify-content:flex-start;padding:0;position:relative;touch-action:none;width:100%"
-} : 0);
+} : 0)("-webkit-tap-highlight-color:transparent;align-items:center;display:flex;justify-content:flex-start;padding:0;position:relative;touch-action:none;width:100%;min-height:40px;", deprecatedHeight, ";" + ( true ? "" : 0));
 
 const wrapperColor = ({
   color = COLORS.ui.borderFocus
@@ -33008,7 +33012,7 @@ const range_control_styles_Tooltip = emotion_styled_base_browser_esm("span",  tr
 
 const InputNumber = /*#__PURE__*/emotion_styled_base_browser_esm(number_control,  true ? {
   target: "e1epgpqk1"
-} : 0)("display:inline-block;font-size:13px;margin-top:0;width:", space(16), "!important;input[type='number']&{", rangeHeight, ";}", rtl({
+} : 0)("display:inline-block;font-size:13px;margin-top:0;input[type='number']&{", rangeHeight, ";}", rtl({
   marginLeft: `${space(4)} !important`
 }), ";" + ( true ? "" : 0));
 const ActionRightWrapper = emotion_styled_base_browser_esm("span",  true ? {
@@ -33290,6 +33294,7 @@ function useTooltipPosition({
 
 
 
+
 const range_control_noop = () => {};
 
 function UnforwardedRangeControl(props, forwardedRef) {
@@ -33318,6 +33323,7 @@ function UnforwardedRangeControl(props, forwardedRef) {
     railColor,
     renderTooltipContent = v => v,
     resetFallbackValue,
+    __next40pxDefaultSize = false,
     shiftStep = 10,
     showTooltip: showTooltipProp,
     step = 1,
@@ -33449,7 +33455,8 @@ function UnforwardedRangeControl(props, forwardedRef) {
     id: `${id}`,
     help: help
   }, (0,external_wp_element_namespaceObject.createElement)(range_control_styles_Root, {
-    className: "components-range-control__root"
+    className: "components-range-control__root",
+    __next40pxDefaultSize: __next40pxDefaultSize
   }, beforeIcon && (0,external_wp_element_namespaceObject.createElement)(BeforeIconWrapper, null, (0,external_wp_element_namespaceObject.createElement)(build_module_icon, {
     icon: beforeIcon
   })), (0,external_wp_element_namespaceObject.createElement)(range_control_styles_Wrapper, {
@@ -33519,6 +33526,8 @@ function UnforwardedRangeControl(props, forwardedRef) {
     onBlur: handleOnInputNumberBlur,
     onChange: handleOnChange,
     shiftStep: shiftStep,
+    size: __next40pxDefaultSize ? '__unstable-large' : 'default',
+    __unstableInputWidth: __next40pxDefaultSize ? space(20) : space(16),
     step: step // @ts-expect-error TODO: Investigate if the `null` value is necessary
     ,
     value: inputSliderValue
@@ -38703,6 +38712,7 @@ function UnitSelectControl({
 
 
 
+
 function UnforwardedUnitControl(unitControlProps, forwardedRef) {
   const {
     __unstableStateReducer,
@@ -38746,9 +38756,9 @@ function UnforwardedUnitControl(unitControlProps, forwardedRef) {
     const firstCharacters = rest.reduce((carry, {
       value
     }) => {
-      const first = value?.substring(0, 1) || '';
+      const first = escapeRegExp(value?.substring(0, 1) || '');
       return carry.includes(first) ? carry : `${carry}|${first}`;
-    }, firstUnitValue.substring(0, 1));
+    }, escapeRegExp(firstUnitValue.substring(0, 1)));
     return [list, new RegExp(`^(?:${firstCharacters})$`, 'i')];
   }, [nonNullValueProp, unitProp, unitsProp]);
   const [parsedQuantity, parsedUnit] = getParsedQuantityAndUnit(nonNullValueProp, unitProp, units);
@@ -58956,9 +58966,7 @@ function FormTokenField(props) {
  * WordPress dependencies
  */
 
-const PageControlIcon = ({
-  isSelected
-}) => (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+const PageControlIcon = () => (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
   width: "8",
   height: "8",
   fill: "none",
@@ -58966,8 +58974,7 @@ const PageControlIcon = ({
 }, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Circle, {
   cx: "4",
   cy: "4",
-  r: "4",
-  fill: isSelected ? '#419ECD' : '#E1E3E6'
+  r: "4"
 }));
 
 ;// CONCATENATED MODULE: ./packages/components/build-module/guide/page-control.js
@@ -58999,9 +59006,7 @@ function PageControl({
     "aria-current": page === currentPage ? 'step' : undefined
   }, (0,external_wp_element_namespaceObject.createElement)(build_module_button, {
     key: page,
-    icon: (0,external_wp_element_namespaceObject.createElement)(PageControlIcon, {
-      isSelected: page === currentPage
-    }),
+    icon: (0,external_wp_element_namespaceObject.createElement)(PageControlIcon, null),
     "aria-label": (0,external_wp_i18n_namespaceObject.sprintf)(
     /* translators: 1: current page number 2: total number of pages */
     (0,external_wp_i18n_namespaceObject.__)('Page %1$d of %2$d'), page + 1, numberOfPages),
@@ -59019,7 +59024,6 @@ function PageControl({
 /**
  * WordPress dependencies
  */
-
 
 
 
@@ -59072,8 +59076,16 @@ function Guide({
   onFinish,
   pages = []
 }) {
-  const guideContainer = (0,external_wp_element_namespaceObject.useRef)(null);
+  const ref = (0,external_wp_element_namespaceObject.useRef)(null);
   const [currentPage, setCurrentPage] = (0,external_wp_element_namespaceObject.useState)(0);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    // Place focus at the top of the guide on mount and when the page changes.
+    const frame = ref.current?.querySelector('.components-guide');
+
+    if (frame instanceof HTMLElement) {
+      frame.focus();
+    }
+  }, [currentPage]);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     if (external_wp_element_namespaceObject.Children.count(children)) {
       external_wp_deprecated_default()('Passing children to <Guide>', {
@@ -59082,13 +59094,6 @@ function Guide({
       });
     }
   }, [children]);
-  (0,external_wp_element_namespaceObject.useEffect)(() => {
-    // Each time we change the current page, start from the first element of the page.
-    // This also solves any focus loss that can happen.
-    if (guideContainer.current) {
-      external_wp_dom_namespaceObject.focus.tabbable.find(guideContainer.current)[0]?.focus();
-    }
-  }, [currentPage]);
 
   if (external_wp_element_namespaceObject.Children.count(children)) {
     var _Children$map;
@@ -59120,6 +59125,7 @@ function Guide({
   return (0,external_wp_element_namespaceObject.createElement)(modal, {
     className: classnames_default()('components-guide', className),
     contentLabel: contentLabel,
+    isDismissible: pages.length > 1,
     onRequestClose: onFinish,
     onKeyDown: event => {
       if (event.code === 'ArrowLeft') {
@@ -59132,7 +59138,7 @@ function Guide({
         event.preventDefault();
       }
     },
-    ref: guideContainer
+    ref: ref
   }, (0,external_wp_element_namespaceObject.createElement)("div", {
     className: "components-guide__container"
   }, (0,external_wp_element_namespaceObject.createElement)("div", {
@@ -59145,12 +59151,15 @@ function Guide({
     className: "components-guide__footer"
   }, canGoBack && (0,external_wp_element_namespaceObject.createElement)(build_module_button, {
     className: "components-guide__back-button",
+    variant: "tertiary",
     onClick: goBack
   }, (0,external_wp_i18n_namespaceObject.__)('Previous')), canGoForward && (0,external_wp_element_namespaceObject.createElement)(build_module_button, {
     className: "components-guide__forward-button",
+    variant: "primary",
     onClick: goForward
   }, (0,external_wp_i18n_namespaceObject.__)('Next')), !canGoForward && (0,external_wp_element_namespaceObject.createElement)(build_module_button, {
     className: "components-guide__finish-button",
+    variant: "primary",
     onClick: onFinish
   }, finishButtonText))));
 }
