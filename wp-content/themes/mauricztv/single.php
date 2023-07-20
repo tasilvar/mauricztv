@@ -40,8 +40,33 @@ get_header(); ?>
 	</div>
 	*/?>
 	
+	<?php if (in_category('kursy')){ ?>
+	
+	<section id="primary" class="content-area col-sm-12 col-lg-12">
+	
+		<div id="main" class="site-main" role="main">
+
+		<?php
+		while ( have_posts() ) : the_post();
+
+			get_template_part( 'template-parts/content-kursy', get_post_format() );
+
+			    the_post_navigation();
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+
+		</div><!-- #main -->
+	</section><!-- #primary -->
 	
 
+	<?php } else { ?>
+	
 	<section id="primary" class="content-area col-sm-12 col-lg-8">
 	
 		<div id="main" class="site-main" role="main">
@@ -69,9 +94,12 @@ get_header(); ?>
 		<h3>Podobne artykuły</h3>
 		
 		<?php echo do_shortcode("[ic_add_posts showposts='3' template='template-single.php']"); ?>
-		
-	
+
 	</div>
+
+	<?php } ?>
+
+
 	
 
 <?php

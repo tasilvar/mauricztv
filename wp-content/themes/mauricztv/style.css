@@ -101,6 +101,12 @@ button:active,button:focus{outline:none!important;border:none!important;}
 a.more{height:84px;padding:32px 84px 0;color:#323739;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#1AD779;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
 a.more:hover{background:#323739;color:#1AD779;}
 
+a.more-empty{border:1px solid #1AD779;height:84px;padding:32px 82px 0;color:#323739;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+a.more-empty:hover{background:#323739;border:1px solid #323739;color:#1AD779;}
+
+a.more-green{height:84px;padding:32px 84px 0;color:#fff;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#013317;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+a.more-green:hover{background:#1AD779;color:#323739;}
+
 /*global*/
 h1,h2,h3,h4,h5,h6{margin:0;}
 .top-all h1{font-size:28px;line-height:44px;color:#323739;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:22px;}
@@ -125,13 +131,12 @@ h3 em{font-style:normal;color:#1AD779;}
 .wpfront-notification-bar #ycd-circle-44 h4{font-family:'Montserrat',sans-serif!important;}
 
 /*top menu*/
-/*
+
 #mega-menu-wrap-primary {
 	position: absolute;
-	top: 30px;
-	right: 0;
-}
 
+}
+/*
 #mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open + #mega-menu-primary{width:50%!important;
 	right:0;
 	left:auto!important;
@@ -147,14 +152,42 @@ h3 em{font-style:normal;color:#1AD779;}
 	padding:19px 19px;color:#323739;font-size:16px;line-height:19px;font-weight:600;text-transform:uppercase;}
 
 /*front page*/
-.hp-info{}
-.hp-info h3{margin:0 auto 23px;max-width:900px;line-height:66px;color:#777D80;font-weight:500;}
+.top-home{background:url('./img/top-home.jpg')no-repeat top center / contain;padding-top:16.644vw;}
+.top-home h1{font-size:64px;line-height:78px;font-weight:800;text-transform:unset;}
+.top-home p{font-size:22px;line-height:34px;color:#777D80;font-weight:600;}
+.top-home a{width:302px;display:inline-block;padding:32px 20px 0;margin-right:30px;margin-top:37px;margin-bottom:25px;}
+.top-home a.more-green{margin-right:0;}
+
+.hp-first{text-align:center;margin-top:123px;background:url('./img/hp-first.png')no-repeat bottom left -380px;padding-bottom:146px;}
+.hp-first .upper{margin:0 auto 60px;max-width:830px;}
+.hp-first h3{line-height:66px;margin-bottom:44px;}
+.hp-first h3 em{font-style:normal;color:#1AD779;}
+.hp-first .upper p{font-size:20px;line-height:32px;}
+.hp-first .inner{background:#E7FBF0;padding:64px 15px 0;min-height:290px;}
+.hp-first .inner span{font-size:54px;line-height:66px;font-weight:800;color:#1AD779;}
+.hp-first .inner h6{color:#323739;font-size:22px;line-height:32px;font-weight:600;margin-top:32px;}
+
+.hp-courses{}
+.hp-courses .upper{text-align:center;}
+.hp-courses .upper h6{font-size:28px;line-height:44px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;margin-bottom:17px;}
+.hp-courses .upper h3{line-height:66px;}
+
+.hp-info{/*background:url('./img/hp-info.jpg')no-repeat left bottom;*/margin:0 auto;max-width:1100px;}
+.hp-info h3{margin:0 auto 23px;max-width:900px;line-height:66px;}
 .hp-info h3 em{color:#013317;font-style:normal;}
 .hp-info .text-center{margin:0 auto;max-width:990px;}
-.hp-info .text-center p{font-size:22px;line-height:34px;}
+.hp-info .text-center p{font-size:22px;line-height:34px;color:#777D80;font-weight:500;margin-bottom:88px;}
 .hp-info .text-center p strong{color:#323739;}
+.hp-info .box{background-repeat:no-repeat;background-position:top left;padding-left:120px;margin-bottom:54px;}
+.hp-info .box strong{font-size:18px;line-height:30px;margin-bottom:10px;display:inline-block;font-weight:800;}
+.hp-info .first{background-image:url('./img/icon01-hpinfo.png');}
+.hp-info .second{background-image:url('./img/icon02-hpinfo.png');}
+.hp-info .third{background-image:url('./img/icon03-hpinfo.png');}
+.hp-info .fourth{background-image:url('./img/icon04-hpinfo.png');}
+.hp-info .fifth{background-image:url('./img/icon05-hpinfo.png');}
+.hp-info .sixth{background-image:url('./img/icon06-hpinfo.png');}
 
-.hp-diet{text-align:center;background:#F6F6F6 url('./img/little-cross.png')no-repeat top 5px left 18%;padding-top:122px;margin-bottom:148px;padding-bottom:130px;}
+.hp-diet{text-align:center;background:#F6F6F6 url('./img/little-cross.png')no-repeat top 5px left 18%;padding-top:122px;margin-top:90px;margin-bottom:148px;padding-bottom:130px;}
 .hp-diet h3{margin-bottom:47px;}
 .hp-diet h6{color:#777D80;font-size:22px;line-height:34px;font-weight:600;margin-bottom:75px;}
 .hp-diet a{color:#323739;font-size:22px;line-height:34px;font-weight:600;background:#DFF3E9;text-align:center;display:block;min-height:290px;padding-top:35px;}
@@ -317,6 +350,106 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .outer-blog ul.nav-pills{text-align:center;display:inherit;margin-bottom:96px!important;}
 .outer-blog ul.nav-pills li{display:inline-block;}
 
+/*kursy wpisy*/
+
+.top-kursy{margin-top:-137px;background:url('./img/top-empty.jpg')no-repeat top center / contain;min-height:1076px;padding-top:333px;min-height:56.042vw;padding-top:12.344vw;}
+.top-kursy h5{text-transform:uppercase;font-weight:700;font-size:28px;line-height:44px;letter-spacing:1.4px;margin-bottom:9px;}
+.top-kursy h1{font-weight:800;font-size:54px;line-height:66px;margin-bottom:20px;}
+.top-kursy h6{text-transform:uppercase;font-weight:800;font-size:18px;line-height:30px;margin-bottom:7px;}
+.top-kursy h6.price{margin-bottom:0;}
+
+.top-kursy .inner{margin-bottom:23px;}
+.top-kursy p{font-size:18px!important;line-height:32px!important;font-weight:600!important;background-position:left center;background-repeat:no-repeat;padding-left:40px;margin-bottom:4px;}
+.top-kursy p b{font-weight:800!important;}
+.top-kursy p.inner01{background-image:url('./img/small-icon01.png');}
+.top-kursy p.inner02{background-image:url('./img/small-icon02.png');}
+.top-kursy p.inner03{background-image:url('./img/small-icon03.png');}
+.top-kursy p.inner04{background-image:url('./img/small-icon04.png');}
+.top-kursy p.inner05{background-image:url('./img/small-icon05.png');}
+.top-kursy p.inner06{background-image:url('./img/small-icon06.png');}
+.top-kursy p.inner07{background-image:url('./img/small-icon07.png');}
+
+.top-kursy h4{color:#1AD779;font-size:54px;line-height:66px;font-weight:800;display:inline-block;}
+.top-kursy h4.crossed{color:#777D80;font-size:28px;line-height:34px;text-decoration:line-through;margin-right:24px;font-weight:700;}
+.top-kursy small{font-size:12px;line-height:28px;display:block;margin-top:-10px;}
+.top-kursy .links{margin-top:10px;}
+.top-kursy a.more-empty{position:relative;top:1px;margin-left:20px;}
+
+.top-kursy .movie{border:2px solid #1AD779;padding:5px;display:grid;}
+
+.top-kursy .top-kursy-links{text-align:center;margin-top:50px;}
+.top-kursy .top-kursy-links a{display:block;}
+.top-kursy .top-kursy-links a.little-mouse{margin-bottom:10px;}
+
+.kursy-why{margin-top:128px!important;}
+.kursy-why h3{text-align:center;margin-bottom:69px;}
+article.post .entry-content .kursy-why h3 p{font-size:54px;line-height:56px;font-weight:800;}
+.kursy-why ul{padding-left:0;}
+.kursy-why ul li{background:url('./img/tick.png')no-repeat top left;min-height:54px;font-size:18px;line-height:30px;font-weight:800;padding-left:80px;list-style-type:none;margin-bottom:32px;}
+.kursy-why ul li em{color:#1AD779;font-style:normal;}
+
+.kursy-competences{margin-top:81px;}
+.kursy-competences h3{text-align:center;margin-bottom:37px;}
+article.post .entry-content .kursy-competences h3 p{font-size:54px;line-height:56px;font-weight:800;}
+article.post .entry-content .kursy-competences p{font-size:18px;line-height:30px;font-weight:800;min-height:77px;padding-left:110px;background-position:left center;background-repeat:no-repeat;}
+.kursy-competences p em{font-style:normal;color:#1AD779;}
+
+.kursy-competences .first p{background-image:url('./img/icon-competences01.png');padding-top:8px;}
+.kursy-competences .second p{background-image:url('./img/icon-competences02.png');padding-top:8px;}
+.kursy-competences .third p{background-image:url('./img/icon-competences03.png');padding-top:8px;}
+.kursy-competences .first p em,.kursy-competences .second p em,.kursy-competences .third p em{display:block;}
+
+.kursy-agenda{background:#E7FBF1;margin-top:94px;padding-bottom:122px;}
+.kursy-agenda h3.upper{text-align:center;margin-top:93px;margin-bottom:46px;}
+.kursy-agenda .sp-easy-accordion{margin:0 auto;max-width:970px;}
+.kursy-agenda .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-body{padding:0 56px 22px 20px!important;}
+.kursy-agenda .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-body p{font-size:16px;line-height:26px;}
+.kursy-agenda .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-plus{background:url('./img/faq-down-white.png')no-repeat top center;width:22px;height:12px;margin-top:10px;}
+.kursy-agenda .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-minus{background:url('./img/faq-up-white.png')no-repeat top center;width:22px;height:12px;margin-top:10px;}
+.kursy-agenda h3.lower{text-align:center;margin-top:85px;margin-bottom:46px;font-size:42px;line-height:52px;}
+
+.kursy-who{background:url('./img/kursy-who.jpg')no-repeat top center;min-height:49.844vw;padding-top:5.156vw;}
+.kursy-who h3{text-align:center;/*margin-bottom:148px;*/margin-bottom:7.708vw;}
+.kursy-who h4{font-size:32px;line-height:44px;font-weight:800;/*margin-bottom:33px;*/margin-bottom:1.719vw;}
+
+.kursy-what{background:url('./img/kursy-what.jpg')no-repeat top center;min-height:48.229vw;padding-top:103px;text-align:center;}
+.kursy-what h3{margin-bottom:60px;}
+.kursy-what .inner{background:#fff;padding:60px 30px 30px;min-height:425px;}
+article.post .entry-content .kursy-what .inner p{font-size:16px;line-height:28px;margin-top:38px;}
+.kursy-what a.more{margin-top:70px;}
+
+.kursy-list{background:#F6F6F6 url('./img/kursy-list.jpg')no-repeat bottom left;padding-top:118px;}
+.kursy-list h3{text-align:center;}
+
+.kursy-cert{background:#fff url('./img/kursy-cert.jpg')no-repeat top left;padding-top:131px;}
+.kursy-cert h5{font-size:32px;line-height:44px;font-weight:800;margin-top:131px;margin-bottom:7px;}
+.kursy-cert h6{font-size:64px;line-height:78px;font-weight:800;}
+
+.kursy-opinions{text-align:center;margin-top:108px;}
+.kursy-opinions h3{margin-bottom:65px;}
+.kursy-opinions .inner{background:#E7FBF1;padding:46px 20px 44px;max-width:366px;margin:0 auto;}
+.kursy-opinions .inner h6{color:#323739;font-size:22px;line-height:32px;margin-top:32px;margin-bottom:21px;}
+.kursy-opinions .inner img{width:135px;height:135px;border-radius:50%;}
+.kursy-opinions .inner p{font-size:20px;line-height:32px;}
+
+.kursy-faq{background:#F6F6F6;margin-top:150px;padding-top:99px;padding-bottom:130px;}
+.kursy-faq h3.upper{margin-bottom:44px;text-align:center;}
+
+.kursy-faq #sp-ea-91.sp-easy-accordion > .sp-ea-single,.kursy-faq #sp-ea-91.sp-easy-accordion > .sp-ea-single > .sp-collapse > .ea-body{background:#fff!important;}
+.kursy-faq .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-plus{background:url('./img/faq-down-white.png')no-repeat top center;}
+.kursy-faq .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-minus{background:url('./img/faq-up-white.png')no-repeat top center;}
+
+.kursy-bottom{text-align:center;padding-top:117px;}
+.kursy-bottom .box{background:#DFF3E9;margin:60px auto 0;width:635px;padding:52px 60px 44px;}
+.kursy-bottom .box h6{font-size:32px;line-height:42px;font-weight:800;border-bottom:1px solid #BDC1C2;padding-bottom:34px;margin-bottom:16px;}
+.kursy-bottom .box h4.crossed{color:#777D80;font-weight:700;font-size:34px;line-height:42px;text-decoration:line-through;}
+.kursy-bottom .box h4{color:#1AD779;font-size:54px;line-height:66px;font-weight:800;}
+.kursy-bottom .box small{font-size:12px;line-height:28px;display:block;margin-top:-10px;}
+.kursy-bottom .box .row{border-top:1px solid #BDC1C2;margin-top:10px;margin-right:0;margin-left:0;text-align:left;padding-top:34px;font-size:16px;line-height:30px;}
+.kursy-bottom .box .text-right{text-transform:uppercase;}
+.kursy-bottom .box a.more-green{width:100%;margin-top:50px;padding:26px 84px 0;}
+.kursy-bottom .box a.more-green span{background:url('./img/cart-white.png')no-repeat top left;min-height:31px;padding-left:46px;display:inline-block;line-height:31px;}
+
 /*footer*/
 
 .footer{background:#F6F6F6;padding-top:104px;padding-bottom:30px;margin-top:158px;}
@@ -374,6 +507,12 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.outer-blog ul.nav-pills li{display:block;margin-bottom:3px;}
 	.outer-blog .nav-link{padding:20px 20px;margin:0 4px;height:auto;}
 	
+	.top-home h1{font-size:30px;line-height:48px;}
+	.top-home img{margin-bottom:20px;}
+	.top-home a{margin-right:0;margin-bottom:15px;width:100%;margin-top:0;font-size:12px;letter-spacing:.4px;padding:17px 12px 0;height:50px;}
+	.top-home a.more-green{margin-bottom:0;}
+	.hp-first .inner{padding:40px 15px 40px;margin-bottom:15px;min-height:auto;}
+	.hp-info h3{font-size:40px;line-height:58px;}
 	.hp-diet h3{font-size:28px;line-height:49px;}
 	.hp-steps{margin-bottom:0;}
 	.hp-steps .inner:after{content:'';}
@@ -389,10 +528,17 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.outer-blog .nav-link{padding:20px 20px;margin:0 4px;height:auto;}
 	
+	.hp-first .inner{padding:50px 15px 0;margin-bottom:30px;}
+	
+	.top-home a{margin-right:1.563vw;width:217px;margin-top:0;margin-bottom:0;font-size:12px;letter-spacing:.4px;padding:27px 12px 0;height:70px;}
 	.hp-steps .inner:after{content:'';}
 }
 @media (max-width: 768px){
 	.xs-hidden{display:none!important;}
+	
+	.top-home{background:url('./img/top-empty.jpg')no-repeat top center / cover;padding-bottom:40px;padding-left:0;padding-right:0;}
+	
+	.hp-info .box{background-position:top left 15px;padding-left:140px;margin-bottom:20px;}
 	
 	.hp-diet{margin-bottom:60px;padding-bottom:60px;}
 	.hp-diet a{margin-bottom:30px;}
@@ -462,6 +608,16 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.top-all{margin-top:0;}
 	
+	.hp-first .inner{padding:40px 15px 0;min-height:250px;}
+	.hp-first .inner span{font-size:43px;line-height:60px;}
+	.hp-first .inner h6{font-size:14px;line-height:23px;}
+	
+	.top-home{padding-top:6.644vw;}
+	.top-home h1{font-size:3.333vw;line-height:4.063vw;margin-bottom:10px;}
+	.top-home p{font-size:1.146vw;line-height:1.771vw;}
+	.top-home a{margin-right:0;margin-bottom:15px;width:100%;margin-top:0;font-size:12px;letter-spacing:.4px;padding:17px 12px 0;height:50px;}
+	.top-home a.more-green{margin-bottom:0;}
+	
 	.hp-diet{margin-bottom:60px;padding-bottom:60px;}
 	.hp-diet a{margin-bottom:30px;}
 	.hp-steps .inner{margin-bottom:30px;}
@@ -501,6 +657,11 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.top-menu ul li{margin:0;}
 	.top-menu ul li a{padding:19px 10px;font-size:11px;}
 	
+	.top-home h1{font-size:3.333vw;line-height:4.063vw;}
+	.top-home p{font-size:1.146vw;line-height:1.771vw;}
+	.top-home a{margin-right:1.563vw;width:217px;margin-top:0;margin-bottom:0;font-size:12px;letter-spacing:.4px;padding:27px 12px 0;height:70px;}
+	
+	.hp-first .inner h6{font-size:20px;line-height:29px;}
 	.hp-diet a{font-size:20px;line-height:28px;}
 	.hp-steps .inner{margin-bottom:30px;}
 	.hp-steps .third .inner:after{content:'';}
@@ -520,6 +681,10 @@ footer.entry-meta, footer.entry-footer{display:none;}
 @media (min-width: 1201px) and (max-width:1600px) {
 	.footer h3{font-size:30px;}
 }
+@media (min-width: 1201px) and (max-width:1360px) {
+	.top-home a{width:268px;margin-top:15px;margin-bottom:0;}
+}
+
 
 @media (min-width: 1201px){
 	.navbar-brand{margin-right:5vw;}
@@ -528,8 +693,22 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.blog a.post-link{font-size:1.250vw;}
 	
+	.top-home h1{font-size:3.333vw;line-height:4.063vw;}
+	.top-home p{font-size:1.146vw;line-height:1.771vw;}
+	.top-home a{margin-right:1.563vw;}
+	
+	.hp-first .row{margin:0 auto;max-width:1336px;}
+	
+	.hp-info{margin:0 auto;max-width:1260px;}
+	.hp-info .box{background-position:top left 30px;padding-left:160px;}
+	
 	.hp-diet .row{margin:0 auto;max-width:1670px;}
 	.hp-diet a{font-size:1.146vw;}
+	
+	.top-kursy .container .row{margin:0 auto;max-width:1500px;}
+	.kursy-why{margin:0 auto;max-width:1400px;}
+	.kursy-what .row{margin:0 auto;max-width:1330px;}
+	.kursy-faq .row{margin:0 auto;max-width:1210px;}
 }
 
 

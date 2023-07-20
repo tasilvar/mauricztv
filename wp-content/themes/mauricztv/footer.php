@@ -48,7 +48,7 @@
 								<li><a href="#">Strona główna</a></li>
 								<li><a href="#">O Mauricz.tv</a></li>
 								<li><a href="/lista-produktow/">Kursy online</a></li> 
-								<li><a href="#">FAQ</a></li> 
+								<li><a href="/faq/">FAQ</a></li> 
 								<li><a href="#">Kontakt</a></li>
 							</ul>
 							
@@ -99,5 +99,26 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+	<?php /* <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.counterup.js"></script> */ ?>
+
+
+		<script>
+			if(!$) var $ = jQuery;
+			jQuery(document).ready(function($) {
+				$('.counter').counterUp({
+					delay: 10,
+					time: 3000
+				});
+			});
+		</script>
+
+
+
+
+
 </body>
 </html>
