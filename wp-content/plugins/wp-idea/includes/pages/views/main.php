@@ -8,6 +8,9 @@
         </div>
     <?php endif; ?>
 
+    ### begin ####
+
     <?= !empty($content) ? $content : '' ?>
+    #### end ####
 </div>
 <?php WPI()->templates->footer(); ?>
