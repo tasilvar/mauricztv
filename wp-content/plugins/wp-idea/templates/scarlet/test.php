@@ -607,6 +607,7 @@ if ( $query->post_count > 0 ) {
             <!-- Koniec pola z materiałami do pobrania -->
 
             <div id="course-navigation-section">
+                2
                 <?php WPI()->templates->html_navigation_section( null, $course_page_id, $lesson_page_id ); ?>
             </div>
 

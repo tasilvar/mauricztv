@@ -16,8 +16,8 @@ use bpmj\wpidea\modules\app_view\api\App_View_API_Static_Helper;
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/mauricztv/style.css?v=<?php echo time(); ?>"/>
 </head>
-
 <body <?php body_class( array( WPI()->templates->get_body_class() ) ); ?>>
 <?php do_action( 'bpmj_eddc_after_body_open_tag' ); ?>
 

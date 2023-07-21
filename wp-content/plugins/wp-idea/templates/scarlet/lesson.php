@@ -73,6 +73,7 @@ $course_page_id			 = WPI()->courses->get_course_top_page( $lesson_page_id );
 		<!-- Koniec pola z materiałami do pobrania -->
 
 	<div id="course-navigation-section">
+		3
 		<?php WPI()->templates->html_navigation_section( null, $course_page_id, $lesson_page_id ); ?>
 	</div>
 

@@ -122,6 +122,7 @@ $course_progress_section     = function ( $course_page_id, $lesson_page_id, $hea
 
 				<?php if ( 'side' === $navigation_section_position ): ?>
 					<div id="course-navigation-section">
+						4
 						<?php
 						WPI()->templates->html_navigation_section( $navigation_section_position, $course_page_id, $lesson_page_id );
 						?>
@@ -162,6 +163,7 @@ $course_progress_section     = function ( $course_page_id, $lesson_page_id, $hea
 					if ( 'below' === $navigation_section_position ) {
 						?>
 						<div class="box-wrapper" id="course-navigation-section">
+							5
 							<?php
 							WPI()->templates->html_navigation_section( $navigation_section_position, $course_page_id, $lesson_page_id );
 							?>
