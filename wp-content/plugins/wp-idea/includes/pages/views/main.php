@@ -1,8 +1,45 @@
+<?php 
+use bpmj\wpidea\Course_Progress;
+use bpmj\wpidea\Courses;
+use bpmj\wpidea\courses\core\entities\Course_Structure;
+
+use bpmj\wpidea\resources\Resource_Type;
+use bpmj\wpidea\sales\product\model\Gtu;
+use bpmj\wpidea\wolverine\user\User;
+
+use bpmj\wpidea\wolverine\product\Product;
+//use bpmj\wpidea\wolverine\product\course\Product;
+?>
 <?php WPI()->templates->header(); ?>
 
 
 
-
+<?php 
+    global $post;
+    //echo "POST: ".$post->ID;
+    //print_r($post);
+    //echo "PAGE: ".get_page_template();
+    //exit(); 
+  
+    // typ PAGE
+    if($post->post_type != 'download') {
+       
+        $getProductByPage = WPI()->courses->get_product_by_page_id((int)$post->ID);
+        $product_id = (int)$getProductByPage->id;
+        $product_price = $getProductByPage->price;
+        $product_access = $getProductByPage->productAccess;
+     
+    } else { 
+        // typ DOWNLAOD (produkt)
+        $product_id = (int)$post->ID;
+        $p = new Product($product_id);
+        $product_price = get_post_meta( $product_id,  'edd_price', true);
+        $product_access = $p->productAccess;
+        //print_r($p);
+      
+    }
+ 
+    ?>
 
 <?php if (!is_page('zamowienie')){ ?>
 	
@@ -59,9 +96,84 @@
 						<?php endif; ?>
 						
 						<div class="links">
-							<a href="<?php the_field('link_do_kursu_w_publigo'); ?>" class="more">Kup teraz</a>
+							<!-- <a href="<?php the_field('link_do_kursu_w_publigo'); ?>" class="more">Kup teraz</a> -->
+                            <!--  BEGIN: Dodaj do koszyka -->
+<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
+                   'add-to-cart' => (int)$product_id,
+               ) ) ); ?>" class="more">Kup teraz</a>
+   
+               <!--  END: Dodaj do koszyka -->      
 							<a href="#kursy-why" class="more-empty">Więcej o kursie</a>
 						</div>
+
+
+                         
+    <!-- BEGIN: PRZEJDŹ DO PANELU  -->
+<?php 
+if($post->post_type == 'download') :
+?>
+
+    <a href="<?php echo get_permalink($getCourseByProduct->ID); ?>" class="box_glowna_add_to_cart_link more" style=" background: #333;color: #fff;"><i
+        class="fa fa-arrow-right"></i><?php _e( 'GO TO COURSE', BPMJ_EDDCM_DOMAIN ) ?>
+    </a>
+    <?php 
+    endif;
+    ?>
+<?php 
+?>
+    <!-- END: PRZEJDŹ DO PANELU -->
+            
+  
+    <!-- BEGIN: Sprawdź czy kurs dostępny -->
+
+    <?php 
+$course = WPI()->courses->get_course_by_product( $product_id );
+$course_page_id = get_post_meta( $course->ID, 'course_id', true );
+$restricted_to  = array( array( 'download' => $product_id ) );
+$user_id = get_current_user_id();
+$access         = bpmj_eddpc_user_can_access( $user_id, $restricted_to, $course_page_id );
+if ( 'valid' === $access[ 'status' ] || 'waiting' === $access[ 'status' ] ) {
+    $show_open_padlock = true;
+} else   { 
+    $show_open_padlock = false;
+}
+// $sales_status = WPI()->courses->get_sales_status( $course->ID, $product_id );
+// if ( 'disabled' === $sales_status[ 'status' ] ) {
+//     $sales_disabled = true;
+// }
+
+echo "PRODUCT ID: ".(int)$product_id;
+echo "<br/>";
+echo "COURSE PAGE ID: ".(int)$course_page_id;
+echo "<br/>";
+echo "STAN KURSU : ".(boolean)$show_open_padlock;
+
+
+?>
+    <!-- END: Sprawdź czy kurs dostępny -->
+    <br/><Br/>
+                        <?php 
+// Jesli user jest zalogowany
+  if(is_user_logged_in())  { 
+      echo "Zalogowany";
+
+?> 
+<?php
+  } else { 
+     echo "Niezalogowany";
+    
+  }
+?>
+
+                        <?php 
+        
+        echo "PRICE:";
+    echo $product_price;
+
+    echo "ID: ";
+    print_r($product_id); 
+    ?>
+
 
 					</div>
 					<div class="col-md-6">
@@ -314,18 +426,146 @@
 					</div>	
 				</div>
 				
-				<a href="<?php the_field('link_do_kursu_w_publigo'); ?>" class="more-green"><span>Kup teraz</span></a>
+                <!--  BEGIN: Moduły kursu -->
+                
+                <?php
+                if($post->post_type == 'page') :
+      $modules = WPI()->courses->get_course_level1_modules_or_lessons( $course_page_id );
+     
+    ?>
+	<div class="row panel_kursu_moduly">
+
+		<?php
+
+			foreach ( $modules as $id => $module ) {
+				?>
+                <div class="col-sm-4">
+                    <div class="modul_lekcja<?php if ( $module->should_be_grayed_out() ) echo ' lek_niedostepna'; ?>">
+						<?php if ( $module->should_be_grayed_out() ): ?>
+                            <div class="modul_lekcja_zdjecie">
+								<?php $drip = $module->get_calculated_drip();
+								if( !empty( $drip ) ) { 
+									
+								?>
+								<div class="lekcja_niedostepna" data-drip="<?php echo $drip ?>">
+									<p><?php if( $module->is_lesson() ) { _e( 'The lesson will be available in', BPMJ_EDDCM_DOMAIN ); } else {
+										_e( 'The module will be available in', BPMJ_EDDCM_DOMAIN ); } ?>:</p>
+									<div>
+										<div class="lekcja_niedostepna_zegar"><i class="fas fa-clock"></i></div>
+										<div class="lekcja_niedostepna_time">
+											<div class="drip_time_d"><?php echo bpmj_eddcm_seconds_to_time( $drip, 'a' ) ?></div>
+											<div><?php _e( 'days', BPMJ_EDDCM_DOMAIN ) ?></div>
+										</div>
+										<div class="lekcja_niedostepna_time">:</div>
+										<div class="lekcja_niedostepna_time">
+											<div class="drip_time_h"><?php echo bpmj_eddcm_seconds_to_time( $drip, 'h' ) ?></div>
+											<div><?php _e( 'hr', BPMJ_EDDCM_DOMAIN ) ?></div>
+										</div>
+										<div class="lekcja_niedostepna_time">:</div>
+										<div class="lekcja_niedostepna_time">
+											<div class="drip_time_m"><?php echo bpmj_eddcm_seconds_to_time( $drip, 'i' ) ?></div>
+											<div><?php _e( 'min', BPMJ_EDDCM_DOMAIN ) ?></div>
+										</div>
+										<div class="lekcja_niedostepna_time">:</div>
+										<div class="lekcja_niedostepna_time">
+											<div class="drip_time_s"><?php echo bpmj_eddcm_seconds_to_time( $drip, 's' ) ?></div>
+											<div><?php _e( 'sec', BPMJ_EDDCM_DOMAIN ) ?></div>
+										</div>
+									</div>
+								</div>
+								<?php } ?>
+								<img src="<?php if ( $module->get_thumbnail() ) { echo $module->get_thumbnail(); } else { echo bpmj_eddcm_template_get_file( 'assets/img/box1.jpg' ); } ?>" />
+							</div>
+							<div class="modul_lekcja_tytul">
+								<?php echo $module->post_title; ?>
+                            </div>
+							<?php if ( $module->get_subtitle() ) { ?>
+                                <?php echo '<div class="modul_lekcja_opis">' . $module->get_subtitle() . '</div>'; ?><?php } ?>
+						<?php else: ?>
+                            <a href="<?php echo get_permalink( $module->unwrap() ); ?>">
+                                <div class="modul_lekcja_zdjecie">
+									<img src="<?php if ( $module->get_thumbnail() ) { echo $module->get_thumbnail(); } else { echo bpmj_eddcm_template_get_file( 'assets/img/box1.jpg' ); } ?>" />
+								</div>
+                            </a>
+                            <div class="modul_lekcja_tytul">
+                                <a href="<?php echo get_permalink( $module->unwrap() ); ?>"><?php echo $module->post_title; ?></a>
+                            </div>
+							<?php if ( $module->get_subtitle() ) { ?><?php echo '<div class="modul_lekcja_opis">' . $module->get_subtitle() . '</div>'; ?>
+                                <?php } ?>
+						<?php endif; ?>
+                    </div>
+                </div>
+				<?php
+			}
+        endif; 
+			?>
+    <!--  END: Moduły kursu -->
+
+    <!--  BEGIN: Zawartość kursu -->
+                <?php
+            if($post->post_type == 'page') :
+                $getCourseID = WPI()->courses->get_course_by_page((int)$post->ID);
+                $modules = WPI()->courses->get_course_level1_modules_or_lessons( null );
+                
+                $progress = new Course_Progress( $getCourseID->ID);
+
+                $lessons  = WPI()->courses->get_course_structure_flat( null, false );
+                $lessons_cnt = count( $lessons );
+                $i = 0;
+                $parent = 0;
+                ?>
+            <?php
+                if ( ! empty( $lessons ) ) {
+            ?>
+
+			<?php
+			foreach ( $lessons as $lesson ) {
+				if( $i == 0 ) {
+					echo '<div class="col-sm-6 etapy_kursu">
+						<div class="etap_kursu">';
+				}
+				else if( $lessons_cnt > 3 && $i == (int)($lessons_cnt / 2) ) {
+					echo '</ul></div></div><div class="col-sm-6 etapy_kursu">
+						<div class="etap_kursu"><ul>';
+				}
+				if( $lesson->post_parent != $parent ) {
+					if( $i != 0 ) echo '</ul>';
+					if( $lesson->post_parent == $lesson_page_id ) {
+						echo '<p></p><ul>';
+					}
+					else {
+						echo '<p><i class="icon-module"></i> ' . get_the_title( $lesson->post_parent ) . '</p>
+							<ul>';
+					}
+					$parent = $lesson->post_parent;
+				}
 				
+				$class_active = '';
+				if( $lesson_page_id == $lesson->ID ) {
+					$class_active = ' active';
+				}
+				
+				if ( $lesson->should_be_grayed_out() ) {
+					echo '<li' . ( $progress->is_lesson_finished( $lesson->ID ) ? ' class="zakonczony"' : '' ) . '><div class="etap_kursu_kreska fa"></div><span>' . $lesson->post_title . '</span></li>';
+				} else {
+					echo '<li' . ( $progress->is_lesson_finished( $lesson->ID ) ? ' class="zakonczony' . $class_active . '"' : ' class="' . $class_active . '"' ) . '><div class="etap_kursu_kreska fa"></div><a href="' . $lesson->get_permalink() . '">' . $lesson->post_title . '</a></li>';
+				}
+				$i ++;
+			}
+			?>
+		</ul>
+	<?php } ?>
+    <?php 
+    endif; 
+    ?>
+
+    <!--  END: Zawartość kursu -->
+    
+<br/>
+   
 			</div>
 
 		</div>				
-					
-					
-					
-					
-					
-					
-	
 
 
 	</div><!-- .entry-content -->
