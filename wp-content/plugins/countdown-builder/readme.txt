@@ -2,7 +2,7 @@
 Contributors: adamskaat
 Tags: countdown, timer, countdown timer
 Requires at least: 3.8
-Tested up to: 6.2
+Tested up to: 6.3
 Stable tag: 2.5.1
 Requires PHP: 5.3
 License: GPLv2 or later
@@ -67,6 +67,10 @@ Yes you can, we have Circle and Flipclock countdown popups.
 You need to select the .zip file, there is no need to extract the zip file, just upload it.
 
 == Changelog ==
+= 2.5.9 =
+* Stop Countdown when the tab is inactive
+* Exclude countdown posts from posts search
+
 = 2.5.8 =
 * Added Countdown Expiration WooCommerce Condition "The cart will not empty the countdown"
 

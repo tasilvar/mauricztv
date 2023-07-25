@@ -149,6 +149,7 @@ class RegisterPostType {
 			'public'             => true,
 			'has_archive'        => true,
 			//Where to show the post type in the admin menu
+			'exclude_from_search' => true,
 			'show_ui'            => true,
 			'query_var'          => false,
 			// post preview button

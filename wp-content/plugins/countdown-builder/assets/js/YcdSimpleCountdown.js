@@ -1,6 +1,7 @@
 function YcdSimpleCountdown()
 {
 	this.countdownRun = true;
+	this.isActive = true;
 	this.seconds = 0;
 	this.id = 0;
 	this.doubeleDigits = false;
@@ -266,9 +267,20 @@ YcdSimpleCountdown.prototype.changeSwitch = function()
 YcdSimpleCountdown.prototype.render = function()
 {
 	this.addTimeToClock();
+	this.listeners();
 	this.countdown();
 	this.responsive();
 };
+
+YcdSimpleCountdown.prototype.listeners = function () {
+	var that = this;
+	jQuery(window).bind("tabInactive", function () {
+		that.isActive = false;
+	})
+	jQuery(window).bind("tabActive", function () {
+		that.isActive = true;
+	})
+}
 
 YcdSimpleCountdown.prototype.countdown = function()
 {
@@ -279,7 +291,9 @@ YcdSimpleCountdown.prototype.countdown = function()
 
 	var countdownWrapper = jQuery('.ycd-simple-wrapper-'+this.id);
 	var runCountdown = function() {
-
+		if (!that.isActive && options['ycd-countdown-stop-inactive']) {
+			return false;
+		}
 		// Get today's date and time
 		var now = new Date().getTime();
 

@@ -8,7 +8,7 @@ $proSpan = '';
 $isPro = '';
 if(YCD_PKG_VERSION == YCD_FREE_VERSION) {
 	$isPro = '-pro';
-	$proSpan = '<span class="ycd-pro-span">'.__('pro', YCD_TEXT_DOMAIN).'</span>';
+	$proSpan = '<span class="ycd-pro-span">'.__('Pro', YCD_TEXT_DOMAIN).'</span>';
 }
 $defaultData = AdminHelper::defaultData();
 $dueDate = $this->getOptionValue('ycd-date-time-picker');
@@ -445,6 +445,17 @@ if (class_exists('ycd\AdminHelperPro')) {
             <span class="dashicons dashicons-controls-volumeon js-preview-sound"></span>
         </div>
     </div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<label for="ycd-countdown-stop-inactive" class="ycd-label-of-switch"><?php _e('Stop inactive tab countdown', YCD_TEXT_DOMAIN); ?><?php  echo wp_kses($proSpan, $allowed_html); echo ycd\ycd_info('The countdown timer on the web page will pause when the tab becomes inactive and resume when the tab becomes active again.'); ?></label>
+	</div>
+	<div class="col-md-6 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+		<label class="ycd-switch">
+			<input type="checkbox" id="ycd-countdown-stop-inactive" name="ycd-countdown-stop-inactive" <?php echo esc_attr($this->getOptionValue('ycd-countdown-stop-inactive')); ?>>
+			<span class="ycd-slider ycd-round"></span>
+		</label>
+	</div>
 </div>
 <div class="row">
     <div class="col-md-12">

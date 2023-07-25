@@ -6,7 +6,7 @@ function YcdCountdown() {
 	YcgGeneral.call(this);
 }
 
-YcdCountdown.prototype = Object.create(YcgGeneral.prototype);
+YcdCountdown.prototype = new YcgGeneral();
 
 YcdCountdown.prototype.setOptions = function(options) {
 	this.options = options;
@@ -831,6 +831,16 @@ YcdCountdown.prototype.runCountdown = function (currentCountdown) {
 
 	var countdown = currentCountdown.TimeCircles(options).addListener(countdownComplete);
 	var that = this;
+
+	if (allOptions['ycd-countdown-stop-inactive']) {
+		jQuery(window).bind("tabInactive", function () {
+			countdown.stop()
+		});
+
+		jQuery(window).bind("tabActive", function () {
+			countdown.start()
+		})
+	}
 
 	if (currentCountdown.data('timer') <= 0) {
 		that.endBehavior(currentCountdown, allOptions);
