@@ -167,10 +167,10 @@ h3 em{font-style:normal;color:#1AD779;}
 .hp-first .inner span{font-size:54px;line-height:66px;font-weight:800;color:#1AD779;}
 .hp-first .inner h6{color:#323739;font-size:22px;line-height:32px;font-weight:600;margin-top:32px;}
 
-.hp-courses{}
+.hp-courses{margin-bottom:90px;}
 .hp-courses .upper{text-align:center;}
 .hp-courses .upper h6{font-size:28px;line-height:44px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;margin-bottom:17px;}
-.hp-courses .upper h3{line-height:66px;}
+.hp-courses .upper h3{line-height:66px;margin-bottom:70px;}
 
 .hp-info{/*background:url('./img/hp-info.jpg')no-repeat left bottom;*/margin:0 auto;max-width:1100px;}
 .hp-info h3{margin:0 auto 23px;max-width:900px;line-height:66px;}
@@ -210,6 +210,20 @@ h3 em{font-style:normal;color:#1AD779;}
 .hp-opinion .inner h6{color:#323739;font-size:22px;line-height:32px;margin-top:32px;margin-bottom:21px;}
 .hp-opinion .inner img{width:135px;height:135px;border-radius:50%;}
 .hp-opinion .inner p{font-size:20px;line-height:32px;}
+
+h3.edd_download_title a{color:#323739;font-size:24px;line-height:34px;}
+
+.edd-submit.button.orange{width:100%;height:auto;padding:25px;color:#fff;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#013317;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+.edd-submit.button.orange:hover{background:#1AD779;color:#323739;}
+
+.button-read-more{width:100%;height:auto;padding:25px;color:#323739;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#1AD779;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+.button-read-more:hover{background:#323739;color:#1AD779;}
+
+.edd-submit.button.blue{width:100%;height:auto;padding:25px;color:#fff;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#013317;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+.edd-submit.button.blue:hover{background:#1AD779;color:#323739;}
+
+.edd_download .edd_price{font-size:28px;line-height:44px;color:#013317;letter-spacing:1.4px;}
+
 
 .hp-contact{}
 .hp-contact h6{text-align:center;font-size:28px;line-height:44px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;}
@@ -350,10 +364,78 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .outer-blog ul.nav-pills{text-align:center;display:inherit;margin-bottom:96px!important;}
 .outer-blog ul.nav-pills li{display:inline-block;}
 
+/*o nas*/
+.top-about{background:url('./img/top-about.jpg')no-repeat top center / contain;}
+.top-about p{color:#777D80;font-size:22px;line-height:34px;font-weight:700;margin-top:30px;}
+
+.about-first{background:url('./img/about-first.jpg')no-repeat top center / contain;min-height:51.667vw;/*padding-top:210px;*/padding-top:10.938vw;}
+.about-first .row{margin:0 auto;max-width:1400px;}
+.about-first p.big{/*font-size:22px;line-height:34px;margin-bottom:53px;*/font-size:1.146vw;line-height:1.771vw;margin-bottom:2.760vw;font-weight:600;color:#777D80;}
+.about-first p.big strong{color:#1E2123;font-weight:800;}
+.about-first p{/*font-size:20px;line-height:32px;*/font-size:1.042vw;line-height:1.667vw;}
+.about-first a.more{/*margin-top:50px;*/margin-top:2.604vw;}
+
+.about-team{background:url('./img/about-team.jpg')no-repeat right 20px bottom 20px;margin-bottom:98px;}
+.about-team .row{margin:110px auto 47px;max-width:1400px;}
+.about-team h3{margin-bottom:86px;}
+.about-team h5{color:#323739;font-size:32px;line-height:44px;font-weight:800;margin-bottom:33px;}
+.about-team p.big{font-size:22px;line-height:32px;font-weight:600;margin-bottom:30px;}
+.about-team p.big strong{color:#1AD779;font-weight:800;}
+.about-team p.thin{font-size:20px;line-height:32px;font-weight:500;}
+.about-team p strong{font-weight:800;}
+.about-team a.more{margin-top:27px;}
+
+.about-team h6{font-size:18px;line-height:30px;font-weight:800;margin-top:33px;margin-bottom:5px;}
+.about-team ul{padding-left:0;}
+.about-team ul li{list-style-type:none;padding-left:85px;background-repeat:no-repeat;background-position:left center;margin:32px 0;}
+.about-team ul li.list01{background-image:url('./img/icon-team01.png');}
+.about-team ul li.list02{background-image:url('./img/icon-team02.png');}
+.about-team ul li.list03{background-image:url('./img/icon-team03.png');}
+.about-team ul li.list04{background-image:url('./img/icon-team04.png');}
+.about-team ul li.list05{background-image:url('./img/icon-team05.png');}
+.about-team ul li.list06{background-image:url('./img/icon-team06.png');}
+.about-team ul li.list07{background-image:url('./img/icon-team07.png');}
+.about-team ul li.list08{background-image:url('./img/icon-team08.png');}
+.about-team p.thin{font-size:20px;line-height:30px;}
+.about-team .last h6{margin-bottom:22px;}
+.about-team p.thin{margin-top:50px;}
+
+.about-mal{background:#E7FBF1;padding-top:120px;padding-bottom:135px;}
+.about-mal .row{margin:0 auto;max-width:1400px;}
+.about-mal h5{color:#323739;font-size:32px;line-height:44px;font-weight:800;margin-bottom:33px;}
+.about-mal p.big{font-size:22px;line-height:32px;font-weight:600;margin-bottom:30px;}
+.about-mal p.big strong{color:#1AD779;font-weight:800;}
+.about-mal p{font-size:20px;line-height:32px;font-weight:500;}
+.about-mal p strong{font-weight:800;}
+.about-mal a.more{margin-top:27px;padding:32px 60px 0;}
+.about-mal img{margin-top:10px;}
+
+.about-pat{margin:138px auto 47px;max-width:1400px;}
+.about-pat h5{color:#323739;font-size:32px;line-height:44px;font-weight:800;margin-bottom:33px;}
+.about-pat p.big{font-size:22px;line-height:32px;font-weight:600;margin-bottom:30px;}
+.about-pat p.big strong{color:#1AD779;font-weight:800;}
+.about-pat p{font-size:20px;line-height:32px;font-weight:500;}
+.about-pat p strong{font-weight:800;}
+.about-pat a.more{margin-top:27px;}
+.about-pat img{margin-top:10px;}
+
+/*company*/
+.top-company{background:url('./img/top-company.jpg')no-repeat top center / contain;}
+
+.company-green{background:#E7FBF1 url('./img/company-green.jpg')no-repeat bottom center;padding-top:116px;padding-bottom:160px;}
+.company-green h3{margin-bottom:78px;}
+.company-green .row{margin:0 auto;max-width:1400px;}
+.company-green p{font-size:20px;line-height:32px;margin-bottom:30px;}
+.company-green p strong{font-size:18px;line-height:30px;}
+.company-green .right{/*padding-top:94px;padding-left:200px;*/padding-top:4.896vw;padding-left:10.417vw;}
+
+.company-bottom{text-align:center;margin-top:90px;}
+.company-bottom h3{margin:0 auto 55px;max-width:740px;line-height:66px;}
+
 /*kursy wpisy*/
 
 .top-kursy{margin-top:-137px;background:url('./img/top-empty.jpg')no-repeat top center / contain;min-height:1076px;padding-top:333px;min-height:56.042vw;padding-top:12.344vw;}
-.top-kursy h5{text-transform:uppercase;font-weight:700;font-size:28px;line-height:44px;letter-spacing:1.4px;margin-bottom:9px;}
+.top-kursy h5{text-transform:uppercase;font-weight:700;font-size:28px;line-height:44px;letter-spacing:1.4px;margin-bottom:9px;margin-bottom:33px;}
 .top-kursy h1{font-weight:800;font-size:54px;line-height:66px;margin-bottom:20px;}
 .top-kursy h6{text-transform:uppercase;font-weight:800;font-size:18px;line-height:30px;margin-bottom:7px;}
 .top-kursy h6.price{margin-bottom:0;}
@@ -383,15 +465,15 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 
 .kursy-why{margin-top:128px!important;}
 .kursy-why h3{text-align:center;margin-bottom:69px;}
-article.post .entry-content .kursy-why h3 p{font-size:54px;line-height:56px;font-weight:800;}
+.kursy-why h3 p,article.post .entry-content .kursy-why h3 p{font-size:54px;line-height:56px;font-weight:800;}
 .kursy-why ul{padding-left:0;}
 .kursy-why ul li{background:url('./img/tick.png')no-repeat top left;min-height:54px;font-size:18px;line-height:30px;font-weight:800;padding-left:80px;list-style-type:none;margin-bottom:32px;}
 .kursy-why ul li em{color:#1AD779;font-style:normal;}
 
 .kursy-competences{margin-top:81px;}
 .kursy-competences h3{text-align:center;margin-bottom:37px;}
-article.post .entry-content .kursy-competences h3 p{font-size:54px;line-height:56px;font-weight:800;}
-article.post .entry-content .kursy-competences p{font-size:18px;line-height:30px;font-weight:800;min-height:77px;padding-left:110px;background-position:left center;background-repeat:no-repeat;}
+.kursy-competences h3 p,article.post .entry-content .kursy-competences h3 p{font-size:54px;line-height:56px;font-weight:800;}
+.kursy-competences p,article.post .entry-content .kursy-competences p{font-size:18px;line-height:30px;font-weight:800;min-height:77px;padding-left:110px;background-position:left center;background-repeat:no-repeat;}
 .kursy-competences p em{font-style:normal;color:#1AD779;}
 
 .kursy-competences .first p{background-image:url('./img/icon-competences01.png');padding-top:8px;}
@@ -415,7 +497,7 @@ article.post .entry-content .kursy-competences p{font-size:18px;line-height:30px
 .kursy-what{background:url('./img/kursy-what.jpg')no-repeat top center;min-height:48.229vw;padding-top:103px;text-align:center;}
 .kursy-what h3{margin-bottom:60px;}
 .kursy-what .inner{background:#fff;padding:60px 30px 30px;min-height:425px;}
-article.post .entry-content .kursy-what .inner p{font-size:16px;line-height:28px;margin-top:38px;}
+.kursy-what .inner p,article.post .entry-content .kursy-what .inner p{font-size:16px;line-height:28px;margin-top:38px;}
 .kursy-what a.more{margin-top:70px;}
 
 .kursy-list{background:#F6F6F6 url('./img/kursy-list.jpg')no-repeat bottom left;padding-top:118px;}
@@ -578,6 +660,36 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.free-icons .third{padding-left:0;padding-top:99px;background:url('./img/free-icons03.png')no-repeat top center;}
 	.free-icons h6{max-width:none;}
 	
+	.top-about p{font-size:13px;margin-top:0;}
+	
+	.about-first{background:#F6F6F6;padding-bottom:0;}
+	.about-first .row{margin-left:-15px;margin-right:-15px;}
+	.about-first p.big{font-size:22px;line-height:34px;margin-bottom:53px;}
+	.about-first p{font-size:20px;line-height:32px;}
+	.about-first a.more{width:100%;padding:32px 15px;height:auto;}
+	.about-first img{margin-top:60px;}
+	.about-first p.last{margin-bottom:0;}
+	
+	.about-team .row{margin-left:-15px;margin-right:-15px;}
+	.about-team h3{margin-bottom:56px;font-size:42px;}
+	.about-team img{margin-top:40px;margin-bottom:40px;}
+	.about-team a.more{width:100%;padding:32px 15px 0;}
+
+	.about-mal{padding-top:60px;padding-bottom:60px;}
+	.about-mal .row{margin-left:-15px;margin-right:-15px;}
+	.about-mal h5{margin-top:40px;}
+	.about-mal a.more{width:100%;padding:32px 15px 0;}
+	.about-pat{margin-top:60px;margin-left:-15px;margin-right:-15px;}
+	.about-pat a.more{width:100%;padding:32px 15px 0;}
+	
+	.company-green{padding-top:60px;padding-bottom:60px;}
+	.company-green h3{font-size:40px;}
+	.company-green .row{margin-left:-15px;margin-right:-15px;}
+	.company-green .right{padding-top:60px;padding-left:15px;}
+	.company-bottom{margin-top:0;}
+	.company-bottom h3{margin:0 auto 30px;line-height:41px;font-size:24px;}
+	.company-bottom a.more{width:100%;padding:32px 15px 0;}
+	
 	.single-top{/*padding-bottom:12.865vw;*/margin-bottom:60px;}
 	.single-top .inner{padding-bottom:12.865vw;}
 	
@@ -644,6 +756,17 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.free-icons .third{padding-left:0;padding-top:99px;background:url('./img/free-icons03.png')no-repeat top center;}
 	.free-icons h6{max-width:none;}
 	
+	.about-first{background:#F6F6F6;padding-bottom:9.938vw;}
+	.about-first p.big{font-size:22px;line-height:34px;margin-bottom:53px;}
+	.about-first p{font-size:20px;line-height:32px;}
+	.about-first a.more{width:100%;padding:32px 15px;height:auto;}
+	.about-mal{padding-top:60px;padding-bottom:60px;}
+	.about-mal h5{margin-top:40px;}
+	.about-team img{margin-top:40px;margin-bottom:40px;}
+	.about-team ul li{min-height:56px;}
+	
+	.company-green .right{padding-top:60px;padding-left:15px;}
+	
 	.single-top h1{line-height:1;}
 	
 	.outer-blog .nav-link{padding:32px 37px 0;margin:0 10px;}
@@ -675,6 +798,8 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.free-icons .third{padding-left:99px;padding-top:30px;}
 	.free-icons h6{font-size:14px;}
 	
+	.about-first a.more{width:100%;padding:32px 15px;height:auto;}
+	
 	.footer h3{font-size:24px;}
 	.footer .wpcf7-submit{letter-spacing:0.4px;}
 }
@@ -687,6 +812,8 @@ footer.entry-meta, footer.entry-footer{display:none;}
 
 
 @media (min-width: 1201px){
+	/*.container, .container-fluid{width: 1640px!important;}*/
+	
 	.navbar-brand{margin-right:5vw;}
 	.top-menu ul li{margin:0 0.313vw;}
 	.top-menu ul li a{padding:19px 0.990vw;font-size:0.833vw;}
@@ -709,6 +836,9 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.kursy-why{margin:0 auto;max-width:1400px;}
 	.kursy-what .row{margin:0 auto;max-width:1330px;}
 	.kursy-faq .row{margin:0 auto;max-width:1210px;}
+	.kursy-competences{margin:81px auto 0;max-width:1640px;}
+	.kursy-opinions{margin:108px auto 0;max-width:1640px;}
+	
 }
 
 
