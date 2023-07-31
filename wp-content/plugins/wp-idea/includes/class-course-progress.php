@@ -21,17 +21,17 @@ class Course_Progress
     /**
      * @var int
      */
-    protected $course_page_id;
+    public $course_page_id;
 
     /**
      * @var int
      */
-    protected $lesson_page_id;
+    public $lesson_page_id;
 
     /**
      * @var int
      */
-    protected $user_id;
+    public $user_id;
 
     /**
      * @var int
@@ -41,7 +41,7 @@ class Course_Progress
     /**
      * @var array
      */
-    protected $progress;
+    public $progress;
 
     /**
      * @var int

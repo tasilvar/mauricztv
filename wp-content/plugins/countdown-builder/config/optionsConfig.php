@@ -277,6 +277,7 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-fixed-positions-left', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-woo-condition', 'type' => 'text', 'defaultValue' => 'disabled');
 		$options[] = array('name' => 'ycd-countdown-enable-woo-condition', 'type' => 'checkbox', 'defaultValue' => 'on');
+		$options[] = array('name' => 'ycd-countdown-stop-inactive', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-enable-start-date', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-start-date', 'type' => 'text', 'defaultValue' => date('Y-m-d H:i'));
 		$options[] = array('name' => 'ycd-countdown-start-time-zone', 'type' => 'text', 'defaultValue' => self::getDefaultTimezone());

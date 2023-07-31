@@ -803,7 +803,7 @@ class Templates
 
         $logo_links_to_the_homepage = $this->settings->get('enable_logo_in_courses_to_home_page') ?? null;
 
-        $logo = '<a href="' . (($this->is_in_course() && !is_tax() && '1' !== $logo_links_to_the_homepage) ? $this->get_main_parent('permalink') : get_home_url()) . '"><img src="' . $logo . '"></a>';
+        $logo = '<a href="' . (($this->is_in_course() && !is_tax() && '1' !== $logo_links_to_the_homepage) ?  get_home_url() : get_home_url()) . '"><img src="' . $logo . '"></a>';
 
         return $logo;
     }

@@ -10,7 +10,6 @@
 
     while ( have_posts() ) {
         the_post();
-        // echo "AAAA";
         the_content();
     }
 ?>

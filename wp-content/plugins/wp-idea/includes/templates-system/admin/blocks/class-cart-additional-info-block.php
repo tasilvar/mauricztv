@@ -35,34 +35,60 @@ class Cart_Additional_Info_Block extends Block
         }
 
         $content = '<div class="koszyk_right">';
-	
-        if( !empty( $scarlet_cart_additional_info_1_title ) ) {
-            $content .= '<div class="tytul_ikona">
-                <img src="' . bpmj_eddcm_template_get_file( 'assets/img/gwiazda check.png' ) . '"> ' . 
-                $scarlet_cart_additional_info_1_title . '
-            </div>
-            <div class="zwykly_tekst">' .
-                $scarlet_cart_additional_info_1_desc . '
-            </div>';
-        }
+
+        $content .= '<h3>Podsumowanie</h3>';
+
+        $content .= '<table>';
+
+            $content .= '<tr>';
+                $content .= '<td>';
+                    $content .= 'Łącznie';
+                $content .= '</td>';
+
+                $content .= '<td>';
+                    $content .= '<span class="price edd_cart_amount">';
+                        $content .= edd_cart_total(false);                    
+                    $content .= '</span>';
+                $content .= '</td>';
+            $content .= '</tr>';
+
+            $content .= '<tr>';
+                $content .= '<td colspan="2">';
+                    $content .= 'Płatność';
+                $content .= '</td>';
+            $content .= '</tr>';
+        $content .= '</table>';
+
+        $content .= edd_checkout_form_without_cart();
+
+        #$content .= bpmj_eddcm_scarlet_edd_discount_field();
+        // if( !empty( $scarlet_cart_additional_info_1_title ) ) {
+        //     $content .= '<div class="tytul_ikona">
+        //         <img src="' . bpmj_eddcm_template_get_file( 'assets/img/gwiazda check.png' ) . '"> ' . 
+        //         $scarlet_cart_additional_info_1_title . '
+        //     </div>
+        //     <div class="zwykly_tekst">' .
+        //         $scarlet_cart_additional_info_1_desc . '
+        //     </div>';
+        // }
         
-        if( !empty( $scarlet_cart_additional_info_2_title ) ) {
-            $content .= '<div class="tytul_ikona">
-                <img src="' . bpmj_eddcm_template_get_file( 'assets/img/tarcza.png' ) . '"> ' . 
-                $scarlet_cart_additional_info_2_title . '
-            </div>
-            <div class="zwykly_tekst">' .
-                $scarlet_cart_additional_info_2_desc . '
-            </div>';
-        }
+        // if( !empty( $scarlet_cart_additional_info_2_title ) ) {
+        //     $content .= '<div class="tytul_ikona">
+        //         <img src="' . bpmj_eddcm_template_get_file( 'assets/img/tarcza.png' ) . '"> ' . 
+        //         $scarlet_cart_additional_info_2_title . '
+        //     </div>
+        //     <div class="zwykly_tekst">' .
+        //         $scarlet_cart_additional_info_2_desc . '
+        //     </div>';
+        // }
         
-        if( $scarlet_cart_secure_payments_cb ) {
-            $content .= '<div class="tytul_ikona">
-                <img src="' . bpmj_eddcm_template_get_file( 'assets/img/klodka2.png' ) . '"> ' .
-                __( 'Secure payments', BPMJ_EDDCM_DOMAIN ) . '
-            </div>
-            <div class="platnosci">' . $payments . '</div>';
-        }
+        // if( $scarlet_cart_secure_payments_cb ) {
+        //     $content .= '<div class="tytul_ikona">
+        //         <img src="' . bpmj_eddcm_template_get_file( 'assets/img/klodka2.png' ) . '"> ' .
+        //         __( 'Secure payments', BPMJ_EDDCM_DOMAIN ) . '
+        //     </div>
+        //     <div class="platnosci">' . $payments . '</div>';
+        // }
             
         $content .= '</div>';
         

@@ -2814,7 +2814,7 @@ System napędzany przez Publigo',
     'user_security.user_banned.temporarily' => '<strong>Zostałeś zablokowany!</strong> Poczekaj ',
     'user_security.user_banned.just_a_moment' => 'jeszcze chwilę',
 
-    'product.lowest_price_information' => 'Najniższa cena z ostatnich %d dni przed obniżką wynosiła: %.2f %s',
+    'product.lowest_price_information' => 'Najniższa cena z ostatnich %d dni: %.2f %s',
 
     'course_editor.sections.structure.success_message' => 'Struktura została poprawnie zapisana.',
     'course_editor.sections.structure.error_message' => 'Podczas zapisywania wystąpił błąd. Skontaktuj się z administratorem witryny.',

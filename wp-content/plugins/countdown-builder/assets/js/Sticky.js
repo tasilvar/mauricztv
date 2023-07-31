@@ -13,9 +13,21 @@ YcdSticky.prototype = new YcgGeneral();
 
 YcdSticky.prototype.init = function() {
 	this.seconds = 0;
+	this.isActive = true;
+	this.listeners()
 	this.header();
 	this.stickyClock();
 };
+
+YcdSticky.prototype.listeners = function () {
+	var that = this;
+	jQuery(window).bind("tabInactive", function () {
+		that.isActive = false;
+	})
+	jQuery(window).bind("tabActive", function () {
+		that.isActive = true;
+	})
+}
 
 YcdSticky.prototype.setCounterTime = function(calendarValue, selectedTimezone) {
 	var currentDate = moment(new Date()).tz(selectedTimezone).format('MM/DD/YYYY H:m:s');
@@ -35,6 +47,7 @@ YcdSticky.prototype.stickyClock = function() {
 	var that = this;
 	var header = jQuery('.ycd-sticky-header');
 	var settings = jQuery(header).data('settings');
+
 	var endDate = settings.endDate;
 	endDate = endDate.replace(/-/g, '/');
 	var currentDate = moment(new Date(endDate));
@@ -45,7 +58,9 @@ YcdSticky.prototype.stickyClock = function() {
 	var runTimer = function () {
 		var now = moment().tz(settings.timeZone).format('MM/DD/YYYY HH:mm:ss');
 		//var now = moment().format('MM/DD/YYYY HH:mm:ss');
-		
+		if (!that.isActive && settings['ycd-countdown-stop-inactive']) {
+			return false;
+		}
 		that.seconds -= 1000;
 		var distance = that.seconds;
 

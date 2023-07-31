@@ -6,9 +6,9 @@ use bpmj\wpidea\wolverine\product\Product as BaseProduct;
 
 class Product extends BaseProduct
 {
-    protected $accessSettings;
-    protected $startDate;
-    protected $course;
+    public $accessSettings;
+    public $startDate;
+    public $course;
 
     public function __construct()
     {

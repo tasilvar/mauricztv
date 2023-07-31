@@ -321,14 +321,3 @@ function mjtest_shortcode() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-

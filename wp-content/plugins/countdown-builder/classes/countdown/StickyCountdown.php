@@ -30,6 +30,8 @@ class StickyCountdown extends Countdown {
 			'seconds' => esc_attr($this->getOptionValue('ycd-sticky-countdown-seconds')),
 			'double' => esc_attr($this->getOptionValue('ycd-sticky-enable-double-digits'))
 		);
+		ScriptsIncluder::registerScript('CountdownProFunctionality.js', array( 'dep' => array('jquery')));
+		ScriptsIncluder::enqueueScript('CountdownProFunctionality.js');
 		ScriptsIncluder::registerScript('Sticky.js', array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('jquery')));
 		ScriptsIncluder::localizeScript('Sticky.js', 'YCD_STICKY_ARGS', $data);
 		ScriptsIncluder::enqueueScript('Sticky.js');

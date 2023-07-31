@@ -12,41 +12,41 @@ class Product
     const PRICE_MODE_SINGLE = 'single';
     const PRICE_MODE_MULTI = 'multi';
 
-    protected $id;
+    public $id;
 
-    protected $name;
+    public $name;
 
-    protected $price;
+    public $price;
 
-    protected $promotionalPrice;
+    public $promotionalPrice;
 
-    protected $variants;
+    public $variants;
 
-    protected $defaultVariantId;
+    public $defaultVariantId;
 
-    protected $thumbnail;
+    public $thumbnail;
 
-    protected $panelLink;
+    public $panelLink;
 
-    protected $categories;
+    public $categories;
 
-    protected $tags;
+    public $tags;
 
-    protected $excerpt;
+    public $excerpt;
 
     protected $priceMode;
 
     protected $goStraightToCheckoutModeEnabled;
 
-    protected $isInCart;
+    public $isInCart;
 
     protected $salesStatus;
 
-    protected $productAccess;
+    public $productAccess;
 
-    protected $gtu;
+    public $gtu;
 
-    protected string $linkedResourceType;
+    public string $linkedResourceType;
 
 
     public function __construct()

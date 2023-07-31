@@ -5,6 +5,7 @@ function YcgGeneral() {
 
 YcgGeneral.prototype.generalInit = function () {
 	var that = this;
+
 	var cartUpdates = function () {
 		var data = {
 			action: 'ycd_woo_cart_info',
@@ -73,6 +74,7 @@ YcgGeneral.prototype.allowRender = function () {
 }
 
 YcgGeneral.prototype.getSeconds = function (options) {
+
 	var seconds = 0;
 	if (this.checkWooCondition(options)) {
 		return 0;
@@ -118,7 +120,7 @@ YcgGeneral.prototype.getSeconds = function (options) {
 			}
 		}
 	}
-
+	
 	return seconds;
 };
 

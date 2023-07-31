@@ -16,6 +16,13 @@ use bpmj\wpidea\modules\app_view\api\App_View_API_Static_Helper;
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/lms-data/assets/scarlet/css/dynamic-wp-idea.min.css?v=1689846542&ver=6.2.2"/>
+    
+
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/plugins/wp-idea/templates/scarlet/assets/css/wp-idea.min.css?ver=6.2.2"/>
+
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/plugins/easy-accordion-free/public/assets/css/font-awesome.min.css?ver=2.2.3"/>
+
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/mauricztv/style.css?v=<?php echo time(); ?>"/>
 </head>
 <body <?php body_class( array( WPI()->templates->get_body_class() ) ); ?>>
@@ -27,10 +34,57 @@ use bpmj\wpidea\modules\app_view\api\App_View_API_Static_Helper;
     <div id="header">
         <div class="contenter">
             <div class="row">
-                <div class="col-sm-4" id="logo-cell">
-					<?php echo WPI()->templates->get_logo(); ?>
+                <div class="col-sm-1" id="logo-cell">
+					<?php //echo WPI()->templates->get_logo(); ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Mauricz TV">
+                    </a>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-11">
+
+                <!-- <div class="navbar-brand">
+				
+                <?php if (is_front_page()){ ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Mauricz TV">
+                <?php } else { ?>	
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Mauricz TV">
+                    </a>
+                <?php } ?>
+
+            </div> -->
+            
+            <div class="top-menu">
+            <?php
+            wp_nav_menu(array(
+            'theme_location'    => 'secondary',
+            'container'       => 'div',
+            'container_id'    => 'top-nav',
+            'container_class' => 'collapseA navbar-collapse justify-content-end',
+            'menu_id'         => false,
+            'menu_class'      => 'top-nav',
+            'depth'           => 3,
+            'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+            'walker'          => new wp_bootstrap_navwalker()
+            ));
+            ?>
+            </div>
+            
+            <?php
+            wp_nav_menu(array(
+            'theme_location'    => 'primary',
+            'container'       => 'div',
+            'container_id'    => 'main-nav',
+            'container_class' => 'collapse navbar-collapse justify-content-end',
+            'menu_id'         => false,
+            'menu_class'      => 'navbar-nav',
+            'depth'           => 3,
+            'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+            'walker'          => new wp_bootstrap_navwalker()
+            ));
+            ?>
+
+
                     <div id="menu_mobile"><i class="fas fa-bars"></i></div>
                     <div class="menu_glowne">
 						<?php echo WPI()->templates->get_main_menu( array(

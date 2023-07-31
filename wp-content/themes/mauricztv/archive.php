@@ -38,7 +38,6 @@ get_header(); ?>
 			the_posts_navigation();
 
 		else :
-
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
@@ -47,5 +46,7 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
+if ( have_posts() ) : 
+	get_sidebar();
+endif;
 get_footer();
