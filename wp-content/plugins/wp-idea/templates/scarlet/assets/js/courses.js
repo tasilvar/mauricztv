@@ -738,9 +738,9 @@
                 var lessonNavOutOfScreen = getLessonNavBottomEdgePosition() < getLessonBarBottomEdgePosition();
 
                 if ( lessonNavOutOfScreen ) {
-                    lekcjaTop.addClass( 'lekcja_top--nav-in-bar' );
+                    //lekcjaTop.addClass( 'lekcja_top--nav-in-bar' );
                 } else {
-                    lekcjaTop.removeClass( 'lekcja_top--nav-in-bar' );
+                    //lekcjaTop.removeClass( 'lekcja_top--nav-in-bar' );
                 }
             }
 

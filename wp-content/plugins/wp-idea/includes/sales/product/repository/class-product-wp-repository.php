@@ -579,7 +579,7 @@ class Product_Wp_Repository implements Interface_Product_Repository
         return $attachment_id ?: null;
     }
 
-    private function get_thumbnail_url_from_post_id(int $post_id): ?string
+    public function get_thumbnail_url_from_post_id(int $post_id): ?string
     {
         $url = get_the_post_thumbnail_url($post_id);
 

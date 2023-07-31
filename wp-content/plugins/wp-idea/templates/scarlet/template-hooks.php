@@ -876,6 +876,62 @@ function bpmj_eddcm_scarlet_variable_prices($download_id, $is_from_home_page_sli
 }
 
 // Koszyk
+function bpmj_eddcm_scarlet_edd_discount_field2()
+{
+    $output = '';
+    if (isset($_GET['payment-mode']) && edd_is_ajax_disabled()) {
+        return; // Only show before a payment method has been selected if ajax is disabled
+    }
+
+    if (!edd_is_checkout()) {
+        return;
+    }
+
+    if (edd_has_active_discounts() && edd_get_cart_total()) :
+       
+
+    $output .= "<script>
+            jQuery(document).ready(function ($) {
+                $('.kod_rabatowy_contener').click(function () {
+                    $(this).hide();
+                    $('.kod_rabatowy_input').show();
+                });
+
+                $('#kod_rabatowy_dodaj').click(function () {
+                    $('.kod_rabatowy_input').hide();
+                    $('.kod_rabatowy_contener').show();
+                    //$('.rabat_dodany').show();
+                    alert('a');
+                });
+            });
+        </script>";
+
+        $output .='<p class="kod_rabatowy">';
+        $output .= 'Kod znizkowy';
+        $output .= '</p>';
+
+        $output .= '<p class="kod_rabatowy_contener">';
+        $output .= 'Dodaj';
+        $output .= '</p>';
+
+        $output .= '
+        <div class="kod_rabatowy_input" style="display:none;">
+            <input class="edd-input" type="text" id="edd-discount" name="edd-discount" placeholder="Wykorzystaj kupon"/>';
+
+        $output .= '<div id="kod_rabatowy_dodaj" class="edd-apply-discount">';
+        $output .= 'Wykorzystaj kupon</div>';
+
+        $output .= '</div>';
+        $output .= '
+        <div class="rabat_dodany" style="display:none;">
+            <div class="rabat_dodany_rabat">-5%</div>
+        </div>
+        <span id="edd-discount-error-wrap" class="edd_error edd-alert edd-alert-error" style="display:none;"></span>
+        <img src="'.EDD_PLUGIN_URL.'assets/images/loading.gif" id="edd-discount-loader" style="display:none;"/>';
+
+        return $output;
+    endif;
+}
 
 function bpmj_eddcm_scarlet_edd_discount_field()
 {
@@ -925,19 +981,14 @@ function bpmj_eddcm_scarlet_edd_discount_field()
     endif;
 }
 
-function bpmj_eddcm_scarlet_edd_checkout_form()
-{
+function edd_checkout_form_without_cart() { 
+
     $payment_mode = edd_get_chosen_gateway();
     $form_action = esc_url(edd_get_checkout_uri('payment-mode=' . $payment_mode));
 
     ob_start();
-    echo '<div id="edd_checkout_wrap">';
-    echo '<div id="edd_checkout_form_wrap">';
-    if (edd_get_cart_contents() || edd_cart_has_fees()) :
-
-        edd_checkout_cart();
-        ?>
-        <div class="edd_clearfix">
+    ?>
+    <div class="edd_clearfix">
             <?php
             do_action('edd_before_purchase_form'); ?>
             <form id="edd_purchase_form" class="edd_form" action="<?php
@@ -967,6 +1018,22 @@ function bpmj_eddcm_scarlet_edd_checkout_form()
             <?php
             do_action('edd_after_purchase_form'); ?>
         </div><!--end #edd_checkout_form_wrap-->
+    <?php
+    return ob_get_clean();
+}
+function bpmj_eddcm_scarlet_edd_checkout_form()
+{
+    $payment_mode = edd_get_chosen_gateway();
+    $form_action = esc_url(edd_get_checkout_uri('payment-mode=' . $payment_mode));
+
+    ob_start();
+    echo '<div id="edd_checkout_wrap">';
+    echo '<div id="edd_checkout_form_wrap">';
+    if (edd_get_cart_contents() || edd_cart_has_fees()) :
+
+        edd_checkout_cart();
+        ?>
+        <!--end #edd_checkout_form_wrap-->
     <?php
     else:
         /**
@@ -1010,36 +1077,36 @@ function bpmj_eddcm_scarlet_do_shortcode_tag_download_checkout($output, $tag, $a
         }
     }
 
-    $ret = '<div class="row"><div class="col-sm-8 content_koszyk">' . bpmj_eddcm_scarlet_edd_checkout_form() . '</div>
+    $ret = '<div class="row"><div class="col-sm-8 content_koszyk"></div>
 	<div class="col-sm-4 koszyk_right">';
 
-    if (!empty($scarlet_cart_additional_info_1_title)) {
-        $ret .= '<div class="tytul_ikona">
-			<img src="' . bpmj_eddcm_template_get_file('assets/img/gwiazda check.png') . '"> ' .
-            $scarlet_cart_additional_info_1_title . '
-		</div>
-		<div class="zwykly_tekst">' .
-            $scarlet_cart_additional_info_1_desc . '
-		</div>';
-    }
+    // if (!empty($scarlet_cart_additional_info_1_title)) {
+    //     $ret .= '<div class="tytul_ikona">
+	// 		<img src="' . bpmj_eddcm_template_get_file('assets/img/gwiazda check.png') . '"> ' .
+    //         $scarlet_cart_additional_info_1_title . '
+	// 	</div>
+	// 	<div class="zwykly_tekst">' .
+    //         $scarlet_cart_additional_info_1_desc . '
+	// 	</div>';
+    // }
 
-    if (!empty($scarlet_cart_additional_info_2_title)) {
-        $ret .= '<div class="tytul_ikona">
-			<img src="' . bpmj_eddcm_template_get_file('assets/img/tarcza.png') . '"> ' .
-            $scarlet_cart_additional_info_2_title . '
-		</div>
-		<div class="zwykly_tekst">' .
-            $scarlet_cart_additional_info_2_desc . '
-		</div>';
-    }
+    // if (!empty($scarlet_cart_additional_info_2_title)) {
+    //     $ret .= '<div class="tytul_ikona">
+	// 		<img src="' . bpmj_eddcm_template_get_file('assets/img/tarcza.png') . '"> ' .
+    //         $scarlet_cart_additional_info_2_title . '
+	// 	</div>
+	// 	<div class="zwykly_tekst">' .
+    //         $scarlet_cart_additional_info_2_desc . '
+	// 	</div>';
+    // }
 
-    if ($scarlet_cart_secure_payments_cb) {
-        $ret .= '<div class="tytul_ikona">
-			<img src="' . bpmj_eddcm_template_get_file('assets/img/klodka2.png') . '"> ' .
-            __('Secure payments', BPMJ_EDDCM_DOMAIN) . '
-		</div>
-		<div class="platnosci">' . $payments . '</div>';
-    }
+    // if ($scarlet_cart_secure_payments_cb) {
+    //     $ret .= '<div class="tytul_ikona">
+	// 		<img src="' . bpmj_eddcm_template_get_file('assets/img/klodka2.png') . '"> ' .
+    //         __('Secure payments', BPMJ_EDDCM_DOMAIN) . '
+	// 	</div>
+	// 	<div class="platnosci">' . $payments . '</div>';
+    // }
 
     $ret .= '</div>	
 	</div>';

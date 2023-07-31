@@ -28,9 +28,9 @@ class Product
 
     public $panelLink;
 
-    protected $categories;
+    public $categories;
 
-    protected $tags;
+    public $tags;
 
     public $excerpt;
 
@@ -40,7 +40,7 @@ class Product
 
     public $isInCart;
 
-    public $salesStatus;
+    protected $salesStatus;
 
     public $productAccess;
 

@@ -12,6 +12,14 @@ font-family:'Montserrat',sans-serif;
 
 /*https://wordpress.org/support/theme/wp-bootstrap-starter/*/
 
+html { 
+	--main-color-hover: #1cd779 /* main_color_hover */;
+    --main-color: #1cd779 /* main_color */;
+	--stage-text-color: #1cd779;
+	--lesson-icon-color:var(--main-color);
+	--display-mode-active-icon-color: var(--main-color);
+}
+
 body{margin:0;-webkit-font-smoothing:auto;}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block;}
 audio,canvas,progress,video{display:inline-block;vertical-align:baseline;}
@@ -852,3 +860,629 @@ footer.entry-meta, footer.entry-footer{display:none;}
 */
 
 
+#header { 
+	position: relative;
+	top: 0 !important;
+}
+@media (min-width: 1200px) {
+.container {
+    width: auto;
+}
+}
+.products-list { 
+	background-color: rgb(246 246 246);
+    padding: 50px;
+}
+.product { 
+	background: #fff;
+    text-align: center;
+	/* max-width: 300px; */
+	width: 100%;
+    margin: 15px auto;
+}
+.products-list .title-section {
+	margin: 25px;
+}
+.left-sidebar h5 {
+	text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 7px;
+}
+ .products-list .title-section, .title-section {
+	font-weight: 800;
+    font-size: 54px;
+    line-height: 66px;
+    margin-bottom: 20px;
+ }
+ .product-inner-block { 
+	max-width: 50%;
+    margin: 25px auto;
+ }
+ .product .more-green {
+	display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+	margin: 15px 15px;
+    width: calc(100% - 30px);
+ }
+ .product .product-feature { 
+	text-align: left;
+    margin: 20px;
+    width: calc(100% - 40px);
+ }
+ .left-sidebar { 
+	padding: 25px 32px;
+	background-color: #fff;
+	padding-top: 100px;
+ }
+ .product .product-title {
+    font-size: 22px;
+    line-height: 44px;
+    font-weight: 700;
+    text-align: left;
+    color: #323739;
+    margin: 25px 15px;
+}
+table.product-feature td {
+    border: 0;
+    color: #323739;
+    text-transform: uppercase;
+	padding: 0;
+}
+.product .product-price { 
+	text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 30px;
+    /* margin-bottom: 7px;	 */
+}
+.product .price-container { 
+	text-align: left;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+}
+.price-container .crossed { 
+	text-decoration: line-through;
+    color: #aaa;
+}
+.product .product-price.sale {
+	color: #ff133e;
+	margin-right: 15px;
+}
+
+.product { 
+	border: 3px solid transparent;
+}
+.product:hover { 
+	border: 3px solid #1cd779;
+}
+.product-thumbnail, .product-thumbnail img {
+	width: 100%;
+}
+table.product-feature td:last-child {
+    text-transform: none;
+	font-weight: 600;
+}
+.lekcja_top.lekcja_top--low-padding.lekcja_top--sticky.lekcja_top--nav-in-bar { 
+	width: 100%;
+	position: relative !important;
+	top: 0;
+}
+.lekcja_top--sticky {
+	position: relative !important;
+}
+div#content {
+    padding: 0;
+}
+.links {
+	display: flex;
+}
+.links a {
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+}
+.product-title a {
+    color: inherit;
+}
+.flex-section {
+	display: flex;
+}
+.green-section { 
+	background: #e7fbf1;
+}
+.products-list.bestseller { 
+	padding: 50px 0;
+}
+.green-section::before {
+	background-position: bottom left;
+    width: 200%;
+    position: absolute;
+    height: 100%;
+    background-color: #e7fbf1;
+    background-image: url(./img/kursy_lista.png?v=1);
+    background-repeat: no-repeat;
+    content: " ";
+    left: 0;
+    z-index: 1;
+    background-size: auto 75%;
+}
+.products-list.bestseller {
+	background-color: transparent;
+}
+.products-list.bestseller .product
+{
+	position: relative;
+    z-index: 2;
+}
+.green-text {
+    color: #1cd779 !important;
+}
+.omniprice
+ {
+	font-size: 10px;
+    text-align: left;
+    margin: 0;
+    display: block;
+    margin: 0 15px;
+	min-height: 10px;
+    line-height: 8px;
+ }
+ .left-sidebar li, .left-sidebar li a {
+	font-size: 18px;
+    line-height: 30px;
+	color: #323739;
+	font-weight: bold;
+	display: block;
+ }
+
+ .left-sidebar .levels li:nth-child(odd):before {
+    font-family: 'FontAwesome';
+    content: "\f0d8";
+    color: #000;
+    position: absolute;
+    margin-left: -20px;
+}
+ .left-sidebar .levels li:nth-child(even):before {
+    font-family: 'FontAwesome';
+    content: "\f006";
+    color: #000;
+    position: absolute;
+    margin-left: -20px;
+}
+
+.left-sidebar li:hover a, .left-sidebar li:hover:before {
+    color: #1cd779;
+}
+
+.left-sidebar .levels li:nth-child(even):hover:before,
+.left-sidebar .levels li:nth-child(odd):hover:before 
+ {
+    color: #1cd779;
+}
+
+#header > .contenter {
+    max-width: 1640px;
+}
+
+#header {
+	background-color: transparent !important;	
+}
+#menu li a, #header a {
+    color: #323739;
+}
+/**
+input type range
+*/
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      max-width: 250px;
+      -webkit-appearance: none;
+      background-color: #eee;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #eee;
+      box-shadow: -250px 0 0 250px #1AD779;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #1AD779; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #eee;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #1AD779; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #eee;
+}
+
+.admin-bar .lekcja_top--sticky  {
+	top: 0px !important;
+}
+
+/* 
+gui 
+*/
+.breadcrumbs ul li a, .etap_kursu ul li.active a, .etap_kursu ul li:hover a{ 
+	color: #1cd779;
+}
+.lekcja_nast_pop  {
+	background: #1cd779;
+    border-color: #1cd779;
+}
+#mega-menu-wrap-primary {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+#mega-menu-wrap-primary .mega-toggle-animated-box {
+	margin-right: 5px;
+}
+
+input[name="acceptance-99"]
+{
+	display: inline-block;
+    width: auto !important;
+}
+.footer .wpcf7-acceptance .wpcf7-list-item-label{ 
+	display: inline-block;
+}
+.wpcf7-form-control.wpcf7-submit { 
+padding: 0px;
+}
+.wpcf7-form-control.wpcf7-text
+{
+	height: 49px;
+    color: #BDC1C2;
+    border: 0;
+    border-bottom: 2px solid #BDC1C2;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+    font-style: italic;
+    background: transparent;
+}
+.koszyk .dymek { 
+	line-height: 20px;
+    font-size: 12px;
+}
+.mega-menu-toggle .mega-toggle-block
+{
+	font-weight: bold;
+    color: #323739;
+    text-transform: uppercase;
+	
+}
+div#logo-cell { 
+	padding: 0px !important;
+}
+i.fa.fa-shopping-bag {
+	margin-right:10px;
+}
+
+/**
+Etykiety
+*/
+
+.label-product:before {
+    content: " ";
+    padding-top: 20px;
+    border-bottom: 35px solid transparent;
+    border-left: 225px solid #333;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+}
+.label-product.sale:before { 
+	border-left-color: #ff133e;
+}
+.label-product { 
+	color: #fff;
+    position: absolute;
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.menu_glowne {
+    padding: 0px !important;
+}
+
+.menu_glowne li {
+	padding: 22px 5px;
+}
+
+/**
+filtr kursów
+*/
+form.mjfilter input {
+	padding: 0;
+	margin-bottom: 0;
+}
+form.mjfilter label {
+	font-size: inherit;
+    font-weight: inherit;
+    margin-bottom: 10px;
+	color:inherit !important;
+}
+.row.ajax-product-list {
+    transition: 0.5s all ease-in-out;
+}
+
+.koszyk {
+	right: 30px;
+    margin-right: 100px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+.koszyk_right {
+    border: 1px solid #d8dde5;
+    padding: 25px;
+}
+.cart_button_remove a {
+    background: transparent !important;
+    color: #ff133e !important;
+}
+tr.edd_cart_header_row th {
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.h2  {
+	font-size: 36px !important;
+    line-height: initial !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px;
+}
+.product-inner-block.cart { 
+	max-width: 75% !important;
+}
+
+#edd-payment-mode-wrap label:hover, #edd-payment-mode-wrap label.edd-gateway-option-selected {
+    filter: none;
+    opacity: 1;
+    border-color: #1cd779;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 2px;
+    border-radius: 0;
+}
+
+.koszyk_right fieldset {
+    border: 0;
+	padding:0px;
+}
+
+ .bpmj-eddcm-custom-checkbox, .bpmj_edd_invoice_data_invoice_check, #edd_purchase_submit fieldset { 
+	margin: 0;
+}
+.page-id-48 #content > .wp-block-group{ 
+	display: none;
+}
+.koszyk_right #edd_checkout_user_info { 
+	display: none;
+}
+.koszyk_right #edd-purchase-button { 
+	width: 100%;
+    text-align: center;
+    background: #16d778;
+    box-shadow: none;
+    padding: 25px 0;
+}
+
+/**
+koszyk > kody rabatowe
+*/
+.koszyk_right .edd-payment-mode-label
+{
+	margin-top: 30px;
+}
+.edd_cart_footer_row:last-child .edd_cart_total { 
+	display: none;
+}
+#edd-discount {
+	font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+    font-style: italic;
+	
+	height: auto;
+    padding: 20px;
+    border: 0;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    min-width: 200px;
+	background: transparent !important;
+}
+#kod_rabatowy_dodaj
+{
+	border-bottom: 2px solid #323739;
+    border-radius: 0;
+    background: #323739;
+    padding: 20px 25px;
+    height: auto;
+}
+.kod_rabatowy_input
+{
+	display: block !important;
+	width: 100%;
+    padding: 0;
+    margin: 0;
+    height: auto;
+	margin-left:0px !important;
+}
+.koszyk_right table { 
+	margin-bottom: 0px;
+}
+.koszyk_right h3
+{
+	text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #323739;
+}
+.koszyk_right td { 
+	font-weight: 600;
+    color: #323739;
+    font-size: 18px;
+	border:0px;
+}
+.koszyk_right .edd-payment-mode-label { 
+	display: none;
+}
+.kod_znizkowy, .edd_discount_rate, .kod_rabatowy {
+	font-size: 13px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+}
+#kod_rabatowy_dodaj { 
+	background: #323739 !important;
+    border-radius: 0 !important;
+    height: auto !important;
+    padding: 20px 25px !important;
+}
+.kod_rabatowy_contener { 
+	display: none !important;
+	/* background: rgb(22, 215, 120) !important;
+    color: rgb(255, 255, 255) !important;
+    padding: 5px 20px !important;
+    display: none; */
+}
+#kod_rabatowy_dodaj {
+	color: #16d778;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.4px;
+}
+.kod_rabatowy { 
+	text-transform: none !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+	display: none !important;
+}
+#edd-discount { 
+	margin: 5px 0;
+    width: 100%;
+}
+
+.edd_cart_footer_row.edd_cart_discount_row {
+	width: 100% !important;
+}
+#edd_checkout_cart tfoot {
+	display: flex;
+    width: 100%;
+    flex-flow: row-reverse;
+}
+.edd_cart_total {
+	border:0px !important;
+}
+
+#edd_checkout_cart tfoot .edd_cart_discount {
+	width: 100% !important;
+	display: block;
+	border: 0;
+}
+/**
+crosseling
+*/
+.crosseling-item { 
+	margin: 10px 0;
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 3px solid #16d778;
+    padding: 20px 20px;
+}
+.crosseling-item .checkout_cart_img {
+	padding: 0 10px;
+	width: 100px;
+}
+.crosseling-item .checkout_cart_title {
+	width: 40%;
+    padding: 15px;
+}
+.crosseling-item .checkout_cart_price_button
+{
+    width: 25%;
+    text-align: right;
+    padding: 0 15px;
+}
+.crosseling-item .podsumowanie_koszyk_price
+{
+	color: #323739;
+    font-weight: bold;
+    font-size: 14px;
+}
+.crosseling-item .btn.btn-primary.more
+{
+	padding: 20px 15px;
+    height: auto;
+    box-shadow: none;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+.lowest_price_information{ 
+	border-left: 0;
+    padding-left: 0;
+    font-size: inherit;
+    margin-top: 0;
+}
+
+#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-animated-inner, #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-animated-inner::before, #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-animated-inner::after {
+    height: 2px;
+}
+.mega-toggle-blocks-right * {
+    font-weight: 600 !important;
+}
+
+.range-container { 
+	max-width: 250px;
+}
+.range-container label { 
+	display: inline-block;
+}
+.range-container .left-align { 
+	float: left;
+}
+.range-container .right-align { 
+	float: right;
+}
+.czas { 
+	font-weight: bold !important;
+}

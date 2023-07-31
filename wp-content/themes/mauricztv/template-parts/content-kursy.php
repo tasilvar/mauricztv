@@ -58,7 +58,7 @@
 						<h4><?php the_field('cena'); ?> PLN</h4>
 						
 						<?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
-							<small>Najniższa cena z 30 dni przed obniżką: <?php the_field('cena_przed_obnizka'); ?> PLN</small>
+							<small>Najniższa cena z 30 dni: <?php the_field('cena_przed_obnizka'); ?> PLN</small>
 						<?php endif; ?>
 						
 						<div class="links">
@@ -298,7 +298,7 @@
 				<h4><?php the_field('cena'); ?> PLN</h4>
 						
 				<?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
-					<small>Najniższa cena z 30 dni przed obniżką: <?php the_field('cena_przed_obnizka'); ?> PLN</small>
+					<small>Najniższa cena z 30 dni: <?php the_field('cena_przed_obnizka'); ?> PLN</small>
 				<?php endif; ?>
 				
 				<div class="row">

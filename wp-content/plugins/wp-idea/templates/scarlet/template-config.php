@@ -439,9 +439,9 @@ $comments_colors = [
     )
 ];
 
-/**
+/*
  * Kolory których zastosowanie nie zostało znalezione w szablonie
-
+/*
 $unused_colors = [
     array(
         'name'              => 'alt_text_color',
