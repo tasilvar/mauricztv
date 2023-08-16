@@ -646,7 +646,7 @@ function mjcourses() {
 	$output = '';
 	// Blok kategorie
 	$outoput = '';
-	$outputCategories .= '<ul class="home-category-items product-list-categories">'
+	$outputCategories .= '<ul class="home-category-items product-list-categories">';
 
 	$categories = get_terms( array(
 		'taxonomy' => 'download_category',
