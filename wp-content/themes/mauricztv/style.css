@@ -150,6 +150,21 @@ h3 em{font-style:normal;color:#1AD779;}
 	left:auto!important;
 }
 */
+
+#mega-menu-wrap-primary #mega-menu-primary{
+
+	top: 0!important;
+	width: 50vw!important;
+	right: 0!important;
+	left: unset!important;
+}
+#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{z-index:999!important;}
+#mega-menu-wrap-primary .mega-menu-toggle {
+	z-index: 999999;position:relative;
+}
+
+
+
 .site-header{padding-top:24px;/*min-height:89px;*/min-height:113px;z-index:99;position:relative;}
 .navbar-brand{display:inline-block;margin-right:96px;}
 .top-menu{display:inline-block;}
@@ -323,7 +338,7 @@ textarea.form-control{max-height:188px;}
 
 .single-top h1{/*font-size:54px;*/font-size:2.813vw;line-height:66px;font-weight:800;margin:18px auto 26px;max-width:800px;}
 
-.single-top .links{margin-top:30px;}
+.single-top .links{margin-top:30px;display:block;}
 .simplesocialbuttons.simplesocial-round-icon button.simplesocial-fb-share,.simplesocialbuttons.simplesocial-round-icon button.simplesocial-twt-share,.simplesocialbuttons.simplesocial-round-icon button.simplesocial-linkedin-share {
 	color: #1AD779;
 	border-color: #1AD779;
@@ -430,6 +445,22 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 /*company*/
 .top-company{background:url('./img/top-company.jpg')no-repeat top center / contain;}
 
+.company-first{text-align:center;margin-top:128px;}
+.company-first h3{line-height:66px;margin:0 auto;max-width:900px;}
+.company-first p{font-size:22px;line-height:34px;color:#777D80;font-weight:500;margin:38px auto 0;max-width:930px;}
+.company-first p strong{color:#1E2123;}
+
+.company-offer{margin:104px auto 76px;max-width:1330px;}
+.company-offer h3{margin-bottom:72px;}
+.company-offer .inner{background-repeat:no-repeat;background-position:top left;padding-left:120px;margin-bottom:54px;}
+.company-offer .inner h6{font-size:18px;line-height:30px;margin-bottom:10px;display:inline-block;font-weight:800;}
+.company-offer .inner p{max-width:404px;}
+.company-offer .box01{background-image:url('./img/icon-company01.png');}
+.company-offer .box02{background-image:url('./img/icon-company02.png');}
+.company-offer .box03{background-image:url('./img/icon-company03.png');}
+.company-offer .box04{background-image:url('./img/icon-company04.png');}
+
+
 .company-green{background:#E7FBF1 url('./img/company-green.jpg')no-repeat bottom center;padding-top:116px;padding-bottom:160px;}
 .company-green h3{margin-bottom:78px;}
 .company-green .row{margin:0 auto;max-width:1400px;}
@@ -441,8 +472,11 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .company-bottom h3{margin:0 auto 55px;max-width:740px;line-height:66px;}
 
 /*kursy wpisy*/
+.breadcrumbs-product{position:relative;z-index:9;color:#000;margin-top:32px;}
+.breadcrumbs-product a span{color:#000;}
+.breadcrumbs-product span{color:#1AD779;margin-right:5px;margin-left:5px;}
 
-.top-kursy{margin-top:-137px;background:url('./img/top-empty.jpg')no-repeat top center / contain;min-height:1076px;padding-top:333px;min-height:56.042vw;padding-top:12.344vw;}
+.top-kursy{/*margin-top:-137px;*/margin-top:-160px;background:url('./img/top-empty.jpg')no-repeat top center / contain;min-height:1076px;padding-top:333px;min-height:56.042vw;padding-top:12.344vw;}
 .top-kursy h5{text-transform:uppercase;font-weight:700;font-size:28px;line-height:44px;letter-spacing:1.4px;margin-bottom:9px;margin-bottom:33px;}
 .top-kursy h1{font-weight:800;font-size:54px;line-height:66px;margin-bottom:20px;}
 .top-kursy h6{text-transform:uppercase;font-weight:800;font-size:18px;line-height:30px;margin-bottom:7px;}
@@ -540,6 +574,10 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .kursy-bottom .box a.more-green{width:100%;margin-top:50px;padding:26px 84px 0;}
 .kursy-bottom .box a.more-green span{background:url('./img/cart-white.png')no-repeat top left;min-height:31px;padding-left:46px;display:inline-block;line-height:31px;}
 
+/*strony informacyjne*/
+
+.info-page{margin:90px auto;max-width:990px;}
+
 /*footer*/
 
 .footer{background:#F6F6F6;padding-top:104px;padding-bottom:30px;margin-top:158px;}
@@ -608,6 +646,11 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.hp-steps .inner:after{content:'';}
 	.hp-steps h3{margin:0 auto 50px;line-height:50px;font-size:27px;}
 	.hp-opinion h3{font-size:25px;line-height:48px;}
+	
+	.company-first h3{font-size:30px;line-height:49px;}
+	.company-first p{font-size:19px;}
+	
+	.products-list .title-section, .title-section{font-size:39px!important;line-height:55px!important;}
 }
 @media (min-width: 577px) and (max-width:767px) {
 	.faq-top h3,.faq-bottom h3{font-size:29px;line-height:49px;}
@@ -625,6 +668,8 @@ footer.entry-meta, footer.entry-footer{display:none;}
 }
 @media (max-width: 768px){
 	.xs-hidden{display:none!important;}
+	
+	.top-menu{display:none;}
 	
 	.top-home{background:url('./img/top-empty.jpg')no-repeat top center / cover;padding-bottom:40px;padding-left:0;padding-right:0;}
 	
@@ -709,7 +754,12 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	.footer{padding-top:50px;}
 	.footer .nwsl{max-width:none;margin-bottom:50px;}
 	.bottom-footer,.bottom-footer .second{text-align:center;}
-
+	
+	.products-list{padding:0!important;background-color:#fff!important;}
+	.product-inner-block{max-width:100%!important;}
+	.product-list-upper{background:#DFF3E9!important;padding-bottom:40px;padding-left:0;padding-right:0;}
+	.products-list .title-section{margin:0!important;text-align:center;}
+	.left-sidebar{padding:10px 32px 35px 32px!important;}
 }
 
 @media (min-width: 769px){
@@ -781,6 +831,15 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.footer{padding-top:70px;}
 	.footer .nwsl{max-width:none;margin-bottom:50px;}
+	
+	
+	.product-inner-block{max-width:100%!important;}
+	.product-list-upper{background:#DFF3E9!important;padding-bottom:40px;}
+	.label-product::before{border-left:177px solid #333!important;}
+	
+	.product .product-title{font-size:20px!important;line-height:29px!important;min-height:58px;}
+	.product .price-container{display:block!important;}
+	.product .more-green{padding-left:15px!important;}
 
 }
 @media (min-width: 992px) and (max-width:1200px) {
@@ -810,12 +869,24 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.footer h3{font-size:24px;}
 	.footer .wpcf7-submit{letter-spacing:0.4px;}
+	
+	.product-list-upper{background:#DFF3E9!important;padding-bottom:40px;}
+	
+	.left-sidebar h5{font-size:25px!important;}
+	.left-sidebar li a{font-size:16px!important;}
+	
+	
 }
 @media (min-width: 1201px) and (max-width:1600px) {
 	.footer h3{font-size:30px;}
 }
 @media (min-width: 1201px) and (max-width:1360px) {
 	.top-home a{width:268px;margin-top:15px;margin-bottom:0;}
+	
+	.product{min-height:600px;}
+	.product .product-title{font-size:22px!important;line-height:31px!important;min-height:62px;}
+	.product .product-price{font-size:13px!important;}
+	
 }
 
 
@@ -859,8 +930,11 @@ footer.entry-meta, footer.entry-footer{display:none;}
 
 */
 
+/*usuniecie top menu na podstronach od Publigo*/
+.page-template-default.page .top-menu{display:none;}
+.page-template-default.page.page-id-56 .top-menu{display:inline-block;}
 
-#header { 
+#header {padding-top:26px;
 	position: relative;
 	top: 0 !important;
 }
@@ -885,10 +959,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
 }
 .left-sidebar h5 {
 	text-transform: uppercase;
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 30px;
-    margin-bottom: 7px;
+    font-weight:700;font-size:28px;line-height:44px;letter-spacing:1.4px;margin-bottom:22px;
 }
  .products-list .title-section, .title-section {
 	font-weight: 800;
@@ -898,7 +969,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
  }
  .product-inner-block { 
 	max-width: 50%;
-    margin: 25px auto;
+    margin:62px auto 54px;
  }
  .product .more-green {
 	display: flex;
@@ -915,10 +986,8 @@ footer.entry-meta, footer.entry-footer{display:none;}
     margin: 20px;
     width: calc(100% - 40px);
  }
- .left-sidebar { 
-	padding: 25px 32px;
+ .left-sidebar {background:url('./img/left-sidebar.jpg')no-repeat bottom center;padding:10px 32px 350px 32px;
 	background-color: #fff;
-	padding-top: 100px;
  }
  .product .product-title {
     font-size: 22px;
@@ -994,12 +1063,15 @@ div#content {
 .flex-section {
 	display: flex;
 }
+/*
 .green-section { 
 	background: #e7fbf1;
 }
+
 .products-list.bestseller { 
 	padding: 50px 0;
 }
+
 .green-section::before {
 	background-position: bottom left;
     width: 200%;
@@ -1013,6 +1085,7 @@ div#content {
     z-index: 1;
     background-size: auto 75%;
 }
+*/
 .products-list.bestseller {
 	background-color: transparent;
 }
@@ -1041,21 +1114,14 @@ div#content {
 	font-weight: bold;
 	display: block;
  }
+ .left-sidebar li a{padding:3px 0;text-transform:uppercase;}
+ 
+ ul.product-list-categories{margin-bottom:63px;padding-left:0;}
 
- .left-sidebar .levels li:nth-child(odd):before {
-    font-family: 'FontAwesome';
-    content: "\f0d8";
-    color: #000;
-    position: absolute;
-    margin-left: -20px;
-}
- .left-sidebar .levels li:nth-child(even):before {
-    font-family: 'FontAwesome';
-    content: "\f006";
-    color: #000;
-    position: absolute;
-    margin-left: -20px;
-}
+ul.levels{padding-left:0;margin-bottom:52px;}
+ .left-sidebar .levels li{padding:9px 0 9px 40px;}
+ .left-sidebar .levels li:nth-child(odd):before{content:url('./img/icon-plc-triangle.png');width:32px;height:30px;position:absolute;margin-left:-40px;}
+ .left-sidebar .levels li:nth-child(even):before{content:url('./img/icon-plc-star.png');width:32px;height:30px;position:absolute;margin-left:-40px;}
 
 .left-sidebar li:hover a, .left-sidebar li:hover:before {
     color: #1cd779;
@@ -1077,6 +1143,12 @@ div#content {
 #menu li a, #header a {
     color: #323739;
 }
+
+body.page-id-56{background:#fff!important;}
+.product-list-upper{background:url('./img/product-list-upper.jpg')no-repeat top left;/*min-height:777px;*/min-height:40.469vw;}
+
+
+
 /**
 input type range
 */
@@ -1319,9 +1391,9 @@ koszyk > kody rabatowe
     line-height: 32px;
     font-weight: 500;
     font-style: italic;
-	
+
 	height: auto;
-    padding: 20px;
+    padding: 15px;
     border: 0;
     border-bottom: 1px solid;
     border-radius: 0;
@@ -1335,10 +1407,16 @@ koszyk > kody rabatowe
     background: #323739;
     padding: 20px 25px;
     height: auto;
+
+	width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 250px;
 }
 .kod_rabatowy_input
 {
-	display: block !important;
+	display: flex !important;
 	width: 100%;
     padding: 0;
     margin: 0;
@@ -1397,7 +1475,7 @@ koszyk > kody rabatowe
 	display: none !important;
 }
 #edd-discount { 
-	margin: 5px 0;
+	margin:0;
     width: 100%;
 }
 
@@ -1405,7 +1483,7 @@ koszyk > kody rabatowe
 	width: 100% !important;
 }
 #edd_checkout_cart tfoot {
-	display: flex;
+	display: table !important;
     width: 100%;
     flex-flow: row-reverse;
 }

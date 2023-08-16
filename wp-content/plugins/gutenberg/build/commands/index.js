@@ -3703,7 +3703,8 @@ function CommandMenuLoader({
       value: (_command$searchLabel = command.searchLabel) !== null && _command$searchLabel !== void 0 ? _command$searchLabel : command.label,
       onSelect: () => command.callback({
         close
-      })
+      }),
+      id: command.name
     }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalHStack, {
       alignment: "left",
       className: "commands-command-menu__item"
@@ -3775,7 +3776,8 @@ function CommandMenuGroup({
       value: (_command$searchLabel2 = command.searchLabel) !== null && _command$searchLabel2 !== void 0 ? _command$searchLabel2 : command.label,
       onSelect: () => command.callback({
         close
-      })
+      }),
+      id: command.name
     }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalHStack, {
       alignment: "left",
       className: "commands-command-menu__item"
@@ -3793,6 +3795,35 @@ function CommandMenuGroup({
     close: close
   })));
 }
+
+function CommandInput({
+  isOpen,
+  search,
+  setSearch
+}) {
+  const commandMenuInput = (0,external_wp_element_namespaceObject.useRef)();
+
+  const _value = T(state => state.value);
+
+  const selectedItemId = (0,external_wp_element_namespaceObject.useMemo)(() => {
+    const item = document.querySelector(`[cmdk-item=""][data-value="${_value}"]`);
+    return item?.getAttribute('id');
+  }, [_value]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    // Focus the command palette input when mounting the modal.
+    if (isOpen) {
+      commandMenuInput.current.focus();
+    }
+  }, [isOpen]);
+  return (0,external_wp_element_namespaceObject.createElement)(Le.Input, {
+    ref: commandMenuInput,
+    value: search,
+    onValueChange: setSearch,
+    placeholder: (0,external_wp_i18n_namespaceObject.__)('Type a command or search'),
+    "aria-activedescendant": selectedItemId
+  });
+}
+
 function CommandMenu() {
   const {
     registerShortcut
@@ -3804,7 +3835,6 @@ function CommandMenu() {
     close
   } = (0,external_wp_data_namespaceObject.useDispatch)(store);
   const [loaders, setLoaders] = (0,external_wp_element_namespaceObject.useState)({});
-  const commandMenuInput = (0,external_wp_element_namespaceObject.useRef)();
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     registerShortcut({
       name: 'core/commands',
@@ -3816,7 +3846,11 @@ function CommandMenu() {
       }
     });
   }, [registerShortcut]);
-  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/commands', event => {
+  (0,external_wp_keyboardShortcuts_namespaceObject.useShortcut)('core/commands',
+  /** @type {import('react').KeyboardEventHandler} */
+  event => {
+    // Bails to avoid obscuring the effect of the preceding handler(s).
+    if (event.defaultPrevented) return;
     event.preventDefault();
 
     if (isOpen) {
@@ -3836,16 +3870,19 @@ function CommandMenu() {
     close();
   };
 
-  (0,external_wp_element_namespaceObject.useEffect)(() => {
-    // Focus the command palette input when mounting the modal.
-    if (isOpen) {
-      commandMenuInput.current.focus();
-    }
-  }, [isOpen]);
-
   if (!isOpen) {
     return false;
   }
+
+  const onKeyDown = event => {
+    if ( // Ignore keydowns from IMEs
+    event.nativeEvent.isComposing || // Workaround for Mac Safari where the final Enter/Backspace of an IME composition
+    // is `isComposing=false`, even though it's technically still part of the composition.
+    // These can only be detected by keyCode.
+    event.keyCode === 229) {
+      event.preventDefault();
+    }
+  };
 
   const isLoading = Object.values(loaders).some(Boolean);
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Modal, {
@@ -3856,14 +3893,14 @@ function CommandMenu() {
   }, (0,external_wp_element_namespaceObject.createElement)("div", {
     className: "commands-command-menu__container"
   }, (0,external_wp_element_namespaceObject.createElement)(Le, {
-    label: (0,external_wp_i18n_namespaceObject.__)('Command palette')
+    label: (0,external_wp_i18n_namespaceObject.__)('Command palette'),
+    onKeyDown: onKeyDown
   }, (0,external_wp_element_namespaceObject.createElement)("div", {
     className: "commands-command-menu__header"
-  }, (0,external_wp_element_namespaceObject.createElement)(Le.Input, {
-    ref: commandMenuInput,
-    value: search,
-    onValueChange: setSearch,
-    placeholder: (0,external_wp_i18n_namespaceObject.__)('Type a command or search')
+  }, (0,external_wp_element_namespaceObject.createElement)(CommandInput, {
+    search: search,
+    setSearch: setSearch,
+    isOpen: isOpen
   })), (0,external_wp_element_namespaceObject.createElement)(Le.List, null, search && !isLoading && (0,external_wp_element_namespaceObject.createElement)(Le.Empty, null, (0,external_wp_i18n_namespaceObject.__)('No results found.')), (0,external_wp_element_namespaceObject.createElement)(CommandMenuGroup, {
     search: search,
     setLoader: setLoader,

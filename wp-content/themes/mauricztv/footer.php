@@ -45,11 +45,11 @@
 							<h3>Menu</h3>
 							
 							<ul>
-								<li><a href="#">Strona główna</a></li>
-								<li><a href="#">O Mauricz.tv</a></li>
+								<li><a href="/">Strona główna</a></li>
+								<li><a href="/o-nas/">O Mauricz.tv</a></li>
 								<li><a href="/lista-produktow/">Kursy online</a></li> 
 								<li><a href="/faq/">FAQ</a></li> 
-								<li><a href="#">Kontakt</a></li>
+								<li><a href="/kontakt/">Kontakt</a></li>
 							</ul>
 							
 						</div>
@@ -57,10 +57,10 @@
 							<h3>Informacje</h3>
 							
 							<ul>
-								<li><a href="#">Regulamin serwisu</a></li>
-								<li><a href="#">Polityka prywatności</a></li> 
-								<li><a href="#">Cookies</a></li>
-								<li><a href="#">Regulamin newslettera</a></li>
+								<li><a href="/regulamin/">Regulamin serwisu</a></li>
+								<li><a href="/polityka-prywatnosci/">Polityka prywatności</a></li> 
+								<li><a href="/cookies/">Cookies</a></li>
+								<li><a href="/regulamin-newslettera/">Regulamin newslettera</a></li>
 							</ul>
 							
 						</div>

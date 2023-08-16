@@ -24,6 +24,7 @@
 		</style>
 
 	<?php } ?>
+
 	
 <?php wp_head(); ?>
 </head>

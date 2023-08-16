@@ -2,8 +2,6 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: external ["wp","interactivity"]
-const external_wp_interactivity_namespaceObject = window["wp"]["interactivity"];
 ;// CONCATENATED MODULE: ./packages/block-library/build-module/file/utils/index.js
 /**
  * Uses a combination of user agent matching and feature detection to determine whether
@@ -70,23 +68,10 @@ const hidePdfEmbedsOnUnsupportedBrowsers = () => {
 
 ;// CONCATENATED MODULE: ./packages/block-library/build-module/file/view.js
 /**
- * WordPress dependencies
- */
-
-/**
  * Internal dependencies
  */
 
-
-(0,external_wp_interactivity_namespaceObject.store)({
-  selectors: {
-    core: {
-      file: {
-        hasPdfPreview: browserSupportsPdfs
-      }
-    }
-  }
-});
+document.addEventListener('DOMContentLoaded', hidePdfEmbedsOnUnsupportedBrowsers);
 
 /******/ })()
 ;

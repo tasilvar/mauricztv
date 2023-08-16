@@ -5,7 +5,7 @@
  * @package SimpleSocialButtons
  * @author WPBrigade
  * @since 2.1.5
- * @version 3.1.0
+ * @version 5.0.0
  */
 
 // Exit if accessed directly.
@@ -31,6 +31,7 @@ $ssb_unintstall_option = array(
 	'ssb_popup',
 	'ssb_media',
 	'ssb_advanced',
+	'ssb_ngg_gallery',
 	'ssb_click_to_tweet',
 	'ssb_active_time',
 	'ssb_follow_twitter_token',

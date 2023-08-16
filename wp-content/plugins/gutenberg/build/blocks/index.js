@@ -10386,15 +10386,15 @@ function getBlockProps(props = {}) {
 function getInnerBlocksProps(props = {}) {
   const {
     innerBlocks
-  } = innerBlocksPropsProvider;
-  const [firstBlock] = innerBlocks !== null && innerBlocks !== void 0 ? innerBlocks : [];
-  if (!firstBlock) return props; // If the innerBlocks passed to `getSaveElement` are not blocks but already
-  // components, return the props as is. This is the case for
-  // `getRichTextValues`.
+  } = innerBlocksPropsProvider; // Allow a different component to be passed to getSaveElement to handle
+  // inner blocks, bypassing the default serialisation.
 
-  if (!firstBlock.clientId) return { ...props,
-    children: innerBlocks
-  }; // Value is an array of blocks, so defer to block serializer.
+  if (!Array.isArray(innerBlocks)) {
+    return { ...props,
+      children: innerBlocks
+    };
+  } // Value is an array of blocks, so defer to block serializer.
+
 
   const html = serialize(innerBlocks, {
     isInnerBlocks: true
@@ -10631,7 +10631,7 @@ function __unstableSerializeAndClean(blocks) {
   // single freeform block as legacy content and apply
   // pre-block-editor removep'd content formatting.
 
-  if (blocks.length === 1 && blocks[0].name === getFreeformContentHandlerName()) {
+  if (blocks.length === 1 && blocks[0].name === getFreeformContentHandlerName() && blocks[0].name === 'core/freeform') {
     content = (0,external_wp_autop_namespaceObject.removep)(content);
   }
 
@@ -13384,7 +13384,7 @@ function normalizeRawBlock(rawBlock, options) {
   // automatic paragraphs, so preserve them. Assumes wpautop is idempotent,
   // meaning there are no negative consequences to repeated autop calls.
 
-  if (rawBlockName === fallbackBlockName && !options?.__unstableSkipAutop) {
+  if (rawBlockName === fallbackBlockName && rawBlockName === 'core/freeform' && !options?.__unstableSkipAutop) {
     rawInnerHTML = (0,external_wp_autop_namespaceObject.autop)(rawInnerHTML).trim();
   }
 

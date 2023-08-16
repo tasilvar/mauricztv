@@ -65,6 +65,21 @@ const plus = (0,external_wp_element_namespaceObject.createElement)(external_wp_p
 }));
 /* harmony default export */ const library_plus = (plus);
 
+;// CONCATENATED MODULE: ./packages/icons/build-module/library/symbol.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+const symbol = (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, (0,external_wp_element_namespaceObject.createElement)(external_wp_primitives_namespaceObject.Path, {
+  d: "M21.3 10.8l-5.6-5.6c-.7-.7-1.8-.7-2.5 0l-5.6 5.6c-.7.7-.7 1.8 0 2.5l5.6 5.6c.3.3.8.5 1.2.5s.9-.2 1.2-.5l5.6-5.6c.8-.7.8-1.9.1-2.5zm-1 1.4l-5.6 5.6c-.1.1-.3.1-.4 0l-5.6-5.6c-.1-.1-.1-.3 0-.4l5.6-5.6s.1-.1.2-.1.1 0 .2.1l5.6 5.6c.1.1.1.3 0 .4zm-16.6-.4L10 5.5l-1-1-6.3 6.3c-.7.7-.7 1.8 0 2.5L9 19.5l1.1-1.1-6.3-6.3c-.2 0-.2-.2-.1-.3z"
+}));
+/* harmony default export */ const library_symbol = (symbol);
+
 ;// CONCATENATED MODULE: ./packages/icons/build-module/library/external.js
 
 
@@ -80,6 +95,39 @@ const external = (0,external_wp_element_namespaceObject.createElement)(external_
 }));
 /* harmony default export */ const library_external = (external);
 
+;// CONCATENATED MODULE: external ["wp","url"]
+const external_wp_url_namespaceObject = window["wp"]["url"];
+;// CONCATENATED MODULE: external ["wp","router"]
+const external_wp_router_namespaceObject = window["wp"]["router"];
+;// CONCATENATED MODULE: external ["wp","blockEditor"]
+const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
+;// CONCATENATED MODULE: external ["wp","coreData"]
+const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
+;// CONCATENATED MODULE: external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// CONCATENATED MODULE: ./packages/core-commands/build-module/hooks.js
+/**
+ * WordPress dependencies
+ */
+
+
+
+function useIsSiteEditorAccessible() {
+  return (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_blockEditor_namespaceObject.store).getSettings().__unstableIsBlockBasedTheme && select(external_wp_coreData_namespaceObject.store).canUser('read', 'templates'), []);
+}
+
+;// CONCATENATED MODULE: external ["wp","privateApis"]
+const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
+;// CONCATENATED MODULE: ./packages/core-commands/build-module/lock-unlock.js
+/**
+ * WordPress dependencies
+ */
+
+const {
+  lock,
+  unlock
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/core-commands');
+
 ;// CONCATENATED MODULE: ./packages/core-commands/build-module/admin-navigation-commands.js
 /**
  * WordPress dependencies
@@ -87,7 +135,21 @@ const external = (0,external_wp_element_namespaceObject.createElement)(external_
 
 
 
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+const {
+  useHistory
+} = unlock(external_wp_router_namespaceObject.privateApis);
 function useAdminNavigationCommands() {
+  const history = useHistory();
+  const isSiteEditorAccessible = useIsSiteEditorAccessible();
+  const isSiteEditor = (0,external_wp_url_namespaceObject.getPath)(window.location.href)?.includes('site-editor.php');
   (0,external_wp_commands_namespaceObject.useCommand)({
     name: 'core/add-new-post',
     label: (0,external_wp_i18n_namespaceObject.__)('Add new post'),
@@ -106,18 +168,30 @@ function useAdminNavigationCommands() {
   });
   (0,external_wp_commands_namespaceObject.useCommand)({
     name: 'core/manage-reusable-blocks',
-    label: (0,external_wp_i18n_namespaceObject.__)('Manage all of my patterns'),
-    callback: () => {
-      document.location.href = 'edit.php?post_type=wp_block';
+    label: (0,external_wp_i18n_namespaceObject.__)('Open patterns'),
+    callback: ({
+      close
+    }) => {
+      if (!isSiteEditorAccessible) {
+        document.location.href = 'edit.php?post_type=wp_block';
+      } else {
+        const args = {
+          path: '/patterns'
+        };
+
+        if (isSiteEditor) {
+          history.push(args);
+        } else {
+          document.location = (0,external_wp_url_namespaceObject.addQueryArgs)('site-editor.php', args);
+        }
+
+        close();
+      }
     },
-    icon: library_external
+    icon: isSiteEditor ? library_symbol : library_external
   });
 }
 
-;// CONCATENATED MODULE: external ["wp","data"]
-const external_wp_data_namespaceObject = window["wp"]["data"];
-;// CONCATENATED MODULE: external ["wp","coreData"]
-const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
 ;// CONCATENATED MODULE: ./packages/icons/build-module/library/post.js
 
 
@@ -208,22 +282,6 @@ const styles = (0,external_wp_element_namespaceObject.createElement)(external_wp
 }));
 /* harmony default export */ const library_styles = (styles);
 
-;// CONCATENATED MODULE: external ["wp","router"]
-const external_wp_router_namespaceObject = window["wp"]["router"];
-;// CONCATENATED MODULE: external ["wp","url"]
-const external_wp_url_namespaceObject = window["wp"]["url"];
-;// CONCATENATED MODULE: external ["wp","privateApis"]
-const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
-;// CONCATENATED MODULE: ./packages/core-commands/build-module/lock-unlock.js
-/**
- * WordPress dependencies
- */
-
-const {
-  lock,
-  unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I know using unstable features means my plugin or theme will inevitably break on the next WordPress release.', '@wordpress/core-commands');
-
 ;// CONCATENATED MODULE: ./packages/core-commands/build-module/site-editor-navigation-commands.js
 /**
  * WordPress dependencies
@@ -241,8 +299,9 @@ const {
  */
 
 
+
 const {
-  useHistory
+  useHistory: site_editor_navigation_commands_useHistory
 } = unlock(external_wp_router_namespaceObject.privateApis);
 const icons = {
   post: library_post,
@@ -254,7 +313,7 @@ const icons = {
 const getNavigationCommandLoaderPerPostType = postType => function useNavigationCommandLoader({
   search
 }) {
-  const history = useHistory();
+  const history = site_editor_navigation_commands_useHistory();
   const supportsSearch = !['wp_template', 'wp_template_part'].includes(postType);
   const {
     records,
@@ -320,10 +379,16 @@ const useTemplateNavigationCommandLoader = getNavigationCommandLoaderPerPostType
 const useTemplatePartNavigationCommandLoader = getNavigationCommandLoaderPerPostType('wp_template_part');
 
 function useSiteEditorBasicNavigationCommands() {
-  const history = useHistory();
+  const history = site_editor_navigation_commands_useHistory();
   const isSiteEditor = (0,external_wp_url_namespaceObject.getPath)(window.location.href)?.includes('site-editor.php');
+  const isSiteEditorAccessible = useIsSiteEditorAccessible();
   const commands = (0,external_wp_element_namespaceObject.useMemo)(() => {
     const result = [];
+
+    if (!isSiteEditorAccessible) {
+      return result;
+    }
+
     result.push({
       name: 'core/edit-site/open-navigation',
       label: (0,external_wp_i18n_namespaceObject.__)('Open navigation'),
@@ -408,29 +473,8 @@ function useSiteEditorBasicNavigationCommands() {
         close();
       }
     });
-    result.push({
-      name: 'core/edit-site/open-template-parts',
-      label: (0,external_wp_i18n_namespaceObject.__)('Open library'),
-      icon: symbol_filled,
-      callback: ({
-        close
-      }) => {
-        const args = {
-          path: '/patterns'
-        };
-        const targetUrl = (0,external_wp_url_namespaceObject.addQueryArgs)('site-editor.php', args);
-
-        if (isSiteEditor) {
-          history.push(args);
-        } else {
-          document.location = targetUrl;
-        }
-
-        close();
-      }
-    });
     return result;
-  }, [history, isSiteEditor]);
+  }, [history, isSiteEditor, isSiteEditorAccessible]);
   return {
     commands,
     isLoading: false

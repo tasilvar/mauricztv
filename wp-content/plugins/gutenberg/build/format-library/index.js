@@ -746,6 +746,7 @@ function useLinkInstanceKey(instance) {
 
 
 
+
 /**
  * Internal dependencies
  */
@@ -760,7 +761,6 @@ function InlineLinkUI({
   addingLink,
   value,
   onChange,
-  speak,
   stopAddingLink,
   contentRef
 }) {
@@ -805,7 +805,7 @@ function InlineLinkUI({
     const newValue = (0,external_wp_richText_namespaceObject.removeFormat)(value, 'core/link');
     onChange(newValue);
     stopAddingLink();
-    speak((0,external_wp_i18n_namespaceObject.__)('Link removed.'), 'assertive');
+    (0,external_wp_a11y_namespaceObject.speak)((0,external_wp_i18n_namespaceObject.__)('Link removed.'), 'assertive');
   }
 
   function onChangeLink(nextValue) {
@@ -897,11 +897,11 @@ function InlineLinkUI({
     }
 
     if (!isValidHref(newUrl)) {
-      speak((0,external_wp_i18n_namespaceObject.__)('Warning: the link has been inserted but may have errors. Please test it.'), 'assertive');
+      (0,external_wp_a11y_namespaceObject.speak)((0,external_wp_i18n_namespaceObject.__)('Warning: the link has been inserted but may have errors. Please test it.'), 'assertive');
     } else if (isActive) {
-      speak((0,external_wp_i18n_namespaceObject.__)('Link edited.'), 'assertive');
+      (0,external_wp_a11y_namespaceObject.speak)((0,external_wp_i18n_namespaceObject.__)('Link edited.'), 'assertive');
     } else {
-      speak((0,external_wp_i18n_namespaceObject.__)('Link inserted.'), 'assertive');
+      (0,external_wp_a11y_namespaceObject.speak)((0,external_wp_i18n_namespaceObject.__)('Link inserted.'), 'assertive');
     }
   }
 
@@ -982,7 +982,7 @@ function getRichTextValueFromSelection(value, isActive) {
   return (0,external_wp_richText_namespaceObject.slice)(value, textStart, textEnd);
 }
 
-/* harmony default export */ const inline = ((0,external_wp_components_namespaceObject.withSpokenMessages)(InlineLinkUI));
+/* harmony default export */ const inline = (InlineLinkUI);
 
 ;// CONCATENATED MODULE: ./packages/format-library/build-module/link/index.js
 

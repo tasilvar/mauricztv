@@ -61,6 +61,19 @@ $show_open_padlock = false;
 
 <div class="entry-content">
 
+        <div class="container">
+            <div class="row">
+				<div class="col-md-12">
+					<div class="breadcrumbs breadcrumbs-product" typeof="BreadcrumbList" vocab="https://schema.org/">
+						<?php if(function_exists('bcn_display'))
+						{
+							bcn_display();
+						}?>
+					</div>
+				</div>
+			</div>
+		</div>
+
     <div class="top-kursy row-full">
     
         <div class="container">

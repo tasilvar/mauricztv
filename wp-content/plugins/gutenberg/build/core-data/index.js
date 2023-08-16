@@ -516,6 +516,15 @@ __webpack_require__.d(build_module_actions_namespaceObject, {
   "undo": () => (undo)
 });
 
+// NAMESPACE OBJECT: ./packages/core-data/build-module/private-selectors.js
+var private_selectors_namespaceObject = {};
+__webpack_require__.r(private_selectors_namespaceObject);
+__webpack_require__.d(private_selectors_namespaceObject, {
+  "getNavigationFallbackId": () => (getNavigationFallbackId),
+  "getRedoEdits": () => (getRedoEdits),
+  "getUndoEdits": () => (getUndoEdits)
+});
+
 // NAMESPACE OBJECT: ./packages/core-data/build-module/selectors.js
 var build_module_selectors_namespaceObject = {};
 __webpack_require__.r(build_module_selectors_namespaceObject);
@@ -1512,45 +1521,6 @@ class ObservableSet {
  */
 const STORE_NAME = 'core';
 
-;// CONCATENATED MODULE: ./packages/core-data/build-module/private-selectors.js
-/**
- * Internal dependencies
- */
-
-/**
- * Returns the previous edit from the current undo offset
- * for the entity records edits history, if any.
- *
- * @param state State tree.
- *
- * @return The edit.
- */
-function getUndoEdits(state) {
-  return state.undo.list[state.undo.list.length - 1 + state.undo.offset];
-}
-/**
- * Returns the next edit from the current undo offset
- * for the entity records edits history, if any.
- *
- * @param state State tree.
- *
- * @return The edit.
- */
-
-function getRedoEdits(state) {
-  return state.undo.list[state.undo.list.length + state.undo.offset];
-}
-/**
- * Retrieve the fallback Navigation.
- *
- * @param state Data state.
- * @return The ID for the fallback Navigation post.
- */
-
-function getNavigationFallbackId(state) {
-  return state.navigationFallbackId;
-}
-
 ;// CONCATENATED MODULE: ./packages/core-data/build-module/actions.js
 /**
  * External dependencies
@@ -1567,7 +1537,6 @@ function getNavigationFallbackId(state) {
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -1932,8 +1901,7 @@ const undo = () => ({
   select,
   dispatch
 }) => {
-  // Todo: we shouldn't have to pass "root" here.
-  const undoEdit = select(state => getUndoEdits(state.root));
+  const undoEdit = select.getUndoEdits();
 
   if (!undoEdit) {
     return;
@@ -1953,8 +1921,7 @@ const redo = () => ({
   select,
   dispatch
 }) => {
-  // Todo: we shouldn't have to pass "root" here.
-  const redoEdit = select(state => getRedoEdits(state.root));
+  const redoEdit = select.getRedoEdits();
 
   if (!redoEdit) {
     return;
@@ -2060,7 +2027,7 @@ const saveEntityRecord = (kind, name, record, {
           ...record
         };
         data = Object.keys(data).reduce((acc, key) => {
-          if (['title', 'excerpt', 'content'].includes(key)) {
+          if (['title', 'excerpt', 'content', 'meta'].includes(key)) {
             acc[key] = data[key];
           }
 
@@ -2247,6 +2214,17 @@ const __experimentalSaveSpecifiedEntityEdits = (kind, name, recordId, itemsToSav
     if (itemsToSave.some(item => item === edit)) {
       editsToSave[edit] = edits[edit];
     }
+  }
+
+  const configs = await dispatch(getOrLoadEntitiesConfig(kind));
+  const entityConfig = configs.find(config => config.kind === kind && config.name === name);
+  const entityIdKey = entityConfig?.key || DEFAULT_ENTITY_KEY; // If a record key is provided then update the existing record.
+  // This necessitates providing `recordKey` to saveEntityRecord as part of the
+  // `record` argument (here called `editsToSave`) to stop that action creating
+  // a new record and instead cause it to update the existing record.
+
+  if (recordId) {
+    editsToSave[entityIdKey] = recordId;
   }
 
   return await dispatch.saveEntityRecord(kind, name, editsToSave, options);
@@ -4043,6 +4021,8 @@ var equivalent_key_map_default = /*#__PURE__*/__webpack_require__.n(equivalent_k
  *
  * @see https://lodash.com/docs/4.17.15#set
  *
+ * @todo Needs to be deduplicated with its copy in `@wordpress/edit-site`.
+ *
  * @param {Object} object Object to modify
  * @param {Array}  path   Path of the property to set.
  * @param {*}      value  Value to set.
@@ -4209,6 +4189,45 @@ const getQueriedItems = rememo((state, query = {}) => {
  */
 function isRawAttribute(entity, attribute) {
   return (entity.rawAttributes || []).includes(attribute);
+}
+
+;// CONCATENATED MODULE: ./packages/core-data/build-module/private-selectors.js
+/**
+ * Internal dependencies
+ */
+
+/**
+ * Returns the previous edit from the current undo offset
+ * for the entity records edits history, if any.
+ *
+ * @param state State tree.
+ *
+ * @return The edit.
+ */
+function getUndoEdits(state) {
+  return state.undo.list[state.undo.list.length - 1 + state.undo.offset];
+}
+/**
+ * Returns the next edit from the current undo offset
+ * for the entity records edits history, if any.
+ *
+ * @param state State tree.
+ *
+ * @return The edit.
+ */
+
+function getRedoEdits(state) {
+  return state.undo.list[state.undo.list.length + state.undo.offset];
+}
+/**
+ * Retrieve the fallback Navigation.
+ *
+ * @param state Data state.
+ * @return The ID for the fallback Navigation post.
+ */
+
+function getNavigationFallbackId(state) {
+  return state.navigationFallbackId;
 }
 
 ;// CONCATENATED MODULE: ./packages/core-data/build-module/selectors.js
@@ -6126,7 +6145,7 @@ function useEntityProp(kind, name, prop, _id) {
     editEntityRecord(kind, name, id, {
       [prop]: newValue
     });
-  }, [kind, name, id, prop]);
+  }, [editEntityRecord, kind, name, id, prop]);
   return [value, setValue, fullValue];
 }
 /**
@@ -6155,7 +6174,7 @@ function useEntityBlockEditor(kind, name, {
   const id = _id !== null && _id !== void 0 ? _id : providerId;
   const {
     content,
-    blocks,
+    editedBlocks,
     meta
   } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
@@ -6163,7 +6182,7 @@ function useEntityBlockEditor(kind, name, {
     } = select(STORE_NAME);
     const editedRecord = getEditedEntityRecord(kind, name, id);
     return {
-      blocks: editedRecord.blocks,
+      editedBlocks: editedRecord.blocks,
       content: editedRecord.content,
       meta: editedRecord.meta
     };
@@ -6172,19 +6191,13 @@ function useEntityBlockEditor(kind, name, {
     __unstableCreateUndoLevel,
     editEntityRecord
   } = (0,external_wp_data_namespaceObject.useDispatch)(STORE_NAME);
-  (0,external_wp_element_namespaceObject.useEffect)(() => {
-    // Load the blocks from the content if not already in state
-    // Guard against other instances that might have
-    // set content to a function already or the blocks are already in state.
-    if (content && typeof content !== 'function' && !blocks) {
-      const parsedContent = (0,external_wp_blocks_namespaceObject.parse)(content);
-      editEntityRecord(kind, name, id, {
-        blocks: parsedContent
-      }, {
-        undoIgnore: true
-      });
+  const blocks = (0,external_wp_element_namespaceObject.useMemo)(() => {
+    if (editedBlocks) {
+      return editedBlocks;
     }
-  }, [content]);
+
+    return content && typeof content !== 'function' ? (0,external_wp_blocks_namespaceObject.parse)(content) : EMPTY_ARRAY;
+  }, [editedBlocks, content]);
   const updateFootnotes = (0,external_wp_element_namespaceObject.useCallback)(_blocks => {
     const output = {
       blocks: _blocks
@@ -6321,7 +6334,7 @@ function useEntityBlockEditor(kind, name, {
       isCached: true
     });
   }, [kind, name, id, updateFootnotes, editEntityRecord]);
-  return [blocks !== null && blocks !== void 0 ? blocks : EMPTY_ARRAY, onInput, onChange];
+  return [blocks, onInput, onChange];
 }
 
 ;// CONCATENATED MODULE: external ["wp","htmlEntities"]
@@ -7380,9 +7393,7 @@ const storeConfig = () => ({
 
 
 const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, storeConfig());
-unlock(store).registerPrivateSelectors({
-  getNavigationFallbackId: getNavigationFallbackId
-});
+unlock(store).registerPrivateSelectors(private_selectors_namespaceObject);
 (0,external_wp_data_namespaceObject.register)(store); // Register store after unlocking private selectors to allow resolvers to use them.
 
 

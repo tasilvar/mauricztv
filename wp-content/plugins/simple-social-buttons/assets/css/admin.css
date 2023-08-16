@@ -2033,7 +2033,8 @@ html[dir="rtl"] .simplesocial-inline-form-section label{
 .checkbox[checked="checked"] ~ #share-count-message{
 	display:block;
 }
-.ssb_uninstall_data{
+.ssb_uninstall_data,
+.ssb-ngg-gallery-admin-desc{
   padding-left:10px;
 }
 /*=====  End Code for instruction   ======*/

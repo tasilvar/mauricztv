@@ -81,12 +81,17 @@ if($getCategoryTag != null) {
 	 przez użytkowników</h1>
 </div>
 <!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
-<div class="row flex-section">
-	<div class="col-md-3 green-section">
+
+<div class="product-list-upper row-full">
+<div class="container">
+
+
+<div class="row <?php /*flex-section */?>">
+	<div class="col-lg-3 green-section">
 		
 	</div>
-	<div class="col-md-9">
-		<div class="products-list bestseller">
+	<div class="col-lg-9">
+		<div class="products-list bestseller row">
 <?php
 // Pobieranie kursów z kategorii Bestsellery
  
@@ -107,7 +112,7 @@ $args = array(
 $bestsellers_product = get_posts( $args );
 
 foreach($bestsellers_product as $product) { 
-	echo "<div class='col-md-4'>";
+	echo "<div class='col-sm-4'>";
 	echo "<div class='product'>";
 	
 	 //Miniatura
@@ -193,7 +198,7 @@ echo " PLN</h4>";
 // Dodaj do koszyka
 echo '<a href="'.get_permalink($product->ID).'" class="more-green">
 <i class="fa fa-shopping-bag"></i> 
-Dodaj do koszyka</a>';
+Sprawdź szkolenie</a>';
 
 	echo "</div>";
 	echo "</div>";
@@ -204,16 +209,22 @@ Dodaj do koszyka</a>';
 </div>
 </div>
 
+
+</div>
+</div>
 <!-- END: Szkolenia polecane przez uzytkownikow -->
 
 
+
+<div class="product-list-lower row-full">
+<div class="container">
 
 <div class="row">
 <div class="col-md-3 left-sidebar">
 <h5>Kategorie</h5>
 
 <!-- BEGIN: Kategorie -->
-<ul>
+<ul class="product-list-categories">
 	<li>
 		<a href="<?= get_permalink(56); ?>">Wszystkie</a>
 	</li>
@@ -327,7 +338,7 @@ foreach ($tags as $key => $tag) {
 $all_product = get_posts( $argsAll );
 
 	 foreach($all_product as $product) { 
-		 echo "<div class='col-md-4'>";
+		 echo "<div class='col-sm-6 col-lg-4'>";
 		 echo "<div class='product'>";
 		 //Miniatura
 		 echo "<div class='product-thumbnail'>";
@@ -455,7 +466,7 @@ $all_product = get_posts( $argsAll );
 	// Dodaj do koszyka
 			echo '<a href="'.get_permalink($product->ID).'" class="more-green">
 			<i class="fa fa-shopping-bag"></i> 
-			Dodaj do koszyka</a>';
+			Sprawdź szkolenie</a>';
 			echo "</div>";
 			echo "</div>";
 	 }
@@ -464,6 +475,10 @@ $all_product = get_posts( $argsAll );
 <!-- END: Lista kursów -->
 </div>
 
+</div>
+
+
+</div>
 </div>
 
 

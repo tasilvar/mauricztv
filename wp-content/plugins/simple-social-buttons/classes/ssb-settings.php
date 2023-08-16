@@ -9,7 +9,7 @@ class Ssb_Settings {
 
 	function __construct() {
 
-		include_once SSB_PLUGIN_DIR . '/classes/ssb-settings-strucutre.php';
+		include_once SSB_PLUGIN_DIR . '/classes/ssb-settings-structure.php';
 		$this->settings_api = new Ssb_Settings_Structure();
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -19,6 +19,13 @@ class Ssb_Settings {
 
 	}
 
+	/**
+	 * Add Admin Menu.
+	 *
+	 * @version 5.0.0
+	 *
+	 * @return void
+	 */
 	function admin_menu() {
 
 		if ( current_user_can( 'activate_plugins' ) ) {
@@ -92,7 +99,14 @@ class Ssb_Settings {
 	}
 
 	public function sort_array( $a, $b ) {
-		return $a['priority'] - $b['priority'];
+		$first_priority = isset( $a['priority'] ) && ! empty( $a['priority'] ) ? $a['priority'] : false;
+		$sec_priority   = isset( $b['priority'] ) && ! empty( $b['priority'] ) ? $b['priority'] : false;
+
+		if ( $first_priority && $sec_priority ) {
+			return $first_priority - $sec_priority;
+		}
+
+		return false;
 	}
 
 	public function get_current_post_types() {
@@ -346,6 +360,76 @@ class Ssb_Settings {
 
 			$ssb_inline = apply_filters( 'ssb_inline_fields', $ssb_inline );
 
+
+			$ssb_advanced = array(
+				array(
+					'name'              => 'twitter_handle',
+					'type'              => 'ssb_text',
+					'label'             => __( 'Twitter @username:', 'simple-social-buttons' ),
+					'sanitize_callback' => 'sanitize_text_field',
+				),
+				array(
+					'name'  => 'http_https_resolve',
+					'type'  => 'ssb_checkbox',
+					'label' => __( 'Http/Https counts resolve:', 'simple-social-buttons' ),
+				),
+				array(
+					'name'    => 'ssb_og_tags',
+					'type'    => 'ssb_checkbox',
+					'label'   => __( 'Open Graph Tags', 'simple-social-buttons' ),
+					'default' => '1',
+					'sanitize_callback' => 'sanitize_text_field',
+
+				),
+				array(
+					'name'  => 'ssb_uninstall_data',
+					'type'  => 'ssb_checkbox',
+					'label' => __( 'Remove Settings on Uninstall', 'simple-social-buttons' ),
+					'help'  => sprintf(
+						__( '%1$s This tool will remove all Simple Social Button settings upon uninstall.%2$s', 'simple-social-button' ),
+						'<span class="ssb_uninstall_data">',
+						'</span>',
+					)
+				),
+				array(
+					'name'  => 'facebook_app_id',
+					'desc'  => sprintf(
+						__( '%1$sFacebook App%2$s %3$show to make App%4$s', 'simple-social-button' ),
+						'<h4>',
+						'</h4>',
+						'<a href="https://wpbrigade.com/how-to-create-facebook-app-and-get-app-id-and-secret/" target="_blank">',
+						'</a>',
+					),
+					'type'  => 'ssb_text',
+					'label' => __( 'Facebook App ID:', 'simple-social-buttons' ),
+					'sanitize_callback' => 'sanitize_text_field',
+
+				),
+				array(
+					'name'  => 'facebook_app_secret',
+					'type'  => 'ssb_text',
+					'label' => __( 'Facebook App Secret:', 'simple-social-buttons' ),
+					'sanitize_callback' => 'sanitize_text_field',
+
+				),
+				array(
+					'name'  => 'ssb_css',
+					'label' => __( 'Custom CSS', 'simple-social-buttons-pro' ),
+					'type'  => 'ssb_textarea',
+					'sanitize_callback' => array( $this, 'ssb_sanitize_css_code' ),
+
+				),
+				array(
+					'name'  => 'ssb_js',
+					'label' => __( 'Custom JS', 'simple-social-buttons-pro' ),
+					'type'  => 'ssb_textarea',
+					'sanitize_callback' => array( $this, 'ssb_sanitize_code' ),
+				),
+			);
+
+			// The advanced settings section and fields.
+			$ssb_advanced     = apply_filters( 'ssb_advance_fields', $ssb_advanced );
+
 			$settings_fields = array(
 				'ssb_networks'  => array(
 					array(
@@ -409,61 +493,7 @@ class Ssb_Settings {
 						'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-flyin&utm_campaign=pro-upgrade',
 					),
 				),
-				'ssb_advanced'  => array(
-					array(
-						'name'              => 'twitter_handle',
-						'type'              => 'ssb_text',
-						'label'             => __( 'Twitter @username:', 'simple-social-buttons' ),
-						'sanitize_callback' => 'sanitize_text_field',
-					),
-					array(
-						'name'  => 'http_https_resolve',
-						'type'  => 'ssb_checkbox',
-						'label' => __( 'Http/Https counts resolve:', 'simple-social-buttons' ),
-					),
-					array(
-						'name'    => 'ssb_og_tags',
-						'type'    => 'ssb_checkbox',
-						'label'   => __( 'Open Graph Tags', 'simple-social-buttons' ),
-						'default' => '1',
-						'sanitize_callback' => 'sanitize_text_field',
-
-					),
-					array(
-						'name'  => 'ssb_uninstall_data',
-						'type'  => 'ssb_checkbox',
-						'label' => __( 'Remove Settings on Uninstall', 'simple-social-buttons' ),
-						'help'  => __( '<span class="ssb_uninstall_data">This tool will remove all Simple Social Button settings upon uninstall.</span>', 'simple-social-button' ),
-					),
-					array(
-						'name'  => 'facebook_app_id',
-						'desc'  => '<h4> Facebook App</h4><a href="https://wpbrigade.com/how-to-create-facebook-app-and-get-app-id-and-secret/" target="_blank">how to make App</a>',
-						'type'  => 'ssb_text',
-						'label' => __( 'Facebook App ID:', 'simple-social-buttons' ),
-						'sanitize_callback' => 'sanitize_text_field',
-
-					),
-					array(
-						'name'  => 'facebook_app_secret',
-						'type'  => 'ssb_text',
-						'label' => __( 'Facebook App Secret:', 'simple-social-buttons' ),
-						'sanitize_callback' => 'sanitize_text_field',
-
-					),
-					array(
-						'name'  => 'ssb_css',
-						'label' => __( 'Custom CSS', 'simple-social-buttons-pro' ),
-						'type'  => 'ssb_textarea',
-						'sanitize_callback' => array( $this, 'ssb_sanitize_css_code' ),
-
-					),
-					array(
-						'name'  => 'ssb_js',
-						'label' => __( 'Custom JS', 'simple-social-buttons-pro' ),
-						'type'  => 'ssb_textarea',
-						'sanitize_callback' => array( $this, 'ssb_sanitize_code' ),
-					),
-				),
+				'ssb_advanced'  => $ssb_advanced,
 			);
 
 			$settings_fields = apply_filters( 'ssb_setting_fields', $settings_fields, $post_types );
