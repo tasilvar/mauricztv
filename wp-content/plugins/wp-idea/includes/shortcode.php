@@ -641,32 +641,6 @@ add_shortcode( 'wpi_continue_anchor', 'bpmj_eddcm_wpi_continue_shortcode' );
 
 add_shortcode('mjcourses','mjcourses');
 
-function addCategories() { 
-	<!-- BEGIN: Kategorie -->
-	$outoput .= '<ul class="product-list-categories">'
-	<li>
-		<a href="<?= get_permalink(56); ?>">Wszystkie</a>
-	</li>
-<?php
-// Zwrócenie wszystkich kategorii
-
-	$categories = get_terms( array(
-		'taxonomy' => 'download_category',
-		'hide_empty' => false
-		) );
-
-	
-foreach ($categories as $key => $category) {
-    echo "<li>";
-	echo "<a href='".get_term_link($category->term_id)."'>";
-    echo $category->name;
-	echo "</a>";
-    echo "</li>";
-}
-?>
-</ul>
-<!--  END: Kategorie -->
-}
 
 function mjcourses() { 
 	$output = '';
