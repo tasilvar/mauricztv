@@ -641,15 +641,85 @@ add_shortcode( 'wpi_continue_anchor', 'bpmj_eddcm_wpi_continue_shortcode' );
 
 add_shortcode('mjcourses','mjcourses');
 
+function addCategories() { 
+	<!-- BEGIN: Kategorie -->
+	$outoput .= '<ul class="product-list-categories">'
+	<li>
+		<a href="<?= get_permalink(56); ?>">Wszystkie</a>
+	</li>
+<?php
+// Zwrócenie wszystkich kategorii
+
+	$categories = get_terms( array(
+		'taxonomy' => 'download_category',
+		'hide_empty' => false
+		) );
+
+	
+foreach ($categories as $key => $category) {
+    echo "<li>";
+	echo "<a href='".get_term_link($category->term_id)."'>";
+    echo $category->name;
+	echo "</a>";
+    echo "</li>";
+}
+?>
+</ul>
+<!--  END: Kategorie -->
+}
+
 function mjcourses() { 
 	$output = '';
+	// Blok kategorie
+	$outoput = '';
+	$outputCategories .= '<ul class="home-category-items product-list-categories">'
 
+	$categories = get_terms( array(
+		'taxonomy' => 'download_category',
+		'hide_empty' => false
+		) );
+
+		foreach ($categories as $key => $category) {
+			$outputCategories .= "<li>";
+			$outputCategories .=  "<a href='".get_term_link($category->term_id)."'>";
+			$outputCategories .= $category->name;
+			$outputCategories .= "</a>";
+			$outputCategories .= "</li>";
+		}
+
+		$outputCategories .= '</ul>';
+	
+		$output .= $outputCategories;
+		// End Blok kategorie
+		
+		// Blok Poziomy
+		$outputLevels .= '<ul class="levels">';
+
+ $tags = get_terms( array(
+	 'taxonomy' => 'download_tag', 
+	 'hide_empty' => false, 
+	 ) );
+
+
+foreach ($tags as $key => $tag) {
+	
+    $outputLevels .= "<li>";
+	$outputLevels .= "<a href='".get_tag_link($tag)."'>";
+    $outputLevels .= $tag->name;
+	$outputLevels .= "</a>";
+    $outputLevels .= "</li>";
+}
+
+$outputLevxels .= '</ul>';
+// End Blok Poziomy
+
+		$output .= $outputLevels;
 	$output .= '<div class="products-list">';
 	$output .= '<div class="row">';
 		$args = array(
 			'post_type'      => 'download',
 			'post_status' => 'publish',
-			'posts_per_page' => 4,
+			'posts_per_page' => 8,
 			'meta_key' => 'sales_disabled',
 			'meta_value' => 'off',		
 		);
