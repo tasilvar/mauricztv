@@ -642,16 +642,24 @@ add_shortcode( 'wpi_continue_anchor', 'bpmj_eddcm_wpi_continue_shortcode' );
 add_shortcode('mjcourses','mjcourses');
 
 
-function mjcourses() { 
-	$output = '';
-	// Blok kategorie
-	$outoput = '';
-	$outputCategories .= '<ul class="home-category-items product-list-categories">';
+function mjcourses($atts) { 
 
-	$categories = get_terms( array(
-		'taxonomy' => 'download_category',
-		'hide_empty' => false
-		) );
+	$categoryProduct = (string)$atts['category'];
+	$quantityProduct = (int)$atts['quantity'];
+	$categoryLabels = (int)$atts['category-labels'];
+	$tagLabels = (int)$atts['tag-labels'];
+
+	$output = '';
+
+	if($categoryLabels == 1) {
+		// Blok kategorie
+		$outoput = '';
+		$outputCategories .= '<ul class="home-category-items product-list-categories">';
+
+		$categories = get_terms( array(
+			'taxonomy' => 'download_category',
+			'hide_empty' => false
+			) );
 
 		foreach ($categories as $key => $category) {
 			$outputCategories .= "<li>";
@@ -665,38 +673,57 @@ function mjcourses() {
 	
 		$output .= $outputCategories;
 		// End Blok kategorie
-		
+	}
+	if($tagLabels == 1) {
 		// Blok Poziomy
-		$outputLevels .= '<ul class="levels">';
+		$outputLevels .= '<ul class="home-levels-items levels">';
 
- $tags = get_terms( array(
-	 'taxonomy' => 'download_tag', 
-	 'hide_empty' => false, 
-	 ) );
+		$tags = get_terms( array(
+			'taxonomy' => 'download_tag', 
+			'hide_empty' => false, 
+			) );
 
+		foreach ($tags as $key => $tag) {
+			
+			$outputLevels .= "<li>";
+			$outputLevels .= "<a href='".get_tag_link($tag)."'>";
+			$outputLevels .= $tag->name;
+			$outputLevels .= "</a>";
+			$outputLevels .= "</li>";
+		}
 
-foreach ($tags as $key => $tag) {
-	
-    $outputLevels .= "<li>";
-	$outputLevels .= "<a href='".get_tag_link($tag)."'>";
-    $outputLevels .= $tag->name;
-	$outputLevels .= "</a>";
-    $outputLevels .= "</li>";
-}
+		$outputLevxels .= '</ul>';
+		// End Blok Poziomy
+	}
 
-$outputLevxels .= '</ul>';
-// End Blok Poziomy
 
 		$output .= $outputLevels;
-	$output .= '<div class="products-list">';
-	$output .= '<div class="row">';
-		$args = array(
-			'post_type'      => 'download',
-			'post_status' => 'publish',
-			'posts_per_page' => 8,
-			'meta_key' => 'sales_disabled',
-			'meta_value' => 'off',		
-		);
+		$output .= '<div class="products-list">';
+		$output .= '<div class="row">';
+	if(!empty($categoryProduct)) {
+			$args = array(
+				'post_type'      => 'download',
+				'post_status' => 'publish',
+				'posts_per_page' => $quantityProduct,
+				'meta_key' => 'sales_disabled',
+				'meta_value' => 'off',	
+				'tax_query'      => array(
+					array(
+						'taxonomy' => 'download_category',
+						'field'    => 'slug',
+						'terms'    => $categoryProduct,
+					),
+				),	
+			);
+		} else { 
+			$args = array(
+				'post_type'      => 'download',
+				'post_status' => 'publish',
+				'posts_per_page' => $quantityProduct,
+				'meta_key' => 'sales_disabled',
+				'meta_value' => 'off',		
+			);
+		}
 
 
 	$all_product = get_posts( $args );
