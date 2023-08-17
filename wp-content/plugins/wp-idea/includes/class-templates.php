@@ -688,7 +688,7 @@ class Templates
 //			$html .= $this->get_course_panel_menu();
 //		}
 
-        if (has_nav_menu('bpmj_eddcm_courses')) {
+        #if (has_nav_menu('bpmj_eddcm_courses')) {
             $html .= wp_nav_menu(array(
                 'theme_location' => 'bpmj_eddcm_courses',
                 'menu_class' => 'primary-menu',
@@ -696,7 +696,7 @@ class Templates
                 'echo' => false,
                 'items_wrap' => '%3$s',
             ));
-        }
+        #}
 
         // Kontakt
 //		if ( isset( $wpidea_settings['contact_page'] ) && is_numeric( $wpidea_settings['contact_page'] ) ) {
