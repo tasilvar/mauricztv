@@ -47,11 +47,6 @@
 if(is_plugin_active('wp-idea/wp-idea.php')) { 
     WPI()->templates->header();
     ?>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $( ".has-sub > .sub-menu, ul:not(.sub-menu) > .menu-item-has-children > .sub-menu" ).wrap( "<div class='sub-menu-scroll-wrapper'></div>" );
-    });
-</script>
 <?php
  } else { 
 ?>
