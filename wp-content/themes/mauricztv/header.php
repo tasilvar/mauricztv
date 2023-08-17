@@ -44,7 +44,7 @@
 
 <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 <?php 
-if(is_plugin_active('wp-idea')) { 
+if(is_plugin_active('Publigo')) { 
     WPI()->templates->header();
  } else { 
 ?>
