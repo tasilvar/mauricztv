@@ -252,4 +252,4 @@ echo "<a href='".get_permalink($product->ID)."'>";
 </div>
 
 
-<?php echo '<a href="'.get_permalink(56).'" class="btn btn-primary more">Kontynuj zakupy</a>'; ?>
+
