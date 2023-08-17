@@ -42,14 +42,12 @@
 
 ?>
 
+<?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 <?php 
-
 if(is_plugin_active('wp-idea')) { 
     WPI()->templates->header();
  } else { 
 ?>
-
-<?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 	<header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container">
          
