@@ -46,6 +46,11 @@
 <?php 
 if(is_plugin_active('wp-idea/wp-idea.php')) { 
     WPI()->templates->header();
+    ?>
+<script type="text/javascript">
+    $( ".has-sub > .sub-menu, ul:not(.sub-menu) > .menu-item-has-children > .sub-menu" ).wrap( "<div class='sub-menu-scroll-wrapper'></div>" );
+</script>
+<?php
  } else { 
 ?>
 	<header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
