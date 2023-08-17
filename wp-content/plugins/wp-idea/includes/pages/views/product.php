@@ -415,7 +415,7 @@ else {
                 </div>
                 
                 
-                <?= do_shortcode("[mjcourses category='bestsellersy' quantity='4' tag-labels='0' category-labels='0']"); ?>
+                <?= do_shortcode("[mjcourses category='bestsellery' quantity='4' tag-labels='0' category-labels='0']"); ?>
             
             </div>
         </div>

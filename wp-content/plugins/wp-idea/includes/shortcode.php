@@ -651,9 +651,11 @@ function mjcourses($atts) {
 
 	$output = '';
 
+	$outputCategories = '';
+	$outputLevels = '';
+
 	if($categoryLabels == 1) {
 		// Blok kategorie
-		$outoput = '';
 		$outputCategories .= '<ul class="home-category-items product-list-categories">';
 
 		$categories = get_terms( array(
@@ -693,11 +695,10 @@ function mjcourses($atts) {
 		}
 
 		$outputLevxels .= '</ul>';
+		$output .= $outputLevels;
 		// End Blok Poziomy
 	}
 
-
-		$output .= $outputLevels;
 		$output .= '<div class="products-list">';
 		$output .= '<div class="row">';
 	if(!empty($categoryProduct)) {

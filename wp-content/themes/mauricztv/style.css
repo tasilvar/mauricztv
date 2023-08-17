@@ -1564,3 +1564,37 @@ crosseling
 .czas { 
 	font-weight: bold !important;
 }
+
+ul.home-category-items.product-list-categories li, .home-levels-items.levels li {
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+    background: #f6f6f6;
+    margin: 10px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+ul.home-category-items.product-list-categories li a, ul.home-levels-items.levels li a {
+    color: #7f8082;
+    font-weight: 400;
+}
+
+ul.home-category-items.product-list-categories li:hover, ul.home-category-items.product-list-categories li:hover a {
+    color: #fff;
+    background: #1cd779;
+    cursor: pointer;
+}
+
+ul.home-levels-items.levels li a {
+    font-size: 1.1rem;
+}
+
+ul.home-category-items.product-list-categories, .home-levels-items.levels {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+ul.home-category-items.product-list-categories li a {
+    font-size: 0.8rem;
+}

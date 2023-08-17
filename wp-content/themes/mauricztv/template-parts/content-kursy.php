@@ -240,8 +240,8 @@
 						<h3>Uczestnicy kursu kupili również</h3>
 					</div>
 					
-					
-					miejsce na shortcode lista
+					<?= do_shortcode("[mjcourses category='bestsellery' quantity='4' tag-labels='0' category-labels='0']"); ?>
+				
 				
 				</div>
 			</div>
