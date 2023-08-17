@@ -189,11 +189,11 @@ $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
     $args = array(
 		'post_type'      => 'download',
 		'post_status' => 'publish',
-		'posts_per_page' => 3,
+		'posts_per_page' => 2,
 		'meta_key' => 'sales_disabled',
 		'meta_value' => 'off',
         //'meta_query' => $filterArgs,
-		'numberposts' => 3
+		'numberposts' => 2
 	);
 
     $getProducts = get_posts($args);
@@ -251,3 +251,5 @@ echo "<a href='".get_permalink($product->ID)."'>";
 	?>
 </div>
 
+
+<?php echo '<a href="'.get_permalink(56).'" class="btn btn-primary more">Kontynuj zakupy</a>'; ?>

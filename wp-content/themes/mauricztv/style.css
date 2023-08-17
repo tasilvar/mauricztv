@@ -931,7 +931,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
 */
 
 /*usuniecie top menu na podstronach od Publigo*/
-.page-template-default.page .top-menu{display:none;}
+/* .page-template-default.page .top-menu{display:none;} */
 .page-template-default.page.page-id-56 .top-menu{display:inline-block;}
 
 #header {padding-top:26px;
