@@ -895,7 +895,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	
 	.navbar-brand{margin-right:5vw;}
 	.top-menu ul li{margin:0 0.313vw;}
-	.top-menu ul li a{padding:19px 0.990vw;font-size:0.833vw;}
+	.top-menu ul li a{padding:19px 0.990vw;font-size:1rem;}
 	
 	.blog a.post-link{font-size:1.250vw;}
 	
@@ -1340,7 +1340,7 @@ tr.edd_cart_header_row th {
     margin-top: 0px;
 }
 .product-inner-block.cart { 
-	max-width: 75% !important;
+	max-width: 90% !important;
 }
 
 #edd-payment-mode-wrap label:hover, #edd-payment-mode-wrap label.edd-gateway-option-selected {
@@ -1597,4 +1597,88 @@ ul.home-category-items.product-list-categories, .home-levels-items.levels {
 
 ul.home-category-items.product-list-categories li a {
     font-size: 0.8rem;
+}
+.center-btn {
+	margin: auto;
+    display: table !important;
+    padding: 20px 25px !important;
+    height: auto !important;
+	margin-top: 50px !important;
+	position: relative;
+    z-index: 1;
+}
+
+.product-inner-block.cart h1 {
+    font-size: 28px !important;
+}
+
+body.checkout div#content:before {
+    background-image: url(./img/hp-first.png) !important;
+    background-position: 100% -15px !important;
+    background-size: 500px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    content: " ";
+    top: 0;
+    z-index: 0;
+}
+body.checkout div#content * {
+    z-index: 1;
+    position: relative;
+}
+.koszyk_right tr:not(.koszyk_right tr:last-child), #edd-payment-mode-wrap {
+	border-bottom: 1px solid #d8dde5;
+}
+#edd-payment-mode-wrap {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+#edd-payment-mode-wrap br {
+	display: none;
+}
+.wpi-template>[class*="wp-block-"] {
+    max-width: 1640px;
+}
+@media(min-width:992px) {
+	.podsumowanie_contenter .kod_rabatowy_input {
+		width: 60%;
+	}
+}
+.lacznie_container {
+	display: flex;
+    padding: 15px 0;
+}
+.lacznie_subtitle {
+ width: 33%;
+ font-weight: 600;
+    color: #323739;
+    font-size: 18px;
+    border: 0px;
+}
+.podsumowanie_lacznie {
+	color: #16d778;
+    font-weight: bold;
+    font-size: 28px;
+    justify-content: flex-end;
+    display: flex;
+    width: 100%;
+}
+.koszyk_right tr:first-child td:last-child {
+    text-align: right;
+}
+.btn.register {
+	color: #fff;
+		background: #323739 !important;
+			border-radius: 0 !important;
+			height: auto !important;
+			padding: 20px 25px !important;
+			margin-top: 25px;
+ 
+}
+
+.row.login-section {
+    margin-top: 120px;
 }

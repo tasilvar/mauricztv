@@ -42,7 +42,7 @@ class Cart_Additional_Info_Block extends Block
 
             $content .= '<tr>';
                 $content .= '<td>';
-                    $content .= 'Łącznie';
+                    $content .= 'Kwota';
                 $content .= '</td>';
 
                 $content .= '<td>';

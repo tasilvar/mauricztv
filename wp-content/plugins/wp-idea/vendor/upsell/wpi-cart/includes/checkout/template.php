@@ -611,6 +611,12 @@ function edd_payment_mode_select() {
 				<?php echo edd_checkout_button_next(); ?>
 			</p>
 		</fieldset>
+
+		<div class="lacznie_container">
+    <div class="lacznie_subtitle">Łącznie
+        </div>
+    <div class="podsumowanie_lacznie price edd_cart_amount" data-subtotal="<?php echo edd_get_cart_total(); ?>" data-total="<?php echo edd_get_cart_total(); ?>"><?php edd_cart_total(); ?></div>
+</div>
 	<?php if( edd_is_ajax_disabled() ) { ?>
 	</form>
 	<?php } ?>

@@ -11,6 +11,17 @@
 
 ?>
 <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
+
+	<?php 
+if(is_page(48)) { 
+?>
+	<?php 
+	echo '<div class="container">';
+	echo '<a href="'.get_permalink(56).'" class="btn btn-primary more center-btn">Kontynuj zakupy</a>'; 
+	echo '</div>';
+}
+?>
+
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</div><!-- #content -->

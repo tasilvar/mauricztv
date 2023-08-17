@@ -396,7 +396,7 @@ function login_footer( $input_id = '' ) {
 	 *
 	 * @since 3.1.0
 	 */
-	#do_action( 'login_footer' );
+	do_action( 'login_footer' );
 
 	?>
 	<div class="clear"></div>
@@ -716,7 +716,7 @@ switch ( $action ) {
 
 		<?php
 
-		#login_footer();
+		login_footer();
 		break;
 
 	case 'postpass':
@@ -947,7 +947,7 @@ switch ( $action ) {
 			reset_password( $user, $_POST['pass1'] );
 			setcookie( $rp_cookie, ' ', time() - YEAR_IN_SECONDS, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
 			login_header( __( 'Password Reset' ), '<p class="message reset-pass">' . __( 'Your password has been reset.' ) . ' <a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log in' ) . '</a></p>' );
-			#login_footer();
+			login_footer();
 			exit;
 		}
 
@@ -1159,7 +1159,7 @@ switch ( $action ) {
 		$errors = apply_filters( 'wp_login_errors', $errors, $redirect_to );
 
 		login_header( __( 'Check your email' ), '', $errors );
-		#login_footer();
+		login_footer();
 		break;
 
 	case 'confirmaction':
@@ -1562,8 +1562,6 @@ switch ( $action ) {
 			<?php
 		}
 
-		#login_footer();
+		login_footer();
 		break;
 } // End action switch.
-
-get_footer();

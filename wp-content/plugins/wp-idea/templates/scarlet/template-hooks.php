@@ -395,7 +395,8 @@ add_action('login_header', function () {
     <div id="strona_logowania">
         <div id="panel_logowania">
             <?php
-            echo WPI()->templates->get_logo(); ?>
+            #echo WPI()->templates->header();
+           # echo WPI()->templates->get_logo(); ?>
             <div class="panel_logowania_container">
                 <?php
                 });

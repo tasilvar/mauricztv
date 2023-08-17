@@ -11,7 +11,6 @@ wp-load.php
 wp-links-opml.php
 wp-comments-post.php
 wp-config-sample.php
-wp-login.php
 wp-mail.php
 wp-settings.php
 wp-signup.php
@@ -19,3 +18,10 @@ wp-trackback.php
 xmlrpc.php
 .htaccess
 .ftp-deploy-sync-state.json
+*.sql
+/wp-content/uploads
+/wp-content/languages
+/wp-content/lms-data
+/wp-content/upgrade
+/wp-content/upgrade-temp-backup
+_old_wp-login.php
