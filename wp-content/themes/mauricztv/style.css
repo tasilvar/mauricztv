@@ -1680,5 +1680,68 @@ body.checkout div#content * {
 }
 
 .row.login-section {
+	width: 100%;
     margin-top: 120px;
+}
+
+#rememberme {
+    display: inline-block;
+    width: auto;
+}
+#wp-submit
+{
+	border-radius: 0;
+    padding: 20px 35px;
+}
+.login-section input[type=text], .login-section input[type=password] {
+    border: 0;
+    background: transparent !important;
+    border-bottom: 3px solid #bcc1c1;
+    border-radius: 0;
+    padding: 15px;
+}
+.login-section #loginform {
+	max-width: 75%;
+    margin: auto;
+}
+.row.login-section .col-md-6:nth-child(1) {
+    border-right: 1px solid #bdc1c2;
+}
+.row.login-section .col-md-6:nth-child(2) > div
+{
+	max-width: 75%;
+    margin: auto;
+}
+.row.login-section .col-md-6:nth-child(2) h3
+{
+	font-weight: bold;
+    color: #323739;
+    font-size: 17px;
+    margin: 0;
+}
+.row.login-section .col-md-6:nth-child(2) ul
+{
+	padding: 0 0 0 10px;
+}
+.row.login-section .col-md-6:nth-child(2) h1
+{
+	color: #323739 !important;
+}
+body.page-id-560 div#content:before {
+    background-image: url(./img/hp-first.png) !important;
+    background-position: 100% -15px !important;
+    background-size: 500px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    content: " ";
+    top: 0;
+    z-index: 0;
+}
+
+.wpi-course-banner { 
+	height: 300px;
+    overflow: hidden;
 }
