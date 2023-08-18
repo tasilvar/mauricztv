@@ -1758,3 +1758,9 @@ body.page-id-560 div#content:before {
 .login-section a {
 	color: #1cd779;
 }
+.wp-block-group__inner-container.is-layout-flow.wp-block-group-is-layout-flow
+{ 
+	position: relative;
+    width: 100%;
+    top: -60px;
+ }
