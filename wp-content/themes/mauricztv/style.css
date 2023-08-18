@@ -1580,7 +1580,9 @@ ul.home-category-items.product-list-categories li a, ul.home-levels-items.levels
     font-weight: 400;
 }
 
-ul.home-category-items.product-list-categories li:hover, ul.home-category-items.product-list-categories li:hover a {
+ul.home-category-items.product-list-categories li:hover, ul.home-category-items.product-list-categories li:hover a,
+.home-levels-items.levels li:hover a, .home-levels-items.levels li:hover
+{
     color: #fff;
     background: #1cd779;
     cursor: pointer;
@@ -1744,4 +1746,15 @@ body.page-id-560 div#content:before {
 .wpi-course-banner { 
 	height: 300px;
     overflow: hidden;
+}
+#loginform #wp-submit { 
+	margin-bottom: 0;
+}
+.inner-login-left
+{
+	max-width: 75%;
+    margin: auto;
+}
+.login-section a {
+	color: #1cd779;
 }

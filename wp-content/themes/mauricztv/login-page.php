@@ -26,13 +26,10 @@ get_header();
 
     <div class="col-md-6">
     
-    <form method="post">
-
-
-    </form>
     <?php 
     wp_login_form( ['echo' =>true] );
     ?>
+    <p class="inner-login-left">Nie pamiętasz hasła? <a href="<?= bloginfo('url') ?>/wp-login.php?action=lostpassword">Kliknij tutaj</a></p>
     </div>
 
     <div class="col-md-6">
@@ -57,7 +54,7 @@ get_header();
     </ul>
 
 
-    <a href='wp-login.php?action=register' class='more btn btn-secondary register'>Zarejestruj się</a>
+    <a href='<?= bloginfo('url') ?>/wp-login.php?action=register' class='more btn btn-secondary register'>Zarejestruj się</a>
 
     </div>
 
