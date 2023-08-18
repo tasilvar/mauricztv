@@ -319,7 +319,7 @@ function mjtest_shortcode() {
      return "test mjshortcode: ". get_post_type( get_the_ID());
 }
 
-//add_shortcode('mjloginpage', 'mjloginpage');
+add_shortcode('mjloginpage', 'mjloginpage');
 function mjloginpage() {
     $output = '<div class="container">';
     $output .= '<div class="row login-section">';
