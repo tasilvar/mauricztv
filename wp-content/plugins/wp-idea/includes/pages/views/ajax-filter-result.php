@@ -7,11 +7,19 @@ global $post;
 $getCategoryTag = $_POST['id_category_tag'];
 
 
-$filterArgs[] =  array(
-    'key' => 'czas_kursu',
-    'value' =>  $_POST['czas'],
-    'compare' => '<='
-);
+if(!empty($_POST['cols'])) { 
+    $cols = $_POST['cols'];
+} else { 
+    $cols = 4;
+}
+
+if(!empty($_POST['czas'])) {
+    $filterArgs[] =  array(
+        'key' => 'czas_kursu',
+        'value' =>  $_POST['czas'],
+        'compare' => '<='
+    );
+}
 
 if($getCategoryTag != null) { 
 	if($_POST['filter_type'] == 'category') {
@@ -62,7 +70,7 @@ if($getCategoryTag != null) {
 	$getProducts = get_posts( $argsAll );
 
     foreach($getProducts as $product) { 
-        echo "<div class='col-md-4'>";
+        echo "<div class='col-md-".$cols."'>";
         echo "<div class='product'>";
         
          //Miniatura

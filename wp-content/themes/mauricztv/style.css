@@ -1568,27 +1568,31 @@ crosseling
 ul.home-category-items.product-list-categories li, .home-levels-items.levels li {
     display: inline-block;
     text-align: center;
-    padding: 15px;
     background: #f6f6f6;
     margin: 10px;
     text-transform: uppercase;
     color: #333;
 }
 
-ul.home-category-items.product-list-categories li a, ul.home-levels-items.levels li a {
+ul.home-category-items.product-list-categories li button, ul.home-levels-items.levels li button {
+	 background: transparent;
+	 border: 0px;
+	 padding: 15px;
+}
+ul.home-category-items.product-list-categories li button, ul.home-levels-items.levels li button {
     color: #7f8082;
     font-weight: 400;
 }
 
-ul.home-category-items.product-list-categories li:hover, ul.home-category-items.product-list-categories li:hover a,
-.home-levels-items.levels li:hover a, .home-levels-items.levels li:hover
+ul.home-category-items.product-list-categories li:hover, ul.home-category-items.product-list-categories li:hover button,
+.home-levels-items.levels li:hover button, .home-levels-items.levels li:hover
 {
     color: #fff;
     background: #1cd779;
     cursor: pointer;
 }
 
-ul.home-levels-items.levels li a {
+ul.home-levels-items.levels li button {
     font-size: 1.1rem;
 }
 
@@ -1597,7 +1601,7 @@ ul.home-category-items.product-list-categories, .home-levels-items.levels {
     margin-bottom: 0;
 }
 
-ul.home-category-items.product-list-categories li a {
+ul.home-category-items.product-list-categories li button {
     font-size: 0.8rem;
 }
 .center-btn {
@@ -1764,3 +1768,10 @@ body.page-id-560 div#content:before {
     width: 100%;
     /* top: -60px; */
  }
+ .products-list.ajax-product-list {
+	 display: flex;
+ }
+ .mjfilter button.active {
+    background: #1cd779 !important;
+    color: #fff !important;
+}

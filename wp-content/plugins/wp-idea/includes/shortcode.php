@@ -654,6 +654,16 @@ function mjcourses($atts) {
 	$outputCategories = '';
 	$outputLevels = '';
 
+	$output .= '<form method="POST" class="mjfilter">';
+
+	
+	$output .= '<input type="hidden" name="filter_type"  id="filter_type" value="category"/>';
+	$output .= '<input type="hidden" name="id_category_tag"  id="id_category_tag" value="null"/>';
+
+	$output .= '<input type="hidden" name="cols" value="3"/>';
+
+	$output .= ' <input type="hidden" name="url_mjfilter" id="url_mjfilter" value="'.bloginfo('url').'/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>';
+
 	if($categoryLabels == 1) {
 		// Blok kategorie
 		$outputCategories .= '<ul class="home-category-items product-list-categories">';
@@ -665,9 +675,9 @@ function mjcourses($atts) {
 
 		foreach ($categories as $key => $category) {
 			$outputCategories .= "<li>";
-			$outputCategories .=  "<a href='".get_term_link($category->term_id)."'>";
+			$outputCategories .=  "<button name='id_category_tag' data-filter_type='category' onclick='getAjaxResults(this)' value='".$category->term_id."' data-term='".$category->term_id."' data-href='".get_term_link($category->term_id)."' type='button'>";
 			$outputCategories .= $category->name;
-			$outputCategories .= "</a>";
+			$outputCategories .= "</button>";
 			$outputCategories .= "</li>";
 		}
 
@@ -688,9 +698,9 @@ function mjcourses($atts) {
 		foreach ($tags as $key => $tag) {
 			
 			$outputLevels .= "<li>";
-			$outputLevels .= "<a href='".get_tag_link($tag)."'>";
+			$outputLevels .= "<button  name='id_category_tag' data-filter_type='tag' data-href='".get_term_link($tag->term_id)."'  type='button'  value='".$tag->term_id."'  data-term='".$tag->term_id."' onclick='getAjaxResults(this)' >";
 			$outputLevels .= $tag->name;
-			$outputLevels .= "</a>";
+			$outputLevels .= "</button>";
 			$outputLevels .= "</li>";
 		}
 
@@ -698,8 +708,11 @@ function mjcourses($atts) {
 		$output .= $outputLevels;
 		// End Blok Poziomy
 	}
+	
 
-		$output .= '<div class="products-list">';
+	$output .= '</form>';
+
+		$output .= '<div class="products-list ajax-product-list">';
 		$output .= '<div class="row">';
 	if(!empty($categoryProduct)) {
 			$args = array(
@@ -821,6 +834,39 @@ function mjcourses($atts) {
 
 	$output .= '</div>';
 	$output .= '</div>';
+
+
+	$output .= '
+	<script type="text/javascript">
+	function getAjaxResults(obj) { 
+	
+		document.getElementById("filter_type").value = obj.getAttribute("data-filter_type");
+		document.getElementById("id_category_tag").value = obj.value;
+		
+		$(".mjfilter button").removeClass("active");
+		$(obj).addClass("active");
+
+	   $.ajax({
+		   method:"POST",
+		   url:$("#url_mjfilter").val(),
+		   data: $(".mjfilter").serialize(),
+		   beforeSend: function() {
+			   $(".ajax-product-list").css("opacity", "0.5");
+			   $(".ajax-product-list").html("Ładowanie...");
+		   },
+		   success: function(data) {
+			   $(".ajax-product-list").css("opacity", "1");
+			   $(".ajax-product-list").html(data);
+		   },
+		   error: function(xhr) {
+			   $(".ajax-product-list").css("opacity", "1");
+			   $(".ajax-product-list").html("error"+data);
+		   }
+	   });
+	}
+
+	</script>
+	';
 
 	return $output;
 }
