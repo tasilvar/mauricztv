@@ -1775,3 +1775,7 @@ body.page-id-560 div#content:before {
     background: #1cd779 !important;
     color: #fff !important;
 }
+
+.products-list.ajax-product-list  > .row { 
+width: 100% !important;
+}

@@ -662,7 +662,7 @@ function mjcourses($atts) {
 
 	$output .= '<input type="hidden" name="cols" value="3"/>';
 
-	$output .= ' <input type="hidden" name="url_mjfilter" id="url_mjfilter" value="'.bloginfo('url').'/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>';
+	$output .= ' <input type="hidden" name="url_mjfilter" id="url_mjfilter" value="'.get_bloginfo('url').'/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>';
 
 	if($categoryLabels == 1) {
 		// Blok kategorie
