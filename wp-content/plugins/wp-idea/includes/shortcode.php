@@ -659,6 +659,8 @@ function mjcourses($atts) {
 	
 	$output .= '<input type="hidden" name="filter_type"  id="filter_type" value="category"/>';
 	$output .= '<input type="hidden" name="id_category_tag"  id="id_category_tag" value="null"/>';
+	// $output .= '<input type="hidden" name="id_category"  id="id_category" value="null"/>';
+	// $output .= '<input type="hidden" name="id_tag"  id="id_tag" value="null"/>';
 
 	$output .= '<input type="hidden" name="cols" value="3"/>';
 
@@ -843,6 +845,18 @@ function mjcourses($atts) {
 		document.getElementById("filter_type").value = obj.getAttribute("data-filter_type");
 		document.getElementById("id_category_tag").value = obj.value;
 		
+		/*
+		// Jesli kliknelismy na tag
+		if(obj.getAttribute("data-filter_type") == "tag") {
+			document.getElementById("id_tag").value = obj.value;
+			$(".mjfilter button[data-filter_type=tag]").removeClass("active");
+		}
+		// Jesli kliknelismy na kategorie
+		if(obj.getAttribute("data-filter_type") == "category") {
+			document.getElementById("id_category").value = obj.value;
+			$(".mjfilter button[data-filter_type=category]").removeClass("active");
+		}
+		*/
 		$(".mjfilter button").removeClass("active");
 		$(obj).addClass("active");
 

@@ -5,6 +5,12 @@ global $post;
 
 
 $getCategoryTag = $_POST['id_category_tag'];
+// if(isset($_POST['home'] == '1')) { 
+//     $getCategory = $_POST['id_category'];
+//     $getCategory = $_POST['id_tag'];
+// } else { 
+//     $getCategoryTag = $_POST['id_category_tag'];
+// }
 
 
 if(!empty($_POST['cols'])) { 
