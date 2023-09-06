@@ -79,11 +79,16 @@ if(is_page(48)) {
 							<h3>Twoje konto</h3>
 							
 							<ul>
-								<li><a href="#">Moje konto</a>
-								<li><a href="#">Moje kursy</a>
-								<li><a href="#">Historia płatności i faktury</a> 
-								<li><a href="#">Moje dane</a> 
-								<li><a href="#">Wyloguj się</a>
+							
+								<?php if (is_user_logged_in()) : ?>
+									<li><a href="/moje-konto/">Moje konto</a></li>
+									<!--<li><a href="#">Moje kursy</a></li>-->
+									<li><a href="/historia-transakcji/">Historia płatności i faktury</a></li>
+									<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Wyloguj się</a></li>
+								<?php else : ?>
+									<li><a href="<?php echo wp_login_url(get_permalink()); ?>">Zaloguj się</a></li>
+								<?php endif;?>
+
 							</ul>
 							
 						</div>

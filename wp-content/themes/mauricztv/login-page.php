@@ -25,11 +25,17 @@ get_header();
     <div class="row login-section">
 
     <div class="col-md-6">
-    
+    <h1>Zaloguj się</h1>
     <?php 
     wp_login_form( ['echo' =>true] );
     ?>
+	
+	<?php /*
     <p class="inner-login-left">Nie pamiętasz hasła? <a href="<?= bloginfo('url') ?>/wp-login.php?action=lostpassword">Kliknij tutaj</a></p>
+	*/?>
+	
+	<p class="inner-login-left">Nie pamiętasz hasła? <a href="<?= bloginfo('url') ?>/lostpassword/">Kliknij tutaj</a></p>
+	
     </div>
 
     <div class="col-md-6">
@@ -53,8 +59,12 @@ get_header();
 
     </ul>
 
-
+	<?php /*
     <a href='<?= bloginfo('url') ?>/wp-login.php?action=register' class='more btn btn-secondary register'>Zarejestruj się</a>
+	*/?>
+	
+	
+	<a href='<?= bloginfo('url') ?>/register/' class='more btn btn-secondary register'>Zarejestruj się</a>
 
     </div>
 

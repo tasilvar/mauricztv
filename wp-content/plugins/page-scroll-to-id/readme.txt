@@ -3,8 +3,8 @@ Contributors: malihu
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UYJ5G65M6ZA28
 Tags: page scrolling, page animation, smooth scroll, navigation, single-page navigation
 Requires at least: 3.3
-Tested up to: 6.2
-Stable tag: 1.7.7
+Tested up to: 6.3
+Stable tag: 1.7.8
 License: The MIT License (MIT)
 License URI: http://opensource.org/licenses/MIT
 
@@ -99,6 +99,16 @@ Because it works and it already has a ton of features. The plugin has little dep
 7. Gutenberg block editor "Page scoll to id target" custom block
 
 == Changelog ==
+
+= 1.7.8 =
+
+* Added aria-label attribute in plugin shortcodes (requires PHP v5.3 or greater). 
+* Changed plugin shortcodes markup to remove empty attributes. 
+* Fixed PHP warning (Array to string conversion) in PHP 8 installations - [related issue](https://wordpress.org/support/topic/errors-after-php-upgrade/). 
+* Fixed issue with text formatting in plugin admin page - [related issue](https://wordpress.org/support/topic/text-formatting-plugin-admin-page/). 
+* Modified various plugin files to comply with the WordPress Coding Standards. 
+* Fixed an issue with shortcodes not working in WordPress 2022 theme editor. 
+* Created the special class "ps2id-auto-scroll" to easily auto-scroll to a target id with this specific class on page load.
 
 = 1.7.7 =
 
@@ -307,6 +317,10 @@ Because it works and it already has a ton of features. The plugin has little dep
 * Launch!
 
 == Upgrade Notice ==
+
+= 1.7.8 =
+
+Added aria-label attribute and removed empty attributes in plugin shortcodes, fixed PHP (v8) warning (Array to string conversion), fixed issue with text formatting in plugin admin page, fixed an issue with shortcodes not working in WordPress 2022 theme, created the special class "ps2id-auto-scroll" to easily auto-scroll to a target id with this specific class on page load. 
 
 = 1.7.7 =
 

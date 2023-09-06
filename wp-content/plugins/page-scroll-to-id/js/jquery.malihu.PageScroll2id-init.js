@@ -194,6 +194,12 @@
 					},_o.instances[_p+"_instance_"+i]["scrollToHashDelay"]);
 				}
 			}
+			//auto-scroll to id on page load (based on "ps2id-auto-scroll" class)
+			if($(".ps2id-auto-scroll[id]").length && !window.location.hash){
+				setTimeout(function(){
+					$.mPageScroll2id("scrollTo",$(".ps2id-auto-scroll[id]").attr("id"));
+				},_o.instances[_p+"_instance_"+i]["scrollToHashDelay"]);
+			}
 			//attempt to unbind click events from other scripts 
 			if(_o.instances[_p+"_instance_"+i]["unbindUnrelatedClickEvents"]==="true" && !_o.instances[_p+"_instance_"+i]["unbindUnrelatedClickEventsSelector"]){
 				setTimeout(function(){

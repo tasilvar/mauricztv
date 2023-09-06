@@ -3,7 +3,7 @@
 Plugin Name: Page scroll to id
 Plugin URI: http://manos.malihu.gr/page-scroll-to-id
 Description: Page scroll to id is an easy-to-use jQuery plugin that enables animated (smooth) page scrolling to specific id within the document. 
-Version: 1.7.7
+Version: 1.7.8
 Author: malihu
 Author URI: http://manos.malihu.gr
 License: MIT License (MIT)
@@ -47,7 +47,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 	
 	class malihuPageScroll2id{ // --edit--
 		
-		protected $version='1.7.7'; // Plugin version --edit--
+		protected $version='1.7.8'; // Plugin version --edit--
 		protected $update_option=null;
 		
 		protected $plugin_name='Page scroll to id'; // Plugin name --edit--
@@ -103,6 +103,8 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 				define('PS2ID_MINIFIED_JS', true); //load production script by default
 			}
 			add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+			// Add plugin shortcodes
+			$this->add_plugin_shortcode(); // Remove/comment for plugin without any shortcodes --edit-- 
 			// Add plugin settings link
 			add_filter('plugin_action_links_'.plugin_basename(__FILE__), array($this, 'add_plugin_action_links'));
 			// Add contextual help for the plugin
@@ -218,7 +220,6 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 				wp_enqueue_script($this->plugin_slug.'-plugin-init-script');
 			}
 			$this->plugin_fn_call();
-			$this->add_plugin_shortcode(); // Remove/comment for plugin without any shortcodes --edit-- 
 			//test
 			/*if(PS2ID_MINIFIED_JS){
 				$this->debug_to_console('load js '.PS2ID_MINIFIED_JS);
@@ -380,6 +381,13 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 				),
 				'fieldset' 	=> array(),
 				'br'     	=> array(),
+				'a'		    => array(
+					'href' 		=> array(),
+					'target'	=> array(),
+					'class'		=> array(),
+				),
+				'code'     	=> array(),
+				'small'    	=> array(),
 			));
 		}
 		
@@ -433,7 +441,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 		}
 		
 		public function validate_plugin_settings(){
-			if(!empty($_POST) || !wp_verify_nonce($_POST)){
+			if(!empty($_POST) || !wp_verify_nonce(wp_json_encode($_POST))){
 				if(isset($_POST[$this->db_prefix.'reset']) && $_POST[$this->db_prefix.'reset']==='true'){ 
 					// Reset all to default
 					$_POST[$this->db_prefix.'instances']=$this->default; 
@@ -861,7 +869,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 					'checkbox_label' => null,
 					'radio_labels' => null,
 					'field_info' => null,
-					'description' => 'Set the links (in the form of <a href="http://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will scroll the page when clicked (default value: any link with a non-empty hash (<code>#</code>) value in its URL) <br /><small>In addition to selectors above, the plugin is enabled automatically on links (or links contained within elements) with class <code>ps2id</code></small> <br /><small><a class="button button-small mPS2id-show-option-common-values" href="#">Show common values</a><span>For all links: <code>'.$d0.'</code><br />For menu links only: <code>.menu-item a[href*=\'#\']:not([href=\'#\'])</code></span></small>',
+					'description' => 'Set the links (in the form of <a href="https://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will scroll the page when clicked (default value: any link with a non-empty hash (<code>#</code>) value in its URL) <br /><small>In addition to selectors above, the plugin is enabled automatically on links (or links contained within elements) with class <code>ps2id</code></small> <br /><small><a class="button button-small mPS2id-show-option-common-values" href="#">Show common values</a><span>For all links: <code>'.$d0.'</code><br />For menu links only: <code>.menu-item a[href*=\'#\']:not([href=\'#\'])</code></span></small>',
 					'wrapper' => null
 				),
 				'autoSelectorMenuLinks' => array(
@@ -885,7 +893,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 					'checkbox_label' => null,
 					'radio_labels' => null,
 					'field_info' => 'selectors are excluded',
-					'description' => 'Set the links (in the form of <a href="http://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will be excluded from plugin&apos;s selectors (the plugin will not hanlde these links) <br /><small><a class="button button-small mPS2id-show-option-common-values" href="#">Show common values</a><span><code>'.$d29.'</code></span></small>',
+					'description' => 'Set the links (in the form of <a href="https://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will be excluded from plugin&apos;s selectors (the plugin will not hanlde these links) <br /><small><a class="button button-small mPS2id-show-option-common-values" href="#">Show common values</a><span><code>'.$d29.'</code></span></small>',
 					'wrapper' => null
 				),
 				'scrollSpeed' => array(
@@ -1017,7 +1025,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 					'checkbox_label' => null,
 					'radio_labels' => null,
 					'field_info' => 'pixels',
-					'description' => 'Offset scroll-to position by x amount of pixels (positive or negative) or by <a href="http://www.w3.org/TR/css3-selectors/" target="_blank">selector</a> (e.g. <code>#navigation-menu</code>)',
+					'description' => 'Offset scroll-to position by x amount of pixels (positive or negative) or by <a href="https://www.w3.org/TR/css3-selectors/" target="_blank">selector</a> (e.g. <code>#navigation-menu</code>)',
 					'wrapper' => null
 				),
 				'dummyOffset' => array(
@@ -1041,7 +1049,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 					'checkbox_label' => null,
 					'radio_labels' => null,
 					'field_info' => null,
-					'description' => 'Set the links (in the form of <a href="http://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will be eligible for highlighting (leave empty to highlight all)',
+					'description' => 'Set the links (in the form of <a href="https://www.w3.org/TR/css3-selectors/" target="_blank">CSS selectors</a>) that will be eligible for highlighting (leave empty to highlight all)',
 					'wrapper' => null
 				),
 				'clickedClass' => array(

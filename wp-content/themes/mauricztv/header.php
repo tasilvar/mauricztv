@@ -11,8 +11,10 @@
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon">
 	
-	<?php if (is_front_page()){ ?>
-	
+	<?php if (is_front_page('moje-konto')){ ?>
+	<style>
+		.footer{margin-top:50px;}
+	</style>
 	<?php } ?>
 	
 	<?php if (in_category('dieta') || in_category('suplementacja') || in_category('trening')){ ?>
