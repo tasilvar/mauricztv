@@ -25,7 +25,7 @@
 	{
 		bcn_display();
 	}?>
-</div>wwwwwwwwwwww
+</div>
 	
 		<div class="top-kursy row-full">
 		
