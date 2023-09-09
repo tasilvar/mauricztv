@@ -184,15 +184,20 @@ $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
 
 <div class="mjcart-container">
 	<?php
+	
+		$ignoreProducts = [];
+		// Pobierz elementy z koszyka i wrzuc je do tablicy ignorowanych
+		foreach ($cart_items as $key => $item) {
+			$ignoreProducts[] = $item['id'];
+		}
 		
-		 
     $args = array(
 		'post_type'      => 'download',
 		'post_status' => 'publish',
 		'posts_per_page' => 2,
 		'meta_key' => 'sales_disabled',
 		'meta_value' => 'off',
-        //'meta_query' => $filterArgs,
+		'post__not_in' => (array)$ignoreProducts,
 		'numberposts' => 2
 	);
 
