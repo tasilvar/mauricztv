@@ -841,8 +841,13 @@ class Templates
                 return apply_filters('bpmj_eddcm_is_on_supported_page', true);
             }
         }
+        //
+        // $post = get_post();
 
-        $post = get_post();
+        // print_r($post->ID);
+        // print_r($page_type);
+        // echo $page_type_arg;
+        // exit();
         /*
          * The post is a download and it's linked with a course
          */
@@ -860,9 +865,17 @@ class Templates
     public function custom_template($template)
     {
         $page_type = $this->page_type();
-        if (!$this->is_on_supported_page($page_type)) {
+    
+        $post = get_post();
+      
+        // Sprawdza czy dany widok jest pod wtyczkę publigo
+        if ((!$this->is_on_supported_page($page_type)) && ($post->post_type != 'download')) {
             return $template;
         }
+        // echo "USLUGA".$page_type;
+        // print_r($page_type);
+        // print_r($template);
+        // exit();
         if ($this->is_in_course()) {
             if (WPI()->courses->user_shouldnt_have_access_to_course_page(get_the_ID())) {
                 $page_type = 'no-access';
