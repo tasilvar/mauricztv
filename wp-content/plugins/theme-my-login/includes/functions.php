@@ -676,7 +676,7 @@ function tml_setup_nav_menu_item( $menu_item ) {
  * @return array The nav menu item classes.
  */
 function tml_nav_menu_css_class( $classes, $item ) {
-	if ( 'tml_action' == $item->type ) {
+	if ( 'tml_action' == @$item->type ) {
 		if ( tml_is_action( $item->object ) ) {
 			$classes[] = 'current-menu-item';
 			$classes[] = 'current_page_item';

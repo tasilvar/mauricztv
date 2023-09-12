@@ -178,8 +178,9 @@ $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
 </table>
 
 <div class="product-inner-block text-center cart">
-<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz na nie</h1>
-<h1 class="title-section green-text h2">rabat o wysokości 30%!</h1>
+<h1 class="title-section h2">Inni kursanci </h1>
+<h1 class="title-section green-text h2">kupili</h1>
+<h1 class="title-section h2"> również:</h1>
 </div>
 
 <div class="mjcart-container">

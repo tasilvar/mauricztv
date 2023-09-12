@@ -376,4 +376,16 @@ function redirect_login_page() {
     }
 }
 add_action('init','redirect_login_page');
+function redirectToLoginIfGuest() { 
+    $backToLogin = home_url( '/logowanie' );
+ 
+    $url = basename($_SERVER['REQUEST_URI']);
+    // echo $url;
+    // exit();
+    if(((($url == "zamowienie")) && $_SERVER['REQUEST_METHOD'] == 'GET') && !is_user_logged_in())  {
+        wp_redirect( $backToLogin );
+        exit;
+    }
+}
+add_action('init','redirectToLoginIfGuest');
 

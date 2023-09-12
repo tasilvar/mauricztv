@@ -913,7 +913,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 					$item->classes[] = 'menu-flyout';
 				}
 
-				$new_items[ $item->menu_order ] = $item;
+				$new_items[ @$item->menu_order ] = $item;
 			}
 
 			ksort( $new_items );
