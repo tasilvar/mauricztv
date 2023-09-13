@@ -59,7 +59,13 @@ class Cart_Additional_Info_Block extends Block
             $content .= '</tr>';
         $content .= '</table>';
 
-        $content .= edd_checkout_form_without_cart();
+        if(!is_user_logged_in()) { 
+            $content .= '<div class="alert alert-danger">
+            Aby zakupić szkolenie <a href="'.get_bloginfo('url').'/wp-login.php">zaloguj się lub utwórz konto</a>
+        </div>';
+        } else {
+            $content .= edd_checkout_form_without_cart();
+        }
 
         #$content .= bpmj_eddcm_scarlet_edd_discount_field();
         // if( !empty( $scarlet_cart_additional_info_1_title ) ) {

@@ -75,13 +75,13 @@ if($getCategoryTag != null) {
 //echo get_header();
 ?>
 
+<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
+<div class="bestsellers-block">
 <div class="product-inner-block">
 <h1 class="title-section text-center">Szkolenia 
 	<span class="green-text">polecane</span>
 	 przez użytkowników</h1>
 </div>
-<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
-
 <div class="product-list-upper row-full">
 <div class="container">
 
@@ -210,6 +210,7 @@ Sprawdź szkolenie</a>';
 </div>
 
 
+</div>
 </div>
 </div>
 <!-- END: Szkolenia polecane przez uzytkownikow -->

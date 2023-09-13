@@ -1914,7 +1914,9 @@ transform: translateY(0);
 	ul.home-levels-items.levels li button{font-size:0.938vw!important;}
 	
 }
-
+.term-21 .bestsellers-block {
+	display: none;
+}
 
 /*
 

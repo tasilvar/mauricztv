@@ -387,5 +387,5 @@ function redirectToLoginIfGuest() {
         exit;
     }
 }
-add_action('init','redirectToLoginIfGuest');
+#add_action('init','redirectToLoginIfGuest');
 
