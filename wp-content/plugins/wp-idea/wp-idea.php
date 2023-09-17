@@ -935,3 +935,79 @@ if (version_compare(WPI_PHP_VERSION(), BPMJ_WPI::MINIMUM_PHP_VERSION, '<')) {
         add_action($action, 'bpmj_courses_updater');
     }
 }
+
+
+// Dodanie ustawień wyboru rabatu crosselingowego do bloku
+
+global $post;
+
+/**
+ * Dodanie customowego pola do WP settings
+ */
+
+$MauriczCrosselingFileds = new MauriczCrosselingFileds();
+
+class MauriczCrosselingFileds {
+    function MauriczCrosselingFileds( ) {
+        add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+    }
+
+    function register_fields() {
+        register_setting( 'general', 'mauricz_crosseling_discount', 'esc_attr' );
+        add_settings_field('mauricz_crosseling_discount', '<label for="mauricz_crosseling_discount">'.__('Wybierz rabat uwzględniany w crosselingu' , 'mauricz_crosseling_discount' ).'</label>' , array(&$this, 'fields_html') , 'general' );
+
+
+        register_setting( 'general', 'mauricz_crosseling_category', 'esc_attr' );
+         add_settings_field('mauricz_crosseling_category', '<label for="mauricz_crosseling_category">'.__('Wybierz kategorię z której mają być pokazywane produkty w sekcji crosseling' , 'mauricz_crosseling_category' ).'</label>' , array(&$this, 'fields_mauricz_categoryID') , 'general' );
+    }
+    function fields_html() {
+        $getDiscounts = edd_get_discounts(); // opcjonalnie dodaj  array( 'posts_per_page' => $per_page, 'paged' => $paged
+        
+
+        $value = get_option( 'mauricz_crosseling_discount', '' );
+
+        $optionsDiscounts  = '';
+        foreach ($getDiscounts as $key => $discount) {
+            if($value == $discount->ID) { 
+                $optionsDiscounts .= '<option selected="selected" value="'.$discount->ID.'">'.$discount->post_title.'</option>';  
+            } else { 
+                $optionsDiscounts .= '<option value="'.$discount->ID.'">'.$discount->post_title.'</option>';   
+            }
+        }
+
+        echo '<select id="mauricz_crosseling_discount" name="mauricz_crosseling_discount">';
+            echo $optionsDiscounts;
+        echo '</select>';
+        echo ' <p class="description">Mauricz - wybierz rabat do bloku crosseling</p>';
+    }
+
+    function fields_mauricz_categoryID() { 
+
+        $value = get_option( 'mauricz_crosseling_category', '' );
+
+        $getPubligoCategories = get_terms( array(
+            'taxonomy' => 'download_category',
+            'hide_empty' => true
+            ) );
+
+        // print_r($getPubligoCategories);
+
+        $optionsCategories = '';
+        
+        foreach ($getPubligoCategories as $key => $category) {
+            if($value == $category->term_id) { 
+                $optionsCategories .= '<option selected="selected" value="'.$category->term_id.'">'.$category->name.'</option>';  
+            } else { 
+                $optionsCategories .= '<option value="'.$category->term_id.'">'.$category->name.'</option>';   
+            }
+        }
+
+        echo '<select id="mauricz_crosseling_category" name="mauricz_crosseling_category">';
+            echo $optionsCategories;
+        echo '</select>';
+
+        echo '<p class="description">Wybierz kategorię z Publigo wg której mają pokazywać się produkty w bloku crosseling (widoczne są te które zawierają przynajmniej jeden produkt)</p>
+        ';
+    }
+}
+

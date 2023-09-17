@@ -1926,14 +1926,6 @@ transform: translateY(0);
   }
 
 */
-
-
-
-
-
-
-
-
-
-
-
+.edd_cart_footer_row.edd_cart_discount_row {
+	text-align: right;
+}
