@@ -272,19 +272,8 @@ xhr.send(formData);
 </table>
 
 <div class="product-inner-block text-center cart">
-<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz na nie</h1>
-<h1 class="title-section green-text h2">rabat o wysokości <?php
-if(!empty((int)get_option('mauricz_crosseling_discount'))) {
-echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
-} else { 
-	echo '30';
-}
-?>%!</h1>
 
-</div>
-
-<div class="mjcart-container">
-	<?php
+<?php
 	
 		$ignoreProducts = [];
 		// Pobierz elementy z koszyka i wrzuc je do tablicy ignorowanych
@@ -310,6 +299,24 @@ echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
 	);
 
     $getProducts = get_posts($args);
+
+	if(count($getProducts) > 0) {
+	?>
+<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz na nie</h1>
+<h1 class="title-section green-text h2">rabat o wysokości <?php
+if(!empty((int)get_option('mauricz_crosseling_discount'))) {
+echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
+} else { 
+	echo '30';
+}
+?>%!</h1>
+<?php 
+	}
+?>
+</div>
+
+<div class="mjcart-container">
+	<?php
     // Zwroc liste produktów w koszyku
     foreach($getProducts as $product) { 
         // Jesli produkt zawiera ID inne niz te ktore jest w koszyku dodaj do listy
