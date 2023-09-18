@@ -33,6 +33,22 @@ foreach($discounts as $code) {
 // Jesli mamy skonfigurowana kategorie i dyskont
 if(!empty(get_option( 'mauricz_crosseling_category')) && !empty(get_option( 'mauricz_crosseling_discount')))  {
 
+//print_r(edd_get_discount_code(get_option( 'mauricz_crosseling_discount')));
+
+// $code = edd_get_discount_code(get_option( 'mauricz_crosseling_discount'));
+
+// echo "code:".$code;
+
+// print_r(edd_get_discount_type( get_option( 'mauricz_crosseling_discount') ));
+// echo "<br/>--<br/>";
+// print_r(edd_get_discount_product_reqs( get_option( 'mauricz_crosseling_discount') ));
+// echo "<br/>--<br/>";
+// print_r(edd_get_discount_excluded_products( $code ));
+// echo "<br/>--<br/>";
+
+
+// print_r(edd_get_discount_product_condition(get_option( 'mauricz_crosseling_discount')));
+// echo "<br/>--<br/>";
 
 // Ilosc produktow w koszyku > 1
 if(count($cart_items) > 1) { 
@@ -68,16 +84,16 @@ if (xhr.readyState === 4 && xhr.status === 200) {
 	
 	var response = JSON.parse(xhr.responseText);
 
-	document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
+	if(response.msg == 'valid') {
+		document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
 
-	document.querySelector('.koszyk_right .price.edd_cart_amount').innerHTML = response.total;
-	
-	document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
-	document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
-
-
-
-	console.log(JSON.parse(xhr.responseText).msg);
+		document.querySelector('.koszyk_right .price.edd_cart_amount').innerHTML = response.total;
+		
+		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
+		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
+		
+	}
+	console.log(JSON.parse(xhr.responseText));
 	 //window.location.href = window.location.href;
 }
 };
@@ -118,6 +134,7 @@ xhr.send(formData);
 		<?php if ( $cart_items ) : ?>
 			<?php foreach ( $cart_items as $key => $item ) :
                     $item_price = edd_cart_item_price( $item['id'], $item['options'] );
+					print_r($item);
                 ?>
 				<tr class="edd_cart_item" id="edd_cart_item_<?php echo esc_attr( $key ) . '_' . esc_attr( $item['id'] ); ?>" data-download-id="<?php echo esc_attr( $item['id'] ); ?>">
 					<?php do_action( 'edd_checkout_table_body_first', $item ); ?>
@@ -144,6 +161,8 @@ xhr.send(formData);
                             <div class="cart_price">
                                 <?php
                                 echo $item_price;
+								echo " - ";
+								echo print_r($item);
                                 do_action( 'edd_checkout_cart_item_price_after', $item );
                                 ?>
                             </div>
