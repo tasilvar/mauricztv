@@ -60,7 +60,15 @@ if($getCategoryTag != null) {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',		
+		'meta_value' => 'off',	
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'term_id',
+				'terms'    => [21],
+				'operator' => 'NOT IN'
+			),
+		),	
 	);
 }
 
