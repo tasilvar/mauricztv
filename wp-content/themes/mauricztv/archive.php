@@ -9,18 +9,20 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-sm-12 col-lg-8">
+	<section id="primary" class="content-area col-sm-12 col-lg-12">
 		<div id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
 
+<?php /*
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
+*/?>
 
 			<?php
 			/* Start the Loop */
@@ -47,6 +49,6 @@ get_header(); ?>
 
 <?php
 if ( have_posts() ) : 
-	get_sidebar();
+	//get_sidebar();
 endif;
 get_footer();

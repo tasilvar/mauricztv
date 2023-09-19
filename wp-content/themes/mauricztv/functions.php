@@ -319,5 +319,73 @@ function mjtest_shortcode() {
      return "test mjshortcode: ". get_post_type( get_the_ID());
 }
 
+add_shortcode('mjloginpage', 'mjloginpage');
+function mjloginpage() {
+    $output = '<div class="container">';
+    $output .= '<div class="row login-section">';
 
+    $output .= '<div class="col-md-6">';
+    
+    $output .= wp_login_form( ['echo' =>false] );
+    $output .= "</div>";
+
+    $output .= '<div class="col-md-6">';
+    $output .= '<div>';
+    $output .=  '<h1>Zarejestruj się</h1>';
+    $output .=  '<h3>Otrzymasz liczne dodatkowe korzyści</h3>';
+    $output .=  '<ul>';
+
+    $output .=  '<li>';
+    $output .=  'dostęp do Twoich szkoleń';
+    $output .=  '</li>';
+    $output .=  '<li>';
+    $output .=  'podgląd historii zakupów';
+    $output .=  '</li>';
+    $output .=  '<li>';
+    $output .=  'brak konieczności wprowadzania swoich danych w kolejnych zakupach';
+    $output .=  '</li>';
+    $output .=  '<li>';
+    $output .=  'mozliwość otrzymania rabatów i kuponów promocyjnych';
+    $output .=  '</li>';
+
+    $output .=  '</ul>';
+
+
+    $output .= "<a href='wp-login.php?action=register' class='more btn btn-secondary register'>Zarejestruj się</a>";
+
+    $output .= '</div>';
+
+    $output .= "</div>";
+    $output .= "</div>";
+    $output .= "</div>";
+    return $output;
+}
+
+function redirect_login_page() {
+    $login_url  = home_url( '/logowanie' );
+    $url = basename($_SERVER['REQUEST_URI']); // get requested URL
+    isset( $_REQUEST['redirect_to'] ) ? ( $url   = "wp-login.php" ): 0; // if users ssend request to wp-admin
+    //if((strpos($url, "wp-login.php") !== false) && $_SERVER['REQUEST_METHOD'] == 'GET')  {
+    if((($url == "wp-login.php")) && $_SERVER['REQUEST_METHOD'] == 'GET')  {
+        wp_redirect( $login_url );
+        exit;
+    }
+    if((($url == "wp-login.php?loggedout=true&wp_lang=pl_PL")) && $_SERVER['REQUEST_METHOD'] == 'GET')  {
+        wp_redirect( $login_url );
+        exit;
+    }
+}
+add_action('init','redirect_login_page');
+function redirectToLoginIfGuest() { 
+    $backToLogin = home_url( '/logowanie' );
+ 
+    $url = basename($_SERVER['REQUEST_URI']);
+    // echo $url;
+    // exit();
+    if(((($url == "zamowienie")) && $_SERVER['REQUEST_METHOD'] == 'GET') && !is_user_logged_in())  {
+        wp_redirect( $backToLogin );
+        exit;
+    }
+}
+#add_action('init','redirectToLoginIfGuest');
 

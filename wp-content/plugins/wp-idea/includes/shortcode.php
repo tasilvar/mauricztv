@@ -641,18 +641,105 @@ add_shortcode( 'wpi_continue_anchor', 'bpmj_eddcm_wpi_continue_shortcode' );
 
 add_shortcode('mjcourses','mjcourses');
 
-function mjcourses() { 
+
+function mjcourses($atts) { 
+
+	$categoryProduct = (string)$atts['category'];
+	$quantityProduct = (int)$atts['quantity'];
+	$categoryLabels = (int)$atts['category-labels'];
+	$tagLabels = (int)$atts['tag-labels'];
+
 	$output = '';
 
-	$output .= '<div class="products-list">';
-	$output .= '<div class="row">';
-		$args = array(
-			'post_type'      => 'download',
-			'post_status' => 'publish',
-			'posts_per_page' => 4,
-			'meta_key' => 'sales_disabled',
-			'meta_value' => 'off',		
-		);
+	$outputCategories = '';
+	$outputLevels = '';
+
+	$output .= '<form method="POST" class="mjfilter">';
+
+	
+	$output .= '<input type="hidden" name="filter_type"  id="filter_type" value="category"/>';
+	$output .= '<input type="hidden" name="id_category_tag"  id="id_category_tag" value="null"/>';
+	// $output .= '<input type="hidden" name="id_category"  id="id_category" value="null"/>';
+	// $output .= '<input type="hidden" name="id_tag"  id="id_tag" value="null"/>';
+
+	$output .= '<input type="hidden" name="cols" value="3"/>';
+
+	$output .= ' <input type="hidden" name="url_mjfilter" id="url_mjfilter" value="'.get_bloginfo('url').'/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>';
+
+	if($categoryLabels == 1) {
+		// Blok kategorie
+		$outputCategories .= '<ul class="home-category-items product-list-categories">';
+
+		$categories = get_terms( array(
+			'taxonomy' => 'download_category',
+			'hide_empty' => false
+			) );
+
+		foreach ($categories as $key => $category) {
+			$outputCategories .= "<li>";
+			$outputCategories .=  "<button name='id_category_tag' data-filter_type='category' onclick='getAjaxResults(this)' value='".$category->term_id."' data-term='".$category->term_id."' data-href='".get_term_link($category->term_id)."' type='button'>";
+			$outputCategories .= $category->name;
+			$outputCategories .= "</button>";
+			$outputCategories .= "</li>";
+		}
+
+		$outputCategories .= '</ul>';
+	
+		$output .= $outputCategories;
+		// End Blok kategorie
+	}
+	if($tagLabels == 1) {
+		// Blok Poziomy
+		$outputLevels .= '<ul class="home-levels-items levels">';
+
+		$tags = get_terms( array(
+			'taxonomy' => 'download_tag', 
+			'hide_empty' => false, 
+			) );
+
+		foreach ($tags as $key => $tag) {
+			
+			$outputLevels .= "<li>";
+			$outputLevels .= "<button  name='id_category_tag' data-filter_type='tag' data-href='".get_term_link($tag->term_id)."'  type='button'  value='".$tag->term_id."'  data-term='".$tag->term_id."' onclick='getAjaxResults(this)' >";
+			$outputLevels .= $tag->name;
+			$outputLevels .= "</button>";
+			$outputLevels .= "</li>";
+		}
+
+		$outputLevxels .= '</ul>';
+		$output .= $outputLevels;
+		// End Blok Poziomy
+	}
+	
+
+	$output .= '</form>';
+
+		$output .= '<div class="products-list ajax-product-list">';
+		$output .= '<div class="row">';
+	if(!empty($categoryProduct)) {
+			$args = array(
+				'post_type'      => 'download',
+				'post_status' => 'publish',
+				'posts_per_page' => $quantityProduct,
+				'meta_key' => 'sales_disabled',
+				'meta_value' => 'off',	
+				'tax_query'      => array(
+					array(
+						'taxonomy' => 'download_category',
+						'field'    => 'slug',
+						'terms'    => $categoryProduct,
+					),
+				),	
+			);
+		} else { 
+			$args = array(
+				'post_type'      => 'download',
+				'post_status' => 'publish',
+				'posts_per_page' => $quantityProduct,
+				'meta_key' => 'sales_disabled',
+				'meta_value' => 'off',		
+			);
+		}
 
 
 	$all_product = get_posts( $args );
@@ -742,13 +829,58 @@ function mjcourses() {
 	// Dodaj do koszyka
 	$output .= '<a href="'.get_permalink($product->ID).'" class="more-green">
 			<i class="fa fa-shopping-bag"></i> 
-			Dodaj do koszyka</a>';
+			Sprawdź szkolenie</a>';
 	$output .= "</div>";
 	$output .= "</div>";
 	}
 
 	$output .= '</div>';
 	$output .= '</div>';
+
+
+	$output .= '
+	<script type="text/javascript">
+	function getAjaxResults(obj) { 
+	
+		document.getElementById("filter_type").value = obj.getAttribute("data-filter_type");
+		document.getElementById("id_category_tag").value = obj.value;
+		
+		/*
+		// Jesli kliknelismy na tag
+		if(obj.getAttribute("data-filter_type") == "tag") {
+			document.getElementById("id_tag").value = obj.value;
+			$(".mjfilter button[data-filter_type=tag]").removeClass("active");
+		}
+		// Jesli kliknelismy na kategorie
+		if(obj.getAttribute("data-filter_type") == "category") {
+			document.getElementById("id_category").value = obj.value;
+			$(".mjfilter button[data-filter_type=category]").removeClass("active");
+		}
+		*/
+		$(".mjfilter button").removeClass("active");
+		$(obj).addClass("active");
+
+	   $.ajax({
+		   method:"POST",
+		   url:$("#url_mjfilter").val(),
+		   data: $(".mjfilter").serialize(),
+		   beforeSend: function() {
+			   $(".ajax-product-list").css("opacity", "0.5");
+			   $(".ajax-product-list").html("Ładowanie...");
+		   },
+		   success: function(data) {
+			   $(".ajax-product-list").css("opacity", "1");
+			   $(".ajax-product-list").html(data);
+		   },
+		   error: function(xhr) {
+			   $(".ajax-product-list").css("opacity", "1");
+			   $(".ajax-product-list").html("error"+data);
+		   }
+	   });
+	}
+
+	</script>
+	';
 
 	return $output;
 }

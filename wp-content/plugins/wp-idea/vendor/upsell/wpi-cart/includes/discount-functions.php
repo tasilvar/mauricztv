@@ -1371,8 +1371,11 @@ function edd_get_cart_discounts_html( $discounts = false ) {
 			edd_get_checkout_uri()
 		);
 
+		$discount_name = edd_get_discount_by( 'code', $discount );
+
 		$html .= "<span class=\"edd_discount\">\n";
-			$html .= "<span class=\"edd_discount_rate\">$discount&nbsp;&ndash;&nbsp;$rate</span>\n";
+		// $html .= print_r($discount_name); 
+			$html .= "<span class=\"edd_discount_rate\">$discount_name->post_title  &nbsp;&ndash;&nbsp;$rate</span>\n";
 			$html .= "<a href=\"$remove_url\" data-code=\"$discount\" class=\"edd_discount_remove\"></a>\n";
 		$html .= "</span>\n";
 	}

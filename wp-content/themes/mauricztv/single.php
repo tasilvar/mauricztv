@@ -34,11 +34,11 @@ get_header(); ?>
 	<?php } ?>
 
 	
-	<?/*
-	<div class="post-thumbnail">
+	 
+	<!-- <div class="post-thumbnail">
 		<?php the_post_thumbnail(); ?>
-	</div>
-	*/?>
+	</div> -->
+ 
 	
 	<?php if (in_category('kursy')){ ?>
 	

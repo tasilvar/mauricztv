@@ -98,7 +98,7 @@ if ( ! class_exists( 'Mega_Menu_Walker' ) ) :
 			$output .= "<li class='{$class}' id='{$id}'>";
 
 			// output the widgets
-			if ( $item->type == 'widget' ) {
+			if ( @$item->type == 'widget' ) {
 
 				if ( $item->content ) {
 					$item_output = $item->content;

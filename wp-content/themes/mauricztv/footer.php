@@ -11,6 +11,17 @@
 
 ?>
 <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
+
+	<?php 
+if(is_page(48)) { 
+?>
+	<?php 
+	echo '<div class="container">';
+	echo '<a href="'.get_permalink(56).'" class="btn btn-primary more center-btn">Kontynuj zakupy</a>'; 
+	echo '</div>';
+}
+?>
+
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</div><!-- #content -->
@@ -45,11 +56,11 @@
 							<h3>Menu</h3>
 							
 							<ul>
-								<li><a href="#">Strona główna</a></li>
-								<li><a href="#">O Mauricz.tv</a></li>
+								<li><a href="/">Strona główna</a></li>
+								<li><a href="/o-nas/">O Mauricz.tv</a></li>
 								<li><a href="/lista-produktow/">Kursy online</a></li> 
 								<li><a href="/faq/">FAQ</a></li> 
-								<li><a href="#">Kontakt</a></li>
+								<li><a href="/kontakt/">Kontakt</a></li>
 							</ul>
 							
 						</div>
@@ -57,10 +68,10 @@
 							<h3>Informacje</h3>
 							
 							<ul>
-								<li><a href="#">Regulamin serwisu</a></li>
-								<li><a href="#">Polityka prywatności</a></li> 
-								<li><a href="#">Cookies</a></li>
-								<li><a href="#">Regulamin newslettera</a></li>
+								<li><a href="/regulamin/">Regulamin serwisu</a></li>
+								<li><a href="/polityka-prywatnosci/">Polityka prywatności</a></li> 
+								<li><a href="/cookies/">Cookies</a></li>
+								<li><a href="/regulamin-newslettera/">Regulamin newslettera</a></li>
 							</ul>
 							
 						</div>
@@ -68,11 +79,16 @@
 							<h3>Twoje konto</h3>
 							
 							<ul>
-								<li><a href="#">Moje konto</a>
-								<li><a href="#">Moje kursy</a>
-								<li><a href="#">Historia płatności i faktury</a> 
-								<li><a href="#">Moje dane</a> 
-								<li><a href="#">Wyloguj się</a>
+							
+								<?php if (is_user_logged_in()) : ?>
+									<li><a href="/moje-konto/">Moje konto</a></li>
+									<!--<li><a href="#">Moje kursy</a></li>-->
+									<li><a href="/historia-transakcji/">Historia płatności i faktury</a></li>
+									<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Wyloguj się</a></li>
+								<?php else : ?>
+									<li><a href="<?php echo wp_login_url(get_permalink()); ?>">Zaloguj się</a></li>
+								<?php endif;?>
+
 							</ul>
 							
 						</div>
@@ -114,6 +130,11 @@
 					time: 3000
 				});
 			});
+	 
+			jQuery(document).ready(function($) {
+				$( ".has-sub > .sub-menu, ul:not(.sub-menu) > .menu-item-has-children > .sub-menu" ).wrap( "<div class='sub-menu-scroll-wrapper'></div>" );
+			});
+
 		</script>
 
 

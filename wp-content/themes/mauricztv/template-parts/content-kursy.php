@@ -9,14 +9,32 @@
 
 ?>
 
+
+
+
+
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-content">
+	
+
+
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+	<?php if(function_exists('bcn_display'))
+	{
+		bcn_display();
+	}?>
+</div>
 	
 		<div class="top-kursy row-full">
 		
 			<div class="container">
 				<div class="row">
+				
+
+				
+				
 					<div class="col-md-12">
 						<h5>Kurs online</h5>
 						<h1><?php the_title(); ?></h1>
@@ -222,8 +240,8 @@
 						<h3>Uczestnicy kursu kupili również</h3>
 					</div>
 					
-					
-					miejsce na shortcode lista
+					<?= do_shortcode("[mjcourses category='bestsellery' quantity='4' tag-labels='0' category-labels='0']"); ?>
+				
 				
 				</div>
 			</div>

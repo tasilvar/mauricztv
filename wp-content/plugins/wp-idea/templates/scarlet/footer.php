@@ -1,4 +1,7 @@
-<div id="stopka">
+<?php
+get_footer();
+?>
+<!-- <div id="stopka">
 
     <div class="contenter">
         <div class="row">
@@ -16,11 +19,11 @@
 				<?php endif; ?>
             </div>
             <div class="col-sm-5">
-				<?php WPI()->templates->output_footer_html(); ?>
+				<?php WPI()->templates->output_footer_html(); ?> 
             </div>
         </div>
     </div>
 </div>
 </div>
 <?php wp_footer(); ?>
-</body>
+</body> -->

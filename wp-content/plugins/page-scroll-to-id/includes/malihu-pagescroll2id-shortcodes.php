@@ -12,16 +12,20 @@ $pl_shortcodes[$i]=function($atts,$content=null) use ($i, $shortcode_class){
         'id' => '',
         'target' => '',
         'class' => '',
+        'aria_label' => '',
     ), $atts));
+    $aria_label_markup=isset($aria_label) && !empty($aria_label) ? ' aria-label="'.esc_attr($aria_label).'"' : '';
+    $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.sanitize_text_field($target).'"' : '';
     if($id!==""){
         if($content){
-            return '<div id="'.esc_attr($id).'" data-ps2id-target="'.sanitize_text_field($target).'">'.do_shortcode($content).'</div>';
+            return '<div id="'.esc_attr($id).'"'.$target_markup.$aria_label_markup.'>'.do_shortcode($content).'</div>';
         }else{
-            return '<a id="'.esc_attr($id).'" data-ps2id-target="'.sanitize_text_field($target).'"></a>';
+            return '<a id="'.esc_attr($id).'"'.$target_markup.$aria_label_markup.'></a>';
         }
     }else{
         $element_classes=$class!=='' ? $shortcode_class.' '.$class : $shortcode_class;
-        return '<a href="'.esc_url_raw($url).'" class="'.esc_attr($element_classes).'" data-ps2id-offset="'.sanitize_text_field($offset).'">'.do_shortcode($content).'</a>';
+        $offset_markup=isset($offset) && !empty($offset) ? ' data-ps2id-offset="'.esc_attr($offset).'"' : '';
+        return '<a href="'.esc_url_raw($url).'" class="'.esc_attr($element_classes).'"'.$offset_markup.$aria_label_markup.'>'.do_shortcode($content).'</a>';
     }
 };
 add_shortcode($tag, $pl_shortcodes[$i]);
@@ -30,9 +34,12 @@ $pl_shortcodes_b[$i]=function($atts,$content=null) use ($i){
         'i' => $i,
         'id' => '',
         'target' => '',
+        'aria_label' => '',
     ), $atts));
     if($id!==''){
-        return '<div id="'.esc_attr($id).'" data-ps2id-target="'.sanitize_text_field($target).'">'.do_shortcode($content).'</div>';
+        $aria_label_markup=isset($aria_label) && !empty($aria_label) ? ' aria-label="'.esc_attr($aria_label).'"' : '';
+        $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.sanitize_text_field($target).'"' : '';
+        return '<div id="'.esc_attr($id).'"'.$target_markup.$aria_label_markup.'>'.do_shortcode($content).'</div>';
     }
 };
 add_shortcode($tag_b, $pl_shortcodes_b[$i]);

@@ -1,9 +1,9 @@
-=== Easy Accordion - Best Accordion FAQ Plugin for WordPress ===
+﻿=== Easy Accordion - Best Accordion FAQ Plugin for WordPress ===
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: accordion, accordions, accordion faq, vertical accordion, faq, faqs, faq widget, accordion widget, accordion menu, wordpress faq plugin, easy accordion, premium accordion, bootstrap accordion, horizontal accordion, responsive accordion, accordion jquery, css3 accordion, accordion shortcode, collapsible content, toggle, toggle accordion, wordpress accordion plugin, wordpress accordion, bootstrap collapse, post accordion, post faq, custom post accordion, accordion grid, accordion bar, product faq, woocommerce product accordion, woocommerce accordion, wordpress post accordion, content hide, hidden content, expand content
-Requires at least: 4.3
-Tested up to: 6.2.2
-Stable tag: 2.2.3
+Requires at least: 4.7
+Tested up to: 6.3
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,7 +133,7 @@ Designed and Developed by [__ShapedPlugin__](https://shapedplugin.com/)
 
 * PHP 5.6 or later
 * MySQL 5.6 or later
-* WordPress 4.3 or later
+* WordPress 4.7 or later
 
 **This section describes how to install the plugin and get it working**
 
@@ -262,6 +262,11 @@ Thank you!
 
 
 == Changelog ==
+
+= 2.2.4 - Aug 08, 2023 =
+* Fix: The plugin admin panel translation is not working if the language file is placed in the plugin language folder.
+* Updated: Minimum required version of WordPress for the plugin.
+* Tested: WordPress 6.3 compatibility.
 
 = 2.2.3 - Jun 08, 2023 =
 * Improved: The import feature with animation. 

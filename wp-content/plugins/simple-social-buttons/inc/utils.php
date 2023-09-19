@@ -264,24 +264,21 @@ function ssb_is_mobile() {
 	 * Generate WhatsApp share link.
 	 *
 	 * @param String $url
-	 * @return Srtring Final url after detection is it mobile or desktop.
+	 * @return String Final url after detection is it mobile or desktop.
 	 * @since 2.0.23
+	 * @version 5.0.0
 	 */
 function ssb_whats_app_share_link( $url ) {
 	$whats_share_link = '';
-	if ( wp_is_mobile() ) {
-		$whats_share_link = 'https://api.whatsapp.com/send?text=' . $url;
-	} else {
-		$whats_share_link = 'https://web.whatsapp.com/send?text=' . $url;
-	}
+	$whats_share_link = 'https://api.whatsapp.com/send?text=' . $url;
 
-	  return $whats_share_link;
+	return $whats_share_link;
 }
 	/**
 	 * Generate Viber share link.
 	 *
 	 * @param String $url
-	 * @return Srtring Final url after detection is it desktop.
+	 * @return String Final url after detection is it desktop.
 	 * @since 3.2.0
 	 */
 
@@ -293,7 +290,7 @@ function ssb_viber_share_link( $url ) {
 	/**
 	 * Generate LinkdIn share link.
 	 * @param String $url
-	 * @return Srtring Final url after detection is it desktop.
+	 * @return String Final url after detection is it desktop.
 	 * @since 3.2.0
 	 */
 

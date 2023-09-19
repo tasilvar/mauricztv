@@ -11,8 +11,10 @@
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" type="image/x-icon">
 	
-	<?php if (is_front_page()){ ?>
-	
+	<?php if (is_front_page('moje-konto')){ ?>
+	<style>
+		.footer{margin-top:50px;}
+	</style>
 	<?php } ?>
 	
 	<?php if (in_category('dieta') || in_category('suplementacja') || in_category('trening')){ ?>
@@ -24,6 +26,7 @@
 		</style>
 
 	<?php } ?>
+
 	
 <?php wp_head(); ?>
 </head>
@@ -41,9 +44,14 @@
 
 ?>
 
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
-    <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
+<?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
+<?php 
+if(is_plugin_active('wp-idea/wp-idea.php')) { 
+    WPI()->templates->header();
+    ?>
+<?php
+ } else { 
+?>
 	<header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container">
          
@@ -93,6 +101,12 @@
         </div>
 	</header><!-- #masthead -->
 
+<?php
+ }
+?>
+
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
 	
 	<div id="content" class="site-content">
 		<div class="container">

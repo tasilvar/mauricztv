@@ -5,13 +5,27 @@ global $post;
 
 
 $getCategoryTag = $_POST['id_category_tag'];
+// if(isset($_POST['home'] == '1')) { 
+//     $getCategory = $_POST['id_category'];
+//     $getCategory = $_POST['id_tag'];
+// } else { 
+//     $getCategoryTag = $_POST['id_category_tag'];
+// }
 
 
-$filterArgs[] =  array(
-    'key' => 'czas_kursu',
-    'value' =>  $_POST['czas'],
-    'compare' => '<='
-);
+if(!empty($_POST['cols'])) { 
+    $cols = $_POST['cols'];
+} else { 
+    $cols = 4;
+}
+
+if(!empty($_POST['czas'])) {
+    $filterArgs[] =  array(
+        'key' => 'czas_kursu',
+        'value' =>  $_POST['czas'],
+        'compare' => '<='
+    );
+}
 
 if($getCategoryTag != null) { 
 	if($_POST['filter_type'] == 'category') {
@@ -62,7 +76,7 @@ if($getCategoryTag != null) {
 	$getProducts = get_posts( $argsAll );
 
     foreach($getProducts as $product) { 
-        echo "<div class='col-md-4'>";
+        echo "<div class='col-md-".$cols."'>";
         echo "<div class='product'>";
         
          //Miniatura
@@ -148,7 +162,7 @@ if($getCategoryTag != null) {
     // Dodaj do koszyka
     echo '<a href="'.get_permalink($product->ID).'" class="more-green">
     <i class="fa fa-shopping-bag"></i> 
-    Dodaj do koszyka</a>';
+    Sprawdź szkolenie</a>';
     
         echo "</div>";
         echo "</div>";

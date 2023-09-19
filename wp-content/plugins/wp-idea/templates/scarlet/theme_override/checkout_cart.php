@@ -11,6 +11,118 @@ global $post;
 
 $cart_items = edd_get_cart_contents();
 $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
+
+$crosselingDiscountID = get_option( 'mauricz_crosseling_discount');
+//echo "ID:".$crosselingDiscountID;
+
+$discount_code = edd_get_discount_code((int)$crosselingDiscountID);
+
+//echo "CODE:".$discount_code;
+// Pobierz rabaty z koszyka klienta
+$discounts = (array)edd_get_cart_discounts();
+
+$discounts_ids = [];
+foreach($discounts as $code) {
+	$discount_id = edd_get_discount_id_by_code( $code);
+
+	$discounts_ids[] = $discount_id;
+}
+
+// print_r($discounts);
+
+// Jesli mamy skonfigurowana kategorie i dyskont
+if(!empty(get_option( 'mauricz_crosseling_category')) && !empty(get_option( 'mauricz_crosseling_discount')))  {
+
+//print_r(edd_get_discount_code(get_option( 'mauricz_crosseling_discount')));
+
+// $code = edd_get_discount_code(get_option( 'mauricz_crosseling_discount'));
+
+// echo "code:".$code;
+
+// print_r(edd_get_discount_type( get_option( 'mauricz_crosseling_discount') ));
+// echo "<br/>--<br/>";
+// print_r(edd_get_discount_product_reqs( get_option( 'mauricz_crosseling_discount') ));
+// echo "<br/>--<br/>";
+// print_r(edd_get_discount_excluded_products( $code ));
+// echo "<br/>--<br/>";
+
+
+// print_r(edd_get_discount_product_condition(get_option( 'mauricz_crosseling_discount')));
+// echo "<br/>--<br/>";
+
+// Ilosc produktow w koszyku > 1
+if(count($cart_items) > 1) { 
+	// Jesli rabat jest aktywny i nie jest uzyty
+
+	if(edd_is_discount_active( $crosselingDiscountID ) && !in_array($crosselingDiscountID, $discounts_ids)) {
+		
+		//wp_redirect( edd_get_checkout_uri( '?action=edd_apply_discount&discount_code=ABC' ) );
+	//echo "DAJ RABAT";
+
+	?>
+	<script type="text/javascript">
+	//alert('OK');
+		
+	var form = document.getElementById("edd_checkout_cart_form");
+
+var formData = "action=edd_apply_discount&code=<?=$discount_code?>";
+var xhr = new XMLHttpRequest();
+
+// 	action: edd_apply_discount
+// code: ABC
+// form: payment-mode=tpay_gateway&edd_action=gateway_select&page_id=48&edd_email=wordpress%40virtualpeople.pl&edd_first=&edd_last=&bpmj_edd_invoice_data_invoice_type=person&bpmj_edd_invoice_data_invoice_person_name=&bpmj_edd_invoice_data_invoice_nip=&bpmj_edd_invoice_data_invoice_company_name=&bpmj_edd_invoice_data_invoice_street=&bpmj_edd_invoice_data_invoice_building_number=&bpmj_edd_invoice_data_invoice_apartment_number=&bpmj_edd_invoice_data_invoice_postcode=&bpmj_edd_invoice_data_invoice_city=&edd-user-id=3&edd_action=purchase&edd-gateway=tpay_gateway&edd-process-checkout-nonce=9f9777a590
+xhr.open("POST", "<?= get_bloginfo('url'); ?>/wp-admin/admin-ajax.php", true);  
+
+xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+xhr.onreadystatechange = function () {
+
+if (xhr.readyState === 4 && xhr.status === 200) {
+	// Obsłuż odpowiedź serwera tutaj
+	console.log(xhr.responseText);
+	
+	var response = JSON.parse(xhr.responseText);
+
+	if(response.msg == 'valid') {
+		document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
+
+		document.querySelector('.koszyk_right .price.edd_cart_amount.cart_total').innerHTML = response.total;
+		
+		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
+		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
+
+		document.querySelector(".koszyk_cena_bez_rabatu").style.display='';
+		
+	}
+	console.log(JSON.parse(xhr.responseText));
+	 //window.location.href = window.location.href;
+}
+};
+
+xhr.onerror = function () {
+// Obsłuż błąd tutaj
+console.error("Wystąpił błąd podczas wysyłania żądania.");
+};
+
+xhr.send(formData);
+
+	</script>
+	<?php
+}
+} else {
+	// Jesli w tablicy mamy rabat crosselingowy
+	if(in_array($crosselingDiscountID, $discounts_ids)) {
+		// Jesli mamy mniej niz 2 produkty
+		if(count($cart_items) <= 1) {
+			//echo "Nie dawaj rabatu";
+			// usun automatyczny rabat			
+			wp_redirect( edd_get_checkout_uri( '?edd_action=remove_cart_discount&discount_id='.$crosselingDiscountID.'&discount_code='.$discount_code ) );
+		}
+	}
+
+}
+}
 ?>
 <table
         id="edd_checkout_cart" class="podsumowanie_koszyk<?php if ( ! edd_is_ajax_disabled() ) { echo ' ajaxed'; } ?>" >
@@ -50,6 +162,7 @@ $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
                             <div class="cart_price">
                                 <?php
                                 echo $item_price;
+							
                                 do_action( 'edd_checkout_cart_item_price_after', $item );
                                 ?>
                             </div>
@@ -178,25 +291,52 @@ $is_vat_payer = Invoice_Tax_Payer_Helper::is_enabled();
 </table>
 
 <div class="product-inner-block text-center cart">
-<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz na nie</h1>
-<h1 class="title-section green-text h2">rabat o wysokości 30%!</h1>
+
+<?php
+	
+		$ignoreProducts = [];
+		// Pobierz elementy z koszyka i wrzuc je do tablicy ignorowanych
+		foreach ($cart_items as $key => $item) {
+			$ignoreProducts[] = $item['id'];
+		}
+		
+    $args = array(
+		'post_type'      => 'download',
+		'post_status' => 'publish',
+		'posts_per_page' => 2,
+		'meta_key' => 'sales_disabled',
+		'meta_value' => 'off',
+		'post__not_in' => (array)$ignoreProducts,
+		'numberposts' => 2,
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'term_id',
+				'terms'    => (int)get_option( 'mauricz_crosseling_category'),
+			),
+		),
+	);
+
+    $getProducts = get_posts($args);
+
+	if(count($getProducts) > 0) {
+	?>
+<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz
+</h1>
+<h1 class="title-section green-text h2">rabat w wysokości <?php
+if(!empty((int)get_option('mauricz_crosseling_discount'))) {
+echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
+} else { 
+	echo '30';
+}
+?>%!</h1>
+<?php 
+	}
+?>
 </div>
 
 <div class="mjcart-container">
 	<?php
-		
-		 
-    $args = array(
-		'post_type'      => 'download',
-		'post_status' => 'publish',
-		'posts_per_page' => 3,
-		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',
-        //'meta_query' => $filterArgs,
-		'numberposts' => 3
-	);
-
-    $getProducts = get_posts($args);
     // Zwroc liste produktów w koszyku
     foreach($getProducts as $product) { 
         // Jesli produkt zawiera ID inne niz te ktore jest w koszyku dodaj do listy
@@ -250,4 +390,6 @@ echo "<a href='".get_permalink($product->ID)."'>";
     }
 	?>
 </div>
+
+
 

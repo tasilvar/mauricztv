@@ -5,7 +5,7 @@
  * Description: The best Responsive and Touch-friendly drag & drop <strong>Accordion FAQ</strong> builder plugin for WordPress.
  * Author:      ShapedPlugin LLC
  * Author URI:  https://shapedplugin.com/
- * Version:     2.2.3
+ * Version:     2.2.4
  * Text Domain: easy-accordion-free
  * Domain Path: /languages/
  *
@@ -51,7 +51,7 @@ class SP_EASY_ACCORDION_FREE {
 	 *
 	 * @var string
 	 */
-	public $version = '2.2.3';
+	public $version = '2.2.4';
 
 	/**
 	 * The name of the plugin.
@@ -113,7 +113,6 @@ class SP_EASY_ACCORDION_FREE {
 		$this->define_constants();
 		$this->includes();
 		$this->load_dependencies();
-		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_common_hooks();
 	}
@@ -174,22 +173,6 @@ class SP_EASY_ACCORDION_FREE {
 	}
 
 	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Easy_Accordion_Free_I18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    2.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-		$plugin_i18n = new Easy_Accordion_Free_I18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
-	}
-
-	/**
 	 * Register common hooks.
 	 *
 	 * @since 2.0.0
@@ -213,7 +196,6 @@ class SP_EASY_ACCORDION_FREE {
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-updates.php';
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-loader.php';
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-post-types.php';
-		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-i18n.php';
 		require_once SP_EA_PATH . '/public/views/scripts.php';
 		require_once SP_EA_PATH . '/admin/class-easy-accordion-free-admin.php';
 		require_once SP_EA_PATH . '/admin/views/help.php';
@@ -235,7 +217,6 @@ class SP_EASY_ACCORDION_FREE {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - Easy_Accordion_Free_Loader. Orchestrates the hooks of the plugin.
-	 * - Easy_Accordion_Free_i18n. Defines internationalization functionality.
 	 * - Easy_Accordion_Free_Admin. Defines all hooks for the admin area.
 	 * - Easy_Accordion_Free_Public. Defines all hooks for the public side of the site.
 	 *

@@ -3,8 +3,8 @@ Contributors: hiddenpearls, WPBrigade, desideveloper
 Donate link: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=donate-link
 Tags: Social share, Social buttons, Whatsapp, Viber, LinkedIn, facebook, twitter, pinterest, plus one
 Requires at least: 4.0
-Tested up to: 6.2
-Stable tag: 4.1.1
+Tested up to: 6.3
+Stable tag: 5.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,9 +16,22 @@ Simple Social Media Share Buttons adds an advanced set of social media sharing b
 
 > Rich set of features makes it the most flexible **Social Sharing plugin ever for Everyone**.
 
-** This social sharing Plugin is fully customizable. You can decide where to position those buttons:**
+**This social sharing Plugin is fully customizable. You can decide where to position those buttons:**
 
- **Inline**
+* **New Feature:** Simple Social Buttons compatible with NextGEN Gallery plugin.
+	* Introduced new settings for NextGEN Gallery plugin.
+	* Compatible with following NextGEN Gallery Layouts.
+		* Basic Thumbnail.
+		* Pro Masonry.
+		* Pro Mosaic.
+	* Compatible with following LightBoxes.
+		* Simple LightBox.
+		* FancyBox.
+		* ThickBox.
+		* NextGEN Pro LightBox.*
+
+
+**Inline**
 - Social Sharing Buttons above the post content
 - Social Sharing Buttons under the post content
 - Social Sharing Buttons above and under the post
@@ -53,7 +66,7 @@ Simple Social Media Share Buttons adds an advanced set of social media sharing b
 - Display Total Share counts
 - Settings for customizing the colors of buttons and fly-ins
 
-** That's not all. Simple Social Buttons can also add social media buttons to: **
+**That's not all. Simple Social Buttons can also add social media buttons to: **
 
 
 - Static Pages
@@ -146,6 +159,13 @@ like_button_size = small(default), large
 9. Social Share buttons on flyins.
 
 == Changelog ==
+
+= 5.0.0 - 2023-07-22 =
+* New Feature: Share images now on Pinterest, WhatsApp, Facebook, and Social Media.
+* New Feature: Simple Social Buttons Pro compatible with NextGen Gallery plugin.
+* Enhancement: Social Media Buttons/Icons are ADA-compliant now.
+* Enhancement: Code optimization.
+* Compatibility: Compatible with WordPress 6.3
 
 = 4.1.1 - 2023-03-30 =
 * Bugfix: incorrect characters/Hieroglyphics fix in content.
@@ -495,5 +515,5 @@ like_button_size = small(default), large
 
 == Upgrade Notice ==
 
-= 4.1.1 =
-* Please upgrade immediately.
+= 5.0.0 =
+* Upgrade Now: New Feature release.

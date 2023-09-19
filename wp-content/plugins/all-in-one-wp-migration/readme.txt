@@ -2,9 +2,9 @@
 Contributors: yani.iliev, bangelov, pimjitsawang
 Tags: move, transfer, copy, migrate, backup, clone, restore, db migration, wordpress migration, website migration, database export, database import, apoyo, sauvegarde, di riserva, バックアップ
 Requires at least: 3.3
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 5.3
-Stable tag: 7.76
+Stable tag: 7.78
 License: GPLv2 or later
 
 Move, transfer, copy, migrate, and backup a site with 1-click. Quick, easy, and reliable.
@@ -70,8 +70,7 @@ The plugin comes preinstalled on all Bitnami WordPress sites running on AWS, Goo
 [youtube http://www.youtube.com/watch?v=mRp7qTFYKgs]
 
 == Installation ==
-1. All-in-One WP Migration can be installed directly through your WordPress
-Plugins dashboard.
+1. All-in-One WP Migration can be installed directly through your WordPress Plugins dashboard.
 1. Click "Add New" and Search for "All-in-One WP Migration"
 1. Install and Activate
 
@@ -88,6 +87,16 @@ All-in-One WP Migration is in full compliance with General Data Protection Regul
 See our [GDPR Compliant Privacy Policy here](https://www.iubenda.com/privacy-policy/946881).
 
 == Changelog ==
+= 7.78 =
+**Added**
+
+* Implemented a new Schedules page within the plugin, displaying various advanced features exclusive to premium extensions
+
+= 7.77 =
+**Added**
+
+* Tested the new version of WordPress 6.3
+
 = 7.76 =
 **Fixed**
 
@@ -106,13 +115,3 @@ See our [GDPR Compliant Privacy Policy here](https://www.iubenda.com/privacy-pol
 **Notes**
 
 * Imunify360 has updated its signatures, which should prevent this issue from occurring on servers running the updated version. However, this plugin update serves as an additional measure to ensure that the issue is resolved for all users
-
-= 7.73 =
-**Added**
-
-* Better support for PHP 8.1
-
-= 7.72 =
-**Fixed**
-
-* Backups time based on selected WordPress time zone

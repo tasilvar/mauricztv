@@ -39,6 +39,9 @@ window.EDD_Checkout = (function($) {
 		// Validate and apply a discount
 		$checkout_form_wrap.on('click', '.edd-apply-discount', apply_discount);
 
+		//console.log("AAAA====");
+		//$checkout_form_wrap.on('load', '.edd-apply-discount', apply_discount);
+
 		// Prevent the checkout form from submitting when hitting Enter in the discount field
 		$checkout_form_wrap.on('keypress', '#edd-discount', function (event) {
 			if (event.keyCode == '13') {
@@ -110,6 +113,7 @@ window.EDD_Checkout = (function($) {
 				}
 			}).fail(function (data) {
 				if ( window.console && window.console.log ) {
+					console.log("AAAAA TEST");
 					console.log( data );
 				}
 			}).done(function (data) {
@@ -157,6 +161,7 @@ window.EDD_Checkout = (function($) {
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {
+				console.log("AAAAA TEST");
 				console.log( data );
 				$body.trigger('edd_taxes_recalculated', [ tax_data ]);
 			}
@@ -251,6 +256,7 @@ window.EDD_Checkout = (function($) {
 					}
 				} else {
 					if ( window.console && window.console.log ) {
+						console.log("AAAAA TEST");
 						console.log( discount_response );
 					}
 					$body.trigger('edd_discount_failed', [ discount_response ]);
@@ -259,6 +265,7 @@ window.EDD_Checkout = (function($) {
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {
+				console.log("AAAAA TEST");
 				console.log( data );
 			}
 		});
@@ -310,6 +317,7 @@ window.EDD_Checkout = (function($) {
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {
+				console.log("AAAAA TEST");
 				console.log( data );
 			}
 		});
@@ -359,6 +367,7 @@ window.EDD_Checkout = (function($) {
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {
+				console.log("AAAAA TEST");
 				console.log( data );
 			}
 		});

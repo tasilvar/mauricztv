@@ -15,6 +15,7 @@ class Ssb_Logs_Info {
 	 *
 	 * @access public
 	 * @since 2.0.0
+	 * @version 5.0.0
 	 * @return string
 	 */
 	public static function get_sysinfo() {
@@ -29,6 +30,7 @@ class Ssb_Logs_Info {
 		$popup_option    = get_option( 'ssb_popup' );
 		$flyin_option    = get_option( 'ssb_flyin' );
 		$extra_option    = get_option( 'ssb_advanced' );
+		$ngg_option      = get_option( 'ssb_ngg_gallery' );
 		$active_theme    = wp_get_theme();
 
 		// var_dump( wp_get_theme()->get( 'Name' ) );
@@ -58,6 +60,9 @@ class Ssb_Logs_Info {
 		$html .= 'Popup:                    ' . print_r( $popup_option, true ) . "\n";
 		$html .= 'Flyin:                    ' . print_r( $flyin_option, true ) . "\n";
 		$html .= 'Advance:                  ' . print_r( $extra_option, true ) . "\n";
+		if ( class_exists('C_Photocrati_Installer' ) && class_exists( 'Simple_Social_Buttons_Pro' ) ) {
+			$html .= 'NextGen Gallery:      ' . print_r( $ngg_option, true ) . "\n";
+		}
 
 		// Server Configuration
 		$html .= "\n" . '-- Server Configuration --' . "\n\n";
