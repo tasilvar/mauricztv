@@ -87,10 +87,12 @@ if (xhr.readyState === 4 && xhr.status === 200) {
 	if(response.msg == 'valid') {
 		document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
 
-		document.querySelector('.koszyk_right .price.edd_cart_amount').innerHTML = response.total;
+		document.querySelector('.koszyk_right .price.edd_cart_amount.cart_total').innerHTML = response.total;
 		
 		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
 		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
+
+		document.querySelector(".koszyk_cena_bez_rabatu").style.display='';
 		
 	}
 	console.log(JSON.parse(xhr.responseText));
@@ -134,7 +136,6 @@ xhr.send(formData);
 		<?php if ( $cart_items ) : ?>
 			<?php foreach ( $cart_items as $key => $item ) :
                     $item_price = edd_cart_item_price( $item['id'], $item['options'] );
-					print_r($item);
                 ?>
 				<tr class="edd_cart_item" id="edd_cart_item_<?php echo esc_attr( $key ) . '_' . esc_attr( $item['id'] ); ?>" data-download-id="<?php echo esc_attr( $item['id'] ); ?>">
 					<?php do_action( 'edd_checkout_table_body_first', $item ); ?>
@@ -161,8 +162,7 @@ xhr.send(formData);
                             <div class="cart_price">
                                 <?php
                                 echo $item_price;
-								echo " - ";
-								echo print_r($item);
+							
                                 do_action( 'edd_checkout_cart_item_price_after', $item );
                                 ?>
                             </div>
@@ -321,8 +321,9 @@ xhr.send(formData);
 
 	if(count($getProducts) > 0) {
 	?>
-<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz na nie</h1>
-<h1 class="title-section green-text h2">rabat o wysokości <?php
+<h1 class="title-section h2">Dobierz kolejne szkolenie i odbierz
+</h1>
+<h1 class="title-section green-text h2">rabat w wysokości <?php
 if(!empty((int)get_option('mauricz_crosseling_discount'))) {
 echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
 } else { 

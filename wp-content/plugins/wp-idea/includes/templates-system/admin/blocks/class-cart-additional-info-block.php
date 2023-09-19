@@ -40,13 +40,34 @@ class Cart_Additional_Info_Block extends Block
 
         $content .= '<table>';
 
+        if(edd_cart_has_discounts()) {
+        $content .= '<tr class="koszyk_cena_bez_rabatu">';
+    } else {
+        $content .= '<tr class="koszyk_cena_bez_rabatu" style="display:none;">';
+    }
+        $content .= '<td>';
+            $content .= 'Kwota przed rabatem';
+        $content .= '</td>';
+
+        $content .= '<td style="text-align:right;    text-decoration: line-through;
+        color: #a9a9a9;">';
+            $content .= '<span class="price edd_cart_amount">';
+
+            $totalWithoutDiscount = edd_get_cart_total( true ) + edd_get_cart_discounted_amount();
+                $content .= apply_filters( 'edd_cart_total', edd_currency_filter( edd_format_amount( $totalWithoutDiscount ) ) );                    
+                //$content .= edd_get_cart_discounted_amount();
+            $content .= '</span>';
+        $content .= '</td>';
+    $content .= '</tr>';
+
+       
             $content .= '<tr>';
                 $content .= '<td>';
                     $content .= 'Kwota';
                 $content .= '</td>';
 
-                $content .= '<td>';
-                    $content .= '<span class="price edd_cart_amount">';
+                $content .= '<td style="text-align:right;">';
+                    $content .= '<span class="price edd_cart_amount  cart_total" data-subtotal="'.edd_get_cart_total().'" data-total="'.edd_get_cart_total().'"><?>';
                         $content .= edd_cart_total(false);                    
                     $content .= '</span>';
                 $content .= '</td>';
