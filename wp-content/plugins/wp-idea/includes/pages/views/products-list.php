@@ -242,7 +242,7 @@ Sprawdź szkolenie</a>';
 
 	$categories = get_terms( array(
 		'taxonomy' => 'download_category',
-		'hide_empty' => false
+		'hide_empty' => true
 		) );
 
 	
@@ -265,7 +265,7 @@ foreach ($categories as $key => $category) {
 <?php
  $tags = get_terms( array(
 	 'taxonomy' => 'download_tag', 
-	 'hide_empty' => false, 
+	 'hide_empty' => true, 
 	 ) );
 
 
