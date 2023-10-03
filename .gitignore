@@ -28,3 +28,7 @@ xmlrpc.php
 /wp-content/upgrade_temp_backup
 _old_wp-login.php
 *.zip
+*.mp4
+*.webmp
+*.mov
+*.wmv
