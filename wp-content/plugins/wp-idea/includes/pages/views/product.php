@@ -351,25 +351,25 @@ else {
                     <h3>Czego dowiesz się na szkoleniu?</h3>
                 </div>
                 
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what01.png" alt="Mauricz TV">
                         <p><?php the_field('pierwszy_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what02.png" alt="Mauricz TV">
                         <p><?php the_field('drugi_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what03.png" alt="Mauricz TV">
                         <p><?php the_field('trzeci_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what04.png" alt="Mauricz TV">
                         <p><?php the_field('czwarty_tekst'); ?></p>
@@ -499,16 +499,16 @@ else {
             
             <div class="row">
             
-                <div class="col-md-6 text-right">
+                <div class="col-xs-6 text-right">
                     Liczba modułów:
                 </div>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <?php the_field('liczba_lekcji'); ?>
                 </div>	
-                <div class="col-md-6 text-right">		
+                <div class="col-xs-6 text-right">		
                     Czas trwania:
                 </div>	
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <?php the_field('czas_kursu'); ?>h
                 </div>	
             </div>
