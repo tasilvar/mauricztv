@@ -227,7 +227,7 @@ class CircleCountdown extends Countdown {
         $content .= '<div class="ycd-circle-before-countdown">'.do_shortcode($this->getOptionValue('ycd-circle-countdown-before-countdown')).'</div>';
 		ob_start();
 		?>
-        <div class="ycd-circle-<?php echo esc_attr($id); ?>-wrapper ycd-circle-wrapper">
+        <div class="ycd-circle-<?php echo esc_attr($id); ?>-wrapper ycd-circle-wrapper ycd-countdown-content-wrapper">
             <div id="ycd-circle-<?php echo esc_attr($id); ?>" class="ycd-time-circle" data-options='<?php echo esc_attr($prepareOptions); ?>' data-all-options='<?php echo esc_attr($allDataOptions); ?>' data-timer="<?php echo esc_attr($seconds) ?>" style="<?php echo esc_attr($bgImageStyleStr); ?>; width: <?php echo esc_attr($width); ?>; height: 100%; padding: 0; box-sizing: border-box; background-color: inherit"></div>
         </div>
 		<?php

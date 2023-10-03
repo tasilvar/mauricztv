@@ -63,3 +63,20 @@
 .ycd-timer-box.ycd-timer-box-next {
 	display: none;
 }
+
+.ycd-stopped-times {
+	text-align: center;
+}
+
+.ycd-stopped-times ol {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+.ycd-stopped-times ol li {
+	font-size: 18px;
+}
+
+.ycd-stopped-times h3 {
+	font-size: 24px;
+}

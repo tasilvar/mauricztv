@@ -3,9 +3,9 @@ Contributors: webtoffee, cookieyesdev
 Donate link: https://www.cookieyes.com/ 
 Tags: GDPR, CCPA, CPRA, cookie notice, DSGVO, RGPD, LGPD, CNIL, PIPEDA, POPIA, VCDPA, cookies , cookie law, cookie consent, Opt-in, cookie policy, privacy, compliance
 Requires at least: 5.0.0
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 3.1.2
+Stable tag: 3.1.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -161,6 +161,15 @@ For every update of the plugin, you will be notified of the installed plugins pa
 9. Privacy policy generator and cookie policy generator
 
 == Changelog ==
+
+= 3.1.4 = 
+
+[Enhancement] - WCAG/AA compliance for cookie banner.
+[Fix] - Minor UI changes and bug fixes.
+
+= 3.1.3 = 
+
+Tested OK with WordPress version 6.3
 
 = 3.1.2 = 
 
@@ -605,8 +614,7 @@ Tested OK with WordPress version 6.2
 
 == Upgrade Notice ==
 
-= 3.1.2 = 
+= 3.1.4 = 
 
-[Fix] - UI/UX improvements
-[Fix] - Updated email not reflected under "Site Settings" tab for connected users
-[Fix] - Cookie notice message not updated while switching the consent template
+[Enhancement] - WCAG/AA compliance for cookie banner.
+[Fix] - Minor UI changes and bug fixes.

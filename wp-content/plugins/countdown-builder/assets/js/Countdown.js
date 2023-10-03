@@ -778,6 +778,7 @@ YcdCountdown.prototype.startTimeCircle = function() {
 			options['countdownExpired'] = true;
 			jQuery(window).trigger('YcdExpired', [{'id':  options.id, 'options': allOptions}]);
         }
+
 		that.setOptions(options);
 		that.setAllOptions(allOptions);
 		that.currentCountdown = jQuery(this);

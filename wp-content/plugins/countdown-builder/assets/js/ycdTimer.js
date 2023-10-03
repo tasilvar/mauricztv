@@ -4,6 +4,8 @@ function YcdTimer() {
 	this.status = 1;
 }
 
+YcdTimer.prototype = new YcgGeneral();
+
 YcdTimer.prototype.setAlarm = function() {
 	var options = this.getSettings();
 	if (options['ycd-countdown-end-sound']) {
@@ -154,6 +156,10 @@ YcdTimer.prototype.buttonListener = function () {
     button.bind('click', function (e) {
     	e.preventDefault();
 		var status = jQuery(this).data('status');
+	    var options = that.getSettings();
+		if (status && options['ycd-timer-write-stopped']) {
+			jQuery(".ycd-stopped-times-"+id+' .stopped-times-content').append('<li>'+that.getStoppedTimeStr()+'</li>');
+		}
 		var title = status ? jQuery(this).data('start') : jQuery(this).data('stop');
 		jQuery(this).text(title);
         status = status ? 0: 1;
@@ -199,7 +205,16 @@ YcdTimer.prototype.resetTimer = function() {
 	this.renderTimer();
 };
 
-YcdTimer.prototype.renderTimer =  function() {
+YcdTimer.prototype.getStoppedTimeStr = function () {
+	var data = this.parseTime();
+
+	return this.formatTime(data.daysValue) +
+		' : ' + this.formatTime(data.hoursValue) +
+		' : ' + this.formatTime(data.minutesValue) +
+		' : ' + this.formatTime(data.secondsValue);
+}
+
+YcdTimer.prototype.parseTime = function () {
 	var deltaTime = this.remainingTime;
 
 	var daysValue = Math.floor(deltaTime / (1000 * 60 * 60* 24));
@@ -213,7 +228,18 @@ YcdTimer.prototype.renderTimer =  function() {
 
 	var secondsValue = Math.floor(deltaTime / (1000));
 
-	this.animateTime(daysValue, hoursValue, minutesValue, secondsValue);
+	return {
+		daysValue,
+		hoursValue,
+		minutesValue,
+		secondsValue
+	}
+}
+
+YcdTimer.prototype.renderTimer =  function() {
+	var parseTime = this.parseTime()
+
+	this.animateTime(parseTime.daysValue, parseTime.hoursValue, parseTime.minutesValue, parseTime.secondsValue);
 };
 
 YcdTimer.prototype.animateTime = function(remainingDays, remainingHours, remainingMinutes, remainingSeconds) {

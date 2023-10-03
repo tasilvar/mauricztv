@@ -17,6 +17,7 @@ A very simple plugin to add <strong>countdown</strong> timer to your website.
 <strong>Countdown</strong> timer allow you to create nice and functional Countdown timer just in a few minutes.
 This is the best way to create beautiful <strong>Countdown</strong> for your users.
 You can use our Countdown timer in your posts/pages via shortcode example like this
+
 [ycd_countdown id=73]
 
 Countdown types
@@ -67,6 +68,36 @@ Yes you can, we have Circle and Flipclock countdown popups.
 You need to select the .zip file, there is no need to extract the zip file, just upload it.
 
 == Changelog ==
+= 2.6.5 =
+* Added floating content padding
+* Added floating font size
+* Added floating background color
+* Added Timer custom font functionality
+
+= 2.6.4 =
+* Added floating option customization position
+* Added floating option change text
+* Added floating option change color
+
+= 2.6.3 =
+* Write stopped times (for timer type)
+* Fixed warning related to WooCommerce
+
+= 2.6.2.1 =
+* Fixed scroll to active countdown for Simple, Flipclock countdown types
+* Fixed PHP warning
+
+= 2.6.2 =
+* Added new option scroll to active countdown
+
+= 2.6.1 =
+* Added toggle settings for Sticky countdown main options
+* Code improvements
+
+= 2.6.0 =
+* Added timer dotes customization option
+* Fixed date parser during large date
+
 = 2.5.9 =
 * Stop Countdown when the tab is inactive
 * Exclude countdown posts from posts search

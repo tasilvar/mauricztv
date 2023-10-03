@@ -225,6 +225,29 @@ $allowed_html = AdminHelper::getAllowedTags();
                 </div>
             </div>
         </div>
+		<!-- Start write stooped -->
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label for="ycd-timer-write-stopped" ><?php _e('Write stopped times', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-4 ycd-timer-font-size">
+				<label class="ycd-switch">
+					<input type="checkbox" id="ycd-timer-write-stopped" name="ycd-timer-write-stopped" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-timer-write-stopped')); ?>>
+					<span class="ycd-slider ycd-round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="ycd-accordion-content ycd-hide-content">
+			<div class="row form-group">
+				<div class="col-md-6">
+					<label for="ycd-timer-write-stopped-header" ><?php _e('Header text', YCD_TEXT_DOMAIN); ?></label>
+				</div>
+				<div class="col-md-6 ycd-timer-font-size">
+					<input id="ycd-timer-write-stopped-header" type="text" class="form-control" name="ycd-timer-write-stopped-header" value="<?php echo esc_attr($this->getOptionValue('ycd-timer-write-stopped-header')); ?>">
+				</div>
+			</div>
+		</div>
+		<!-- Start end stooped -->
 	</div>
 	<div class="row form-group">
 		<div class="col-md-6">
@@ -261,9 +284,19 @@ $allowed_html = AdminHelper::getAllowedTags();
 		</div>
 		<div class="col-md-4 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
 			<?php 
-				$fontFaily = AdminHelper::selectBox($defaultData['font-family'], esc_attr($textFontFamily), array('name' => 'ycd-text-font-family', 'class' => 'js-ycd-select js-countdown-font-family'));
+				$fontFaily = AdminHelper::selectBox($defaultData['font-family'], esc_attr($textFontFamily), array('name' => 'ycd-text-font-family', 'class' => 'js-ycd-select ycd-custom-value-accordion js-countdown-font-family', 'data-custom' => 'customFont'));
 				echo wp_kses($fontFaily, $allowed_html);
 			?>
+		</div>
+	</div>
+	<div class="ycd-accordion-content ycd-hide-content">
+		<div class="row">
+			<div class="col-xs-6">
+				<label class="control-label" for="ycd-text-font-family-custom"><?php _e('custom font family', YCD_TEXT_DOMAIN);?>:</label>
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="ycd-text-font-family-custom" class="form-control input-md custom-font-family" name="ycd-text-font-family-custom" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-text-font-family-custom'))?>" placeholder="Custom Font Family"><br>
+			</div>
 		</div>
 	</div>
 	<div class="row form-group">

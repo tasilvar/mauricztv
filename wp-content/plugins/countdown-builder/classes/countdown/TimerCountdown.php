@@ -62,6 +62,7 @@ class TimerCountdown extends Countdown {
 		$options['seconds'] = $this->getOptionValue('ycd-timer-seconds');
 		$options['autoCounting'] = $this->getOptionValue('ycd-timer-auto-counting');
 		$options['timerButton'] = $this->getOptionValue('ycd-countdown-timer-button');
+		$options['ycd-timer-write-stopped'] = $this->getOptionValue('ycd-timer-write-stopped');
 
 		return array_merge($options, $allDataOptions);
 	}
@@ -69,6 +70,9 @@ class TimerCountdown extends Countdown {
 	private function contentStyles() {
 		$id = $this->getId();
 		$fontFamily = $this->getOptionValue('ycd-text-font-family');
+		if ($fontFamily === 'customFont') {
+			$fontFamily = $this->getOptionValue('ycd-text-font-family-custom');
+		}
 		$fontSize = $this->getOptionValue('ycd-timer-font-size').'em !important';
 		$labelFontSize = (int)$this->getOptionValue('ycd-timer-font-size-label').'px';
 		$timerColor = $this->getOptionValue('ycd-timer-color');
@@ -91,7 +95,7 @@ class TimerCountdown extends Countdown {
 		ob_start();
 		?>
 			<style type="text/css"  id="ycd-digit-font-family-<?php echo esc_attr($id); ?>">
-				.ycd-timer-wrapper-<?php echo esc_attr($id); ?> .ycd-timer-box > span {
+				.ycd-timer-wrapper-<?php echo esc_attr($id); ?> .ycd-timer-unit > span {
 					font-family: <?php echo esc_attr($fontFamily) ?>;
 				}
 			</style>
@@ -170,7 +174,7 @@ class TimerCountdown extends Countdown {
         }
 		ob_start();
 		?>
-		<div class="ycd-countdown-wrapper ycd-timer-content-wrapper-<?php echo esc_attr($id); ?>">
+		<div class="ycd-countdown-wrapper ycd-timer-content-wrapper-<?php echo esc_attr($id); ?> ycd-countdown-content-wrapper">
 			<div class="ycd-timer-time ycd-timer-container ycd-timer-wrapper-<?php echo esc_attr($id); ?>" data-id="<?php echo esc_attr($id); ?>">
 				<div class="timer-time-set ycd-timer-box" id="currentTime">
 					<div class="ycd-timer-span-wrapper">
@@ -202,6 +206,14 @@ class TimerCountdown extends Countdown {
 					<button class="ycd-timer-reset ycd-timer-reset-<?php echo esc_attr($id); ?> <?php echo esc_attr($resetButtonClassName); ?>"><?php echo esc_attr($resetButtonLabel); ?></button>
 				<?php endif; ?>
 			</div>
+			<?php if ($this->getOptionValue('ycd-timer-write-stopped')): ?>
+			<div class="ycd-stopped-times ycd-stopped-times-<?php esc_attr_e($id);?>">
+				<h3><?php esc_attr_e($this->getOptionValue('ycd-timer-write-stopped-header'));?></h3>
+				<ol class="stopped-times-content">
+
+				</ol>
+			</div>
+			<?php endif;?>
 		<?php
 		$content = ob_get_contents();
 		$content .= $this->contentStyles();
@@ -221,6 +233,7 @@ class TimerCountdown extends Countdown {
 				ScriptsIncluder::enqueueScript('ycdGoogleFonts.js');
 			}
 		}
+		$this->includeGeneralScripts();
 		$options = $this->getTimerSettings();
 		$options = json_encode($options);
 		$settings = array();

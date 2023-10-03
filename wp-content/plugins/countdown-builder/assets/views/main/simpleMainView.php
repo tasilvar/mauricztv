@@ -356,6 +356,17 @@ $allowed_html = AdminHelper::getAllowedTags();
 				</label>
 			</div>
 		</div>
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="ycd-label-of-switch"><?php _e('Timer dotes', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-6">
+				<?php
+				$fontFamily = AdminHelper::selectBox(array(':' => ':', ',' => ',', ';' => ';'), esc_attr($typeObj->getOptionValue('ycd-simple-timer-dotes')), array('name' => 'ycd-simple-timer-dotes', 'class' => 'js-ycd-select js-simple-timer-dotes  ycd-custom-value-accordion', 'data-field-type' => 'label', 'data-custom' => 'customFont'));
+				echo wp_kses($fontFamily, $allowed_html);
+				?>
+			</div>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">

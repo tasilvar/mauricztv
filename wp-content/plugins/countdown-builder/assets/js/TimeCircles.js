@@ -84,8 +84,8 @@
         Minutes: 60,
         Hours: 3600,
         Days: 86400,
-        Months: 2678400,
-        Years: 31536000
+        Months: 2629800,
+        Years: 31557600
     };
 
     /**

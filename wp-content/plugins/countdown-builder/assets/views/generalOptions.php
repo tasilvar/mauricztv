@@ -2,7 +2,7 @@
 use ycd\MultipleChoiceButton;
 use ycd\AdminHelper;
 use ycd\AdminHelperPro;
-use \ycd\ycd_info;
+use \ycd\ycd_info as ycd_info_fun;
 
 $proSpan = '';
 $isPro = '';
@@ -16,6 +16,10 @@ $dueDate = $this->getOptionValue('ycd-date-time-picker');
 $couponsInfo = array();
 if (class_exists('ycd\AdminHelperPro')) {
 	$couponsInfo = AdminHelperPro::getWooCommerceCouponsInfo();
+}
+$idAndDates = array();
+if (!empty($couponsInfo['idAndDates'])) {
+	$idAndDates = $couponsInfo['idAndDates'];
 }
 ?>
 <div class="ycd-bootstrap-wrapper">
@@ -68,7 +72,7 @@ if (class_exists('ycd\AdminHelperPro')) {
 	            </div>
 	            <div class="col-md-6">
 	                <div class="ycd-select-wrapper">
-	                    <input type="text" readonly class="form-control ycd-woo-coupon-date" name="ycd-woo-coupon-date" data-dates=<?php echo esc_attr(json_encode(@$couponsInfo['idAndDates'])); ?> value="<?php echo esc_attr($couponsInfo['idAndDates'][$savedWooCouponId]); ?>">
+	                    <input type="text" readonly class="form-control ycd-woo-coupon-date" name="ycd-woo-coupon-date" data-dates=<?php echo esc_attr(json_encode($idAndDates)); ?> value="<?php echo esc_attr($idAndDates[$savedWooCouponId]); ?>">
 	                </div>
 	            </div>
 	        </div>
@@ -417,6 +421,17 @@ if (class_exists('ycd\AdminHelperPro')) {
                 ?>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<label for="ycd-scroll-to-countdown" class="ycd-label-of-switch"><?php _e('Scroll to the countdown', YCD_TEXT_DOMAIN); echo ycd\ycd_info("The browser automatically will scroll to the countdown")?></label>
+	</div>
+	<div class="col-md-6">
+		<label class="ycd-switch">
+			<input type="checkbox" id="ycd-scroll-to-countdown" name="ycd-scroll-to-countdown" <?php echo esc_attr($this->getOptionValue('ycd-scroll-to-countdown')); ?>>
+			<span class="ycd-slider ycd-round"></span>
+		</label>
 	</div>
 </div>
 <div class="row">

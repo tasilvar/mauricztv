@@ -278,6 +278,7 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-woo-condition', 'type' => 'text', 'defaultValue' => 'disabled');
 		$options[] = array('name' => 'ycd-countdown-enable-woo-condition', 'type' => 'checkbox', 'defaultValue' => 'on');
 		$options[] = array('name' => 'ycd-countdown-stop-inactive', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-scroll-to-countdown', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-enable-start-date', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-start-date', 'type' => 'text', 'defaultValue' => date('Y-m-d H:i'));
 		$options[] = array('name' => 'ycd-countdown-start-time-zone', 'type' => 'text', 'defaultValue' => self::getDefaultTimezone());
@@ -292,6 +293,8 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-timer-reset-button', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-timer-reset-button-label', 'type' => 'text', 'defaultValue' => __('Reset', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-count-up-from-end-date', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-timer-write-stopped', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-timer-write-stopped-header', 'type' => 'text', 'defaultValue' =>  __('Stopped times'), YCD_TEXT_DOMAIN);
 
 		$options[] = array('name' => 'ycd-button-name', 'type' => 'text', 'defaultValue' => 'Buy Now');
 		$options[] = array('name' => 'ycd-button-action-url', 'type' => 'text', 'defaultValue' => get_site_url());
@@ -317,6 +320,17 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-countdown-content-click-url-tab', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-button-behavior', 'type' => 'text', 'defaultValue' => 'redirect');
 		$options[] = array('name' => 'ycd-countdown-expiration-text-change', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-countdown-enable-floating-countdown', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-countdown-floating-position-top', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-position-right', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-position-bottom', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-position-left', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-text', 'type' => 'text', 'defaultValue' => 'Click');
+		$options[] = array('name' => 'ycd-countdown-floating-text-size', 'type' => 'text', 'defaultValue' => '20px');
+		$options[] = array('name' => 'ycd-countdown-floating-padding-top', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-padding-right', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-padding-bottom', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-padding-left', 'type' => 'text', 'defaultValue' => '0px');
 
 		$options[] = array('name' => 'ycd-sticky-button-text', 'type' => 'text', 'defaultValue' => __('Checkout', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-sticky-bg-color', 'type' => 'text', 'defaultValue' => '#000000');
@@ -362,6 +376,7 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-simple-seconds-text', 'type' => 'text', 'defaultValue' => __('Secs', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-enable-simple-double-digits', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-text-to-top', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-simple-timer-dotes', 'type' => 'text', 'defaultValue' => ':');
 
 		$options[] = array('name' => 'ycd-simple-numbers-font-size', 'type' => 'text', 'defaultValue' => __('35px', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-simple-text-font-size', 'type' => 'text', 'defaultValue' => __('12px', YCD_TEXT_DOMAIN));

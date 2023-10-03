@@ -22,6 +22,7 @@ YcdAdmin.prototype.init = function() {
 	this.buttonFunctions();
 	this.copySortCode();
 	this.closeButtonPositions();
+	this.floatingPositions();
 
 	/*clock*/
 	this.clockLivePreview();
@@ -39,6 +40,8 @@ YcdAdmin.prototype.init = function() {
     if(ycd_admin_localized.pkgVersion == 1) {
         this.redirectToSupportPage();
     }
+    this.metaboxSubOptions();
+    this.generalColors();
 };
 
 YcdAdmin.prototype.copySortCode = function() {
@@ -812,6 +815,51 @@ YcdAdmin.prototype.closeButtonPositions = function () {
 	})
 
 	position();
+}
+
+YcdAdmin.prototype.floatingPositions = function () {
+	if (!jQuery('.ycd-fixed-floating-position-val').length) {
+		return ;
+	}
+	var position = function () {
+		var positionValue = jQuery('.ycd-fixed-floating-position-val').val();
+		jQuery('.ycd-fixed-floating-positions-wrapper').addClass('ycd-hide');
+		var positions = positionValue.split('_');
+
+		for(var cur in positions) {
+			jQuery('.ycd-floating-position-wrapper-'+positions[cur]).removeClass('ycd-hide');
+		}
+	}
+
+	jQuery('.ycd-fixed-floating-position-val').bind('change', function () {
+		position()
+	})
+
+	position();
+}
+
+YcdAdmin.prototype.metaboxSubOptions = function () {
+	var settingsWrapper = jQuery(".ycd-sub-setting-label-wrapper");
+	settingsWrapper.bind("click", function () {
+		var status = jQuery(this).data('status');
+		if (!status) {
+			jQuery(this).next().hide();
+			jQuery(this).find(".toggle-indicator").addClass('rotate')
+		}
+		else {
+			jQuery(this).next().show();
+			jQuery(this).find(".toggle-indicator").removeClass('rotate')
+		}
+		jQuery(this).data('status', !status)
+
+	})
+}
+
+YcdAdmin.prototype.generalColors = function () {
+	jQuery('.generalColors').minicolors({
+		format: 'rgb',
+		opacity: 1
+	});
 }
 
 jQuery(document).ready(function() {
