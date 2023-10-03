@@ -268,7 +268,7 @@ foreach ($categories as $key => $category) {
 	 'hide_empty' => true, 
 	 ) );
 
-	 
+
 
 foreach ($tags as $key => $tag) {
 	//print_r($tag);
