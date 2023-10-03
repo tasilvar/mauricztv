@@ -60,7 +60,7 @@ if($getCategoryTag != null) {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',	
+		'meta_value' => 'off',
 		'tax_query'      => array(
 			array(
 				'taxonomy' => 'download_category',
@@ -68,7 +68,7 @@ if($getCategoryTag != null) {
 				'terms'    => [21],
 				'operator' => 'NOT IN'
 			),
-		),	
+		),		
 	);
 }
 
@@ -120,7 +120,7 @@ $args = array(
 $bestsellers_product = get_posts( $args );
 
 foreach($bestsellers_product as $product) { 
-	echo "<div class='col-sm-4'>";
+	echo "<div class='col-sm-6 col-lg-4'>";
 	echo "<div class='product'>";
 	
 	 //Miniatura
@@ -229,7 +229,7 @@ Sprawdź szkolenie</a>';
 <div class="container">
 
 <div class="row">
-<div class="col-md-3 left-sidebar">
+<div class="col-sm-3 left-sidebar">
 <h5>Kategorie</h5>
 
 <!-- BEGIN: Kategorie -->
@@ -333,7 +333,7 @@ foreach ($tags as $key => $tag) {
 <!-- END: Czas trwania -->
 </div>
 
-<div class="col-md-9 products-list">
+<div class="col-sm-9 products-list">
 <!-- BEGIN: Lista kursów -->
 
 
