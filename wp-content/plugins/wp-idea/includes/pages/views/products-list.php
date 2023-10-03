@@ -233,7 +233,7 @@ Sprawdź szkolenie</a>';
 
 	$categories = get_terms( array(
 		'taxonomy' => 'download_category',
-		'hide_empty' => false
+		'hide_empty' => true
 		) );
 
 	
