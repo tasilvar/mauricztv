@@ -882,7 +882,7 @@ if ( ! class_exists( 'Mega_Menu_Toggle_Blocks' ) ) :
                   <span class="mega-toggle-animated-box">
                     <span class="mega-toggle-animated-inner"></span>
                   </span>
-                </button>Menu';
+                </button>';
 
 			return apply_filters( 'megamenu_toggle_menu_toggle_animated_html', $html );
 

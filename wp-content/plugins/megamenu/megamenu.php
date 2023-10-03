@@ -3,7 +3,7 @@
  * Plugin Name: Max Mega Menu
  * Plugin URI:  https://www.megamenu.com
  * Description: An easy to use mega menu plugin. Written the WordPress way.
- * Version:     3.2.2
+ * Version:     3.2.3
  * Author:      megamenu.com
  * Author URI:  https://www.megamenu.com
  * License:     GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '3.2.2';
+		public $version = '3.2.3';
 
 
 		/**
@@ -166,7 +166,6 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 				if ( in_array( $hook, array( 'nav-menus.php', 'gutenberg_page_gutenberg-navigation' ), true ) ) {
 					// load widget scripts and styles first to allow us to dequeue conflicting colorbox scripts from other plugins.
 					do_action( 'sidebar_admin_setup' );
-					do_action( 'admin_enqueue_scripts', 'widgets.php' );
 					do_action( 'megamenu_nav_menus_scripts', $hook );
 				}
 
@@ -518,7 +517,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 			$args = (object) $args;
 
 			// make sure we're working with a Mega Menu.
-			if ( ! $args->walker || ! is_a( $args->walker, 'Mega_Menu_Walker' ) ) {
+			if ( ! property_exists( $args, 'walker' ) || ! $args->walker || ! is_a( $args->walker, 'Mega_Menu_Walker' ) ) {
 				return $nav_menu;
 			}
 
@@ -913,7 +912,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 					$item->classes[] = 'menu-flyout';
 				}
 
-				$new_items[ @$item->menu_order ] = $item;
+				$new_items[ $item->menu_order ] = $item;
 			}
 
 			ksort( $new_items );
@@ -945,7 +944,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 
 			if ( 'enabled' === $descriptions ) {
 				foreach ( $items as $item ) {
-					if ( property_exists( $item, 'description' ) && strlen( $item->description ) ) {
+					if ( property_exists( $item, 'description' ) && is_string( $item->description ) && strlen( $item->description ) ) {
 						$item->mega_description = $item->description;
 						$item->classes[]        = 'has-description';
 					}
@@ -1219,7 +1218,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 						'data-unbind'                => 'disabled' === $unbind ? 'false' : 'true',
 						'data-mobile-state'          => $mobile_state,
 						'data-hover-intent-timeout'  => absint( $hover_intent_params['timeout'] ),
-						'data-hover-intent-interval' => absint( $hover_intent_params['interval'] ),
+						'data-hover-intent-interval' => absint( $hover_intent_params['interval'] )
 					),
 					$menu_id,
 					$menu_settings,

@@ -130,8 +130,8 @@ class SimpleCountdown extends Countdown
         $id = $this->getId();
         ob_start();
         ?>
-        <div class="ycd-simple-mode-<?php echo esc_attr($mode); ?> ycd-simple-mode-<?php echo esc_attr($mode).'-'.esc_attr($id); ?>">
-            <?php foreach($unites as $key => $unite): ?>
+        <div class="ycd-simple-mode-<?php echo esc_attr($mode); ?> ycd-simple-mode-<?php echo esc_attr($mode).'-'.esc_attr($id); ?>"><--
+            --><?php foreach($unites as $key => $unite): ?>
                 <?php
                     $hideDotsClassName = '';
                     $hideUnite = '';
@@ -147,10 +147,7 @@ class SimpleCountdown extends Countdown
 	                    <?php echo (esc_attr($textToTop) ? wp_kses($this->timeUnitText($unite), $allowed_html): ''); ?>
                         <?php echo wp_kses($this->timeUnitNumber($unite), $allowed_html); ?><!--
                         --><?php echo (!esc_attr($textToTop) ? wp_kses($this->timeUnitText($unite), $allowed_html): ''); ?>
-                    </div>
-	                <?php if ($unite != 'seconds'): ?>
-                        <div class="ycd-simple-timer-dots <?php echo esc_attr($hideDotsClassName); ?>">:</div>
-		            <?php endif; ?>
+                    </div><?php if ($unite != 'seconds'): ?><div class="ycd-simple-timer-dots <?php echo esc_attr($hideDotsClassName); ?>"><?php echo esc_attr($this->getOptionValue('ycd-simple-timer-dotes')); ?></div><?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -207,7 +204,11 @@ class SimpleCountdown extends Countdown
     }
 
 	private function filterTranslations($prepareOptions) {
-		$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    	$serverLang = '';
+    	if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    		$serverLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	    }
+		$lang = substr($serverLang, 0, 2);
 		$translations = $this->getOptionValue('ycd-tr');
 		$currentTranslation = null;
 		if (empty($translations)) {
@@ -244,7 +245,7 @@ class SimpleCountdown extends Countdown
         ob_start();
         ?>
         <div class="ycd-countdown-wrapper ycd-simple-content-wrapper ycd-simple-content-wrapper-<?php echo esc_attr($id); ?>">
-            <div class="ycd-simple-time ycd-simple-container ycd-simple-wrapper-<?php echo esc_attr($id); ?>" data-options='<?php echo wp_kses($options, $allowed_html); ?>' data-id="<?php echo esc_attr($id); ?>">
+            <div class="ycd-simple-time ycd-simple-container ycd-countdown-content-wrapper ycd-simple-wrapper-<?php echo esc_attr($id); ?>" data-options='<?php echo wp_kses($options, $allowed_html); ?>' data-id="<?php echo esc_attr($id); ?>">
                 <?php echo wp_kses($this->render(), $allowed_html); ?>
             </div>
         </div>

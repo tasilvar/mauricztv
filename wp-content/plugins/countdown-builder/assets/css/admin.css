@@ -341,6 +341,18 @@ input:checked + .ycd-slider:before {
 	margin-top: 6px;
 }
 
+.ycd-label-of-input .toggle-indicator {
+	vertical-align: middle !important;
+}
+
+.toggle-indicator.rotate:before {
+	-webkit-transform: rotate(180deg) !important;
+	-moz-transform: rotate(180deg) !important;
+	-o-transform: rotate(180deg) !important;
+	-ms-transform: rotate(180deg) !important;
+	transform: rotate(180deg) !important;
+}
+
 .ycd-label-of-color {
 	margin-top: 5px;
 }

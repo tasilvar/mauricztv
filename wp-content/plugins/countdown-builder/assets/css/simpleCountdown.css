@@ -17,12 +17,13 @@
 }
 
 .ycd-simple-current-unite-wrapper {
-    display: inline-block;
+    display: inline-flex;
     vertical-align: top;
 }
 
 .ycd-simple-countdown-number, .ycd-simple-timer-dots {
     font-size: 35px;
+    line-height: 0.9;
 }
 
 .ycd-simple-countdown-label {

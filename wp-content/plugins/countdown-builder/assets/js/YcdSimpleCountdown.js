@@ -9,8 +9,6 @@ function YcdSimpleCountdown()
 	this.countdownContainer = jQuery('.ycd-simple-container');
 }
 
-YcdSimpleCountdown.prototype = new YcgGeneral();
-
 YcdSimpleCountdown.run = function()
 {
 	var simpleCountdown = jQuery('.ycd-simple-container');
@@ -23,12 +21,16 @@ YcdSimpleCountdown.run = function()
 	   var options = jQuery(this).data('options');
 	   var id = jQuery(this).data('id');
 		var obj = new YcdSimpleCountdown();
+
 		options['id'] = id;
 		obj.options = options;
 		obj.id = id;
 		obj.init();
+		YcgGeneral.bind(obj);
 	});
 };
+
+YcdSimpleCountdown.prototype = new YcgGeneral();
 
 YcdSimpleCountdown.prototype.init = function()
 {
@@ -216,6 +218,7 @@ YcdSimpleCountdown.prototype.livePreview = function()
 	this.changeFontFamily();
 	this.changeColor();
 	this.changeDoubeleDigits();
+	this.changeDotes();
 };
 
 YcdSimpleCountdown.prototype.changeText = function()
@@ -238,6 +241,19 @@ YcdSimpleCountdown.prototype.changeDoubeleDigits = function()
 	   that.doubeleDigits = status;
 	});
 };
+
+YcdSimpleCountdown.prototype.changeDotes = function () {
+	var dotesSelect = jQuery('.js-simple-timer-dotes');
+
+	if (!dotesSelect.length) {
+		return ;
+	}
+
+	dotesSelect.bind('change', function() {
+		var selectedValue = jQuery(this).val();
+		jQuery('.ycd-simple-timer-dots ').text(selectedValue);
+	})
+}
 
 YcdSimpleCountdown.prototype.changeSwitch = function()
 {

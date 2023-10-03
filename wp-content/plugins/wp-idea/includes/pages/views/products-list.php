@@ -60,15 +60,7 @@ if($getCategoryTag != null) {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',	
-		'tax_query'      => array(
-			array(
-				'taxonomy' => 'download_category',
-				'field'    => 'term_id',
-				'terms'    => [21],
-				'operator' => 'NOT IN'
-			),
-		),	
+		'meta_value' => 'off',		
 	);
 }
 
@@ -83,13 +75,13 @@ if($getCategoryTag != null) {
 //echo get_header();
 ?>
 
-<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
-<div class="bestsellers-block">
 <div class="product-inner-block">
 <h1 class="title-section text-center">Szkolenia 
 	<span class="green-text">polecane</span>
 	 przez użytkowników</h1>
 </div>
+<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
+
 <div class="product-list-upper row-full">
 <div class="container">
 
@@ -120,7 +112,7 @@ $args = array(
 $bestsellers_product = get_posts( $args );
 
 foreach($bestsellers_product as $product) { 
-	echo "<div class='col-sm-4'>";
+	echo "<div class='col-sm-6 col-lg-4'>";
 	echo "<div class='product'>";
 	
 	 //Miniatura
@@ -220,7 +212,6 @@ Sprawdź szkolenie</a>';
 
 </div>
 </div>
-</div>
 <!-- END: Szkolenia polecane przez uzytkownikow -->
 
 
@@ -229,7 +220,7 @@ Sprawdź szkolenie</a>';
 <div class="container">
 
 <div class="row">
-<div class="col-md-3 left-sidebar">
+<div class="col-sm-3 left-sidebar">
 <h5>Kategorie</h5>
 
 <!-- BEGIN: Kategorie -->
@@ -242,7 +233,7 @@ Sprawdź szkolenie</a>';
 
 	$categories = get_terms( array(
 		'taxonomy' => 'download_category',
-		'hide_empty' => true
+		'hide_empty' => false
 		) );
 
 	
@@ -333,7 +324,7 @@ foreach ($tags as $key => $tag) {
 <!-- END: Czas trwania -->
 </div>
 
-<div class="col-md-9 products-list">
+<div class="col-sm-9 products-list">
 <!-- BEGIN: Lista kursów -->
 
 

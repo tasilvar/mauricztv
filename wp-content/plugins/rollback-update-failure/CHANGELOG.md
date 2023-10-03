@@ -1,5 +1,18 @@
 [unreleased]
 
+#### 6.3.1 / 2023-10-22
+* removed too much stuff
+
+#### 6.3.0 / 2023-10-21
+* refactor RAU for merge
+* update commit conditional
+
+#### 6.2.2 / 2023-09-13
+* re-activate plugins at end of main loop
+
+#### 6.2.1 / 2023-09-02
+* add error exception for defining function in main plugin class
+
 #### 6.2.0 / 2023-08-15
 * minor email message adjustment
 * add default value in email processing for invalid current version

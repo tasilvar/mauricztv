@@ -502,6 +502,7 @@ abstract class Countdown {
 		$metaboxes['subscription'] = array('title' => 'Subscription Section', 'position' => 'normal', 'prioritet' => 'high');
 		$metaboxes['afterCountdownExpire'] = array('title' => 'After Expire', 'position' => 'normal', 'prioritet' => 'high');
 		$metaboxes['countdownButton'] = array('title' => 'Countdown Button Extension', 'position' => 'normal', 'prioritet' => 'high', 'defaultActionView' => array($this, 'countdownButton'));
+		$metaboxes['floatCountdown'] = array('title' => 'Float countdown', 'position' => 'normal', 'prioritet' => 'high', 'defaultActionView' => array($this, 'floatingCountdown'));
 
 		return $metaboxes;
 	}
@@ -521,6 +522,11 @@ abstract class Countdown {
 			}
 			add_meta_box($key, __($metabox['title'], YCD_TEXT_DOMAIN), $defaultActionView, YCD_COUNTDOWN_POST_TYPE, $metabox['position'], $metabox['prioritet'], array('typeObj' => $this));
 		}
+	}
+
+	public function floatingCountdown() {
+		$typeObj = $this;
+		require_once YCD_VIEWS_METABOXES_PATH.'floatingCountdown.php';
 	}
 
 	public function countdownButton() {
@@ -944,6 +950,10 @@ abstract class Countdown {
 		do_action('ycdGeneralScripts');
 		$content .= apply_filters('ycdCountdownAfterContent', '', $this);
 		$content .= '</div>';
+
+		if ($this->getOptionValue('ycd-countdown-enable-floating-countdown')) {
+			$content = $this->floatingContent($content);
+		}
 		return $content;
 	}
 
@@ -960,6 +970,9 @@ abstract class Countdown {
 
 		$countdownContent = apply_filters('ycdCountdownBeforeContent', '', $this);
 		$countdownContent .= $this->getViewContent();
+		if ($this->getOptionValue('ycd-countdown-enable-floating-countdown')) {
+			$countdownContent = $this->floatingContent($countdownContent);
+		}
 		$allContent = $content.$countdownContent;
 		if ($vertical == 'top') {
 			$allContent = $countdownContent.$content;
@@ -968,6 +981,11 @@ abstract class Countdown {
 		$allContent .= '<style>.ycd-circle-'.esc_attr($id).'-wrapper {text-align: '.esc_attr($horizontal).' !important;}</style>';
 
 		return $allContent;
+	}
+
+	private function floatingContent($content) {
+		require_once(dirname(__FILE__)."/Floating.php");
+		return new Floating($this, $content);
 	}
 	
 	public function chanegSavedDataFromArgs() {
@@ -1036,6 +1054,7 @@ abstract class Countdown {
 		$options['ycd-count-up-from-end-date'] = $this->getOptionValue('ycd-count-up-from-end-date');
 		$options['ycd-countdown-enable-woo-condition'] = $this->getOptionValue('ycd-countdown-enable-woo-condition');
 		$options['ycd-woo-condition'] = $this->getOptionValue('ycd-woo-condition');
+		$options['ycd-scroll-to-countdown'] = $this->getOptionValue('ycd-scroll-to-countdown');
 		$options['isExpired'] = $isExpired;
 		
 		do_action('ycdIncludeGeneralOptions', $this);

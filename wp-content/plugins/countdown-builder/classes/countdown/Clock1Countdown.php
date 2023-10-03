@@ -135,7 +135,7 @@ class Clock1Countdown extends Countdown {
         $args = json_encode($args);
         $options = json_encode($options);
 
-		$content = '<div class="ycd-countdown-wrapper ycd-countdown-'.esc_attr($id).'-wrapper">';
+		$content = '<div class="ycd-countdown-wrapper ycd-countdown-'.esc_attr($id).'-wrapper ycd-countdown-content-wrapper">';
 		$content .= '<canvas data-args="'.esc_attr($args).'" data-options="'.esc_attr($options).'" class="ycdClock1" width="'.esc_attr($width).'px" height="'.esc_attr($width).'px"></canvas>';
 		$content .= $this->renderSubscriptionForm();
 		$content .= '</div>';

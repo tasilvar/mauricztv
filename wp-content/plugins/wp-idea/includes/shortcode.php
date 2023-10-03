@@ -745,7 +745,7 @@ function mjcourses($atts) {
 	$all_product = get_posts( $args );
 
 	 foreach($all_product as $product) { 
-		$output .= "<div class='col-md-3'>";
+		$output .= "<div class='col-md-6 col-lg-3'>";
 		$output .= "<div class='product'>";
 		 //Miniatura
 		 $output .= "<div class='product-thumbnail'>";

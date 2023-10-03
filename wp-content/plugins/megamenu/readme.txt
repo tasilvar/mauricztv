@@ -2,8 +2,8 @@
 Contributors: megamenu
 Tags: menu, megamenu, mega menu, navigation, mobile
 Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 3.2.1
+Tested up to: 6.3
+Stable tag: 3.2.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -131,6 +131,12 @@ See https://www.megamenu.com for more screenshots
 5. Back end: Use the theme editor to change the appearance of your menus
 
 == Changelog ==
+
+= 3.2.3 =
+
+* Fix: Check the walker property exists before adding menu toggle to HTML output
+* Fix: PHP 8.1 warning
+* Fix: Conflict with The Bluehost Plugin
 
 = 3.2.2 =
 

@@ -82,6 +82,9 @@ YcdClock.prototype.renderClock = function() {
 		}
 		var context = element.getContext('2d');
 		var width = parseInt(jQuery(this).width());
+		if (!width) {
+			width = options['width'];
+		}
 		var settings = {};
 
 		settings.timeZone = options['timeZone'];

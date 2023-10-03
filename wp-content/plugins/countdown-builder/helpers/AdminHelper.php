@@ -886,6 +886,17 @@ class AdminHelper {
 			'bottom_right' => __('Bottom Right', YCD_TEXT_DOMAIN),
 		);
 
+		$data['floating-positions'] = array(
+			'top_left' => __('Top Left', YCD_TEXT_DOMAIN),
+			'top_center' => __('Top Center', YCD_TEXT_DOMAIN),
+			'top_right' => __('Top Right', YCD_TEXT_DOMAIN),
+			'bottom_left' => __('Bottom Left', YCD_TEXT_DOMAIN),
+			'bottom_right' => __('Bottom Right', YCD_TEXT_DOMAIN),
+			'bottom_center' => __('Bottom Center', YCD_TEXT_DOMAIN),
+			'left_center' => __('Left Center', YCD_TEXT_DOMAIN),
+			'right_center' => __('Right Center', YCD_TEXT_DOMAIN),
+		);
+
 		return apply_filters('ycdDefaults', $data);
 	}
 
@@ -1586,7 +1597,7 @@ class AdminHelper {
             'data-condition-id' => array(),
             'data-child-class' => array(),
             'data-id' => array(),
-            'style' => array(),
+            'style' => true,
 	        'data-ajaxnonce' => array(),
 	        'onclick' => array(),
 	        'data-*' => true,
