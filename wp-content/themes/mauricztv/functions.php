@@ -377,7 +377,7 @@ function redirectFromStudentsToUsers() {
     }
 }
 
-add_action('init','redirectFromStudentsToUsers');
+// add_action('init','redirectFromStudentsToUsers');
 
 function redirect_login_page() {
     $login_url  = home_url( '/logowanie' );

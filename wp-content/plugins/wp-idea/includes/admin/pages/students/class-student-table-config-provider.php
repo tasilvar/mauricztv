@@ -19,7 +19,8 @@ use bpmj\wpidea\user\User_Role_Factory;
 
 class Student_Table_Config_Provider implements Interface_Dynamic_Table_Config_Provider
 {
-    private const TABLE_ID = 'wpi_students_table';
+    //private const TABLE_ID = 'wpi_students_table';
+    private const TABLE_ID = 'wpi_users_table';
 
     private Interface_Translator $translator;
     private Interface_Readable_Course_Repository $courses_repository;
@@ -94,13 +95,13 @@ class Student_Table_Config_Provider implements Interface_Dynamic_Table_Config_Pr
                 'label' => $this->translator->translate('students.column.name'),
                 'filter' => 'text'
             ],
-            [
-                'property' => 'courses',
-                'label' => $this->translator->translate('students.column.courses'),
-                'filter' => 'multiselect',
-                'filter_options' => $this->get_filter_options(),
-                'sortable' => false
-            ]
+            // [
+            //     'property' => 'courses',
+            //     'label' => $this->translator->translate('students.column.courses'),
+            //     'filter' => 'multiselect',
+            //     'filter_options' => $this->get_filter_options(),
+            //     'sortable' => false
+            // ]
         ];
     }
 
