@@ -44,6 +44,7 @@ class User_Page_Renderer extends Abstract_Page_Renderer
 
     private function prepare_table(): Interface_Dynamic_Table
     {
+        
         return $this->dynamic_tables_module->create_table_from_config(
             $this->table_config_provider->get_config()
         );

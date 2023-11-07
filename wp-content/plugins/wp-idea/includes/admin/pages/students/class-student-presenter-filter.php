@@ -32,7 +32,7 @@ class Student_Presenter_Filter
             'email' => $student_email,
         ];
     }
-
+ 
     public function get_filtered_full_name(array $student_array): string
     {
         return $this->filters->apply(Access_Filter_Name::CUSTOMER_NAME, $student_array['full_name'], $student_array['id'], $student_array['email']);
