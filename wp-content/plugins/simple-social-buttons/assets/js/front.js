@@ -127,8 +127,11 @@ var ssbPlugin = ssbPlugin || {};
         var sidebarwidth = $('div[class*="simplesocialbuttons-float"]>a:first-child').outerWidth(true);
         $('div[class*="simplesocialbuttons-float"]').css('width', sidebarwidth + 'px');
         $('.simplesocialbuttons.ssb_counter-activate:not(.simplesocial-round-txt):not(.simplesocial-round-icon):not(.simplesocial-simple-icons) button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share)').each(function(){
-          var $elWidth = $(this).children('.ssb_counter').outerWidth();
-          $(this).css('padding-right', $elWidth + 10);
+			var el = $(this);
+			setTimeout(function(){
+				var $elWidth = el.children('.ssb_counter').innerWidth();
+				el.css('padding-right', $elWidth + 10);
+			}, 100);
         });
         // var sidebaroffset = $(window).width() -  1100;
         // if($('.simplesocialbuttons-float-left-post').length>0){

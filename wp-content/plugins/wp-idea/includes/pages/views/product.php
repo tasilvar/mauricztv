@@ -351,25 +351,25 @@ else {
                     <h3>Czego dowiesz się na szkoleniu?</h3>
                 </div>
                 
-                <div class="col-md-6 col-lg-3">
+                <div class="col-xs-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what01.png" alt="Mauricz TV">
                         <p><?php the_field('pierwszy_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-xs-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what02.png" alt="Mauricz TV">
                         <p><?php the_field('drugi_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-xs-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what03.png" alt="Mauricz TV">
                         <p><?php the_field('trzeci_tekst'); ?></p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-xs-6 col-lg-3">
                     <div class="inner">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/icon-what04.png" alt="Mauricz TV">
                         <p><?php the_field('czwarty_tekst'); ?></p>
