@@ -19,6 +19,7 @@ global $post;
     $product_id = (int)$getProductByPage->id;
     $product_price = $getProductByPage->price;
     $product_access = $getProductByPage->productAccess;
+    $product_short_description = get_the_excerpt($product_id);
  
 } else { 
     // typ DOWNLAOD (produkt)
@@ -26,6 +27,7 @@ global $post;
     $p = new Product($product_id);
     $product_price = get_post_meta( $product_id,  'edd_price', true);
     $sale_price = get_post_meta( $product_id,  'sale_price', true);
+    $product_short_description = get_the_excerpt($product_id);//get_post_meta( $product_id,  'edd_short_description', true);
     $sale_price_from_date = get_post_meta( $product_id,  'sale_price_from_date', true);
     $sale_price_to_date = get_post_meta( $product_id,  'sale_price_to_date', true);
     
@@ -272,6 +274,18 @@ if($show_open_padlock) {
         
     </div>
 
+    <div class="row-full mt-5 pt-5" style="text-align: center;">
+<h3>Opis szkolenia</h3>
+<div class="container">
+<p class="mt-5">
+<?php 
+
+echo $product_short_description;
+?>
+</p>
+</div>
+</div>
+
     <div class="kursy-agenda row-full">
     
         <div class="container">
@@ -316,7 +330,7 @@ else {
         </div>
         
     </div>	
-
+   
     <div class="kursy-who row-full">
     
         <div class="container">

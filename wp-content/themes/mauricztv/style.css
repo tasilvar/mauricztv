@@ -2068,3 +2068,24 @@ transform: translateY(0);
 .edd_cart_footer_row.edd_cart_discount_row {
 	text-align: right;
 }
+.products-list .product-title { 
+	height: 88px;
+	overflow: hidden;
+}
+.products-list .omniprice {
+	min-height: 10px;
+	overflow: hidden;
+}
+/**
+Ukrycie tymczasowe sekcji 
+Dlaczego ten kurs... 
+Jakie kompetencje...
+Czego dowiesz się na szkoleniu...
+*/
+.kursy-why.row, .kursy-competences.row, .kursy-what.row-full { 
+	display: none;
+}
+/*
+Usuniecie z acf pól
+cena, cena_przed_obnizka, cena_przekreslona
+*/
