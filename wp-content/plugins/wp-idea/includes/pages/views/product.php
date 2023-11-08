@@ -279,13 +279,13 @@ if($show_open_padlock) {
     <div class="row-full mt-5 pt-5" style="text-align: center;">
 <h3>Opis szkolenia</h3>
 <div class="container">
-<p class="mt-5">
+<p class="mt-5 text-left col-md-12">
 <?php 
 
 echo $product_short_description;
 ?>
 </p>
-<div class="col-md-8 text-left offset-md-2">
+<div class="col-md-12 text-left">
     <?php 
     echo $product_description;
     ?>
