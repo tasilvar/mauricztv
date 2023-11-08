@@ -5,7 +5,7 @@ Tags: GDPR, CCPA, CPRA, cookie notice, DSGVO, RGPD, LGPD, CNIL, PIPEDA, POPIA, V
 Requires at least: 5.0.0
 Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 3.1.4
+Stable tag: 3.1.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -161,6 +161,16 @@ For every update of the plugin, you will be notified of the installed plugins pa
 9. Privacy policy generator and cookie policy generator
 
 == Changelog ==
+
+= 3.1.6 =
+
+[Fix] - Review banner is reappearing for some users.
+
+= 3.1.5 =
+
+[Enhancement] - Increased Consent expiration upper limit to 9999.
+[Fix] - UI issues on Collapse menu.
+[Fix] - Translation issue on editing content from Languages tab.
 
 = 3.1.4 = 
 
@@ -614,7 +624,6 @@ Tested OK with WordPress version 6.2
 
 == Upgrade Notice ==
 
-= 3.1.4 = 
+= 3.1.6 = 
 
-[Enhancement] - WCAG/AA compliance for cookie banner.
-[Fix] - Minor UI changes and bug fixes.
+[Fix] - Review banner is reappearing for some users.

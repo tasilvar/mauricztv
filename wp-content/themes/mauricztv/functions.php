@@ -361,6 +361,24 @@ function mjloginpage() {
     return $output;
 }
 
+/**
+ * Przekierowanie do uzytkownikow
+ */
+function redirectFromStudentsToUsers() { 
+    //redirect_login_page
+    $url = basename($_SERVER['REQUEST_URI']);
+    // echo $url;
+    $users_url = admin_url( 'admin.php?page=wp-idea-users', '' );
+    ;
+    // exit();
+
+    if(strpos($url ,'admin.php?page=wp-idea-students') !== false) {
+        wp_redirect($users_url);
+    }
+}
+
+// add_action('init','redirectFromStudentsToUsers');
+
 function redirect_login_page() {
     $login_url  = home_url( '/logowanie' );
     $url = basename($_SERVER['REQUEST_URI']); // get requested URL

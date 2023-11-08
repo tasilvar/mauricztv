@@ -48,7 +48,18 @@
   right: 10px;
   margin-top: 3px;
 }
-
+.ssb_right_sidebar .ssb_social_links li .twitter .ssb-x-icon:after, .ssb-x-icon::after{
+    content: "\e920";
+    font-family: 'ssb-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    color: #0F1419;
+}
 .ssb_social_links_wrapper .postbox {
   min-width: 100%;
   border: 0;
@@ -270,7 +281,7 @@ div.inside div.simplesocialbuttons-nav li a {
   padding-right: 4px;
 }
 .simplesocialbuttons-nav.simple-icons a.simplesocial-twt-share{
-  background: #1b95e0;
+  background: #0f1419;
   color: #fff;
   cursor: pointer;
   font-weight: normal;
@@ -421,7 +432,7 @@ div.inside div.simplesocialbuttons-nav li a {
   display: inline-block;
 }
 .simplesocialbuttons-nav.simple-icons .simplesocial-twt-share:before{
-  content: "\e904";
+  content: "\e920";
 }
 .simplesocialbuttons-nav.simple-icons .simplesocial-twt-share:after{
   display: none;
@@ -570,7 +581,7 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav li a.simplesocial-twt-share:after {
-  content: "\e904";
+  content: "\e920";
 }
 
 .simplesocialbuttons-nav li a.simplesocial-linkedin-share:after {
@@ -578,7 +589,7 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.sm-round li a.simplesocial-twt-share {
-  color: #1da1f2;
+  color: #0f1419;
 }
 
 .simplesocialbuttons-nav.sm-round li a.simplesocial-linkedin-share {
@@ -600,6 +611,7 @@ div.inside div.simplesocialbuttons-nav li a {
 .simplesocialbuttons-nav.simple-round li a span {
   position: relative;
   z-index: 1;
+  top: 1px;
 }
 
 .simplesocialbuttons-nav.simple-round li a.simplesocial-fb-share {
@@ -607,7 +619,7 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.simple-round li a.simplesocial-twt-share {
-  background: #1da1f2;
+  background: #0f1419;
 }
 
 .simplesocialbuttons-nav.simple-round li a.simplesocial-linkedin-share {
@@ -621,7 +633,7 @@ div.inside div.simplesocialbuttons-nav li a {
 
 .simplesocialbuttons-nav.simple-round li a.simplesocial-twt-share:after,
 .simplesocialbuttons-nav.simple-round li a.simplesocial-twt-share:before {
-  background: #1889cf;
+  background: #304356;
 }
 
 .simplesocialbuttons-nav.simple-round li a.simplesocial-linkedin-share:after,
@@ -678,12 +690,12 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.round-txt li a.simplesocial-twt-share {
-  color: #1da1f2;
-  border-color: #1da1f2;
+  color: #0f1419;
+  border-color: #0f1419;
 }
 
 .simplesocialbuttons-nav.round-txt li a.simplesocial-twt-share:hover {
-  background: #1da1f2;
+  background: #0f1419;
   color: #fff;
 }
 
@@ -751,12 +763,12 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.round-btm-border li a.simplesocial-twt-share {
-  box-shadow: inset 0px 0px 0px 0px #1da1f2, 0px 2px 0px 0px #1da1f2, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
-  color: #1da1f2;
+  box-shadow: inset 0px 0px 0px 0px #0f1419, 0px 2px 0px 0px #0f1419, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+  color: #0f1419;
 }
 
 .simplesocialbuttons-nav.round-btm-border li a.simplesocial-twt-share:hover {
-  box-shadow: inset 0px -40px 0px 0px #1da1f2, 0px 2px 0px 0px #1da1f2, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: inset 0px -40px 0px 0px #0f1419, 0px 2px 0px 0px #0f1419, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
   color: #fff;
 }
 
@@ -779,7 +791,7 @@ div.inside div.simplesocialbuttons-nav li a {
   border-radius: 0;
   height: 38px;
   line-height: 26px;
-  padding: 5px 15px 5px 20px;
+  padding: 6px 15px 5px 20px;
   display: inline-block;
   text-decoration: none;
   font-size: 14px;
@@ -800,12 +812,12 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.flat-button-border li a.simplesocial-twt-share {
-  background: #1da1f2;
-  box-shadow: inset 0px 0px 0px 0px #1889cf, 0px 3px 0px 0px #1889cf;
+  background: #0f1419;
+  box-shadow: inset 0px 0px 0px 0px #304356, 0px 3px 0px 0px #304356;
 }
 
 .simplesocialbuttons-nav.flat-button-border li a.simplesocial-twt-share:hover {
-  box-shadow: inset 0px -40px 0px 0px #1889cf, 0px 3px 0px 0px #1889cf;
+  box-shadow: inset 0px -40px 0px 0px #304356, 0px 3px 0px 0px #304356;
 }
 
 .simplesocialbuttons-nav.flat-button-border li a.simplesocial-linkedin-share {
@@ -851,13 +863,13 @@ div.inside div.simplesocialbuttons-nav li a {
 }
 
 .simplesocialbuttons-nav.round-icon li a.simplesocial-twt-share {
-  color: #1da1f2;
-  border: 2px solid #1889cf;
+  color: #0f1419;
+  border: 2px solid #304356;
 }
 
 .simplesocialbuttons-nav.round-icon li a.simplesocial-twt-share:hover {
   color: #fff;
-  background: #1889cf;
+  background: #304356;
 }
 
 .simplesocialbuttons-nav.round-icon li a.simplesocial-linkedin-share {
@@ -2082,7 +2094,7 @@ display: block;
 }
 .ssb-ctt-btn #twitter_icon_ctt{
   margin-left:  8px;
-  fill: #1da1f2;
+  fill: #0f1419;
 }
 .ssb-ctt-wrapper:not(.hide-button ) .ssb-ctt{
   margin-bottom: 20px;
@@ -2116,6 +2128,12 @@ text-transform: uppercase;
 }
 .ssb-ctt-wrapper.simple-twitter .ssb-ctt-btn:hover #twitter_icon_ctt{
   fill: #fff;
+}
+.ssb-ctt-wrapper  #twitter_icon_ctt:after{
+	color: inherit;
+	font-size: inherit;
+	position: relative;
+	top: 1px;
 }
 
 /*-- twitter round --*/

@@ -19,7 +19,8 @@ use bpmj\wpidea\user\User_Role_Factory;
 
 class Student_Table_Config_Provider implements Interface_Dynamic_Table_Config_Provider
 {
-    private const TABLE_ID = 'wpi_students_table';
+    //private const TABLE_ID = 'wpi_students_table';
+    private const TABLE_ID = 'wpi_users_table';
 
     private Interface_Translator $translator;
     private Interface_Readable_Course_Repository $courses_repository;
@@ -85,22 +86,29 @@ class Student_Table_Config_Provider implements Interface_Dynamic_Table_Config_Pr
                 'filter' => 'text'
             ],
             [
-                'property' => 'email',
-                'label' => $this->translator->translate('students.column.email'),
-                'filter' => 'text',
-            ],
-            [
                 'property' => 'full_name',
                 'label' => $this->translator->translate('students.column.name'),
                 'filter' => 'text'
             ],
             [
-                'property' => 'courses',
-                'label' => $this->translator->translate('students.column.courses'),
+                'property' => 'email',
+                'label' => $this->translator->translate('students.column.email'),
+                'filter' => 'text',
+            ],
+            [
+                'property' => 'roles',
+                'label' => $this->translator->translate('users.column.roles'),
                 'filter' => 'multiselect',
                 'filter_options' => $this->get_filter_options(),
                 'sortable' => false
             ]
+            // [
+            //     'property' => 'courses',
+            //     'label' => $this->translator->translate('students.column.courses'),
+            //     'filter' => 'multiselect',
+            //     'filter_options' => $this->get_filter_options(),
+            //     'sortable' => false
+            // ]
         ];
     }
 

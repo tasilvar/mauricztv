@@ -3,8 +3,8 @@ Contributors: hiddenpearls, WPBrigade, desideveloper
 Donate link: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=donate-link
 Tags: Social share, Social buttons, Whatsapp, Viber, LinkedIn, facebook, twitter, pinterest, plus one
 Requires at least: 4.0
-Tested up to: 6.3
-Stable tag: 5.0.0
+Tested up to: 6.4
+Stable tag: 5.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +159,15 @@ like_button_size = small(default), large
 9. Social Share buttons on flyins.
 
 == Changelog ==
+
+= 5.1.1 - 2023-11-03 =
+* Bugfix: Restrict `password protected` posts meta-tags to unauthorised users.
+* Compatibility: Compatible with WordPress 6.4
+
+= 5.1.0 - 2023-10-30 =
+* Enhancement: Update the Twitter X icon.
+* Bugfix: Limit TwitCount script on specific area.
+* Compatibility: Compatible with WordPress 6.3
 
 = 5.0.0 - 2023-07-22 =
 * New Feature: Share images now on Pinterest, WhatsApp, Facebook, and Social Media.
@@ -515,5 +524,5 @@ like_button_size = small(default), large
 
 == Upgrade Notice ==
 
-= 5.0.0 =
+= 5.1.1 =
 * Upgrade Now: New Feature release.

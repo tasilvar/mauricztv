@@ -213,7 +213,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 				  <?php if ( 'simple-icons' == $key ) : ?>
 				  <ul>
 					<li><a href="#" class="simplesocial-fb-share"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="_1pbq" color="#ffffff"><path fill="#ffffff" fill-rule="evenodd" class="icon" d="M8 14H3.667C2.733 13.9 2 13.167 2 12.233V3.667A1.65 1.65 0 0 1 3.667 2h8.666A1.65 1.65 0 0 1 14 3.667v8.566c0 .934-.733 1.667-1.667 1.767H10v-3.967h1.3l.7-2.066h-2V6.933c0-.466.167-.9.867-.9H12v-1.8c.033 0-.933-.266-1.533-.266-1.267 0-2.434.7-2.467 2.133v1.867H6v2.066h2V14z"></path></svg></span><span class="simplesocial-hidden-text">Share</span></a></li>
-					<li><a href="#" class="simplesocial-twt-share"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path fill="none" d="M0 0h72v72H0z"></path><path class="icon" fill="#fff" d="M68.812 15.14c-2.348 1.04-4.87 1.744-7.52 2.06 2.704-1.62 4.78-4.186 5.757-7.243-2.53 1.5-5.33 2.592-8.314 3.176C56.35 10.59 52.948 9 49.182 9c-7.23 0-13.092 5.86-13.092 13.093 0 1.026.118 2.02.338 2.98C25.543 24.527 15.9 19.318 9.44 11.396c-1.125 1.936-1.77 4.184-1.77 6.58 0 4.543 2.312 8.552 5.824 10.9-2.146-.07-4.165-.658-5.93-1.64-.002.056-.002.11-.002.163 0 6.345 4.513 11.638 10.504 12.84-1.1.298-2.256.457-3.45.457-.845 0-1.666-.078-2.464-.23 1.667 5.2 6.5 8.985 12.23 9.09-4.482 3.51-10.13 5.605-16.26 5.605-1.055 0-2.096-.06-3.122-.184 5.794 3.717 12.676 5.882 20.067 5.882 24.083 0 37.25-19.95 37.25-37.25 0-.565-.013-1.133-.038-1.693 2.558-1.847 4.778-4.15 6.532-6.774z"></path></svg></span><span class="simplesocial-hidden-text">Tweet</span></a></li>
+					<li><a href="#" class="simplesocial-twt-share"><span class="icon"><svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.9 0H0L5.782 7.7098L0.315 14H2.17L6.6416 8.8557L10.5 14H15.4L9.3744 5.9654L14.56 0H12.705L8.5148 4.8202L4.9 0ZM11.2 12.6L2.8 1.4H4.2L12.6 12.6H11.2Z" fill="#fff"/></svg></span><span class="simplesocial-hidden-text">Tweet</span></a></li>
 					<li><a href="#" class="simplesocial-linkedin-share"><span class="icon"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="14.1px" viewBox="-301.4 387.5 15 14.1" enable-background="new -301.4 387.5 15 14.1" xml:space="preserve"> <g id="XMLID_398_"> <path id="XMLID_399_" fill="#FFFFFF" d="M-296.2,401.6c0-3.2,0-6.3,0-9.5h0.1c1,0,2,0,2.9,0c0.1,0,0.1,0,0.1,0.1c0,0.4,0,0.8,0,1.2 c0.1-0.1,0.2-0.3,0.3-0.4c0.5-0.7,1.2-1,2.1-1.1c0.8-0.1,1.5,0,2.2,0.3c0.7,0.4,1.2,0.8,1.5,1.4c0.4,0.8,0.6,1.7,0.6,2.5 c0,1.8,0,3.6,0,5.4v0.1c-1.1,0-2.1,0-3.2,0c0-0.1,0-0.1,0-0.2c0-1.6,0-3.2,0-4.8c0-0.4,0-0.8-0.2-1.2c-0.2-0.7-0.8-1-1.6-1 c-0.8,0.1-1.3,0.5-1.6,1.2c-0.1,0.2-0.1,0.5-0.1,0.8c0,1.7,0,3.4,0,5.1c0,0.2,0,0.2-0.2,0.2c-1,0-1.9,0-2.9,0 C-296.1,401.6-296.2,401.6-296.2,401.6z"></path> <path id="XMLID_400_" fill="#FFFFFF" d="M-298,401.6L-298,401.6c-1.1,0-2.1,0-3,0c-0.1,0-0.1,0-0.1-0.1c0-3.1,0-6.1,0-9.2 c0-0.1,0-0.1,0.1-0.1c1,0,2,0,2.9,0h0.1C-298,395.3-298,398.5-298,401.6z"></path> <path id="XMLID_401_" fill="#FFFFFF" d="M-299.6,390.9c-0.7-0.1-1.2-0.3-1.6-0.8c-0.5-0.8-0.2-2.1,1-2.4c0.6-0.2,1.2-0.1,1.8,0.2 c0.5,0.4,0.7,0.9,0.6,1.5c-0.1,0.7-0.5,1.1-1.1,1.3C-299.1,390.8-299.4,390.8-299.6,390.9L-299.6,390.9z"></path> </g> </svg></span><span class="simplesocial-hidden-text">Share</span></a></li>
 					<li><span style="line-height: 20px; vertical-align: top; font-weight: bold;display: inline-block;">Official Buttons</span></li>
 				  </ul>
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			<h2><?php _e( 'Spread the Word', 'simple-social-buttons' ); ?></h2>
 			<ul class="ssb_social_links">
 			  <li>
-				<a href="http://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on Twitter', 'simple-social-buttons' ); ?><span class="dashicons dashicons-twitter"></span></a>
+				<a href="http://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on X', 'simple-social-buttons' ); ?><span class="dashicons ssb-x-icon"></span></a>
 			  </li>
 			  <li>
 				<a href="https://www.facebook.com/sharer/sharer.php?u=https://wordpress.org/plugins/simple-social-buttons/" class="button facebook" target="_blank" title="Check out this (FREE) Amazing Social Share Plugin for WordPress"><?php _e( 'Share on Facebook', 'simple-social-buttons' ); ?><span class="dashicons dashicons-facebook"></span>
@@ -532,14 +532,13 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			<h2><?php _e( 'Recommended Plugins', 'simple-social-buttons' ); ?></h2>
 			<ul class="plugins_lists">
 			  <li>
-				<a href="https://wpbrigade.com/wordpress/plugins/loginpress-pro/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Post to Twitter Now">LoginPress - Login Customizer</a>
+				<a href="https://loginpress.pro/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Post to Twitter Now">Customize WordPress Login Page</a>
 			  </li>
 			  <li>
-				<a href="https://analytify.io/ref/73/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Share with your facebook friends about this awesome plugin.">Google Analytics by Analytify
-				</a>
+				<a href="https://analytify.io/ref/73/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Share with your facebook friends about this awesome plugin.">Simplify Google Analytics in WordPress</a>
 			  </li>
 			  <li>
-				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Releated Posts Thumbnails">Releated Posts Thumbnails</a>
+				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Related Posts Thumbnails">Related Posts Thumbnails</a>
 			  </li>
 			  <li>
 				<a href="http://wpbrigade.com/recommend/maintenance-mode" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
@@ -898,7 +897,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			if( class_exists( 'Simple_Social_Buttons_Pro') ) {
 				$tabs[] = array(
 					'id'    => 'ssb_click_to_tweet',
-					'title' => '<span class="dashicons dashicons-twitter"></span>Click To Tweet',
+					'title' => '<span class="dashicons ssb-x-icon"></span>Click To Tweet',
 				);
 			}
 
@@ -1023,15 +1022,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 												<span class="ssb-ctt-text"><?php echo __( 'Social media is about the people! Not about your business. Provide for the people and the people will provide you.' ); ?></span>
 												<span class="ssb-ctt-btn">
 														Click to tweet
-														<svg version="1.1" id="twitter_icon_ctt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="17.1px" height="14px" viewBox="0 0 17.1 14" enable-background="new 0 0 17.1 14" xml:space="preserve">
-															<g>
-																	<path fill="" d="M8.7,1.7c0.7-1.2,2.1-1.9,3.5-1.7c0.9,0.1,1.5,0.6,2.2,1.1c0.7-0.2,1.5-0.5,2.2-0.8
-																		c-0.3,0.7-0.8,1.4-1.5,1.9c0.7-0.1,1.3-0.4,2-0.5c-0.5,0.7-1.2,1.2-1.8,1.8c0.1,2.5-0.7,5.1-2.4,7C11.2,12.7,8.2,14,5.4,14
-																		c-1.9,0.1-3.8-0.6-5.4-1.5c1.8,0.2,3.7-0.4,5.1-1.5c-1.5,0-2.7-1.1-3.2-2.4c0.5,0,1,0,1.5,0C2.6,8.3,1.8,7.7,1.2,6.8
-																		C0.8,6.2,0.7,5.5,0.6,4.9c0.5,0.2,1,0.4,1.5,0.5C1.5,4.7,0.8,3.9,0.7,3C0.5,2.2,0.8,1.4,1.1,0.6c0.7,0.7,1.4,1.5,2.2,2
-																		c1.5,1,3.2,1.6,5,1.7C8.3,3.4,8.2,2.5,8.7,1.7z"></path>
-															</g>
-														</svg>
+														<span id="twitter_icon_ctt" class="ssb-x-icon"></span>
 												</span>
 											</span>
 									</a>

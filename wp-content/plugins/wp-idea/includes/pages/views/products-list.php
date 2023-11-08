@@ -60,7 +60,15 @@ if($getCategoryTag != null) {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',		
+		'meta_value' => 'off',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'term_id',
+				'terms'    => [21],
+				'operator' => 'NOT IN'
+			),
+		),		
 	);
 }
 
@@ -75,13 +83,13 @@ if($getCategoryTag != null) {
 //echo get_header();
 ?>
 
+<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
+<div class="bestsellers-block">
 <div class="product-inner-block">
 <h1 class="title-section text-center">Szkolenia 
 	<span class="green-text">polecane</span>
 	 przez użytkowników</h1>
 </div>
-<!-- BEGIN: Szkolenia polecane przez uzytkownikow -->
-
 <div class="product-list-upper row-full">
 <div class="container">
 
@@ -212,6 +220,7 @@ Sprawdź szkolenie</a>';
 
 </div>
 </div>
+</div>
 <!-- END: Szkolenia polecane przez uzytkownikow -->
 
 
@@ -233,7 +242,7 @@ Sprawdź szkolenie</a>';
 
 	$categories = get_terms( array(
 		'taxonomy' => 'download_category',
-		'hide_empty' => false
+		'hide_empty' => true
 		) );
 
 	
@@ -258,6 +267,7 @@ foreach ($categories as $key => $category) {
 	 'taxonomy' => 'download_tag', 
 	 'hide_empty' => true, 
 	 ) );
+
 
 
 foreach ($tags as $key => $tag) {

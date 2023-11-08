@@ -38,7 +38,7 @@ class Student_Table_Data_Provider implements Interface_Dynamic_Table_Data_Provid
     public function get_rows(array $filters, Sort_By_Clause $sort_by, int $per_page, int $page, Dynamic_Table_Data_Usage_Context $context): array
     {
         $rows = [];
-
+ 
         foreach ($this->student_repository->find_by_criteria($this->get_criteria_from_query_filters($filters), $page, $per_page, $sort_by) as $student) {
             $row = $this->student_filter->filtered_array($student->to_array());
 
