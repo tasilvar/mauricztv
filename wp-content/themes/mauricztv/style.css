@@ -759,6 +759,11 @@ table.product-feature td {
 	text-decoration: line-through;
     color: #aaa;
 }
+@media(max-width:1200px ) { 
+	.price-container .crossed {
+		font-size: 1.5rem;
+	 }
+}
 .product .product-price.sale {
 	color: #ff133e;
 	margin-right: 15px;
@@ -847,7 +852,7 @@ div#content {
     margin: 0;
     display: block;
     margin: 0 15px;
-	min-height: 10px;
+	min-height: 16px;
     line-height: 8px;
  }
  .left-sidebar li, .left-sidebar li a {
@@ -2073,7 +2078,6 @@ transform: translateY(0);
 	overflow: hidden;
 }
 .products-list .omniprice {
-	min-height: 10px;
 	overflow: hidden;
 }
 /**

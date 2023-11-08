@@ -20,6 +20,7 @@ global $post;
     $product_price = $getProductByPage->price;
     $product_access = $getProductByPage->productAccess;
     $product_short_description = get_the_excerpt($product_id);
+    $product_description = get_the_content($product_id);
  
 } else { 
     // typ DOWNLAOD (produkt)
@@ -28,6 +29,7 @@ global $post;
     $product_price = get_post_meta( $product_id,  'edd_price', true);
     $sale_price = get_post_meta( $product_id,  'sale_price', true);
     $product_short_description = get_the_excerpt($product_id);//get_post_meta( $product_id,  'edd_short_description', true);
+    $product_description = get_the_content($product_id);
     $sale_price_from_date = get_post_meta( $product_id,  'sale_price_from_date', true);
     $sale_price_to_date = get_post_meta( $product_id,  'sale_price_to_date', true);
     
@@ -283,6 +285,11 @@ if($show_open_padlock) {
 echo $product_short_description;
 ?>
 </p>
+<div class="col-md-8 text-left offset-md-2">
+    <?php 
+    echo $product_description;
+    ?>
+</div>
 </div>
 </div>
 
