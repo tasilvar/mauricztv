@@ -2093,10 +2093,16 @@ Dlaczego ten kurs...
 Jakie kompetencje...
 Czego dowiesz się na szkoleniu...
 */
-.kursy-why.row, .kursy-competences.row, .kursy-what.row-full { 
+.kursy-why.row, .kursy-competences.row, .kursy-what.row-full, .kursy-agenda { 
 	display: none;
 }
 /*
 Usuniecie z acf pól
 cena, cena_przed_obnizka, cena_przekreslona
 */
+
+
+/* blok cookie */
+.cky-consent-container {
+	/* z-index: inherit !important; */
+}

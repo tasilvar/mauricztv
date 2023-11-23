@@ -289,10 +289,10 @@ foreach ($tags as $key => $tag) {
 	<form method="POST" class="mjfilter">
 		<div class="range-container">
 			<label class="left-align">
-			<?= getMinMaxRange($productTime,'min'); ?>h
+			<?= getMinMaxRange($productTime,'min'); ?>min
 			</label>
 			<label class="right-align">
-			<?= getMinMaxRange($productTime,'max'); ?>h
+			<?= getMinMaxRange($productTime,'max'); ?>min
 			</label>
 		</div>
   <input type="range" id="czas" name="czas" 
