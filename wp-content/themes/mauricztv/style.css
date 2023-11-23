@@ -2103,6 +2103,7 @@ cena, cena_przed_obnizka, cena_przekreslona
 
 
 /* blok cookie */
-.cky-consent-container {
+.page-template-login-page .cky-consent-container {
 	/* z-index: inherit !important; */
+	display: none !important;
 }
