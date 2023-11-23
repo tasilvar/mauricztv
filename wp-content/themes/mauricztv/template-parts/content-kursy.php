@@ -331,7 +331,7 @@
 						Czas trwania:
 					</div>	
 					<div class="col-md-6">
-						<?php the_field('czas_kursu'); ?>h
+						<?php the_field('czas_kursu'); ?>min
 					</div>	
 				</div>
 				

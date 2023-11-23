@@ -150,7 +150,7 @@ foreach($bestsellers_product as $product) {
 			echo "</td>";
 			echo "<td>";
 				echo get_field('czas_kursu', $product->ID);
-			echo "h</td>";
+			echo "min</td>";
 		echo "</tr>";
 
 		echo "<tr>";
@@ -388,7 +388,7 @@ $all_product = get_posts( $argsAll );
 				echo "</td>";
 				echo "<td>";
 					echo get_field('czas_kursu', $product->ID);
-				echo "h</td>";
+				echo "min</td>";
 			echo "</tr>";
 
 			echo "<tr>";

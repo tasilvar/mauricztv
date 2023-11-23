@@ -19,8 +19,6 @@ global $post;
     $product_id = (int)$getProductByPage->id;
     $product_price = $getProductByPage->price;
     $product_access = $getProductByPage->productAccess;
-    $product_short_description = get_the_excerpt($product_id);
-    $product_description = get_the_content($product_id);
  
 } else { 
     // typ DOWNLAOD (produkt)
@@ -28,8 +26,6 @@ global $post;
     $p = new Product($product_id);
     $product_price = get_post_meta( $product_id,  'edd_price', true);
     $sale_price = get_post_meta( $product_id,  'sale_price', true);
-    $product_short_description = get_the_excerpt($product_id);//get_post_meta( $product_id,  'edd_short_description', true);
-    $product_description = get_the_content($product_id);
     $sale_price_from_date = get_post_meta( $product_id,  'sale_price_from_date', true);
     $sale_price_to_date = get_post_meta( $product_id,  'sale_price_to_date', true);
     
@@ -106,11 +102,11 @@ $show_open_padlock = false;
                         
                         <p class="inner04">Liczba lekcji: <?php the_field('liczba_lekcji'); ?></p>
                         
-                        <p class="inner05">Czas kursu: <?php the_field('czas_kursu'); ?>h</p>
+                        <p class="inner05">Czas kursu: <?php the_field('czas_kursu'); ?>min</p>
                         
                         <p class="inner06">Szkolenie kupiło aż <?php the_field('ilosc_kursantow'); ?> kursantów!</p>
                         
-                        <p class="inner07">Prowadzący: <?php the_field('prowadzacy'); ?></p>
+                        <p class="inner07">Szkolenie prowadzi: <?php the_field('prowadzacy'); ?></p>
                         
                     </div>
                     
@@ -276,23 +272,6 @@ if($show_open_padlock) {
         
     </div>
 
-    <div class="row-full mt-5 pt-5" style="text-align: center;">
-<h3>Opis szkolenia</h3>
-<div class="container">
-<p class="mt-5 text-left col-md-12">
-<?php 
-
-echo $product_short_description;
-?>
-</p>
-<div class="col-md-12 text-left">
-    <?php 
-    echo $product_description;
-    ?>
-</div>
-</div>
-</div>
-
     <div class="kursy-agenda row-full">
     
         <div class="container">
@@ -337,14 +316,14 @@ else {
         </div>
         
     </div>	
-   
+
     <div class="kursy-who row-full">
     
         <div class="container">
             <div class="row">
             
                 <div class="col-md-12">
-                    <h3>Szkolenie opracował</h3>
+                    <h3>Szkolenie opracowane przez</h3>
                 </div>
                 
                 <div class="col-md-6">
@@ -504,35 +483,24 @@ else {
         <div class="box">
             <h6><?php the_title(); ?></h6>
             
-            <?php
-                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
-                        ?>
-            <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
-        <?php
-    }
-    ?>
- 
-                    <?php
-                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
-                        ?>
-        <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
-    <?php
-    } else {?>
-        <h4><?php echo $product_price; ?> PLN</h4>
-    <?php
-    }
-    ?>
+            <?php if ( get_field( 'cena_przekreslona' ) ): ?>
+                <h4 class="crossed"><?php the_field('cena_przekreslona'); ?> PLN</h4>
+            <?php endif; ?>
                     
-                    <small>
-                        <?= bpmj_render_lowest_price_information($product_id); ?>
-                            <!-- Najniższa cena z 30 dni:  -->
-                             <!-- PLN -->
-                            </small>
+            <h4><?php the_field('cena'); ?> PLN</h4>
+                    
+            <?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
+                <small>
+                    <!-- Najniższa cena z 30 dni: -->
+                    <?= bpmj_render_lowest_price_information($product_id); ?>
+                     <!-- PLN -->
+                    </small>
+            <?php endif; ?>
             
             <div class="row">
             
                 <div class="col-xs-6 text-right">
-                    Liczba modułów:
+                    Liczba lekcji:
                 </div>
                 <div class="col-xs-6">
                     <?php the_field('liczba_lekcji'); ?>
@@ -541,7 +509,7 @@ else {
                     Czas trwania:
                 </div>	
                 <div class="col-xs-6">
-                    <?php the_field('czas_kursu'); ?>h
+                    <?php the_field('czas_kursu'); ?>min
                 </div>	
             </div>
             

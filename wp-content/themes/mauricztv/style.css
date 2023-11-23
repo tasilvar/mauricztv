@@ -192,6 +192,12 @@ h3 em{font-style:normal;color:#1AD779;}
 .top-menu ul li{list-style-type:none;display:inline-block;margin:0 6px;}
 .top-menu ul li a{border: 2px solid #1AD779;padding:19px 19px;color:#323739;font-size:16px;/*line-height:19px;*/line-height:1;font-weight:600;text-transform:uppercase;}
 
+#mysticky-nav .myfixed{padding-top: 10px;}
+#mysticky-nav .myfixed div#logo-cell{margin:0;}
+#mysticky-nav .myfixed .top-menu ul li a{padding:10px 0.990vw;}
+#mysticky-nav .myfixed .menu_glowne{margin-top:-3px;}
+#mysticky-nav .myfixed .menu_glowne ul li a {padding:10px 0.990vw;height:auto;min-height:auto;}
+
 /*front page*/
 .top-home{background:url('./img/top-home.jpg')no-repeat top center / contain;padding-top:16.644vw;}
 .top-home h1{font-size:64px!important;line-height:78px!important;font-weight:800!important;text-transform:unset;}
@@ -647,6 +653,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
 
 .row-full{padding-left:15px;padding-right:15px;width:100vw;position:relative;margin-left:-50vw;left:50%;}
 
+.hidden-all{display:none!important;}
 
 .tml-register ul.tml-links{display:none;}
 .tml-lostpassword ul.tml-links{display:none;}
@@ -1036,7 +1043,7 @@ Etykiety
 }
 
 .menu_glowne {
-    padding: 0px !important;
+    padding: 0px !important;margin-top:-2px;
 }
 
 .menu_glowne li {display:inline-block;
@@ -2030,7 +2037,7 @@ transform: translateY(0);
 	.top-menu ul li a{padding:19px 0.990vw;font-size:0.833vw;/*height:3.177vw;*/height:auto;}
 	
 	.menu_glowne ul{padding:0!important;}
-	.menu_glowne ul li a{padding:19px 0.990vw;font-size:0.833vw!important;/*height:3.177vw;*/height:auto;display:inline-block;min-height:61px;}
+	.menu_glowne ul li a{padding:19px 0.990vw;font-size:0.833vw!important;/*height:3.177vw;*/height:auto;display:inline-block;min-height:61px;min-height:57px;}
 	.menu_glowne ul.sub-menu li a{height:auto;}
 	
 	.blog a.post-link{font-size:1.250vw;}
