@@ -106,8 +106,12 @@ $show_open_padlock = false;
                         
                         <p class="inner06">Szkolenie kupiło aż <?php the_field('ilosc_kursantow'); ?> kursantów!</p>
                         
-                        <p class="inner07">Szkolenie prowadzi: <?php the_field('prowadzacy'); ?></p>
-                        
+                        <p class="inner07<?php if (get_field('prowadzacy') == 'Jakub Mauricz') { ?>-jakub
+						<?php } elseif (get_field('prowadzacy') == 'Patrycja Szachta') { ?>-patrycja
+						<?php } elseif (get_field('prowadzacy') == 'Małgorzata Ostrowska') { ?>-malgorzata
+						<?php } ?>
+						">Szkolenie prowadzi: <?php the_field('prowadzacy'); ?></p>
+ 
                     </div>
                     
                     <h6 class="price">Cena:</h6>
@@ -236,6 +240,14 @@ if($show_open_padlock) {
         </div>
 
     </div>
+	
+	<div class="kursy-content row" id="kursy-content">
+	
+		<h3>Opis szkolenia</h3>
+	
+		<?php the_content(); ?>
+	
+	</div>
     
     
     <div class="kursy-why row" id="kursy-why">
@@ -271,6 +283,7 @@ if($show_open_padlock) {
         </div>
         
     </div>
+	
 
     <div class="kursy-agenda row-full">
     
@@ -317,7 +330,14 @@ else {
         
     </div>	
 
-    <div class="kursy-who row-full">
+    <div class="kursy-who row-full
+	
+		<?php if (get_field('prowadzacy') == 'Jakub Mauricz') { ?>kw-jakub
+		<?php } elseif (get_field('prowadzacy') == 'Patrycja Szachta') { ?>kw-patrycja
+		<?php } elseif (get_field('prowadzacy') == 'Małgorzata Ostrowska') { ?>kw-malgorzata
+		<?php } ?>
+	
+	">
     
         <div class="container">
             <div class="row">
@@ -327,9 +347,22 @@ else {
                 </div>
                 
                 <div class="col-md-6">
-                    <h4><?php the_field('imie_i_nazwisko'); ?></h4>
+                    <h4><?php the_field('prowadzacy'); ?><?php //the_field('imie_i_nazwisko'); ?></h4>
                     
-                    <?php the_field('kto_opracowal_tresc'); ?>
+						<?php if (get_field('prowadzacy') == 'Jakub Mauricz') { ?>
+						
+							<?php the_field('kto_opracowal_tresc'); ?>
+						
+						<?php } elseif (get_field('prowadzacy') == 'Patrycja Szachta') { ?>
+						
+							<?php the_field('kto_opracowal_tresc_patrycja'); ?>
+						
+						<?php } elseif (get_field('prowadzacy') == 'Małgorzata Ostrowska') { ?>
+						
+							<?php the_field('kto_opracowal_tresc_malgorzata'); ?>
+						
+						<?php } ?>
+                    
                     
                 </div>
                 
@@ -378,25 +411,25 @@ else {
                 
                 <div class="col-md-12">
                 <?php 
-if($show_open_padlock != '1') { 
-?>
-                          <!--  BEGIN: Dodaj do koszyka -->
-<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
-               'add-to-cart' => (int)$product_id,
-           ) ) ); ?>" class="more">Kup teraz</a>
-          <!--  END: Dodaj do koszyka -->  
-<?php 
-}
-else {
-?>
-<!-- BEGIN: PRZEJDZ DO KURSU -->
-<a href="<?php echo get_permalink($course_page_id); ?>" class="box_glowna_add_to_cart_link more" style=" background: #333;color: #fff;"><i
-    class="fa fa-arrow-right"></i><?php _e( 'GO TO COURSE', BPMJ_EDDCM_DOMAIN ) ?>
-</a>
-<!-- END: PRZEJDZ DO KURSU -->
-<?php 
-}
-?>
+					if($show_open_padlock != '1') { 
+					?>
+											  <!--  BEGIN: Dodaj do koszyka -->
+					<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
+								   'add-to-cart' => (int)$product_id,
+							   ) ) ); ?>" class="more">Kup teraz</a>
+							  <!--  END: Dodaj do koszyka -->  
+					<?php 
+					}
+					else {
+					?>
+					<!-- BEGIN: PRZEJDZ DO KURSU -->
+					<a href="<?php echo get_permalink($course_page_id); ?>" class="box_glowna_add_to_cart_link more" style=" background: #333;color: #fff;"><i
+						class="fa fa-arrow-right"></i><?php _e( 'GO TO COURSE', BPMJ_EDDCM_DOMAIN ) ?>
+					</a>
+					<!-- END: PRZEJDZ DO KURSU -->
+					<?php 
+					}
+					?>
                 </div>
                 
             </div>
@@ -482,20 +515,34 @@ else {
         
         <div class="box">
             <h6><?php the_title(); ?></h6>
-            
-            <?php if ( get_field( 'cena_przekreslona' ) ): ?>
-                <h4 class="crossed"><?php the_field('cena_przekreslona'); ?> PLN</h4>
-            <?php endif; ?>
+             
+            <!-- cena -->
+            <?php
+                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+                        ?>
+            <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
+        <?php
+    }
+    ?>
                     
-            <h4><?php the_field('cena'); ?> PLN</h4>
+                    <?php
+                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+                        ?>
+        <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
+    <?php
+    } else {?>
+        <h4><?php echo $product_price; ?> PLN</h4>
+    <?php
+    }
+    ?>
                     
-            <?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
-                <small>
+             
+                <small class="omniprice">
                     <!-- Najniższa cena z 30 dni: -->
                     <?= bpmj_render_lowest_price_information($product_id); ?>
                      <!-- PLN -->
                     </small>
-            <?php endif; ?>
+             
             
             <div class="row">
             
