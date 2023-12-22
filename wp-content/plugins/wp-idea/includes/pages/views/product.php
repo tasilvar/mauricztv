@@ -536,19 +536,24 @@ else {
         <div class="box">
             <h6><?php the_title(); ?></h6>
             
-            <?php if ( get_field( 'cena_przekreslona' ) ): ?>
-                <h4 class="crossed"><?php the_field('cena_przekreslona'); ?> PLN</h4>
-            <?php endif; ?>
+            <?php
+                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+                        ?>
+        <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
+    <?php
+    } else {?>
+        <h4><?php echo $product_price; ?> PLN</h4>
+    <?php
+    }
+    ?>
                     
-            <h4><?php the_field('cena'); ?> PLN</h4>
-                    
-            <?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
-                <small>
+            
+                <small class="omniprice">
                     <!-- Najniższa cena z 30 dni: -->
                     <?= bpmj_render_lowest_price_information($product_id); ?>
                      <!-- PLN -->
                     </small>
-            <?php endif; ?>
+         
             
             <div class="row">
             
