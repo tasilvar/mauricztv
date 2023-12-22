@@ -90,7 +90,15 @@ $show_open_padlock = false;
                     
                         <?php if ( get_field( 'nieograniczony_dostep' ) ): ?>
                             <p class="inner01"><b>Nieograniczony dostęp</b></p>
+						<?php else: ?>	
+							<p class="inner01"><b>Dostęp na 365 dni</b></p>
                         <?php endif; ?>
+						
+						
+						
+
+						
+						
                         
                         <?php if ( get_field( 'imienny_certyfikat' ) ): ?>
                             <p class="inner02"><b>Imienny certyfikat</b></p>
@@ -175,7 +183,7 @@ if($show_open_padlock) {
 ?>
 <!-- END: PRZEJDŹ DO PANELU -->
 
-                        <a href="#kursy-why" class="more-empty">Więcej o kursie</a>
+                        <a href="#kursy-content" class="more-empty">Więcej o kursie</a>
                     </div>
 
 <!-- BEGIN: Sprawdź czy kurs dostępny -->
@@ -224,9 +232,21 @@ if($show_open_padlock) {
                 <div class="col-md-6">
                     
                     <div class="movie">
-                        <?php the_field('filmik'); ?>
+					
+						<?php if (get_field('filmik')) { ?>
+
+							<?php the_field('filmik'); ?>
+
+						<?php } ?>
+					
+						<?php if (get_field('grafika_zamiast_filmu')) { ?>
+
+							<img src="<?php the_field('grafika_zamiast_filmu'); ?>" />
+
+						<?php } ?>
+						
                     </div>	
-                
+
                 </div>
                 
                 <div class="col-md-12 top-kursy-links">
@@ -515,34 +535,20 @@ else {
         
         <div class="box">
             <h6><?php the_title(); ?></h6>
-             
-            <!-- cena -->
-            <?php
-                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
-                        ?>
-            <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
-        <?php
-    }
-    ?>
+            
+            <?php if ( get_field( 'cena_przekreslona' ) ): ?>
+                <h4 class="crossed"><?php the_field('cena_przekreslona'); ?> PLN</h4>
+            <?php endif; ?>
                     
-                    <?php
-                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
-                        ?>
-        <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
-    <?php
-    } else {?>
-        <h4><?php echo $product_price; ?> PLN</h4>
-    <?php
-    }
-    ?>
+            <h4><?php the_field('cena'); ?> PLN</h4>
                     
-             
-                <small class="omniprice">
+            <?php if ( get_field( 'cena_przed_obnizka' ) ): ?>
+                <small>
                     <!-- Najniższa cena z 30 dni: -->
                     <?= bpmj_render_lowest_price_information($product_id); ?>
                      <!-- PLN -->
                     </small>
-             
+            <?php endif; ?>
             
             <div class="row">
             
