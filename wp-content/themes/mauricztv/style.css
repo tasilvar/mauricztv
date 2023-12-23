@@ -2132,3 +2132,7 @@ fix wizualny contenera dla odpowiedzi z ajaxa
 
 
 .lekcja_top_opis{display:none!important;}
+.product-list-categories li:last-child,
+ ul.home-category-items.product-list-categories > li:nth-child(5) > button {
+	display: none !important;
+}
