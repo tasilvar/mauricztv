@@ -91,6 +91,13 @@ foreach($export as $ex) {
                 
                 $data['first'] = $ex['Billing: First Name'];
                 $data['last'] = $ex['Billing: Last Name'];
+                //Adres
+                $data['edd-payment-address'][0]['line1'] = $ex['Billing: Street Address 1'];
+                $data['edd-payment-address'][0]['line2'] = $ex['Billing: Street Address 2'];
+                $data['edd-payment-address'][0]['city'] = $ex['Billing: City'];
+                $data['edd-payment-address'][0]['zip'] = $ex['Billing: ZIP Code'];
+                $data['edd-payment-address'][0]['state'] = $ex['Billing: State'];
+                $data['edd-payment-address'][0]['country'] = $ex['Billing: Country (prefix)'];
 
                 if( empty( $data['downloads'][0]['id'] ) ) {
                     continue;
@@ -171,16 +178,7 @@ foreach($export as $ex) {
                     $total = $price;
                 }
      
-                // if we are using Wallet, ensure the customer can afford this purchase
-               /*
-                if( ! empty( $data['wallet'] ) && class_exists( 'EDD_Wallet' ) && $user_id > 0 ) {
-                    $wallet_value = edd_wallet()->wallet->balance( $user_id );
-    
-                    if( $wallet_value <br $total ) {
-                        wp_die( __( 'The customer does not have sufficient funds in their wallet to pay for this purchase.', 'edd-manual-purchases' ) );
-                    }
-                }
-                */
+                
     
                 $date = ! empty( $data['date'] ) ? date( 'Y-m-d H:i:s', strtotime( strip_tags( trim( $data['date'] ) ) ) ) : false;
                 if( ! $date ) {
@@ -206,13 +204,16 @@ foreach($export as $ex) {
                     'currency'     => edd_get_currency(),
                     'downloads'    => $data['downloads'],
                     'cart_details' => $cart_details,
-                    'status'       => 'pending'
+                    'status'       => 'pending',
                 );
     
+                //
+                // Dodawanie adresu do zamówienia
+                //
                 $payment_id = edd_insert_payment( $purchase_data );
     
                 edd_update_payment_meta( $payment_id, '_edd_payment_tax', $tax );
-    
+
                 if( empty( $data['receipt'] ) || $data['receipt'] != '1' ) {
                     remove_action( 'edd_complete_purchase', 'edd_trigger_purchase_receipt', 999 );
                 }
@@ -227,11 +228,6 @@ foreach($export as $ex) {
                     EDD_Recurring_Customer::set_customer_expiration( $user_id, $expiration );
                 }
     
-                if( ! empty( $data['wallet'] ) && class_exists( 'EDD_Wallet' ) && $user_id > 0 ) {
-                    // Update the user wallet
-                    edd_wallet()->wallet->withdraw( $user_id, $total, 'withdrawal', $payment_id );
-                }
-    
                 if( ! empty( $data['shipped'] ) ) {
                     update_post_meta( $payment_id, '_edd_payment_shipping_status', '2' );
                 }
@@ -239,6 +235,30 @@ foreach($export as $ex) {
                 // increase stats and log earnings
                 edd_update_payment_status( $payment_id, $status ) ;
                 
+
+                 // Zaktualizuj dane adresowe klienta 
+
+                 $payment    = new EDD_Payment( $payment_id );
+
+                 
+                 $address = array_map( 'trim', $data['edd-payment-address'][0] );
+                 
+                 // Set new meta values
+                 $payment->user_id        = $user_id;
+                 $payment->email          = $email;
+                 $payment->first_name     = $user_first;
+                 $payment->last_name      = $user_last;
+                 $payment->address        = $address;
+ 
+                 $payment->total          = $total;
+                 $payment->tax            = $tax;
+ 
+                 $payment->has_unlimited_downloads = 1;
+                 $payment->save();
+                 
+                 do_action( 'edd_updated_edited_purchase', $payment_id );
+
+                 
     } catch(\Exception $e) {
         continue;
     }
