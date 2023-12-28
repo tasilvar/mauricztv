@@ -9,7 +9,8 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 #require 'vendor/autoload.php';
 
-
+wp_mail("michal.jendraszczyk@gmail.com","nowy temail","tresc");
+exit();
 #$mail = new PHPMailer(true);
 $file = fopen("mauricz_export_litle.csv","r");
 
@@ -54,7 +55,12 @@ foreach($export as $ex) {
                 'display_name' => $ex['Billing: First Name'].' '.$ex['Billing: Last Name'],
                 'role' => 'subscriber'
                ));
+            /**
+             * Wyślij maila z powiadomieniem o utworzeniu konta i koniecznosci resetu hasła
+             */
+
             }
+          
 
             /**
              * Pobierz id kursu z publigo na podstawie pobranej nazwy z starego systemu
