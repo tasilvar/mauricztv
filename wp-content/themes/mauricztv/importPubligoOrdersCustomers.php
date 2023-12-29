@@ -7,11 +7,48 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-#require 'vendor/autoload.php';
+require 'vendor/autoload.php';
 
-wp_mail("michal.jendraszczyk@gmail.com","nowy temail","tresc");
-exit();
-#$mail = new PHPMailer(true);
+
+$mail = new PHPMailer(true);
+
+try {
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'mail.mauricz.tv';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'powiadomienia@mauricz.tv';                     //SMTP username
+    $mail->Password   = 'pass';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('powiadomienia@mauricz.tv', 'Mauricz.tv');
+
+    //$entry->response['email_1']
+
+    $login = 'loginUser';
+    $generatePassword = '123';
+    
+    $mail->addAddress('michal.jendraszczyk@gmail.com', $login);      
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+   
+    $mail->Subject = 'Migracja konta w mauricz.tv';
+    $mail->Body    = 'Twoje konto zostało przeniesione do nowej wersji platrofmy mauricz.tv<br/><br/>Dane do logowania:<br/><br/>Login: '.$entry->response['names_1'].'<br/>Hasło:'.$generatePassword;
+    $mail->AltBody = 'Twoje konto zostało zarejestrowane<br/><br/>Dane do logowania:<br/><br/>Login: '.$login.'<br/>Hasło:'.$generatePassword;
+
+    $mail->send();
+    echo 'Message has been sent'; 
+     
+} catch (Exception $e) {
+    echo "Message could not be sent.";
+}
+
 $file = fopen("mauricz_export_litle.csv","r");
 
 $kolumnyCsv = explode(";", str_replace('"', '' ,fgetcsv($file)[0]));
