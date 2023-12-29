@@ -11,7 +11,7 @@ require 'vendor/autoload.php';
 
 
 $mail = new PHPMailer(true);
-
+/*
 try {
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
@@ -48,6 +48,7 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent.";
 }
+*/
 
 $file = fopen("mauricz_export_litle.csv","r");
 
@@ -141,6 +142,8 @@ foreach($export as $ex) {
                 $data['edd-payment-address'][0]['zip'] = $ex['Billing: ZIP Code'];
                 $data['edd-payment-address'][0]['state'] = $ex['Billing: State'];
                 $data['edd-payment-address'][0]['country'] = $ex['Billing: Country (prefix)'];
+
+            
 
                 if( empty( $data['downloads'][0]['id'] ) ) {
                     continue;
@@ -278,6 +281,64 @@ foreach($export as $ex) {
                 // increase stats and log earnings
                 edd_update_payment_status( $payment_id, $status ) ;
                 
+                /**
+                 * Zaktualizuj adres
+                 */
+/*
+                 
+                $getCustomer = EDD()->customers->get_customer_by( 'user_id', $user_id );
+                $customer = new EDD_Customer( $getCustomer->ID );
+                 
+                if ( empty( $customer->id ) ) {
+                    return false;
+                }
+                
+                // Setup the customer address, if present
+                $address = array();
+                if ( intval( $user_id ) > 0 ) {
+            
+                    $current_address = get_user_meta( $user_id, '_edd_user_address', true );
+            
+                  
+                        $current_address    = wp_parse_args( $current_address, array( 'line1', 'line2', 'city', 'zip', 'state', 'country' ) );
+
+                        $address['line1']   =   $ex['Billing: Street Address 1'];
+
+                        $address['line2']   =  $ex['Billing: Street Address 2'];
+
+                        $address['city']    =  $ex['Billing: City'];
+
+                        $address['country'] =   $ex['Billing: Country (prefix)'];
+
+                        $address['zip']     =  $ex['Billing: ZIP Code'];
+
+                        $address['state']   =  $ex['Billing: State'];
+                }
+
+                // Sanitize the inputs
+                $customer_data            = array(); 
+                // $customer_data['name']    = strip_tags( stripslashes( $customer_info['name'] ) );
+	$customer_data['email']   = $email;
+	$customer_data['user_id'] = $user_id;
+              
+                $address       = apply_filters( 'edd_edit_customer_address', $address, $customer_id );
+            // echo "AA";
+            //     print_r($address);
+            //     exit();
+            
+                $customer_data = array_map( 'sanitize_text_field', $customer_data );
+                $address       = array_map( 'sanitize_text_field', $address );
+            
+                do_action( 'edd_pre_edit_customer', $customer_id, $customer_data, $address );
+             
+            
+                if ( $customer->update( $customer_data ) ) {
+            
+                    if ( ! empty( $customer->user_id ) && $customer->user_id > 0 ) {
+                        update_user_meta( $customer->user_id, '_edd_user_address', $address );
+                    }
+                }
+                */
 
                  // Zaktualizuj dane adresowe klienta 
 
