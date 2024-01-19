@@ -111,7 +111,7 @@ if($getCategoryTag != null) {
     
             echo "<tr>";
                 echo "<td>";
-                    echo "Liczba modułów";
+                    echo "Liczba lekcji";
                 echo "</td>";
                 echo "<td>";
                     echo get_field('liczba_lekcji', $product->ID);

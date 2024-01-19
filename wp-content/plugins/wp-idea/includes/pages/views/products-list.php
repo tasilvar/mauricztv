@@ -155,7 +155,7 @@ foreach($bestsellers_product as $product) {
 
 		echo "<tr>";
 			echo "<td>";
-				echo "Liczba modułów";
+				echo "Liczba lekcji";
 			echo "</td>";
 			echo "<td>";
 				echo get_field('liczba_lekcji', $product->ID);
@@ -393,7 +393,7 @@ $all_product = get_posts( $argsAll );
 
 			echo "<tr>";
 				echo "<td>";
-					echo "Liczba modułów";
+					echo "Liczba lekcji";
 				echo "</td>";
 				echo "<td>";
 					echo get_field('liczba_lekcji', $product->ID);

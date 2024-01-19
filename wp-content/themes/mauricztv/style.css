@@ -257,7 +257,10 @@ h3 em{font-style:normal;color:#1AD779;}
 .hp-opinion .inner{background:#E7FBF1;padding:46px 20px 44px;max-width:366px;margin:0 auto;}
 .hp-opinion .inner h6{color:#323739;font-size:22px;line-height:32px;margin-top:32px;margin-bottom:21px;}
 .hp-opinion .inner img{width:135px;height:135px;border-radius:50%;}
-.hp-opinion .inner p{font-size:20px;line-height:32px;}
+.hp-opinion .inner p{font-size:16px;line-height:29px;}
+
+.hp-opinion a{color:#1AD779;}
+.hp-opinion a.more-open[aria-expanded="true"]{visibility:hidden;height:0;line-height:0;}
 
 h3.edd_download_title a{color:#323739;font-size:24px;line-height:34px;}
 
@@ -748,7 +751,7 @@ footer.entry-meta, footer.entry-footer{display:none;}
  }
  .product .product-title {
     font-size: 22px!important;
-    line-height: 44px!important;
+    line-height: 30px!important;
     font-weight: 700!important;
     text-align: left;
     color: #323739;
@@ -1607,6 +1610,7 @@ width: 100% !important;
 	ul.home-levels-items.levels li:nth-child(2){border-left:3px solid #fff;}
 	ul.home-levels-items.levels .products-list{margin-top:25px;}
 	.product .product-title{font-size:14px!important;line-height:18px!important;margin:18px 15px 5px;}
+	.products-list .product-title{height:auto!important;}
 	.product .product-feature{margin:8px 15px 15px;}
 	table.product-feature td{font-size:10px;line-height:18px;}
 	.product .more-green{height:auto;margin:0 15px 10px;padding:9px 0;}
@@ -1952,7 +1956,8 @@ transform: translateY(0);
 	.product-list-upper{background:#DFF3E9!important;padding-bottom:40px;}
 	.label-product::before{border-left:177px solid #333!important;}
 	
-	.product .product-title{font-size:20px!important;line-height:29px!important;min-height:58px;}
+	.product .product-title{font-size:15px!important;line-height:22px!important;min-height:58px;}
+	.product table.product-feature td{line-height:17px;font-size:11px;}
 	.product .price-container{display:block!important;}
 	.product .more-green{padding-left:15px!important;}
 	
@@ -2034,9 +2039,11 @@ transform: translateY(0);
 	.top-home a{width:268px;margin-top:15px;margin-bottom:0;}
 	
 	.product{min-height:600px;}
-	.product .product-title{font-size:22px!important;line-height:31px!important;min-height:62px;}
+	.product .product-title{font-size:16px!important;line-height:24px!important;min-height:62px;height:70px!important;}
 	.product .product-price{font-size:13px!important;}
 	
+	.product .product-feature td{font-size:12px;}
+	.product a.more-green{font-size:11px;}
 }
 
 
@@ -2094,8 +2101,8 @@ transform: translateY(0);
 	text-align: right;
 }
 .products-list .product-title { 
-	height: 88px;
-	overflow: hidden;
+	height: 90px;
+	overflow: hidden;text-align:center;
 }
 .products-list .omniprice {
 	overflow: hidden;
@@ -2136,3 +2143,15 @@ fix wizualny contenera dla odpowiedzi z ajaxa
  ul.home-category-items.product-list-categories > li:nth-child(5) > button {
 	display: none !important;
 }
+
+h1.wpi-page-title{margin-top:50px;}
+
+
+
+
+
+
+
+
+
+

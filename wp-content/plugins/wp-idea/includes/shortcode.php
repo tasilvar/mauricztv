@@ -784,7 +784,7 @@ function mjcourses($atts) {
 
 				$output .= "<tr>";
 				$output .= "<td>";
-					$output .= "Liczba modułów";
+					$output .= "Liczba lekcji";
 				$output .= "</td>";
 				$output .= "<td>";
 					$output .= get_field('liczba_lekcji', $product->ID);
