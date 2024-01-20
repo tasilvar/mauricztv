@@ -2083,7 +2083,7 @@ transform: translateY(0);
 	ul.home-levels-items.levels li button{font-size:0.938vw!important;}
 	
 }
-.term-21 .bestsellers-block {
+.term-21 .bestsellers-block, .term-22 .bestsellers-block {
 	display: none;
 }
 

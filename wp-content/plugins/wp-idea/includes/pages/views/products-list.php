@@ -65,10 +65,12 @@ if($getCategoryTag != null) {
 			array(
 				'taxonomy' => 'download_category',
 				'field'    => 'term_id',
-				'terms'    => [21],
+				'terms'    => [21, 22],
 				'operator' => 'NOT IN'
 			),
-		),		
+		),
+		'orderby'          => 'date',
+		'order'            => 'DESC',		
 	);
 }
 
@@ -115,6 +117,8 @@ $args = array(
 			'terms'    => 'bestsellery',
 		),
 	),
+	'orderby'          => 'date',
+	'order'            => 'DESC',
 );
 
 $bestsellers_product = get_posts( $args );

@@ -69,7 +69,9 @@ if($getCategoryTag != null) {
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
 		'meta_value' => 'off',
-        'meta_query' => $filterArgs
+        'meta_query' => $filterArgs,
+        'orderby'          => 'date',
+		'order'            => 'DESC',
 	);
 }
 

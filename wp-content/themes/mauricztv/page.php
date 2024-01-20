@@ -14,9 +14,17 @@
 
 get_header(); ?>
 
+
 	<section id="primary" class="content-area col-sm-12 col-lg-8">
 		<div id="main" class="site-main" role="main">
-
+		<?php 
+		// the_title();
+		// echo $wpidea_settings['certificates_page'];
+		if($wpidea_settings['certificates_page'] == get_the_ID()) {
+			get_template_part( 'template-parts/content', 'my-certificates' );
+		} else {
+		?>
+		
 			<?php
 			while ( have_posts() ) : the_post();
 
@@ -29,7 +37,9 @@ get_header(); ?>
 
 			endwhile; // End of the loop.
 			?>
-
+	<?php 
+		}
+		?>
 		</div><!-- #main -->
 	</section><!-- #primary -->
 
