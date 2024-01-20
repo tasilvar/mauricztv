@@ -15,6 +15,11 @@ $query = new WP_Query([
    ],
 ]);
 
+$translator = $container->get(Interface_Translator::class);
+if ($translator instanceof Interface_Initiable) {
+    $translator->init();
+}
+
 if ( ! $query->have_posts() ) : ?>
     <?php
     $message = new Info_Message( __( 'You do not have any certificate yet.', BPMJ_EDDCM_DOMAIN ) );
