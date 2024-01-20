@@ -15,10 +15,10 @@ $query = new WP_Query([
    ],
 ]);
 
-$translator = $container->get(Interface_Translator::class);
-if ($translator instanceof Interface_Initiable) {
-    $translator->init();
-}
+// $translator = $container->get(Interface_Translator::class);
+// if ($translator instanceof Interface_Initiable) {
+//     $translator->init();
+// }
 
 if ( ! $query->have_posts() ) : ?>
     <?php
