@@ -30,9 +30,11 @@ if ( ! $query->have_posts() ) : ?>
         <thead>
         <tr>
             <th>
+                Nazwa kursu
                 <?php //$translator->translate('user_account.my_certificates.product_name') ?>
             </th>
             <th>
+                Pobierz
                  <?php //$translator->translate('user_account.my_certificates.download_certificate') ?>
             </th>
         </tr>
@@ -47,7 +49,10 @@ if ( ! $query->have_posts() ) : ?>
                 <td>
                     <a target='_blank' href='<?= WPI()->certificates->get_download_url_for_current_user(
                         get_the_ID()
-                    ) ?>'><?= $translator->translate('user_account.my_certificates.download') ?></a>
+                    ) ?>'
+                    ><?php // $translator->translate('user_account.my_certificates.download') ?>
+                    Pobierz certyfikat
+                </a>
                 </td>
             </tr>
         <?php endwhile; ?>
