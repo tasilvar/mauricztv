@@ -29,8 +29,12 @@ if ( ! $query->have_posts() ) : ?>
     <table class="my-certificates-table">
         <thead>
         <tr>
-            <th><?= $translator->translate('user_account.my_certificates.product_name') ?></th>
-            <th><?= $translator->translate('user_account.my_certificates.download_certificate') ?></th>
+            <th>
+                <?php //$translator->translate('user_account.my_certificates.product_name') ?>
+            </th>
+            <th>
+                 <?php //$translator->translate('user_account.my_certificates.download_certificate') ?>
+            </th>
         </tr>
         </thead>
         <tbody>
