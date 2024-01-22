@@ -265,7 +265,45 @@ if($show_open_padlock) {
 	
 		<h3>Opis szkolenia</h3>
 	
-		<?php the_content(); ?>
+        <?php 
+    $getBundledProducts = edd_get_bundled_products($product_id);
+
+    if(count($getBundledProducts) > 0) { 
+        echo "<table class='table responsive'>";
+        echo "<tr><th>Ten pakiet zawiera kursy</th></tr>";
+        foreach($getBundledProducts as $bundleProduct) { 
+            echo "<tr>";
+            echo "<td>";
+            echo "<a href='".get_the_permalink($bundleProduct)."'>";
+            echo get_the_title($bundleProduct);
+            echo "</a>";
+
+            echo "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+    // $product_id = (int)$post->ID;
+    // $p = new Product($product_id);
+    // echo "<br/>:##";
+    // print_r(get_post_meta( $product_id,  'bundled_products', true));
+    // print_r(get_post_meta( $product_id,  'edd_price', true));
+
+    // print_r(edd_get_bundled_products($product_id));
+    // print_r($p->bundled_products);
+    // //print_r($p->get_bundled_products());
+    // echo "<br/>";
+    // echo $post->ID;
+    // echo "<br/>";
+    // echo $post->post_type;
+    // echo "<br/>";
+
+    // print_r($post);
+    // echo "<br/>";
+    // print_r($p);
+?>
+
+		<?php echo get_the_content(); ?>
 	
 	</div>
     
