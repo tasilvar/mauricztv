@@ -84,6 +84,7 @@ if(is_page(48)) {
 									<li><a href="/moje-konto/">Moje konto</a></li>
 									<!--<li><a href="#">Moje kursy</a></li>-->
 									<li><a href="/historia-transakcji/">Historia płatności i faktury</a></li>
+									<li><a href="/moje-certyfikaty/">Moje certyfikaty</a></li>
 									<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Wyloguj się</a></li>
 								<?php else : ?>
 									<li><a href="<?php echo wp_login_url(get_permalink()); ?>">Zaloguj się</a></li>
