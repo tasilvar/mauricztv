@@ -407,17 +407,46 @@ function redirectToLoginIfGuest() {
 }
 #add_action('init','redirectToLoginIfGuest');
 
+
+add_action( 'post_updated', 'updateAuthorCourse' );
 /**
- * Import klientów mauricz
+ * Zapis autora opisu z kursu zapisuje równiez autora samego kursu
  */
 
-function importCustomersWP() { 
-    
-}
- /**
-  * Import zamówień mauricz
-  */
+function updateAuthorCourse() {
+    $id_post = get_the_ID();
+    $getDescriptionPost = new WP_Post($id_post);
+    $getAuthor = $getDescriptionPost->post_author;
 
-  /**
-   * Powiązanie produktów przy imporcie zamówień mauricz
-   */
+    
+    if(isset($_POST['post_author_override'])) {
+        if(!empty($_POST['post_author_override'])) {
+
+            try {
+            global $wpdb;
+
+
+            $getCourse = $wpdb->get_row("select post_id,meta_key, meta_value from $wpdb->postmeta where meta_key = 'product_id' AND meta_value  = '".$id_post."'");
+
+
+            $getCourseID = $getCourse->post_id;
+            
+            if($getCourseID) { 
+            
+                $wpdb->query( $wpdb->prepare(
+                    "
+                    UPDATE $wpdb->posts
+                    SET post_author = %d
+                    WHERE ID = %s
+                    ",
+                    $_POST['post_author_override'], $getCourseID
+                    ) );
+                }
+          
+            } catch(\Exception $e) {
+
+            }
+            //     exit();
+        }
+    }
+}
