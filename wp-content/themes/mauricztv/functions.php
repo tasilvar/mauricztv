@@ -415,9 +415,6 @@ add_action( 'post_updated', 'updateAuthorCourse' );
 
 function updateAuthorCourse() {
     $id_post = get_the_ID();
-    $getDescriptionPost = new WP_Post($id_post);
-    $getAuthor = $getDescriptionPost->post_author;
-
     
     if(isset($_POST['post_author_override'])) {
         if(!empty($_POST['post_author_override'])) {
@@ -444,7 +441,7 @@ function updateAuthorCourse() {
                 }
           
             } catch(\Exception $e) {
-
+                return false;
             }
             //     exit();
         }
