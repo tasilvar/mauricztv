@@ -69,9 +69,7 @@ if($getCategoryTag != null) {
 		'posts_per_page' => -1,
 		'meta_key' => 'sales_disabled',
 		'meta_value' => 'off',
-        'meta_query' => $filterArgs,
-        'orderby'          => 'date',
-		'order'            => 'DESC',
+        'meta_query' => $filterArgs
 	);
 }
 
@@ -79,6 +77,8 @@ if($getCategoryTag != null) {
 
     foreach($getProducts as $product) { 
         echo "<div class='col-md-".$cols."'>";
+
+		
         echo "<div class='product'>";
         
          //Miniatura
@@ -172,3 +172,4 @@ if($getCategoryTag != null) {
     
     exit();
     ?>
+

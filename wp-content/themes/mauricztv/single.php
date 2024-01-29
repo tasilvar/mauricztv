@@ -93,7 +93,7 @@ get_header(); ?>
 	
 		<h3>Podobne artykuły</h3>
 		
-		<?php echo do_shortcode("[ic_add_posts showposts='3' template='template-single.php']"); ?>
+		<?php echo do_shortcode("[ic_add_posts showposts='3' template='template-single.php' category='dieta,suplementacja,trening' exclude_ids='229,226,224']"); ?>
 
 	</div>
 

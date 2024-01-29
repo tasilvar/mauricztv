@@ -617,6 +617,10 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .kursy-bottom .box a.more-green{width:100%;margin-top:50px;padding:26px 84px 0;}
 .kursy-bottom .box a.more-green span{background:url('./img/cart-white.png')no-repeat top left;min-height:31px;padding-left:46px;display:inline-block;line-height:31px;}
 
+/*moje kursy*/
+
+.my-courses .glowna_boxy{opacity:1;}
+
 /*strony informacyjne*/
 
 .info-page{margin:90px auto;max-width:990px;}
@@ -1704,7 +1708,7 @@ transform: translateY(0);
 	#menu_mobile{display:none!important;}
 	#mega-menu-wrap-primary{position:static;transform:translateY(0);}
 	#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
-	z-index: 9999 !important;
+	z-index: 999999 !important;
 	height: auto;
 	width: auto !important;
 	position: static !important;
@@ -1727,7 +1731,7 @@ transform: translateY(0);
 #mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{padding-top:90px;}
 #mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open + #mega-menu-primary{background:#fff;}
 
-	.top-all{margin-top:15px;padding-left:0;padding-right:0;}
+	.top-all{margin-top:15px;/*padding-left:0;padding-right:0;*/}
 	.top-all h1{padding-top:0!important;}
 	
 	.top-menu{display:none;}
@@ -1826,8 +1830,8 @@ transform: translateY(0);
 	.left-sidebar{padding:10px 0 35px 0!important;}
 	
 	
-	ul.home-category-items.product-list-categories li, .home-levels-items.levels li {display:inline-block!important;margin:5px!important;padding:10px 15px !important;}
-	ul.home-category-items.product-list-categories li button, ul.home-levels-items.levels li button{padding:0!important;width:auto;min-height:33px;}
+	ul.home-category-items.product-list-categories li, .home-levels-items.levels li {display:inline-block!important;margin:5px!important;padding:0!important;/*padding:10px 15px !important;*/}
+	ul.home-category-items.product-list-categories li button, ul.home-levels-items.levels li button{padding:3px 10px !important;width:auto;min-height:33px;}
 	.products-list.ajax-product-list > .row{width:auto!important;}
 	
 	
@@ -1848,6 +1852,7 @@ transform: translateY(0);
 	.kursy-cert h5{margin-top:0;}
 	.kursy-bottom .box .row{margin-bottom:24px;}
 	
+	.top-kursy h1{font-size:34px;}
 	.top-kursy .top-kursy-links a.little-mouse{margin-top:15px;}
 	.kursy-agenda{padding-left:0;padding-right:0;}
 	.kursy-agenda a.more{height:auto;padding:25px;display:block;}
@@ -1862,7 +1867,21 @@ transform: translateY(0);
 	.kursy-bottom{padding-top:60px;}
 	.kursy-bottom .box{width:auto;padding:52px 30px 44px;}
 	
+	.kursy-content{margin:128px 15px 0 !important;}
+	.kursy-opinions .inner{max-width:none;}
+	
+	.page h3{font-size:20px!important;line-height:1!important;}
+	
 	a.box_glowna_add_to_cart_link.more{height:auto;padding:17px;display:block;margin-top:30px!important;}
+	
+	#edd-discount{font-size:13px;}
+	
+	h1.wpi-page-title{margin-top:0;margin-bottom:0;}
+	.lekcja_nast_pop{width:auto!important;margin-bottom:30px!important;}
+	
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-menu-item-26{display:none;}
+	
+	#to_top_scrollup{z-index:9999999;}
 }
 
 @media (min-width: 769px){
@@ -1872,6 +1891,7 @@ transform: translateY(0);
 	
 	.sub-menu-scroll-wrapper{margin:0;}
 	
+	#to_top_scrollup{display:none!important;}
 	
 }
 
