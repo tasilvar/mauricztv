@@ -714,7 +714,7 @@ function mjcourses($atts) {
 
 	$output .= '</form>';
 
-		$output .= '<div class="products-list ajax-product-list">';
+		$output .= '<div class="products-list ajax-product-list row">';
 		$output .= '<div class="row">';
 	if(!empty($categoryProduct)) {
 			$args = array(

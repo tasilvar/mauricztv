@@ -2,15 +2,15 @@
 require_once("../../../wp-load.php");
  
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
 
-$mail = new PHPMailer(true);
+//$mail = new PHPMailer(true);
 /*
 try {
     $headers = array('Content-Type: text/html; charset=UTF-8');
@@ -50,7 +50,7 @@ try {
 }
 */
 
-$file = fopen("mauricz_export_litle.csv","r");
+$file = fopen("import_mauricz_prod.csv","r");
 
 $kolumnyCsv = explode(";", str_replace('"', '' ,fgetcsv($file)[0]));
 $export = [];
@@ -144,7 +144,6 @@ foreach($export as $ex) {
                 $data['edd-payment-address'][0]['country'] = $ex['Billing: Country (prefix)'];
 
             
-
                 if( empty( $data['downloads'][0]['id'] ) ) {
                     continue;
                 }
@@ -165,6 +164,25 @@ foreach($export as $ex) {
                     return; // no user assigned
     
                 $user_id 	= $user ? $user->ID : 0;
+
+
+                 // Adres dla uzytkownika 
+                 $address = array(
+                    'line1'    => $ex['Billing: Street Address 1'],
+                    'line2'    => $ex['Billing: Street Address 2'],
+                    'city'     => $ex['Billing: City'],
+                    'state'    => $ex['Billing: State'],
+                    'zip'      => $ex['Billing: ZIP Code'],
+                    'country'  => $ex['Billing: Country (prefix)']
+                );
+
+                //$userdata
+                $meta    = update_user_meta( $user_id, '_edd_user_address', $address );
+                #$updated = wp_update_user( $userdata );
+
+                // Koniec adresu 
+
+
                 $email 		= $user ? $user->user_email : strip_tags( trim( $ex['Billing: E-mail Address'] )  );
                 if( isset( $data['first'] ) ) {
                     $user_first = sanitize_text_field( $data['first'] );
@@ -236,7 +254,7 @@ foreach($export as $ex) {
                 }
     
                 // status zamówienia
-                $status = isset( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : 'pending';
+                $status = isset( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : 'publish'; // wczesniej pending
 
                 $tax    = ! empty( $_POST['tax'] ) ? edd_sanitize_amount( sanitize_text_field( $_POST['tax'] ) ) : 0;
     
@@ -250,7 +268,7 @@ foreach($export as $ex) {
                     'currency'     => edd_get_currency(),
                     'downloads'    => $data['downloads'],
                     'cart_details' => $cart_details,
-                    'status'       => 'pending',
+                    'status'       => 'publish', // wczesniej pending
                 );
     
                 //
@@ -276,6 +294,7 @@ foreach($export as $ex) {
     
                 if( ! empty( $data['shipped'] ) ) {
                     update_post_meta( $payment_id, '_edd_payment_shipping_status', '2' );
+                    //publish
                 }
     
                 // increase stats and log earnings
