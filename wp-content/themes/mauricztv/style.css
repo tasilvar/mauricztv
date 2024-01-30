@@ -2171,6 +2171,9 @@ ul.home-levels-items.levels .products-list  {
 
 
 
-
-
-
+@media(max-width:767px) {
+	/* powoduje bugi na mobile */
+.cky-consent-container { 
+	display: none;
+}
+}
