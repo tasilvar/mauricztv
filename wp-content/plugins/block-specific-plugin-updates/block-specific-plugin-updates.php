@@ -4,7 +4,7 @@ Plugin Name: Block Specific Plugin Updates
 Plugin URI: https://dineshkarki.com.np/block-specific-plugin-updates
 Description: This plugin blocks the updates for specific plugins. You can select the plugins from plugin setting page.
 Author: Dinesh Karki
-Version: 3.3
+Version: 3.3.2
 Author URI: https://www.dineshkarki.com.np
 */
 
