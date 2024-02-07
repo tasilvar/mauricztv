@@ -26,6 +26,24 @@ if(is_page(48)) {
 		</div><!-- .container -->
 	</div><!-- #content -->
 	
+	<?php if (is_front_page()){ ?>
+	<div class="container">
+		<div id="nwsl" class="row hp-contact">
+		<div class="col-md-5"><img class="alignnone wp-image-2187 size-medium" src="https://vp.mauricz.tv/wp-content/uploads/2023/12/0034-482x500.jpeg" alt="" width="482" height="500" /></div>
+		<div class="col-md-7">
+		<h6>Bądź na bieżąco!</h6>
+		<h3>Zapisz się do newslettera!</h3>
+
+<script>var fmFCF4k4bqyzpvc=function(e){if(e.data.type==='resize'){document.getElementById('fm-fc-f-4k4bqyzpvc').style.minHeight=e.data.size+'px'}};window.addEventListener?addEventListener('message',fmFCF4k4bqyzpvc,!1):attachEvent('onmessage',fmFCF4k4bqyzpvc);
+</script><iframe id="fm-fc-f-4k4bqyzpvc" data-height="255" src="https://forms.freshmail.io/f/duaaswiwmi/4k4bqyzpvc/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" style="min-height: 285px"></iframe>
+
+		</div>
+		</div>
+	</div>	
+	<?php } ?>
+	
+
+	
     <?php get_template_part( 'footer-widget' ); ?>
 	
 	
@@ -43,9 +61,15 @@ if(is_page(48)) {
 					<?php } ?>
 					
 					<h4>Zapisz się do newslettera</h4>
-					
+
 					<div class="nwsl">
-						<?php echo do_shortcode("[contact-form-7 id='9' title='NWSL']"); ?>
+					
+<script>var fmFCF4k4bqyzpvc=function(e){if(e.data.type==='resize'){document.getElementById('fm-fc-f-4k4bqyzpvc').style.minHeight=e.data.size+'px'}};window.addEventListener?addEventListener('message',fmFCF4k4bqyzpvc,!1):attachEvent('onmessage',fmFCF4k4bqyzpvc);
+</script><iframe id="fm-fc-f-4k4bqyzpvc" data-height="255" src="https://forms.freshmail.io/f/duaaswiwmi/4k4bqyzpvc/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" style="min-height: 285px"></iframe>
+
+						<?php //echo do_shortcode("[contact-form-7 id='9' title='NWSL']"); ?>
+						
+						
 					</div>
 					
 				</div>
@@ -104,7 +128,7 @@ if(is_page(48)) {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 first">
-					&copy; <?php echo date('Y'); ?> Mauricz.tv. Wszelkie prawa zastrzeżone.
+					&copy; 2020 - <?php echo date('Y'); ?> Mauricz.tv. Wszelkie prawa zastrzeżone.
 				</div>
 				<div class="col-md-5 second">
 					Projekt i wykonanie <a href="https://virtualpeople.pl">Virtual People</a>.

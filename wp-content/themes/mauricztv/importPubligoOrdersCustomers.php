@@ -50,6 +50,8 @@ try {
 }
 */
 
+// addCourseToUser(389, 16); //389
+// exit();
 $file = fopen("import_mauricz_prod.csv","r");
 
 $kolumnyCsv = explode(";", str_replace('"', '' ,fgetcsv($file)[0]));
@@ -79,6 +81,7 @@ while(! feof($file)) {
 
 foreach($export as $ex) { 
     try {
+        $ids_product=[];
         if(!get_user_by('email', $ex['Billing: E-mail Address'])) {
             $generatePassword = wp_generate_password( 8, true, false );
             /**
@@ -235,6 +238,7 @@ foreach($export as $ex) {
                     );
                     $total += $item_price;
     
+                    $ids_product[] = $download['id'];
                 }
     
                 // assign total to the price given, if any
@@ -300,6 +304,16 @@ foreach($export as $ex) {
                 // increase stats and log earnings
                 edd_update_payment_status( $payment_id, $status ) ;
                 
+
+
+                // Przypisywanie produktu do usera 
+                // print_r($ids_product);
+                // exit();
+                foreach($ids_product as $id) {
+                    addCourseToUser($id, $user_id);
+                }
+                // Koniec przypisywania produktu do usera 
+
                 /**
                  * Zaktualizuj adres
                  */
@@ -385,8 +399,10 @@ foreach($export as $ex) {
     } catch(\Exception $e) {
         continue;
     }
-}
  
+}
+echo "Stop";
+exit();
 print_r($productsNames);
 echo "<br/>----<br/>";
 print_r($productsIds);
@@ -485,59 +501,77 @@ try {
     continue;
 }
 }
-//  exit();
-//     print_r($entry->id);
-//     echo " <br/>";
-//     print_r($entry->form_id);
-//     echo " <br/>";
-//     print_r($entry->serial_number);
-//     echo " <br/>";
-//     print_r($entry->response);
-//     echo " <br/>----<br/>";
-//     print_r($entry->response['input_text']);
+  
+function addCourseToUser($product_id,$user_id) { 
+    
+                $user_id = (int)$user_id;
+                $product_id = (int)$product_id;
+                $days = (int)365;
+                $hours = (int)0;
+                $minutes = (int)0;
+                $seconds = (int)0;
+                $sign = '';
+    
+                $total_time = $days * 86400 + $hours * 3600 + $minutes * 60 + $seconds;
+    
+                $price_id = (int)0;
+    
+                if ($user_id && $product_id) {
+                    bpmj_eddpc_add_time($user_id, $product_id, $price_id, $total_time);
+    
+                    $course_id = WPI()->courses->get_course_by_product($product_id);
+                    // print_r($course_id);
+                    // echo "KURS:".$course_id;
+                    // exit();
+                    if($course_id){
+
+                        $access_time_data = get_user_meta($user_id, "_bpmj_eddpc_access", true);
 
 
-//     echo " <br/>----<br/>";
-//     // firma
-//     print_r($entry->response['input_text']);
-//     echo " <br/>----<br/>";
-//     // nip
-//     print_r($entry->response['input_text_1']);
-//     echo " <br/>----<br/>";
-//     // email
-//     print_r($entry->response['email_1']);
-//     echo " <br/>----<br/>";
-//     // ulica
-//     print_r($entry->response['address_1']['address_line_1']);
+                        $timestamp = time()+$total_time;
+                        $due_date = gmdate("Y-m-d", $timestamp);
 
-//     echo " <br/>----<br/>";
-//     // miasto
-//     print_r($entry->response['address_1']['city']);
 
-//     echo " <br/>----<br/>";
-//     // kod pocztowy
-//     print_r($entry->response['address_1']['zip']);
+                        $access_time_str = $due_date . ' ' .'00:00';
+                        $access_time = bpmj_eddpc_adjust_timestamp(strtotime($access_time_str), false);
+                        
+                        $access_time_data[$product_id]['access_time'] = $access_time;
+                
+                        update_user_meta($user_id, '_bpmj_eddpc_access', $access_time_data);
+                        // $course = new Courses($course_id);
+                        // $course->events->emit(Event_Name::STUDENT_ENROLLED_IN_COURSE, $course_id->ID, $user_id);
+                    }
+                }
+/*
+                if ($user_id && $product_id) {
+                    //$data['total_time'] = $sign === '-' ? -1 * $total_time : $total_time;
+                     
+                    $access_time_data = get_user_meta($user_id, "_bpmj_eddpc_access", true);
+                    #echo "#".$product_id.'U'.$user_id;
 
-//     echo " <br/>----<br/>";
-//     // kraj
-//     print_r($entry->response['address_1']['country']);
-     
+                    echo $product_id.' '.$user_id;
+                    print_r($access_time_data);
+                    echo "===";
+                    exit();
+                    //access_time
+                    //$access_time_data[$product_id] = $access_time;
+                    #echo "TIME:".$total_time;
+                    $access_time_data[$product_id]['total_time'] = $total_time;
+                    
+                    $timestamp = time()+$total_time;
+                    $due_date = gmdate("Y-m-d", $timestamp);
 
-//     echo " <br/>----<br/>";
-//     // imie
-//     print_r($entry->response['names_1']['first_name']);
 
-//     echo " <br/>----<br/>";
-//     // nazwisko
-//     print_r($entry->response['names_1']['last_name']);
+                    $access_time_str = $due_date . ' ' .'00:00';
+                    $access_time = bpmj_eddpc_adjust_timestamp(strtotime($access_time_str), false);
+                    
+                    $access_time_data[$product_id]['access_time'] = $access_time;
+              
+                    update_user_meta($user_id, '_bpmj_eddpc_access', $access_time_data);
 
-//     echo " <br/>----<br/>";
-//     // tel
-//     print_r($entry->response['numeric-field']);
-
-//     echo " <br/><br/>";
-// }
-// exit();
-
- 
- 
+                    // print_r($access_time_data);
+                    // exit();
+                    
+                }
+                */
+}

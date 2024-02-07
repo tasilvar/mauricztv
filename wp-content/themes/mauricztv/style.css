@@ -631,7 +631,7 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 /*footer*/
 
 .footer{background:#F6F6F6;padding-top:104px;padding-bottom:30px;margin-top:158px;}
-.footer h4{color:#013317;font-size:18px;line-height:30px;font-weight:800;margin-top:46px;margin-bottom:25px;text-transform:uppercase;}
+.footer h4{color:#013317;font-size:18px;line-height:30px;font-weight:800;margin-top:46px;margin-bottom:0;text-transform:uppercase;}
 
 .footer .wpcf7-acceptance{color:#777D80;font-size:12px;line-height:20px;font-weight:500;}
 .footer .wpcf7-list-item{margin:0;}
@@ -644,7 +644,7 @@ article.post .entry-content h2{font-size:32px;line-height:34px;font-weight:800;m
 .footer ul li a{color:#323739;font-size:20px;line-height:32px;font-weight:500;}
 .footer ul li a:hover{text-decoration:none;color:#1AD779;}
 
-.footer .nwsl{max-width:480px;}
+/*.footer .nwsl{max-width:480px;}*/
 
 .footer .wpcf7-submit{width:100%;height:51px;color:#323739;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#1AD779;text-align:center;text-transform:uppercase;font-weight:600;}
 .footer .wpcf7-submit:hover{background:#323739;color:#1AD779;}
@@ -1561,23 +1561,6 @@ width: 100% !important;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width:576px){
 	.faq-top{margin:60px auto 0;}
 	.faq-middle{margin:75px auto 60px;}
@@ -1696,14 +1679,8 @@ width: 100% !important;
 }
 @media (max-width: 768px){
 	.xs-hidden{display:none!important;}
-	
-	.koszyk {
-right: unset;
-margin-right: 0;
-top: 10px;
-position: absolute;
-transform: translateY(0);
-}
+	.footer iframe{min-height:315px!important;}
+	.koszyk{right:unset;margin-right:0;top:10px;position:absolute;transform:translateY(0);}
 	
 	#menu_mobile{display:none!important;}
 	#mega-menu-wrap-primary{position:static;transform:translateY(0);}
@@ -1878,23 +1855,15 @@ transform: translateY(0);
 	
 	h1.wpi-page-title{margin-top:0;margin-bottom:0;}
 	.lekcja_nast_pop{width:auto!important;margin-bottom:30px!important;}
-	
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-menu-item-26{display:none;}
-	
 	#to_top_scrollup{z-index:9999999;}
 }
 
 @media (min-width: 769px){
 	.xs-up-hidden{display:none!important;}
-	
 	.is-type-video .wp-block-embed__wrapper{height:500px;}
-	
 	.sub-menu-scroll-wrapper{margin:0;}
-	
-	#to_top_scrollup{display:none!important;}
-	
 }
-
 
 @media (min-width: 769px) and (max-width:991px) {
 	.sm-hidden{display:none;}
@@ -2177,3 +2146,5 @@ ul.home-levels-items.levels .products-list  {
 	display: none;
 }
 }
+
+/* [moje_kursy] */
