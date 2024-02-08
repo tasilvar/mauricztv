@@ -61,7 +61,8 @@ $i = 0;
 $productsNames = [];
 $productsIds = [];
 $data = [];
-
+echo"stop";
+exit();
 while(! feof($file)) { 
                 try {   
                     $wartosciCsv = @explode(";", fgetcsv($file, 0, "\n")[0]);
@@ -399,7 +400,8 @@ foreach($export as $ex) {
     } catch(\Exception $e) {
         continue;
     }
- 
+    // echo "Stop";
+    // exit();
 }
 echo "Stop";
 exit();
