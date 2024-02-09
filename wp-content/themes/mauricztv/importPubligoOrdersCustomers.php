@@ -10,6 +10,9 @@ require_once("../../../wp-load.php");
 require 'vendor/autoload.php';
 
 
+echo "TEST";
+assignProductsFromPackage();
+exit();
 //$mail = new PHPMailer(true);
 /*
 try {
@@ -503,7 +506,41 @@ try {
     continue;
 }
 }
+
+
   
+
+ function assignProductsFromPackage() { 
+
+    // Pobierz zamowienia, z zamowien pobierz produkty 
+    //print_r(bpmj_eddpc_get_users_purchased_bundles(1129));
+    //$user_id, $downloads, $variable_price_id = null
+    $downloads = []; //637
+
+     $users = get_users();
+
+     $productsPack = [];
+     $du = 0;
+     foreach($users as $user) { 
+        //print_r($user->ID);
+        $bundled_products = bpmj_eddpc_get_users_purchased_bundled_products($user->ID);
+        if(count($bundled_products) > 0) {
+            $du++;
+            $productsPack[$user->ID] = bpmj_eddpc_get_users_purchased_bundled_products($user->ID);
+        }
+     }
+     
+     // Przypisanie poszczegolnych produktów do klienta
+     foreach($productsPack as $key => $pack) { 
+         $getProductFromArray = $pack;
+         foreach ($pack as $product) {
+            addCourseToUser($product, $key);
+         }
+     }
+   
+     echo "Przypisano produkty z pakietów do ".$du." userów";
+ }
+
 function addCourseToUser($product_id,$user_id) { 
     
                 $user_id = (int)$user_id;
