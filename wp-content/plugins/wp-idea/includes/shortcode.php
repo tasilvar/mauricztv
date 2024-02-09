@@ -937,8 +937,8 @@ function getAvailableCourses() {
 			$output .= 'Przejdź do panelu';
 			$output .= '</a></td>';
 
-			$output .= '<tr>';
+			$output .= '</tr>';
 		}
-		$output .= '<table>';
+		$output .= '</table>';
 	return $output;
 }

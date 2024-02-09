@@ -517,6 +517,19 @@ function addCourseToUser($product_id,$user_id) {
                 $total_time = $days * 86400 + $hours * 3600 + $minutes * 60 + $seconds;
     
                 $price_id = (int)0;
+
+                //Zdrowe Jelita
+                //Dietetyka i suplementacja poziom l,ll,lll
+                //Dietetyczne Abecadło
+                //AS Dietetyki
+                //Fit & Beauty
+                //Król Dietetyki
+                //Diagnostyka
+                //Pogromca stresu
+                //Przyszła Mama
+                //Zdrowa kobieta
+                //Mistrz Odchudzania
+                //	Konferencja "Dietetyka Przyszłości"
     
                 if ($user_id && $product_id) {
                     bpmj_eddpc_add_time($user_id, $product_id, $price_id, $total_time);

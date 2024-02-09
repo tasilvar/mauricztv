@@ -2128,10 +2128,11 @@ fix wizualny contenera dla odpowiedzi z ajaxa
 
 
 .lekcja_top_opis{display:none!important;}
-.left-sidebar .product-list-categories li:last-child,
+
  ul.home-category-items.product-list-categories > li:nth-child(6) {
-	display: none !important;
+	/* display: none !important; */
 }
+/* .left-sidebar .product-list-categories li:last-child, */
 
 h1.wpi-page-title{margin-top:50px;}
 ul.home-levels-items.levels .products-list  {
