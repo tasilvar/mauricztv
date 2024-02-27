@@ -13,7 +13,7 @@ use WP_List_Table;
 
 class Enhanced_WP_Table extends WP_List_Table
 {
-    public $per_page = 30;
+    public $per_page = 999;
 
     public $count = 0;
 

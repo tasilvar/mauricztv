@@ -39,7 +39,7 @@ class Gateways_Table extends \WP_List_Table
      * @var int Number of items per page
      * @since 1.5
      */
-    public $per_page = 30;
+    public $per_page = 999;
 
 
     /**

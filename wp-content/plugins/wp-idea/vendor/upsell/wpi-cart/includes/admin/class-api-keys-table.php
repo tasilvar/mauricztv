@@ -30,7 +30,7 @@ class EDD_API_Keys_Table extends WP_List_Table {
 	 * @var int Number of items per page
 	 * @since 2.0
 	 */
-	public $per_page = 30;
+	public $per_page = 999;
 
 	/**
 	 * @var object Query results
