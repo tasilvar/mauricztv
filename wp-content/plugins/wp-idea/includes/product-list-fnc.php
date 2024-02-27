@@ -28,7 +28,11 @@ function getProductLabel($id_product) {
 		$output .= "Bestsellers";
 		$output .= "</div>";
 	} else { 
-
+		if((@get_post_meta($id_product,  'edd_sale_price', true)  > 0) && (get_post_meta($id_product,  'edd_sale_price', true) != @get_post_meta($id_product,  'edd_price', true))) {
+			$output .= "<div class='label-product sale'>";
+			$output .= "Promocja";
+			$output .= "</div>";
+		}
 	}
 	return $output;
 }
