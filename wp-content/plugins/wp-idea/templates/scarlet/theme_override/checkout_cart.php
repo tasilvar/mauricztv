@@ -315,6 +315,8 @@ xhr.send(formData);
 				'terms'    => (int)get_option( 'mauricz_crosseling_category'),
 			),
 		),
+		'orderby'          => 'date',
+		'order'            => 'DESC',	
 	);
 
     $getProducts = get_posts($args);

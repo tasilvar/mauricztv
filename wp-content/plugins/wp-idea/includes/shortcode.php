@@ -498,7 +498,7 @@ function bpmj_eddcm_downloads_query( $atts, $content = null ) {
 		<div class="edd_downloads_list <?php echo apply_filters( 'edd_downloads_list_wrapper_class', $wrapper_class, $atts ); ?>">
 			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
 				<?php View_Hooks::run(View_Hooks::BEFORE_PRODUCT_LIST_ITEM) ?>
-                class="<?php echo apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $atts, $i ); ?>" id="edd_download_<?php echo get_the_ID(); ?>">
+                <div class="<?php echo apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $atts, $i ); ?>" id="edd_download_<?php echo get_the_ID(); ?>">
 					<div class="edd_download_inner">
 						<?php
 
@@ -714,7 +714,7 @@ function mjcourses($atts) {
 
 	$output .= '</form>';
 
-		$output .= '<div class="products-list ajax-product-list">';
+		$output .= '<div class="products-list ajax-product-list row">';
 		$output .= '<div class="row">';
 	if(!empty($categoryProduct)) {
 			$args = array(
@@ -779,12 +779,12 @@ function mjcourses($atts) {
 				$output .= "</td>";
 				$output .= "<td>";
 					$output .= get_field('czas_kursu', $product->ID);
-				$output .= "h</td>";
+				$output .= "min</td>";
 			$output .= "</tr>";
 
 				$output .= "<tr>";
 				$output .= "<td>";
-					$output .= "Liczba modułów";
+					$output .= "Liczba lekcji";
 				$output .= "</td>";
 				$output .= "<td>";
 					$output .= get_field('liczba_lekcji', $product->ID);
@@ -907,4 +907,38 @@ function shortcode_render_lowest_price_information($product_id)
     }
 
     return $lowest_price_information_html;
+}
+
+add_shortcode('dostepne_kursy','getAvailableCourses');
+
+function getAvailableCourses() {
+	$users_courses = WPI()->courses->get_users_accessible_courses();
+
+	$output = '';
+	$output .= '<h1 class="title-section">Moje kursy</h1>';
+	$output .= '<table>';
+
+	$output .= '<tr>';
+	$output .= '<td>';
+	$output .= 'Nazwa kursu';
+	$output .= '</td>';
+	$output .= '<td>';
+	$output .= 'Link do kursu';
+	$output .= '</td>';
+			$output .= '</tr>';
+		foreach($users_courses as $course) { 
+			$output .= '<tr>';
+
+			$output .= '<td>';
+			$output .= $course['title'];
+			$output .= '</td>';
+
+			$output .= '<td><a href="'.$course['url'].'">';
+			$output .= 'Przejdź do panelu';
+			$output .= '</a></td>';
+
+			$output .= '</tr>';
+		}
+		$output .= '</table>';
+	return $output;
 }

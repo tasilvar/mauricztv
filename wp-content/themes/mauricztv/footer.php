@@ -26,6 +26,24 @@ if(is_page(48)) {
 		</div><!-- .container -->
 	</div><!-- #content -->
 	
+	<?php if (is_front_page()){ ?>
+	<div class="container">
+		<div id="nwsl" class="row hp-contact">
+		<div class="col-md-5"><img class="alignnone wp-image-2187 size-medium" src="https://vp.mauricz.tv/wp-content/uploads/2023/12/0034-482x500.jpeg" alt="" width="482" height="500" /></div>
+		<div class="col-md-7">
+		<h6>Bądź na bieżąco!</h6>
+		<h3>Zapisz się do newslettera!</h3>
+
+<script>var fmFCF4k4bqyzpvc=function(e){if(e.data.type==='resize'){document.getElementById('fm-fc-f-4k4bqyzpvc').style.minHeight=e.data.size+'px'}};window.addEventListener?addEventListener('message',fmFCF4k4bqyzpvc,!1):attachEvent('onmessage',fmFCF4k4bqyzpvc);
+</script><iframe id="fm-fc-f-4k4bqyzpvc" data-height="255" src="https://forms.freshmail.io/f/duaaswiwmi/4k4bqyzpvc/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" style="min-height: 285px"></iframe>
+
+		</div>
+		</div>
+	</div>	
+	<?php } ?>
+	
+
+	
     <?php get_template_part( 'footer-widget' ); ?>
 	
 	
@@ -43,9 +61,15 @@ if(is_page(48)) {
 					<?php } ?>
 					
 					<h4>Zapisz się do newslettera</h4>
-					
+
 					<div class="nwsl">
-						<?php echo do_shortcode("[contact-form-7 id='9' title='NWSL']"); ?>
+					
+<script>var fmFCF4k4bqyzpvc=function(e){if(e.data.type==='resize'){document.getElementById('fm-fc-f-4k4bqyzpvc').style.minHeight=e.data.size+'px'}};window.addEventListener?addEventListener('message',fmFCF4k4bqyzpvc,!1):attachEvent('onmessage',fmFCF4k4bqyzpvc);
+</script><iframe id="fm-fc-f-4k4bqyzpvc" data-height="255" src="https://forms.freshmail.io/f/duaaswiwmi/4k4bqyzpvc/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" style="min-height: 285px"></iframe>
+
+						<?php //echo do_shortcode("[contact-form-7 id='9' title='NWSL']"); ?>
+						
+						
 					</div>
 					
 				</div>
@@ -84,6 +108,7 @@ if(is_page(48)) {
 									<li><a href="/moje-konto/">Moje konto</a></li>
 									<!--<li><a href="#">Moje kursy</a></li>-->
 									<li><a href="/historia-transakcji/">Historia płatności i faktury</a></li>
+									<li><a href="/moje-certyfikaty/">Moje certyfikaty</a></li>
 									<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Wyloguj się</a></li>
 								<?php else : ?>
 									<li><a href="<?php echo wp_login_url(get_permalink()); ?>">Zaloguj się</a></li>
@@ -103,7 +128,7 @@ if(is_page(48)) {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 first">
-					&copy; <?php echo date('Y'); ?> Mauricz.tv. Wszelkie prawa zastrzeżone.
+					&copy; 2020 - <?php echo date('Y'); ?> Mauricz.tv. Wszelkie prawa zastrzeżone.
 				</div>
 				<div class="col-md-5 second">
 					Projekt i wykonanie <a href="https://virtualpeople.pl">Virtual People</a>.
@@ -117,12 +142,11 @@ if(is_page(48)) {
 <?php wp_footer(); ?>
 
 
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 	<?php /* <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.counterup.js"></script> */ ?>
 
-
 		<script>
+
 			if(!$) var $ = jQuery;
 			jQuery(document).ready(function($) {
 				$('.counter').counterUp({
@@ -135,11 +159,45 @@ if(is_page(48)) {
 				$( ".has-sub > .sub-menu, ul:not(.sub-menu) > .menu-item-has-children > .sub-menu" ).wrap( "<div class='sub-menu-scroll-wrapper'></div>" );
 			});
 
+
+
+			(function( $ ) {
+    $.fn.generatePdfAndClose = function() {
+        var $this = $(this),
+            element = document.getElementById('generate-pdf-and-close'),
+            orientation = $this.find('#pb-page').data('orientation'),
+            opt_orientation = (orientation == 'horizontal') ? 'landscape' : 'portrait',
+            opt = {
+            margin:0,
+            filename:     'certificate.pdf',
+            image:        { type: 'jpeg', quality: 1 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        {format : 'a4', orientation  : opt_orientation}
+        };
+
+        $('.ui-icon-gripsmall-diagonal-se').hide()
+
+        html2pdf(element, opt)
+            .set({ html2canvas: { scale: 2, useCORS: true } })
+            .then(function(pdf) {
+            setTimeout(function () {
+                window.close()
+            }, 1000);
+        });
+    };
+}( jQuery ));
+
+
+jQuery( document ).ready(function() {
+    if ( jQuery( "#generate-pdf-and-close" ).length > 0) {
+        // setTimeout added because generatePdfAndClose will not have time to load
+        setTimeout(function(){
+            jQuery( "#generate-pdf-and-close" ).generatePdfAndClose();
+        }, 750);
+    }
+});
+
 		</script>
-
-
-
-
 
 </body>
 </html>

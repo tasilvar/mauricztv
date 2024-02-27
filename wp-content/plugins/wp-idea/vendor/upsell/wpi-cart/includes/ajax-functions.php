@@ -455,7 +455,7 @@ function edd_ajax_download_search() {
 	}
 
 	// Limit the result sets
-	$limit = "LIMIT 50";
+	$limit = "LIMIT 9999";
 
 	$sql = $select . $where . $limit;
 

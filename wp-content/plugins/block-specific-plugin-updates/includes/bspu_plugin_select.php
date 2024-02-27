@@ -1,10 +1,14 @@
 <?php
 if (@$_POST['submit-bpu']){
-	$blocked_plugins = @join('###',$_POST['block_plugin_updates']);
-	update_option('bpu_update_blocked_plugins', $blocked_plugins);
-	delete_option('_site_transient_update_plugins');	
-	$bspu_save_MSG = 'Updated Succesfully. Please logout and login again to get the proper effect.';
-    $bpu_update_blocked_plugins_array   = explode('###',$blocked_plugins);
+    if ( isset($_POST['bspu_nonce']) && wp_verify_nonce($_POST['bspu_nonce'], 'bspu_save_settings')) {
+        $blocked_plugins = @join('###',isset($_POST['block_plugin_updates']) ? $_POST['block_plugin_updates'] : array());        
+    	update_option('bpu_update_blocked_plugins', $blocked_plugins);
+    	delete_option('_site_transient_update_plugins');	
+    	$bspu_save_MSG = 'Updated Succesfully. Please logout and login again to get the proper effect.';
+        $bpu_update_blocked_plugins_array   = explode('###',$blocked_plugins);
+    } else {
+        $bspu_save_MSG = 'Sorry, your nonce did not verify. Please try again.';
+    }
 }
 ?>
 
@@ -35,6 +39,7 @@ if (@$_POST['submit-bpu']){
                 <?php } ?>
             
             <p class="submit">
+            <?php wp_nonce_field( 'bspu_save_settings', 'bspu_nonce' ); ?>
             <input type="submit" name="submit-bpu" class="button-primary" value="<?php _e('Save Changes') ?>" />
             </p>
         </form>

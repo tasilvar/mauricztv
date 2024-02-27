@@ -77,6 +77,8 @@ if($getCategoryTag != null) {
 
     foreach($getProducts as $product) { 
         echo "<div class='col-md-".$cols."'>";
+
+		
         echo "<div class='product'>";
         
          //Miniatura
@@ -106,12 +108,12 @@ if($getCategoryTag != null) {
                 echo "</td>";
                 echo "<td>";
                     echo get_field('czas_kursu', $product->ID);
-                echo "h</td>";
+                echo "min</td>";
             echo "</tr>";
     
             echo "<tr>";
                 echo "<td>";
-                    echo "Liczba modułów";
+                    echo "Liczba lekcji";
                 echo "</td>";
                 echo "<td>";
                     echo get_field('liczba_lekcji', $product->ID);
@@ -170,3 +172,4 @@ if($getCategoryTag != null) {
     
     exit();
     ?>
+
