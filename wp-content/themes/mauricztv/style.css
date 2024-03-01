@@ -1203,7 +1203,7 @@ koszyk > kody rabatowe
 {
 	text-align: center;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px !important;
     color: #323739;
 }
 .koszyk_right td { 
@@ -2149,3 +2149,18 @@ ul.home-levels-items.levels .products-list  {
 }
 
 /* [moje_kursy] */
+@media(max-width:991px) {
+.top-faq h2 {
+	max-width: 33%;
+}
+}
+.tml-action-lostpassword #contact_form { 
+	display: none;
+}
+.movie {
+	justify-content: center;
+}
+img.entered.lazyloaded {
+    max-height: 400px;
+    width: auto;
+}

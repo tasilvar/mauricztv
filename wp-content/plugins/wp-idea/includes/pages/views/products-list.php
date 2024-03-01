@@ -277,17 +277,21 @@ foreach ($categories as $key => $category) {
 ?>
 </ul>
 <!--  END: Kategorie -->
+<div style="display:none;">
+<?php 
+ $tags = get_terms( array(
+	'taxonomy' => 'download_tag', 
+	'hide_empty' => true, 
+	) );
 
 
+if (count($tags) > 0) {
+	?>
 <h5>Poziom</h5>
 
 <!-- BEGIN: Poziom -->
 <ul class="levels">
 <?php
- $tags = get_terms( array(
-	 'taxonomy' => 'download_tag', 
-	 'hide_empty' => true, 
-	 ) );
 
 
 
@@ -303,6 +307,10 @@ foreach ($tags as $key => $tag) {
 ?>
 </ul>
 <!-- END: Poziom -->
+<?php 
+}
+?>
+</div>
 
 <h5>Czas trwania</h5>
 <!-- BEGIN: Czas trwania -->

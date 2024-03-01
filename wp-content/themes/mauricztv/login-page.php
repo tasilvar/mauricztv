@@ -22,10 +22,21 @@ get_header();
 
 
 
-    <div class="row login-section">
+    <div class="row login-section tml">
 
     <div class="col-md-6">
     <h1>Zaloguj się</h1>
+ 
+    <?php 
+    if(isset($_POST['wp-submit'])) {
+        ?>
+        <div class="tml-alerts" style="
+    max-width: 75%;
+    margin: auto;
+"><ul class="tml-errors"><li class="tml-error"><strong>Błąd:</strong> proszę wpisać poprawne dane do logowania.</li></ul></div>
+        <?php
+    }
+    ?>
     <?php 
     wp_login_form( ['echo' =>true] );
     ?>

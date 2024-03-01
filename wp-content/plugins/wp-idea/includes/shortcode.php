@@ -690,7 +690,7 @@ function mjcourses($atts) {
 	}
 	if($tagLabels == 1) {
 		// Blok Poziomy
-		$outputLevels .= '<ul class="home-levels-items levels">';
+		$outputLevels .= '<ul class="home-levels-items levels" style="display:none;">';
 
 		$tags = get_terms( array(
 			'taxonomy' => 'download_tag', 
@@ -706,7 +706,7 @@ function mjcourses($atts) {
 			$outputLevels .= "</li>";
 		}
 
-		$outputLevxels .= '</ul>';
+		$outputLevels .= '</ul>';
 		$output .= $outputLevels;
 		// End Blok Poziomy
 	}
@@ -924,15 +924,15 @@ function getAvailableCourses() {
 
 	$output = '';
 	$output .= '<h1 class="title-section">Moje kursy</h1>';
-	$output .= '<table>';
+	$output .= '<table class="my-certificates-table">';
 
 	$output .= '<tr>';
-	$output .= '<td>';
+	$output .= '<th>';
 	$output .= 'Nazwa kursu';
-	$output .= '</td>';
-	$output .= '<td>';
+	$output .= '</th>';
+	$output .= '<th>';
 	$output .= 'Link do kursu';
-	$output .= '</td>';
+	$output .= '</th>';
 			$output .= '</tr>';
 		foreach($users_courses as $course) { 
 			$output .= '<tr>';

@@ -1102,7 +1102,8 @@ switch ( $action ) {
 
 			?>
 			<p id="reg_passmail">
-				<?php _e( 'Registration confirmation will be emailed to you.' ); ?>
+				<?php _e('Potwierdzenie rejestracji zostanie wysłane na podane adres e-mail. Sprawdź swoją skrzynkę, będzie znajdował się tam link do ustawienia hsasła do konta.'); ?>
+				<?php #_e( 'Registration confirmation will be emailed to you.' ); ?>
 			</p>
 			<br class="clear" />
 			<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
