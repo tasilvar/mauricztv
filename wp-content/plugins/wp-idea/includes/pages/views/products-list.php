@@ -192,10 +192,27 @@ echo " PLN</h4>";
 
 <?php
 } else { 
-echo "<h4 class='product-price'>";
-	echo number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
-echo " PLN</h4>";
+	if($sale_price  != $product_price) { 
+        ?>
+        <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
+  <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
+        <?php 
+     } else { 
+
+		if((@get_post_meta($product->ID,  'edd_sale_price', true)  > 0) && (get_post_meta($product->ID,  'edd_sale_price', true) != @get_post_meta($product->ID,  'edd_price', true))) {
+
+			$normalPrice = get_post_meta($product->ID,  'edd_price', true);
+			$salePrice = number_format(get_post_meta($product->ID,  'edd_sale_price', true),2,'.','');
+			echo   '<h4 class="product-price sale">'.$salePrice.' PLN</h4>';
+			echo   '<h4 class="crossed">'.$normalPrice.' PLN</h4>';
+		 
+		   } else { 
+			echo   "<h4 class='product-price'>";
+			echo  number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
+		  echo " PLN</h4>";
+		   } 
  
+     } 
 }
 ?>
 </div> 
@@ -260,17 +277,21 @@ foreach ($categories as $key => $category) {
 ?>
 </ul>
 <!--  END: Kategorie -->
+<div style="display:none;">
+<?php 
+ $tags = get_terms( array(
+	'taxonomy' => 'download_tag', 
+	'hide_empty' => true, 
+	) );
 
 
+if (count($tags) > 0) {
+	?>
 <h5>Poziom</h5>
 
 <!-- BEGIN: Poziom -->
 <ul class="levels">
 <?php
- $tags = get_terms( array(
-	 'taxonomy' => 'download_tag', 
-	 'hide_empty' => true, 
-	 ) );
 
 
 
@@ -286,6 +307,10 @@ foreach ($tags as $key => $tag) {
 ?>
 </ul>
 <!-- END: Poziom -->
+<?php 
+}
+?>
+</div>
 
 <h5>Czas trwania</h5>
 <!-- BEGIN: Czas trwania -->
@@ -417,6 +442,12 @@ $all_product = get_posts( $argsAll );
 <?php
 			
 			if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+				if(!is_numeric(get_post_meta($product->ID,  'sale_price', true))) {
+					?>
+					<h4 class="product-price"><?php echo number_format(get_post_meta($product->ID,  'edd_price', true),2,'.',''); ?> PLN</h4>
+
+					<?php
+				} else {
 				?>
 				<?php 
 	echo "<h4 class='product-price sale'>";
@@ -428,12 +459,22 @@ $all_product = get_posts( $argsAll );
 
 	
 	
-<?php
+	<?php 
+}
+
 } else { 
-	echo "<h4 class='product-price'>";
-		echo number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
-	echo " PLN</h4>";
-	 
+	if((@get_post_meta($product->ID,  'edd_sale_price', true)  > 0) && (get_post_meta($product->ID,  'edd_sale_price', true) != @get_post_meta($product->ID,  'edd_price', true))) {
+?>
+
+<h4 class="product-price sale"><?php echo number_format(get_post_meta($product->ID,  'edd_sale_price', true),2,'.',''); ?> PLN</h4>
+	<h4 class="crossed"><?php echo get_post_meta($product->ID,  'edd_price', true); ?> PLN</h4>
+	
+		  <?php 
+	   } else { 
+		  echo "<h4 class='product-price'>";
+	  echo number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
+	  echo " PLN</h4>";
+	   } 	 
 }
 ?>
 	</div> 

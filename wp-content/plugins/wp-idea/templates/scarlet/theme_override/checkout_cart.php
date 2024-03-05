@@ -173,7 +173,7 @@ xhr.send(formData);
                                     <input type="hidden" name="edd-cart-download-<?php echo $key; ?>-options" value="<?php echo esc_attr( json_encode( $item['options'] ) ); ?>"/>
                                 <?php endif; ?>
                                 <?php do_action( 'edd_cart_actions', $item, $key ); ?>
-                                <a class="remove_from_cart" <?php View_Hooks::run(View_Hooks::RENDER_INLINE_ELEMENTS_IN_REMOVE_FROM_CART_HYPERLINK, $item['id']); ?> href="<?php echo esc_url( edd_remove_item_url( $key ) ); ?>"><i class="fas fa-remove"></i> 
+                                <a class="remove_from_cart" <?php View_Hooks::run(View_Hooks::RENDER_INLINE_ELEMENTS_IN_REMOVE_FROM_CART_HYPERLINK, $item['id']); ?> href="<?php echo esc_url( edd_remove_item_url( $key ) ); ?>"><i class="icon icon-remove"></i> 
 								<!-- &nbsp; <?= Translator_Static_Helper::translate('templates.checkout_cart.remove_from_cart') ?> -->
 							</a>
 
@@ -332,6 +332,7 @@ echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
 	echo '30';
 }
 ?>%!</h1>
+<p>(kody rabatowe nie łączą się z tym rabatem)</p>
 <?php 
 	}
 ?>

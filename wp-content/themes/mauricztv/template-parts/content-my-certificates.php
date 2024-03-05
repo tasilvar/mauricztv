@@ -19,6 +19,9 @@ $query = new WP_Query([
 // if ($translator instanceof Interface_Initiable) {
 //     $translator->init();
 // }
+?>
+<h2>Certyfikaty do szkoleń generują się automatycznie po 100% ukończenia kursu.</h2>
+<?php
 
 if ( ! $query->have_posts() ) : ?>
     <?php

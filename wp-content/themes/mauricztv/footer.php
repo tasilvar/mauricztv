@@ -29,7 +29,7 @@ if(is_page(48)) {
 	<?php if (is_front_page()){ ?>
 	<div class="container">
 		<div id="nwsl" class="row hp-contact">
-		<div class="col-md-5"><img class="alignnone wp-image-2187 size-medium" src="https://vp.mauricz.tv/wp-content/uploads/2023/12/0034-482x500.jpeg" alt="" width="482" height="500" /></div>
+		<div class="col-md-5"><img class="alignnone wp-image-2187 size-medium" src="<?php echo get_bloginfo('url');?>/wp-content/uploads/2023/12/0034-482x500.jpeg" alt="" width="482" height="500" /></div>
 		<div class="col-md-7">
 		<h6>Bądź na bieżąco!</h6>
 		<h3>Zapisz się do newslettera!</h3>

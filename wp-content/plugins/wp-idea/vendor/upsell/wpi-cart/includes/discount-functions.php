@@ -25,7 +25,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 function edd_get_discounts( $args = array() ) {
 	$defaults = array(
 		'post_type'      => 'edd_discount',
-		'posts_per_page' => 30,
+		'posts_per_page' => 999,
 		'paged'          => null,
 		'post_status'    => array( 'active', 'inactive', 'expired' )
 	);

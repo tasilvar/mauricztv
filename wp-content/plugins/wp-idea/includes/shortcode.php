@@ -690,7 +690,7 @@ function mjcourses($atts) {
 	}
 	if($tagLabels == 1) {
 		// Blok Poziomy
-		$outputLevels .= '<ul class="home-levels-items levels">';
+		$outputLevels .= '<ul class="home-levels-items levels" style="display:none;">';
 
 		$tags = get_terms( array(
 			'taxonomy' => 'download_tag', 
@@ -706,7 +706,7 @@ function mjcourses($atts) {
 			$outputLevels .= "</li>";
 		}
 
-		$outputLevxels .= '</ul>';
+		$outputLevels .= '</ul>';
 		$output .= $outputLevels;
 		// End Blok Poziomy
 	}
@@ -809,10 +809,18 @@ function mjcourses($atts) {
 		$output .= " PLN</h4>";
 
 } else { 
-	$output .= "<h4 class='product-price'>";
-	$output .= number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
-	$output .= " PLN</h4>";
+	if((@get_post_meta($product->ID,  'edd_sale_price', true)  > 0) && (get_post_meta($product->ID,  'edd_sale_price', true) != @get_post_meta($product->ID,  'edd_price', true))) {
+
+		$normalPrice = get_post_meta($product->ID,  'edd_price', true);
+		$salePrice = number_format(get_post_meta($product->ID,  'edd_sale_price', true),2,'.','');
+		$output .=  '<h4 class="product-price sale">'.$salePrice.' PLN</h4>';
+		$output .=  '<h4 class="crossed">'.$normalPrice.' PLN</h4>';
 	 
+	   } else { 
+		$output .=  "<h4 class='product-price'>";
+		  $output .=  number_format(get_post_meta($product->ID,  'edd_price', true),2,'.','');
+	  $output .=  " PLN</h4>";
+	   } 	 
 }
 
 	$output .= '</div>';
@@ -916,15 +924,15 @@ function getAvailableCourses() {
 
 	$output = '';
 	$output .= '<h1 class="title-section">Moje kursy</h1>';
-	$output .= '<table>';
+	$output .= '<table class="my-certificates-table">';
 
 	$output .= '<tr>';
-	$output .= '<td>';
+	$output .= '<th>';
 	$output .= 'Nazwa kursu';
-	$output .= '</td>';
-	$output .= '<td>';
+	$output .= '</th>';
+	$output .= '<th>';
 	$output .= 'Link do kursu';
-	$output .= '</td>';
+	$output .= '</th>';
 			$output .= '</tr>';
 		foreach($users_courses as $course) { 
 			$output .= '<tr>';

@@ -14,7 +14,7 @@ jobs:
         server: mauricztv.ftp.dhosting.pl
         username: doos7s_virtual
         password: ${{ secrets.ftp_password }}
-        server-dir: /str_mauricz/
+        server-dir: /mauricz.tv/public_html/
         exclude: |
           **/.git*
           **/.git*/**

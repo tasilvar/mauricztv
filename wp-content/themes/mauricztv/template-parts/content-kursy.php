@@ -312,7 +312,7 @@
 				  
             <!-- cena -->
             <?php
-                    if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+                    if(((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) || ($sale != $product_price)) { 
                         ?>
             <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
         <?php
