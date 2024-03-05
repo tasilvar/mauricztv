@@ -442,6 +442,12 @@ $all_product = get_posts( $argsAll );
 <?php
 			
 			if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
+				if(!is_numeric(get_post_meta($product->ID,  'sale_price', true))) {
+					?>
+					<h4 class="product-price"><?php echo number_format(get_post_meta($product->ID,  'edd_price', true),2,'.',''); ?> PLN</h4>
+
+					<?php
+				} else {
 				?>
 				<?php 
 	echo "<h4 class='product-price sale'>";
@@ -453,7 +459,9 @@ $all_product = get_posts( $argsAll );
 
 	
 	
-	<?php
+	<?php 
+}
+
 } else { 
 	if((@get_post_meta($product->ID,  'edd_sale_price', true)  > 0) && (get_post_meta($product->ID,  'edd_sale_price', true) != @get_post_meta($product->ID,  'edd_price', true))) {
 ?>
