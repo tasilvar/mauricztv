@@ -1138,9 +1138,18 @@ tr.edd_cart_header_row th {
 .page-id-48 #content > .wp-block-group{ 
 	display: none;
 }
-.koszyk_right #edd_checkout_user_info { 
+.koszyk_right #edd_checkout_user_info > * { 
 	display: none;
 }
+.koszyk_right #edd_checkout_user_info > .bpmj-eddcm-phone-no, .koszyk_right #edd_checkout_user_info #edd-email-wrap {
+	display: block;
+}
+/* .koszyk_right #edd_checkout_user_info p:not(.koszyk_right #edd_checkout_user_info #edd-email-wrap),
+.koszyk_right #edd_checkout_user_info p:not(.koszyk_right #edd_checkout_user_info .bpmj-eddcm-phone-no) {
+	display: none;
+} */
+
+
 .koszyk_right #edd-purchase-button { 
 	width: 100%;
     text-align: center;
@@ -2177,3 +2186,7 @@ margin: auto;
 /* .product .more-green {
 	width: 100% !important;
 } */
+
+#menu-item-141 a{ 
+	border-color:#1c25c0;
+}
