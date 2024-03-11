@@ -190,13 +190,13 @@ h3 em{font-style:normal;color:#1AD779;}
 .top-menu{display:inline-block;}
 .top-menu ul{padding-left:0;}
 .top-menu ul li{list-style-type:none;display:inline-block;margin:0 6px;}
-.top-menu ul li a{border: 2px solid #1AD779;padding:19px 19px;color:#323739;font-size:16px;/*line-height:19px;*/line-height:1;font-weight:600;text-transform:uppercase;}
+.top-menu ul li a{display: block;border: 2px solid #1AD779;padding:19px 19px;color:#323739;font-size:16px;/*line-height:19px;*/line-height:100%;font-weight:600;text-transform:uppercase;}
 
 #mysticky-nav .myfixed{padding-top: 10px;}
 #mysticky-nav .myfixed div#logo-cell{margin:0;}
 #mysticky-nav .myfixed .top-menu ul li a{padding:10px 0.990vw;}
 #mysticky-nav .myfixed .menu_glowne{margin-top:-3px;}
-#mysticky-nav .myfixed .menu_glowne ul li a {padding:10px 0.990vw;height:auto;min-height:auto;}
+#mysticky-nav .myfixed .menu_glowne ul li a {padding:10px 0.990vw;}
 
 /*front page*/
 .top-home{background:url('./img/top-home.jpg')no-repeat top center / contain;padding-top:16.644vw;}
@@ -1690,7 +1690,9 @@ width: 100% !important;
 	.xs-hidden{display:none!important;}
 	.footer iframe{min-height:315px!important;}
 	.koszyk{right:unset;margin-right:0;top:10px;position:absolute;transform:translateY(0);}
-	
+	.links a {
+		display: flex;align-items: center;justify-content: center;
+	}
 	#menu_mobile{display:none!important;}
 	#mega-menu-wrap-primary{position:static;transform:translateY(0);}
 	#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
@@ -1703,19 +1705,27 @@ width: 100% !important;
 	left: unset !important;
 	padding-top: 0 !important;
 	padding-left: 0 !important;
-}
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link {
-	transition: all .2s ease-in;
-	padding: 6px 10px 6px 46px;
-	font-size: 22px;
-	line-height: 35px;
-	color: #323739;
-	font-weight: 800;
-	height: auto;
-}
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item::before{top:4px;}
-#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{padding-top:90px;}
-#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open + #mega-menu-primary{background:#fff;}
+	}
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link {
+		transition: all .2s ease-in;
+		padding: 6px 10px 6px 46px;
+		font-size: 22px;
+		line-height: 35px;
+		color: #323739;
+		font-weight: 800;
+		height: auto;
+	}
+
+	/* 
+	wylaczenie numerowania menu na mobile
+	*/
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item::before{top:4px; display: none;}
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link {
+		padding: 6px 10px;
+	}
+
+	#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{padding-top:90px;}
+	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open + #mega-menu-primary{background:#fff;}
 
 	.top-all{margin-top:15px;/*padding-left:0;padding-right:0;*/}
 	.top-all h1{padding-top:0!important;}
@@ -2053,8 +2063,8 @@ width: 100% !important;
 	.top-menu ul li a{padding:19px 0.990vw;font-size:0.833vw;/*height:3.177vw;*/height:auto;}
 	
 	.menu_glowne ul{padding:0!important;}
-	.menu_glowne ul li a{padding:19px 0.990vw;font-size:0.833vw!important;/*height:3.177vw;*/height:auto;display:inline-block;min-height:61px;min-height:57px;}
-	.menu_glowne ul.sub-menu li a{height:auto;}
+	.menu_glowne ul li a{padding:19px 0.990vw;font-size:0.833vw!important;/*height:3.177vw;*/display:inline-block;}
+	.menu_glowne ul.sub-menu li a{}
 	
 	.blog a.post-link{font-size:1.250vw;}
 	
@@ -2086,6 +2096,89 @@ width: 100% !important;
 }
 
 .postep_liczba{line-height:15px;}
+
+/* 
+	poprawki mobile strona kursu 11.03.2024
+*/
+@media(max-width: 575px) {
+
+	
+
+	.top-kursy h1 {
+		line-height: 105%;
+		font-size: 24px;
+	}
+	.top-kursy h5 {
+		line-height: 130%;
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	.top-kursy h6 {
+		font-size: 16px;
+	}
+
+	.top-kursy p {
+		font-size: 14px !important;
+		line-height: 26px !important;
+	}
+
+	.top-kursy .inner p {
+		background-size: 24px;
+		padding-left: 30px;
+	}
+	
+	.kursy-content {
+		margin-top: 80px !important;
+	}
+
+	.kursy-content p,
+	.kursy-content ol li,
+	.kursy-content ul li,
+	.kursy-who p {
+		line-height: 130%;
+		font-size: 14px;
+	}
+
+	.kursy-content h3,
+	.kursy-who h3,
+	.kursy-list h3,
+	.kursy-opinions h3,
+	.kursy-faq h3,
+	.kursy-bottom h3 {
+		font-size: 30px !important;
+		margin-bottom: 50px;
+		line-height: 130% !important;
+	}
+
+	.kursy-who h4 {
+		font-size: 28px;
+	}
+
+	.kursy-cert h5 {
+		font-size: 26px;
+		line-height: 130%;
+	}
+
+	.kursy-cert h6 {
+		font-size: 38px;
+		line-height: 130%;
+	}
+
+	.kursy-opinions .inner p,
+	.ea-body p {
+		font-size: 14px;
+		line-height: 130%;
+	}
+
+	/* 
+	faq
+	*/
+
+	.sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a {
+		font-size: 18px;
+	}
+
+}
 
 /*
 
@@ -2151,17 +2244,22 @@ ul.home-levels-items.levels .products-list  {
 
 
 @media(max-width:767px) {
+
+	#mysticky-nav.wrapfixed {
+		opacity: 1 !important;
+	}
+
 	/* powoduje bugi na mobile */
-.cky-consent-container { 
-	display: none;
-}
+	.cky-consent-container { 
+		display: none;
+	}
 }
 
 /* [moje_kursy] */
 @media(max-width:991px) {
-.top-faq h2 {
-	max-width: 33%;
-}
+	.top-faq h2 {
+		max-width: 33%;
+	}
 }
 .tml-action-lostpassword #contact_form { 
 	display: none;

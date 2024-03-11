@@ -226,8 +226,7 @@ echo " PLN</h4>";
 <?php
 // Dodaj do koszyka
 echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-<i class="fa fa-shopping-bag"></i> 
-Sprawdź szkolenie</a>';
+Szczegóły</a>';
 
 	echo "</div>";
 	echo "</div>";
@@ -520,8 +519,7 @@ $all_product = get_posts( $argsAll );
 		  
 	// Dodaj do koszyka
 			echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-			<i class="fa fa-shopping-bag"></i> 
-			Sprawdź szkolenie</a>';
+			Szczegóły</a>';
 			echo "</div>";
 			echo "</div>";
 			

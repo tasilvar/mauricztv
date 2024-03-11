@@ -317,7 +317,7 @@ if($show_open_padlock) {
     // print_r($p);
 ?>
 
-		<?php echo get_the_content(); ?>
+		<?php echo apply_filters('the_content', get_the_content()); ?>
 	
 	</div>
     

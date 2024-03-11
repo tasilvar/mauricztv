@@ -176,8 +176,7 @@ if($getCategoryTag != null) {
     <?php
     // Dodaj do koszyka
     echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-    <i class="fa fa-shopping-bag"></i> 
-    Sprawdź szkolenie</a>';
+    Szczegóły</a>';
     
         echo "</div>";
         echo "</div>";
