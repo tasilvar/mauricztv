@@ -1,5 +1,6 @@
 /wp-admin
 /wp-includes
+/awstats/
 index.php
 wp-config.php
 wp-cron.php
@@ -20,6 +21,8 @@ xmlrpc.php
 .ftp-deploy-sync-state.json
 *.sql
 /wp-content/uploads
+/wp-content/cache
+/wp-content/uploads-webpc/
 /wp-content/languages
 /wp-content/lms-data
 /wp-content/upgrade
