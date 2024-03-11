@@ -195,7 +195,7 @@ h3 em{font-style:normal;color:#1AD779;}
 #mysticky-nav .myfixed{padding-top: 10px;}
 #mysticky-nav .myfixed div#logo-cell{margin:0;}
 #mysticky-nav .myfixed .top-menu ul li a{padding:10px 0.990vw;}
-#mysticky-nav .myfixed .menu_glowne{margin-top:-3px;}
+/* #mysticky-nav .myfixed .menu_glowne{margin-top:-3px;} */
 #mysticky-nav .myfixed .menu_glowne ul li a {padding:10px 0.990vw;}
 
 /*front page*/
@@ -1061,7 +1061,7 @@ Etykiety
 }
 
 .menu_glowne {
-    padding: 0px !important;margin-top:-2px;
+    padding: 0px !important;margin-top:-1px;
 }
 
 .menu_glowne li {display:inline-block;
