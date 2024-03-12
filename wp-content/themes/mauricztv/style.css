@@ -148,18 +148,18 @@ h3 em{font-style:normal;color:#1AD779;}
 
 #mega-menu-wrap-primary{position:absolute;}
 #mega-menu-wrap-primary #mega-menu-primary{top:0!important;width:50vw!important;right:0!important;left:unset!important;}
-#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{z-index:9999!important;height:100vh;width:795px!important;position:absolute;right:-180px !important;top:-45px !important;left:unset!important;/*padding-top:90px;*/padding-top:280px;padding-left:110px;}
+#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{z-index:9999!important;height:100vh;width:795px!important;position:absolute;right:-180px !important;top:-45px !important;left:unset!important;/*padding-top:90px;*/padding-top:280px;}
 #mega-menu-wrap-primary .mega-menu-toggle{z-index: 999999;position:relative;}
 
 #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link,
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link{transition:all .2s ease-in;padding:6px 10px 6px 58px;font-size:32px;line-height:44px;color:#323739;font-weight:800;height:auto;}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link{transition:all .2s ease-in;padding:6px 10px 6px 10px;font-size:32px;line-height:44px;color:#323739;font-weight:800;height:auto; text-align: center;}
 #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:hover{transition:all .2s ease-out;color:#1AD779;}
 
 #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item:before{position:absolute;top:12px;z-index:999;
   content:"0" counter(counter);
   counter-increment: counter;
   color:#1AD779;
-  display: inline-flex;
+  display: none; /* wylaczenie numeracji w menu */
   width: 40px;
   height: 40px;
   align-items: center;
