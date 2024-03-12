@@ -1722,6 +1722,7 @@ width: 100% !important;
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item::before{top:4px; display: none;}
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link {
 		padding: 6px 10px;
+		text-align: center;
 	}
 
 	#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{padding-top:90px;}
