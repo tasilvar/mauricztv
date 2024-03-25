@@ -2289,3 +2289,70 @@ margin: auto;
 #menu-item-141 a{ 
 	border-color:#1c25c0;
 }
+
+.categories-list .categories-lis__title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom:22px
+}
+
+/* Styl dla ikony strzałki (używając Font Awesome) */
+.categories-list .categories-lis__title i {
+    font-size: 28px;
+	transition: all .3s ease-in-out;
+}
+
+.categories-list .categories-lis__title i.rotated {
+	transform: rotate(180deg);
+}
+
+/* Ukryj ikonę strzałki na większych ekranach */
+@media (min-width: 768px) {
+    .categories-list .categories-lis__title i {
+		display: none;
+	}
+
+	.categories-list .categories-lis__title {
+		margin-bottom: 0;
+	}
+}
+@media (max-width: 768px) {
+    .categories-list .categories-lis__title h5 {
+		margin: 0;
+	}
+
+}
+.time-changer .time-changer__title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom:22px
+}
+
+/* Styl dla ikony strzałki (używając Font Awesome) */
+.time-changer .time-changer__title i {
+    font-size: 28px;
+	transition: all .3s ease-in-out;
+}
+
+.time-changer .time-changer__title i.rotated {
+	transform: rotate(180deg);
+}
+
+/* Ukryj ikonę strzałki na większych ekranach */
+@media (min-width: 768px) {
+    .time-changer .time-changer__title i {
+		display: none;
+	}
+
+	.time-changer .time-changer__title {
+		margin-bottom: 0;
+	}
+}
+@media (max-width: 768px) {
+    .time-changer .time-changer__title h5 {
+		margin: 0;
+	}
+
+}
