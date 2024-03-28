@@ -2205,7 +2205,8 @@ Dlaczego ten kurs...
 Jakie kompetencje...
 Czego dowiesz się na szkoleniu...
 */
-.kursy-agenda, .kursy-why.row, .kursy-competences.row, .kursy-what.row-full { 
+/* .kursy-agenda, */
+ .kursy-why.row, .kursy-competences.row, .kursy-what.row-full { 
 	display: none !important;
 }
 /*

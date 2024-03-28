@@ -356,7 +356,9 @@ if($show_open_padlock) {
         
     </div>
 	
-
+    <?php 
+                        if(!empty(get_field('agenda_pdf'))) {
+                            ?>
     <div class="kursy-agenda row-full">
     
         <div class="container">
@@ -365,34 +367,15 @@ if($show_open_padlock) {
                 
                     <h3 class="upper">Agenda szkolenia</h3>
             
-                    <?php the_field('miejsce_na_shortcode'); ?>
+                    <!-- <?php the_field('miejsce_na_shortcode'); ?>
                     
                     <h3 class="lower">Zainteresował Cię ten kurs?</h3>
-                    
+                     -->
                     <div class="text-center">
-                        <?php 
-
-                        ?>
-                        <?php 
-if($show_open_padlock != '1') { 
-?>
-                          <!--  BEGIN: Dodaj do koszyka -->
-<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
-               'add-to-cart' => (int)$product_id,
-           ) ) ); ?>" class="more">Kup teraz</a>
-          <!--  END: Dodaj do koszyka -->  
-<?php 
-}
-else {
-?>
-<!-- BEGIN: PRZEJDZ DO KURSU -->
-<a href="<?php echo get_permalink($course_page_id); ?>" class="box_glowna_add_to_cart_link more" style=" background: #333;color: #fff;"><i
-    class="fa fa-arrow-right"></i><?php _e( 'GO TO COURSE', BPMJ_EDDCM_DOMAIN ) ?>
-</a>
-<!-- END: PRZEJDZ DO KURSU -->
-<?php 
-}
-?>
+                      
+                    <a href="<?php echo get_field('agenda_pdf'); ?>" class="more" target="_blank">Zobacz agendę</a>
+                       
+                         
  
                     </div>	
                     
@@ -401,6 +384,9 @@ else {
         </div>
         
     </div>	
+    <?php 
+                        }
+                        ?>
 
     <div class="kursy-who row-full
 	
