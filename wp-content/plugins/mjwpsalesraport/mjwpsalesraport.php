@@ -217,7 +217,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "ID;data;wartosc;\n";
+			$output .= "id_zamowienia;data;wartosc;\n";
 		}
 
 		if($_POST['raport_typ'] == 'szkoleniowiec') {
@@ -225,7 +225,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "ID;data;wartosc;szkoleniowiec;\n";
+			$output .= "id_zamowienia;data;wartosc;id_produkt;szkoleniowiec;\n";
 		}
 
 		if($_POST['raport_typ'] == 'produkt') {
@@ -233,7 +233,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "ID;data;wartosc;produkt;\n";
+			$output .= "id_zamowienia;data;wartosc;id_produkt;szkoleniowiec;\n";
 		}
 
         $file = fopen('php://output', 'w');
@@ -267,6 +267,7 @@ class RaportSprzedazy {
 						$output .= '"'.$getDetailPayment->ID.'";';
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
+						$output .= '"'.$item['id'].'";';
 						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
 						$output .= "\n";
 					}
@@ -286,7 +287,7 @@ class RaportSprzedazy {
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
 						$output .= '"'.$item['id'].'";';
-						
+						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
 						$output .= "\n";
 					}
 				}
