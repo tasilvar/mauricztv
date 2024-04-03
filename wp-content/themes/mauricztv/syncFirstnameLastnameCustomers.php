@@ -4,17 +4,63 @@ require_once("../../../wp-load.php");
 global $wpdb;
 
 $emptyCustomers = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "edd_customers WHERE name = ''" );
-// print_r(get_users());
-print_r($emptyCustomers);
+
+/**
+ * Zaktualizuj informacje dot klienta
+ */
 foreach($emptyCustomers as $user) {
     $getUser = get_user_by('id', $user->user_id);
-    #echo $user->email."<br/>";
     syncFirstnameLastnameCustomers($getUser, $user->user_id);
-    #print_r($getUser);
-    #echo "<br/>";
 }
+
+$args = [
+	'number' => 9999
+];
+$getPayments = edd_get_payments($args);
+
+/**
+ * Zaktualizuj imie nazwisko w zamowieniu
+ */
+
+foreach($getPayments as $pay) { 
+
+// Zaktualizuj dane klienta w zrealizowanych zamówieniach
+$payment    = new EDD_Payment( $pay->ID );
+
+// Pobierz imie i nazwisko
+$getPaymentMeta = $payment->payment_meta;
+$getName = $getPaymentMeta['bpmj_edd_invoice_person_name'];
+
+// Jesli jest puste imie i nazwisko pobierz nazwe firmy
+
+if(empty($getName)) { 
+	$getName = $getPaymentMeta['bpmj_edd_invoice_company_name'];
+}
+//Rozbij imie i nazwisko na tablice
+$sliceName = explode(" ",trim($getName));
+
+$getFirstname = $sliceName[0];
+$getLastname = '';
+
+if(count($sliceName) > 1) {
+	$getLastname = $sliceName[1];
+} else{ 
+	$getLastname = $sliceName[0];	
+}
+
+// Ustaw nowe wartosci
+$payment->first_name     = $getFirstname;
+
+$payment->last_name      =  $getLastname;
+
+$payment->save();
+
+do_action( 'edd_updated_edited_purchase', $pay->ID );
+}
+
 echo "OK";
 exit();
+
 function syncFirstnameLastnameCustomers($current_user, $current_user_id) {
     global $wpdb;
         // Pobierz klientow ktorzy nie maja uzupelnionego imienia/nazwiska
