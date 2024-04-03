@@ -192,6 +192,7 @@ class RaportSprzedazy {
 		#'user' => $current_user->ID,
 		// echo "TEST SZKOLENIOWIEC:".get_field('prowadzacy','815');
 		$args = [
+			'number' => '99999',
 			'date_query' => array(
 				array(
 					'after'     => $_POST['raport_sprzedazy_option_name']['raport_data_od'],
