@@ -2357,3 +2357,11 @@ margin: auto;
 	}
 
 }
+.ui-widget-header {
+    border: 1px solid #1cd779 !important;
+    background: #1cd779 !important;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	border: 1px solid #bbb !important;
+	background: #eee !important;
+}

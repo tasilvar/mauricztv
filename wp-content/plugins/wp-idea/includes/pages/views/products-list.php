@@ -351,18 +351,55 @@ Szczegóły</a>';
 		<!-- BEGIN: Czas trwania -->
 		<div class="time-changer__content">
 			<form method="POST" class="mjfilter">
-				<div class="range-container">
+				<div class="range-container" style="display:none;">
 					<label class="left-align">
+						
 					<?= getMinMaxRange($productTime,'min'); ?>min
 					</label>
 					<label class="right-align">
 					<?= getMinMaxRange($productTime,'max'); ?>min
 					</label>
 				</div>
-				<input type="range" id="czas" name="czas" 
-				min="<?= getMinMaxRange($productTime,'min'); ?>" max="<?= getMinMaxRange($productTime,'max'); ?>" value="<?= getMinMaxRange($productTime,'max'); ?>" step="0.5" onchange="setRangeTime(this)">
+
+				<!-- <input type="range" id="czas" name="czas" 
+				min="<?= getMinMaxRange($productTime,'min'); ?>" max="<?= getMinMaxRange($productTime,'max'); ?>" value="<?= getMinMaxRange($productTime,'max'); ?>" step="0.5" onchange="setRangeTime(this)"> -->
 				<label class="czas" data-range="czas">do <?= getMinMaxRange($productTime,'max'); ?>min</label>
-				
+				<input type="hidden" id="czas-range" data-min="<?= getMinMaxRange($productTime,'min'); ?>" data-max="<?= getMinMaxRange($productTime,'max'); ?>"/>
+
+				<input type="hidden" id="czas-range-from" name="czas-range-from" value="<?= getMinMaxRange($productTime,'min'); ?>"/>
+				<input type="hidden" id="czas-range-to" name="czas-range-to" value="<?= getMinMaxRange($productTime,'max'); ?>"/>
+
+				Czas trwania
+
+				<div id="time-range-slider"></div>
+
+<script type="text/javascript">
+				jQuery(function($) {
+
+$( "#time-range-slider" ).slider({  
+orientation: "horizontal",                 
+range:true,  
+   min: parseFloat($("#czas-range").attr('data-min')),  
+   max: parseFloat($("#czas-range").attr('data-max')),  
+   values: [ parseFloat($("#czas-range").attr('data-min')), parseFloat($("#czas-range").attr('data-max'))],
+   slide: function( event, ui ) {
+	   console.log(event);
+	$( "#czas-range-from" ).val( ui.values[ 0 ] );  
+	$( "#czas-range-to" ).val(   ui.values[ 1 ] ); 
+
+	
+	$("label.czas").html("od "+ui.values[ 0 ]+" do "+ui.values[ 1 ]+"min");
+	
+   },
+   stop: function(event, ui) {
+		setRangeTime(null);
+   }
+});  
+//$( "#powierzchnia_content" ).val( "" + $( "#slide" ).slider( "values", 0 ) +  
+//" - " + $( "#slide" ).slider( "values", 1 ) +"m2");  
+				});
+</script>
+
 				<input type="hidden" name="filter_type" id="filter_type" value="<?= $filterType; ?>"/>
 				<input type="hidden" name="id_category_tag" id="id_category_tag" value="<?= $getCategoryTag; ?>"/>
 
@@ -371,7 +408,8 @@ Szczegóły</a>';
 			</form>
 				<script type="text/javascript">
 					function setRangeTime(obj) { 
-						document.querySelector("."+obj.getAttribute('name')).innerHTML = "do "+obj.value+"min";
+						
+						//document.querySelector("."+obj.getAttribute('name')).innerHTML = "do "+obj.value+"min";
 
 						
 						$.ajax({

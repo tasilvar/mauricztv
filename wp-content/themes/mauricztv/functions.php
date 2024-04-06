@@ -16,6 +16,9 @@ if ( ! function_exists( 'wp_bootstrap_starter_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function wp_bootstrap_starter_setup() {
+
+wp_enqueue_script(array( 'jquery', 'jquery-ui', 'jquery-ui-dialog', 'jquery-ui-slider'));
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.

@@ -19,12 +19,22 @@ if(!empty($_POST['cols'])) {
     $cols = 4;
 }
 
-if(!empty($_POST['czas'])) {
+if(!empty($_POST['czas-range-from'])) {
     $filterArgs[] =  array(
         'key' => 'czas_kursu',
-        'value' =>  $_POST['czas'],
+        'value' =>  $_POST['czas-range-from'],
+        'compare' => '>=',
+        'type'      => 'NUMERIC',
+    );
+
+    $filterArgs[] =  array(
+        'key' => 'czas_kursu',
+        'value' =>  $_POST['czas-range-to'],
+        'type'      => 'NUMERIC',
         'compare' => '<='
     );
+
+   
 }
 
 if($getCategoryTag != null) { 
