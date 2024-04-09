@@ -67,7 +67,7 @@ if($getCategoryTag != null) {
 			array(
 				'taxonomy' => 'download_category',
 				'field'    => 'term_id',
-				'terms'    => [21, 22],
+				'terms'    => [21],  // 22 -> pakiety
 				'operator' => 'NOT IN'
 			),
 		),
@@ -118,6 +118,12 @@ $args = array(
 			'field'    => 'slug',
 			'terms'    => 'bestsellery',
 		),
+		// array(
+		// 	'taxonomy' => 'download_category',
+		// 	'field'    => 'slug',
+		// 	'terms'    => ['pakiety','bestsellery'],
+		// 	'operator' => 'IN'
+		// ),
 	),
 	'orderby'          => 'date',
 	'order'            => 'DESC',
