@@ -375,7 +375,7 @@ Szczegóły</a>';
 				<input type="hidden" id="czas-range-from" name="czas-range-from" value="<?= getMinMaxRange($productTime,'min'); ?>"/>
 				<input type="hidden" id="czas-range-to" name="czas-range-to" value="<?= getMinMaxRange($productTime,'max'); ?>"/>
 
-				Czas trwania
+				<!-- Czas trwania -->
 
 				<div id="time-range-slider"></div>
 
