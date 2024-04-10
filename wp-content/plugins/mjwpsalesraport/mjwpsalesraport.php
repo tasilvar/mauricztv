@@ -191,8 +191,10 @@ class RaportSprzedazy {
 		//Filtruj zamówienia po uzytkowniku
 		#'user' => $current_user->ID,
 		// echo "TEST SZKOLENIOWIEC:".get_field('prowadzacy','815');
+		//status
 		$args = [
 			'number' => '99999',
+			'status' => 'publish',
 			'date_query' => array(
 				array(
 					'after'     => $_POST['raport_sprzedazy_option_name']['raport_data_od'],
@@ -205,7 +207,7 @@ class RaportSprzedazy {
 
  
 		// print_r($getPayments);
-        
+        // exit();
 		// echo "CSV".$_POST['raport_sprzedazy_option_name']['raport_data_do']. ' '.$_POST['raport_sprzedazy_option_name']['raport_data_od'];
 		// print_r($_POST);
 		
@@ -226,7 +228,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "id_zamowienia;data;wartosc;id_produkt;szkoleniowiec;\n";
+			$output .= "id_zamowienia;data;wartosc;id_produkt;product_name;szkoleniowiec;\n";
 		}
 
 		if($_POST['raport_typ'] == 'produkt') {
@@ -234,7 +236,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "id_zamowienia;data;wartosc;id_produkt;szkoleniowiec;\n";
+			$output .= "id_zamowienia;data;wartosc;id_produkt;product_name;szkoleniowiec;\n";
 		}
 
         $file = fopen('php://output', 'w');
@@ -262,13 +264,13 @@ class RaportSprzedazy {
 
 				$cartDetails = $getDetailPayment->cart_details;
 				foreach($cartDetails as $item) { 
-					
 					// Jesli szkoleniowiec z pozycji zamowienia jest zgodny z wybranym szkoleniowcem
 					if(get_field('prowadzacy', $item['id']) == $_POST['szkoleniowiec']) {
 						$output .= '"'.$getDetailPayment->ID.'";';
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
 						$output .= '"'.$item['id'].'";';
+						$output .= '"'.$item['name'].'";';
 						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
 						$output .= "\n";
 					}
@@ -288,6 +290,7 @@ class RaportSprzedazy {
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
 						$output .= '"'.$item['id'].'";';
+						$output .= '"'.$item['name'].'";';
 						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
 						$output .= "\n";
 					}
