@@ -123,7 +123,7 @@ $show_open_padlock = false;
                     </div>
                     
                     <h6 class="price">Cena:</h6>
-                    
+
                     <?php
                     if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
                         ?>
@@ -150,7 +150,7 @@ $show_open_padlock = false;
         }
     } else {?>
     <?php 
-     if(($sale_price > 0) && ($sale_price  != $product_price)) { 
+      if(((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) && (!is_numeric(get_post_meta($product_id,  'sale_price', true)))) {
         ?>
         <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
   <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
