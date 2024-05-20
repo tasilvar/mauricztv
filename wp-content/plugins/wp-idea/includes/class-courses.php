@@ -1388,9 +1388,9 @@ class Courses
             $access_valid = 'valid' === $access['status'];
             $access_waiting = 'waiting' === $access['status'];
 
-            if (!$access_valid && !$access_waiting) {
-                unset($tree[$key]);
-            } else {
+            // if (!$access_valid && !$access_waiting) {
+            //     unset($tree[$key]);
+            // } else {
 
                 $level1_module_or_lesson->set_access_status($access['status']);
                 $level1_module_or_lesson->set_inaccessible_lesson_visibility($inaccessible_lesson_visibility);
@@ -1426,7 +1426,7 @@ class Courses
                         }
                     }
                 }
-            }
+            #}
         }
         $this->course_structure_cache[$course_page_id]['tree'] = $tree;
         $this->course_structure_cache[$course_page_id]['flat'] = $flat_list;
