@@ -326,6 +326,8 @@ textarea.form-control{max-height:188px;}
 .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-minus{background:url('./img/faq-up.png')no-repeat top center;width:22px;height:12px;margin-top:10px;}
 .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-plus:before,.sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon.fa-minus:before{display:none;}
 
+.sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header {font-size: 1.6rem !important; font-weight: 400 !important; line-height: 1.2 !important;padding: 2rem;}
+
 .faq-top{text-align:center;max-width:980px;margin:128px auto 0;}
 .faq-bottom{text-align:center;max-width:780px;margin:0 auto;}
 .faq-bottom h3{margin-bottom:54px;}
