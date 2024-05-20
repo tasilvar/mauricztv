@@ -357,7 +357,7 @@ if($show_open_padlock) {
     </div>
 	
     <?php 
-                        if(!empty(get_field('agenda_pdf'))) {
+                      #  if(!empty(get_field('agenda_pdf'))) {
                             ?>
     <div class="kursy-agenda row-full">
     
@@ -371,12 +371,49 @@ if($show_open_padlock) {
                     
                     <h3 class="lower">Zainteresował Cię ten kurs?</h3>
                      -->
+                     <?php 
+
+$modules = WPI()->courses->get_course_level1_modules_or_lessons( $course_page_id );
+
+?>
+<div id="sp-ea-modules" class="sp-ea-one sp-easy-accordion" data-ex-icon="fa-minus" data-col-icon="fa-plus" data-ea-active="ea-click" data-ea-mode="vertical" data-preloader="" data-scroll-active-item="" data-offset-to-scroll="0" style="height:320px;">
+
+<?php
+foreach($modules as $keyModule => $module) { 
+    
+    // print_r($module);
+    // exit();
+    ?>
+
+     
+    <div class="ea-card ea-expand sp-ea-single"><h3 class="ea-header" style="background:#fff;"> <p><?= $module->post_title ?></p></h3><div class="sp-collapse spcollapse collapsed show" id="collapse<?= $keyModule ?>" data-parent="#sp-ea-modules"></div></div>
+
+    <?php
+}
+?>
+</div>
+<?php
+
+?>
                     <div class="text-center">
                       
-                    <a href="<?php echo get_field('agenda_pdf'); ?>" class="more" target="_blank">Zobacz agendę</a>
+                    <span class="more btn mt-5" onclick="switchLessionList(this)" id="more_agenda">Zobacz wszystko</span>
                        
                          
- 
+ <script type="text/javascript">
+
+var dx = 0;
+     function switchLessionList(obj) {
+         if((dx%2) == 0) {
+         document.querySelector("#sp-ea-modules").style.height = "auto";
+         obj.innerHTML = "Pokaż mniej";
+         } else { 
+            document.querySelector("#sp-ea-modules").style.height = "320px";
+            obj.innerHTML = "Pokaż wszystko"; 
+         }
+         dx++;
+     }
+ </script>
                     </div>	
                     
                 </div>
@@ -385,7 +422,7 @@ if($show_open_padlock) {
         
     </div>	
     <?php 
-                        }
+                      #  }
                         ?>
 
     <div class="kursy-who row-full

@@ -34,7 +34,7 @@ class Payment_Table_Row_Parser extends Abstract_Payment_Row_Parser
         $additional_fields = $payment->get_additional_fields();
 
         return array_merge($client_filtered_array, [
-            'ID' => $payment->get_id(),
+            'id' => $payment->get_id(),
             'delivery_address' => $this->get_delivery_address($payment->get_delivery()),
             'date' => $this->get_formatted_date($payment->get_date()),
             'status' => $payment->get_status(),

@@ -132,12 +132,12 @@ class Order_Table_Config_Provider implements Interface_Dynamic_Table_Config_Prov
     {
         return [
             [
-                'property' => 'ID',
+                'property' => 'id',
                 'label' => $this->translator->translate('orders.column.id'),
                 'always_visible' => true,
                 'use_json_property_as_link' => 'details_url',
                 'type' => 'id',
-                'prefix' => '#'
+                'prefix' => ''
             ],
             [
                 'property' => 'full_name',

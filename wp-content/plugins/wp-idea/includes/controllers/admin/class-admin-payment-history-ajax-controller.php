@@ -7,14 +7,24 @@ use bpmj\wpidea\sales\order\services\Interface_Orders_Service;
 use bpmj\wpidea\admin\pages\payments_history\Payments_Data_Exporter;
 use bpmj\wpidea\admin\pages\payments_history\Payments_Page_Renderer;
 use bpmj\wpidea\Caps;
-use bpmj\wpidea\Current_Request;
+use bpmj\wpidea\nonce\Nonce_Handler;
 use bpmj\wpidea\Request_Method;
 use bpmj\wpidea\Interface_Redirector;
 use bpmj\wpidea\translator\Interface_Translator;
 use bpmj\wpidea\controllers\Access_Control;
 use bpmj\wpidea\controllers\Ajax_Controller;
+use bpmj\wpidea\Current_Request;
 use bpmj\wpidea\sales\order\Order_Query_Criteria;
 use bpmj\wpidea\admin\pages\payments_history\Payment_Table_Row_Parser;
+use bpmj\wpidea\events\Interface_Events;
+use bpmj\wpidea\admin\menu\Admin_Menu_Item_Slug;
+
+use bpmj\wpidea\routing\Interface_Url_Generator;
+use bpmj\wpidea\settings\Interface_Settings;
+use bpmj\wpidea\user\Interface_Current_User_Getter;
+use bpmj\wpidea\user\Interface_User_Permissions_Service;
+use bpmj\wpidea\user\User_Capability_Factory;
+
 
 class Admin_Payment_History_Ajax_Controller extends Ajax_Controller
 {
@@ -91,9 +101,11 @@ class Admin_Payment_History_Ajax_Controller extends Ajax_Controller
 
     public function delete_bulk_action(Current_Request $current_request): string
     {
+        
         $request_body = $current_request->get_decoded_raw_post_data();
         $ids = $request_body['ids'] ?? [];
-
+        // print_r($request_body);
+        // exit();
         foreach ($ids as $id) {
             $this->payment_repository->remove((int)$id);
         }

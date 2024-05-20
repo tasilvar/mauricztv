@@ -112,8 +112,8 @@ a:hover, button:hover, .wpcf7-submit:hover,span.more:hover, a.mega-menu-link:hov
 a:focus, a:active{text-decoration:none;}
 button:active,button:focus{outline:none!important;border:none!important;}
 
-a.more{height:84px;padding:32px 84px 0;color:#323739;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#1AD779;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
-a.more:hover{background:#323739;color:#1AD779;}
+a.more,span.more{height:84px;padding:32px 84px 0;color:#323739;border:0;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;background:#1AD779;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
+a.more:hover,span.more:hover{background:#323739;color:#1AD779;}
 
 a.more-empty{border:1px solid #1AD779;height:84px;padding:32px 82px 0;color:#323739;border-radius:0;font-size:14px;line-height:18px;letter-spacing:1.4px;text-align:center;text-transform:uppercase;font-weight:600;display:inline-block;}
 a.more-empty:hover{background:#323739;border:1px solid #323739;color:#1AD779;}
@@ -2364,4 +2364,13 @@ margin: auto;
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
 	border: 1px solid #bbb !important;
 	background: #eee !important;
+}
+#sp-ea-modules h3 p
+{
+	font-size: 16px;
+    font-weight: 500;
+    padding: 0px 20px;
+}
+#sp-ea-modules {
+	overflow: hidden;
 }
