@@ -357,7 +357,9 @@ if($show_open_padlock) {
     </div>
 	
     <?php 
-                      #  if(!empty(get_field('agenda_pdf'))) {
+                   $getBundledProducts = edd_get_bundled_products($product_id);
+
+                   if(count($getBundledProducts) == 0) { 
                             ?>
     <div class="kursy-agenda row-full">
     
@@ -422,7 +424,7 @@ var dx = 0;
         
     </div>	
     <?php 
-                      #  }
+                       }
                         ?>
 
     <div class="kursy-who row-full
