@@ -332,7 +332,7 @@ echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
 	echo '30';
 }
 ?>%!</h1>
-<p>(kody rabatowe nie łączą się z tym rabatem)</p>
+<p style="color: red; font-weight: bold;">(Kody rabatowe nie łączą się z tym rabatem oraz nie działają na pakiety szkoleń)</p>
 <?php 
 	}
 ?>
