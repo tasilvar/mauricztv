@@ -386,11 +386,15 @@ class RaportSprzedazy {
 				} else { 
 					// if(count($_POST['rabat_id']) == 0) {
 						if(!empty($keyKod)) {
-						$output .= '"'.@$keyKod.'";';
-						$output .= '"'.@count($kod['id_zamowienia']).'";'; 
-						$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
-						$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
-						$output .= "\n";
+							try {
+							$output .= '"'.@$keyKod.'";';
+							$output .= '"'.@count($kod['id_zamowienia']).'";'; 
+							$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
+							$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
+							$output .= "\n";
+						} catch(\Exception $e) {
+							continue;
+						}
 					//}
 					}
 				}
