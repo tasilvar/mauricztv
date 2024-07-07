@@ -270,6 +270,14 @@ class RaportSprzedazy {
 			$output .= "id_zamowienia;data;wartosc;rabat;id_produkt;product_name;szkoleniowiec;\n";
 		}
 
+		if($_POST['raport_typ'] == 'rabat') {
+			header('Content-Type: text/csv');
+			header('Content-Type: application/force-download; charset=UTF-8');
+			header('Cache-Control: no-store, no-cache');
+			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
+			$output .= "kod_rabatowy;ilosc_zamowien;wartosc_bez_rabatu;wartosc_z_rabatem;\n";
+		}
+
         $file = fopen('php://output', 'w');
         
         foreach ($getPayments as $key => $payment) {
@@ -364,12 +372,6 @@ class RaportSprzedazy {
 		 * Zwróć zagregowane dane z zamówień
 		 */
 		if($_POST['raport_typ'] == 'rabat') {
-
-			header('Content-Type: text/csv');
-			header('Content-Type: application/force-download; charset=UTF-8');
-			header('Cache-Control: no-store, no-cache');
-			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "kod_rabatowy;ilosc_zamowien;wartosc_bez_rabatu;wartosc_z_rabatem;\n";
 
 			foreach($kodyRabatow as $keyKod => $kod) { 
 				/**
