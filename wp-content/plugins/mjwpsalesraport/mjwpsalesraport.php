@@ -388,7 +388,7 @@ class RaportSprzedazy {
 					$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
 					$output .= "\n";
 				} else { 
-					if(count($_POST['rabat_id']) == 0) {
+					if(count((array)$_POST['rabat_id']) == 0) {
 					
 								$output .= '"'.@$keyKod.'";';
 								$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
