@@ -388,14 +388,14 @@ class RaportSprzedazy {
 					$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
 					$output .= "\n";
 				} else { 
-					// if(count($_POST['rabat_id']) == 0) {
+					if(count($_POST['rabat_id']) == 0) {
 					
 								$output .= '"'.@$keyKod.'";';
 								$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
 								$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
 								$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
 								$output .= "\n";
-				 
+					}
 				}
 			}
 			// print_r($kodyRabatow);
