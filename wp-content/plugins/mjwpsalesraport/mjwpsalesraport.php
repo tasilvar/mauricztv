@@ -372,34 +372,30 @@ class RaportSprzedazy {
 		 * Zwróć zagregowane dane z zamówień
 		 */
 		if($_POST['raport_typ'] == 'rabat') {
-			print_r($kodyRabatow);
-			exit();
+		
 			foreach($kodyRabatow as $keyKod => $kod) { 
+			// 		print_r($kodyRabatow);
+			// exit();
 				/**
 				 * Jeśli wybrany przez nas kod przy eksporcie jest zgodny z tym z zebranym z zamówienia 
 				 */
 				// echo "KOD".$keyKod;
 				//  exit();
-				if(in_array($keyKod, $_POST['rabat_id'])) {
+				if(in_array($keyKod, (array)$_POST['rabat_id'])) {
 					$output .= '"'.@$keyKod.'";';
-					$output .= '"'.@count($kod['id_zamowienia']).'";'; 
+					$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
 					$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
 					$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
 					$output .= "\n";
 				} else { 
 					// if(count($_POST['rabat_id']) == 0) {
-						if(!empty($keyKod)) {
-							try {
+					
 								$output .= '"'.@$keyKod.'";';
-								$output .= '"'.@count($kod['id_zamowienia']).'";'; 
+								$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
 								$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
 								$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
 								$output .= "\n";
-						} catch(\Exception $e) {
-							continue;
-						}
-					//}
-					}
+				 
 				}
 			}
 			// print_r($kodyRabatow);
