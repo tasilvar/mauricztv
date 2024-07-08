@@ -372,7 +372,8 @@ class RaportSprzedazy {
 		 * Zwróć zagregowane dane z zamówień
 		 */
 		if($_POST['raport_typ'] == 'rabat') {
-
+			print_r($kodyRabatow);
+			exit();
 			foreach($kodyRabatow as $keyKod => $kod) { 
 				/**
 				 * Jeśli wybrany przez nas kod przy eksporcie jest zgodny z tym z zebranym z zamówienia 
@@ -387,8 +388,6 @@ class RaportSprzedazy {
 					$output .= "\n";
 				} else { 
 					// if(count($_POST['rabat_id']) == 0) {
-						print_r($kodyRabatow);
-						exit();
 						if(!empty($keyKod)) {
 							try {
 								$output .= '"'.@$keyKod.'";';
