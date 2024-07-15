@@ -149,7 +149,7 @@ class RaportSprzedazy {
 		// exit();
 		foreach($pobierzRabaty as $rabat) {
 			if(!empty(edd_get_discount_code( $rabat->ID ))) {
-				$rabaty .= '<option value="'.edd_get_discount_code( $rabat->ID ) .'">ID rabatu:'.$rabat->ID.' - '.edd_get_discount_code( $rabat->ID ).'</option>';
+				$rabaty .= '<option value="'.strtoupper(trim(edd_get_discount_code( $rabat->ID ))) .'">ID rabatu:'.$rabat->ID.' - '.edd_get_discount_code( $rabat->ID ).'</option>';
 			}
 		}
 		echo '
@@ -362,7 +362,7 @@ class RaportSprzedazy {
 				if(($getDetailPayment->discounts != 'none') && !empty($getDetailPayment->discounts)) {
 					$kodyRabatow[$getDetailPayment->discounts]['id_zamowienia'][] = $payment->ID;
 					$kodyRabatow[$getDetailPayment->discounts]['wartosc_bez_rabatu'][] = $getDetailPayment->subtotal;
-					$kodyRabatow[$getDetailPayment->discounts]['wartosc_z_rabatem'][] = $getDetailPayment->total;
+					$kodyRabatow[trim($getDetailPayment->discounts)]['wartosc_z_rabatem'][] = $getDetailPayment->total;
 				}
 			}
             
@@ -381,7 +381,7 @@ class RaportSprzedazy {
 				 */
 				// echo "KOD".$keyKod;
 				//  exit();
-				if(in_array($keyKod, (array)$_POST['rabat_id'])) {
+				if(in_array(trim(strtoupper($keyKod)), (array)$_POST['rabat_id'])) {
 					$output .= '"'.@$keyKod.'";';
 					$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
 					$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
