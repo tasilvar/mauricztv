@@ -46,7 +46,7 @@ class Cart_Additional_Info_Block extends Block
         $content .= '<tr class="koszyk_cena_bez_rabatu" style="display:none;">';
     }
         $content .= '<td>';
-            $content .= 'Kwota przed rabatem';
+            $content .= 'Kwota przed rabatem ';
         $content .= '</td>';
 
         $content .= '<td style="text-align:right;    text-decoration: line-through;

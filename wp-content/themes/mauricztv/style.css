@@ -2389,3 +2389,11 @@ margin: auto;
 #sp-ea-modules {
 	overflow: hidden;
 }
+.cart_price ins {
+	color: #ff133f;
+	font-weight: 900;
+}
+.cart_price del {
+	font-weight: 700;
+	color: #5d5e79;
+}
