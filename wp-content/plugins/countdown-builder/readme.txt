@@ -2,8 +2,8 @@
 Contributors: adamskaat
 Tags: countdown, timer, countdown timer
 Requires at least: 3.8
-Tested up to: 6.3
-Stable tag: 2.5.1
+Tested up to: 6.5
+Stable tag: 2.7.8
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -68,6 +68,60 @@ Yes you can, we have Circle and Flipclock countdown popups.
 You need to select the .zip file, there is no need to extract the zip file, just upload it.
 
 == Changelog ==
+= 2.7.8 =
+* Added Security fix
+
+= 2.7.7 =
+* Added simple countdown Before HTML
+* Added simple countdown After HTML
+
+= 2.7.6 =
+* Added timer label color
+
+= 2.7.5 =
+* Added sticky countdown type delay
+* Fixed info tooltip styles
+
+= 2.7.4 =
+* Fixed Multiple PHP Warnings issues
+
+= 2.7.3 =
+* Added Circle popup countdown Dismiss on content click (new)
+* Added Flipclock popup countdown Dismiss on content click (new)
+* Fixed Simple countdown time parse issue
+* Fixed Circle popup PHP error
+
+= 2.7.2 =
+* Simple countdown horizontal alignment
+
+= 2.7.1 =
+* Added Sticky countdown show after scroll
+
+= 2.7.0 =
+* Added floating close text
+
+= 2.6.9 =
+* Added Coming Soon exclude URLs option
+* Fixed Countdown and jquery js issue
+* Fixed content rendering issue
+
+= 2.6.8 =
+* Fixed Countdown subscribers menu issue
+* Fixed more ideas and support menus
+
+= 2.6.7 =
+* Fixed Subscriptions list export
+* Fixed Subscribers showing issue
+* Improved Countdown shortcode metabox
+* Improved Countdown Gutenberg shortcode box
+* Coming Soon admin panel improvement
+* Fixed Countdown warning
+
+= 2.6.6 =
+* Added Coming soon show on selected devices
+* Fixed timer dots color change issue
+* Fixed countdown shortcode button issue to insert countdown shortcode
+
 = 2.6.5 =
 * Added floating content padding
 * Added floating font size

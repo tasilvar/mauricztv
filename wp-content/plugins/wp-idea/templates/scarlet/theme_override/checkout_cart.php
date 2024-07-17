@@ -160,6 +160,7 @@ xhr.send(formData);
                         </div>
                         <div class="checkout_cart_price_button">
                             <div class="cart_price">
+								
                                 <?php
                                 echo $item_price;
 							

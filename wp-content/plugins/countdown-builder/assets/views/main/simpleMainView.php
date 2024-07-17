@@ -367,7 +367,59 @@ $allowed_html = AdminHelper::getAllowedTags();
 				?>
 			</div>
 		</div>
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="ycd-label-of-switch"><?php _e('Horizontal align', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-6">
+				<?php
+					$fontFamily = AdminHelper::selectBox($defaultData['horizontal-alignment'], esc_attr($typeObj->getOptionValue('ycd-simple-timer-horizontal-align')), array('name' => 'ycd-simple-timer-horizontal-align', 'class' => 'js-ycd-select js-simple-timer-align ycd-custom-value-accordion', 'data-field-type' => 'label', 'data-custom' => 'customFont'));
+					echo wp_kses($fontFamily, $allowed_html);
+				?>
+			</div>
+		</div>
+
 	</div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label class="ycd-label-of-input" for="ycd-circle-countdown-before-countdown"><?php _e('Before countdown', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-12">
+            <?php
+            $editorId = 'ycd-simple-countdown-before-countdown';
+            $beforeCountdown = $this->getOptionValue($editorId);
+            $settings = array(
+                'wpautop' => false,
+                'tinymce' => array(
+                    'width' => '100%'
+                ),
+                'textarea_rows' => '6',
+                'media_buttons' => true
+            );
+            wp_editor($beforeCountdown, $editorId, $settings);
+            ?>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label class="ycd-label-of-input" for="ycd-simple-countdown-after-countdown"><?php _e('After countdown', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-12">
+            <?php
+            $editorId = 'ycd-simple-countdown-after-countdown';
+            $afterCountdown = $this->getOptionValue($editorId);
+            $settings = array(
+                'wpautop' => false,
+                'tinymce' => array(
+                    'width' => '100%'
+                ),
+                'textarea_rows' => '6',
+                'media_buttons' => true
+            );
+            wp_editor($afterCountdown, $editorId, $settings);
+            ?>
+        </div>
+    </div>
 	<div class="row">
 		<div class="col-md-12">
 			<h5><?php _e('Translations(Synchronized with the browser language)', YCD_TEXT_DOMAIN)?></h5>

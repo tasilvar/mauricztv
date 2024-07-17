@@ -326,6 +326,8 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-countdown-floating-position-bottom', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-countdown-floating-position-left', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-countdown-floating-text', 'type' => 'text', 'defaultValue' => 'Click');
+		$options[] = array('name' => 'ycd-countdown-floating-close-text-status', 'type' => 'checkbox', 'defaultValue' => '');
+		$options[] = array('name' => 'ycd-countdown-floating-close-text', 'type' => 'text', 'defaultValue' => 'Close');
 		$options[] = array('name' => 'ycd-countdown-floating-text-size', 'type' => 'text', 'defaultValue' => '20px');
 		$options[] = array('name' => 'ycd-countdown-floating-padding-top', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-countdown-floating-padding-right', 'type' => 'text', 'defaultValue' => '0px');
@@ -360,6 +362,9 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-sticky-button-copy', 'type' => 'text', 'defaultValue' =>  '');
 		$options[] = array('name' => 'ycd-sticky-copy-alert', 'type' => 'checkbox', 'defaultValue' =>  '');
 		$options[] = array('name' => 'ycd-sticky-close-position', 'type' => 'text', 'defaultValue' =>  'top_right');
+		$options[] = array('name' => 'ycd-sticky-show-condition', 'type' => 'text', 'defaultValue' =>  'initial');
+		$options[] = array('name' => 'ycd-sticky-scroll-delay', 'type' => 'text', 'defaultValue' =>  '0');
+		$options[] = array('name' => 'ycd-sticky-scroll-percent', 'type' => 'text', 'defaultValue' =>  '1%');
 
 		// Simple countdown
 		$options[] = array('name' => 'ycd-simple-enable-years', 'type' => 'checkbox', 'defaultValue' => '');
@@ -377,6 +382,7 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-enable-simple-double-digits', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-text-to-top', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-simple-timer-dotes', 'type' => 'text', 'defaultValue' => ':');
+		$options[] = array('name' => 'ycd-simple-timer-horizontal-align', 'type' => 'text', 'defaultValue' => 'center');
 
 		$options[] = array('name' => 'ycd-simple-numbers-font-size', 'type' => 'text', 'defaultValue' => __('35px', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-simple-text-font-size', 'type' => 'text', 'defaultValue' => __('12px', YCD_TEXT_DOMAIN));
@@ -389,6 +395,8 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-simple-text-margin-right', 'type' => 'text', 'defaultValue' => __('0px', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-simple-text-margin-bottom', 'type' => 'text', 'defaultValue' => __('0px', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-simple-text-margin-left', 'type' => 'text', 'defaultValue' => __('0px', YCD_TEXT_DOMAIN));
+        $options[] = array('name' => 'ycd-simple-countdown-before-countdown', 'type' => 'html', 'defaultValue' => '');
+        $options[] = array('name' => 'ycd-simple-countdown-after-countdown', 'type' => 'html', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-tr', 'type' => 'array', 'defaultValue' => '');
 
 		$YCD_OPTIONS = apply_filters('ycdCountdownDefaultOptions', $options);

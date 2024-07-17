@@ -120,7 +120,8 @@
 
 			$.post( ajaxurl, {
 				action: 'tml-dismiss-notice',
-				notice: notice.data( 'notice' )
+				notice: notice.data( 'notice' ),
+				nonce: notice.data( 'nonce' )
 			} );
 		} );
 	}

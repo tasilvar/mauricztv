@@ -71,7 +71,13 @@ class Floating {
 				cursor: pointer;
 				font-size: ".esc_attr($fontSize).";
 				color: ".esc_attr($color)."; 
-		'><span class='ycd-floating-toggle'>".esc_attr($typeObj->getOptionValue('ycd-countdown-floating-text'))."</span></div>";
+		'>
+			<span 
+				class='ycd-floating-toggle' 
+				data-change-status='".esc_attr($typeObj->getOptionValue('ycd-countdown-floating-close-text-status'))."'
+				data-close-text='".esc_attr($typeObj->getOptionValue('ycd-countdown-floating-close-text'))."'
+				data-text='".esc_attr($typeObj->getOptionValue('ycd-countdown-floating-text'))."'
+			>".esc_attr($typeObj->getOptionValue('ycd-countdown-floating-text'))."</span></div>";
 
 		$all = '<div class="ycd-floating-wrapper hidden-floating" style="
 			position: fixed; 

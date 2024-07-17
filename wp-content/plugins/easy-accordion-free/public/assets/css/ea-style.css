@@ -9,16 +9,19 @@
     font-weight: 400;
     margin-bottom: 30px
 }
-.post-type-sp_easy_accordion #poststuff .eap_section_title{
+
+.post-type-sp_easy_accordion #poststuff .eap_section_title {
     padding: 0;
 }
-.sp-easy-accordion a:focus, .sp-easy-accordion a {
-    box-shadow: none!important;
-    outline: none
+
+.sp-easy-accordion a:focus,
+.sp-easy-accordion a {
+    box-shadow: none;
+    outline: none;
 }
 
 .sp-easy-accordion .ea-header:before {
-    content: none
+    content: none;
 }
 
 .sp-easy-accordion .ea-header {
@@ -37,12 +40,12 @@
     color: #444;
     font-size: 20px;
     line-height: 28px;
-    box-shadow: none
+    box-shadow: none;
 }
 
 .sp-easy-accordion .ea-card {
     border: none;
-    border-radius: 0
+    border-radius: 0;
 }
 
 .sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon {
@@ -50,7 +53,7 @@
     margin-right: 10px;
     text-align: center;
     line-height: inherit;
-    font-size: 20px
+    font-size: 20px;
 }
 
 .sp-easy-accordion .sp-ea-single {
@@ -69,7 +72,8 @@
     padding-bottom: 0;
     margin-bottom: 0;
 }
-.sp-easy-accordion>.sp-ea-single>.sp-collapse>.ea-body p:first-of-type{
+
+.sp-easy-accordion>.sp-ea-single>.sp-collapse>.ea-body p:first-of-type {
     padding-top: 0;
     margin-top: 0;
 }
@@ -86,7 +90,7 @@
 
 .sp-ea-one.sp-easy-accordion .sp-ea-single .ea-header a .ea-expand-icon {
     color: #444;
-    font-size: 20px
+    font-size: 20px;
 }
 
 .ea-youtube-wrapper {
@@ -97,7 +101,9 @@
     overflow: hidden;
 }
 
-.ea-youtube-wrapper iframe, .ea-youtube-wrapper object, .ea-youtube-wrapper embed {
+.ea-youtube-wrapper iframe,
+.ea-youtube-wrapper object,
+.ea-youtube-wrapper embed {
     position: absolute;
     top: 0;
     left: 0;
@@ -117,15 +123,17 @@
     transition-duration: 0.5s;
     transition-timing-function: linear
 }
+
 .wp-easy-accordion-iframe-container {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  }
-  
-  /* Then style the iframe to fit in the container div with full height and width */
-  .wp-ea-iframe {
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.wp-ea-iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -133,8 +141,13 @@
     right: 0;
     width: 100% !important;
     height: 100% !important;
-  }
+}
 
-.sp-easy-accordion .ea-body .wp-audio-shortcode {
+.sp-easy-accordion .ea-body .wp-audio-shortcode,
+.sp-easy-accordion video {
     max-width: 100%;
+}
+
+.sp-easy-accordion audio {
+    width: 100%;
 }

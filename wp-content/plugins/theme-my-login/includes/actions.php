@@ -431,7 +431,7 @@ function tml_login_handler() {
 	if ( empty( $_COOKIE[ LOGGED_IN_COOKIE ] ) ) {
 		if ( headers_sent() ) {
 			$user = new WP_Error( 'test_cookie', sprintf(
-					__( '<strong>Error</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
+					__( '<strong>Error:</strong> Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
 					__( 'https://wordpress.org/support/article/cookies/' ),
 					__( 'https://wordpress.org/support/forums/' )
 				)
@@ -439,7 +439,7 @@ function tml_login_handler() {
 		} elseif ( isset( $_POST['testcookie'] ) && empty( $_COOKIE[ TEST_COOKIE ] ) ) {
 			// If cookies are disabled we can't log in even with a valid user+pass
 			$user = new WP_Error( 'test_cookie', sprintf(
-					__( '<strong>Error</strong>: Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
+					__( '<strong>Error:</strong> Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
 					__( 'https://wordpress.org/support/article/cookies#enable-cookies-your-browser' )
 				)
 			);
@@ -503,7 +503,7 @@ function tml_login_handler() {
 		$errors->add( 'loggedout', __( 'You are now logged out.' ), 'message' );
 
 	} elseif ( isset( $_GET['registration'] ) && 'disabled' == $_GET['registration'] ) {
-		$errors->add( 'registerdisabled', __( '<strong>Error</strong>: User registration is currently not allowed.' ) );
+		$errors->add( 'registerdisabled', __( '<strong>Error:</strong> User registration is currently not allowed.' ) );
 
 	} elseif ( isset( $_GET['checkemail'] ) && 'confirm' == $_GET['checkemail'] ) {
 		$errors->add( 'confirm', sprintf( __( 'Check your email for the confirmation link, then visit the <a href="%s">login page</a>.' ), wp_login_url() ) , 'message' );
@@ -590,7 +590,7 @@ function tml_registration_handler() {
 
 	if ( ! get_option( 'users_can_register' ) ) {
 		if ( tml_is_ajax_request() ) {
-			tml_add_error( 'registerdisabled', __( '<strong>Error</strong>: User registration is currently not allowed.' ) );
+			tml_add_error( 'registerdisabled', __( '<strong>Error:</strong> User registration is currently not allowed.' ) );
 			tml_send_ajax_error( array(
 				'errors' => tml_get_form()->render_errors(),
 			) );
@@ -668,9 +668,9 @@ function tml_lost_password_handler() {
 
 	if ( isset( $_REQUEST['error'] ) ) {
 		if ( 'invalidkey' == $_REQUEST['error'] ) {
-			tml_add_error( 'invalidkey', __( '<strong>Error</strong>: Your password reset link appears to be invalid. Please request a new link below.' ) );
+			tml_add_error( 'invalidkey', __( '<strong>Error:</strong> Your password reset link appears to be invalid. Please request a new link below.' ) );
 		} elseif ( 'expiredkey' == $_REQUEST['error'] ) {
-			tml_add_error( 'expiredkey', __( '<strong>Error</strong>: Your password reset link has expired. Please request a new link below.' ) );
+			tml_add_error( 'expiredkey', __( '<strong>Error:</strong> Your password reset link has expired. Please request a new link below.' ) );
 		}
 	}
 
@@ -688,7 +688,7 @@ function tml_password_reset_handler() {
 	list( $rp_path ) = explode( '?', wp_unslash( $_SERVER['REQUEST_URI'] ) );
 	$rp_cookie = 'wp-resetpass-' . COOKIEHASH;
 
-	if ( isset( $_GET['key'] ) ) {
+	if ( isset( $_GET['key'] ) && isset( $_GET['login'] ) ) {
 		$value = sprintf( '%s:%s', wp_unslash( $_GET['login'] ), wp_unslash( $_GET['key'] ) );
 		setcookie( $rp_cookie, $value, 0, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
 		wp_safe_redirect( remove_query_arg( array( 'key', 'login' ) ) );
@@ -717,14 +717,24 @@ function tml_password_reset_handler() {
 
 	$errors = new WP_Error;
 
-	if ( isset( $_POST['pass1'] ) && $_POST['pass1'] != $_POST['pass2'] ) {
-		$errors->add( 'password_reset_mismatch', __( '<strong>Error</strong>: The passwords do not match.' ) );
+	// Check if password is one or all empty spaces.
+	if ( ! empty( $_POST['pass1'] ) ) {
+		$_POST['pass1'] = trim( $_POST['pass1'] );
+
+		if ( empty( $_POST['pass1'] ) ) {
+			$errors->add( 'password_reset_empty_space', __( 'The password cannot be a space or all spaces.' ) );
+		}
+	}
+
+	// Check if password fields do not match.
+	if ( ! empty( $_POST['pass1'] ) && trim( $_POST['pass2'] ) !== $_POST['pass1'] ) {
+		$errors->add( 'password_reset_mismatch', __( '<strong>Error:</strong> The passwords do not match.' ) );
 	}
 
 	/** This action is documented in wp-login.php */
 	do_action( 'validate_password_reset', $errors, $user );
 
-	if ( ( ! $errors->get_error_code() ) && isset( $_POST['pass1'] ) && ! empty( $_POST['pass1'] ) ) {
+	if ( ( ! $errors->has_errors() ) && isset( $_POST['pass1'] ) && ! empty( $_POST['pass1'] ) ) {
 		reset_password( $user, $_POST['pass1'] );
 		setcookie( $rp_cookie, ' ', time() - YEAR_IN_SECONDS, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
 		wp_redirect( site_url( 'wp-login.php?resetpass=complete' ) );

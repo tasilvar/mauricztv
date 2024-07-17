@@ -138,10 +138,10 @@ abstract class Countdown {
 	
 	public function includeGeneralScripts() {
 		$isAdmin = is_admin();
-		wp_enqueue_script( 'moment' ); 
-		
+		wp_enqueue_script( 'moment' );
+		wp_enqueue_script( 'jquery' );
 
-		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment')));
+		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment', 'jquery')));
 		$generalArgs = apply_filters('ycdGeneralArgs', array(
 			'YCD_COUNTDOWN_RESET_COOKIE_NAME' => YCD_COUNTDOWN_RESET_COOKIE_NAME, '
 			isAdmin' => $isAdmin,
@@ -605,6 +605,7 @@ abstract class Countdown {
 		if (empty($contdowns)) {
 			$contdowns = self::getCountdownsObj();
 		}
+
 		$idTitle = array();
 
 		if(empty($contdowns)) {

@@ -73,7 +73,11 @@ class Css {
 		    $licensePageKey,
 		    'ycdcountdown_page_ycdcountdown',
 	    );
-        if(in_array($hook, $allowedPages) || get_post_type(@$_GET['post']) == YCD_COUNTDOWN_POST_TYPE) {
+	    $post = null;
+	    if (!empty($_GET['post'])) {
+	    	$post = (int)$_GET['post'];
+	    }
+        if(in_array($hook, $allowedPages) || get_post_type($post) == YCD_COUNTDOWN_POST_TYPE) {
             ScriptsIncluder::enqueueStyle('bootstrap.css');
             ScriptsIncluder::enqueueStyle('admin.css');
             ScriptsIncluder::enqueueStyle('colorpicker.css');

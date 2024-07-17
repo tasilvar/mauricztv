@@ -11,18 +11,18 @@ function mysticky_welcome_bar_backend() {
 		$welcomebar = mysticky_welcomebar_pro_widget_default_fields();
 	}
 
-	$welcomebar["mysticky_welcomebar_x_color"] = isset($welcomebar["mysticky_welcomebar_x_color"]) ? $welcomebar["mysticky_welcomebar_x_color"] : '#000000';
+	$welcomebar["mysticky_welcomebar_x_color"] = isset($welcomebar["mysticky_welcomebar_x_color"]) ? esc_attr($welcomebar["mysticky_welcomebar_x_color"]) : '#000000';
 
-	$welcomebar['mysticky_welcomebar_bgcolor'] = ( isset($welcomebar['mysticky_welcomebar_bgcolor']) && $welcomebar['mysticky_welcomebar_bgcolor'] != '' ) ? $welcomebar['mysticky_welcomebar_bgcolor'] : '#03ed96';
+	$welcomebar['mysticky_welcomebar_bgcolor'] = ( isset($welcomebar['mysticky_welcomebar_bgcolor']) && $welcomebar['mysticky_welcomebar_bgcolor'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_bgcolor']) : '#03ed96';
 	
-	$welcomebar['mysticky_welcomebar_bgtxtcolor'] = ( isset($welcomebar['mysticky_welcomebar_bgtxtcolor']) && $welcomebar['mysticky_welcomebar_bgtxtcolor'] != '' ) ? $welcomebar['mysticky_welcomebar_bgtxtcolor'] : '#000000';
+	$welcomebar['mysticky_welcomebar_bgtxtcolor'] = ( isset($welcomebar['mysticky_welcomebar_bgtxtcolor']) && $welcomebar['mysticky_welcomebar_bgtxtcolor'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_bgtxtcolor']) : '#000000';
 	
-	$welcomebar['mysticky_welcomebar_bar_text'] = (isset($welcomebar['mysticky_welcomebar_bar_text']) && $welcomebar['mysticky_welcomebar_bar_text'] != '' ) ? $welcomebar['mysticky_welcomebar_bar_text'] : '#000000';
+	$welcomebar['mysticky_welcomebar_bar_text'] = (isset($welcomebar['mysticky_welcomebar_bar_text']) && $welcomebar['mysticky_welcomebar_bar_text'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_bar_text']) : '#000000';
 	
-	$welcomebar['mysticky_welcomebar_btntxtcolor'] = (isset($welcomebar['mysticky_welcomebar_btntxtcolor']) && $welcomebar['mysticky_welcomebar_btntxtcolor'] != '' ) ? $welcomebar['mysticky_welcomebar_btntxtcolor'] : '#ffffff';
+	$welcomebar['mysticky_welcomebar_btntxtcolor'] = (isset($welcomebar['mysticky_welcomebar_btntxtcolor']) && $welcomebar['mysticky_welcomebar_btntxtcolor'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_btntxtcolor']) : '#ffffff';
 	
-	$welcomebar['mysticky_welcomebar_btncolor'] = (isset($welcomebar['mysticky_welcomebar_btncolor']) && $welcomebar['mysticky_welcomebar_btncolor'] != '' ) ? $welcomebar['mysticky_welcomebar_btncolor'] : '';
-	
+	$welcomebar['mysticky_welcomebar_btncolor'] = (isset($welcomebar['mysticky_welcomebar_btncolor']) && $welcomebar['mysticky_welcomebar_btncolor'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_btncolor']) : '';
+	$welcomebar['mysticky_welcomebar_show_success_message'] = isset($welcomebar['mysticky_welcomebar_show_success_message']) ? esc_attr($welcomebar['mysticky_welcomebar_show_success_message']) : '';
 	$mysticky_welcomebar_showx_desktop = $mysticky_welcomebar_showx_mobile = '';
 	$mysticky_welcomebar_btn_desktop = $mysticky_welcomebar_btn_mobile = '';
 	$mysticky_welcomebar_display_desktop = $mysticky_welcomebar_display_mobile = '';
@@ -42,26 +42,26 @@ function mysticky_welcome_bar_backend() {
 	if( !isset($welcomebar['mysticky_welcomebar_redirect_rel']) ) {
 		$welcomebar['mysticky_welcomebar_redirect_rel'] = '';
 	}
-	$display = ' mysticky-welcomebar-attention-'. ( isset($welcomebar['mysticky_welcomebar_attentionselect']) ? $welcomebar['mysticky_welcomebar_attentionselect'] : '' );
+	$display = ' mysticky-welcomebar-attention-'. ( isset($welcomebar['mysticky_welcomebar_attentionselect']) ? esc_attr($welcomebar['mysticky_welcomebar_attentionselect']) : '' );
 	$display_entry_effect = (isset($welcomebar['mysticky_welcomebar_entry_effect'])) ? ' mysticky-welcomebar-entry-effect-'.$welcomebar['mysticky_welcomebar_entry_effect'] : ' mysticky-welcomebar-entry-effect-slide-in';
-	$welcomebar['mysticky_welcomebar_position'] = isset($welcomebar['mysticky_welcomebar_position']) ? $welcomebar['mysticky_welcomebar_position'] : 'top';
+	$welcomebar['mysticky_welcomebar_position'] = isset($welcomebar['mysticky_welcomebar_position']) ? esc_attr($welcomebar['mysticky_welcomebar_position']) : 'top';
 	$display_main_class = "mysticky-welcomebar-position-" . $welcomebar['mysticky_welcomebar_position'] . $mysticky_welcomebar_showx_desktop . $mysticky_welcomebar_showx_mobile . $mysticky_welcomebar_btn_desktop . $mysticky_welcomebar_btn_mobile . $display . $display_entry_effect;
 	
-	$welcomebar['mysticky_welcomebar_text_type'] = (isset($welcomebar['mysticky_welcomebar_text_type']) && $welcomebar['mysticky_welcomebar_text_type'] != '' ) ? $welcomebar['mysticky_welcomebar_text_type'] : "static_text";
-	$welcomebar['mysticky_welcomebar_slider_text'] = (isset($welcomebar['mysticky_welcomebar_slider_text']) && $welcomebar['mysticky_welcomebar_slider_text'] != '' ) ? $welcomebar['mysticky_welcomebar_slider_text'] : [];
+	$welcomebar['mysticky_welcomebar_text_type'] = (isset($welcomebar['mysticky_welcomebar_text_type']) && $welcomebar['mysticky_welcomebar_text_type'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_text_type']) : "static_text";
+	$welcomebar['mysticky_welcomebar_slider_text'] = (isset($welcomebar['mysticky_welcomebar_slider_text']) && $welcomebar['mysticky_welcomebar_slider_text'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_slider_text']) : [];
 	
-	$welcomebar['mysticky_welcomebar_slider_transition'] = (isset($welcomebar['mysticky_welcomebar_slider_transition']) && $welcomebar['mysticky_welcomebar_slider_transition'] != '' ) ? $welcomebar['mysticky_welcomebar_slider_transition'] : "right";
+	$welcomebar['mysticky_welcomebar_slider_transition'] = (isset($welcomebar['mysticky_welcomebar_slider_transition']) && $welcomebar['mysticky_welcomebar_slider_transition'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_slider_transition']) : "right";
 	
-	$welcomebar['mysticky_welcomebar_lead_input'] = (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] != '' ) ? $welcomebar['mysticky_welcomebar_lead_input'] : "email_address";
+	$welcomebar['mysticky_welcomebar_lead_input'] = (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_lead_input']) : "email_address";
 	
 
-	$welcomebar['lead_name_placeholder'] = (isset($welcomebar['lead_name_placeholder']) && $welcomebar['lead_name_placeholder'] != '' ) ? stripslashes($welcomebar['lead_name_placeholder']) : "Name";
+	$welcomebar['lead_name_placeholder'] = (isset($welcomebar['lead_name_placeholder']) && $welcomebar['lead_name_placeholder'] != '' ) ? stripslashes(esc_attr($welcomebar['lead_name_placeholder'])) : "Name";
 
-	$welcomebar['lead_email_placeholder'] = (isset($welcomebar['lead_email_placeholder']) &&$welcomebar['lead_email_placeholder'] != '' ) ? stripslashes($welcomebar['lead_email_placeholder']) : "Email";
+	$welcomebar['lead_email_placeholder'] = (isset($welcomebar['lead_email_placeholder']) &&$welcomebar['lead_email_placeholder'] != '' ) ? stripslashes(esc_attr($welcomebar['lead_email_placeholder'])) : "Email";
 
-	$welcomebar['lead_phone_placeholder'] = (isset($welcomebar['lead_phone_placeholder']) &&$welcomebar['lead_phone_placeholder'] != '' ) ? stripslashes($welcomebar['lead_phone_placeholder']) : "Phone";
+	$welcomebar['lead_phone_placeholder'] = (isset($welcomebar['lead_phone_placeholder']) &&$welcomebar['lead_phone_placeholder'] != '' ) ? stripslashes(esc_attr($welcomebar['lead_phone_placeholder'])) : "Phone";
 
-	$welcomebar['mysticky_welcomebar_enable_lead'] = (isset($welcomebar['mysticky_welcomebar_enable_lead']) && $welcomebar['mysticky_welcomebar_enable_lead'] != '' ) ? $welcomebar['mysticky_welcomebar_enable_lead'] : 0;
+	$welcomebar['mysticky_welcomebar_enable_lead'] = (isset($welcomebar['mysticky_welcomebar_enable_lead']) && $welcomebar['mysticky_welcomebar_enable_lead'] != '' ) ? esc_attr($welcomebar['mysticky_welcomebar_enable_lead']) : 0;
 
 	?>
 	<form class="mysticky-welcomebar-form" id="mysticky_welcomebar_form" method="post" action="<?php echo admin_url('admin.php?page=my-stickymenu-welcomebar&save=1&widget=0');?>">
@@ -258,7 +258,7 @@ function mysticky_welcome_bar_backend() {
 							</label>
 							<div class="x-color-wrap"><label>X Color</label>
 							<div class="mysticky-welcomebar-colorpicker color-x-input">
-								<input type="text" id="mysticky_welcomebar_xcolor" name="mysticky_option_welcomebar[mysticky_welcomebar_x_color]" class="my-color-field" data-alpha="true" value="<?php echo isset($welcomebar['mysticky_welcomebar_x_color']) ? $welcomebar['mysticky_welcomebar_x_color'] : ''; ?>"></div></div>
+								<input type="text" id="mysticky_welcomebar_xcolor" name="mysticky_option_welcomebar[mysticky_welcomebar_x_color]" class="my-color-field" data-alpha="true" value="<?php echo isset($welcomebar['mysticky_welcomebar_x_color']) ? esc_attr($welcomebar['mysticky_welcomebar_x_color']) : ''; ?>"></div></div>
 						</div>
 					</div>
 					<div class="mysticky-welcomebar-setting-content">						
@@ -282,7 +282,7 @@ function mysticky_welcome_bar_backend() {
 						</label>
 						<div class="mysticky-welcomebar-setting-content-right">
 							<label for="mysticky-welcomebar-collectlead-enabled" class="mysticky-welcomebar-switch collect-lead-switch">
-								<input type="checkbox" id="mysticky-welcomebar-collectlead-enabled" name="mysticky_option_welcomebar[mysticky_welcomebar_enable_lead]" data-button-text= "<?php echo $welcomebar["mysticky_welcomebar_btn_text"]; ?>" value="1" <?php checked( @$welcomebar['mysticky_welcomebar_enable_lead'], '1' );?>/>
+								<input type="checkbox" id="mysticky-welcomebar-collectlead-enabled" name="mysticky_option_welcomebar[mysticky_welcomebar_enable_lead]" data-button-text= "<?php echo esc_attr($welcomebar["mysticky_welcomebar_btn_text"]); ?>" value="1" <?php checked( @$welcomebar['mysticky_welcomebar_enable_lead'], '1' );?>/>
 								<span class="slider"></span>
 							</label>
 						</div>
@@ -305,21 +305,21 @@ function mysticky_welcome_bar_backend() {
 						<div class="mysticky-welcomebar-setting-content">
 							<label><?php _e('Placeholder for Name', 'myStickymenu'); ?></label>
 							<div class="mysticky-welcomebar-setting-content-right">
-								<input type="text" class="mysticky_welcome_lead_name_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_name_placeholder']) ? $welcomebar['lead_name_placeholder'] : ''; ?>" name="mysticky_option_welcomebar[lead_name_placeholder]" id="lead-name-placeholder" />	
+								<input type="text" class="mysticky_welcome_lead_name_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_name_placeholder']) ? esc_attr($welcomebar['lead_name_placeholder']) : ''; ?>" name="mysticky_option_welcomebar[lead_name_placeholder]" id="lead-name-placeholder" />	
 							</div>
 						</div>
 
 						<div class="mysticky-welcomebar-setting-content" id="lead-email-content" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'email_address') ? 'flex' : 'none'; ?>">
 							<label><?php _e('Placeholder for Email', 'myStickymenu'); ?></label>
 							<div class="mysticky-welcomebar-setting-content-right">
-								<input type="text" class="mysticky_welcome_lead_email_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_email_placeholder']) ? $welcomebar['lead_email_placeholder'] : ''; ?>" name="mysticky_option_welcomebar[lead_email_placeholder]" id="lead-email-placeholder" />	
+								<input type="text" class="mysticky_welcome_lead_email_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_email_placeholder']) ? esc_attr($welcomebar['lead_email_placeholder']) : ''; ?>" name="mysticky_option_welcomebar[lead_email_placeholder]" id="lead-email-placeholder" />	
 							</div>
 						</div>
 
 						<div class="mysticky-welcomebar-setting-content" id="lead-phone-content" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'phone') ? 'flex' : 'none'; ?>">
 							<label><?php _e('Placeholder for Phone', 'myStickymenu'); ?></label>
 							<div class="mysticky-welcomebar-setting-content-right">
-								<input type="text" class="mysticky_welcome_lead_phone_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_phone_placeholder']) ? $welcomebar['lead_phone_placeholder'] : ''; ?>" name="mysticky_option_welcomebar[lead_phone_placeholder]" id="lead-phone-placeholder" />	
+								<input type="text" class="mysticky_welcome_lead_phone_placeholder" autocomplete="off"  value="<?php echo isset($welcomebar['lead_phone_placeholder']) ? esc_attr($welcomebar['lead_phone_placeholder']) : ''; ?>" name="mysticky_option_welcomebar[lead_phone_placeholder]" id="lead-phone-placeholder" />	
 							</div>
 						</div>
 						
@@ -337,7 +337,7 @@ function mysticky_welcome_bar_backend() {
 						<div id="mysticky-welcomebar-thankyou-wrap" class="mysticky-welcomebar-setting-content flex-top" <?php if ( !isset($welcomebar['mysticky_welcomebar_show_success_message']) ) : ?> style="display:none;" <?php endif;?>>
 							<label><?php _e('Thank You Text', 'myStickymenu'); ?></label>
 							
-							<?php $mysticky_welcomebar_thankyou_screen_text = (isset($welcomebar['mysticky_welcomebar_thankyou_screen_text'])) ? $welcomebar['mysticky_welcomebar_thankyou_screen_text'] : 'Thank you for submitting the form' ; ?>
+							<?php $mysticky_welcomebar_thankyou_screen_text = (isset($welcomebar['mysticky_welcomebar_thankyou_screen_text'])) ? esc_attr($welcomebar['mysticky_welcomebar_thankyou_screen_text']) : 'Thank you for submitting the form' ; ?>
 							<div class="mysticky-welcomebar-setting-content-right">
 								<?php 
 								$settings = array(
@@ -408,7 +408,7 @@ function mysticky_welcome_bar_backend() {
 					<div class="mysticky-welcomebar-setting-content">
 						<label><?php _e('Button Text', 'myStickymenu'); ?></label>
 						<div class="mysticky-welcomebar-setting-content-right welcomebar-text-button">
-							<input type="text" id="mysticky_welcomebar_btn_text" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_btn_text]" value="<?php echo stripslashes($welcomebar['mysticky_welcomebar_btn_text']);?>" />
+							<input type="text" id="mysticky_welcomebar_btn_text" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_btn_text]" value="<?php echo stripslashes(esc_attr($welcomebar['mysticky_welcomebar_btn_text']));?>" />
 						</div>
 					</div>
 					<!-- -->
@@ -454,7 +454,7 @@ function mysticky_welcome_bar_backend() {
 						<div class="mysticky-welcomebar-setting-content">
 							<label><?php _e('Poptin pop-up direct link', 'myStickymenu'); ?></label>
 							<div class="mysticky-welcomebar-setting-content-right">
-								<input type="text" id="mysticky_welcomebar_poptin_popup_link" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_poptin_popup_link]" value="<?php echo (isset($welcomebar['mysticky_welcomebar_poptin_popup_link'])) ? $welcomebar['mysticky_welcomebar_poptin_popup_link'] : '';?>" placeholder="<?php echo esc_url("https://app.popt.in/APIRequest/click/some_id_here"); ?>"  />
+								<input type="text" id="mysticky_welcomebar_poptin_popup_link" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_poptin_popup_link]" value="<?php echo (isset($welcomebar['mysticky_welcomebar_poptin_popup_link'])) ? esc_attr($welcomebar['mysticky_welcomebar_poptin_popup_link']) : '';?>" placeholder="<?php echo esc_url("https://app.popt.in/APIRequest/click/some_id_here"); ?>"  />
 								<input type="hidden" id="welcome_save_anyway"  value='' />
 							</div>
 						</div>
@@ -471,7 +471,7 @@ function mysticky_welcome_bar_backend() {
 					<div class="mysticky-welcomebar-setting-content mysticky-welcomebar-redirect-container" <?php if ( $welcomebar['mysticky_welcomebar_actionselect'] != 'redirect_to_url' ) : ?> style="display:none;" <?php endif;?>>
 						<label><?php _e('Redirection link', 'myStickymenu'); ?></label>
 						<div class="mysticky-welcomebar-setting-content-right mysticky-welcomebar-setting-action mysticky-welcomebar-redirect" <?php if ( $welcomebar['mysticky_welcomebar_actionselect'] == 'close_bar' ) : ?> style="display:none;" <?php endif;?> >
-							<input type="text" id="mysticky_welcomebar_redirect" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_redirect]" value="<?php echo (is_email($welcomebar['mysticky_welcomebar_redirect'])) ? $welcomebar['mysticky_welcomebar_redirect'] : esc_url($welcomebar['mysticky_welcomebar_redirect']);?>" placeholder="<?php echo esc_url("https://www.yourdomain.com"); ?>"  />
+							<input type="text" id="mysticky_welcomebar_redirect" class="mystickyinput mysticky_welcomebar_disable" name="mysticky_option_welcomebar[mysticky_welcomebar_redirect]" value="<?php echo (is_email($welcomebar['mysticky_welcomebar_redirect'])) ? esc_url($welcomebar['mysticky_welcomebar_redirect']) : esc_url($welcomebar['mysticky_welcomebar_redirect']);?>" placeholder="<?php echo esc_url("https://www.yourdomain.com"); ?>"  />
 						</div>
 					</div>
 					<div class="mysticky-welcomebar-setting-content mysticky-welcomebar-redirect-container" <?php if ( $welcomebar['mysticky_welcomebar_actionselect'] != 'redirect_to_url' ) : ?> style="display:none;" <?php endif;?>>
@@ -540,7 +540,7 @@ function mysticky_welcome_bar_backend() {
 					<div class="mysticky-welcomebar-setting-content">
 						<label><?php _e('Entry effect', 'myStickymenu'); ?></label>
 						<div class="mysticky-welcomebar-setting-content-right">
-							<?php $welcomebar['mysticky_welcomebar_entry_effect'] = (isset($welcomebar['mysticky_welcomebar_entry_effect']) && $welcomebar['mysticky_welcomebar_entry_effect']!= '') ? $welcomebar['mysticky_welcomebar_entry_effect'] : 'slide-in'; ?>
+							<?php $welcomebar['mysticky_welcomebar_entry_effect'] = (isset($welcomebar['mysticky_welcomebar_entry_effect']) && $welcomebar['mysticky_welcomebar_entry_effect']!= '') ? esc_attr($welcomebar['mysticky_welcomebar_entry_effect']) : 'slide-in'; ?>
 							<select id="myStickymenu-entry-effect" name="mysticky_option_welcomebar[mysticky_welcomebar_entry_effect]" >
 								<option value="none" <?php selected( @$welcomebar['mysticky_welcomebar_entry_effect'], 'none' ); ?>><?php _e( 'No effect', 'myStickymenu' );?></option>
 								<option value="slide-in" <?php selected( @$welcomebar['mysticky_welcomebar_entry_effect'], 'slide-in' ); ?>><?php _e( 'Slide in', 'myStickymenu' );?></option>
@@ -641,7 +641,7 @@ function mysticky_welcome_bar_backend() {
 											<select class="mysticky-welcomebar-url-options" name="" id="url_rules___count___option">
 												<option selected="selected" value=""><?php esc_html_e("Select Rule", "mysticky" );?></option>
 												<?php foreach($url_options as $key=>$value) {
-													echo '<option value="'.$key.'">'.$value.'</option>';
+													echo '<option value="'.esc_attr($key).'">'. esc_html($value).'</option>';
 												} ?>
 											</select>
 										</div>
@@ -701,7 +701,7 @@ function mysticky_welcome_bar_backend() {
 							<?php 
 								$content_width = (isset($welcomebar['mysticky_welcomebar_enable_lead']) && $welcomebar['mysticky_welcomebar_enable_lead'] === '1') ? '90%'  : '75%';
 							?>	
-							<div class="mysticky-welcomebar-content" style="width:<?php  echo $content_width; ?>">								
+							<div class="mysticky-welcomebar-content" style="width:<?php  echo esc_attr($content_width); ?>">
 								<p class="mysticky-welcomebar-static_text" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_text_type']) && $welcomebar['mysticky_welcomebar_text_type'] == 'static_text') ? 'block' : 'none'; ?>">
 								<?php echo isset($welcomebar['mysticky_welcomebar_bar_text'])? stripslashes($welcomebar['mysticky_welcomebar_bar_text']) :"Get 30% off your first purchase";?>
 								</p>
@@ -709,24 +709,24 @@ function mysticky_welcome_bar_backend() {
 
 							<div class="mysticky-welcomebar-lead-content" <?php if((isset($welcomebar['mysticky_welcomebar_enable_lead']) && $welcomebar['mysticky_welcomebar_enable_lead'] != 1)) :?> style="display:none;" <?php endif; ?>>
 
-								<input type="text" class="preview-lead-name" placeholder="<?php echo $welcomebar['lead_name_placeholder'];?>"/>
-								<input type="text" class="preview-lead-email" placeholder="<?php echo $welcomebar['lead_email_placeholder'];?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'email_address') ? 'flex' : 'none';?>"/>
-								<input type="text" class="preview-lead-phone" placeholder="<?php echo $welcomebar['lead_phone_placeholder'];?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'phone') ? 'flex' : 'none';?>"/>
+								<input type="text" class="preview-lead-name" placeholder="<?php echo esc_attr($welcomebar['lead_name_placeholder']);?>"/>
+								<input type="text" class="preview-lead-email" placeholder="<?php echo esc_attr($welcomebar['lead_email_placeholder']);?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'email_address') ? 'flex' : 'none';?>"/>
+								<input type="text" class="preview-lead-phone" placeholder="<?php echo esc_attr($welcomebar['lead_phone_placeholder']);?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'phone') ? 'flex' : 'none';?>"/>
 
 							</div>
 
 							<div class="mysticky-welcomebar-btn <?php  if(isset( $welcomebar['mysticky_welcomebar_enable_lead'] ) && $welcomebar['mysticky_welcomebar_enable_lead'] == 1): ?>collect-lead<?php endif; ?>">
 								<?php 
-									$mysticky_welcomebar_btn_text =  isset($welcomebar['mysticky_welcomebar_btn_text']) ? stripslashes($welcomebar['mysticky_welcomebar_btn_text']) : "Got it!";
+									$mysticky_welcomebar_btn_text =  isset($welcomebar['mysticky_welcomebar_btn_text']) ? stripslashes(esc_html($welcomebar['mysticky_welcomebar_btn_text'])) : "Got it!";
 								?>
 										
-								<a href="javascript:void(0)"><?php echo stripslashes($mysticky_welcomebar_btn_text);?></a>
+								<a href="javascript:void(0)"><?php echo stripslashes(esc_html($mysticky_welcomebar_btn_text));?></a>
 							</div>
 
 							<?php 
-								$x_color = (isset($welcomebar['mysticky_welcomebar_x_color']) && $welcomebar['mysticky_welcomebar_x_color'] != '') ? $welcomebar['mysticky_welcomebar_x_color'] : '#000000';
+								$x_color = (isset($welcomebar['mysticky_welcomebar_x_color']) && $welcomebar['mysticky_welcomebar_x_color'] != '') ? esc_attr($welcomebar['mysticky_welcomebar_x_color']) : '#000000';
 							?>
-							<span class="mysticky-welcomebar-close" style="color:<?php echo $x_color;?>">X</span>
+							<span class="mysticky-welcomebar-close" style="color:<?php echo esc_attr($x_color);?>">X</span>
 						</div>
 					</div>
 				</div>
@@ -1307,13 +1307,13 @@ function mysticky_welcome_bar_frontend(){
 		$mysticky_welcomebar_btn_mobile = ' mysticky-welcomebar-btn-mobile';
 	}
 	
-	$welcomebar['mysticky_welcomebar_position'] = (isset($welcomebar['mysticky_welcomebar_position'])) ? $welcomebar['mysticky_welcomebar_position'] : 'top';
+	$welcomebar['mysticky_welcomebar_position'] = (isset($welcomebar['mysticky_welcomebar_position'])) ? esc_attr($welcomebar['mysticky_welcomebar_position']) : 'top';
 	
-	$welcomebar['mysticky_welcomebar_height'] = (isset($welcomebar['mysticky_welcomebar_height'])) ? $welcomebar['mysticky_welcomebar_height'] : '60';
-	$welcomebar['mysticky_welcomebar_actionselect'] = (isset($welcomebar['mysticky_welcomebar_actionselect'])) ? $welcomebar['mysticky_welcomebar_actionselect'] : 'close_bar';
-	$welcomebar['mysticky_welcomebar_aftersubmission'] = (isset($welcomebar['mysticky_welcomebar_aftersubmission'])) ? $welcomebar['mysticky_welcomebar_aftersubmission'] : 'dont_show_welcomebar';
-	$welcomebar['mysticky_welcomebar_attentionselect'] = (isset($welcomebar['mysticky_welcomebar_attentionselect'])) ? $welcomebar['mysticky_welcomebar_attentionselect'] : '';
-	$welcomebar['mysticky_welcomebar_show_success_message'] = (isset($welcomebar['mysticky_welcomebar_show_success_message'])) ? $welcomebar['mysticky_welcomebar_show_success_message'] : '';
+	$welcomebar['mysticky_welcomebar_height'] = (isset($welcomebar['mysticky_welcomebar_height'])) ? esc_attr($welcomebar['mysticky_welcomebar_height']) : '60';
+	$welcomebar['mysticky_welcomebar_actionselect'] = (isset($welcomebar['mysticky_welcomebar_actionselect'])) ? esc_attr($welcomebar['mysticky_welcomebar_actionselect']) : 'close_bar';
+	$welcomebar['mysticky_welcomebar_aftersubmission'] = (isset($welcomebar['mysticky_welcomebar_aftersubmission'])) ? esc_attr($welcomebar['mysticky_welcomebar_aftersubmission']) : 'dont_show_welcomebar';
+	$welcomebar['mysticky_welcomebar_attentionselect'] = (isset($welcomebar['mysticky_welcomebar_attentionselect'])) ? esc_attr($welcomebar['mysticky_welcomebar_attentionselect']) : '';
+	$welcomebar['mysticky_welcomebar_show_success_message'] = (isset($welcomebar['mysticky_welcomebar_show_success_message'])) ? esc_attr($welcomebar['mysticky_welcomebar_show_success_message']) : '';
 	
 	$display = ' mysticky-welcomebar-attention-'.$welcomebar['mysticky_welcomebar_attentionselect'];
 	$display_entry_effect = (isset($welcomebar['mysticky_welcomebar_entry_effect'])) ? ' mysticky-welcomebar-entry-effect-'.$welcomebar['mysticky_welcomebar_entry_effect'] : ' mysticky-welcomebar-entry-effect-slide-in';
@@ -1329,7 +1329,7 @@ function mysticky_welcome_bar_frontend(){
 
 	if( isset($welcomebar['mysticky_welcomebar_actionselect']) ) {
 		if( $welcomebar['mysticky_welcomebar_actionselect'] == 'redirect_to_url' ) {
-			$mysticky_welcomebar_actionselect_url = ( is_email($welcomebar['mysticky_welcomebar_redirect']) ) ? $welcomebar['mysticky_welcomebar_redirect'] : esc_url( $welcomebar['mysticky_welcomebar_redirect'] );
+			$mysticky_welcomebar_actionselect_url = ( is_email($welcomebar['mysticky_welcomebar_redirect']) ) ? esc_attr($welcomebar['mysticky_welcomebar_redirect']) : esc_url( $welcomebar['mysticky_welcomebar_redirect'] );
 		} else if( $welcomebar['mysticky_welcomebar_actionselect'] == 'poptin_popup'){
 			$mysticky_welcomebar_actionselect_url = esc_url( $welcomebar['mysticky_welcomebar_poptin_popup_link'] );
 		} else {
@@ -1353,14 +1353,14 @@ function mysticky_welcome_bar_frontend(){
 			<?php if( isset( $welcomebar['mysticky_welcomebar_enable_lead'] ) && $welcomebar['mysticky_welcomebar_enable_lead'] == 1 ): ?>
 				<div class="mystickymenu-front mysticky-welcomebar-lead-content">
 					<div>
-						<input type="text" class="contact-lead-name" id="contact-lead-name-0"  name="contact_lead_name" placeholder="<?php echo $welcomebar['lead_name_placeholder'];?>" style="display: flex;"/>	
+						<input type="text" class="contact-lead-name" id="contact-lead-name-0"  name="contact_lead_name" placeholder="<?php echo esc_attr($welcomebar['lead_name_placeholder']);?>" style="display: flex;"/>	
 					</div>
 					
 					<div>
-						<input type="text" class="contact-lead-email" id="contact-lead-email-0" name="contact_lead_email" placeholder="<?php echo $welcomebar['lead_email_placeholder'];?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'email_address') ? 'flex' : 'none';?>"/>	
+						<input type="text" class="contact-lead-email" id="contact-lead-email-0" name="contact_lead_email" placeholder="<?php echo esc_attr($welcomebar['lead_email_placeholder']);?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'email_address') ? 'flex' : 'none';?>"/>	
 					</div>
 					<div>
-						<input type="text" class="contact-lead-phone" id="contact-lead-phone-0" name="contact_lead_phone" placeholder="<?php echo $welcomebar['lead_phone_placeholder'];?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'phone') ? 'flex' : 'none';?>"/>
+						<input type="text" class="contact-lead-phone" id="contact-lead-phone-0" name="contact_lead_phone" placeholder="<?php echo esc_attr($welcomebar['lead_phone_placeholder']);?>" style="display:<?php echo (isset($welcomebar['mysticky_welcomebar_lead_input']) && $welcomebar['mysticky_welcomebar_lead_input'] == 'phone') ? 'flex' : 'none';?>"/>
 					</div>
 
 					
@@ -1385,14 +1385,14 @@ function mysticky_welcome_bar_frontend(){
 					}
 				?>
 
-				<a href="<?php echo $mysticky_welcomebar_actionselect_url; ?>" <?php if( isset($welcomebar['mysticky_welcomebar_redirect_newtab']) && $welcomebar['mysticky_welcomebar_actionselect'] == 'redirect_to_url' && $welcomebar['mysticky_welcomebar_redirect_newtab']== 1):?> target="_blank" <?php endif;?>><?php echo stripslashes($mysticky_welcomebar_btn_text);?>
+				<a href="<?php echo esc_url($mysticky_welcomebar_actionselect_url); ?>" <?php if( isset($welcomebar['mysticky_welcomebar_redirect_newtab']) && $welcomebar['mysticky_welcomebar_actionselect'] == 'redirect_to_url' && $welcomebar['mysticky_welcomebar_redirect_newtab']== 1):?> target="_blank" <?php endif;?>><?php echo stripslashes(esc_html($mysticky_welcomebar_btn_text));?>
 				</a>
 			</div>
 		
 			<?php 
-				$x_color = (isset($welcomebar['mysticky_welcomebar_x_color']) && $welcomebar['mysticky_welcomebar_x_color'] != '') ? $welcomebar['mysticky_welcomebar_x_color'] : '#000000';
+				$x_color = (isset($welcomebar['mysticky_welcomebar_x_color']) && $welcomebar['mysticky_welcomebar_x_color'] != '') ? esc_attr($welcomebar['mysticky_welcomebar_x_color']) : '#000000';
 			?>
-			<span class="mysticky-welcomebar-close" style="color:<?php echo $x_color; ?>">X</span>		
+			<span class="mysticky-welcomebar-close" style="color:<?php echo esc_attr($x_color); ?>">X</span>		
 		</div>
 	</div>	
 <?php 
@@ -1417,7 +1417,7 @@ function mysticky_welcome_bar_frontend(){
 	}
 	.mysticky-welcomebar-fixed {
 		background-color: <?php echo esc_attr($welcomebar['mysticky_welcomebar_bgcolor']) ?>;
-		font-family: <?php echo $welcomebar['mysticky_welcomebar_font'] ?>;
+		font-family: <?php echo esc_attr($welcomebar['mysticky_welcomebar_font']); ?>;
 		position: fixed;
 		left: 0;
 		right: 0;

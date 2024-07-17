@@ -3,7 +3,7 @@
  * Plugin Name: Max Mega Menu
  * Plugin URI:  https://www.megamenu.com
  * Description: An easy to use mega menu plugin. Written the WordPress way.
- * Version:     3.2.3
+ * Version:     3.3.1
  * Author:      megamenu.com
  * Author URI:  https://www.megamenu.com
  * License:     GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '3.2.3';
+		public $version = '3.3.1';
 
 
 		/**
@@ -597,6 +597,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 								'content'             => $widget_manager->show_widget( $widget['id'] ),
 								'menu_item_parent'    => $item->ID,
 								'db_id'               => 0,
+								'url'                 => '',
 								'ID'                  => $widget['id'],
 								'menu_order'          => $next_order - $total_widgets_in_menu + $widget_position,
 								'megamenu_order'      => $widget['order'],
@@ -654,6 +655,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 								'ID'                  => "{$item->ID}-{$row}",
 								'megamenu_settings'   => Mega_Menu_Nav_Menus::get_menu_item_defaults(),
 								'db_id'               => $rolling_dummy_id,
+								'url'                 => '',
 								'classes'             => $classes,
 							);
 
@@ -700,6 +702,7 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 									'ID'                  => "{$item->ID}-{$row}-{$col}",
 									'megamenu_settings'   => Mega_Menu_Nav_Menus::get_menu_item_defaults(),
 									'db_id'               => $rolling_dummy_id,
+									'url'                 => '',
 									'classes'             => $classes,
 								);
 
@@ -716,18 +719,19 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 											$widget_settings = array_merge( Mega_Menu_Nav_Menus::get_menu_item_defaults() );
 
 											$menu_item = array(
-												'type'    => 'widget',
-												'parent_submenu_type' => '',
-												'title'   => $block['id'],
-												'content' => $widget_manager->show_widget( $block['id'] ),
-												'menu_item_parent' => $rolling_dummy_id,
-												'db_id'   => 0,
-												'ID'      => $block['id'],
-												'menu_order' => $next_order,
-												'megamenu_order' => 0,
-												'megamenu_settings' => $widget_settings,
-												'depth'   => 1,
-												'classes' => array(
+												'type'					=> 'widget',
+												'parent_submenu_type'	=> '',
+												'title'					=> $block['id'],
+												'content'				=> $widget_manager->show_widget( $block['id'] ),
+												'menu_item_parent'		=> $rolling_dummy_id,
+												'db_id'					=> 0,
+												'url'					=> '',
+												'ID'					=> $block['id'],
+												'menu_order'			=> $next_order,
+												'megamenu_order'		=> 0,
+												'megamenu_settings'		=> $widget_settings,
+												'depth'					=> 1,
+												'classes'				=> array(
 													'menu-item',
 													'menu-item-type-widget',
 													'menu-widget-class-' . $widget_manager->get_widget_class( $block['id'] ),

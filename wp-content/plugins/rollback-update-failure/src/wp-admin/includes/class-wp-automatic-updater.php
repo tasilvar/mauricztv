@@ -485,7 +485,6 @@ class WP_Automatic_Updater {
 			)
 		);
 
-		// TODO: enable maintenance mode here for PR,load.php has modified wp_is_maintenance_mode().
 		/*
 		 * After WP_Upgrader::upgrade() completes, maintenance mode is disabled.
 		 *
@@ -495,7 +494,7 @@ class WP_Automatic_Updater {
 		 * This avoids errors if the site is visited while fatal errors exist
 		 * or while files are still being moved.
 		 */
-		// $upgrader->maintenance_mode( true );
+		$upgrader->maintenance_mode( true );
 
 		// If the filesystem is unavailable, false is returned.
 		if ( false === $upgrade_result ) {
@@ -1687,15 +1686,32 @@ Thanks! -- The WordPress Team"
 	/**
 	 * Performs a loopback request to check for potential fatal errors.
 	 *
-	 * @since 6.5.0
+	 * Fatal errors cannot be detected unless maintenance mode is enabled.
+	 *
+	 * @since 6.6.0
+	 *
+	 * @global int $upgrading The Unix timestamp marking when upgrading WordPress began.
 	 *
 	 * @return bool Whether a fatal error was detected.
 	 */
 	protected function has_fatal_error() {
-		$scrape_key   = md5( rand() );
-		$transient    = 'scrape_key_' . $scrape_key;
-		$scrape_nonce = (string) rand();
+		global $upgrading;
 
+		$maintenance_file = ABSPATH . '.maintenance';
+		if ( ! file_exists( $maintenance_file ) ) {
+			return false;
+		}
+
+		require $maintenance_file;
+		if ( ! is_int( $upgrading ) ) {
+			return false;
+		}
+
+		( new WP_Upgrader() )->maintenance_mode( false ); // TODO: remove for PR.
+
+		$scrape_key   = md5( $upgrading );
+		$scrape_nonce = (string) $upgrading;
+		$transient    = 'scrape_key_' . $scrape_key;
 		set_transient( $transient, $scrape_nonce, 30 );
 
 		$cookies       = wp_unslash( $_COOKIE );
@@ -1724,6 +1740,11 @@ Thanks! -- The WordPress Team"
 		$needle_end   = "###### wp_scraping_result_end:$scrape_key ######";
 		$url          = add_query_arg( $scrape_params, home_url( '/' ) );
 		$response     = wp_remote_get( $url, compact( 'cookies', 'headers', 'timeout', 'sslverify' ) );
+
+		if ( is_wp_error( $response ) ) {
+			error_log( 'Loopback request failed: ' . $response->get_error_message() );
+			return true;
+		}
 
 		// If this outputs `true` in the log, it means there were no fatal errors detected.
 		error_log( var_export( substr( $response['body'], strpos( $response['body'], '###### wp_scraping_result_start:' ) ), true ) );

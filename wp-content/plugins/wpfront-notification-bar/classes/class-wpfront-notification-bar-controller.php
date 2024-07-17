@@ -23,6 +23,8 @@
 
 namespace WPFront\Notification_Bar;
 
+if (!defined('ABSPATH')) exit();
+
 require_once("class-wpfront-notification-bar-entity.php");
 require_once(dirname(__DIR__) . "/templates/template-wpfront-notification-bar-custom-css.php");
 require_once(dirname(__DIR__) . "/templates/template-wpfront-notification-bar.php");
@@ -108,7 +110,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
             if ($this->options->preview_mode && isset($_GET[$this->get_preview_name()])) {
                 $this->set_preview_mode();
                 wp_redirect(home_url());
-                exit;
+                WPFront_Notification_Bar::Instance()->kill();
             }
         }
 
@@ -124,31 +126,25 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
 
             wp_enqueue_script('postbox');
             wp_enqueue_script('jquery');
-            wp_enqueue_script('jquery-ui-core');
-            wp_enqueue_script('jquery-ui-datepicker');
-            wp_enqueue_script('jquery-ui-timepicker', plugins_url('jquery-plugins/timepicker/js/timepicker.min.js', $this->plugin_file), array('jquery', 'jquery-ui-core'), '1.13.14');
-
-            $js = 'jquery-plugins/colorpicker/js/colorpicker.min.js';
-            wp_enqueue_script('jquery.eyecon.colorpicker', plugins_url($js, $this->plugin_file), array('jquery', 'jquery-ui-core'), WPFront_Notification_Bar::VERSION);
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0');
-            wp_enqueue_script('wpfront-notification-bar-options', plugins_url("js/options{$this->min_file_suffix}.js", $this->plugin_file), array(), WPFront_Notification_Bar::VERSION);
-            wp_enqueue_script('jquery-ui-tooltip', null, array('jquery'));
+
+            $js = 'js/vue.global.min.js';
+            wp_enqueue_script('vue', plugins_url($js, $this->plugin_file), array('jquery'), '3.2.37');
+            wp_enqueue_script('element-plus', plugins_url("js/element-plus.min.js", $this->plugin_file), array('vue'), '2.2.6');
+
+            wp_enqueue_script('wpfront-notification-bar-options', plugins_url("js/options{$this->min_file_suffix}.js", $this->plugin_file), array('jquery','element-plus'), WPFront_Notification_Bar::VERSION);
         }
 
         //options page styles
         public function enqueue_options_styles() {
             $this->enqueue_styles();
 
-            $style = 'jquery-plugins/jquery-ui/smoothness/jquery-ui-1.10.4.custom.min.css';
-            wp_enqueue_style('jquery.ui.smoothness.datepicker', plugins_url($style, $this->plugin_file), array(), WPFront_Notification_Bar::VERSION);
-
-            wp_enqueue_style('jquery.ui.timepicker', plugins_url('jquery-plugins/timepicker/css/timepicker.min.css', $this->plugin_file), array(), '1.13.14');
-
-            $style = 'jquery-plugins/colorpicker/css/colorpicker.min.css';
-            wp_enqueue_style('jquery.eyecon.colorpicker.colorpicker', plugins_url($style, $this->plugin_file), array(), WPFront_Notification_Bar::VERSION);
+            wp_enqueue_style('element-plus', plugins_url("css/element-plus.min.css", $this->plugin_file), array(), '2.2.6');
 
             $style = "css/options{$this->min_file_suffix}.css";
-            wp_enqueue_style('wpfront-notification-bar-options', plugins_url($style, $this->plugin_file), array(), WPFront_Notification_Bar::VERSION);
+            wp_enqueue_style('wpfront-notification-bar-options', plugins_url($style, $this->plugin_file), array('element-plus'), WPFront_Notification_Bar::VERSION);
+       
+            
         }
 
         //add scripts
@@ -677,7 +673,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
 
             $objects['home'] = __('[Home Page]', 'wpfront-notification-bar');
 
-            $posts = get_posts(array('number' => 50));
+            $posts = get_posts(array('numberposts' => 50));
             foreach ($posts as $post) {
                 $objects[$post->ID] = __('[Post]', 'wpfront-notification-bar') . ' ' . $post->post_title;
             }
@@ -750,9 +746,12 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
             foreach ($post_terms as $post_term) {
                 do {
                     $term = get_term($post_term);
-                    $actual_post_terms[] = $term->term_id;
-
-                    $post_term = $term->parent;
+                    if($term instanceof \WP_Term) {
+                        $actual_post_terms[] = $term->term_id;
+                        $post_term = $term->parent;
+                    } else {
+                        $post_term = 0;
+                    }
                 } while ($post_term > 0);
             }
 
@@ -773,13 +772,27 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
             return $objects;
         }
 
+        /**
+         * Set preview mode cookie
+         * 
+         * @SuppressWarnings(PHPMD.ErrorControlOperator)
+         *
+         * @return void
+         */
         protected function set_preview_mode() {
             $preview_name = $this->get_preview_name();
-            setcookie($preview_name, 1, 0, '/');
+            @setcookie($preview_name, 1, 0, '/');
         }
 
+        /**
+         * Remove preview mode cookie
+         * 
+         * @SuppressWarnings(PHPMD.ErrorControlOperator)
+         *
+         * @return void
+         */
         protected function remove_preview_mode() {
-            setcookie($this->get_preview_name(), '', time() - 3600, '/');
+            @setcookie($this->get_preview_name(), '', time() - 3600, '/');
         }
 
         private function is_preview_mode() {
@@ -809,6 +822,39 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
         public function display_on_page_load() {
             if (!$this->options->display_scroll && $this->options->display_after == 0 && $this->options->animate_delay == 0) {
                 return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * Returns whether keep closed cookie is set
+         *
+         * @return boolean
+         */
+        public function has_keep_closed_set() {
+            if ($this->options->keep_closed && isset($_COOKIE[$this->options->keep_closed_cookie_name])) {
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * Returns whether max views state reached.
+         *
+         * @return boolean
+         */
+        public function has_max_views_reached() {
+            if ($this->options->set_max_views) {
+                $views = 0;
+                if(isset($_COOKIE[$this->options->max_views_cookie_name])) {
+                    $views = intval($_COOKIE[$this->options->max_views_cookie_name]);
+                }
+                
+                if($views >= $this->options->max_views) {
+                    return true;
+                }
             }
 
             return false;

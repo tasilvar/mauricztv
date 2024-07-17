@@ -19,12 +19,12 @@
 					$("#" + accordion_id + " > .ea-card > .ea-header").on("click", function () {
 						$("#" + accordion_id + " > .ea-card > .sp-collapse").on("hide.bs.spcollapse", function (e) {
 							$(this).parent(".ea-card").removeClass("ea-expand");
-							$(this).siblings(".ea-header").find(".ea-expand-icon").addClass('fa-plus').removeClass('fa-minus');
+							$(this).siblings(".ea-header").find(".ea-expand-icon").addClass('ea-icon-expand-plus').removeClass('ea-icon-expand-minus');
 							e.stopPropagation();
 						})
 						$("#" + accordion_id + " > .ea-card > .sp-collapse").on("show.bs.spcollapse", function (e) {
 							$(this).parent(".ea-card").addClass("ea-expand");
-							$(this).siblings(".ea-header").find(".ea-expand-icon").addClass('fa-minus').removeClass('fa-plus');
+							$(this).siblings(".ea-header").find(".ea-expand-icon").addClass('ea-icon-expand-minus').removeClass('ea-icon-expand-plus');
 							e.stopPropagation();
 						})
 					});

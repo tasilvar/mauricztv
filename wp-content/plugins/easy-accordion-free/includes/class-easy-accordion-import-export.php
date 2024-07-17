@@ -137,7 +137,6 @@ class Easy_Accordion_Import_Export {
 				}
 			} catch ( Exception $e ) {
 				array_push( $errors[ $index ], $e->getMessage() );
-
 				// If there was a failure somewhere, clean up.
 				wp_trash_post( $new_accordion_id );
 			}
@@ -161,7 +160,19 @@ class Easy_Accordion_Import_Export {
 	 * @return void
 	 */
 	public function import_accordions() {
-		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		$nonce           = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		$capability      = apply_filters( 'sp_easy_accordion_ui_permission', 'manage_options' );
+		$is_user_capable = current_user_can( $capability ) ? true : false;
+
+		if ( ! $is_user_capable ) {
+			wp_send_json_error(
+				array(
+					'error' => __( 'Error: Permission denied.', 'easy-accordion-free' ),
+				),
+				403
+			);
+		}
+
 		if ( ! wp_verify_nonce( $nonce, 'eapro_options_nonce' ) ) {
 			wp_send_json_error(
 				array(
@@ -170,13 +181,13 @@ class Easy_Accordion_Import_Export {
 				403
 			);
 		}
-		// This variable has been sanitize in the below.
 		$unsanitize = isset( $_POST['unSanitize'] ) ? sanitize_text_field( wp_unslash( $_POST['unSanitize'] ) ) : '';
 
-		$data         = isset( $_POST['accordion'] ) ? $_POST['accordion'] : ''; // phpcs:ignore 
-		$data         = json_decode( stripslashes( $data ) );
-		$data         = json_decode( $data, true );
-		$accordions   = $unsanitize ? $data['accordion'] : wp_kses_post_deep( $data['accordion'] );
+		// This variable has been sanitize in the below.
+		$data       = isset( $_POST['accordion'] ) ? $_POST['accordion'] : ''; // phpcs:ignore
+		$data       = json_decode( stripslashes( $data ) );
+		$data       = json_decode( $data, true );
+		$accordions = $unsanitize ? $data['accordion'] : wp_kses_post_deep( $data['accordion'] );
 
 		if ( ! $data ) {
 			wp_send_json_error(

@@ -57,7 +57,7 @@ class SP_EA_Front_Scripts {
 		$found_generator_id = $get_page_data['generator_id'];
 		// CSS Files.
 		if ( $found_generator_id ) {
-			wp_enqueue_style( 'sp-ea-font-awesome' );
+			wp_enqueue_style( 'sp-ea-fontello-icons' );
 			wp_enqueue_style( 'sp-ea-style' );
 			// Load dynamic style for the existing shordcodes.
 			$ea_dynamic_css = self::load_dynamic_style( $found_generator_id );
@@ -75,9 +75,7 @@ class SP_EA_Front_Scripts {
 		$prefix   = defined( 'WP_DEBUG' ) && WP_DEBUG ? '' : '.min';
 
 		// CSS Files.
-		if ( $settings['eap_dequeue_fa_css'] ) {
-			wp_register_style( 'sp-ea-font-awesome', esc_url( SP_EA_URL . 'public/assets/css/font-awesome.min.css' ), array(), SP_EA_VERSION );
-		}
+		wp_register_style( 'sp-ea-fontello-icons', esc_url( SP_EA_URL . 'public/assets/css/fontello.css' ), array(), SP_EA_VERSION );
 		wp_register_style( 'sp-ea-style', esc_url( SP_EA_URL . 'public/assets/css/ea-style.css' ), array(), SP_EA_VERSION );
 		// Admin style of the plugin.
 		wp_register_style( 'sp-ea-style-admin', esc_url( SP_EA_URL . 'admin/css/easy-accordion-free-admin.min.css' ), array(), SP_EA_VERSION, 'all' );
@@ -85,6 +83,11 @@ class SP_EA_Front_Scripts {
 		// JS Files.
 		wp_register_script( 'sp-ea-accordion-js', esc_url( SP_EA_URL . 'public/assets/js/collapse' . $prefix . '.js' ), array( 'jquery' ), SP_EA_VERSION, false );
 		wp_register_script( 'sp-ea-accordion-config', esc_url( SP_EA_URL . 'public/assets/js/script.js' ), array( 'jquery', 'sp-ea-accordion-js' ), SP_EA_VERSION, true );
+
+		$ea_custom_js = isset( $settings['custom_js'] ) ? trim( html_entity_decode( $settings['custom_js'] ) ) : '';
+		if ( ! empty( $ea_custom_js ) ) {
+			wp_add_inline_script( 'sp-ea-accordion-config', $ea_custom_js );
+		}
 	}
 
 	/**
@@ -134,6 +137,14 @@ class SP_EA_Front_Scripts {
 		$custom_css = isset( $settings['ea_custom_css'] ) ? trim( html_entity_decode( $settings['ea_custom_css'] ) ) : '';
 		if ( ! empty( $custom_css ) ) {
 				$ea_dynamic_css .= $custom_css;
+		}
+		// Focus style to improve accessibility.
+		$focus_style = isset( $settings['eap_focus_style'] ) ? $settings['eap_focus_style'] : false;
+		if ( $focus_style ) {
+			$ea_dynamic_css .= '.sp-easy-accordion .ea-header a:focus,
+			.sp-horizontal-accordion .ea-header a:focus{
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+			}';
 		}
 		// Google font enqueue dequeue check.
 		$dynamic_style = array(
