@@ -1,11 +1,11 @@
 === Media Sync ===
 Contributors: erolsk8, simonkane
-Donate link: https://www.paypal.me/erolsk8
-Tags: media, uploads, import, ftp, server
-Requires at least: 3.0.1
-Tested up to: 6.3
-Requires PHP: 5.5
-Stable tag: trunk
+Donate link: https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=donate_link
+Tags: media, uploads, import, ftp, server, migration, automate, sync, library
+Requires at least: 5.3
+Tested up to: 6.5.3
+Requires PHP: 7.1
+Stable tag: 1.4.2
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,38 +13,41 @@ Simple plugin to scan "uploads" directory and bring those files into Media Libra
 
 == Description ==
 
-You can scan all files that are in `uploads` directory and see which ones are actually in Media Library and which ones are just sitting there. Then you can select files you want to import to the database and therefore make them available in Media Library.
+This plugin allows you to examine all files within the `uploads` directory to determine which ones are present in the Media Library and which ones are just sitting there unused. You can then choose the files you want to import into the database, thereby including them in the Media Library.
 
-You can also use FTP to upload your files to `uploads` directory and bring those files into Media Library. 
+Moreover, you can utilize FTP to upload files directly to the `uploads` directory and subsequently add these files to the Media Library avoiding any file size limitations.
 
 
 = Disclaimers =
 
-Please read before adding a support topic. Reviews are not intended for support or suggestions.
+1.  "1 file first"
+    Please try to import only one file first - to see if it works as you expected.
 
-1.  "For developers"
-    This plugin makes database changes (`wp_posts` and `wp_postmeta` tables), and it was primarily developed to help other developers that are aware of the consequences.
+2.  "All at once"
+    This plugin is designed for scanning, selecting, and importing **all files at once**. However, based on your server's configuration, memory, and timeout challenges may arise with extensive file quantities. To mitigate this, a newly revamped [pro version](https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=aao) employs incremental directory scans to effectively tackle these issues.
 
-2.  "1 file first"
-    Please be careful and try to import only one file first, to see if it works.
-
-3.  "All at once"
-    This plugin is focused on scanning, selecting, and importing all files at once. So it might not be great for huge amounts of files, since it can use up a lot of memory. Future versions will hopefully solve that problem. For now, you can try to go to Settings -> Media Sync and set it to scan only a specific directory.
-
-4.  "Your setup is unique"
-    Please keep in mind that each WordPress installation is unique, so it's quite possible this plugin will not work in your case. If that happens, please turn on debugging in settings of this plugin, try to figure out why you have that problem, and then describe what you found in the Support section. The more details we have - it's more likely the problem will be solved.
+3.  "Your setup is unique"
+    Please be aware that every WordPress installation is unique, and there may be instances where this plugin does not function as expected. Should this occur, we recommend enabling the debugging feature in the plugin's settings to identify the issue. After investigating, kindly provide a detailed description of your findings in the Support section (or [here](https://users.freemius.com/store/6428/support) if you're using pro version). The more comprehensive the details, the higher the likelihood of resolving the problem effectively.
 
 
 = Ignored files =
-- index.php,
 - various hidden files (.DS_Store, .htaccess),
 - WP generated thumbnails (files ending with for example -100x100.jpg),
 - WP generated scaled images (files ending with -scaled),
 - optimized .webp versions of original images (.jpg.webp),
 - retina thumbnails (-100x100@2x.jpg).
 
-This is now configurable with a custom hook function and it can totally overwrite [these rules](https://regex101.com/r/FeIIvs/1) or add additional ones.
+These can be modified and enhanced using the new advanced filters available in the [pro version](https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=df).
 
+= Media Sync Pro features =
+- **Revised incremental scan**: Allows scanning and importing unlimited number of files.
+- **Quick single directory rescan**: Easily rescan one directory to find new files or apply a different filter without reloading the whole page.
+- **Advanced filters**: Find any file by customizing all default filters, search for a specific file type (images, videos, etc.), skip by tailor-made rules, or enter any custom pattern.
+- **Schedule automatic imports**: Select a desired interval and let the plugin automatically import any new files it finds.
+- **Import logs**: View the history of manual or scheduled imports.
+- **Limit plugin access**: Limit plugin access to a specific role.
+
+Get [pro version here](https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=pfl).
 
 == Installation ==
 
@@ -62,7 +65,7 @@ This is now configurable with a custom hook function and it can totally overwrit
 
 = Stuck at importing / spins endlessly =
 
-Please try to increase `max_execution_time` (and/or `memory_limit`) in `php.ini` on server (as described [here](https://thimpress.com/knowledge-base/how-to-increase-maximum-execution-time-for-wordpress-site/)). Or if you have too many files, try going to Settings -> Media Sync and change "Scan directory" to some inner folder.
+Please try to increase `max_execution_time` (and/or `memory_limit`) in `php.ini` on server (as described [here](https://thimpress.com/knowledge-base/how-to-increase-maximum-execution-time-for-wordpress-site/)).
 
 = Files not showing up in Media Library =
 
@@ -74,6 +77,25 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 
 
 == Changelog ==
+
+= 1.4.2 =
+* Fix enabling or disabling debugging option
+* Fix various issues with paths on Windows servers
+* Remove "Scan directory" option to simplify plugin maintenance and compatibility with Windows servers
+* Tested for WordPress 6.5.3
+
+= 1.4.1 =
+* Fix deprecated warnings with PHP 8.1
+* Increase required versions to WordPress 5.3 and PHP 7.1
+
+= 1.4.0 =
+* Add correct plugin version when loading assets and updated readme.txt.
+
+= 1.3.3 =
+* Fix detecting files that already in database when "Scan directory" option is used. Issue started in previous version (1.3.2).
+
+= 1.3.2 =
+* Fix handling file names with even rarer special characters that might have resulted in duplicate imports.
 
 = 1.3.1 =
 * Ignore optimized .webp versions of original images (e.g. .jpg.webp) and retina thumbnails (e.g. -100x100@2x.jpg) by default. It's still possible to customize it with `media_sync_filter_is_scan_object_ignored` hook.
@@ -87,7 +109,7 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 * Update supported WordPress version to 6.2.
 
 = 1.2.8 =
-* Create a custom `_msc` record in `wp_postmeta` table to be able to differentiate files imported using this plugin. Could be useful to clean up the database later on.
+* Create a custom `_msc` record in `wp_postmeta` table to be able to differentiate files imported using this plugin. Could be useful to clean up the database later on.
 
 = 1.2.7 =
 * Extend plugin access to "Editor" and "Author" roles.
@@ -129,14 +151,14 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 * Slight improvements with error handling in JavaScript
 
 = 1.1.5 =
-* Always convert backslashes ("\") to forward slashes ("/") to fix various issues when using Windows Server.
+* Always convert backslashes (`\`) to forward slashes (`/`) to fix various issues when using Windows Server.
 
 = 1.1.4 =
-* Important backslash ("\") vs forward slash ("/") fix for use on Windows Server.
+* Important backslash (`\`) vs forward slash (`/`) fix for use on Windows Server.
 
 = 1.1.3 =
 * New option to set "Scan directory" in settings which will allow checking only certain sub directory.
-* New hook function `media_sync_filter_is_scan_object_ignored` which can be used to overwrite which files are ignored by default or to just skip additional files.
+* New hook function `media_sync_filter_is_scan_object_ignored` which can be used to overwrite which files are ignored by default or to just skip additional files.
 
 = 1.1.2 =
 * Fix Smart File Time on Windows server
