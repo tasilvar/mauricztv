@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2023 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -169,6 +169,13 @@ class Ai1wm_Backups {
 		}
 
 		return $downloadable;
+	}
+
+	/**
+	 * Check if backups are downloadable
+	 */
+	public static function direct_download_supported() {
+		return ! ( $_SERVER['SERVER_NAME'] === 'playground.wordpress.net' || $_SERVER['SERVER_SOFTWARE'] === 'PHP.wasm' );
 	}
 
 	public static function are_in_wp_content_folder() {
