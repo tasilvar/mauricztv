@@ -1224,7 +1224,7 @@ function bpmj_eddcm_scarlet_item_price_discount_after($label, $item_id, $options
                     /**
                      * Jeśli ma nie działać rabat na pozycję zwróć ją normalnie
                      */
-                    $label = '<p class="podsumowanie_koszyk_price">' . $label . '</p>';
+                    $label = '<p class="podsumowanie_koszyk_price">' . $label . '.</p>';
                 }
             
         }
@@ -1280,7 +1280,7 @@ function checkIfIsDiscounted($item_id) {
              }
         }
 
-        return false;
+        return true;
         // print_r($productsReq);
 
         // print_r(edd_get_discount_product_condition(514));
