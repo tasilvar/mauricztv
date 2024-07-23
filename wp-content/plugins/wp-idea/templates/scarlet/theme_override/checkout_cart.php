@@ -82,20 +82,23 @@ if (xhr.readyState === 4 && xhr.status === 200) {
 	// Obsłuż odpowiedź serwera tutaj
 	console.log(xhr.responseText);
 	
+	$(".edd_cart_item .cart_price,  .koszyk_right .edd_cart_amount").addClass("placeholder-loading-root placeholder-loading-text placeholder-loading-pulse");
+	
 	var response = JSON.parse(xhr.responseText);
 
 	if(response.msg == 'valid') {
-		document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
+		//document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
 
 		document.querySelector('.koszyk_right .price.edd_cart_amount.cart_total').innerHTML = response.total;
 		
 		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
-		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
+		//document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
 
 		document.querySelector(".koszyk_cena_bez_rabatu").style.display='';
 		
 	}
 	console.log(JSON.parse(xhr.responseText));
+	window.location.reload();
 	 //window.location.href = window.location.href;
 }
 };

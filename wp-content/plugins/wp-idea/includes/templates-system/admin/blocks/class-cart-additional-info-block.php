@@ -49,7 +49,7 @@ class Cart_Additional_Info_Block extends Block
             $content .= 'Kwota przed rabatem ';
         $content .= '</td>';
 
-        $content .= '<td style="text-align:right;    text-decoration: line-through;
+        $content .= '<td style="text-align:right;
         color: #a9a9a9;">';
             $content .= '<span class="price edd_cart_amount">';
 

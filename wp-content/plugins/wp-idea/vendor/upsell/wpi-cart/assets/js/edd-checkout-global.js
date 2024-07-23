@@ -195,6 +195,8 @@ window.EDD_Checkout = (function($) {
 
 		event.preventDefault();
 
+        $(".edd_cart_item .cart_price,  .koszyk_right .edd_cart_amount").addClass("placeholder-loading-root placeholder-loading-text placeholder-loading-pulse");
+
 		var $this = $(this),
 			discount_code = $('#edd-discount').val(),
 			edd_discount_loader = $('#edd-discount-loader');
@@ -262,6 +264,8 @@ window.EDD_Checkout = (function($) {
 					$body.trigger('edd_discount_failed', [ discount_response ]);
 				}
 				edd_discount_loader.hide();
+				//("apply discount");
+				window.location.reload();
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {
@@ -279,6 +283,8 @@ window.EDD_Checkout = (function($) {
 			action: 'edd_remove_discount',
 			code: $this.data('code')
 		};
+
+        $(".edd_cart_item .cart_price, .koszyk_right .edd_cart_amount").addClass("placeholder-loading-root placeholder-loading-text placeholder-loading-pulse");
 
 		$.ajax({
 			type: "POST",
@@ -313,7 +319,8 @@ window.EDD_Checkout = (function($) {
 				$('#edd_cc_fields,#edd_cc_address').slideDown();
 
 				$body.trigger('edd_discount_removed', [ discount_response ]);
-
+				//remove discount");
+				window.location.reload();
 			}
 		}).fail(function (data) {
 			if ( window.console && window.console.log ) {

@@ -902,7 +902,8 @@ function bpmj_eddcm_scarlet_edd_discount_field2()
                     $('.kod_rabatowy_input').hide();
                     $('.kod_rabatowy_contener').show();
                     //$('.rabat_dodany').show();
-                    alert('a');
+                    //alert('a');
+                   // window.location.reload();
                 });
             });
         </script>";
@@ -958,8 +959,8 @@ function bpmj_eddcm_scarlet_edd_discount_field()
                     $('.kod_rabatowy_input').hide();
                     $('.kod_rabatowy_contener').show();
                     //$('.rabat_dodany').show();
-                   // alert('a');
-                   window.location.reload();
+                    //alert('a');
+                   //window.location.reload();
                 });
             });
         </script>

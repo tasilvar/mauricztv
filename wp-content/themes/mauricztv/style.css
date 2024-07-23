@@ -2397,3 +2397,99 @@ margin: auto;
 	font-weight: 700;
 	color: #5d5e79;
 }
+.edd_discount_remove  {
+	color: #ff133e;
+}
+.koszyk_cena_bez_rabatu .edd_cart_amount { 
+	text-decoration: line-through;
+}
+/**
+Placeholder loading text
+**/
+
+.placeholder-loading-root {
+	height: 1.8em;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.11);
+  }
+  .placeholder-loading-text *, .placeholder-loading-text {
+	  color: transparent !important;
+  }
+  .placeholder-loading-text {
+	height: auto;
+	transform: scale(1, 0.6);
+	margin-top: 0;
+	border-radius: 4px;
+	margin-bottom: 0;
+	transform-origin: 0 60%;
+  }
+  
+  .placeholder-loading-text:empty:before {
+	content: "\00a0";
+  }
+  
+  .placeholder-loading-circle {
+	border-radius: 50%;
+  }
+  
+  .placeholder-loading-pulse {
+	animation: keyframe-pulse 1.5s ease-in-out 0.5s infinite;
+  }
+  
+  @-webkit-keyframes keyframe-pulse {
+	0% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.4;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  .placeholder-loading-wave {
+	overflow: hidden;
+	position: relative;
+  }
+  
+  .placeholder-loading-wave::after {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	position: absolute;
+	animation: MuiSkeleton-keyframes-wave 1.6s linear 0.5s infinite;
+	transform: translateX(-100%);
+	background: linear-gradient(
+	  90deg,
+	  transparent,
+	  rgba(0, 0, 0, 0.04),
+	  transparent
+	);
+  }
+  
+  @-webkit-keyframes MuiSkeleton-keyframes-wave {
+	0% {
+	  transform: translateX(-100%);
+	}
+	60% {
+	  transform: translateX(100%);
+	}
+	100% {
+	  transform: translateX(100%);
+	}
+  }
+  
+  .placeholder-loading-withChildren > * {
+	visibility: hidden;
+  }
+  
+  .placeholder-loading-fitContent {
+	max-width: fit-content;
+  }
+  
+  .placeholder-loading-heightAuto {
+	height: auto;
+  }
