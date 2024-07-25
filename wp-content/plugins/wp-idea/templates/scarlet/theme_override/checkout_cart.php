@@ -27,9 +27,15 @@ foreach($discounts as $code) {
 
 	$discounts_ids[] = $discount_id;
 }
-
+// echo "RABAT:".$discount_id."KONFIG:".get_option( 'mauricz_crosseling_discount');
 // print_r($discounts);
-
+/**
+ * Jeśli mamy w koszyku rabat zgodny z ustawieniami crosselingu lub jesli nie mamy w ogole w koszyku rabatu
+ */
+// echo count($discounts);
+// print_r($discounts);
+if(($discount_id == get_option( 'mauricz_crosseling_discount')) || ($discounts[0] == ''))  {
+	// echo "AAA";
 // Jesli mamy skonfigurowana kategorie i dyskont
 if(!empty(get_option( 'mauricz_crosseling_category')) && !empty(get_option( 'mauricz_crosseling_discount')))  {
 
@@ -124,6 +130,7 @@ xhr.send(formData);
 		}
 	}
 
+}
 }
 }
 ?>
