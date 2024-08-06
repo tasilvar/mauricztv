@@ -86,6 +86,13 @@ class RaportSprzedazy {
 			'raport-sprzedazy-admin', // page
 			'raport_sprzedazy_setting_section' // section
 		);
+		add_settings_field(
+			'raport_rabat', // id
+			'Rabat', // title
+			array( $this, 'raport_rabat_callback' ), // callback
+			'raport-sprzedazy-admin', // page
+			'raport_sprzedazy_setting_section' // section
+		);
 
 		add_settings_field(
 			'raport_data_od', // id
@@ -111,6 +118,7 @@ class RaportSprzedazy {
 		<option value="ogolny">Sprzedaz ogólna</option>
 		<option value="produkt">Sprzedaz wg produktu</option>
 		<option value="szkoleniowiec">Sprzedaz wg szkoleniowca</option>
+		<option value="rabat">Sprzedaz wg rabatu</option>
 		</select>
 		';
 	}
@@ -125,6 +133,28 @@ class RaportSprzedazy {
 		echo '
 		<select class="form-control" name="szkoleniowiec">
 		'.$szkoleniowcy.'
+		</select>
+		';
+	}
+
+	/**
+	 * Zwrócenie rabatów do wyboru dla ekposrtu raportu
+	 */
+	public function raport_rabat_callback() {
+		$rabaty = '';
+
+		$pobierzRabaty =  edd_get_discounts();
+
+		// print_r($pobierzRabaty);
+		// exit();
+		foreach($pobierzRabaty as $rabat) {
+			if(!empty(edd_get_discount_code( $rabat->ID ))) {
+				$rabaty .= '<option value="'.strtoupper(trim(edd_get_discount_code( $rabat->ID ))) .'">ID rabatu:'.$rabat->ID.' - '.edd_get_discount_code( $rabat->ID ).'</option>';
+			}
+		}
+		echo '
+		<select class="form-control" name="rabat_id[]" multiple style="height:200px;width:100%;">
+		'.$rabaty.'
 		</select>
 		';
 	}
@@ -214,13 +244,14 @@ class RaportSprzedazy {
 		// print_r(edd_get_payment('41543'));
 
 		$output = null;
-		
+		$kodyRabatow = [];
+
 		if($_POST['raport_typ'] == 'ogolny') {
 			header('Content-Type: text/csv');
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "id_zamowienia;data;wartosc;\n";
+			$output .= "id_zamowienia;data;wartosc_z_rabatem;wartosc_bez_rabatu;kod_rabatowy;\n";
 		}
 
 		if($_POST['raport_typ'] == 'szkoleniowiec') {
@@ -228,7 +259,7 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "id_zamowienia;data;wartosc;id_produkt;product_name;szkoleniowiec;\n";
+			$output .= "id_zamowienia;data;wartosc;rabat;id_produkt;product_name;szkoleniowiec;\n";
 		}
 
 		if($_POST['raport_typ'] == 'produkt') {
@@ -236,7 +267,15 @@ class RaportSprzedazy {
 			header('Content-Type: application/force-download; charset=UTF-8');
 			header('Cache-Control: no-store, no-cache');
 			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
-			$output .= "id_zamowienia;data;wartosc;id_produkt;product_name;szkoleniowiec;\n";
+			$output .= "id_zamowienia;data;wartosc;rabat;id_produkt;product_name;szkoleniowiec;\n";
+		}
+
+		if($_POST['raport_typ'] == 'rabat') {
+			header('Content-Type: text/csv');
+			header('Content-Type: application/force-download; charset=UTF-8');
+			header('Cache-Control: no-store, no-cache');
+			header('Content-Disposition: attachment; filename="raport_sprzedazy_'.$_POST['raport_typ'].'.csv"');
+			$output .= "kod_rabatowy;ilosc_zamowien;wartosc_bez_rabatu;wartosc_z_rabatem;\n";
 		}
 
         $file = fopen('php://output', 'w');
@@ -244,12 +283,20 @@ class RaportSprzedazy {
         foreach ($getPayments as $key => $payment) {
 
 			$getDetailPayment = edd_get_payment($payment->ID);
-			
+			// print_r($payment);
+			// echo "<br/>----<br/>";
+			// print_r($getDetailPayment);
+			// exit();
 			// Jesli jest to raport ogolny zwroc informacje o zamowieniach tylko w odniesienu do ram czasowych
 			if($_POST['raport_typ'] == 'ogolny') {
 					$output .= '"'.$getDetailPayment->ID.'";';
 					$output .= '"'.$getDetailPayment->date.'";';
+					// Wartosc z rabatem
 					$output .= '"'.$getDetailPayment->total.'";';
+					// Wartosc bez rabatu
+					$output .= '"'.$getDetailPayment->subtotal.'";';
+					//Rabat
+					$output .= '"'.$getDetailPayment->discounts.'";';
 					$output .= "\n";
 			}
 			 
@@ -266,9 +313,12 @@ class RaportSprzedazy {
 				foreach($cartDetails as $item) { 
 					// Jesli szkoleniowiec z pozycji zamowienia jest zgodny z wybranym szkoleniowcem
 					if(get_field('prowadzacy', $item['id']) == $_POST['szkoleniowiec']) {
+						// print_r($item);
+						// exit();
 						$output .= '"'.$getDetailPayment->ID.'";';
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
+						$output .= '"'.$item['discount'].'";';
 						$output .= '"'.$item['id'].'";';
 						$output .= '"'.$item['name'].'";';
 						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
@@ -289,15 +339,70 @@ class RaportSprzedazy {
 						$output .= '"'.$getDetailPayment->ID.'";';
 						$output .= '"'.$getDetailPayment->date.'";'; 
 						$output .= '"'.$item['item_price'].'";';
+						$output .= '"'.$item['discount'].'";';
 						$output .= '"'.$item['id'].'";';
 						$output .= '"'.$item['name'].'";';
 						$output .= '"'.get_field('prowadzacy', $item['id']).'";';
 						$output .= "\n";
 					}
 				}
+			} 
+
+			/**
+			 * Zwróć listing rabatów i przychodu z kazdego z nich
+			 * rabat | liczba zamowien | przychod
+			 */
+
+			if($_POST['raport_typ'] == 'rabat') {
+
+				//Pobierz szczegóły zamówienia
+				$getDetailPayment = edd_get_payment($payment->ID);
+
+				// Przejdź pętla po zamówieniach, odłóz rabat wg kodu, przychód wg kodu i liczbę iteracji (zamówień) wg kodu
+				if(($getDetailPayment->discounts != 'none') && !empty($getDetailPayment->discounts)) {
+					$kodyRabatow[$getDetailPayment->discounts]['id_zamowienia'][] = $payment->ID;
+					$kodyRabatow[$getDetailPayment->discounts]['wartosc_bez_rabatu'][] = $getDetailPayment->subtotal;
+					$kodyRabatow[trim($getDetailPayment->discounts)]['wartosc_z_rabatem'][] = $getDetailPayment->total;
+				}
 			}
             
         }
+
+		/**
+		 * Zwróć zagregowane dane z zamówień
+		 */
+		if($_POST['raport_typ'] == 'rabat') {
+		
+			foreach($kodyRabatow as $keyKod => $kod) { 
+			// 		print_r($kodyRabatow);
+			// exit();
+				/**
+				 * Jeśli wybrany przez nas kod przy eksporcie jest zgodny z tym z zebranym z zamówienia 
+				 */
+				// echo "KOD".$keyKod;
+				//  exit();
+				if(in_array(trim(strtoupper($keyKod)), (array)$_POST['rabat_id'])) {
+					$output .= '"'.@$keyKod.'";';
+					$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
+					$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
+					$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
+					$output .= "\n";
+				} else { 
+					if(count((array)$_POST['rabat_id']) == 0) {
+					
+								$output .= '"'.@$keyKod.'";';
+								$output .= '"'.@count((array)$kod['id_zamowienia']).'";'; 
+								$output .= '"'.(float)@array_sum($kod['wartosc_bez_rabatu']).'";';
+								$output .= '"'.(float)@array_sum($kod['wartosc_z_rabatem']).'";';
+								$output .= "\n";
+					}
+				}
+			}
+			// print_r($kodyRabatow);
+				// $payment->discount
+				// echo "RABAT";
+				// exit();
+		}
         echo trim($output);
         exit();
 

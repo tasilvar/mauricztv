@@ -1,5 +1,18 @@
 [unreleased]
 
+#### 7.2.1 / 2024-04-17
+* add check for loopback not working and rollback auto-update for safety
+
+#### 7.2.0 / 2024-03-11
+* update kill switch using `method_exists()`
+* update for latest PR, cannot include mods to `load.php`
+
+#### 7.1.2 / 2024-03-03
+* update kill switch
+
+#### 7.1.1 / 2024-02-14
+* update kill switch
+
 #### 7.1.0 / 2023-11-07
 * use `( new WP_Upgrader() )->maintenance_mode()` for Upgrader classes, fixes error in `maintenance_mode()` when `$wp_filesystem` not set
 

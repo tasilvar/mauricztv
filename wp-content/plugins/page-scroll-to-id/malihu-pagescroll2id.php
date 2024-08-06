@@ -3,7 +3,7 @@
 Plugin Name: Page scroll to id
 Plugin URI: http://manos.malihu.gr/page-scroll-to-id
 Description: Page scroll to id is an easy-to-use jQuery plugin that enables animated (smooth) page scrolling to specific id within the document. 
-Version: 1.7.8
+Version: 1.7.9
 Author: malihu
 Author URI: http://manos.malihu.gr
 License: MIT License (MIT)
@@ -47,7 +47,7 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 	
 	class malihuPageScroll2id{ // --edit--
 		
-		protected $version='1.7.8'; // Plugin version --edit--
+		protected $version='1.7.9'; // Plugin version --edit--
 		protected $update_option=null;
 		
 		protected $plugin_name='Page scroll to id'; // Plugin name --edit--
@@ -543,6 +543,9 @@ if(!class_exists('malihuPageScroll2id')){ // --edit--
 		}
 		
 		public function plugin_contextual_help(){
+			if(!isset($this->plugin_screen_hook_suffix)){
+				return;
+			}
 			$screen=get_current_screen();
 			 if(strcmp($screen->id, $this->plugin_screen_hook_suffix)==0){
 				if(get_bloginfo('version') >= '3.6'){

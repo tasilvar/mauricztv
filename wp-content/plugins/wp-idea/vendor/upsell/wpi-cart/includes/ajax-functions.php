@@ -235,6 +235,7 @@ function edd_ajax_apply_discount() {
 	edd_die();
 }
 add_action( 'wp_ajax_edd_apply_discount', 'edd_ajax_apply_discount' );
+
 add_action( 'wp_ajax_nopriv_edd_apply_discount', 'edd_ajax_apply_discount' );
 
 /**

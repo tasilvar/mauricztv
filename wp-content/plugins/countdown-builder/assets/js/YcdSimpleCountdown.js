@@ -219,6 +219,7 @@ YcdSimpleCountdown.prototype.livePreview = function()
 	this.changeColor();
 	this.changeDoubeleDigits();
 	this.changeDotes();
+	this.changeAlign();
 };
 
 YcdSimpleCountdown.prototype.changeText = function()
@@ -241,6 +242,19 @@ YcdSimpleCountdown.prototype.changeDoubeleDigits = function()
 	   that.doubeleDigits = status;
 	});
 };
+
+YcdSimpleCountdown.prototype.changeAlign = function () {
+	var alignSelect = jQuery('.js-simple-timer-align');
+
+	if (!alignSelect.length) {
+		return ;
+	}
+
+	alignSelect.bind('change', function() {
+		var selectedValue = jQuery(this).val();
+		jQuery('.ycd-countdown-wrapper ').css({textAlign: selectedValue});
+	})
+}
 
 YcdSimpleCountdown.prototype.changeDotes = function () {
 	var dotesSelect = jQuery('.js-simple-timer-dotes');
@@ -310,50 +324,65 @@ YcdSimpleCountdown.prototype.countdown = function()
 		if (!that.isActive && options['ycd-countdown-stop-inactive']) {
 			return false;
 		}
+
 		// Get today's date and time
 		var now = new Date().getTime();
 
 		// Find the distance between now and the count down date
 		var distance = that.seconds;
+
 		// If the count down is finished, write some text
 		distance = that.getFilteredDistance();
 
-		if (distance <= -1 && that.countdownRun) {
+		if (distance <= 0  && that.countdownRun) {
 			clearInterval(x);
 			that.endBehavior(countdownWrapper, that.options);
 			return;
 		}
-		// Time calculations for days, hours, minutes and seconds
+		var curDate = new Date();
+		distance = (new Date()).getTime() + (distance) - curDate.getTime();
+
+		// Time calculations for days, hours, minutes, and seconds
 		var unitesValues = {};
-		unitesValues.years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+		unitesValues.years = Math.floor(distance / (1000 * 31557600));
 		if (options['ycd-simple-enable-years']) {
-			distance = distance %  (1000 * 60 * 60 * 24 * 365)
+			distance = distance % (1000 * 31557600);
 		}
-		unitesValues.months = Math.floor(distance / (2678400000));
+
 		if (options['ycd-simple-enable-months']) {
-			distance = distance %  2678400000
+			unitesValues.months = Math.floor(distance / (2629800 * 1000));
 		}
-		unitesValues.days = Math.floor(distance/ (1000 * 60 * 60 * 24));
-		unitesValues.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		unitesValues.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+		if (options['ycd-simple-enable-months']) {
+			unitesValues.days = Math.floor(distance  % (2629800 * 1000) / (1000 * 86400) );
+		}
+		else {
+			unitesValues.days = Math.floor(distance / (1000 * 86400) );
+		}
+
+		unitesValues.hours = Math.floor((distance % (1000 * 86400)) / (1000 * 3600)); // Corrected hours calculation
+		unitesValues.minutes = Math.floor((distance % (1000 * 3600)) / (1000 * 60));
 		unitesValues.seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 		for (var i in unites) {
 			var unite = unites[i];
-			var selector = '.ycd-simple-mode-textUnderCountdown-'+id+' .ycd-simple-countdown-'+unite+'-time';
+			var selector = '.ycd-simple-mode-textUnderCountdown-' + id + ' .ycd-simple-countdown-' + unite + '-time';
 			var currentUniteValue = unitesValues[unite];
-			if (currentUniteValue < 10 && that.doubeleDigits) {
-				currentUniteValue = "0" +currentUniteValue;
+
+			if (currentUniteValue < 10 && that.doubleDigits) {
+				currentUniteValue = "0" + currentUniteValue;
 			}
+
 			jQuery(selector).text(currentUniteValue);
 		}
+
 		if (options['ycd-countdown-expire-behavior'] == 'countToUp' && that.seconds <= 0) {
 			that.countdownRun = false;
 		}
+
 		if (!that.countdownRun) {
 			that.seconds += 1000;
-		}
-		else {
+		} else {
 			that.seconds -= 1000;
 		}
 	};

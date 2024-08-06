@@ -42,6 +42,21 @@ YcdAdmin.prototype.init = function() {
     }
     this.metaboxSubOptions();
     this.generalColors();
+    this.deleteAjaxRequest();
+};
+
+YcdAdmin.prototype.deleteAjaxRequest = function() {
+
+	jQuery('.ycd-type-delete-link').bind('click', function (e) {
+		e.preventDefault();
+
+		var confirmStatus = confirm('Are you shure?');
+
+		if(!confirmStatus) {
+			return;
+		}
+		window.location.href = e.target.href;
+	});
 };
 
 YcdAdmin.prototype.copySortCode = function() {
@@ -388,50 +403,45 @@ YcdAdmin.prototype.newsletter = function() {
 		e.preventDefault();
 		jQuery('.ycd-validation-error').addClass('ycd-hide');
 		var validationStatus = true;
-		var fromEmail = jQuery('.ycd-newsletter-from-email').val();
-		var subscriptionFormId = jQuery('.js-ycd-newsletter-forms option:selected').val();
-		subscriptionFormId = parseInt(subscriptionFormId);
-		var validateEmail =  fromEmail.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/);
-		var emailsInFlow = jQuery('.ycd-emails-in-flow').val();
-		emailsInFlow = parseInt(emailsInFlow);
+		// var fromEmail = jQuery('.ycd-newsletter-from-email').val();
+		// var subscriptionFormId = jQuery('.js-ycd-newsletter-forms option:selected').val();
+		// subscriptionFormId = parseInt(subscriptionFormId);
+		// var validateEmail =  fromEmail.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/);
+		// var emailsInFlow = jQuery('.ycd-emails-in-flow').val();
+		// emailsInFlow = parseInt(emailsInFlow);
 
-		if (isNaN(subscriptionFormId)) {
-			jQuery('.ycd-newsletter-error').removeClass('ycd-hide');
-			validationStatus = false;
-		}
+		// if (isNaN(subscriptionFormId)) {
+		// 	jQuery('.ycd-newsletter-error').removeClass('ycd-hide');
+		// 	validationStatus = false;
+		// }
 
-		/*When the sent email isn't valid or the user hasn't selected any subscription form.*/
-		if (validateEmail == -1 ) {
-			validationStatus = false;
-			jQuery('.ycd-newsletter-from-email-error').removeClass('ycd-hide');
-		}
+		// /*When the sent email isn't valid or the user hasn't selected any subscription form.*/
+		// if (validateEmail == -1 ) {
+		// 	validationStatus = false;
+		// 	jQuery('.ycd-newsletter-from-email-error').removeClass('ycd-hide');
+		// }
 
-		if (isNaN(emailsInFlow)) {
-			jQuery('.ycd-emails-in-flow-error').removeClass('ycd-hide');
-			validationStatus = false;
-		}
+		// if (isNaN(emailsInFlow)) {
+		// 	jQuery('.ycd-emails-in-flow-error').removeClass('ycd-hide');
+		// 	validationStatus = false;
+		// }
 
-		if (!validationStatus) {
-			return false;
-		}
+		// if (!validationStatus) {
+		// 	return false;
+		// }
 
 		var newsletterSubject = jQuery('.ycd-newsletter-subject').val();
 		var messageBody = that.getTinymceContent();
-
+		var id = jQuery('#ycd-newsletters-list').val();
+		
 		var data = {
 			nonce: ycd_admin_localized.nonce,
 			action: 'ycd_send_newsletter',
-			newsletterData: {
-				subscriptionFormId: subscriptionFormId,
-				beforeSend: function() {
-					jQuery('.ycd-js-newsletter-spinner').removeClass('ycd-hide');
-					jQuery('.ycd-newsletter-notice').addClass('ycd-hide');
-				},
-				fromEmail: fromEmail,
-				emailsInFlow: emailsInFlow,
-				newsletterSubject: newsletterSubject,
-				messageBody: messageBody
-			}
+			newslatterId: id,
+			beforeSend: function() {
+				jQuery('.ycd-js-newsletter-spinner').removeClass('ycd-hide');
+				jQuery('.ycd-newsletter-notice').addClass('ycd-hide');
+			},
 		};
 
 		jQuery.post(ajaxurl, data, function() {

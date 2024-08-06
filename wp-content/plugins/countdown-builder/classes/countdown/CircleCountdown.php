@@ -179,7 +179,11 @@ class CircleCountdown extends Countdown {
     }
 
     private function filterTranslations($prepareOptions) {
-	    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+	    $serverLang = '';
+	    if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+		    $serverLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	    }
+	    $lang = substr($serverLang, 0, 2);
 	    $translations = $this->getOptionValue('ycd-tr');
 	    $currentTranslation = null;
 	    if (empty($translations)) {

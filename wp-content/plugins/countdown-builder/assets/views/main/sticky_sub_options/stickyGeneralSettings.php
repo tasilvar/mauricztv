@@ -1,6 +1,57 @@
 <?php
 use ycd\AdminHelper;
+use ycd\MultipleChoiceButton;
 ?>
+<div class="row form-group">
+	<div class="col-md-6">
+		<label class="ycd-label-of-input"><?php _e('Show countdown', YCD_TEXT_DOMAIN); ?></label>
+	</div>
+	<div class="col-md-5">
+
+	</div>
+</div>
+<div class="ycd-sub-options-settings">
+	<div class="ycd-multichoice-wrapper">
+		<?php
+		$multipleChoiceButton = new MultipleChoiceButton($defaultData['sticky_show_condition'], esc_attr($this->getOptionValue('ycd-sticky-show-condition')));
+		echo wp_kses($multipleChoiceButton, $allowed_html);
+		?>
+	</div>
+    <div id="ycd-sticky-show-condition-load" class="ycd-sub-option ycd-hide">
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label class="ycd-label-of-input" for="ycd-sticky-scroll-delay"><?php _e('Delay', YCD_TEXT_DOMAIN); ?></label>
+            </div>
+            <div class="col-md-5">
+                <input type="text" name="ycd-sticky-scroll-delay" id="ycd-sticky-scroll-delay" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-sticky-scroll-delay')); ?>">
+            </div>
+            <div class="row">
+                <label>Seconds</label>
+            </div>
+        </div>
+    </div>
+	<div id="ycd-sticky-show-condition-scroll" class="ycd-sub-option ycd-hide">
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="ycd-label-of-input" for="ycd-sticky-scroll-percent"><?php _e('Show after', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-5">
+				<input type="text" name="ycd-sticky-scroll-percent" id="ycd-sticky-scroll-percent" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-sticky-scroll-percent')); ?>">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-md-6">
+		<label class="ycd-label-of-input"><?php _e('Sections order', YCD_TEXT_DOMAIN); ?></label>
+	</div>
+	<div class="col-md-5">
+		<?php
+		$contdownSections = AdminHelper::selectBox($stickySectionsOrder, esc_attr($this->getOptionValue('ycd-sticky-countdown-sections')), array('name' => 'ycd-sticky-countdown-sections', 'class' => 'js-ycd-select'));
+		echo wp_kses($contdownSections, $allowed_html);
+		?>
+	</div>
+</div>
 <div class="row form-group">
 	<div class="col-md-6">
 		<label class="ycd-label-of-input"><?php _e('Background color', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html); ?></label>
@@ -63,16 +114,5 @@ use ycd\AdminHelper;
 			<input type="checkbox" id="ycd-sticky-enable-double-digits" class="" name="ycd-sticky-enable-double-digits" <?php echo esc_attr($this->getOptionValue('ycd-sticky-enable-double-digits')); ?>>
 			<span class="ycd-slider ycd-round"></span>
 		</label>
-	</div>
-</div>
-<div class="row form-group">
-	<div class="col-md-6">
-		<label class="ycd-label-of-input"><?php _e('Sections order', YCD_TEXT_DOMAIN); ?></label>
-	</div>
-	<div class="col-md-5">
-		<?php
-		$contdownSections = AdminHelper::selectBox($stickySectionsOrder, esc_attr($this->getOptionValue('ycd-sticky-countdown-sections')), array('name' => 'ycd-sticky-countdown-sections', 'class' => 'js-ycd-select'));
-		echo wp_kses($contdownSections, $allowed_html);
-		?>
 	</div>
 </div>

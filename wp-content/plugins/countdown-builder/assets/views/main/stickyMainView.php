@@ -17,6 +17,43 @@ $stickyExpiration = $defaultData['stickyButtonExpiration'];
 $allowed_html = AdminHelper::getAllowedTags();
 ?>
 <div class="ycd-bootstrap-wrapper">
+	<!-- General Section Start -->
+	<div class="row form-group ycd-sub-setting-label-wrapper" data-status="false">
+		<div class="col-md-6">
+			<label class="ycd-label-of-input"><?php _e('General', YCD_TEXT_DOMAIN); ?><span class="toggle-indicator" aria-hidden="true"></span></label></label>
+		</div>
+		<div class="col-md-5">
+
+		</div>
+	</div>
+	<div class="ycd-sub-options-settings">
+		<?php require_once(dirname(__FILE__).'/sticky_sub_options/stickyGeneralSettings.php'); ?>
+	</div>
+	<?php if(YCD_PKG_VERSION != YCD_FREE_VERSION) : ?>
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="ycd-label-of-input"><?php _e('Display rule', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-5">
+
+			</div>
+		</div>
+		<div class="ycd-sub-options-settings">
+			<div class="row form-group">
+				<div class="col-md-6">
+					<label class="ycd-label-of-input" for="ycd-sticky-all-pages"><?php _e('All pages', YCD_TEXT_DOMAIN); ?></label>
+				</div>
+				<div class="col-md-5">
+					<label class="ycd-switch">
+						<input type="checkbox" id="ycd-sticky-all-pages" name="ycd-sticky-all-pages" class="ycd-accordion-checkbox js-ycd-time-status" <?php echo esc_attr($this->getOptionValue('ycd-sticky-all-pages')); ?>>
+						<span class="ycd-slider ycd-round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+	<!-- General Section Start -->
+
 	<!-- Button settings start -->
 	<div class="row form-group ycd-sub-setting-label-wrapper" data-status="false">
 		<div class="col-md-6">
@@ -54,42 +91,5 @@ $allowed_html = AdminHelper::getAllowedTags();
 		<?php require_once(dirname(__FILE__).'/sticky_sub_options/stickyCountdownSettings.php'); ?>
 	</div>
 	<!-- Countdown Section End -->
-	
-	<!-- General Section Start -->
-	<div class="row form-group ycd-sub-setting-label-wrapper" data-status="false">
-		<div class="col-md-6">
-			<label class="ycd-label-of-input"><?php _e('General', YCD_TEXT_DOMAIN); ?><span class="toggle-indicator" aria-hidden="true"></span></label></label>
-		</div>
-		<div class="col-md-5">
-
-		</div>
-	</div>
-	<div class="ycd-sub-options-settings">
-		<?php require_once(dirname(__FILE__).'/sticky_sub_options/stickyGeneralSettings.php'); ?>
-	</div>
-	<?php if(YCD_PKG_VERSION != YCD_FREE_VERSION) : ?>
-	<div class="row form-group">
-		<div class="col-md-6">
-			<label class="ycd-label-of-input"><?php _e('Display rule', YCD_TEXT_DOMAIN); ?></label>
-		</div>
-		<div class="col-md-5">
-
-		</div>
-	</div>
-	<div class="ycd-sub-options-settings">
-	<div class="row form-group">
-		<div class="col-md-6">
-			<label class="ycd-label-of-input" for="ycd-sticky-all-pages"><?php _e('All pages', YCD_TEXT_DOMAIN); ?></label>
-		</div>
-		<div class="col-md-5">
-			<label class="ycd-switch">
-				<input type="checkbox" id="ycd-sticky-all-pages" name="ycd-sticky-all-pages" class="ycd-accordion-checkbox js-ycd-time-status" <?php echo esc_attr($this->getOptionValue('ycd-sticky-all-pages')); ?>>
-				<span class="ycd-slider ycd-round"></span>
-			</label>
-		</div>
-	</div>
-	</div>
-	<?php endif; ?>
-	<!-- General Section Start -->
 </div>
 <input type="hidden" name="ycd-type" value="<?php echo esc_attr($type); ?>"> 

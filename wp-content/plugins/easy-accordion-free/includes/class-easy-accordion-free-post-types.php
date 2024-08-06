@@ -72,6 +72,9 @@ class Easy_Accordion_Free_Post_Type {
 			return;
 		}
 
+		$capability      = apply_filters( 'sp_easy_accordion_ui_permission', 'manage_options' );
+		$is_user_capable = current_user_can( $capability ) ? true : false;
+
 		// Set the easy accordion post type labels.
 		$labels = apply_filters(
 			'sp_easy_accordion_post_type_labels',
@@ -93,18 +96,8 @@ class Easy_Accordion_Free_Post_Type {
 		);
 
 		// Base 64 encoded SVG image.
-		$menu_icon = 'data:image/svg+xml;base64,' . base64_encode(
-			'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-			<style type="text/css">
-				.st0{fill:#A0A5AA;}
-			</style>
-			<g>
-				<path class="st0" d="M0,128v256h512V128H0z M480,352H32V224h448V352z"/>
-				<path class="st0" d="M0,0h512v96H0V0z"/>
-				<path class="st0" d="M0,416h512v96H0V416z"/>
-			</g>
-			</svg>'
-		);
+		$icon      = 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCiAgICAgICAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCiAgICAgICAgICAgIC5zdDB7ZmlsbDojQTBBNUFBO30NCiAgICAgICAgPC9zdHlsZT4NCiAgICAgICAgPGc+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCwxMjh2MjU2aDUxMlYxMjhIMHogTTQ4MCwzNTJIMzJWMjI0aDQ0OFYzNTJ6Ii8+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCwwaDUxMnY5NkgwVjB6Ii8+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCw0MTZoNTEydjk2SDBWNDE2eiIvPg0KICAgICAgICA8L2c+DQogICAgPC9zdmc+';
+		$menu_icon = 'data:image/svg+xml;base64,' . $icon;
 
 		// Set the easy accordion post type arguments.
 		$args = apply_filters(
@@ -114,7 +107,7 @@ class Easy_Accordion_Free_Post_Type {
 				'public'              => false,
 				'hierarchical'        => false,
 				'exclude_from_search' => true,
-				'show_ui'             => true,
+				'show_ui'             => $is_user_capable,
 				'show_in_admin_bar'   => false,
 				'menu_position'       => apply_filters( 'sp_easy_accordion_menu_position', 116 ),
 				'menu_icon'           => $menu_icon,

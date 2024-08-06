@@ -230,11 +230,15 @@ jQuery(document).ready(function($){
 
 	});
 	
-	jQuery( '.mysticky-welcomebar-close, .mysticky-welcomebar-btn a' ).on( 'click', function(){
+	jQuery( '.mysticky-welcomebar-close, .mysticky-welcomebar-btn a' ).on( 'click', function( e ){
 		/* Submit contact lead form */
 		var flag				= true;
 		var trigger_sec 		= 100;
 		var welcomebar_widget 	= 0;	
+		var welcombar_rediect   = $( '.mysticky-welcomebar-fixed' ).data('rediect');		
+		if (welcombar_rediect == 'close_bar') {
+			e.preventDefault();
+		}
 		if( jQuery(".mysticky-welcomebar-lead-content").length > 0 && !$(this).hasClass("mysticky-welcomebar-close")){
 
 			if( jQuery('#contact-lead-name-'+welcomebar_widget).val() != '' && ( jQuery('#contact-lead-phone-'+welcomebar_widget).val() != '' || jQuery('#contact-lead-email-'+welcomebar_widget).val() != '' )){

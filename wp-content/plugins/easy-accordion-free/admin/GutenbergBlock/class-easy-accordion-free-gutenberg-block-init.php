@@ -51,7 +51,7 @@ if ( ! class_exists( 'Easy_Accordion_Free_Gutenberg_Block_Init' ) ) {
 			/**
 			 * Register block editor css file enqueue for backend.
 			 */
-			wp_enqueue_style( 'sp-ea-font-awesome' );
+			wp_enqueue_style( 'sp-ea-fontello-icons' );
 			wp_enqueue_style( 'sp-ea-style' );
 		}
 		/**
@@ -165,8 +165,8 @@ if ( ! class_exists( 'Easy_Accordion_Free_Gutenberg_Block_Init' ) ) {
 			if ( ! $attributes['is_admin'] ) {
 				return '<div ' . $class_name . '>' . do_shortcode( '[sp_easyaccordion id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
 			}
-
-			return '<div id="' . uniqid() . '" ' . $class_name . ' >' . do_shortcode( '[sp_easyaccordion id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
+			$edit_accordion_link = get_edit_post_link( sanitize_text_field( $attributes['shortcode'] ) );
+			return '<div id="' . uniqid() . '" ' . $class_name . ' ><a href="' . $edit_accordion_link . '" target="_blank" class="sp-easyaccordion-block-edit-button">Edit Accordion</a>' . do_shortcode( '[sp_easyaccordion id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
 		}
 	}
 }

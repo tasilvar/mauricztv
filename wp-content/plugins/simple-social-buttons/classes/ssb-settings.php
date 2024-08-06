@@ -224,7 +224,7 @@ class Ssb_Settings {
 					'type'  => 'ssb_go_pro',
 					'label' => __( 'Want even more fine tuned control over your Sidebar Social Buttons Styling?', 'simple-social-buttons' ),
 					'desc'  => __( 'By upgrading to Simple Social Buttons Pro, you get access to Styling Social buttons of your own choice that matches with your website color schemes. These social buttons will help in driving more engagement and traffic to your site. Some of the Pro features include: Show Social media buttons on Images/Photos, Social Popups on exit/intent, Social Flyin slides and so much more!', 'simple-social-buttons' ),
-					'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-sidebar&utm_campaign=pro-upgrade',
+					'link'  => 'https://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-sidebar&utm_campaign=pro-upgrade',
 				),
 			);
 
@@ -354,7 +354,7 @@ class Ssb_Settings {
 					'type'  => 'ssb_go_pro',
 					'label' => __( 'Want to style the Inline Social buttons matches your theme colors?', 'simple-social-buttons' ),
 					'desc'  => __( 'By upgrading to Simple Social Buttons Pro, you get access to Styling Social buttons of your own choice that matches with your website color schemes. These social buttons will help in driving more engagement and traffic to your site. Some of the Pro features include: Show Social media buttons on Images/Photos, Social Popups on exit/intent, Social Flyin slides and so much more!', 'simple-social-buttons' ),
-					'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-inline&utm_campaign=pro-upgrade',
+					'link'  => 'https://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-inline&utm_campaign=pro-upgrade',
 				),
 			);
 
@@ -472,7 +472,7 @@ class Ssb_Settings {
 						'type'  => 'ssb_go_pro',
 						'label' => __( 'Show Social Sharing buttons on images or photos in your posts/pages.', 'simple-social-buttons' ),
 						'desc'  => __( 'By upgrading to Simple Social Buttons Pro, you get access to Styling Social buttons of your own choice that matches with your website color schemes. These social buttons will help in driving more engagement and traffic to your site. Some of the Pro features include: Show Social media buttons on Images/Photos, Social Popups on exit/intent, Social Flyin slides and so much more!', 'simple-social-buttons' ),
-						'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-media&utm_campaign=pro-upgrade',
+						'link'  => 'https://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-media&utm_campaign=pro-upgrade',
 					),
 				),
 				'ssb_popup'     => array(
@@ -481,7 +481,7 @@ class Ssb_Settings {
 						'type'  => 'ssb_go_pro',
 						'label' => __( 'Get more engagement and shares on scrolling and exit intent to visitors.', 'simple-social-buttons' ),
 						'desc'  => __( 'By upgrading to Simple Social Buttons Pro, you get access to Styling Social buttons of your own choice that matches with your website color schemes. These social buttons will help in driving more engagement and traffic to your site. Some of the Pro features include: Show Social media buttons on Images/Photos, Social Popups on exit/intent, Social Flyin slides and so much more!', 'simple-social-buttons' ),
-						'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-popup&utm_campaign=pro-upgrade',
+						'link'  => 'https://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-popup&utm_campaign=pro-upgrade',
 					),
 				),
 				'ssb_flyin'     => array(
@@ -490,7 +490,7 @@ class Ssb_Settings {
 						'type'  => 'ssb_go_pro',
 						'label' => __( 'Advanced Fly ins with animations to have more Social shares.', 'simple-social-buttons' ),
 						'desc'  => __( 'By upgrading to Simple Social Buttons Pro, you get access to Styling Social buttons of your own choice that matches with your website color schemes. These social buttons will help in driving more engagement and traffic to your site. Some of the Pro features include: Show Social media buttons on Images/Photos, Social Popups on exit/intent, Social Flyin slides and so much more!', 'simple-social-buttons' ),
-						'link'  => 'http://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-flyin&utm_campaign=pro-upgrade',
+						'link'  => 'https://www.WPBrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=settings-flyin&utm_campaign=pro-upgrade',
 					),
 				),
 				'ssb_advanced'  => $ssb_advanced,
@@ -569,7 +569,7 @@ class Ssb_Settings {
 			$html .= sprintf( __( 'Free support is available on the %1$s plugin support forums%2$s.', 'simple-social-buttons' ), '<a href="https://wordpress.org/support/plugin/simple-social-buttons" target="_blank">', '</a>' );
 			$html .= '<br /><br />';
 		if ( ! class_exists( 'Simple_Social_Buttons_Pro' ) ) {
-			$html .= sprintf( __( 'For premium features, add-ons and priority email support, %1$s upgrade to pro%2$s.', 'simple-social-buttons' ), '<a href="https://wpbrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=help-page&utm_campaign=pro-upgrade" target="_blank">', '</a>' );
+			$html .= sprintf( __( 'For premium features, add-ons and priority email support, %1$s upgrade to pro%2$s.', 'simple-social-buttons' ), '<a href="https://simplesocialbuttons.com/pricing/?utm_source=simple-social-buttons-lite&utm_medium=help-page&utm_campaign=pro-upgrade" target="_blank">', '</a>' );
 			$html .= '<br /><br />';
 		}
 

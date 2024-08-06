@@ -1,12 +1,12 @@
 ===Floating Notification Bar, Sticky Menu on Scroll, Announcement Banner, and Sticky Header for Any Theme - My Sticky Bar (formerly myStickymenu)===
 Contributors: tomeraharon, galdub, premio
-Tags:floating bar, notification bar, menu, header, countdown, sticky menu, sticky header, floating menu, navigation menu, navigation, welcome bar, hello bar, top bar, sticky bar
+Tags:notification bar, floating bar, sticky menu, sticky header, sticky bar
 Requires at least: 3.5.1
-Tested up to: 6.4
-Stable tag: 2.6.5
+Tested up to: 6.6
+Stable tag: 2.7.2
 License: GPLv2 or later
 
-🔔 Create a beautiful welcome notification bar. Also, My Sticky Bar plugin can make your menu or header sticky to the top when scrolled 📌
+🔔 Create a welcome notification bar for your website. Also, My Sticky Bar plugin can make your menu or header sticky to the top when scrolled 📌
 
 == Description ==
 
@@ -21,7 +21,7 @@ By default, My Sticky Bar should make your menu sticky without any adjustments o
 [youtube  https://www.youtube.com/watch?v=l9aRnPVuCVY]
 
 
-<strong>📢 Welcome Bar:</strong> Use this powerful feature to create a beautiful floating sticky notification bar. No coding skill required, just turn it on, set up your announcement text and button, and voilà - your top notification bar is good to go! 
+<strong>📢 Welcome Notification Bar:</strong> Use this powerful feature to create a beautiful floating sticky notification bar. No coding skill required, just turn it on, set up your announcement text and button, and voilà - your top notification bar is good to go! 
 
 = 💪 BENEFITS =
 * Improve user experience by letting your visitors access the navigation menu and navigate to the pages they want when they want to.
@@ -114,7 +114,7 @@ Apart from setting a global date and time-based countdown, you can also start an
 
 = 🔒 My Sticky Bar IS GDPR COMPLAINT  =
 We don’t store any local data about your visitors. Any time your menu or notification bar appears on your site, the plugin will not store any local data about it. 
-<strong>Pro tip:</strong> You can the plugin's notification bar to let your website visitors know about your cookie policy :)
+<strong>Pro tip:</strong> You can use the plugin's notification bar to let your website's visitors know about your cookie policy :)
 
 = 📧 Grow your email list using the notification bar contact form =
 Collect valuable visitor information from your website, by giving them access to a contact from any time anywhere. The notification bar contact form helps you get leads into your local database. Use these leads to create highly effective marketing campaigns and to contact your website visitors. Using the contact form in combination with features like a countdown, coupons, etc gives you a powerful way to convince users to share their lead information with you. 
@@ -370,6 +370,27 @@ After installing the plugin, you’ll have the option to turn on the welcome bar
 
 
 == Changelog ==
+
+= 2.7.2 =
+JavaScript in notification bar text bug fixed
+
+= 2.7.1 =
+Button bug fixed
+
+= 2.7 =
+Bar text bug fixed
+
+= 2.6.9 =
+WordPress 6.5 compatibility
+
+= 2.6.8 =
+Editor access bug fixed
+
+= 2.6.7 =
+Leads page export bug fixed
+
+= 2.6.6 =
+Onboarding modal bug fixed
 
 = 2.6.5 =
 Renamed My Sticky Menu to My Sticky Bar

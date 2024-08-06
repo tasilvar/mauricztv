@@ -3,7 +3,7 @@
  * Plugin Name: Simple Social Buttons
  * Plugin URI: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=plugin-url-link
  * Description: Simple Social Buttons adds an advanced set of social media sharing buttons to your WordPress sites, such as: Facebook, Twitter, WhatsApp, Viber, Reddit, LinkedIn and Pinterest. This makes it the most <code>Flexible Social Sharing Plugin ever for Everyone.</code>
- * Version: 5.1.1
+ * Version: 5.2.0
  * Author: WPBrigade
  * Author URI: https://www.WPBrigade.com/?utm_source=simple-social-buttons-lite&utm_medium=author-url-link
  * Text Domain: simple-social-buttons
@@ -11,7 +11,7 @@
  */
 
 /*
-  Copyright 2011 - 2023, Muhammad Adnan (WPBrigade)  (email : support@wpbrigade.com)
+  Copyright 2011 - 2024, Muhammad Adnan (WPBrigade)  (email : support@wpbrigade.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -44,7 +44,7 @@ class SimpleSocialButtonsPR {
 	 * @isnce
 	 * @var string
 	 */
-	public $pluginVersion = '5.1.1';
+	public $pluginVersion = '5.2.0';
 
 	/**
 	 * Plugin Prefix
@@ -97,7 +97,7 @@ class SimpleSocialButtonsPR {
 	 * @since 1.0.0
 	 * @var array
 	 */
-	public $arrKnownButtons = array( 'twitter', 'pinterest', 'fbshare', 'linkedin', 'reddit', 'whatsapp', 'viber', 'fblike', 'messenger', 'email', 'print', 'tumblr' );
+	public $arrKnownButtons = array( 'twitter', 'pinterest', 'fbshare', 'linkedin', 'reddit', 'whatsapp', 'viber', 'fblike', 'messenger', 'email', 'copylink', 'print', 'tumblr' );
 
 	/**
 	 * Array to store current settings, to avoid passing them between functions.
@@ -311,7 +311,7 @@ class SimpleSocialButtonsPR {
 
 		$_share_links = array();
 		foreach ( $order as $social_name => $priority ) {
-			if ( ! ssb_is_network_has_counts( $social_name ) ) {
+			if ( ! ssb_is_network_has_counts( $social_name ) || $social_name === 'copylink' ) {
 				continue; }
 				$_share_links[ $social_name ] = call_user_func( 'ssb_' . $social_name . '_generate_link', get_permalink( $post_id ) );
 		}
@@ -815,7 +815,7 @@ class SimpleSocialButtonsPR {
 	 *
 	 * @access public
 	 * @since 1.0.0
-	 * @version 5.0.0
+	 * @version 5.1.2
 	 * @return string
 	 */
 	public function generate_buttons_code( $order = null, $show_count = false, $show_total = false, $extra_data = array(), $image = false ) {
@@ -902,7 +902,7 @@ class SimpleSocialButtonsPR {
 
 			$_share_links = array();
 			foreach ( $arrButtons as $social_name => $priority ) {
-				if ( ! ssb_is_network_has_counts( $social_name ) ) {
+				if ( ! ssb_is_network_has_counts( $social_name ) || $social_name === 'copylink' ) {
 					continue; }
 					$_share_links[ $social_name ] = call_user_func( 'ssb_' . $social_name . '_generate_link', $permalink );
 			}
@@ -1017,7 +1017,7 @@ class SimpleSocialButtonsPR {
 
 					if ( $theme == 'simple-icons' ) {
 
-						$_html = '<button class="ssb_tweet-icon" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/share?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;">
+						$_html = '<button class="ssb_tweet-icon" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;">
 						<span class="icon"><svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.9 0H0L5.782 7.7098L0.315 14H2.17L6.6416 8.8557L10.5 14H15.4L9.3744 5.9654L14.56 0H12.705L8.5148 4.8202L4.9 0ZM11.2 12.6L2.8 1.4H4.2L12.6 12.6H11.2Z" fill="#fff"/></svg></span>';
 
 						if ( $show_count ) {
@@ -1031,11 +1031,32 @@ class SimpleSocialButtonsPR {
 
 					} else {
 
-						$_html = '<button class="simplesocial-twt-share" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/share?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;"><span class="simplesocialtxt">Twitter</span> ';
+						$_html = '<button class="simplesocial-twt-share" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;"><span class="simplesocialtxt">Twitter</span> ';
 
 						if ( $show_count ) {
 							$_html .= '<span class="ssb_counter ssb_twitter_counter">' . ssb_count_format( $twitter_share ) . '</span>';
 						}
+						$_html .= '</button>';
+					}
+
+					$arrButtonsCode[] = $_html;
+
+					break;
+				case 'copylink':
+
+					if ( $theme == 'simple-icons' ) {
+
+						$_html = '<button class="ssb_copylink-icon" ' . $ssb_attr_html . ' aria-label="Copy Link" data-href=" '.  $permalink . '"  onclick="ssb_copy_share_link(this); return false;">
+						<span class="icon"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16">
+						<path d="M14,5.55A.8.8,0,0,0,14,5.34V5.26A.74.74,0,0,0,13.81,5L9.14.24A1.07,1.07,0,0,0,8.92.09H8.85A.62.62,0,0,0,8.59,0H5.44A2.32,2.32,0,0,0,3.79.7a2.47,2.47,0,0,0-.68,1.7v.8H2.33a2.3,2.3,0,0,0-1.65.7A2.47,2.47,0,0,0,0,5.6v8a2.47,2.47,0,0,0,.68,1.7,2.3,2.3,0,0,0,1.65.7H8.56a2.32,2.32,0,0,0,1.65-.7,2.47,2.47,0,0,0,.68-1.7v-.8h.78a2.3,2.3,0,0,0,1.65-.7A2.47,2.47,0,0,0,14,10.4V5.55ZM9.33,2.73l2,2.07H10.11a.76.76,0,0,1-.55-.23A.86.86,0,0,1,9.33,4Zm0,10.87a.85.85,0,0,1-.22.57.78.78,0,0,1-.55.23H2.33a.78.78,0,0,1-.55-.23.85.85,0,0,1-.22-.57v-8A.85.85,0,0,1,1.78,5a.78.78,0,0,1,.55-.23h.78v5.6a2.47,2.47,0,0,0,.68,1.7,2.32,2.32,0,0,0,1.65.7H9.33Zm3.11-3.2a.85.85,0,0,1-.22.57.78.78,0,0,1-.55.23H5.44A.78.78,0,0,1,4.89,11a.85.85,0,0,1-.22-.57v-8a.85.85,0,0,1,.22-.57.78.78,0,0,1,.55-.23H7.78V4a2.42,2.42,0,0,0,.68,1.7,2.3,2.3,0,0,0,1.65.7h2.33Z" fill="#fff"/></svg></span>
+						<span class="simplesocialtxt">Copy</span>';
+
+						$_html .= '</button>';
+
+					} else {
+
+						$_html = '<button class="simplesocial-copy-link copy-share" ' . $ssb_attr_html . ' aria-label="Copy Link" data-href=" '.  $permalink . '"  onclick="ssb_copy_share_link(this); return false;"><span class="simplesocialtxt">Copy</span><span class="ssb_tooltip">Copied</span> ';
+
 						$_html .= '</button>';
 					}
 
@@ -1413,9 +1434,9 @@ class SimpleSocialButtonsPR {
 			</div>
 			<div class="ssb-update-text">
 				<h3><?php _e( 'Simple Social Buttons 2.0 (Relaunched)', 'simple-social-buttons' ); ?></h3>
-				<p><?php _e( 'Simple Social Buttons had 50,000 Active installs and It was abondoned and rarely updated since last 5 years.<br /> We at <a href="https://WPBrigade.com/?utm_source=simple-social-buttons-lite&utm_medium=link-notice-2-0" target="_blank">WPBrigade</a> adopted this plugin and rewrote it completely from scratch.<br /> <a href="https://wpbrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=link-notice-2-0&utm_campaign=pro-upgrade" target="_blank">Check out</a> What\'s new in 2.0 version.<br /> Pardon me, If there is anything broken. Please <a href="https://WPBrigade.com/contact/?utm_source=simple-social-buttons-lite" target="_blank">report</a> us any issue you see in the plugin.', 'simple-social-buttons' ); ?></p>
+				<p><?php _e( 'Simple Social Buttons had 50,000 Active installs and It was abondoned and rarely updated since last 5 years.<br /> We at <a href="https://WPBrigade.com/?utm_source=simple-social-buttons-lite&utm_medium=link-notice-2-0" target="_blank">WPBrigade</a> adopted this plugin and rewrote it completely from scratch.<br /> <a href="https://simplesocialbuttons.com/pricing/?utm_source=simple-social-buttons-lite&utm_medium=link-notice-2-0&utm_campaign=pro-upgrade" target="_blank">Check out</a> What\'s new in 2.0 version.<br /> Pardon me, If there is anything broken. Please <a href="https://WPBrigade.com/contact/?utm_source=simple-social-buttons-lite" target="_blank">report</a> us any issue you see in the plugin.', 'simple-social-buttons' ); ?></p>
 				<a href="<?php echo $dismiss_url; ?>" class="ssb_update_dismiss_button">Dismiss</a>
-				<a href="https://wpbrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=link-learn-more&utm_campaign=pro-upgrade" target="_blank" class="ssb_update_dismiss_button">Learn more</a>
+				<a href="https://simplesocialbuttons.com/pricing/?utm_source=simple-social-buttons-lite&utm_medium=link-learn-more&utm_campaign=pro-upgrade" target="_blank" class="ssb_update_dismiss_button">Learn more</a>
 			</div>
 		</div>
 		<?php
@@ -1662,14 +1683,7 @@ class SimpleSocialButtonsPR {
 
 			$the_post       = get_post( $post_id ); // Gets post ID
 			$the_excerpt    = $the_post->post_content; // Gets post_content to be used as a basis for the excerpt
-			$excerpt_length = 60; // Sets excerpt length by words
-			$the_excerpt    = strip_tags( strip_shortcodes( $the_excerpt ) ); // Strips tags and images
-			$words          = explode( ' ', $the_excerpt, $excerpt_length + 1 );
-		if ( count( $words ) > $excerpt_length ) {
-				array_pop( $words );
-				$the_excerpt = implode( ' ', $words );
-		}
-
+			$the_excerpt = wp_trim_words($the_excerpt, 60);
 			return trim( wp_strip_all_tags( $the_excerpt ) );
 	}
 
@@ -1811,7 +1825,7 @@ class SimpleSocialButtonsPR {
 	public function http_or_https_link_generate( $permalink ) {
 
 		foreach ( $this->arrKnownButtons as $social_name ) {
-			if ( ! ssb_is_network_has_counts( $social_name ) ) {
+			if ( ! ssb_is_network_has_counts( $social_name ) || $social_name === 'copylink' ) {
 				continue; }
 			$url = $this->http_or_https_resolve_url( $permalink );
 			// get alt hurl to cover http or https issue

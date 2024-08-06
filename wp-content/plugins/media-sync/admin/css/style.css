@@ -1,3 +1,8 @@
+.main-media-sync-page,
+.media-sync-page-settings {
+    position: relative;
+}
+
 .main-media-sync-page a:focus {
     box-shadow: none;
     color: inherit;
@@ -119,8 +124,6 @@
 
 /* Raw debug results */
 .main-media-sync-page .media-sync-html-response-holder {
-    /*background-color: var(--color-dark);*/
-    /*color: var(--color-light);*/
     border: 1px dotted #ccd0d4;
     font-family: monospace;
     padding: 8px 12px;
@@ -130,7 +133,7 @@
     margin: 0.5em 0;
 }
 .main-media-sync-page .media-sync-html-response-item-error {
-    color: var(--color-danger);
+    color: #dc3545;
 }
 
 /* Table Holder */

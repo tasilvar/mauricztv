@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-md-6">
 			<label class="ycd-switch">
-				<input type="checkbox" id="ycd-countdown-enable-floating-countdown" name="ycd-countdown-enable-floating-countdown" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-countdown-enable-floating-countdown')); ?>>
+				<input type="checkbox" id="ycd-countdown-enable-floating-countdown" name="ycd-countdown-enable-floating-countdown" <?php echo esc_attr($this->getOptionValue('ycd-countdown-enable-floating-countdown')); ?>>
 				<span class="ycd-slider ycd-round"></span>
 			</label>
 		</div>
@@ -55,6 +55,29 @@
 			<input name="ycd-countdown-floating-text" value="<?php esc_attr_e($this->getOptionValue('ycd-countdown-floating-text'));?>" id="ycd-fixed-positions-left" class="form-control">
 		</div>
 	</div>
+	<!-- Close text -->
+	<div class="row form-group">
+		<div class="col-md-6">
+			<label for="ycd-countdown-floating-close-text-status" class="ycd-label-of-switch"><?php _e('Enable Close text', YCD_TEXT_DOMAIN); ?></label>
+		</div>
+		<div class="col-md-6">
+			<label class="ycd-switch">
+				<input type="checkbox" id="ycd-countdown-floating-close-text-status" name="ycd-countdown-floating-close-text-status" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-close-text-status')); ?>>
+				<span class="ycd-slider ycd-round"></span>
+			</label>
+		</div>
+	</div>
+	<div class="ycd-accordion-content ycd-hide-content">
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label for="ycd-countdown-floating-close-text"><?php _e('Text', YCD_TEXT_DOMAIN); ?></label>
+			</div>
+			<div class="col-md-6">
+				<input name="ycd-countdown-floating-close-text" value="<?php esc_attr_e($this->getOptionValue('ycd-countdown-floating-close-text'));?>" id="ycd-countdown-floating-close-text" class="form-control">
+			</div>
+		</div>
+	</div>
+	<!-- Close text -->
 	<div class="row form-group">
 		<div class="col-xs-4">
 			<label class="control-label"><?php _e('Content Padding', YCD_TEXT_DOMAIN);?></label>

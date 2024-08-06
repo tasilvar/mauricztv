@@ -138,10 +138,11 @@ abstract class Countdown {
 	
 	public function includeGeneralScripts() {
 		$isAdmin = is_admin();
-		wp_enqueue_script( 'moment' ); 
-		
+		wp_enqueue_script( 'moment' );
+		wp_enqueue_script( 'moment', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', array(), '2.29.1', true );
+		wp_enqueue_script( 'jquery' );
 
-		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment')));
+		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment', 'jquery')));
 		$generalArgs = apply_filters('ycdGeneralArgs', array(
 			'YCD_COUNTDOWN_RESET_COOKIE_NAME' => YCD_COUNTDOWN_RESET_COOKIE_NAME, '
 			isAdmin' => $isAdmin,
@@ -605,6 +606,7 @@ abstract class Countdown {
 		if (empty($contdowns)) {
 			$contdowns = self::getCountdownsObj();
 		}
+
 		$idTitle = array();
 
 		if(empty($contdowns)) {
@@ -858,6 +860,23 @@ abstract class Countdown {
 		$dateString = human_time_diff($date, strtotime($currentDate));
 
 		return $dateString;
+	}
+
+	public static function runNewslatter($contdownPost, $countdownObj) {
+		$id = $countdownObj->getId();
+		$key = "send_newslatter_".$id;
+
+		if (!empty($countdownObj->getOptionValue('ycd-enable-subscribe-form'))) {
+
+			if (
+				!empty($countdownObj->getOptionValue('ycd-enable-send-newslatter')) && 
+				$countdownObj->isExpired() && 
+				!get_option($key)) {
+				update_option($key, 1);
+				YpmSendNewslatterById($countdownObj->getOptionValue('ycd-auto-newslatter'));
+		
+			}
+		}
 	}
 	
 	public static function allowToLoad($contdownPost, $countdownObj) {

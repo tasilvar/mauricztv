@@ -41,7 +41,6 @@ class Easy_Accordion_Free_Element_Shortcode_Addons {
 			self::$_instance = new self();
 		}
 		return self::$_instance;
-
 	}
 
 	/**
@@ -86,7 +85,7 @@ class Easy_Accordion_Free_Element_Shortcode_Addons {
 		 * class.
 		 */
 
-		wp_enqueue_style( 'sp-ea-font-awesome' );
+		wp_enqueue_style( 'sp-ea-fontello-icons' );
 		wp_enqueue_style( 'sp-ea-style' );
 	}
 	/**
@@ -157,7 +156,6 @@ class Easy_Accordion_Free_Element_Shortcode_Addons {
 		// Register widget.
 		require_once SP_EA_PATH . 'admin/ElementAddons/Sp_Easy_Accordion_Shortcode_Widget.php';
 		\Elementor\Plugin::instance()->widgets_manager->register( new Sp_Easy_Accordion_Shortcode_Widget() );
-
 	}
 }
 

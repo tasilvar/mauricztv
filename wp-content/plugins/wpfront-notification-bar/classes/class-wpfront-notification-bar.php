@@ -24,6 +24,8 @@
 
 namespace WPFront\Notification_Bar;
 
+if (!defined('ABSPATH')) exit();
+
 use ErrorException;
 
 require_once("class-wpfront-notification-bar-entity.php");
@@ -43,11 +45,11 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar {
 
         //Constants
-        const VERSION = '3.3.2.04101';
+        const VERSION = '3.4.2.04051';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
-        const PREVIEW_MODE_NAME = 'wpfront-notification-bar-preview-mode';
+        const PREVIEW_MODE_NAME = 'wpfront-notification-bar-preview-mode'; //TODO: remove
         //role consts
         const ROLE_NOROLE = 'wpfront-notification-bar-role-_norole_';
         const ROLE_GUEST = 'wpfront-notification-bar-role-_guest_';
@@ -73,7 +75,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
         /**
          * Holds current controller object
          *
-         * @var \WPFront\Notification_Bar\WPFront_Notification_Bar_Controller
+         * @var \WPFront\Notification_Bar\WPFront_Notification_Bar_Controller|null
          */
         protected $current_controller;
         /**
@@ -132,6 +134,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
          */
         public function set_controllers() {
             $this->controllers = $this->get_controllers();
+            $this->current_controller = null;
         }
 
         /**
@@ -191,7 +194,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
                 }
 
                 wp_safe_redirect(menu_page_url(self::PLUGIN_SLUG, FALSE));
-                exit;
+                $this->kill();
             }
         }
 
@@ -234,6 +237,13 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
                 check_admin_referer('wpfront-notification-bar-options-group-options');
 
                 $data = $_POST['wpfront-notification-bar-options'];
+                
+                foreach($data as $key => $value) {
+                    if($key == 'include_roles'){
+                        $data[$key] = explode(',', $value);
+                    }
+                }
+
                 $data = stripslashes_deep($data);
                 $data = (object)$data;
 
@@ -248,7 +258,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
                 $current_url = $current_url . '&updated=true';
 
                 wp_safe_redirect($current_url);
-                exit();
+                $this->kill();
             }
         }
 
@@ -258,7 +268,9 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
          * @return void
          */
         public function enqueue_options_scripts() {
-            $this->current_controller->enqueue_options_scripts();
+            if($this->current_controller !== null) {
+                $this->current_controller->enqueue_options_scripts();
+            }
         }
 
         /**
@@ -267,7 +279,9 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
          * @return void
          */
         public function enqueue_options_styles() {
-            $this->current_controller->enqueue_options_styles();
+            if($this->current_controller !== null) {
+                $this->current_controller->enqueue_options_styles();
+            }
         }
 
         /**
@@ -281,7 +295,9 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar')) {
                 return;
             }
 
-            $this->current_controller->view();
+            if($this->current_controller !== null) {
+                $this->current_controller->view();
+            }
 
             add_filter('admin_footer_text', array($this, 'admin_footer_text'));
         }

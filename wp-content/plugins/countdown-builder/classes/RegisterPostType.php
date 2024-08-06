@@ -52,8 +52,15 @@ class RegisterPostType {
 		$args = $this->getPostTypeArgs();
 
 		register_post_type($postType, $args);
-		$post = (int)@$_GET['post'];
-		if(@$_GET['post_type'] || get_post_type($post) == YCD_COUNTDOWN_POST_TYPE) {
+		$post = null;
+		if (!empty($_GET['post'])) {
+			$post = (int)$_GET['post'];
+		}
+		$postType = '';
+		if (!empty($_GET['post_type'])) {
+			$postType = sanitize_text_field($_GET['post_type']);
+		}
+		if(!empty($postType) || get_post_type($post) == YCD_COUNTDOWN_POST_TYPE) {
 			$this->createCdObjFromCdType();
 		}
 		YcdCountdownOptionsConfig::optionsValues();
@@ -210,12 +217,7 @@ class RegisterPostType {
 	}
 
 	public function countdownNewsletter() {
-		if (YCD_PKG_VERSION == YCD_FREE_VERSION) {
-			wp_redirect(YCD_COUNTDOWN_PRO_URL);
-		}
-		else {
-			require_once YCD_VIEWS_PATH.'newsletter.php';
-		}
+		require_once YCD_VIEWS_PATH.'newsletters/newsletter.php';
 	}
 	
 	public function comingSoon() {

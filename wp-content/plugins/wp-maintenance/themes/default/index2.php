@@ -11,21 +11,18 @@
   <link rel="stylesheet" href="{Url}themes/default/css/knacss.css" media="all">
   <link rel="stylesheet" href="{Url}themes/default/css/styles.css" media="all">
   {CustomCSS}
-  {AddStyleWysija}
   {HeaderCode}
   </head>
   <body>
     {TopSocialIcon}
     <main id="main" role="main">
-      <p style="text-align:center;">
-        {Logo}
-      </p>
+      {Logo}      
       <div id="sscontent">
-        <p style="text-align:center;padding:1.5em;"><h3>{Title}</h3>
+        <h3>{Title}</h3>
           <p>{Text}</p>
           {Counter}
           {Newsletter}
-        </p>
+        
       </div>
       <p>{BottomSocialIcon}</p>  
     </main>

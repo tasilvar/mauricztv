@@ -505,6 +505,16 @@ YcdTimer.prototype.changeColor = function() {
 		}
 	});
 
+	var labelsColor = jQuery('#ycd-timer-labels-color');
+	labelsColor.minicolors({
+		format: 'rgb',
+		opacity: 1,
+		change: function() {
+			var val = jQuery(this).val();
+			jQuery('.ycd-timer-box div.ycd-timer-unit-text').css({color: val})
+		}
+	});
+
 	var stopBgColor = jQuery('#ycd-timer-stop-bg-color');
 
     stopBgColor.minicolors({

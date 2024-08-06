@@ -43,6 +43,42 @@ Class ComingSoon {
 		$message = $this->getOptionValue('ycd-coming-soon-message');
 		return  '<div>'.do_shortcode($message).'</div>';
 	}
+
+	private function checkUserDevice() {
+		if (!$this->getOptionValue('ycd-coming-soon-for-devices')) {
+			return true;
+		}
+		$status = false;
+		$savedDevices = $this->getOptionValue('ycd-coming-soon-devices');
+
+		foreach ($savedDevices as $device) {
+
+			if ($device === 'desktop' && AdminHelperPro::isDesktop()) {
+				$status = true;
+				break;
+			}
+			if ($device === 'tablet' && AdminHelperPro::isTablet()) {
+				$status = true;
+				break;
+			}
+			if ($device === 'mobile' && AdminHelperPro::isMobile()) {
+				$status = true;
+				break;
+			}
+		}
+
+		return !$status;
+	}
+
+	private function checkExcludeURL() {
+		$status = $this->getOptionValue('ycd-coming-soon-exclude-url-enable');
+		if (!$status) return false;
+		$urls = $this->getOptionValue('ycd-coming-soon-exclude-url');
+		$actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		$urlsList = explode(',', $urls);
+
+		return in_array($actual_link, $urlsList);
+	}
 	
 	public function allowComingSoon()
 	{
@@ -50,6 +86,10 @@ Class ComingSoon {
 		$isAllow = $this->getOptionValue('ycd-enable-coming-soon');
 		$status = empty($isAllow);
 
+		if (YCD_PKG_VERSION !== YCD_FREE_VERSION) {
+			if (!$this->checkUserDevice()) return  !false;
+			if ($this->checkExcludeURL()) return false;
+		}
 		if (YCD_PKG_VERSION == YCD_FREE_VERSION) {
 			$status = $status || is_user_logged_in();
 		}
@@ -57,7 +97,9 @@ Class ComingSoon {
 		if ($status) {
 			return false;
 		}
+
 		$renderStatus = apply_filters('ycdComingSoonIsEnable', $renderStatus, $this);
+
 		return $renderStatus;
 	}
 	
@@ -104,7 +146,11 @@ Class ComingSoon {
 		$defaults['ycd-coming-soon-countdown-custom-css'] = '';
 		$defaults['ycd-coming-soon-countdown-custom-js'] = '';
 		$defaults['ycd-coming-soon-whitelist-ip'] = '';
+		$defaults['ycd-coming-soon-exclude-url-enable'] = '';
+		$defaults['ycd-coming-soon-exclude-url'] = '';
 		$defaults['ycd-coming-soon-for-loggdin'] = '';
+		$defaults['ycd-coming-soon-for-devices'] = '';
+		$defaults['ycd-coming-soon-devices'] = '';
 		$defaults['ycd-coming-soon-automat-enable'] = '';
 		$defaults['ycd-coming-soon-automat-expiration'] = '';
 		$defaults['ycd-coming-soon-ip-address'] = '';
@@ -120,8 +166,10 @@ Class ComingSoon {
 			'ycd-coming-soon-bg-video',
 			'ycd-coming-soon-whitelist-ip',
 			'ycd-coming-soon-for-loggdin',
+			'ycd-coming-soon-for-devices',
 			'ycd-coming-soon-automat-enable',
 			'ycd-coming-soon-automat-expiration',
+			'ycd-coming-soon-exclude-url-enable',
 		);
 		
 		return apply_filters('ycdComingSoonDefaults', $defaults);
@@ -172,7 +220,17 @@ Class ComingSoon {
 	{
 		require_once YCD_ADMIN_COMING_VIEWS_PATH.'comingSoon.php';
 	}
-	
+
+	static function sanitize_text_field_array($array) {
+		$sanitized_array = array();
+
+		foreach ($array as $key => $value) {
+			$sanitized_array[$key] = sanitize_text_field($value);
+		}
+
+		return $sanitized_array;
+	}
+
 	public static function saveComingSoonSettings()
 	{
 		$defaults = self::defaults();
@@ -181,7 +239,11 @@ Class ComingSoon {
 		
 		foreach ($optionsNames as $name) {
 			if (isset($_POST[$name])) {
-				$savedData[$name] = sanitize_text_field($_POST[$name]);
+				if (is_array($_POST[$name])) {
+					$savedData[$name] = self::sanitize_text_field_array($_POST[$name]);
+					continue;
+				}
+				$savedData[$name] = stripslashes_deep(sanitize_text_field($_POST[$name]));
 			}
 		}
 		do_action('ycdComingSoonSave', $savedData);

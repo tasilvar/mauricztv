@@ -97,7 +97,7 @@ SP_EAP::createSection(
 				'id'         => 'import_unSanitize',
 				'type'       => 'checkbox',
 				'title'      => __( 'Allow Iframe/Script Tags', 'easy-accordion-free' ),
-				'title_help' => __( 'Enabling this option, you are allowing to import the accordion which contains iframe, script or embed tags', 'easy-accordion-free' ),
+				'title_info' => __( 'Enabling this option, you are allowing to import the accordion which contains iframe, script or embed tags', 'easy-accordion-free' ),
 				'default'    => false,
 			),
 			array(

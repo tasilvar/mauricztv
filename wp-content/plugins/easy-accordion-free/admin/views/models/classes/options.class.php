@@ -383,7 +383,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 		 * @return bool
 		 */
 		public function set_options( $ajax = false ) {
-
 			// XSS ok.
 			// No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341.
 			$response = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : $_POST; // phpcs:ignore
@@ -442,26 +441,18 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 					foreach ( $this->pre_fields as $field ) {
 
 						if ( ! empty( $field['id'] ) ) {
-
 							$field_id    = $field['id'];
 							$field_value = isset( $options[ $field_id ] ) ? $options[ $field_id ] : '';
-
 							// Ajax and Importing doing wp_unslash already.
 							if ( ! $ajax && ! $importing ) {
 								$field_value = wp_unslash( $field_value );
 							}
-
 							// Sanitize "post" request of field.
 							if ( ! isset( $field['sanitize'] ) ) {
-
 								if ( is_array( $field_value ) ) {
-
 									$data[ $field_id ] = wp_kses_post_deep( $field_value );
-
 								} else {
-
 									$data[ $field_id ] = wp_kses_post( $field_value );
-
 								}
 							} elseif ( isset( $field['sanitize'] ) && function_exists( $field['sanitize'] ) ) {
 
@@ -502,13 +493,9 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 				if ( empty( $this->notice ) ) {
 					$this->notice = esc_html__( 'Settings saved.', 'easy-accordion-free' );
 				}
-
 				return true;
-
 			}
-
 			return false;
-
 		}
 
 		/**

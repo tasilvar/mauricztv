@@ -45,10 +45,9 @@
 
 #wpfront-notification-bar-options table.form-table .color-value
 {
-    width: 75px;
-    height: 24px;
-    min-height: 0px;
-    vertical-align: middle;
+    width: 80px;
+    height: 32px;
+    vertical-align: top;
 }
 
 #wpfront-notification-bar-options table.form-table div.pages-selection, #wpfront-notification-bar-options table.form-table div.roles-selection
@@ -73,6 +72,8 @@
     padding: 2px;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
 }
 
 #wpfront-notification-bar-options input.post-id-list
@@ -88,7 +89,7 @@
 #wpfront-notification-bar-options #media-library-button
 {
     min-height: 0px;
-    height: 24px;
+    height: 30px;
     line-height: inherit;
     vertical-align: inherit;
 }
@@ -190,5 +191,43 @@ table.more_schedule_table td {
 table.more_schedule_table td {
     font-weight: normal;
     color: black;
+}
+
+
+#wpfront-notification-bar-options input.color-selector-input {
+    vertical-align: top;
+    height: 32px;
+    width: 7em;
+}
+
+input[type="text"].el-input__inner {
+    border: 0;
+    box-shadow: none;
+    outline: 0;
+}
+
+.el-color-picker__panel .el-color-predefine__color-selector {
+    height: 18px;
+}
+
+.el-color-picker__panel .el-color-predefine__color-selector div {
+    border: 1px solid #e4e7ed;
+}
+
+.el-time-spinner__item {
+    margin-bottom: 0px;
+}
+
+.el-date-editor.el-input {
+    width: 20%;
+    --el-input-border-color: #8c8f94;
+}
+
+.el-popper {
+    max-width: 350px;
+}
+
+.tox-notifications-container, .tox-notification {
+    display: none !important;
 }
 

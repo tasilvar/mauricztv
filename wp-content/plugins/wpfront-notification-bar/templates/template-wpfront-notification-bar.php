@@ -23,6 +23,8 @@
 
 namespace WPFront\Notification_Bar;
 
+if (!defined('ABSPATH')) exit();
+
 if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Template')) {
 
     /**
@@ -86,12 +88,58 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Template')
             return $id;
         }
 
+        /**
+         * Returns bar CSS classes;
+         * 
+         * @SuppressWarnings(PHPMD.ElseExpression)
+         *
+         * @return string
+         */
+        protected function get_bar_css_classes() {
+            $bar_css = 'wpfront-notification-bar wpfront-fixed';
+
+            if($this->options->fixed_position) {
+                $bar_css .= ' wpfront-fixed-position';
+            }
+
+            if($this->controller->display_on_page_load()) {
+                $bar_css .= ' load';
+            }
+
+            if($this->options->position == 1) {
+                $bar_css .= ' top';
+            } else {
+                $bar_css .= ' bottom';
+            }
+
+            if($this->options->display_shadow) {
+                if($this->options->position == 1) {
+                    $bar_css .= ' wpfront-bottom-shadow';
+                } else {
+                    $bar_css .= ' wpfront-top-shadow';
+                }
+            }
+
+            if($this->controller->has_keep_closed_set()) {
+                $bar_css .= ' keep-closed';
+            }
+
+            if($this->controller->has_max_views_reached()) {
+                $bar_css .= ' max-views-reached';
+            }
+
+            $bar_css .= ' ' . $this->options->custom_class;
+
+            return $bar_css;
+        }
+
         protected function display_bar() {
             $id_suffix = $this->controller->get_html_id_suffix();
+            $bar_css = $this->get_bar_css_classes();
             ?>
             <div id="wpfront-notification-bar-spacer<?php echo $id_suffix; ?>" class="wpfront-notification-bar-spacer <?php echo $this->options->fixed_position ? ' wpfront-fixed-position' : ''; ?> <?php echo $this->controller->display_on_page_load() ? ' ' : 'hidden'; ?>">
                 <div id="wpfront-notification-bar-open-button<?php echo $id_suffix; ?>" aria-label="reopen" role="button" class="wpfront-notification-bar-open-button hidden <?php echo $this->options->position == 1 ? 'top wpfront-bottom-shadow' : 'bottom wpfront-top-shadow'; ?>"></div>
-                <div id="wpfront-notification-bar<?php echo $id_suffix; ?>" class="wpfront-notification-bar wpfront-fixed <?php echo $this->options->fixed_position ? ' wpfront-fixed-position' : ''; ?> <?php echo $this->controller->display_on_page_load() ? ' load' : ''; ?> <?php echo $this->options->position == 1 ? ' top' : ' bottom'; ?> <?php if ($this->options->display_shadow) echo $this->options->position == 1 ? ' wpfront-bottom-shadow' : ' wpfront-top-shadow'; ?><?php echo $this->options->custom_class ?>">
+                <div id="wpfront-notification-bar<?php echo $id_suffix; ?>" class="<?php echo esc_attr($bar_css); ?>">
                     <?php if ($this->options->close_button) { ?>
                         <div aria-label="close" class="wpfront-close">X</div>
                     <?php } if (empty($this->controller->get_message_text())) {

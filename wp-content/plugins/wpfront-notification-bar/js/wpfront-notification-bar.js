@@ -15,7 +15,7 @@
     window.wpfront_notification_bar = function (data, process) {
         var log = function (msg) {
             if (data.log) {
-                console.log(data.log_prefix + msg);
+                console.log(data.log_prefix + ' ' + msg);
             }
         };
 
@@ -134,9 +134,9 @@
 
             if (height == 0 && data.keep_closed && userclosed) {
                 if (data.keep_closed_for > 0)
-                    Cookies.set(keep_closed_cookie, 1, {path: "/", expires: data.keep_closed_for});
+                    Cookies.set(keep_closed_cookie, 1, {path: "/", expires: data.keep_closed_for, sameSite: "strict"});
                 else
-                    Cookies.set(keep_closed_cookie, 1, {path: "/"});
+                    Cookies.set(keep_closed_cookie, 1, {path: "/", sameSite: "strict"});
             }
 
             if (height !== 0 && data.set_max_views) {
@@ -147,9 +147,9 @@
                     bar_views = parseInt(bar_views);
                 }
                 if (data.max_views_for > 0) {
-                    Cookies.set(max_views_cookie, bar_views + 1, {path: "/", expires: data.max_views_for});
+                    Cookies.set(max_views_cookie, bar_views + 1, {path: "/", expires: data.max_views_for, sameSite: "strict"});
                 } else {
-                    Cookies.set(max_views_cookie, bar_views + 1, {path: "/"});
+                    Cookies.set(max_views_cookie, bar_views + 1, {path: "/", sameSite: "strict"});
                 }
                 log('Setting view count to ' + (bar_views + 1) + '.');
             }
@@ -183,7 +183,7 @@
                 log('Setting notification bar state to hidden.');
 
             if (data.animate_delay > 0) {
-                bar.stop().animate({"height": height + "px"}, {
+                bar.stop().show().animate({"height": height + "px"}, {
                     "duration": data.animate_delay * 1000,
                     "easing": "swing",
                     "complete": function () {
@@ -287,14 +287,16 @@
             });
         }
 
-
         if (data.keep_closed) {
             if (Cookies.get(keep_closed_cookie)) {
                 log('Keep closed enabled and keep closed cookie exists. Hiding notification bar.');
-                setHeight(0);
+                setHeight(0, function(){
+                    bar.removeClass('keep-closed');
+                });
                 return;
             }
         }
+        bar.removeClass('keep-closed');
 
         if (data.set_max_views) {
             bar_views = Cookies.get(max_views_cookie);
@@ -303,10 +305,13 @@
             }
             if (bar_views >= data.max_views) {
                 log('Reached max views, hiding notification bar.');
-                setHeight(0);
+                setHeight(0, function(){
+                    bar.removeClass('max-views-reached');
+                });
                 return;
             }
         }
+        bar.removeClass('max-views-reached');
 
         closed = true;
 

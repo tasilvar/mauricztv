@@ -24,6 +24,8 @@
 
 namespace WPFront\Notification_Bar;
 
+if (!defined('ABSPATH')) exit();
+
 if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Entity')) {
 
     /**
@@ -678,12 +680,12 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Entity')) 
             $this->last_saved = (int)$this->last_saved;
             $this->message = (string)$this->message;
             $this->button_text = (string)$this->button_text;
-            $this->button_action_javascript = (string)$this->button_action_javascript;
-            $this->include_pages = (string)$this->include_pages;
-            $this->exclude_pages = (string)$this->exclude_pages;
-            $this->custom_css = (string)$this->custom_css;
-            $this->custom_class = (string)$this->custom_class;
-            $this->theme_sticky_selector = (string)$this->theme_sticky_selector;
+            $this->button_action_javascript = (string)preg_replace('/<\/script\b[^>]*>/i', '', (string)$this->button_action_javascript);
+            $this->include_pages = sanitize_text_field($this->include_pages);
+            $this->exclude_pages = sanitize_text_field($this->exclude_pages);
+            $this->custom_css = sanitize_textarea_field($this->custom_css);
+            $this->custom_class = sanitize_text_field($this->custom_class);
+            $this->theme_sticky_selector = sanitize_text_field($this->theme_sticky_selector);
         }
 
         /**

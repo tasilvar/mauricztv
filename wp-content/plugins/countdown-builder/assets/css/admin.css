@@ -20,6 +20,10 @@
 	color: red;
 }
 
+#postbox-container-2 {
+	max-width: 100%;
+}
+
 .countdowns-div {
 	width: 250px;
 	height: 180px;
@@ -862,7 +866,7 @@ div.ycd-tabs-text-header > div.ycd-toggle-icon-open {
 	color: #fff;
 	text-align: center;
 	border-radius: 6px;
-	padding: 5px 0;
+	padding: 5px;
 	position: absolute;
 	z-index: 99999999;
 	bottom: 125%;
@@ -893,3 +897,66 @@ div.ycd-tabs-text-header > div.ycd-toggle-icon-open {
 	color: #6495ed;
 }
 /*Tooltip end*/
+
+.ycd-crud {
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.ycd-delete-link, .ycd-clone-link, .ycd-type-delete-link {
+    margin-left: 5px;
+}
+
+/*Newslatter styles start*/
+/* General Styles */
+.ycd-send-newsletter-wrapper {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+    /* display: flex; */
+    flex-direction: column;
+}
+
+/* Align Select and Button */
+.select-and-button {
+    display: flex;
+    align-items: center;
+}
+
+.select-and-button select {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.select-and-button .btn {
+    margin-right: 10px;
+}
+
+/* Image Spinner */
+.ycd-js-newsletter-spinner {
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .select-and-button {
+        flex-direction: column;
+    }
+
+    .select-and-button select,
+    .select-and-button .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+.add-new-buttons .ycd-option-wrapper a {
+	text-decoration: none;
+}
+/*Newslatter styles end*/

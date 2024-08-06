@@ -49,6 +49,10 @@ class Ajax {
 	}
 
 	public function switchCountdown() {
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('You do not have permission to perform this action.');
+            wp_die();
+        }
 		check_ajax_referer('ycd_ajax_nonce', 'nonce');
 		$postId = (int)$_POST['id'];
 		$checked = $_POST['checked'] == 'true' ? '' : true;
@@ -90,15 +94,23 @@ class Ajax {
 	 }
 
 	 public function conditionsRow() {
+         if (!current_user_can('manage_options')) {
+             wp_send_json_error('You do not have permission to perform this action.');
+             wp_die();
+         }
 		check_ajax_referer('ycd_ajax_nonce', 'nonce');
 		YcdCountdownConfig::displaySettings();
 		$allowed_html = AdminHelper::getAllowedTags();
 		$selectedParams = sanitize_text_field($_POST['selectedParams']);
 		$conditionId = (int)$_POST['conditionId'];
 		$childClassName = sanitize_text_field($_POST['conditionsClassName']);
+        $listOfConditions = array('DisplayConditionBuilder');
+        if (!in_array($childClassName, $listOfConditions)) {
+            wp_die();
+        }
 		$childClassName = __NAMESPACE__.'\\'.esc_attr($childClassName);
 		$obj = new $childClassName();
-		
+
 		$content =  $obj->renderConditionRowFromParam($selectedParams, $conditionId);
 
 		echo wp_kses($content, $allowed_html);

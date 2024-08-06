@@ -1,14 +1,15 @@
 === Simple Social Media Share Buttons - Social Sharing for Everyone ===
 Contributors: hiddenpearls, WPBrigade, desideveloper
 Donate link: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=donate-link
-Tags: Social share, Social buttons, Whatsapp, Viber, LinkedIn, facebook, twitter, pinterest, plus one
+Tags: Social Share, Social buttons, Social Media Share, Social Sharing, Share buttons
 Requires at least: 4.0
-Tested up to: 6.4
-Stable tag: 5.1.1
+Tested up to: 6.6
+Stable tag: 5.2.0
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Simple Social Media Share Buttons adds an advanced set of social media sharing buttons to your WordPress sites, such as: Facebook, WhatsApp, Viber, Twitter, Reddit, LinkedIn and Pinterest. This makes it the most flexible social sharing plugin ever for Everyone.
+This Social Share Plugin adds advanced social media sharing buttons to your WordPress sites, such as Facebook, WhatsApp, X, LinkedIn, & Pinterest.
 
 == Description ==
 
@@ -120,7 +121,7 @@ This plugin lets you adds the Facebook share button, Google plus one +1 (removed
 
 = How about support? =
 
-Use [plugin's forum](http://wordpress.org/support/plugin/simple-social-buttons "Forum") to ask about plugin or report some problems.
+Use [plugin's forum](https://wordpress.org/support/plugin/simple-social-buttons "Forum") to ask about plugin or report some problems.
 
 = Why upgrade to Pro? =
 
@@ -159,6 +160,22 @@ like_button_size = small(default), large
 9. Social Share buttons on flyins.
 
 == Changelog ==
+
+= 5.2.0 - 2024-07-24 =
+* Bugfix: Remove the depreciated PHP code warning.
+* Enhancement: Introduced `Copy Link` Button.
+* Enhancement: Updated the sidebar layout in dashboard.
+* Enhancement: Code optimization.
+* Compatibility: Elementor Templates Compatibility.
+* Compatibility: Compatible with WordPress 6.6
+
+= 5.1.3 - 2024-03-18 =
+* Enhancement: Update the JS code to resolve the console error.
+* Compatibility: Compatible with WordPress 6.5
+
+= 5.1.2 - 2023-12-13 =
+* Enhancement: Update the Twitter social share button attributes.
+* Compatibility: Compatible with WordPress 6.4
 
 = 5.1.1 - 2023-11-03 =
 * Bugfix: Restrict `password protected` posts meta-tags to unauthorised users.
@@ -524,5 +541,5 @@ like_button_size = small(default), large
 
 == Upgrade Notice ==
 
-= 5.1.1 =
-* Upgrade Now: New Feature release.
+= 5.1.3 =
+* Update Now.

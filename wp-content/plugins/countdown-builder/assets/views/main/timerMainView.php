@@ -350,6 +350,16 @@ $allowed_html = AdminHelper::getAllowedTags();
 			</div>
 		</div>
 	</div>
+    <div class="row form-group">
+		<div class="col-md-6">
+			<label for="ycd-timer-labels-color" ><?php _e('Labels Color', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html); ?> </label>
+		</div>
+		<div class="col-md-4 ycd-timer-font-size ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+			<div class="minicolors minicolors-theme-default minicolors-position-bottom minicolors-position-left">
+				<input type="text" id="ycd-timer-labels-color" placeholder="<?php _e('Select color', YCD_TEXT_DOMAIN)?>" name="ycd-timer-labels-color" class="minicolors-input form-control js-ycd-timer-color" value="<?php echo esc_attr($this->getOptionValue('ycd-timer-labels-color')); ?>">
+			</div>
+		</div>
+	</div>
 	<div class="row form-group">
 		<div class="col-md-6">
 			<label for="ycd-timer-bg-image" class="ycd-label-of-switch"><?php _e('Background Image', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html); ?></label>

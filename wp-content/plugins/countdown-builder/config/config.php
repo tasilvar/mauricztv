@@ -57,6 +57,8 @@ class YcdCountdownConfig
 		self::addDefine('YCD_COUNTDOWN_LICENSE', 'ycdLicense');
 		self::addDefine('YCD_POSTS_TABLE_NAME', 'posts');
 		self::addDefine('YCD_COUNTDOWN_SUBSCRIBERS_TABLE', 'ycd_subscribers');
+		self::addDefine('YCD_COUNTDOWN_NEWSLETTER_TABLE', 'ycd_newsletters');
+		self::addDefine('YCD_NUMBER_PAGES', 50);
 		self::addDefine('YCD_COUNTDOWN_WIDGET', 'ycd_countdown_widget');
 		self::addDefine('YCD_COUNTDOWN_RESET_COOKIE_NAME', 'ycd-reset-duration-');
 		self::addDefine('YCD_TEXT_DOMAIN', 'ycdCountdown');
@@ -77,8 +79,8 @@ class YcdCountdownConfig
 		self::addDefine('YCD_CRON_REPEAT_INTERVAL', 1);
 		self::addDefine('YCD_AJAX_SUCCESS', 1);
 		self::addDefine('YCD_TABLE_LIMIT', 15);
-		self::addDefine('YCD_VERSION_PRO', 2.47);
-		self::addDefine('YCD_VERSION', 2.65);
+		self::addDefine('YCD_VERSION_PRO', 2.62);
+		self::addDefine('YCD_VERSION', 2.802);
 		self::addDefine('YCD_FREE_VERSION', 1);
 		self::addDefine('YCD_SILVER_VERSION', 2);
 		self::addDefine('YCD_GOLD_VERSION', 3);
@@ -86,13 +88,13 @@ class YcdCountdownConfig
 		self::addDefine('YCD_EXTENSION_VERSION', 99);
 		require_once(dirname(__FILE__).'/config-pkg.php');
 		
-		$versionText = '2.6.5';
+		$versionText = '2.8.0.2';
 		if (YCD_PKG_VERSION != YCD_FREE_VERSION) {
-			$versionText = '2.4.7';
+			$versionText = '2.6.2';
         }
 		self::addDefine('YCD_VERSION_TEXT', $versionText);
-		self::addDefine('YCD_LAST_UPDATE', 'Sep 19');
-		self::addDefine('YCD_NEXT_UPDATE', 'Sep 29');
+		self::addDefine('YCD_LAST_UPDATE', 'July 3');
+		self::addDefine('YCD_NEXT_UPDATE', 'June 19');
 	}
 
 	public static function displaySettings()

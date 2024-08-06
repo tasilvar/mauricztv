@@ -4,9 +4,9 @@
  * Plugin Name: Media Sync
  * Plugin URI: https://wordpress.org/plugins/media-sync/
  * Description: Simple plugin to scan uploads directory and bring files to Media Library.
- * Version: 1.3.1
- * Author: Erol Živina
- * Author URI: https://github.com/erolsk8
+ * Version: 1.4.6
+ * Author: Media Sync Team
+ * Author URI: https://mediasyncplugin.com/?utm_source=wordpress_dashboard&utm_medium=plugins_page&utm_campaign=pdal
  * License: GPLv2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: media-sync
@@ -17,6 +17,11 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+if ( ! is_admin() ) {
+    return;
+}
+
+include( plugin_dir_path(__FILE__) . 'includes/MediaSync.class.php');
 
 
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'media_sync_link_to_main_plugin_page' );
@@ -29,6 +34,7 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'media_sync_link
 function media_sync_link_to_main_plugin_page( $links ) {
     $title = __('Media Sync', 'media-sync');
     $links[] = '<a href="'. esc_url( get_admin_url(null, 'upload.php?page=media-sync-page') ) .'">' . $title . '</a>';
+    $links[] = '<a href="https://mediasyncplugin.com/?utm_source=wordpress_dashboard&utm_medium=plugins_page&utm_campaign=pdl" target="_blank">' . __('Media Sync Pro', 'media-sync') . '</a>';
     return $links;
 }
 
@@ -62,34 +68,37 @@ function media_sync_add_menu_items() {
 }
 
 
-
-include( plugin_dir_path(__FILE__) . 'includes/MediaSync.class.php');
-
-
-
-add_action( 'admin_enqueue_scripts', 'media_sync_load_admin_scripts', 100 );
+add_action( 'admin_enqueue_scripts', 'media_sync_load_admin_scripts' );
 
 /**
  * Load Admin CSS and JS files
  *
  * @since 0.1.0
+ * @param string $hook
  * @return void
  */
 function media_sync_load_admin_scripts( $hook ) {
 
+    if ( !($hook == 'media_page_media-sync-page' || $hook == 'settings_page_media-sync-options') ) {
+        return;
+    }
+
+    $plugin_data = get_file_data(__FILE__, array('v' => 'Version'), false);
+    $version = !empty($plugin_data['v']) ? $plugin_data['v'] : '1.2.3';
+
     $js_dir  = plugin_dir_url( __FILE__ ) . 'admin/js/';
     $css_dir = plugin_dir_url( __FILE__ ) . 'admin/css/';
 
-    wp_register_script( 'media-sync-js-admin-script', $js_dir . 'script.js', array('jquery'), '1.2.3', true );
+    wp_register_script( 'media-sync-js-admin-script', $js_dir . 'script.js', array('jquery'), $version, true );
     wp_enqueue_script( 'media-sync-js-admin-script' );
 
-    wp_enqueue_script( 'media-sync-js-admin-ajax-script', $js_dir . 'ajax_script.js', array('jquery'), '1.2.3' );
+    wp_enqueue_script( 'media-sync-js-admin-ajax-script', $js_dir . 'ajax_script.js', array('jquery'), $version );
     wp_localize_script( 'media-sync-js-admin-ajax-script', 'ajax_data', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'security' => wp_create_nonce( "media_sync_import_files" )
     ));
 
-    wp_register_style( 'media-sync-css-admin-style', $css_dir . 'style.css', '', '1.2.3');
+    wp_register_style( 'media-sync-css-admin-style', $css_dir . 'style.css', '', $version );
     wp_enqueue_style( 'media-sync-css-admin-style' );
 }
 
@@ -140,7 +149,7 @@ function media_sync_missing_media_library_filter()
     if (!is_admin() || !is_object($scr) || property_exists($scr, 'base') !== true || $scr->base !== 'upload') return;
 
     // Get "missing files" filter from URL
-    $missing = filter_input(INPUT_GET, 'media_sync_missing_files', FILTER_SANITIZE_STRING);
+    $missing = MediaSync::sanitize_input_string(INPUT_GET, 'media_sync_missing_files');
     ?>
     <label for="filter-by-media-sync-missing-files"
         class="screen-reader-text"><?= __('Filter by missing file', 'media-sync') ?></label>
@@ -175,10 +184,10 @@ function media_sync_missing_media_library_apply_filter($query)
     if (!is_admin() || !is_object($scr) || property_exists($scr, 'base') !== true || $scr->base !== 'upload') return;
 
     // Get "missing files" filter from URL
-    $missing = filter_input(INPUT_GET, 'media_sync_missing_files', FILTER_SANITIZE_STRING);
+    $missing = MediaSync::sanitize_input_string(INPUT_GET, 'media_sync_missing_files');
 
     // Skip if "missing files" filter is not applied
-    if (!$missing) {
+    if (empty($missing)) {
         return;
     }
 

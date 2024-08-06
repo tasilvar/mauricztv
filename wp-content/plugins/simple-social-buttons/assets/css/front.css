@@ -76,6 +76,9 @@ div.ssb-button-pinterest { width: 100px; }
 .simplesocialbuttons button.simplesocial-tumblr-share:after{
   content: "\e90d";
 }
+.simplesocialbuttons button.simplesocial-copy-link:after{
+  content: "\e905";
+}
 .ssb_total_counter{
   display: inline-block;
   font-weight: bold;
@@ -128,10 +131,6 @@ transition: all 0.3s ease-in-out;
   line-height: 38px;
   border-radius: 3px;
 }
-.simplesocialbuttons button.simplesocial-viber-share:after{
-  content: "\e905";
-  font-family: 'ssb-icon';
-  }
   /*=======================================
   =            Simple Style              =
   =======================================*/
@@ -160,7 +159,8 @@ transition: all 0.3s ease-in-out;
       float: right;
     }
     div[class*="simplesocialbuttons-float"].simplesocial-simple-icons.ssb_counter-activate{
-      width: 116px;
+		display: flex;
+		flex-direction: column;
     }
     .simplesocial-simple-icons.simplesocialbuttons button:after{
       display: none;
@@ -390,8 +390,78 @@ div[class*="simplesocialbuttons-float"].simplesocial-simple-icons.simplesocialbu
     vertical-align: top;
     font-style: normal;
 }
-
-
+.simplesocial-simple-icons button.ssb_copylink-icon{
+  background: none;
+  border:0;
+  padding: 0;
+  height: 20px;
+}
+.simplesocial-simple-icons button.ssb_copylink-icon .icon{
+  background-repeat: no-repeat;
+  background-size: initial;
+  cursor: pointer;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  display: block;
+  width: 12px;
+  height: 17px;
+  float: right;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  text-align: center;
+  line-height: 17px;
+}
+.simplesocial-simple-icons button.ssb_copylink-icon .icon svg{
+  vertical-align: middle;
+}
+.simplesocial-simple-icons button.ssb_copylink-icon .simplesocialtxt{
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+  float: left;
+  vertical-align: top;
+  overflow: hidden;
+  text-align: center;
+  height: 20px;
+  padding: 0 4px 0 23px;
+  border: 1px solid #000;
+  border-top-color: #434A4D;
+  border-right-color: #434A4D;
+  border-bottom-color: #434A4D;
+  border-left-color: #434A4D;
+  text-shadow: 0 -1px #2f3436;
+  line-height: 20px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  background-color: #434A4D;
+  background-image: -webkit-linear-gradient(top, #434A4D 0%, #434A4D 100%);
+  font: bold 11px Arial, Helvetica, sans-serif;
+  line-height: 20px;
+}
+.simplesocial-simple-icons button.ssb_copylink-icon:hover .simplesocialtxt{
+  color: #fff;
+  border: 1px solid #000;
+  border-top-color: #2f3436;
+  border-right-color: #2f3436;
+  border-bottom-color: #2f3436;
+  border-left-color: #2f3436;
+  background-color: #2f3436;
+  background-image: -webkit-linear-gradient(top, #2f3436 0%, #2f3436 100%);
+}
 .simplesocial-simple-icons button.ssb_linkedin-icon{
   background: none;
   border:0;
@@ -792,6 +862,44 @@ div[class*="simplesocialbuttons-float-right"] .ssb_total_counter{
 div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-icons .ssb-fb-like{
   margin:5px;
 }
+
+[data-tooltip] {
+	position: relative;
+}
+.simplesocialbuttons.simplesocial-simple-round button span.ssb_tooltip,
+.ssb_copy_btn[data-tooltip]:before {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 100%;
+  right: 10%;
+	background: #8d96a0;
+	color: #fff;
+	padding: 2px 5px 3px;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	width: fit-content;
+}
+.simplesocialbuttons button span.ssb_tooltip{
+	display: none;
+}
+.simplesocialbuttons-float-left-center.simplesocial-simple-round button span.ssb_tooltip,
+.simplesocialbuttons-float-left-center [data-tooltip]:before {
+	left: 100%;
+  bottom: 0;
+	margin-left: 10px;
+	margin-bottom: 0;
+}
+
+.simplesocialbuttons-float-right-center.simplesocial-simple-round button span.ssb_tooltip,
+.simplesocialbuttons-float-right-center [data-tooltip]:before {
+	right: 100%;
+  bottom: 0;
+	margin-right: 10px;
+	margin-bottom: 0;
+	left: auto;
+}
+
+/*  */
   /*========================================
   =         Code For Simple Style          =
   ========================================*/
@@ -853,6 +961,9 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 }
 .simplesocialbuttons.simplesocial-sm-round button.simplesocial-email-share{
   color: #878787;
+}
+.simplesocialbuttons.simplesocial-sm-round button.simplesocial-copy-link{
+  color: #434A4D;
 }
 .simplesocialbuttons.simplesocial-sm-round button.simplesocial-print-share{
   color: #353535;
@@ -935,6 +1046,9 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-email-share{
   background: #878787;
 }
+.simplesocialbuttons.simplesocial-simple-round button.simplesocial-copy-link{
+  background: #434A4D;
+}
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-print-share{
   background: #353535;
 }
@@ -959,6 +1073,9 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 }
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-linkedin-share:after, .simplesocialbuttons.simplesocial-simple-round button.simplesocial-linkedin-share:before {
   background: #044568;
+}
+.simplesocialbuttons.simplesocial-simple-round button.simplesocial-copy-link:after, .simplesocialbuttons.simplesocial-simple-round button.simplesocial-copy-link:before {
+  background: #7c7c7c;
 }
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-pinterest-share:after, .simplesocialbuttons.simplesocial-simple-round button.simplesocial-pinterest-share:before {
   background: #af040a;
@@ -1046,6 +1163,14 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 }
 .simplesocialbuttons.simplesocial-round-txt button.simplesocial-linkedin-share:hover{
   background: #0077B5;
+  color: #fff;
+}
+.simplesocialbuttons.simplesocial-round-txt button.simplesocial-copy-link{
+  color: #434A4D;
+  border-color: #434A4D;
+}
+.simplesocialbuttons.simplesocial-round-txt button.simplesocial-copy-link:hover{
+  background: #434A4D;
   color: #fff;
 }
 .simplesocialbuttons.simplesocial-round-txt button.simplesocial-pinterest-share{
@@ -1167,6 +1292,16 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-round-btm-border button.simplesocial-linkedin-share:hover{
   -webkit-box-shadow: inset 0px -40px 0px 0px #0077B5, 0px 2px 0px 0px #0077B5, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
           box-shadow: inset 0px -40px 0px 0px #0077B5, 0px 2px 0px 0px #0077B5, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+  color: #fff;
+}
+.simplesocialbuttons.simplesocial-round-btm-border button.simplesocial-copy-link {
+  -webkit-box-shadow: inset 0px 0px 0px 0px #434A4D, 0px 2px 0px 0px #434A4D, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+          box-shadow: inset 0px 0px 0px 0px #434A4D, 0px 2px 0px 0px #434A4D, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+  color: #434A4D;
+}
+.simplesocialbuttons.simplesocial-round-btm-border button.simplesocial-copy-link:hover{
+  -webkit-box-shadow: inset 0px -40px 0px 0px #434A4D, 0px 2px 0px 0px #434A4D, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
+          box-shadow: inset 0px -40px 0px 0px #434A4D, 0px 2px 0px 0px #434A4D, 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
   color: #fff;
 }
 .simplesocialbuttons.simplesocial-round-btm-border button.simplesocial-pinterest-share {
@@ -1294,6 +1429,15 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-flat-button-border button.simplesocial-linkedin-share:hover {
   -webkit-box-shadow: inset 0px -40px 0px 0px #044568, 0px 3px 0px 0px #044568;
           box-shadow: inset 0px -40px 0px 0px #044568, 0px 3px 0px 0px #044568;
+}
+.simplesocialbuttons.simplesocial-flat-button-border button.simplesocial-copy-link {
+  background: #434A4D;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #2f3436, 0px 3px 0px 0px #2f3436;
+          box-shadow: inset 0px 0px 0px 0px #2f3436, 0px 3px 0px 0px #2f3436;
+}
+.simplesocialbuttons.simplesocial-flat-button-border button.simplesocial-copy-link:hover {
+  -webkit-box-shadow: inset 0px -40px 0px 0px #2f3436, 0px 3px 0px 0px #2f3436;
+          box-shadow: inset 0px -40px 0px 0px #2f3436, 0px 3px 0px 0px #2f3436;
 }
 .simplesocialbuttons.simplesocial-flat-button-border button.simplesocial-pinterest-share {
   background: #C92228;
@@ -1431,6 +1575,14 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
   background: #0077B5;
   color: #fff;
 }
+.simplesocialbuttons.simplesocial-round-icon button.simplesocial-copy-link{
+  color: #434A4D;
+  border-color: #434A4D;
+}
+.simplesocialbuttons.simplesocial-round-icon button.simplesocial-copy-link:hover{
+  background: #434A4D;
+  color: #fff;
+}
 .simplesocialbuttons.simplesocial-round-icon button.simplesocial-pinterest-share{
   color: #C92228;
   border-color: #C92228;
@@ -1475,6 +1627,14 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
   border-color: #36465d;
 }
 .simplesocialbuttons.simplesocial-round-icon button.simplesocial-tumblr-share:hover{
+  background: #36465d;
+  color: #fff;
+}
+.simplesocialbuttons.simplesocial-round-icon button.simplesocial-copy{
+  color: #36465d;
+  border-color: #36465d;
+}
+.simplesocialbuttons.simplesocial-round-icon button.simplesocial-copy:hover{
   background: #36465d;
   color: #fff;
 }
@@ -1627,6 +1787,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-linkedin-share:not(:hover):before,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-pinterest-share:not(:hover):before
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-email-share:not(:hover):before,
+.simplesocialbuttons.simplesocial-simple-round button.simplesocial-copy-link:not(:hover):before,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-print-share:not(:hover):before{
   background: rgba(0,0,0, .2);
   width: 36px;
@@ -1641,6 +1802,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-viber-share:after,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-reddit-share:after,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-linkedin-share:after,
+.simplesocialbuttons.simplesocial-simple-round button.simplesocial-copy-link:after,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-pinterest-share:after,
 .simplesocialbuttons.simplesocial-simple-round button.simplesocial-tumblr-share:after{
   background: none;
@@ -1692,7 +1854,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-round-txt button.simplesocial-tumblr-share .ssb_counter{
   background: #36465d;
 }
-.simplesocialbuttons.simplesocial-sm-round.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
+.simplesocialbuttons.simplesocial-sm-round.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-copy-link):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
   padding-right: 50px;
   position: relative;
 }
@@ -1711,7 +1873,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
   border-radius: 0 3px 3px 0;
   padding: 0 2px;
 }
-.simplesocialbuttons.simplesocial-simple-round.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
+.simplesocialbuttons.simplesocial-simple-round.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-copy-link):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
   padding-right: 50px;
   position: relative;
 }
@@ -1789,7 +1951,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
   color: #C92228;
 }
 
-.simplesocialbuttons.simplesocial-flat-button-border.ssb_counter-activate button:not(.simplesocial-whatsapp-share):not(.simplesocial-viber-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
+.simplesocialbuttons.simplesocial-flat-button-border.ssb_counter-activate button:not(.simplesocial-whatsapp-share):not(.simplesocial-viber-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-copy-link):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
   padding-right: 50px;
   position: relative;
 }
@@ -1828,7 +1990,7 @@ div[class*="simplesocialbuttons-float"].simplesocialbuttons.simplesocial-simple-
 .simplesocialbuttons.simplesocial-flat-button-border button.simplesocial-tumblr-share .ssb_counter{
   color: #36465d;
 }
-.simplesocialbuttons.simplesocial-round-btm-border.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
+.simplesocialbuttons.simplesocial-round-btm-border.ssb_counter-activate button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-copy-link):not(.simplesocial-print-share):not(.simplesocial-linkedin-share){
   padding-right: 60px;
   position: relative;
 }
@@ -2464,6 +2626,14 @@ div.simplesocialbuttons.simplesocialbuttons-float-left-center{
   transform: translateY(-50%);
   margin: 0;
 }
+div.simplesocialbuttons[class*="simplesocialbuttons-float-left"]{
+	align-items: flex-start;
+
+}
+div.simplesocialbuttons[class*="simplesocialbuttons-float-right"]{
+	align-items: flex-end;
+	
+}
 div.simplesocialbuttons.simplesocialbuttons-float-right-center{
   right: 0;
   top: 50%;
@@ -2722,6 +2892,9 @@ div[class*="simplesocialbuttons-float"].simplesocial-simple-round  button[class*
 .ssb_followers a.ssb_button.simplesocial-instagram-follow:after{
   content: "\e90a";
 }
+.ssb_followers a.simplesocial-copy:after{
+  content: "\e905";
+}
 .ssb_followers a.ssb_button:after {
   font-family: 'ssb-icon' !important;
   speak: none;
@@ -2748,10 +2921,6 @@ div[class*="simplesocialbuttons-float"].simplesocial-simple-round  button[class*
   text-align: center;
   line-height: 38px;
   border-radius: 3px;
-}
-.ssb_followers a.ssb_button.simplesocial-viber-follow:after{
-  content: "\e905";
-  font-family: 'ssb-icon';
 }
 /*========================================
 =            Code For Style 2            =
@@ -2909,6 +3078,12 @@ div[class*="simplesocialbuttons-float"].simplesocial-simple-round  button[class*
 }
 .ssb-twenty-twenty .simplesocial-simple-icons button.ssb_linkedin-icon .icon svg {
   display: inline-block;
+}
+.ssb-twenty-twenty .simplesocial-simple-icons button.ssb_copylink-icon .icon svg {
+  display: inline-block;
+}
+body .sl-wrapper button:hover{
+	opacity: 1;
 }
 /*========================================
 =            End of compaitabilty code          =

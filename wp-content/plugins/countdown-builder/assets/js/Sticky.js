@@ -12,11 +12,43 @@ function YcdSticky() {
 YcdSticky.prototype = new YcgGeneral();
 
 YcdSticky.prototype.init = function() {
+	var header = jQuery('.ycd-sticky-header');
+	var settings = jQuery(header).data('settings');
+
 	this.seconds = 0;
 	this.isActive = true;
 	this.listeners()
 	this.header();
 	this.stickyClock();
+
+	if (settings['ycd-sticky-show-condition'] === 'stickyConditionScroll') {
+		var currentScrollPercentage = function()
+		{
+			return ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
+		}
+		var scrollCallBack = function(){
+
+			const scrollTop = parseInt(currentScrollPercentage());
+
+			if (scrollTop >= parseInt(settings['ycd-sticky-scroll-percent'])) {
+				jQuery(header).removeClass('ycd-hide-banner')
+			}
+			else {
+				jQuery(header).addClass('ycd-hide-banner');
+			}
+		};
+		scrollCallBack();
+		jQuery(window).scroll(scrollCallBack);
+	}
+	else if (settings['ycd-sticky-show-condition'] === 'initial') {
+
+		if (settings['ycd-sticky-scroll-delay'] != 0) {
+			jQuery(".ycd-sticky-header").addClass('ycd-hide-banner');
+			setTimeout(function () {
+				jQuery(header).removeClass('ycd-hide-banner')
+			}, parseInt(settings['ycd-sticky-scroll-delay'])*1000)
+		}
+	}
 };
 
 YcdSticky.prototype.listeners = function () {

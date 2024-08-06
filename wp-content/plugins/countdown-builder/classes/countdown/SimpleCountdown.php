@@ -94,6 +94,8 @@ class SimpleCountdown extends Countdown
 	    $numbersMarginRight = $this->getOptionValue('ycd-simple-numbers-margin-right');
 	    $numbersMarginBottom = $this->getOptionValue('ycd-simple-numbers-margin-bottom');
 	    $numbersMarginLeft = $this->getOptionValue('ycd-simple-numbers-margin-left');
+
+	    $horizontalAlign = $this->getOptionValue('ycd-simple-timer-horizontal-align');
         ob_start();
         ?>
         <style>
@@ -107,6 +109,9 @@ class SimpleCountdown extends Countdown
             .ycd-simple-content-wrapper-<?php echo (int)$id; ?> .ycd-simple-countdown-label {
                 font-size: <?php echo esc_attr($labelSize); ?>;
 	            margin: <?php echo esc_attr($textMarginTop).' '.esc_attr($textMarginRight).' '.esc_attr($textMarginBottom).' '.esc_attr($textMarginLeft);?>
+            }
+            .ycd-simple-content-wrapper-<?php echo (int)$id; ?> {
+	            text-align: <?php esc_attr_e($horizontalAlign);?>;
             }
         </style>
         <?php
@@ -236,17 +241,21 @@ class SimpleCountdown extends Countdown
 
     public function getViewContent()
     {
+
         $id = $this->getId();
         $options = $this->getAllOptions();
 	    $options = $this->filterTranslations($options);
 	    $this->options = $options;
         $options = json_encode($options);
         $allowed_html = AdminHelper::getAllowedTags();
+
         ob_start();
         ?>
         <div class="ycd-countdown-wrapper ycd-simple-content-wrapper ycd-simple-content-wrapper-<?php echo esc_attr($id); ?>">
-            <div class="ycd-simple-time ycd-simple-container ycd-countdown-content-wrapper ycd-simple-wrapper-<?php echo esc_attr($id); ?>" data-options='<?php echo wp_kses($options, $allowed_html); ?>' data-id="<?php echo esc_attr($id); ?>">
+            <div class="ycd-simple-time ycd-simple-container ycd-countdown-content-wrapper ycd-simple-wrapper-<?php echo esc_attr($id); ?>" data-options='<?php echo esc_attr($options); ?>' data-id="<?php echo esc_attr($id); ?>">
+                <div class="ycd-simple-before-countdown"><?php echo wp_kses($this->getOptionValue('ycd-simple-countdown-before-countdown'), $allowed_html); ?></div>
                 <?php echo wp_kses($this->render(), $allowed_html); ?>
+                <div class="ycd-simple-after-countdown"><?php echo wp_kses($this->getOptionValue('ycd-simple-countdown-after-countdown'), $allowed_html); ?></div>
             </div>
         </div>
         <?php

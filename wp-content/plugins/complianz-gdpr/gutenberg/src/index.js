@@ -11,6 +11,7 @@ const { registerBlockType } = wp.blocks;
 const { InspectorControls, BlockControls, useBlockProps} = wp.blockEditor;
 const { PanelBody, PanelRow, SelectControl, TextControl, TextareaControl, ToolbarButton, ToolbarGroup, Icon} = wp.components;
 import {useState, useEffect} from "@wordpress/element";
+import DOMPurify from 'dompurify';
 
 /**
  *  Set custom Complianz Icon
@@ -35,7 +36,6 @@ const iconEl = () => (
 
 		 } />
 );
-
 
 const selectDocument = ({ className, isSelected, attributes, setAttributes }) => {
 	const [documents, setDocuments] = useState([]);
@@ -74,6 +74,7 @@ const selectDocument = ({ className, isSelected, attributes, setAttributes }) =>
 	const onChangeSelectDocument = (value) => {
 		// Set the state
 		setSelectedDocument(value);
+
 		// Set the attributes
 		setAttributes({
 			selectedDocument: value,
@@ -127,6 +128,7 @@ const selectDocument = ({ className, isSelected, attributes, setAttributes }) =>
 		});
 	}
 
+
 	//load content
 	if ( attributes.selectedDocument!==0 && documentDataLoaded && attributes.selectedDocument.length>0 ) {
 		const documentData = documents.find((item) => {
@@ -155,21 +157,24 @@ const selectDocument = ({ className, isSelected, attributes, setAttributes }) =>
 					</PanelBody>
 				</InspectorControls>
 			),
-			<div key={attributes.selectedDocument} className={className} dangerouslySetInnerHTML={{__html: output}}></div>
+
+			<div key={attributes.selectedDocument} className={className} dangerouslySetInnerHTML={{__html: DOMPurify.sanitize( output ) }}></div>,
+
 		]
 	} else {
+		let html = documentDataLoaded ? customDocumentHtml : __('Loading...', 'complianz-gdpr');
 		let syncClassName = className + ' cmplz-unlinked-mode';
 		return [
 			!!isSelected && (
 				<InspectorControls key='inspector-document-settings'>
 					<PanelBody title={ __('Document settings', 'complianz-gdpr' ) } initialOpen={ true } >
-						<PanelRow key="1">
+						<PanelRow>
 							<SelectControl onChange={(e) => onChangeSelectDocument(e) }
 										   value={attributes.selectedDocument}
 										   label={__('Select a document', 'complianz-gdpr')}
 										   options={options}/>
 						</PanelRow>
-						<PanelRow key="2">
+						<PanelRow>
 
 							<SelectControl onChange={ (e) => onChangeSelectDocumentSyncStatus(e) }
 										   value={documentSyncStatus}
@@ -180,15 +185,12 @@ const selectDocument = ({ className, isSelected, attributes, setAttributes }) =>
 				</InspectorControls>
 			),
 
-			// <RichText key="rich-text-cmplz"
-			// 		  className={syncClassName}
-			// 		  value={html}
-			// 		  onChange={ (e) => onChangeCustomDocument(e) }
-			// />
-			<div contentEditable={true} onInput={(e)=>onChangeCustomDocument(e.currentTarget.innerHTML)}
-				 dangerouslySetInnerHTML={{__html: customDocumentHtml}}
+			<div contentEditable={true}
+				 onInput={(e)=>onChangeCustomDocument(e.currentTarget.innerHTML)}
+				 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(customDocumentHtml) }}
 				 className={syncClassName}
 			></div>
+
 		]
 	}
 
@@ -338,7 +340,6 @@ registerBlockType( 'complianz/consent-area', {
 			}
 		}, [attributes] );
 
-
 		const blockProps = useBlockProps();
 		let disabled = !complianz.user_can_unfiltered_html;
 
@@ -428,13 +429,15 @@ registerBlockType( 'complianz/consent-area', {
 
 				</>}
 				{ !!isPreview && <>
-					{
-						view==='placeholder' &&
-						<div dangerouslySetInnerHTML={{__html: attributes.placeholderContent}}></div>
+					{ view === 'placeholder' &&
+						<div>
+							<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize( attributes.placeholderContent ) } }></div>
+						</div>
 					}
-					{
-						view === 'consented' &&
-						<div dangerouslySetInnerHTML={{__html: attributes.consentedContent}}></div>
+					{ view === 'consented' &&
+						<div>
+							<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize( attributes.consentedContent ) } }></div>
+						</div>
 					}
 
 				</>}

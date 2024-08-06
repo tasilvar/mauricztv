@@ -46,28 +46,42 @@ SP_EAP::createOptions(
 SP_EAP::createSection(
 	$prefix,
 	array(
-		'title'  => __( 'Advanced Settings', 'easy-accordion-free' ),
-		'icon'   => 'fa fa-cogs',
+		'title'  => __( 'Advanced', 'easy-accordion-free' ),
+		'icon' => 'fa fa-wrench',
 		'fields' => array(
 			array(
 				'id'         => 'eap_data_remove',
 				'type'       => 'checkbox',
 				'title'      => __( 'Clean-up Data on Deletion', 'easy-accordion-free' ),
-				'title_help' => __( 'Check this box if you would like Easy Accordion to completely remove all of its data when the plugin is deleted.', 'easy-accordion-free' ),
+				'title_info' => __( 'Check this box if you would like Easy Accordion to completely remove all of its data when the plugin is deleted.', 'easy-accordion-free' ),
+				'default'    => false,
+				'sanitize'   => 'rest_sanitize_boolean',
+			),
+			array(
+				'id'         => 'eap_focus_style',
+				'type'       => 'checkbox',
+				'title'      => __( 'Focus Style for Accessibility', 'easy-accordion-free' ),
+				'title_info' => __( 'Check this to enable focus style to improve accessibility.', 'easy-accordion-free' ),
 				'default'    => false,
 			),
+		),
+	)
+);
+
+//
+// Woo commerce faq.
+//
+SP_EAP::createSection(
+	$prefix,
+	array(
+		'title'  => __( 'WooCommerce FAQs', 'easy-accordion-free' ),
+		'icon'   => 'fa fa-shopping-cart',
+		'fields' => array(
 			array(
-				'type'    => 'subheading',
-				'content' => __( 'Enqueue or Dequeue CSS', 'easy-accordion-free' ),
-			),
-			array(
-				'id'         => 'eap_dequeue_fa_css',
-				'type'       => 'switcher',
-				'title'      => __( 'Font Awesome CSS', 'easy-accordion-free' ),
-				'default'    => true,
-				'text_on'    => __( 'enqueue', 'easy-accordion-free' ),
-				'text_off'   => __( 'dequeue', 'easy-accordion-free' ),
-				'text_width' => '92',
+				'id'      => 'woocommarce_setting',
+				'type'    => 'license',
+				'preview' => true,
+				'class'   => 'eap-woocommerce-settings',
 			),
 		),
 	)
@@ -80,17 +94,43 @@ SP_EAP::createSection(
 	$prefix,
 	array(
 		'id'     => 'custom_css_section',
-		'title'  => __( 'Custom CSS', 'easy-accordion-free' ),
-		'icon'   => 'fa fa-css3',
+		'title'  => __( 'Custom CSS & JS', 'easy-accordion-free' ),
+		'icon'   => 'fa fa-file-code-o',
 		'fields' => array(
 			array(
 				'id'       => 'ea_custom_css',
 				'type'     => 'code_editor',
 				'title'    => __( 'Custom CSS', 'easy-accordion-free' ),
+				'sanitize' => 'wp_strip_all_tags',
 				'settings' => array(
 					'mode'  => 'css',
 					'theme' => 'monokai',
 				),
+			),
+			array(
+				'id'       => 'custom_js',
+				'type'     => 'code_editor',
+				'title'    => __( 'Custom JS', 'easy-accordion-free' ),
+				'sanitize' => 'wp_strip_all_tags',
+				'settings' => array(
+					'theme' => 'monokai',
+					'mode'  => 'javascript',
+				),
+			),
+		),
+	)
+);
+
+// Custom CSS.
+SP_EAP::createSection(
+	$prefix,
+	array(
+		'title'  => __( 'License Key', 'easy-accordion-free' ),
+		'icon'   => 'fa fa-key',
+		'fields' => array(
+			array(
+				'id'   => 'license_key',
+				'type' => 'license',
 			),
 		),
 	)

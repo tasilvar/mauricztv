@@ -88,6 +88,11 @@ class StickyCountdown extends Countdown {
 		ob_start();
 		?>
 		<style type="text/css">
+			.ycd-hide-banner {
+				visibility: hidden;
+				height: 0px;
+				overflow: hidden;
+			}
 			.ycd-sticky-header-countdown {
 				color: <?php echo esc_attr($stickyCountdownColor); ?>;
 				font-size: <?php echo esc_attr($countdownSize); ?>px;

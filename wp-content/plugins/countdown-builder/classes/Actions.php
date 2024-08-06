@@ -177,10 +177,13 @@ class Actions {
 		$script .= "<script>jQuery(document).ready(function() {jQuery('#menu-posts-ycdcountdown a[href*=\"page=supports\"]').css({color: 'yellow'});jQuery('#menu-posts-ycdcountdown a[href*=\"page=supports\"]').bind('click', function(e) {e.preventDefault(); window.open('https://wordpress.org/support/plugin/countdown-builder/')}) });</script>";
         if (YCD_PKG_VERSION == YCD_FREE_VERSION) {
             $script .=  '<script>';
-            $script .= "jQuery(document).ready(function() {jQuery('[href*=\"ycdSubscribers\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank');jQuery('[href*=\"ycdNewsletter\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank')});";
+            $script .= "jQuery(document).ready(function() {
+				jQuery('[href*=\"ycdSubscribers\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank');
+				
+			});";
             $script .= '</script>';
         }
-
+		echo wp_kses($script, AdminHelper::getAllowedTags());
 	}
 
 	public static function wpHead() {
@@ -192,7 +195,9 @@ class Actions {
 
 		foreach ($userSavedRoles as $theRole) {
 			$role = get_role($theRole);
-			;
+			if (!$role) {
+				continue;
+			}
 			$role->add_cap('read');
 			$role->add_cap('read_post');
 			$role->add_cap('read_private_ycd_countdowns');
@@ -284,11 +289,10 @@ class Actions {
 	public function shortcode($args, $content) {
 		YcdCountdownOptionsConfig::optionsValues();
 
-		$id = $args['id'];
-
-		if(empty($id)) {
+		if(empty($args['id'])) {
 			return '';
 		}
+		$id = $args['id'];
 		$typeObj = Countdown::find($id);
 		$isActive = Countdown::isActivePost($id);
 

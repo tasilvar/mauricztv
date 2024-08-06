@@ -1,9 +1,9 @@
 === Max Mega Menu ===
 Contributors: megamenu
-Tags: menu, megamenu, mega menu, navigation, mobile
+Tags: menu, responsive menu, mega menu, navigation, mobile menu
 Requires at least: 5.0
-Tested up to: 6.3
-Stable tag: 3.2.2
+Tested up to: 6.6
+Stable tag: 3.3.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -131,6 +131,44 @@ See https://www.megamenu.com for more screenshots
 5. Back end: Use the theme editor to change the appearance of your menus
 
 == Changelog ==
+
+= 3.3.2 =
+
+* Fix: CSS validation error (move @charset rule to first line)
+* Fix: jQuery migrate warnings (change unbind to off)
+* Accessibility Fix: On mobile, when pressing enter on the parent of a hidden submenu, follow the link
+* Fix: PHP warning when activating plugin for first time using PHP 8.2
+* Fix: When CSS Output has been set to 'Disabled', do not automatically set it back to 'Output in Head' if generation of the CSS file fails
+
+= 3.3.1 =
+
+* Accessibility Improvement: Ensure items within hidden off canvas menu cannot be focused using keyboard
+* Fix: 'Desktop' mode detection when using browser zoom
+* Fix: Conflict with Darklup Pro (and possibly other plugins which use scssphp library)
+* Fix: Always use 'direct' filesystem method to generate style.css file
+* Fix: jQuery migrate warnings
+* Security fix: Add nonce check to sandbox URL. Thanks to patchstack for reporting.
+
+= 3.3 =
+
+* Fix: PHP 8.2 compatibility (update scssphp library to v1.11.1)
+* Notes: If you have problems with CSS Compilation (menu appears unstyled) add the following to your wp-config.php file:
+`define('MEGAMENU_SCSS_COMPILER_COMPAT', true);`
+* Fix: Conflict with Salient when enabled on Multisite
+* Fix: Improve efficiency of key press detection
+* Accessibility Improvement: Using keyboard navigation on mobile, respect the 'Mobile sub menu behaviour' setting (do not auto close sub menus)
+* Accessibility Improvement: Fix issue with NVDA/screen readers not able to open sub menus using Enter key
+
+= 3.2.4 =
+
+* Change: Remove "visibility: visible;" rule from menu UL
+* Fix: Warning with Ninja Popups plugin
+* Accessibility improvement: Space bar can now be used to toggle visibility of mobile sub menu
+* Accessibility improvement: Up/down keys can be used to navigate top level menu items in mobile sub menu
+* Accessibility improvement: Add 'Keyboard Highlight Outline' styling option to theme editor
+* Accessibility improvement: Add outline to entire search form when using keyboard navigation
+* Fix: Using left/right arrow keys to navigate top level menu items when a search box is in the menu
+* Improvement: Remove 'display' inline CSS attribute when mobile menu is opened/closed
 
 = 3.2.3 =
 
