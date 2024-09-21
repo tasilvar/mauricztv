@@ -605,7 +605,7 @@ function tml_registration_handler() {
 		$user_email = tml_get_request_value( 'user_email', 'post' );
 
 		$_SESSION['user_confirm'] = '';
-		
+
 		$user_password = tml_get_request_value('user_pass1', 'post');
 	 
 		// Rejestracja uzytkownika
@@ -632,7 +632,7 @@ function tml_registration_handler() {
 		if ( ! is_wp_error( $user_id ) ) {
 			
 
-			$code = sha1( $user_email  );//time()
+			$code = $user_email;//sha1( $user_email  );//time()
 			$activation_link = add_query_arg( array( 'key' => $code, 'user' => $user_id ), get_permalink( (int)get_option('mauricz_activation_page') ));
 
 			// aktywacja konta
