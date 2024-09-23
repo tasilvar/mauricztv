@@ -469,7 +469,7 @@ remove_filter('authenticate', 'wp_authenticate_username_password', 20);
     $userLogin = get_user_by('login', $username);
     $userEmail = get_user_by('email', $username);
 
-    if((!$userLogin) || !($userEmail)) { 
+    if(($userLogin) || ($userEmail)) { 
 
         if($userLogin) { 
             // echo "obiekt usera poprzez login";
