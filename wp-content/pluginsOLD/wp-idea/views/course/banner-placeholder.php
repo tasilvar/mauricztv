@@ -1,1 +1,0 @@
-<div id="panel_kursu_slider_placeholder"></div>

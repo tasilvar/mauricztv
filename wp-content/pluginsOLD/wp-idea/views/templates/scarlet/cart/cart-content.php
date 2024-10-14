@@ -1,1 +1,0 @@
-<div class="content_koszyk"><?= bpmj_eddcm_scarlet_edd_checkout_form() ?></div>
