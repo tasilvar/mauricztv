@@ -143,6 +143,40 @@ if ( !class_exists( 'MediaSync' ) ) :
                                         <?= __('Use this to see Media Library items that are missing actual files. This takes you to Media Library but with custom filter.', 'media-sync') ?>
                                     </p>
                                 </div>
+                                <div class="card">
+                                    <h2 class="title">Media Sync Pro</h2>
+                                    <button id="purchase-media-sync-pro" class="button button-primary">Upgrade Now</button>
+                                    &nbsp;
+                                    <a class="button button-secondary" href="https://mediasyncplugin.com/?utm_source=base_plugin_banner&amp;utm_medium=init_page&amp;utm_campaign=bip" target="_blank" rel="noopener">Find out more</a>
+
+                                    <h4>Check out our newly revamped pro version with amazing new features.</h4>
+
+                                    <ul style="list-style: circle; margin-left: 15px;">
+                                        <li><strong>Revised incremental scan</strong>: Allows scanning and importing unlimited number of files.</li>
+                                        <li><strong>Quick single directory rescan</strong>: Easily rescan one directory to find new files or apply a different filter without reloading the whole page.</li>
+                                        <li><strong>Advanced filters</strong>: Find any file by customizing all default filters, search for a specific file type (images, videos, etc.), skip by tailor-made rules, or enter any custom pattern.</li>
+                                        <li><strong>Schedule automatic imports</strong>: Select a desired interval and let the plugin automatically import any new files it finds.</li>
+                                        <li><strong>Import logs</strong>: View the history of manual or scheduled imports.</li>
+                                        <li><strong>Limit plugin access</strong>: Limit plugin access to a specific role.</li>
+                                    </ul>
+                                    <script src="https://checkout.freemius.com/checkout.min.js"></script>
+                                    <script>
+                                        var handler = FS.Checkout.configure({
+                                            show_monthly_switch: true,
+                                            plugin_id:  '14503',
+                                            plan_id:    '24225',
+                                            public_key: 'pk_795c75a9ba75322acb001dd836061',
+                                            image:      'https://mediasyncplugin.com/wp-content/uploads/2023/12/icon-300x300-1.png'
+                                        });
+                                        document.querySelector('#purchase-media-sync-pro').addEventListener('click', function(e) {
+                                            handler.open({
+                                                name     : 'Media Sync Pro',
+                                                licenses : '1',
+                                            });
+                                            e.preventDefault();
+                                        });
+                                    </script>
+                                </div>
                             <?php endif; ?>
 
                             <?php if ($scan_files) : ?>
@@ -273,40 +307,8 @@ if ( !class_exists( 'MediaSync' ) ) :
                         <?php endif; ?>
                     </form>
                 </div>
-
-                <?= self::fetch_promo_content('/promo-content/') ?>
             </div>
-
             <?php
-        }
-
-
-        /**
-         * Fetch remote content to promote Pro version.
-         * It is external to allow easier promotion changes.
-         *
-         * @param string $page
-         * @return string
-         * @since 1.4.0
-         */
-        static private function fetch_promo_content($page)
-        {
-            $url = 'https://mediasyncplugin.com' . $page;
-
-            // This is not essential content so don't wait too long for this request
-            $response = wp_remote_get($url, array('timeout' => 5));
-
-            if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
-                // In case of error or non-200 response, output nothing
-                return '';
-            }
-
-            $content = wp_remote_retrieve_body($response);
-            if (empty($content)) {
-                return '';
-            }
-
-            return $content;
         }
 
 
@@ -409,8 +411,6 @@ if ( !class_exists( 'MediaSync' ) ) :
 
                     <?php submit_button(); ?>
                 </form>
-
-                <?= self::fetch_promo_content('/promo-content-at-options/') ?>
             </div>
             <?php
         }
@@ -519,15 +519,13 @@ if ( !class_exists( 'MediaSync' ) ) :
             }
 
             $is_trash = isset($item['file_status']) && $item['file_status'] === 'trash';
-
-            $row_id = "media-sync-item-" . $item['alias'];
             ?>
 
-            <tr class="<?= $cls ?>" id="<?= $row_id ?>" data-parent-id="media-sync-item-<?= $item['parent_alias'] ?>">
+            <tr class="<?= $cls ?>" id="<?= $item['row_id'] ?>" data-parent-id="<?= $item['parent_id'] ?>">
                 <th scope="row" class="check-column">
-                    <label class="screen-reader-text" for="cb-select-<?= $item['alias'] ?>"></label>
-                    <input type="checkbox" class="js-checkbox" id="cb-select-<?= $item['alias'] ?>"
-                           value="<?= $item['absolute_path'] ?>" data-row-id="<?= $row_id ?>">
+                    <label class="screen-reader-text" for="cb-select-<?= $item['row_id'] ?>"></label>
+                    <input type="checkbox" class="js-checkbox" id="cb-select-<?= $item['row_id'] ?>"
+                           value="<?= $item['absolute_path'] ?>" data-row-id="<?= $item['row_id'] ?>">
                 </th>
                 <td class="title column-title has-row-actions column-primary" data-colname="<?= __('File', 'media-sync') ?>">
                     <?php if (!empty($item['parents'])) : ?>
@@ -777,11 +775,13 @@ if ( !class_exists( 'MediaSync' ) ) :
                     return $mime_type;
                 }
 
+                $decoded_relative_path = urldecode($relative_path);
+
                 // Prepare an array of post data for the attachment.
                 $attachment = array(
-                    'guid'           => get_site_url() . $relative_path,
+                    'guid'           => get_site_url() . $decoded_relative_path,
                     'post_mime_type' => $mime_type,
-                    'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $relative_path ) ),
+                    'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $decoded_relative_path ) ),
                     'post_content'   => '',
                     'post_status'    => 'inherit'
                 );
@@ -829,7 +829,7 @@ if ( !class_exists( 'MediaSync' ) ) :
                     set_time_limit($max_execution_time);
                 }
 
-                $attach_id = wp_insert_attachment($attachment, $absolute_path);
+                $attach_id = wp_insert_attachment($attachment, $absolute_path, 0, true);
             } catch (Exception $e) {
                 return array(
                     'errorMessage' => sprintf(__('Error inserting attachment (`wp_posts` table) for file: %s.', 'media-sync'), $absolute_path),
@@ -1155,9 +1155,6 @@ if ( !class_exists( 'MediaSync' ) ) :
                     }
                 }
 
-
-                $file_uid = uniqid('', true);
-
                 // Get current parents, to get for example: "/2012/03"
                 $parents_path = str_replace(self::$upload_dir_path, '', $current_dir_path);
 
@@ -1167,17 +1164,12 @@ if ( !class_exists( 'MediaSync' ) ) :
                 // Since this path is always using forward slashes, that's what we'll use here
                 $parents = !empty($parents_path) ? explode('/', $parents_path) : array();
 
-                // Replace forward slash with "_" and do other cleanup since this will be used as HTML attribute
-                $parent_alias = !empty($parents_path) ? sanitize_title(str_replace('/', '_', $parents_path), $file_uid) : '';
-
-                $alias = sanitize_title($file_name, $file_uid);
-
                 $item = array(
-                    'alias' => (!empty($parent_alias) ? $parent_alias . '_' : '') . $alias,
                     'display_name' => $file_name,
                     'is_dir' => !!$isDir,
                     'level' => count($parents) + 1,
-                    'parent_alias' => $parent_alias,
+                    'row_id' => self::get_row_id( self::media_sync_url_encode( $parents_path . '/' . $file_name ) ),
+                    'parent_id' => self::get_row_id( self::media_sync_url_encode( $parents_path ) ),
                     'parents' => $parents,
                     'absolute_path' => self::media_sync_url_encode($full_path)
                 );
@@ -1198,6 +1190,24 @@ if ( !class_exists( 'MediaSync' ) ) :
                 yield $item;
             }
         }
+
+
+        /**
+         * Get row id from path.
+         * Cleanup since this will be used as HTML attribute.
+         *
+         * @param string $encoded_path
+         * @return string
+         * @since 1.4.5
+         */
+        static public function get_row_id(string $encoded_path): string {
+            if ( empty( $encoded_path ) ) {
+                return "";
+            }
+
+            return 'msc-' . str_replace( '.', '-', sanitize_file_name( $encoded_path ) );
+        }
+
 
         /**
          * Convert special characters to safe characters but keeping forward slash.

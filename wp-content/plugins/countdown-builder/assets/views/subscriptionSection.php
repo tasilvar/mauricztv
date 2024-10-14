@@ -1,5 +1,19 @@
 <?php
 use ycd\AdminHelper;
+$id = (int)$_GET['post'];
+$key = "send_newslatter_".$id;
+$sent = get_option($key);
+$newslatters = array();
+$isFree = YCD_PKG_VERSION === YCD_FREE_VERSION;
+if (!$isFree) {
+    global $wpdb;
+    
+    $newslattersData = $wpdb->get_results("SELECT id, title FROM {$wpdb->prefix}" . YCD_COUNTDOWN_NEWSLETTER_TABLE . " ORDER BY ID DESC", ARRAY_A);
+    foreach($newslattersData as $latter) {
+        $newslatters[$latter['id']] = $latter['title'];
+    }
+}
+
 ?>
 <div class="ycd-bootstrap-wrapper">
     <div class="row form-group">
@@ -12,6 +26,36 @@ use ycd\AdminHelper;
                 <span class="ycd-slider ycd-round"></span>
             </label>
         </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="ycd-enable-send-newslatter" class="ycd-label-of-input"><?php _e('After Countdown Expiration Send Newslatter', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-6">
+            <label class="ycd-switch">
+                <input type="checkbox" id="ycd-enable-send-newslatter" name="ycd-enable-send-newslatter" class="ycd-enable-subscribe-form ycd-accordion-checkbox " <?php echo esc_attr($this->getOptionValue('ycd-enable-send-newslatter')); ?>>
+                <span class="ycd-slider ycd-round"></span>
+            </label>
+        </div>
+    </div>
+    <div class="ycd-accordion-content ycd-hide-content">
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="ycd-enable-send-newslatter" class="ycd-label-of-input"><?php _e('Choose Newslatter', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-6">
+            <?php echo AdminHelper::selectBox($newslatters,$this->getOptionValue('ycd-auto-newslatter'), array('class' => 'js-ycd-select', 'name' => 'ycd-auto-newslatter')); ?>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="ycd-enable-send-newslatter" class="ycd-label-of-input"><?php _e('After Expiration send already send newslatter', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-6">
+            <p><?php echo $sent == 1 ? '<span class="ypm-autosent-newslatter">Sent a newslatter</span>': '<span class="ypm-active-newslatter">Currently Active</span>';?></p>
+            <button class="btn reset-sent-newslatter" data-id="<?php echo esc_attr($id); ?>" <?php echo empty($sent)? 'disabled': ''?>>Reset</button>
+        </div>
+    </div>
     </div>
     <div class="row form-group">
         <div class="col-md-6">

@@ -202,11 +202,14 @@ YcgGeneral.prototype.checkWooCondition = function (options) {
 		return true;
 	}
 
-	if (condition === 'stockNoEmpty' && productStockStatus === 'outofstock' ) {
+	if (condition === 'stockNoEmpty' && productStockStatus === 'instock' ) {
 		return true;
 	}
+	if (!YcdCountdownProFunctionality ) {
+		return false;
+	}
 	if (typeof YcdCountdownProFunctionality.checkProWooConditions != "function") {
-		return  status;
+		return  false;
 	}
 
 	return YcdCountdownProFunctionality.checkProWooConditions(initialStatus, options);

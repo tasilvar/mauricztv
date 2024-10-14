@@ -217,12 +217,7 @@ class RegisterPostType {
 	}
 
 	public function countdownNewsletter() {
-		if (YCD_PKG_VERSION == YCD_FREE_VERSION) {
-			wp_redirect(YCD_COUNTDOWN_PRO_URL);
-		}
-		else {
-			require_once YCD_VIEWS_PATH.'newsletter.php';
-		}
+		require_once YCD_VIEWS_PATH.'newsletters/newsletter.php';
 	}
 	
 	public function comingSoon() {

@@ -164,6 +164,10 @@ $features = [
         'title' => esc_html__("Display coupons in the notification bar", "mystickymenu"),
         'tooltip' => esc_html__("Show sale coupons for your website right from the top bar", "mystickymenu") .'<img src="'.MYSTICKYMENU_URL.'/images/show-coupon-ss.png" />'
     ],
+	[
+        'title' => esc_html__("Widget analytics", "mystickymenu"),
+        'tooltip' => esc_html__("Unlock analytics data about your bar usage. Find out how many of your visitors see the bar and click on the button.", "mystickymenu")
+    ],
     [
         'title' => esc_html__("Show menu only on scroll up/down", "mystickymenu"),
         'tooltip' => esc_html__("You can show the menu when scrolling up, down or both", "mystickymenu")
@@ -171,14 +175,22 @@ $features = [
     [
         'title' => esc_html__(" Customise notification bars for different devices", "mystickymenu"),
         'tooltip' => esc_html__("You can disable the sticky effect on desktop or mobile", "mystickymenu")
+    ],	
+	[
+        'title' => esc_html__("Set specific date & time", "mystickymenu"),
+        'tooltip' => esc_html__("Set the specific time and date for your bar to appear. Use this feature to offer time-limited coupons or to start a promotion on a specific date or time.", "mystickymenu")
     ],
 	[
         'title' => esc_html__("Page targeting", "mystickymenu"),
         'tooltip' => esc_html__("Show/hide the sticky menu on specific pages", "mystickymenu")
-    ],
+    ],	
 	[
         'title' => esc_html__("Country targeting", "mystickymenu"),
         'tooltip' => esc_html__("Show or hide your notification bar for specific countries. Create unique notification bars for different countries and tailor your messaging to specific audiences", "mystickymenu")
+    ],
+	[
+        'title' => esc_html__("User targeting", "mystickymenu"),
+        'tooltip' => esc_html__("Target your bar to users based on their login status. You can create different widgets for logged-in and logged-out visitors.", "mystickymenu")
     ],
     [
         'title' => esc_html__("CSS style", "mystickymenu"),
@@ -186,7 +198,7 @@ $features = [
     ],
     [
         'title' => esc_html__("Effects and more", "mystickymenu"),
-        'tooltip' => esc_html__("Fade/Slide, opacity, background color, transition time and more", "mystickymenu")
+        'tooltip' => esc_html__("Fade/Slide, opacity, background image, custom colors, transition time and more", "mystickymenu")
     ],
     [
         'title' => esc_html__("More capabilities for the notification bar", "mystickymenu"),
@@ -536,7 +548,7 @@ $features = [
                 <?php esc_html_e("The plugin will always keep working even if you don't renew your license", 'chaty'); ?>
             </p>
             <div class="payments">
-                <img src="<?php echo plugins_url('/images/payment.png', __FILE__) ?>" alt="Payment" class="payment-img" />
+                <img src="<?php echo esc_url(plugins_url('/images/payment.png', __FILE__)); ?>" alt="Payment" class="payment-img" />
             </div>
         </div>
     </div>
@@ -635,7 +647,7 @@ The service is professional and helpful – you are taken step by step until the
 <div class="premio-customers">
     <div class="price-container">
         <div class="customer-title"><?php esc_html_e("TRUSTED BY LEADING COMPANIES WORLDWIDE", "mystickymenu") ?></div>        
-		<img src="<?php echo plugins_url('/images/companies.webp', __FILE__);?>" alt="premio customers" />
+		<img src="<?php echo esc_url(plugins_url('/images/companies.webp', __FILE__));?>" alt="premio customers" />
     </div>
 </div>
 <div class="premio-faqs">

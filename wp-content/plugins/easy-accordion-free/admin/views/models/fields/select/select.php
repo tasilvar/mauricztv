@@ -153,7 +153,6 @@ if ( ! class_exists( 'SP_EAP_Field_select' ) ) {
 
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $this->field_after();
-
 		}
 
 		/**

@@ -119,26 +119,26 @@
     <div class="mystickymenu--serveypanel">
         <form action="#" method="post" id="mystickymenu--deactivate-form">
             <div class="mystickymenu--popup-header">
-                <h2><?php _e('Quick feedback about My Sticky Bar', "mystickymenu"); ?> 🙏</h2>
+                <h2><?php esc_html_e('Quick feedback about My Sticky Bar', "mystickymenu"); ?> 🙏</h2>
             </div>
             <div class="mystickymenu--popup-body">
-                <h3><?php _e('Your feedback will help us improve the product, please tell us why did you decide to deactivate My Sticky Bar :)', "mystickymenu"); ?></h3>
+                <h3><?php esc_html_e('Your feedback will help us improve the product, please tell us why did you decide to deactivate My Sticky Bar :)', "mystickymenu"); ?></h3>
                 <div class="form-control">
-                    <input type="email" value="<?php echo get_option( 'admin_email' ) ?>" placeholder="<?php echo _e("Email address", "mystickymenu") ?>" id="mystickymenu-deactivation-email_id">
+                    <input type="email" value="<?php echo esc_attr(get_option( 'admin_email' )) ?>" placeholder="<?php echo esc_html_e("Email address", "mystickymenu") ?>" id="mystickymenu-deactivation-email_id">
                 </div>
                 <div class="form-control">                    
-                    <textarea placeholder="<?php echo _e("Your comment", "mystickymenu") ?>" id="mystickymenu-deactivation-comment"></textarea>
+                    <textarea placeholder="<?php echo esc_html_e("Your comment", "mystickymenu") ?>" id="mystickymenu-deactivation-comment"></textarea>
                 </div>
             </div>
             <div class="mystickymenu--popup-footer">
                 <label class="mystickymenu--anonymous">
-                    <input type="checkbox"/><?php _e('Anonymous feedback', "mystickymenu"); ?>
+                    <input type="checkbox"/><?php esc_html_e('Anonymous feedback', "mystickymenu"); ?>
                 </label>
                 <input type="button" class="button button-secondary button-skip mystickymenu--popup-skip-feedback" value="Skip &amp; Deactivate">
                 <div class="action-btns">
-                    <span class="mystickymenu--spinner"><img src="<?php echo admin_url('/images/spinner.gif'); ?>" alt=""></span>
+                    <span class="mystickymenu--spinner"><img src="<?php echo esc_url(admin_url('/images/spinner.gif')); ?>" alt=""></span>
                     <input type="submit" class="button button-secondary button-deactivate mystickymenu--popup-allow-deactivate" value="Submit &amp; Deactivate" disabled="disabled">
-                    <a href="#" class="button button-primary mystickymenu--popup-button-close"><?php _e('Cancel', "mystickymenu"); ?></a>
+                    <a href="#" class="button button-primary mystickymenu--popup-button-close"><?php esc_html_e('Cancel', "mystickymenu"); ?></a>
                 </div>
             </div>
         </form>
@@ -208,7 +208,7 @@
                         action: 'mystickymenu_plugin_deactivate',
                         reason: _reason,
                         email_id: email_id,
-                        nonce: '<?php echo wp_create_nonce("mystickymenu_deactivate_nonce") ?>'
+                        nonce: '<?php echo esc_attr(wp_create_nonce("mystickymenu_deactivate_nonce")) ?>'
                     },
                     beforeSend: function () {
                         $(".mystickymenu--spinner").show();

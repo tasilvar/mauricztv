@@ -825,6 +825,7 @@ YcdCountdown.prototype.runCountdown = function (currentCountdown) {
 
 	function countdownComplete(unit, value, total){
 
+		jQuery(window).trigger('ycdCircleAction', {duration: total, allOptions})
 		if(total <= 0){
 			that.endBehavior(currentCountdown, allOptions);
 		}

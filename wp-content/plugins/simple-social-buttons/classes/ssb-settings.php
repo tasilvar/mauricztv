@@ -569,7 +569,7 @@ class Ssb_Settings {
 			$html .= sprintf( __( 'Free support is available on the %1$s plugin support forums%2$s.', 'simple-social-buttons' ), '<a href="https://wordpress.org/support/plugin/simple-social-buttons" target="_blank">', '</a>' );
 			$html .= '<br /><br />';
 		if ( ! class_exists( 'Simple_Social_Buttons_Pro' ) ) {
-			$html .= sprintf( __( 'For premium features, add-ons and priority email support, %1$s upgrade to pro%2$s.', 'simple-social-buttons' ), '<a href="https://wpbrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=help-page&utm_campaign=pro-upgrade" target="_blank">', '</a>' );
+			$html .= sprintf( __( 'For premium features, add-ons and priority email support, %1$s upgrade to pro%2$s.', 'simple-social-buttons' ), '<a href="https://simplesocialbuttons.com/pricing/?utm_source=simple-social-buttons-lite&utm_medium=help-page&utm_campaign=pro-upgrade" target="_blank">', '</a>' );
 			$html .= '<br /><br />';
 		}
 

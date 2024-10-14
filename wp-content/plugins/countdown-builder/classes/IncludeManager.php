@@ -41,6 +41,7 @@ class IncludeManager {
 			if(empty($countdownObj) || !is_object($countdownObj)) {
 				continue;
 			}
+			Countdown::runNewslatter($countdownPost, $countdownObj);
 			$isAllow = Countdown::allowToLoad($countdownPost, $countdownObj);
 
 			if(!$isAllow || !$countdownObj->allowOpen()) {

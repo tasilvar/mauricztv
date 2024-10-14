@@ -28,7 +28,7 @@
 		
 			<div class="mystickymenu-dashboard header-section">
 				<div class="mystickymenu-dashboard heading-title"><h3><?php esc_html_e( 'Dashboard', 'mystickymenu');?></h3></div>
-				<div class="mystickymenu-dashboard mystickymenu-widgets-btn-wrap"><a href="<?php echo admin_url('admin.php?page=my-stickymenu-new-welcomebar')?>" class="btn add_new_welcombar"><span class="dashicons dashicons-insert" style="font-size:18px;color:#fff;"></span>&nbsp; <?php echo esc_html_e('Add a New Bar','mystickymenu');?></a></div>
+				<div class="mystickymenu-dashboard mystickymenu-widgets-btn-wrap"><a href="<?php echo esc_url(admin_url('admin.php?page=my-stickymenu-new-welcomebar'))?>" class="btn add_new_welcombar"><span class="dashicons dashicons-insert" style="font-size:18px;color:#fff;"></span>&nbsp; <?php echo esc_html_e('Add a New Bar','mystickymenu');?></a></div>
 			</div>
 		
 			<table class="mystickymenu-widgets-lists">
@@ -66,16 +66,16 @@
 						<td>
 							<div class="tooltip">
 								<span class="tooltiptext"><?php esc_html_e('Edit','mystickymenu');?></span>
-								<a href="<?php echo admin_url("admin.php?page=my-stickymenu-welcomebar&widget=0&isedit=1" );?>" ><img src="<?php echo MYSTICKYMENU_URL; ?>/images/edit-icon.svg" /></a>
+								<a href="<?php echo admin_url("admin.php?page=my-stickymenu-welcomebar&widget=0&isedit=1" );?>" ><img src="<?php echo esc_url(MYSTICKYMENU_URL); ?>/images/edit-icon.svg" /></a>
 							</div>
 							<div class="tooltip">
 								<span class="tooltiptext"><?php esc_html_e('Duplicate','mystickymenu');?></span>
-								<a class="copyicon" href='<?php echo admin_url("admin.php?page=my-stickymenu-new-welcomebar&duplicate_from=1");?>'><img src="<?php echo MYSTICKYMENU_URL; ?>/images/copy-icon.svg" /></a>
+								<a class="copyicon" href='<?php echo admin_url("admin.php?page=my-stickymenu-new-welcomebar&duplicate_from=1");?>'><img src="<?php echo esc_url(MYSTICKYMENU_URL); ?>/images/copy-icon.svg" /></a>
 							</div>
 								
 							<div class="tooltip">
 								<span class="tooltiptext"><?php esc_html_e('Delete','mystickymenu');?></span>
-								<a href="javascript:void(0);" class="mystickymenu-delete-widget" id="delete-widget-0" data-widget-id="0"><img src="<?php echo MYSTICKYMENU_URL; ?>/images/delete-icon.svg" /></a>
+								<a href="javascript:void(0);" class="mystickymenu-delete-widget" id="delete-widget-0" data-widget-id="0"><img src="<?php echo esc_url(MYSTICKYMENU_URL); ?>/images/delete-icon.svg" /></a>
 							</div>
 							
 							
@@ -103,17 +103,17 @@
 		
 		<div class="mystickymenu-dashboard new-welcomebar-section-wrap">
 			<div class="mystickymenu-welcome-img">
-				<img src="<?php echo MYSTICKYMENU_URL; ?>/images/firstwelcombar.svg" />
+				<img src="<?php echo esc_url(MYSTICKYMENU_URL); ?>/images/firstwelcombar.svg" />
 			</div>
 			<div class="mystickymenu-newwelcomebar-contents">
 				<h2><?php esc_html_e("Welcome 🎉","mystickymenu");?></h2>
 				<p><?php esc_html_e("You're one step away from creating a bar.","mystickymenu")?> </p> 
 				<p><?php esc_html_e("Add top and bottoms bars for various purposes like showing updates, offers, countdown, flash sales, and more. You can also make any WordPress menu sticky easily.","mystickymenu");?></p>
-				<a class="copyicon add_new_welcombar" href="<?php echo admin_url('admin.php?page=my-stickymenu-new-welcomebar')?>" class="btn add_new_welcombar"><span class="dashicons dashicons-arrow-right-alt" style="font-size:18px;color:#fff;"></span>&nbsp; <?php echo esc_html_e('Add a New Bar','mystickymenu');?></a>
+				<a class="copyicon add_new_welcombar" href="<?php echo esc_url(admin_url('admin.php?page=my-stickymenu-new-welcomebar'));?>" class="btn add_new_welcombar"><span class="dashicons dashicons-arrow-right-alt" style="font-size:18px;color:#fff;"></span>&nbsp; <?php echo esc_html_e('Add a New Bar','mystickymenu');?></a>
 			</div>	
 			<div class="mystickymenu-features">
 				<div class="mystickymenu-feature-title">
-				<img src="<?php echo MYSTICKYMENU_URL; ?>/images/crown.svg" alt="My Happy SVG" />
+				<img src="<?php echo esc_url(MYSTICKYMENU_URL); ?>/images/crown.svg" alt="My Happy SVG" />
 				<?php esc_html_e("Features","mystickymenu");?></div>
 				<div class="mystickymenu-features-list">
 					<ul class="documents-wrap-list">
@@ -139,7 +139,7 @@
 					<div class="stickymenubox-title-section">
 						<h3><?php esc_html_e("Recent Leads","mystickymenu");?></h3> 
 						<?php if(isset($result) && count($result) > 0) : ?>
-						<a class="msmenu-btn" href="<?php echo admin_url('admin.php?page=my-sticky-menu-leads');?>"><?php echo esc_html_e('View All','mystickymenu');?></a>
+							<a class="msmenu-btn" href="<?php echo esc_url(admin_url('admin.php?page=my-sticky-menu-leads'));?>"><?php echo esc_html_e('View All','mystickymenu');?></a>
 						<?php endif; ?>
 					</div>
 					<?php 	
@@ -154,9 +154,9 @@
 								<?php 
 									foreach( $result as $key => $val ){
 										echo "<tr>";
-										echo "<td>".$val->contact_name." </td>";
-										echo "<td>".$val->contact_email." </td>";
-										echo "<td>".$val->contact_phone." </td>";
+										echo "<td>". esc_html($val->contact_name) ." </td>";
+										echo "<td>". esc_html($val->contact_email) ." </td>";
+										echo "<td>". esc_html($val->contact_phone) ." </td>";
 										echo "</tr>";
 									}
 								?>
@@ -165,8 +165,8 @@
 					<?php
 					}else{?>
 						<div class="stickymenu-no-lead">
-							<?php echo '<img src="'. MYSTICKYMENU_URL .'images/empty_lead.png" />'; ?>
-							<p><?php  _e("Once you get a new lead, it’ll appear here","mystickymenu");?></p>
+							<?php echo '<img src="'. esc_url(MYSTICKYMENU_URL) .'images/empty_lead.png" />'; ?>
+							<p><?php  esc_html_e("Once you get a new lead, it’ll appear here","mystickymenu");?></p>
 						</div>
 						<?php	
 					}
@@ -174,7 +174,7 @@
 					
 				</div>
 				<!-- 2 -->
-					<div class="contactus-tab-option msm-bgbox">
+				<div class="contactus-tab-option msm-bgbox">
 					<div class="contactus-title">
 						<h3>Contact Us</h3>
 					
@@ -184,7 +184,7 @@
 					</div>
 					
 					<div class="premio-footer-option">
-						<h3><img src="<?php echo MYSTICKYMENU_URL . "images/Premio.svg"; ?>" /></h3>
+						<h3><img src="<?php echo esc_url(MYSTICKYMENU_URL . "images/Premio.svg"); ?>" /></h3>
 						<div class="premio-content-list">
 							<h4>There are a lot of stuff waiting for you 🎉</h4>
 							<span>Be among the first to know about our latest features & what we're working on. Plus insider offers & flash sales</span>
@@ -201,9 +201,9 @@
 			
 			<div class="msmenu-blockbox msmenu-box50">
 			<!-- 1 -->
-			<div class="stickymenu-tab-option msm-bgbox">
+				<div class="stickymenu-tab-option msm-bgbox">
 					<div class="stickymenubox-title-section"><h3><?php esc_html_e("Sticky menu","mystickymenu");?></h3></div>
-					<dklllllllllllkiv class="stickymenu-settings">
+					<div class="stickymenu-settings">
 						<div class="settings-content">
 							<?php 
 								if(isset($mysticky_options['stickymenu_enable']) && $mysticky_options['stickymenu_enable'] == 1){
@@ -216,15 +216,15 @@
 						<div class="stickymenu-box-button settings-buttons"> 
 							<?php if(isset($mysticky_options['stickymenu_enable']) && $mysticky_options['stickymenu_enable'] == 1):
 							?>
-							<a href="<?php echo admin_url("admin.php?page=my-stickymenu-settings");?>" id="btn-config-settings" style="color:#6559f6;border-color:#c7c2fb;"><?php esc_html_e("Settings","mystickymenu"); ?></a>
+							<a href="<?php echo esc_url(admin_url("admin.php?page=my-stickymenu-settings"));?>" id="btn-config-settings" style="color:#6559f6;border-color:#c7c2fb;"><?php esc_html_e("Settings","mystickymenu"); ?></a>
 							<a href="javascript:void(0);" id="btn-config-disable" style="color:#d3465c;border-color:#efbcc4;"><?php esc_html_e("Disable","mystickymenu"); ?></a>
 							<?php else : ?>
-							<a href="<?php echo admin_url("admin.php?page=my-stickymenu-settings");?>"><?php esc_html_e("Configure","mystickymenu"); ?></a>
+							<a href="<?php echo esc_url(admin_url("admin.php?page=my-stickymenu-settings"));?>"><?php esc_html_e("Configure","mystickymenu"); ?></a>
 							<?php endif; ?>
 						</div>
-					</dklllllllllllkiv>
+					</div>
 				</div>
-			<!-- 2 -->
+				<!-- 2 -->
 				<div class="mystickymenu-tab-documentation msm-bgbox">
 					<h3>Documentation</h3>
 					<div class="stickymenu-box-container"> 

@@ -43,11 +43,7 @@ if ( ! class_exists( 'SP_EAP_Field_license' ) ) {
 		 */
 		public function render() {
 			echo wp_kses_post( $this->field_before() );
-			if ( ! empty( $this->field['preview'] ) && $this->field['preview'] ) {
-				echo '<div class="eap-woo-pro-notice">Want to add custom FAQs tab to your <a href="https://easyaccordion.io/product/ninja-t-shirt/#product-56" target="_blank"><b>product page</b></a> to increase sales? <a href="https://easyaccordion.io/pricing/?ref=1" target="_blank"><b>Upgrade to Pro!</b></a></div>';
-				echo '<div class="sp-eap-pro-field"><img src="' . esc_url( SP_EAP::include_plugin_url( 'assets/images/woo-eap.webp' ) ) . '" class="pro_preview"></div>';
-			} else {
-				?>
+			?>
 				<div class="sp-easy-accordion-license text-center">
 					<h3><?php esc_html_e( 'You\'re using Easy Accordion Lite - No License Needed. Enjoy', 'easy-accordion-free' ); ?>! 🙂</h3>
 					<p><?php esc_html_e( 'Upgrade to Easy Accordion Pro and unlock all the features.', 'easy-accordion-free' ); ?></p>
@@ -58,8 +54,7 @@ if ( ! class_exists( 'SP_EAP_Field_license' ) ) {
 					</div>
 				</div>
 				<?php
-			}
-			echo wp_kses_post( $this->field_after() );
+				echo wp_kses_post( $this->field_after() );
 		}
 	}
 }

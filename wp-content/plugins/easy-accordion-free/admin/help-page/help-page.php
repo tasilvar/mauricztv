@@ -227,6 +227,7 @@ class Easy_Accordion_Free_Help {
 						break;
 					case 'location-weather':
 					case 'gallery-slider-for-woocommerce':
+					case 'testimonial-free':
 						$image_type = 'gif';
 						break;
 				}
@@ -758,7 +759,7 @@ class Easy_Accordion_Free_Help {
 					<div class="spea-our-plugin-list">
 						<h3 class="spea-section-title">Upgrade your Website with our High-quality Plugins!</h3>
 						<div class="spea-our-plugin-list-wrap">
-							<a target="_blank" class="spea-our-plugin-list-box" href="https://wordpresscarousel.com/">
+							<a target="_blank" class="spea-our-plugin-list-box" href="https://wpcarousel.io/">
 								<i class="spea-icon-button-arrow-icon"></i>
 								<img src="https://ps.w.org/wp-carousel-free/assets/icon-256x256.png" alt="">
 								<h4>WP Carousel</h4>
@@ -766,7 +767,7 @@ class Easy_Accordion_Free_Help {
 							</a>
 							<a target="_blank" class="spea-our-plugin-list-box" href="https://realtestimonials.io/">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/testimonial-free/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/testimonial-free/assets/icon-256x256.gif" alt="">
 								<h4>Real Testimonials</h4>
 								<p>Simply collect, manage, and display Testimonials on your website and boost conversions.</p>
 							</a>
@@ -782,9 +783,9 @@ class Easy_Accordion_Free_Help {
 								<h4>Product Slider for WooCommerce</h4>
 								<p>Boost sales by interactive product Slider, Grid, and Table in your WooCommerce website or store.</p>
 							</a>
-							<a target="_blank" class="spea-our-plugin-list-box" href="https://shapedplugin.com/plugin/woocommerce-gallery-slider-pro/">
+							<a target="_blank" class="spea-our-plugin-list-box" href="https://woogallery.io">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.gif" alt="">
 								<h4>Gallery Slider for WooCommerce</h4>
 								<p>Product gallery slider and additional variation images gallery for WooCommerce and boost your sales.</p>
 							</a>

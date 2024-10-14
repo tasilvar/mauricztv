@@ -26,7 +26,7 @@ if ( ! class_exists( 'SimpleSocialButtonsPR_Admin' ) ) :
 
 			add_filter( 'plugin_row_meta', array( $this, '_row_meta' ), 10, 2 );
 
-			add_action( 'admin_footer', array( $this, 'add_deactive_modal' ) );
+//			add_action( 'admin_footer', array( $this, 'add_deactive_modal' ) );
 			add_action( 'wp_ajax_ssb_deactivate', array( $this, 'ssb_deactivate' ) );
 			add_action( 'admin_init', array( $this, 'review_notice' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -204,15 +204,15 @@ if ( ! class_exists( 'SimpleSocialButtonsPR_Admin' ) ) :
 		 * @since 1.9.0
 		 * @return void
 		 */
-		public function add_deactive_modal() {
-			global $pagenow;
-
-			if ( 'plugins.php' !== $pagenow ) {
-				return;
-			}
-
-			include SSB_PLUGIN_DIR . 'inc/ssb-deactivate-form.php';
-		}
+//		public function add_deactive_modal() {
+//			global $pagenow;
+//
+//			if ( 'plugins.php' !== $pagenow ) {
+//				return;
+//			}
+//
+//			include SSB_PLUGIN_DIR . 'inc/ssb-deactivate-form.php';
+//		}
 
 		/**
 		 * Send the user response to api.

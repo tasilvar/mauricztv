@@ -153,7 +153,7 @@ class MyStickyMenu_affiliate_program {
                     jQuery(".affiliate-popup").hide();
                     jQuery(".<?php echo esc_attr($this->plugin) ?>-premio-affiliate").hide();
                     jQuery.ajax({
-                        url: "<?php echo admin_url("admin-ajax.php") ?>",
+                        url: "<?php echo esc_url(admin_url("admin-ajax.php")) ?>",
                         data: "action=<?php echo esc_attr($this->plugin) ?>_affiliate_program&days="+dataDays+"&nonce=<?php echo esc_attr(wp_create_nonce($this->plugin."_affiliate_program")) ?>",
                         type: "post",
                         success: function() {

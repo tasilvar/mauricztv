@@ -366,6 +366,7 @@ if (!empty($couponsInfo['idAndDates'])) {
 		<div class="row">
 			<div class="col-md-6">
 				<label for="ycd-countdown-enable-woo-condition"><?php _e('Countdown Expiration WooCommerce Condition', YCD_TEXT_DOMAIN)?></label>
+				<?php echo wp_kses(ycd\ycd_info('The countdown needs to be inserted inside a WooCommerce post, and if the conditions are satisfied, the countdown will stop showing.'), $allowed_html) ?>
 			</div>
 			<div class="col-md-6">
 				<label class="ycd-switch">
@@ -389,7 +390,7 @@ if (!empty($couponsInfo['idAndDates'])) {
 	</div>
 <div class="row">
 	<div class="col-md-6">
-		<label for="ycd-countdown-enable-start-date" class="ycd-label-of-switch"><?php _e('Enable start date', YCD_TEXT_DOMAIN); echo ycd\ycd_info('Specify the date when start the countdown') ?></label>
+		<label for="ycd-countdown-enable-start-date" class="ycd-label-of-switch"><?php _e('Enable start date', YCD_TEXT_DOMAIN); echo wp_kses(ycd\ycd_info('Specify the date when start the countdown'), $allowed_html); ?></label>
 	</div>
 	<div class="col-md-6">
 		<label class="ycd-switch">
@@ -425,7 +426,7 @@ if (!empty($couponsInfo['idAndDates'])) {
 </div>
 <div class="row">
 	<div class="col-md-6">
-		<label for="ycd-scroll-to-countdown" class="ycd-label-of-switch"><?php _e('Scroll to the countdown', YCD_TEXT_DOMAIN); echo ycd\ycd_info("The browser automatically will scroll to the countdown")?></label>
+		<label for="ycd-scroll-to-countdown" class="ycd-label-of-switch"><?php _e('Scroll to the countdown', YCD_TEXT_DOMAIN); echo wp_kses(ycd\ycd_info("The browser automatically will scroll to the countdown"), $allowed_html); ?></label>
 	</div>
 	<div class="col-md-6">
 		<label class="ycd-switch">
@@ -463,7 +464,7 @@ if (!empty($couponsInfo['idAndDates'])) {
 </div>
 <div class="row">
 	<div class="col-md-6">
-		<label for="ycd-countdown-stop-inactive" class="ycd-label-of-switch"><?php _e('Stop inactive tab countdown', YCD_TEXT_DOMAIN); ?><?php  echo wp_kses($proSpan, $allowed_html); echo ycd\ycd_info('The countdown timer on the web page will pause when the tab becomes inactive and resume when the tab becomes active again.'); ?></label>
+		<label for="ycd-countdown-stop-inactive" class="ycd-label-of-switch"><?php _e('Stop inactive tab countdown', YCD_TEXT_DOMAIN); ?><?php  echo wp_kses($proSpan, $allowed_html); echo wp_kses(ycd\ycd_info('The countdown timer on the web page will pause when the tab becomes inactive and resume when the tab becomes active again.'), $allowed_html); ?></label>
 	</div>
 	<div class="col-md-6 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
 		<label class="ycd-switch">

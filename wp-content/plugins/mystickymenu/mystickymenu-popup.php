@@ -18,7 +18,7 @@
     jQuery(document).ready(function(){
         jQuery(document).on("click", ".mystickymenu-popup-box button, #mystickymenu-intro-popup", function(e){
             e.stopPropagation();
-            var nonceVal = "<?php echo wp_create_nonce("mystickymenu_update_popup_status") ?>";
+            var nonceVal = "<?php echo esc_attr(wp_create_nonce("mystickymenu_update_popup_status")) ?>";
             jQuery("#mystickymenu-intro-popup").remove();
             jQuery.ajax({
                 type: 'POST',

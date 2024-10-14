@@ -1,0 +1,96 @@
+Oct 14 2024 09:04:43
+{"Number":8,"Message":"unserialize(): Error at offset 340 of 354 bytes","File":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","Line":650}
+
+Oct 14 2024 09:04:43
+{"Number":8,"Message":"unserialize(): Error at offset 340 of 354 bytes","File":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","Line":650}
+
+Oct 14 2024 09:04:43
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:43
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:44
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:44
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:44
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:44
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:46
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:48
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:48
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:48
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:48
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:55
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:04:55
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+
+Oct 14 2024 09:04:56
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+
+Oct 14 2024 09:04:56
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+
+Oct 14 2024 09:05:06
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+
+Oct 14 2024 09:05:07
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:05:17
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:05:49
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:00
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:00
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:10
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:10
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:15
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:15
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:15
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:15
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:16
+{"type":8,"message":"Constant WP_DEBUG already defined","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-config.php","line":99}
+
+Oct 14 2024 09:06:20
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+
+Oct 14 2024 09:06:48
+{"type":1024,"message":"Funkcja wp_enqueue_script zosta\u0142a wywo\u0142ana nieprawid\u0142owo. Skrypty i style nie powinny by\u0107 rejestrowane ani dodawane do kolejek do czasu w\u0142\u0105czenia jednej z nast\u0119puj\u0105cych funkcji obs\u0142uguj\u0105cych rozszerzenia (ang. &#8222;hook&#8221;): &#8222;wp_enqueue_scripts&#8221;, &#8222;admin_enqueue_scripts&#8221; lub &#8222;login_enqueue_scripts&#8221;. Powiadomienie zosta\u0142o wywo\u0142ane przez doj\u015bcie Array. Dowiedz si\u0119 wi\u0119cej: <a>Debugowanie w WordPressie<\/a>. (Ten komunikat zosta\u0142 dodany w wersji 3.3.0.)","file":"\/Users\/maciejslawinski\/Strony\/mauricztv\/wp-includes\/functions.php","line":6031}
+

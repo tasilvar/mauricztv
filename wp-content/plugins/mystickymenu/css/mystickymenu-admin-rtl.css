@@ -363,7 +363,7 @@ span.input-px {
     vertical-align: top;
     line-height: 1;
 }
-.myStickymenu-upgrade {
+.mysticky_device_upgrade .myStickymenu-upgrade {
     float: left;
 }
 
@@ -385,10 +385,10 @@ input#submit.button.button-primary {
     border-color: #00c67c;
     text-transform: uppercase;
     border-radius: 31px;
-    font-size: 26px;
+    font-size: 20px;
     padding-right: 23px;
     padding-left: 23px;
-    height: 60px;
+    height: 40px;
     width: 200px;
     border: 0;
     box-shadow: none;
@@ -400,13 +400,13 @@ input.button.button-secondary.confirm {
     background: #969696;
     border-color: #969696;
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 20px;
     padding-right: 23px;
     padding-left: 23px;
     float: left;
     color: white;
     margin-left: 10px;
-    height: 60px;
+    height: 40px;
     width: 200px;
     border-radius: 31px;
     font-weight: 600;
@@ -1555,7 +1555,7 @@ p.udner-title {
 	content: "";
 	height: 24px;
 	width: 25px;
-	left: 2px;
+	left: 1px;
 	top: 1px;
 	background-color: #ffffff;
 	-webkit-transition: .4s;
@@ -1569,19 +1569,6 @@ p.udner-title {
 	width:46px;
 	height:24px;
 	position: relative;
-}
-
-.welcombar-status-switch .slider:before {
-	border-radius: 50%;
-	position: absolute;
-	content: "";
-	height: 15px;
-	width: 15px;
-	left: 2px;
-	top: 2px;
-	background-color: #ffffff;
-	-webkit-transition: .4s;
-	transition: .4s;
 }
 .mysticky-welcomebar-switch input:checked + .slider {
 	background-color: #7761DF;
@@ -1637,7 +1624,7 @@ p.udner-title {
 	color: #4F4F4F;
 	font-weight: 500;
 	margin-top: 0;
-	width: 200px;
+	width: 230px;
 	padding-left: 10px;
     align-items: center;
 }
@@ -1656,7 +1643,6 @@ p.udner-title {
 .mysticky-welcomebar-setting-wrap .myStickymenu-upgrade {
 	display: inline-block;
 	vertical-align: middle;
-	float: none;
 	margin-right: 12px;
 }
 .mysticky-welcomebar-setting-wrap .mysticky-welcomebar-setting-position .myStickymenu-upgrade {
@@ -1792,27 +1778,23 @@ a.create-rule {
 .mysticky-welcomebar-page-option select {
 	width: 230px;
 }
-.mysticky-welcomebar-page-option .myStickymenu-upgrade {
-	display: none;
+.mysticky-welcomebar-page-option .myStickymenu-upgrade,
+.mysticky-page-option .myStickymenu-upgrade {
+	float: none;
 	position: absolute;
-	top: 9px;
-	right: 50%;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	transform: translateX(-50%);
+	top: 0;
+	left: 0;
+	right: 0;
 	text-align: center;
-	margin-right: 0;
+	background-color: rgba(0,0,0,0);
+	bottom: 0;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.mysticky-welcomebar-page-option .myStickymenu-upgrade a {
-	padding-top: 5px;
-	padding-bottom: 7px;
-	padding-right: 20px;
-	padding-left: 20px;
-	font-size: 14px;
-	box-shadow: 0 0 3px #999;
-}
-.mysticky-welcomebar-page-option:hover .myStickymenu-upgrade {
-	display: block;
+.mysticky-welcomebar-page-option:not(:hover) .myStickymenu-upgrade {
+    display: none;
 }
 .mysticky-welcomebar-page-option .url-content {
 	display: flex;	
@@ -1821,7 +1803,6 @@ a.create-rule {
 .mysticky-welcomebar-page-option .url-content > div {
 	padding: 0 3px;
     display: inline-block;
-
 }
 /*
 .mysticky-welcomebar-page-option .url-content .mysticky-welcomebar-url-values,
@@ -2010,12 +1991,12 @@ a.create-rule {
 	color: #ffffff;
 	text-transform: uppercase;
 	border-radius: 31px;
-	font-size: 26px;
+	font-size: 20px;
 	margin-left: 10px;
 	margin-bottom: 1px;
 	padding-right: 23px;
 	padding-left: 23px;
-	height: 60px;
+	height: 40px;
 	width: 200px;
 	border: 0;
 	box-shadow: none;
@@ -2107,7 +2088,7 @@ a.create-rule {
 div#wp-mysticky_bar_text-wrap,
 div#wp-welcombar-coupon-textbar-wrap,
 #wp-mysticky_thankyou_screen_text-wrap{ 
-    width: 46%;
+    /*width: 46%;*/
 }
 
 .mystickymenu-popup {
@@ -2287,7 +2268,7 @@ div#wp-welcombar-coupon-textbar-wrap,
 .mysticky-welcomebar-setting-content-right label{
 	display: inline-block;
     vertical-align: top;
-   /* width: 100px;*/
+    width: 100px;
     padding-right: 2px;
 }
 
@@ -2295,7 +2276,7 @@ div#wp-welcombar-coupon-textbar-wrap,
 .wp-editor-area{height: 100px !important;}
 
 .mysticky-welcomebar-setting-content-right select, .mysticky-welcomebar-setting-content-right input[type="text"], .mysticky-welcomebar-setting-content-right textarea {
-    width: 350px;
+    width: 400px;
     height: 42px;
     border-radius: 20px;
     color: #32373c;
@@ -2403,7 +2384,8 @@ transform: rotate(180deg);
 font-size: 27px;
 }
 .mysticky-welcomebar-fixed.mysticky-welcomebar-showx-desktop .mysticky-welcomebar-close {
-display: inline-block;
+	display: inline-block;
+	cursor: pointer;
 }   
 
 .mysticky-welcomebar-fixed .mysticky-welcomebar-btn {
@@ -2419,6 +2401,7 @@ display: inline-block;
 }
 .mysticky-welcomebar-fixed.mysticky-welcomebar-showx-desktop .mysticky-welcomebar-close {
 	display: inline-block;
+	cursor: pointer;
 }
 
 
@@ -3063,9 +3046,6 @@ display:none;
 	width:35px;
 }
 
-.mystickymenu-features{
-	max-width: 400px;
-}
 .mystickymenu-newwelcomebar-contents{
 	max-width: 432px;
 }
@@ -3388,7 +3368,7 @@ a.add_new_welcombar{margin:auto 0;} /*------------------------------------------
 }
 
 #wp-mysticky_thankyou_screen_text-wrap {
-    width: 46%;
+    /*width: 46%;*/
 }
 
 .mysticky-welcomebar-setting-content-right .wp-editor-container textarea.wp-editor-area {
@@ -3602,7 +3582,7 @@ span.mysticky-welcomebar-colorpicker.color-x-input {
 .mysticky-collect-lead .mysticky-welcomebar-setting-content-right label {
     display: inline-block;
     vertical-align: top;
-    width: 205px;
+    width: 195px;
     padding-left: 10px;
 }
 
@@ -3971,7 +3951,7 @@ div#welcomebar-showcoupon-confirm {
   position: absolute;
   top: 0;    
   left: 35%;
-  right: auto;
+  right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0);
   text-align: center;  
@@ -4189,8 +4169,6 @@ span.select2.select2-container.select2-container--default{
   width: 22vw !important;
 }
 label.mysticky-welcomebar-switch {
-    width: 55px !important;
-    height: 30px !important;
     padding: 0 !important;
 }
 label.mysticky-welcomebar-switch .slider{
@@ -4198,15 +4176,149 @@ label.mysticky-welcomebar-switch .slider{
     height: 100%;
     position: absolute !important;
 }
+label.mysticky-welcomebar-switch {
+    width: 55px !important;
+    height: 30px !important;
+    padding: 0 !important;
+}
 .flex-top{
     align-items: flex-start;
 }
 #send_lead_email_enable{
     margin-top: 1px;
 }
+
+/* 280524 CSS */
+label:not(.mysticky-welcomebar-switch) {
+    min-width: 100px;
+}
+.myStickymenu-upgrade a {
+    line-height: 10px;
+}
+.mysticky-welcomebar-setting-content > .mysticky-welcomebar-setting-content-right {
+    max-width: 400px;
+}
+.setting-content-relative {
+    position: relative;
+}
+.setting-content-relative .myStickymenu-upgrade {
+    position: absolute;
+    left: 0;
+}
+.welcomebar-date-schedule-box.setting-content-relative:not(:hover) .myStickymenu-upgrade {
+    display: none;
+}
+.welcomebar-date-schedule-box.setting-content-relative .myStickymenu-upgrade {
+    right: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mysticky_device_upgrade .mysticky-welcomebar-setting-content > .mysticky-welcomebar-setting-content-right {
+    max-width: unset;
+}
+
+.mysticky-welcomebar-date-schedule-options label {
+    display: block;
+}
+.mysticky_device_upgrade .mysticky-welcomebar-setting-content-right label {
+    width: auto;
+}
+
+.mysticky-welcomebar-fixed-wrap {
+    gap: 8px;
+}
+.mysticky-welcomebar-content {
+    flex: 1;
+}
+.mysticky-welcomebar-static_text {
+    width: 100%;
+}
+
+.mysticky-welcomebar-date-schedule-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.mysticky-welcomebar-date-schedule-options .welcomebar-date-schedule-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.mysticky-welcomebar-date-schedule-options .welcomebar-date-schedule-box {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.mysticky-welcomebar-date-schedule-options .welcomebar-date-schedule-box .date-time-box {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.welcomebar-date-schedule-box .date-time-box label {
+    width: 120px;
+    margin-bottom: 6px;
+}
+.welcomebar-date-schedule-box .date-time-box input {
+    max-width: 100%;
+}
+.welcomebar-date-schedule-box .date-time-box .date-select-option,
+.welcomebar-date-schedule-box .date-time-box .time-select-option {
+    width: 45%;
+}
+a.mysticky-welcomebar-remove-date-schedule {
+    background: #808080;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+    color: #fff;
+    line-height: 32px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    margin-top: 27px;
+}
+
+a.welcomebar-background-image {
+    background-color: #7761DF;
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mysticky-welcomebar-date-schedule-options span.myStickymenu-upgrade {
+    margin-right: 0;
+}
+
+.mysticky-welcomebar-setting-content.send-leads-to-email label {
+    width: auto;
+    padding-left: 0;
+}
+.mysticky-welcomebar-setting-content.send-leads-to-email .myStickymenu-upgrade {
+    float: left;
+}
+.welcomebar-date-schedule-time-zone label {
+    margin-bottom: 6px;
+}
 @media only screen and (max-width: 1490px) {
     .mysticky-welcomebar-setting-action + .mysticky-welcomebar-setting-action {
         padding-right: 10px;
+    }
+	.mysticky-welcomebar-setting-content > .mysticky-welcomebar-setting-content-right {
+        width: 380px;
+    }
+    .mysticky-welcomebar-setting-right {
+        width: 400px;
     }
 }
 @media only screen and (max-width: 1366px) {
@@ -4340,7 +4452,7 @@ label.mysticky-welcomebar-switch .slider{
 
     .wrap.mystickymenu-contact-wrap .mystickymenu-btnbx {margin-bottom: 15px;}
 
-    input#submit.button.button-primary { font-size: 20px; text-align: center; padding: 0 15px;}
+    input#submit.button.button-primary { font-size: 16px; text-align: center; padding: 0 15px;}
 
 }
 @media only screen and (max-width: 1100px) {
@@ -4544,4 +4656,388 @@ label.mysticky-welcomebar-switch .slider{
     .mysticky-welcomebar-fixed .mysticky-welcomebar-close {
         right: 7px;
     }
+}
+
+.mysticky-welcomebar-full-screen-preview {
+    width: 80%;
+    z-index: 99999;
+    position: fixed !important;
+    left: 40px !important;
+    top: 50px;
+    margin-top: 0px !important;
+}
+.mystickymenu-bar-coupon-option{
+	float: right;
+}
+.mysticky-welcomebar-full-screen{
+    text-align: left;
+	float:left;
+}
+
+.mysticky-welcomebar-preview-wrap.mysticky-welcomebar-full-screen-preview-body{
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    position: fixed !important;
+    right: 0px !important;
+    top: 0px;
+    margin-top: 0px !important;
+    backdrop-filter: blur(2px);
+}
+.mysticky-welcomebar-preview-wrap.mysticky-welcomebar-full-screen-preview-body .mysticky-welcomebar-fixed-wrap{
+	justify-content: center !important;
+}
+.mysticky-welcomebar-preview-wrap.mysticky-welcomebar-full-screen-preview-body .mysticky-welcomebar-lead-content,
+.mysticky-welcomebar-preview-wrap.mysticky-welcomebar-full-screen-preview-body .mysticky-welcomebar-timer-show-right,
+.mysticky-welcomebar-preview-wrap.mysticky-welcomebar-full-screen-preview-body .mysticky-welcomebar-content{
+	width: unset !important;
+	min-width: unset;
+	margin: 0 20px !important;	
+}
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-btn {    
+    text-align: center;
+}
+.welcomebar-full-screen-btn{
+    border: 1px solid #00000047;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 5px;    
+    line-height: 20px;
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+.welcomebar-minimise-screen-btn{
+    border: 1px solid #00000047;
+    background: #d9d9d9;
+    border-radius: 3px;
+    padding: 5px;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-preview-screen{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+.welcomebar-error {
+  border: 1px solid red !important;
+}
+
+
+
+/*15-02-2024*/
+
+
+.mysticky-welcomebar-btn a {
+    outline: none !important;
+    cursor: pointer;
+    position: relative;
+}
+
+.mysticky-welcomebar-hover-effect-border1:before,
+.mysticky-welcomebar-hover-effect-border1:after {
+    position: absolute;
+    content: "";
+    height: 0%;
+    width: 2px;
+    border-radius: 4px;
+    z-index: 5;
+}
+.mysticky-welcomebar-hover-effect-border1:hover:before {
+    transition: all 0.1s 0.2s ease;
+    height: 29px;
+    z-index: 99;
+}
+.mysticky-welcomebar-hover-effect-border1:hover:after {
+    transition: all 0.1s ease;
+    height: 29px;
+    z-index: 99;
+}
+.mysticky-welcomebar-hover-effect-border1 a:before,
+.mysticky-welcomebar-hover-effect-border1 a:after {
+    position: absolute;
+    content: "";
+    z-index: 0 !important;
+}
+.mysticky-welcomebar-hover-effect-border1 a:before {
+    right: 0;
+    top: 0;
+    width: 0%;
+    height: 2px;
+    transition: all 0.1s 0.1s ease;
+}
+.mysticky-welcomebar-hover-effect-border1 a:after {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border1 a:hover:before {
+    width: 100%;    
+}
+.mysticky-welcomebar-hover-effect-border2 a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border2:before,
+.mysticky-welcomebar-hover-effect-border2:after {
+    position: absolute;
+    content: "";
+    left: 8px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+.mysticky-welcomebar-hover-effect-border2:before {
+    width: 2px;
+}
+.mysticky-welcomebar-hover-effect-border2:after {
+    width: 0%;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border2:hover:before {
+    height: 29px;
+}
+.mysticky-welcomebar-hover-effect-border2:hover:after {
+    width: 63px;
+}
+.mysticky-welcomebar-hover-effect-border2 a:before,
+.mysticky-welcomebar-hover-effect-border2 a:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+    z-index: 0 !important;
+}
+.mysticky-welcomebar-hover-effect-border2 a:before {
+    width: 2px;
+    height: 0%;
+}
+.mysticky-welcomebar-hover-effect-border2 a:after {
+    width: 0%;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border2 a:hover:before {
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border2 a:hover:after {
+    width: 100%; 
+}
+.mysticky-welcomebar-hover-effect-border3 a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border3:before,
+.mysticky-welcomebar-hover-effect-border3:after {
+    position: absolute;
+    content: "";
+    left: 8px;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-border3:before {
+    height: 14px;
+    width: 2px;
+}
+.mysticky-welcomebar-hover-effect-border3:after {
+    width: 14px;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border3:hover:before {
+    height: 29px;
+}
+.mysticky-welcomebar-hover-effect-border3:hover:after {
+    width: 63px;
+}
+.mysticky-welcomebar-hover-effect-border3 a:before,
+.mysticky-welcomebar-hover-effect-border3 a:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+    z-index: 0 !important;
+}
+.mysticky-welcomebar-hover-effect-border3 a:before {
+    width: 2px;
+    height: 50%;
+}
+.mysticky-welcomebar-hover-effect-border3 a:after {
+    width: 12px;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border3 a:hover:before {
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border3 a:hover:after {
+    width: 100%;
+}
+.mysticky-welcomebar-hover-effect-border4 a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border4:before,
+.mysticky-welcomebar-hover-effect-border4:after {
+    position: absolute;
+    content: "";
+    left: 8px;
+    bottom: 20px;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-border4:before {
+    height: 14px;
+    width: 2px;
+}
+.mysticky-welcomebar-hover-effect-border4:after {
+    width: 14px;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border4:hover:before {
+    height: 29px;
+}
+.mysticky-welcomebar-hover-effect-border4:hover:after {
+    width: 64px;
+}
+.mysticky-welcomebar-hover-effect-border4 a:before,
+.mysticky-welcomebar-hover-effect-border4 a:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-border4 a:before {
+    width: 2px;
+    height: 50%;
+}
+.mysticky-welcomebar-hover-effect-border4 a:after {
+    width: 20%;
+    height: 2px;
+}
+.mysticky-welcomebar-hover-effect-border4 a:hover:before {
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-border4 a:hover:after {
+    width: 100%;
+}
+
+.mysticky-welcomebar-hover-effect-fill1 a {
+    z-index: 1;
+}
+.mysticky-welcomebar-hover-effect-fill1 a:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+.mysticky-welcomebar-hover-effect-fill1 a:hover:after {
+    width: 100%;
+}
+.mysticky-welcomebar-hover-effect-fill1 a:active {
+    top: 2px;
+}
+.mysticky-welcomebar-hover-effect-fill2 a {
+    z-index: 1;
+}
+.mysticky-welcomebar-hover-effect-fill2 a:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    direction: ltr;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-fill2 a:hover:after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+.mysticky-welcomebar-hover-effect-fill2 a:active {
+    top: 2px;
+}
+.mysticky-welcomebar-hover-effect-fill3 a {
+    border: 0px solid #000;
+    z-index: 1;
+}
+.mysticky-welcomebar-hover-effect-fill3 a:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-fill3 a:hover:after {
+    top: 0;
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-fill3 a:active {
+    top: 2px;
+}
+.mysticky-welcomebar-hover-effect-fill4 a {
+    z-index: 1;
+}
+.mysticky-welcomebar-hover-effect-fill4 a:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-fill4 a:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+.mysticky-welcomebar-hover-effect-fill4 a:active {
+    top: 2px;
+}
+.mysticky-welcomebar-hover-effect-fill5 a {
+    border: 0px solid #000;
+    z-index: 3;
+}
+.mysticky-welcomebar-hover-effect-fill5 a:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+.mysticky-welcomebar-hover-effect-fill5 a:hover:after {
+    right: 0;
+    width: 100%;
+}
+.mysticky-welcomebar-hover-effect-fill5 a:active {
+    top: 2px;
+}
+
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-fixed.mysticky-welcomebar-timer-active .mysticky-welcomebar-btn.right-cta,
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-fixed.mysticky-welcomebar-timer-active .mysticky-welcomebar-timer-show-right,
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-fixed.mysticky-welcomebar-timer-active .mysticky-welcomebar-btn.left-cta,
+.mysticky-welcomebar-preview-screen .mysticky-welcomebar-fixed.mysticky-welcomebar-collectlead-active .mysticky-welcomebar-content,
+.mysticky-welcomebar-preview-screen .mysticky-welcomebar-fixed-wrap .mysticky-welcomebar-content {
+    flex: unset;
+}
+.mysticky-welcomebar-preview-screen .mysticky-welcomebar-fixed:not(.mysticky-welcomebar-timer-active):not(.mysticky-welcomebar-collectlead-active) .mysticky-welcomebar-content,
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-fixed.mysticky-welcomebar-collectlead-active .mysticky-welcomebar-content,
+.mysticky-welcomebar-full-screen-preview .mysticky-welcomebar-fixed-wrap .mysticky-welcomebar-content {
+	flex: 1;
 }

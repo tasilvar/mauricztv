@@ -94,7 +94,7 @@ class myStickyMenu_Pro_review_box
 	public function enqueue_scripts() {
 		if (current_user_can('manage_options')) {
 			wp_enqueue_style($this->pluginSlug."-star-rating-svg", plugins_url('css/star-rating-svg.css', __FILE__), [], MYSTICKY_VERSION);
-			wp_enqueue_script($this->pluginSlug."-star-rating-svg", plugins_url('js/jquery.star-rating-svg.min.js', __FILE__), ['jquery'], MYSTICKY_VERSION);
+			wp_enqueue_script($this->pluginSlug."-star-rating-svg", plugins_url('js/jquery.star-rating-svg.min.js', __FILE__), ['jquery'], MYSTICKY_VERSION, true);
 		}
 	}
 
@@ -461,7 +461,7 @@ class myStickyMenu_Pro_review_box
                     <span class="dashicons dashicons-no-alt"></span>
                 </button>
 
-                <p><?php printf( esc_html__("Hi there, it seems like %s is bringing you some value, and that's pretty awesome! Can you please show us some love and rate %s on WordPress? It'll only take 2 minutes of your time, and will really help us spread the word", 'mystickymenu'), "<b>".$this->pluginName."</b>", $this->pluginName);?></p>
+                <p><?php printf( esc_html__("Hi there, it seems like %1\$s is bringing you some value, and that's pretty awesome! Can you please show us some love and rate %2\$s on WordPress? It'll only take 2 minutes of your time, and will really help us spread the word", 'mystickymenu'), "<b>". esc_html($this->pluginName) ."</b>", esc_html($this->pluginName) );?></p>
 
                 <div class="<?php echo esc_attr($this->pluginSlug) ?>-premio-review-box__default__co-founder">
                     <span>
@@ -612,7 +612,7 @@ class myStickyMenu_Pro_review_box
                     const rating     = this.rating;
 
                     $.ajax({
-                        url: "<?php echo admin_url("admin-ajax.php") ?>",
+                        url: "<?php echo esc_url(admin_url("admin-ajax.php")) ?>",
                         data: {
                             action: "<?php echo esc_attr($this->pluginSlug) ?>_review_box_message",
                             rating: rating,
@@ -648,7 +648,7 @@ class myStickyMenu_Pro_review_box
 
                 FoldersFreeReview.prototype.sendHideRequest = function( dataDays = -1 ) {
                     $.ajax({
-                        url: "<?php echo admin_url("admin-ajax.php") ?>",
+                        url: "<?php echo esc_url(admin_url("admin-ajax.php")) ?>",
                         data: "action=<?php echo esc_attr($this->pluginSlug) ?>_review_box&days=" + dataDays + "&nonce=<?php echo esc_attr(wp_create_nonce($this->pluginSlug."_review_box")) ?>",
                         type: "post",
                     });

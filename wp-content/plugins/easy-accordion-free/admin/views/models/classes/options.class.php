@@ -176,7 +176,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 
 			// wp enqeueu for typography and output css.
 			parent::__construct();
-
 		}
 
 		/**
@@ -315,7 +314,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 					);
 				}
 			}
-
 		}
 
 		/**
@@ -337,7 +335,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 					)
 				);
 			}
-
 		}
 
 		/**
@@ -373,7 +370,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 			if ( $this->args['save_defaults'] && empty( $tmp_options ) ) {
 				$this->save_options( $this->options );
 			}
-
 		}
 
 		/**
@@ -542,7 +538,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 			}
 
 			return $this->options;
-
 		}
 
 		/**
@@ -590,7 +585,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 			}
 
 			add_action( 'load-' . $menu_page, array( &$this, 'add_page_on_load' ) );
-
 		}
 
 		/**
@@ -610,7 +604,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 					$screen->set_help_sidebar( $this->args['contextual_help_sidebar'] );
 				}
 			}
-
 		}
 
 		/**
@@ -832,7 +825,6 @@ if ( ! class_exists( 'SP_EAP_Options' ) ) {
 			echo '</div>';
 
 			do_action( 'eapro_options_after' );
-
 		}
 	}
 }
