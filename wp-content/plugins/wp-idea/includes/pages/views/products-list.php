@@ -483,7 +483,7 @@ $all_product = get_posts( $argsAll );
 
 	 foreach($all_product as $product) {		 
 		 echo "<div class='col-sm-6 col-lg-4'>";
-		 echo "<div class='product'>";
+		 echo '<div class="product product-id-' . $product->ID . '">';
 		 //Miniatura
 		 echo "<div class='product-thumbnail'>";
 
