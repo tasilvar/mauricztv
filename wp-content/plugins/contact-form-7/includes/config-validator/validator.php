@@ -70,34 +70,20 @@ class WPCF7_ConfigValidator {
 	/**
 	 * Constructor.
 	 */
-<<<<<<< HEAD
 	public function __construct( WPCF7_ContactForm $contact_form, $options = '' ) {
 		$options = wp_parse_args( $options, array(
-=======
-	public function __construct( WPCF7_ContactForm $contact_form, $args = '' ) {
-		$args = wp_parse_args( $args, array(
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			'include' => null,
 			'exclude' => null,
 		) );
 
 		$this->contact_form = $contact_form;
 
-<<<<<<< HEAD
 		if ( isset( $options['include'] ) ) {
 			$this->include = (array) $options['include'];
 		}
 
 		if ( isset( $options['exclude'] ) ) {
 			$this->exclude = (array) $options['exclude'];
-=======
-		if ( isset( $args['include'] ) ) {
-			$this->include = (array) $args['include'];
-		}
-
-		if ( isset( $args['exclude'] ) ) {
-			$this->exclude = (array) $args['exclude'];
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		}
 	}
 

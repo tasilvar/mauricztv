@@ -202,7 +202,7 @@ YcgGeneral.prototype.checkWooCondition = function (options) {
 		return true;
 	}
 
-	if (condition === 'stockNoEmpty' && productStockStatus === 'outofstock' ) {
+	if (condition === 'stockNoEmpty' && productStockStatus === 'instock' ) {
 		return true;
 	}
 	if (!YcdCountdownProFunctionality ) {

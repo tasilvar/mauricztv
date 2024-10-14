@@ -1,0 +1,14 @@
+body {
+    font-family: DejaVu Sans, sans-serif;
+    /*noinspection CssUnknownTarget*/
+    margin: 0;
+    text-align: center;
+}
+
+@page {
+    margin: 0;
+}
+
+#bpmj_eddcm_page .inner {
+    padding-top: 300px;
+}

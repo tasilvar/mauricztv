@@ -190,11 +190,8 @@ function monsterinsights_ajax_deactivate_addon() {
 		}
 	}
 
-<<<<<<< HEAD
 	do_action( 'monsterinsights_after_ajax_deactivate_addon', sanitize_text_field( $_POST['plugin'] ) );
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	echo json_encode( true );
 	wp_die();
 }

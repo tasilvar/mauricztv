@@ -2806,6 +2806,7 @@ html[dir=rtl] .acf-table > tbody > tr > td.order + td {
   order: 2;
   display: block;
   align-items: center;
+  max-width: 550px !important;
   margin-top: 2px;
   margin-bottom: 0;
   margin-left: 12px;
@@ -4178,35 +4179,15 @@ html[dir=rtl] .acf-table > tbody > tr > td.order + td {
 .acf-no-options-pages-wrapper .acf-options-pages-preview-upgrade-button {
   height: 48px;
   padding: 8px 48px 8px 48px !important;
-<<<<<<< HEAD
   border: none !important;
-=======
-  border-radius: 6px;
-  border: 1px;
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   gap: 6px;
   display: inline-flex;
   align-items: center;
   align-self: stretch;
-<<<<<<< HEAD
   background: radial-gradient(141.77% 141.08% at 100.26% 99.25%, #0ECAD4 0%, #7A45E5 100%);
   border-radius: 6px;
   text-decoration: none;
 }
-=======
-  background: linear-gradient(90.52deg, #3E8BFF 0.44%, #A45CFF 113.3%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
-  background-size: 180% 80%;
-  background-position: 100% 0;
-  transition: background-position 0.5s;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.acf-options-preview .acf-options-pages-preview-upgrade-button:hover,
-.acf-no-options-pages-wrapper .acf-options-pages-preview-upgrade-button:hover {
-  background-position: 0 0;
-}
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 .acf-options-preview .acf-options-pages-preview-upgrade-button:focus,
 .acf-no-options-pages-wrapper .acf-options-pages-preview-upgrade-button:focus {
   border: none;
@@ -4726,10 +4707,6 @@ html[dir=rtl] .acf-table > tbody > tr > td.order + td {
 }
 .acf-headerbar .acf-page-title .acf-pro-label {
   box-shadow: none;
-<<<<<<< HEAD
-=======
-  border: 1px solid rgba(0, 0, 0, 0.2);
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 }
 @media screen and (max-width: 880px) {
   .acf-headerbar {
@@ -6945,13 +6922,7 @@ h3.acf-sub-field-list-title:before,
   margin-bottom: 12px;
   padding-right: 10px;
   padding-left: 10px;
-<<<<<<< HEAD
   background: radial-gradient(141.77% 141.08% at 100.26% 99.25%, #0ECAD4 0%, #7A45E5 100%);
-=======
-  background: linear-gradient(90.52deg, #3E8BFF 0.44%, #A45CFF 113.3%);
-  background-size: 140% 20%;
-  background-position: 100% 0;
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   border-radius: 100px;
   color: white;
   text-decoration: none;
@@ -7230,13 +7201,10 @@ h3.acf-sub-field-list-title:before,
   width: 100%;
 }
 
-<<<<<<< HEAD
 .-left .acf-field-icon-picker {
   max-width: inherit;
 }
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 .acf-admin-page.acf-internal-post-type .acf-field-icon-picker {
   max-width: 600px;
 }

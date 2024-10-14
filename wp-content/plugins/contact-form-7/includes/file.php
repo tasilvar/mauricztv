@@ -33,7 +33,6 @@ function wpcf7_unship_uploaded_file( $file, $options = '' ) {
 		}
 	}
 
-<<<<<<< HEAD
 	if ( isset( $options['schema'] ) and isset( $options['name'] ) ) {
 		$context = array(
 			'file' => true,
@@ -41,15 +40,6 @@ function wpcf7_unship_uploaded_file( $file, $options = '' ) {
 		);
 
 		foreach ( $options['schema']->validate( $context ) as $result ) {
-=======
-	if ( isset( $args['schema'] ) and isset( $args['name'] ) ) {
-		$context = array(
-			'file' => true,
-			'field' => $args['name'],
-		);
-
-		foreach ( $args['schema']->validate( $context ) as $result ) {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			if ( is_wp_error( $result ) ) {
 				return $result;
 			}

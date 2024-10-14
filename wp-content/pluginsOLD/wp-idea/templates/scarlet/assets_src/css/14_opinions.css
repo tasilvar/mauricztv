@@ -1,0 +1,261 @@
+
+/* opinions */
+.publigo-opinions {
+    width: 100%;
+}
+
+.publigo-opinions h3 {
+    font-family: var(--secondary-font);
+    color: var(--content-header-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.publigo-opinions .flex-opinions-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.flex-opinions-container-column{
+    flex-flow: column wrap;
+}
+
+.flex-opinions-container-row{
+    flex-flow: row wrap;
+}
+
+.flex-opinions-item-two-columns {
+    width:48%;
+    margin-bottom: 10px;
+}
+
+@media(max-width:600px){
+    .flex-opinions-item-two-columns {
+        width:100%;
+        border-bottom:1px solid #bcbdc9;
+        margin-bottom: 0;
+    }
+}
+
+.flex-opinions-item-one-column {
+    width:100%;
+    border-bottom:1px solid #bcbdc9;
+}
+
+.publigo-opinions .header {
+    padding-top:20px;
+    margin-bottom:10px;
+    color:#bcbdc9;
+}
+
+.publigo-opinion-star.dashicons-star-filled,
+.publigo-opinion-star.dashicons-star-empty{
+    display:inline;
+    color:#fcb715;
+}
+
+.publigo-opinions .signature{
+    display:inline;
+    margin-left:10px;
+}
+
+.publigo-opinions .date{
+    margin-left:10px;
+}
+
+.publigo-opinions .paginacja_boxy{
+    margin-top:20px;
+}
+
+.publigo-opinions .content{
+    padding-bottom:20px;
+    line-height: 22px;
+    color: var(--lesson-text-color);
+}
+
+/* opinions form */
+.add-opinion select {
+    -webkit-appearance: initial;
+    -moz-appearance: initial;
+}
+
+.product-rating-stars input[type='radio'] {
+    /* hide visually */
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.product-rating-stars label[for]:hover {
+    cursor: pointer;
+}
+
+.product-rating-stars label:hover {
+    scale: 1.4;
+}
+
+.product-rating-stars .star-checked {
+    display: none;
+}
+
+.product-rating-stars label {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transition: .2s all;
+}
+
+.product-rating-stars label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+
+/* stars hover */
+.product-rating-stars [type='radio']:nth-of-type(1):hover ~ .stars-labels label:nth-of-type(-n+1) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(2):hover ~ .stars-labels label:nth-of-type(-n+2) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(3):hover ~ .stars-labels label:nth-of-type(-n+3) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(4):hover ~ .stars-labels label:nth-of-type(-n+4) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(5):hover ~ .stars-labels label:nth-of-type(-n+5) .star-default {
+    display: none;
+}
+
+.product-rating-stars [type='radio']:nth-of-type(1):hover ~ .stars-labels label:nth-of-type(-n+1) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(2):hover ~ .stars-labels label:nth-of-type(-n+2) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(3):hover ~ .stars-labels label:nth-of-type(-n+3) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(4):hover ~ .stars-labels label:nth-of-type(-n+4) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(5):hover ~ .stars-labels label:nth-of-type(-n+5) .star-checked {
+    display: inline-block;
+}
+
+/* stars checked */
+.product-rating-stars [type='radio']:nth-of-type(1):checked ~ .stars-labels label:nth-of-type(-n+1) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(2):checked ~ .stars-labels label:nth-of-type(-n+2) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(3):checked ~ .stars-labels label:nth-of-type(-n+3) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(4):checked ~ .stars-labels label:nth-of-type(-n+4) .star-default,
+.product-rating-stars [type='radio']:nth-of-type(5):checked ~ .stars-labels label:nth-of-type(-n+5) .star-default {
+    display: none;
+}
+
+.product-rating-stars [type='radio']:nth-of-type(1):checked ~ .stars-labels label:nth-of-type(-n+1) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(2):checked ~ .stars-labels label:nth-of-type(-n+2) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(3):checked ~ .stars-labels label:nth-of-type(-n+3) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(4):checked ~ .stars-labels label:nth-of-type(-n+4) .star-checked,
+.product-rating-stars [type='radio']:nth-of-type(5):checked ~ .stars-labels label:nth-of-type(-n+5) .star-checked {
+    display: inline-block;
+}
+/* loader */
+.add-opinion .loader {
+    border: 3px solid #ffffff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spinLessonNotesTabLoader 2s linear infinite;
+}
+
+@keyframes spinLessonNotesTabLoader {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.product-rating-stars {
+    margin: 15px 0;
+}
+
+.stars-labels label{
+    float: left;
+}
+
+.add-opinion label {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.add-opinion label button[role="link"] {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--main-color);
+}
+
+.reviewer-name {
+    margin-bottom: 25px;
+}
+
+.add-opinion-info {
+    margin: 20px 0 10px;
+    color: var(--main-text-color);
+}
+
+form.add-opinion button[type="submit"].add-opinion-button {
+    background-color: var(--main-color);
+    color: var(--generic-white-color);
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    border-radius: 6px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 2px solid var(--main-color-hover);
+    text-transform: uppercase;
+    font-size: 13px;
+    box-shadow: rgb(0 0 0 / 6%) 2px 3px 5px;
+    max-width: initial;
+    width: 190px;
+    height: 43px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+}
+
+.add-opinion-button .dashicons{
+    padding-right: 30px;
+}
+
+
+.add-opinion-wrapper .error{
+    font-size: 14px;
+    color: red;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fbf0f0;
+    border: 1px solid #F44336;
+    font-weight: 500;
+    margin: 0 0 20px;
+}
+
+.add-opinion-wrapper .success{
+    font-size: 14px;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4CAF50;
+    font-weight: 500;
+    margin: 0 0 20px;
+}
+
+.reviewed-product {
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+    background-image: url('{TEMPLATE_ASSETS_DIR}/img/select_strzalka.png');
+}

@@ -60,7 +60,6 @@ if ( ! class_exists( 'acf_field_page_link' ) ) :
 		}
 
 		/**
-<<<<<<< HEAD
 		 * Returns AJAX results for the Page Link field.
 		 *
 		 * @since 5.0.0
@@ -76,18 +75,6 @@ if ( ! class_exists( 'acf_field_page_link' ) ) :
 				if ( ! acf_current_user_can_admin() ) {
 					die();
 				}
-=======
-		 * description
-		 *
-		 * @type    function
-		 * @date    24/10/13
-		 * @since   5.0.0
-		 *
-		 * @param   $post_id (int)
-		 * @return  $post_id (int)
-		 */
-		function ajax_query() {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 				// Use the standard ACF admin nonce.
 				$nonce = '';
@@ -392,7 +379,6 @@ if ( ! class_exists( 'acf_field_page_link' ) ) :
 
 
 		/**
-<<<<<<< HEAD
 		 * Renders the Page Link field.
 		 *
 		 * @since 3.6
@@ -401,18 +387,6 @@ if ( ! class_exists( 'acf_field_page_link' ) ) :
 		 * @return void
 		 */
 		public function render_field( $field ) {
-=======
-		 * Create the HTML interface for your field
-		 *
-		 * @param   $field - an array holding all the field's data
-		 *
-		 * @type    action
-		 * @since   3.6
-		 * @date    23/01/13
-		 */
-		function render_field( $field ) {
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			// Change Field into a select
 			$field['type']    = 'select';
 			$field['ui']      = 1;

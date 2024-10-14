@@ -1,0 +1,1 @@
+<p class="no-results"><?= __( 'There are no products in the catalog at this time', BPMJ_EDDCM_DOMAIN ) ?></p>

@@ -92,7 +92,6 @@ if ( ! class_exists( 'acf_field_relationship' ) ) :
 			$key               = acf_request_arg( 'field_key', '' );
 			$conditional_logic = (bool) acf_request_arg( 'conditional_logic', false );
 
-<<<<<<< HEAD
 			if ( $conditional_logic ) {
 				if ( ! acf_current_user_can_admin() ) {
 					die();
@@ -102,25 +101,11 @@ if ( ! class_exists( 'acf_field_relationship' ) ) :
 				$nonce = '';
 				$key   = '';
 			}
-=======
-		/**
-		 * description
-		 *
-		 * @type    function
-		 * @date    24/10/13
-		 * @since   5.0.0
-		 *
-		 * @param   $post_id (int)
-		 * @return  $post_id (int)
-		 */
-		function ajax_query() {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 			if ( ! acf_verify_ajax( $nonce, $key ) ) {
 				die();
 			}
 
-<<<<<<< HEAD
 			acf_send_ajax_results( $this->get_ajax_query( $_POST ) );
 		}
 
@@ -133,28 +118,6 @@ if ( ! class_exists( 'acf_field_relationship' ) ) :
 		 * @return array
 		 */
 		public function get_ajax_query( $options = array() ) {
-=======
-			// get choices
-			$response = $this->get_ajax_query( $_POST );
-
-			// return
-			acf_send_ajax_results( $response );
-		}
-
-
-		/**
-		 * This function will return an array of data formatted for use in a select2 AJAX response
-		 *
-		 * @type    function
-		 * @date    15/10/2014
-		 * @since   5.0.9
-		 *
-		 * @param   $options (array)
-		 * @return  (array)
-		 */
-		function get_ajax_query( $options = array() ) {
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			// defaults
 			$options = wp_parse_args(
 				$options,
@@ -310,10 +273,6 @@ if ( ! class_exists( 'acf_field_relationship' ) ) :
 			return $response;
 		}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		/**
 		 * This function will return an array containing id, text and maybe description data
 		 *

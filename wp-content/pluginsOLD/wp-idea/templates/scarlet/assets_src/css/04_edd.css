@@ -1,0 +1,27 @@
+.edd-add-to-cart-label i {
+    font-size: 150%;
+    padding-right: 15px;
+    vertical-align: middle;
+}
+
+.edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label {
+    display: none;
+}
+
+.edd-loading {
+    display: none;
+}
+
+.edd-add-to-cart[data-edd-loading] .edd-loading {
+    display: inline;
+}
+
+.edd-cart-added-alert {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.edd-cart-ajax-alert {
+    display: none;
+}

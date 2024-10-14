@@ -89,7 +89,6 @@
     display: none;
   }
 }
-<<<<<<< HEAD
 #acf-field-group-fields .li-field-type .field-type-label {
   display: flex;
 }
@@ -100,12 +99,6 @@
 }
 #acf-field-group-fields .li-field-type .acf-pro-label-field-type img {
   max-width: 34px;
-=======
-#acf-field-group-fields .li-field-type .acf-pro-label-field-type {
-  margin-left: 5px;
-  display: inline;
-  padding: 4px 8px;
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 }
 #acf-field-group-fields .li-field-order {
   width: 64px;
@@ -1062,6 +1055,7 @@ html[dir=rtl] .acf-field-object.open > .handle {
   order: 2;
   display: block;
   align-items: center;
+  max-width: 550px !important;
   margin-top: 2px;
   margin-bottom: 0;
   margin-left: 12px;
@@ -2448,12 +2442,8 @@ html[dir=rtl] .acf-field-object.open > .handle {
 .acf-taxonomy-select-id,
 .acf-relationship-select-id,
 .acf-post_object-select-id,
-<<<<<<< HEAD
 .acf-page_link-select-id,
 .acf-user-select-id {
-=======
-.acf-page_link-select-id {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   color: #98A2B3;
   padding-left: 10px;
 }

@@ -1,0 +1,1 @@
+<h2 class="bg center level-2-title">{title}</h2>

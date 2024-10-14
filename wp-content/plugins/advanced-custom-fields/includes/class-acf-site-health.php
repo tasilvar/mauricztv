@@ -547,13 +547,10 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 				$options_pages    = acf_get_options_pages();
 				$ui_options_pages = array();
 
-<<<<<<< HEAD
 				if ( empty( $options_pages ) || ! is_array( $options_pages ) ) {
 					$options_pages = array();
 				}
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 				if ( $enable_options_pages_ui ) {
 					$ui_options_pages = acf_get_ui_options_pages();
 
@@ -610,16 +607,10 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 					'value' => number_format_i18n( acf_pro_get_registered_block_count() ),
 				);
 
-<<<<<<< HEAD
 				$blocks                 = acf_get_block_types();
 				$block_api_versions     = array();
 				$acf_block_versions     = array();
 				$blocks_using_post_meta = 0;
-=======
-				$blocks             = acf_get_block_types();
-				$block_api_versions = array();
-				$acf_block_versions = array();
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 				foreach ( $blocks as $block ) {
 					if ( ! isset( $block_api_versions[ 'v' . $block['api_version'] ] ) ) {
@@ -630,13 +621,10 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 						$acf_block_versions[ 'v' . $block['acf_block_version'] ] = 0;
 					}
 
-<<<<<<< HEAD
 					if ( ! empty( $block['use_post_meta'] ) ) {
 						++$blocks_using_post_meta;
 					}
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 					++$block_api_versions[ 'v' . $block['api_version'] ];
 					++$acf_block_versions[ 'v' . $block['acf_block_version'] ];
 				}
@@ -651,14 +639,11 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 					'value' => $acf_block_versions,
 				);
 
-<<<<<<< HEAD
 				$fields['blocks_using_post_meta'] = array(
 					'label' => __( 'Blocks Using Post Meta', 'acf' ),
 					'value' => number_format_i18n( $blocks_using_post_meta ),
 				);
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 				$preload_blocks = acf_get_setting( 'preload_blocks' );
 
 				$fields['preload_blocks'] = array(

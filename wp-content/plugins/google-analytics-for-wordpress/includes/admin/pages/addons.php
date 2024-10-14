@@ -141,7 +141,6 @@ function monsterinsights_get_all_addons_data() {
     return monsterinsights_perform_remote_request( 'verify-key', $body );
 }
 
-<<<<<<< HEAD
 function monsterinsights_get_addon( $installed_plugins, $addons_type, $addon, $slug ) {
 	$active          = false;
 	$installed       = false;
@@ -179,8 +178,6 @@ function monsterinsights_get_addon( $installed_plugins, $addons_type, $addon, $s
 	return $addon;
 }
 
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 /**
  * Retrieve the plugin basename from the plugin slug.
  *

@@ -96,7 +96,6 @@ if ( ! class_exists( 'acf_field_oembed' ) ) :
 		}
 
 		/**
-<<<<<<< HEAD
 		 * Returns AJAX results for the oEmbed field.
 		 *
 		 * @since 5.0.0
@@ -118,32 +117,6 @@ if ( ! class_exists( 'acf_field_oembed' ) ) :
 			wp_send_json( $this->get_ajax_query( $_POST ) );
 		}
 
-=======
-		 * description
-		 *
-		 * @type    function
-		 * @date    24/10/13
-		 * @since   5.0.0
-		 *
-		 * @param   $post_id (int)
-		 * @return  $post_id (int)
-		 */
-		function ajax_query() {
-
-			// validate
-			if ( ! acf_verify_ajax() ) {
-				die();
-			}
-
-			// get choices
-			$response = $this->get_ajax_query( $_POST );
-
-			// return
-			wp_send_json( $response );
-		}
-
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		/**
 		 * This function will return an array of data formatted for use in a select2 AJAX response
 		 *
@@ -186,7 +159,6 @@ if ( ! class_exists( 'acf_field_oembed' ) ) :
 
 
 		/**
-<<<<<<< HEAD
 		 * Renders the oEmbed field.
 		 *
 		 * @since 3.6
@@ -195,31 +167,11 @@ if ( ! class_exists( 'acf_field_oembed' ) ) :
 		 * @return void
 		 */
 		public function render_field( $field ) {
-=======
-		 * render_field()
-		 *
-		 * Create the HTML interface for your field
-		 *
-		 * @param   $field - an array holding all the field's data
-		 *
-		 * @type    action
-		 * @since   3.6
-		 * @date    23/01/13
-		 */
-		function render_field( $field ) {
-
-			// atts
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			$atts = array(
 				'class'      => 'acf-oembed',
 				'data-nonce' => wp_create_nonce( $field['key'] ),
 			);
 
-<<<<<<< HEAD
-=======
-			// <strong><?php _e("Error.", 'acf'); </strong> _e("No embed found for the given URL.", 'acf');
-			// value
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			if ( $field['value'] ) {
 				$atts['class'] .= ' has-value';
 			}

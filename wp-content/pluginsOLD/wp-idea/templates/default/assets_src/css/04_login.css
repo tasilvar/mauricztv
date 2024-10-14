@@ -1,0 +1,63 @@
+.vertical_placer{
+    background: #fff /* bg_color */ /* login_bg_file */;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.inner_placer{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#login {
+    border: 0;
+    padding: 0 15px;
+}
+
+#login p {
+    padding-bottom: 0;
+}
+
+#login .forgetmenot {
+    float: left;
+    text-align: left;
+    width: 50%;
+    padding-top: 12px;
+    padding-bottom: 17px;
+    font-size: 13px;
+}
+
+#login input[type="submit"] {
+    cursor: pointer;
+}
+
+#login #wp-submit {
+    padding: 0;
+}
+
+#login .submit {
+    float: right;
+    width: 50%;
+}
+
+#login #lostpasswordform .submit {
+    float: none;
+    width: 100%;
+}
+
+#login #nav {
+    text-align: center;
+    padding-bottom: 17px;
+    overflow: hidden;
+    clear: both;
+}
+
+#login #backtoblog {
+    text-align: center;
+}

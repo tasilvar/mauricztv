@@ -725,9 +725,6 @@ footer.entry-meta, footer.entry-footer{display:none;}
 	width: 100%;
     margin: 15px auto;
 }
-
-
-
 .products-list .title-section {
 	margin: 25px;
 }
@@ -813,18 +810,6 @@ table.product-feature td {
 .product-thumbnail, .product-thumbnail img {
 	width: 100%;
 }
-
-/* Styles for all in product */
-
-.product.product-id-2978 {
-	border: 3px solid #b70000;
-	font-size: 1rem;
-}
-
-.product-id-2978 .more-green {
-	background-color: #b70000;
-}
-
 table.product-feature td:last-child {
     text-transform: none;
 	font-weight: 600;
@@ -1082,9 +1067,6 @@ Etykiety
 }
 .label-product.sale:before { 
 	border-left-color: #ff133e;
-}
-.label-product.all-in:before { 
-	border-left-color: #b70000;
 }
 .label-product { 
 	color: #fff;

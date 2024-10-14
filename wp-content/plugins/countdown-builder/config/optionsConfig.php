@@ -146,6 +146,9 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-countdown-seconds', 'type' => 'checkbox', 'defaultValue' => 'on');
 		$options[] = array('name' => 'ycd-countdown-seconds-text', 'type' => 'text', 'defaultValue' => __('SECONDS', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-countdown-direction', 'type' => 'text', 'defaultValue' => __('Clockwise', YCD_TEXT_DOMAIN));
+		$options[] = array('name' => 'ycd-countdown-last-seconds', 'type' => 'checkbox', 'defaultValue' => 'on');
+		$options[] = array('name' => 'ycd-countdown-last-seconds-color', 'type' => 'text', 'defaultValue' => 'rgba(250, 0, 0, 1)');
+		$options[] = array('name' => 'ycd-countdown-last-seconds-duration', 'type' => 'text', 'defaultValue' => '10');
 		$options[] = array(
 			'name' => 'ycd-countdown-expire-behavior',
 			'type' => 'text',
@@ -335,6 +338,10 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-countdown-floating-padding-right', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-countdown-floating-padding-bottom', 'type' => 'text', 'defaultValue' => '0px');
 		$options[] = array('name' => 'ycd-countdown-floating-padding-left', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-text-padding-top', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-text-padding-right', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-text-padding-bottom', 'type' => 'text', 'defaultValue' => '0px');
+		$options[] = array('name' => 'ycd-countdown-floating-text-padding-left', 'type' => 'text', 'defaultValue' => '0px');
 
 		$options[] = array('name' => 'ycd-sticky-button-text', 'type' => 'text', 'defaultValue' => __('Checkout', YCD_TEXT_DOMAIN));
 		$options[] = array('name' => 'ycd-sticky-bg-color', 'type' => 'text', 'defaultValue' => '#000000');

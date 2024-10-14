@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:cc="http://creativecommons.org/ns#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	version="1.1"
+	width="47.061741"
+	height="63"
+	viewBox="0 0 47.061741 63"
+	id="Capa_1"
+	xml:space="preserve"><metadata
+	id="metadata49"><rdf:RDF><cc:Work
+	rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+	rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+	id="defs47" />
+<style>
+	/* <![CDATA[ */
+	.fill {
+		fill: #ced4e0 /* thumb_border_color */;
+		fill-opacity: 1;
+	}
+	/* ]]> */
+</style>
+<g
+	transform="matrix(0.16542727,0,0,0.16542727,-7.9691279,0)"
+	id="g3"
+	class="fill">
+	<g
+	id="g5"
+	class="fill">
+		<path
+	d="M 320.159,30.864 H 272.916 V 12.5 c 0,-6.904 -5.597,-12.5 -12.5,-12.5 -6.903,0 -12.5,5.596 -12.5,12.5 v 18.364 h -45 V 12.5 c 0,-6.904 -5.597,-12.5 -12.5,-12.5 -6.903,0 -12.5,5.596 -12.5,12.5 v 18.364 h -45 V 12.5 c 0,-6.904 -5.597,-12.5 -12.5,-12.5 -6.903,0 -12.5,5.596 -12.5,12.5 V 30.864 H 60.673 c -6.903,0 -12.5,5.597 -12.5,12.5 v 324.968 c 0,6.903 5.597,12.5 12.5,12.5 h 259.486 c 6.903,0 12.5,-5.597 12.5,-12.5 V 43.364 c 0,-6.903 -5.597,-12.5 -12.5,-12.5 z m -12.5,324.968 H 73.173 V 55.864 h 34.743 v 14.59 c 0,6.904 5.597,12.5 12.5,12.5 6.903,0 12.5,-5.596 12.5,-12.5 v -14.59 h 45 v 14.59 c 0,6.904 5.597,12.5 12.5,12.5 6.903,0 12.5,-5.596 12.5,-12.5 v -14.59 h 45 v 14.59 c 0,6.904 5.597,12.5 12.5,12.5 6.903,0 12.5,-5.596 12.5,-12.5 v -14.59 h 34.743 v 299.968 z"
+	id="path7"
+	class="fill" />
+		<path
+	d="m 264.416,139.758 h -148 c -6.903,0 -12.5,5.597 -12.5,12.5 0,6.903 5.597,12.5 12.5,12.5 h 148 c 6.903,0 12.5,-5.597 12.5,-12.5 0,-6.903 -5.597,-12.5 -12.5,-12.5 z"
+	id="path9"
+	class="fill" />
+		<path
+	d="m 264.416,209.758 h -148 c -6.903,0 -12.5,5.598 -12.5,12.5 0,6.903 5.597,12.5 12.5,12.5 h 148 c 6.903,0 12.5,-5.597 12.5,-12.5 0,-6.903 -5.597,-12.5 -12.5,-12.5 z"
+	id="path11"
+	class="fill" />
+		<path
+	d="m 264.416,279.758 h -148 c -6.903,0 -12.5,5.598 -12.5,12.5 0,6.903 5.597,12.5 12.5,12.5 h 148 c 6.903,0 12.5,-5.597 12.5,-12.5 0,-6.903 -5.597,-12.5 -12.5,-12.5 z"
+	id="path13"
+	class="fill" />
+	</g>
+</g>
+</svg>

@@ -682,18 +682,11 @@ function acf_verify_nonce( $value ) {
 }
 
 /**
-<<<<<<< HEAD
  * Returns true if the current AJAX request is valid.
-=======
- * acf_verify_ajax
- *
- * This function will return true if the current AJAX request is valid
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * It's action will also allow WPML to set the lang and avoid AJAX get_posts issues
  *
  * @since   5.2.3
  *
-<<<<<<< HEAD
  * @param string $nonce  The nonce to check.
  * @param string $action The action of the nonce.
  * @return boolean
@@ -701,15 +694,6 @@ function acf_verify_nonce( $value ) {
 function acf_verify_ajax( $nonce = '', $action = '' ) {
 	// Bail early if we don't have a nonce to check.
 	if ( empty( $nonce ) && empty( $_REQUEST['nonce'] ) ) {
-=======
- * @param   n/a
- * @return  (boolean)
- */
-function acf_verify_ajax() {
-
-	// bail early if not acf nonce
-	if ( empty( $_REQUEST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_REQUEST['nonce'] ), 'acf_nonce' ) ) {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		return false;
 	}
 
@@ -1382,7 +1366,6 @@ function acf_get_grouped_posts( $args ) {
 	return $data;
 }
 
-<<<<<<< HEAD
 /**
  * The internal ACF function to add order by post types for use in `acf_get_grouped_posts`
  *
@@ -1391,32 +1374,18 @@ function acf_get_grouped_posts( $args ) {
  * @return string The potentially modified orderby string.
  */
 function _acf_orderby_post_type( $orderby, $wp_query ) {
-=======
-function _acf_orderby_post_type( $ordeby, $wp_query ) {
-
-	// global
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	global $wpdb;
 
 	$post_types = $wp_query->get( 'post_type' );
 
 	// Prepend the SQL.
 	if ( is_array( $post_types ) ) {
-<<<<<<< HEAD
 		$post_types = array_map( 'esc_sql', $post_types );
 		$post_types = implode( "','", $post_types );
 		$orderby    = "FIELD({$wpdb->posts}.post_type,'$post_types')," . $orderby;
 	}
 
 	return $orderby;
-=======
-		$post_types = implode( "','", $post_types );
-		$ordeby     = "FIELD({$wpdb->posts}.post_type,'$post_types')," . $ordeby;
-	}
-
-	// return
-	return $ordeby;
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 }
 
 function acf_get_post_title( $post = 0, $is_search = false ) {
@@ -2747,7 +2716,6 @@ function acf_current_user_can_admin() {
 }
 
 /**
-<<<<<<< HEAD
  * Wrapper function for current_user_can( 'edit_post', $post_id ).
  *
  * @since 6.3.4
@@ -2773,8 +2741,6 @@ function acf_current_user_can_edit_post( int $post_id ): bool {
 }
 
 /**
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * acf_get_filesize
  *
  * This function will return a numeric value of bytes for a given filesize string
@@ -3177,7 +3143,6 @@ function acf_is_row_collapsed( $field_key = '', $row_index = 0 ) {
 }
 
 /**
-<<<<<<< HEAD
  * Return an image tag for the provided attachment ID
  *
  * @since 5.5.0
@@ -3191,30 +3156,6 @@ function acf_get_attachment_image( $attachment_id = 0, $size = 'thumbnail' ) {
 	// report function as deprecated
 	_deprecated_function( __FUNCTION__, '6.3.2' );
 	return false;
-=======
- * acf_get_attachment_image
- *
- * description
- *
- * @since   5.5.0
- *
- * @param   $post_id (int)
- * @return  $post_id (int)
- */
-function acf_get_attachment_image( $attachment_id = 0, $size = 'thumbnail' ) {
-
-	// vars
-	$url = wp_get_attachment_image_src( $attachment_id, 'thumbnail' );
-	$alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
-
-	// bail early if no url
-	if ( ! $url ) {
-		return '';
-	}
-
-	// return
-	$value = '<img src="' . $url . '" alt="' . $alt . '" />';
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 }
 
 /**

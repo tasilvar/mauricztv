@@ -58,7 +58,6 @@ if ( ! class_exists( 'acf_field_post_object' ) ) :
 		 * AJAX query handler for post object fields.
 		 *
 		 * @since   5.0.0
-<<<<<<< HEAD
 		 *
 		 * @return void
 		 */
@@ -93,32 +92,6 @@ if ( ! class_exists( 'acf_field_post_object' ) ) :
 		 * @return array|boolean The AJAX response array, or false on failure.
 		 */
 		public function get_ajax_query( $options = array() ) {
-=======
-		 */
-		public function ajax_query() {
-			if ( ! acf_verify_ajax() ) {
-				die();
-			}
-
-			// get choices
-			$response = $this->get_ajax_query( $_POST );
-
-			// return
-			acf_send_ajax_results( $response );
-		}
-
-
-		/**
-		 * This function will return an array of data formatted for use in a select2 AJAX response
-		 *
-		 * @since   5.0.9
-		 *
-		 * @param   array $options The options being queried for the ajax request.
-		 * @return  array The AJAX response array.
-		 */
-		public function get_ajax_query( $options = array() ) {
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			// defaults
 			$options = acf_parse_args(
 				$options,
@@ -260,10 +233,6 @@ if ( ! class_exists( 'acf_field_post_object' ) ) :
 			return $response;
 		}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		/**
 		 * This function will return an array containing id, text and maybe description data
 		 *
@@ -338,15 +307,9 @@ if ( ! class_exists( 'acf_field_post_object' ) ) :
 		 * @since 3.6
 		 *
 		 * @param array $field An array holding all the field's data.
-<<<<<<< HEAD
 		 * @return void
 		 */
 		public function render_field( $field ) {
-=======
-		 */
-		public function render_field( $field ) {
-
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			// Change Field into a select
 			$field['type']    = 'select';
 			$field['ui']      = 1;

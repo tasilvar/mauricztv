@@ -7,122 +7,70 @@
     "file": "css/WelcomeOverlay.css",
     "src": "WelcomeOverlay.css"
   },
-<<<<<<< HEAD
-  "_SettingsInfoTooltip-61cb2dba.min.js": {
-    "file": "js/chunks/SettingsInfoTooltip-61cb2dba.min.js",
+  "_ReportReAuth-bd7ca8cd.min.js": {
+    "file": "js/chunks/ReportReAuth-bd7ca8cd.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
+      "_vendor-13bf5d31.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js"
     ]
   },
-  "_SlideDownUp-38353d0b.min.js": {
+  "_SettingsInfoTooltip-c1590d73.min.js": {
+    "file": "js/chunks/SettingsInfoTooltip-c1590d73.min.js",
+    "imports": [
+      "_vendor-13bf5d31.min.js"
+    ]
+  },
+  "_SlideDownUp-ee165a82.min.js": {
     "css": [
       "css/SlideDownUp.css"
     ],
-    "file": "js/chunks/SlideDownUp-38353d0b.min.js",
+    "file": "js/chunks/SlideDownUp-ee165a82.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
+      "_vendor-13bf5d31.min.js"
     ]
   },
-  "_WelcomeOverlay-1ca4e47e.min.js": {
+  "_WelcomeOverlay-dee3b5b1.min.js": {
     "css": [
       "css/WelcomeOverlay.css"
     ],
-    "file": "js/chunks/WelcomeOverlay-1ca4e47e.min.js",
+    "file": "js/chunks/WelcomeOverlay-dee3b5b1.min.js",
     "imports": [
-      "_vendor-008d034f.min.js",
-      "_index-50f466e9.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js",
-      "_SlideDownUp-38353d0b.min.js"
+      "_vendor-13bf5d31.min.js",
+      "_index-6abfe9ae.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js",
+      "_SlideDownUp-ee165a82.min.js"
     ]
   },
-  "_WidgetReportError-9afd455d.min.js": {
-    "file": "js/chunks/WidgetReportError-9afd455d.min.js",
+  "_WidgetReportError-37110df3.min.js": {
+    "file": "js/chunks/WidgetReportError-37110df3.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
+      "_vendor-13bf5d31.min.js"
     ]
   },
-  "_date-intervals-aab17a1e.min.js": {
-    "file": "js/chunks/date-intervals-aab17a1e.min.js",
+  "_date-intervals-2f4eb617.min.js": {
+    "file": "js/chunks/date-intervals-2f4eb617.min.js",
     "imports": [
-      "_vendor-008d034f.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js"
+      "_vendor-13bf5d31.min.js",
+      "_index-6abfe9ae.min.js"
     ]
   },
-  "_html2canvas-d5400ab8.min.js": {
-    "file": "js/chunks/html2canvas-d5400ab8.min.js",
+  "_html2canvas-4266f27f.min.js": {
+    "file": "js/chunks/html2canvas-4266f27f.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
+      "_vendor-13bf5d31.min.js"
     ],
     "isDynamicEntry": true
   },
-  "_index-50f466e9.min.js": {
-    "file": "js/chunks/index-50f466e9.min.js",
+  "_index-6abfe9ae.min.js": {
+    "file": "js/chunks/index-6abfe9ae.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
+      "_vendor-13bf5d31.min.js"
     ]
   },
-  "_index-71743d89.min.js": {
+  "_index-b287854a.min.js": {
     "assets": [
       "img/logo-MonsterInsights.png",
       "img/logo-MonsterInsights@2x.png",
-=======
-  "_SettingsInfoTooltip-8ce0e85d.min.js": {
-    "file": "js/chunks/SettingsInfoTooltip-8ce0e85d.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
-    ]
-  },
-  "_SlideDownUp-80f4c9d9.min.js": {
-    "css": [
-      "css/SlideDownUp.css"
-    ],
-    "file": "js/chunks/SlideDownUp-80f4c9d9.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
-    ]
-  },
-  "_WelcomeOverlay-4cc28278.min.js": {
-    "css": [
-      "css/WelcomeOverlay.css"
-    ],
-    "file": "js/chunks/WelcomeOverlay-4cc28278.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js",
-      "_index-9dee18c5.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js",
-      "_SlideDownUp-80f4c9d9.min.js"
-    ]
-  },
-  "_WidgetReportError-60e8a049.min.js": {
-    "file": "js/chunks/WidgetReportError-60e8a049.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
-    ]
-  },
-  "_date-intervals-99bc51b5.min.js": {
-    "file": "js/chunks/date-intervals-99bc51b5.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js"
-    ]
-  },
-  "_html2canvas-9e5302fc.min.js": {
-    "file": "js/chunks/html2canvas-9e5302fc.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
-    ],
-    "isDynamicEntry": true
-  },
-  "_index-3b247c04.min.js": {
-    "file": "js/chunks/index-3b247c04.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js",
-      "_index-9dee18c5.min.js"
-    ]
-  },
-  "_index-999d9e4f.min.js": {
-    "assets": [
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
       "img/icon-info.svg",
       "img/mascot.png",
       "fonts/Roboto-Regular.woff2",
@@ -144,36 +92,13 @@
     "css": [
       "css/index.css"
     ],
-<<<<<<< HEAD
-    "file": "js/chunks/index-71743d89.min.js",
+    "file": "js/chunks/index-b287854a.min.js",
     "imports": [
-      "_vendor-008d034f.min.js",
-      "_SlideDownUp-38353d0b.min.js"
+      "_vendor-13bf5d31.min.js",
+      "_SlideDownUp-ee165a82.min.js"
     ]
   },
-  "_index-be4eb4c2.min.js": {
-    "file": "js/chunks/index-be4eb4c2.min.js",
-    "imports": [
-      "_vendor-008d034f.min.js",
-      "_index-50f466e9.min.js"
-    ]
-  },
-  "_vendor-008d034f.min.js": {
-=======
-    "file": "js/chunks/index-999d9e4f.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js",
-      "_SlideDownUp-80f4c9d9.min.js"
-    ]
-  },
-  "_index-9dee18c5.min.js": {
-    "file": "js/chunks/index-9dee18c5.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
-    ]
-  },
-  "_vendor-abf23f8e.min.js": {
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+  "_vendor-13bf5d31.min.js": {
     "assets": [
       "img/sucker.png"
     ],
@@ -181,19 +106,11 @@
       "css/vendor.css"
     ],
     "dynamicImports": [
-<<<<<<< HEAD
-      "_html2canvas-d5400ab8.min.js",
+      "_html2canvas-4266f27f.min.js",
       "node_modules/dompurify/dist/purify.es.js",
       "node_modules/canvg/lib/index.es.js"
     ],
-    "file": "js/chunks/vendor-008d034f.min.js"
-=======
-      "_html2canvas-9e5302fc.min.js",
-      "node_modules/dompurify/dist/purify.es.js",
-      "node_modules/canvg/lib/index.es.js"
-    ],
-    "file": "js/chunks/vendor-abf23f8e.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+    "file": "js/chunks/vendor-13bf5d31.min.js"
   },
   "index.css": {
     "file": "css/index.css",
@@ -204,25 +121,15 @@
     "src": "node_modules/@caohenghu/vue-colorpicker/src/img/sucker.png"
   },
   "node_modules/canvg/lib/index.es.js": {
-<<<<<<< HEAD
-    "file": "js/chunks/index.es-cfc47da8.min.js",
+    "file": "js/chunks/index.es-8ccbf3d1.min.js",
     "imports": [
-      "_vendor-008d034f.min.js"
-=======
-    "file": "js/chunks/index.es-02af04ac.min.js",
-    "imports": [
-      "_vendor-abf23f8e.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/canvg/lib/index.es.js"
   },
   "node_modules/dompurify/dist/purify.es.js": {
-<<<<<<< HEAD
-    "file": "js/chunks/purify.es-bcf8a077.min.js",
-=======
-    "file": "js/chunks/purify.es-2ba3e0d8.min.js",
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+    "file": "js/chunks/purify.es-f1fd0f50.min.js",
     "isDynamicEntry": true,
     "src": "node_modules/dompurify/dist/purify.es.js"
   },
@@ -378,7 +285,6 @@
     "file": "img/badge-light.svg",
     "src": "src/assets/img/badge-light.svg"
   },
-<<<<<<< HEAD
   "src/assets/img/charlie-ai.svg": {
     "file": "img/charlie-ai.svg",
     "src": "src/assets/img/charlie-ai.svg"
@@ -391,8 +297,6 @@
     "file": "img/charlie-with-heart.svg",
     "src": "src/assets/img/charlie-with-heart.svg"
   },
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   "src/assets/img/check.svg": {
     "file": "img/check.svg",
     "src": "src/assets/img/check.svg"
@@ -409,13 +313,10 @@
     "file": "img/ecommerce-report.png",
     "src": "src/assets/img/ecommerce-report.png"
   },
-<<<<<<< HEAD
   "src/assets/img/em-ai-insights.svg": {
     "file": "img/em-ai-insights.svg",
     "src": "src/assets/img/em-ai-insights.svg"
   },
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   "src/assets/img/flags.png": {
     "file": "img/flags.png",
     "src": "src/assets/img/flags.png"
@@ -596,7 +497,6 @@
     "file": "img/lifterlms.png",
     "src": "src/assets/img/lifterlms.png"
   },
-<<<<<<< HEAD
   "src/assets/img/logo-ExactMetrics.png": {
     "file": "img/logo-ExactMetrics.png",
     "src": "src/assets/img/logo-ExactMetrics.png"
@@ -613,8 +513,6 @@
     "file": "img/logo-MonsterInsights@2x.png",
     "src": "src/assets/img/logo-MonsterInsights@2x.png"
   },
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   "src/assets/img/mascot.png": {
     "file": "img/mascot.png",
     "src": "src/assets/img/mascot.png"
@@ -751,13 +649,14 @@
     "file": "img/reports-upsell-bg.png",
     "src": "src/assets/img/reports-upsell-bg.png"
   },
-<<<<<<< HEAD
   "src/assets/img/reports/lite-modals/bg-ai-insights.png": {
     "file": "img/bg-ai-insights.png",
     "src": "src/assets/img/reports/lite-modals/bg-ai-insights.png"
   },
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+  "src/assets/img/reports/lite-modals/bg-conversations-ai.png": {
+    "file": "img/bg-conversations-ai.png",
+    "src": "src/assets/img/reports/lite-modals/bg-conversations-ai.png"
+  },
   "src/assets/img/reports/lite-modals/bg-dimensions@2x.png": {
     "file": "img/bg-dimensions@2x.png",
     "src": "src/assets/img/reports/lite-modals/bg-dimensions@2x.png"
@@ -1122,7 +1021,6 @@
     "file": "img/yir-time-spent-table-icon.svg",
     "src": "src/assets/img/yir-time-spent-table-icon.svg"
   },
-<<<<<<< HEAD
   "src/modules/feature-feedback/icons/nps/rate-1.svg": {
     "file": "img/rate-1.svg",
     "src": "src/modules/feature-feedback/icons/nps/rate-1.svg"
@@ -1143,8 +1041,6 @@
     "file": "img/rate-5.svg",
     "src": "src/modules/feature-feedback/icons/nps/rate-5.svg"
   },
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
   "src/modules/frontend/frontend.css": {
     "file": "css/frontend.css",
     "src": "src/modules/frontend/frontend.css"
@@ -1158,17 +1054,10 @@
     ],
     "file": "js/frontend.min.js",
     "imports": [
-<<<<<<< HEAD
-      "_vendor-008d034f.min.js",
-      "_index-be4eb4c2.min.js",
-      "_WidgetReportError-9afd455d.min.js",
-      "_index-50f466e9.min.js"
-=======
-      "_vendor-abf23f8e.min.js",
-      "_index-3b247c04.min.js",
-      "_WidgetReportError-60e8a049.min.js",
-      "_index-9dee18c5.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js",
+      "_date-intervals-2f4eb617.min.js",
+      "_WidgetReportError-37110df3.min.js",
+      "_index-6abfe9ae.min.js"
     ],
     "isEntry": true,
     "src": "src/modules/frontend/frontend.js"
@@ -1179,7 +1068,6 @@
   },
   "src/modules/reports/reports.js": {
     "assets": [
-<<<<<<< HEAD
       "img/rate-1.svg",
       "img/rate-2.svg",
       "img/rate-3.svg",
@@ -1188,8 +1076,6 @@
       "img/charlie-with-heart.svg",
       "img/charlie-front.svg",
       "img/charlie-ai.svg",
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
       "img/flags.png",
       "img/yir-mi-hero.svg",
       "img/yir-icon-visitors.svg",
@@ -1261,35 +1147,22 @@
       "img/bg-ecommerce-coupons@2x.png",
       "img/bg-engagement-pages@2x.png",
       "img/social-media-report@2x.png",
-<<<<<<< HEAD
       "img/exceptions-report.png",
-      "img/bg-ai-insights.png"
-=======
-      "img/exceptions-report.png"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "img/bg-ai-insights.png",
+      "img/bg-conversations-ai.png"
     ],
     "css": [
       "css/reports.css"
     ],
     "file": "js/reports.min.js",
     "imports": [
-<<<<<<< HEAD
-      "_vendor-008d034f.min.js",
-      "_index-be4eb4c2.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js",
-      "_date-intervals-aab17a1e.min.js",
-      "_index-71743d89.min.js",
-      "_index-50f466e9.min.js",
-      "_SlideDownUp-38353d0b.min.js"
-=======
-      "_vendor-abf23f8e.min.js",
-      "_index-3b247c04.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js",
-      "_date-intervals-99bc51b5.min.js",
-      "_index-999d9e4f.min.js",
-      "_index-9dee18c5.min.js",
-      "_SlideDownUp-80f4c9d9.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js",
+      "_date-intervals-2f4eb617.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js",
+      "_ReportReAuth-bd7ca8cd.min.js",
+      "_index-b287854a.min.js",
+      "_index-6abfe9ae.min.js",
+      "_SlideDownUp-ee165a82.min.js"
     ],
     "isEntry": true,
     "src": "src/modules/reports/reports.js"
@@ -1432,21 +1305,12 @@
     ],
     "file": "js/settings.min.js",
     "imports": [
-<<<<<<< HEAD
-      "_vendor-008d034f.min.js",
-      "_index-50f466e9.min.js",
-      "_SlideDownUp-38353d0b.min.js",
-      "_WelcomeOverlay-1ca4e47e.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js",
-      "_index-71743d89.min.js"
-=======
-      "_vendor-abf23f8e.min.js",
-      "_index-9dee18c5.min.js",
-      "_SlideDownUp-80f4c9d9.min.js",
-      "_WelcomeOverlay-4cc28278.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js",
-      "_index-999d9e4f.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js",
+      "_index-6abfe9ae.min.js",
+      "_SlideDownUp-ee165a82.min.js",
+      "_WelcomeOverlay-dee3b5b1.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js",
+      "_index-b287854a.min.js"
     ],
     "isEntry": true,
     "src": "src/modules/settings/settings.js"
@@ -1533,10 +1397,8 @@
       "img/bg-engagement-pages@2x.png",
       "img/social-media-report@2x.png",
       "img/exceptions-report.png",
-<<<<<<< HEAD
       "img/bg-ai-insights.png",
-=======
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "img/bg-conversations-ai.png",
       "img/mascot.png"
     ],
     "css": [
@@ -1544,21 +1406,12 @@
     ],
     "file": "js/widget.min.js",
     "imports": [
-<<<<<<< HEAD
-      "_vendor-008d034f.min.js",
-      "_index-be4eb4c2.min.js",
-      "_date-intervals-aab17a1e.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js",
-      "_WidgetReportError-9afd455d.min.js",
-      "_index-50f466e9.min.js"
-=======
-      "_vendor-abf23f8e.min.js",
-      "_index-3b247c04.min.js",
-      "_date-intervals-99bc51b5.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js",
-      "_WidgetReportError-60e8a049.min.js",
-      "_index-9dee18c5.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js",
+      "_date-intervals-2f4eb617.min.js",
+      "_ReportReAuth-bd7ca8cd.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js",
+      "_WidgetReportError-37110df3.min.js",
+      "_index-6abfe9ae.min.js"
     ],
     "isEntry": true,
     "src": "src/modules/widget/widget.js"
@@ -1605,19 +1458,11 @@
     ],
     "file": "js/wizard.min.js",
     "imports": [
-<<<<<<< HEAD
-      "_vendor-008d034f.min.js",
-      "_WelcomeOverlay-1ca4e47e.min.js",
-      "_SettingsInfoTooltip-61cb2dba.min.js",
-      "_index-50f466e9.min.js",
-      "_SlideDownUp-38353d0b.min.js"
-=======
-      "_vendor-abf23f8e.min.js",
-      "_WelcomeOverlay-4cc28278.min.js",
-      "_SettingsInfoTooltip-8ce0e85d.min.js",
-      "_index-9dee18c5.min.js",
-      "_SlideDownUp-80f4c9d9.min.js"
->>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+      "_vendor-13bf5d31.min.js",
+      "_WelcomeOverlay-dee3b5b1.min.js",
+      "_SettingsInfoTooltip-c1590d73.min.js",
+      "_index-6abfe9ae.min.js",
+      "_SlideDownUp-ee165a82.min.js"
     ],
     "isEntry": true,
     "src": "src/modules/wizard-onboarding/wizard.js"

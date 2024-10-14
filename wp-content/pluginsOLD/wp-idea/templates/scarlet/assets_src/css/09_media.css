@@ -1,0 +1,1454 @@
+/* ----------------------------- mobile --------------------------------- */
+@media(max-width: 1200px){
+    .lekcja_top_opis__label--short{
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 1130px) {
+
+    #stopka .col-sm-7 {
+        float: right;
+        width: 58.33333333%;
+    }
+
+    #stopka .col-sm-5 {
+        width: 41.66666667%;
+        float: left;
+    }
+
+    #header .col-sm-4 {
+        float: left;
+    }
+
+    #header .col-sm-8 {
+        float: right;
+    }
+
+    .etapy_kursu.col-sm-6 {
+        width: 100%;
+        float: none;
+    }
+
+    .paginacja {
+        left: 0;
+    }
+
+    .glowna_box_zdjecie.col-sm-4 {
+        padding: 0;
+    }
+
+    .kontakt_right {
+        margin-top: 22px;
+    }
+
+    .text_ikona {
+        padding: 0 45px 45px 30px;
+        overflow: hidden;
+    }
+
+    #content .kontakt_right {
+        float: right;
+        width: 41.66666667%;
+    }
+
+    #content .kontakt_left {
+        float: left;
+        width: 58.33333333%;
+    }
+
+    #formularz_konto .col-sm-4:nth-child(1) {
+        width: 60%;
+        float: left;
+    }
+
+    #formularz_konto .col-sm-4:nth-child(2) {
+        margin-left: 0;
+        width: 40%;
+        float: left;
+    }
+
+    .contenter .content_koszyk {
+        margin: 0;
+        padding-right: 15px;
+        max-width: 100%;
+        width: 100%;
+        float: none;
+    }
+
+    .koszyk_form, .content_koszyk .edd_form {
+        width: 58%;
+        float: left;
+    }
+
+    .tytul_ikona img {
+        padding-right: 0;
+    }
+
+    .koszyk_right.col-sm-4 {
+        width: 40%;
+        float: right;
+        margin-top: 25px;
+    }
+
+    .page .content_koszyk h2 {
+        margin-top: 0;
+    }
+
+    .podsumowanie_contenter .col-sm-6 {
+        float: left;
+        width: 50%;
+    }
+
+    .lekcja_top .col-sm-6:nth-child(1) {
+        float: none;
+        padding-right: 0;
+        width: initial;
+        padding-left: 0;
+    }
+
+    .lekcja_top .col-sm-6:nth-child(2) {
+        float: none;
+        padding-left: 0;
+        width: calc(100% - 300px);
+        padding-right: 0;
+    }
+
+    .lekcja_top .col-sm-6 {
+        display: inline-block;
+        float: none;
+        vertical-align: middle;
+    }
+
+    .lekcja_top_opis span:nth-child(2), .lekcja_top_postep span {
+        display: none;
+    }
+
+    .lekcja_top_opis span:nth-child(3) {
+        padding-left: 0;
+    }
+
+    .lekcja_top_postep {
+        float: left;
+    }
+
+    .postep_contenter {
+        width: auto;
+        background: none;
+    }
+
+    .postep_contenter_postep {
+        background: none;
+        position: static;
+        width: auto !important;
+    }
+
+    .postep_liczba {
+        font-size: 14px;
+        line-height: 15px;
+        padding-left: 2px;
+        color: var(--alt-text-color);
+        font-weight: 600;
+        font-family: var(--secondary-font);
+        float: left;
+    }
+
+    .ukonczony_material {
+        float: right;
+        margin-left: 10px;
+    }
+
+    .ukonczony_material input {
+        margin-top: 0 !important;
+    }
+
+    .ukonczony_material label {
+        margin-top: 1px;
+    }
+
+    #content .lekcje_tytul h1 {
+        font-size: 36px;
+        padding-top: 35px;
+    }
+
+    .lekcje_tytul .col-sm-7 {
+        display: table-cell;
+        width: calc(100% - 10px);
+    }
+
+    .lekcje_tytul .col-sm-5.lekcje_paginacja {
+        width: 120px;
+    }
+
+    .lekcja_nast_pop {
+        font-size: 0;
+        width: 30px;
+        text-align: center;
+        margin: 0 4px;
+        padding: 11px 5px;
+        box-shadow: 1px 2px 5px 0 rgba(30, 29, 21, 0.16)
+    }
+
+    .lekcje_paginacja .lekcja_nast_pop.lekcja_pop {
+        margin: 0 6px 0 0;
+    }
+
+    .lekcja_nas i, .lekcja_pop i {
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .etapy_kursu.col-sm-6:nth-child(2) .etap_kursu {
+        box-shadow: 0 10px 17px -1px rgba(0, 0, 0, 0.05);
+        top: -2px;
+        position: relative;
+    }
+
+    .etap_kursu #tab_cont_komentarze .komentarz p:nth-child(3) {
+        max-width: calc(100% - 100px);
+    }
+
+    .modul .lekcja_top {
+        padding-bottom: 13px;
+
+    }
+
+    .modul .lekcja_top .ukonczony_material {
+        display: none;
+    }
+
+    .modul .contenter_tresci .col-sm-4 {
+        width: 50%;
+    }
+
+    .modul .lekcja_top .col-sm-6:nth-child(2) {
+        width: initial;
+    }
+
+    #content h1, #content .lekcje_tytul h1 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .panel_kursu_tresci > div {
+        float: none;
+        width: 100%;
+    }
+
+    .panel_kursu_moduly .col-sm-4 {
+        width: 50%;
+    }
+
+    .lekcja_top .col-sm-6.tablet_initial:nth-child(2) {
+        width: initial;
+    }
+
+    .quiz .quizy_contenter_postep {
+        overflow: hidden;
+    }
+
+    .quiz .quizy_contenter_postep .lekcja_top_postep span {
+        display: inline-block;
+    }
+
+    .quiz .quizy_contenter_postep .postep_contenter {
+        background: var(--bg-color);
+    }
+
+    .quiz .quizy_contenter_postep .postep_contenter_postep {
+        background: var(--main-color);
+    }
+
+    .quiz .postep_liczba {
+        color: white;
+    }
+
+    .quizy_contenter_quiz_odp ul {
+        width: 100%;
+        float: none;
+    }
+
+    .quizy_contenter_quiz_tytul p {
+        max-width: calc(100% - 40px);
+    }
+
+    .quizy_contenter_quiz select {
+        width: 100%;
+    }
+
+    .strona_kursu_sidebar.fixed, .strona_kursu_sidebar {
+        position: initial;
+        max-width: 100%;
+    }
+
+    .strona_kursu .contenter_tresci .col-sm-5, .strona_kursu .contenter_tresci .col-sm-7 {
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 1000px){
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title{
+        float:right;
+        padding: 0;
+        min-height:auto;
+        width:80%;
+        display: block;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        float:right;
+        min-height:auto;
+        width:80%;
+        display: flex;
+        padding-top: 10px;
+    }
+}
+
+@media(max-width: 900px){
+
+    .podsumowanie_koszyk td .checkout_cart_title{
+        float:right;
+        padding: 0;
+        min-height:auto;
+        width:80%;
+        display: block;
+    }
+
+    .podsumowanie_koszyk td .checkout_cart_price_button{
+        float:right;
+        min-height:auto;
+        width:80%;
+        display: flex;
+        padding-top: 10px;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:77%;
+    }
+
+    .lekcja_top_nav{
+        margin-top: 0;
+    }
+
+    .lekcja_top--low-padding div#course-progress{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .lekcja_top--low-padding div#course-progress {
+        width: initial;
+        margin-left: 0;
+    }
+    
+    .lekcja_top .flexbox {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    .lekcja_top_postep {
+        margin: 0;
+    }
+    
+    .lekcja_top_postep i {
+        margin-top: -1px;
+    }
+}
+
+@media(max-width: 800px){
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:78%;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:81%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:84%;
+    }
+
+    .podsumowanie_koszyk .traditional-transfer{
+      padding-left:20px;
+    }
+
+    .widok .view-mode {
+        display: none;
+    }
+
+    .glowna_box_zdjecie {
+        height: initial;
+        max-height: initial;
+    }
+
+    .quizy_contenter_postep .czas_lekcji {
+        width: calc(100% - 131px);
+    }
+
+    .quizy_contenter_postep .lekcja_top_postep {
+        margin-right: 0;
+        float: none;
+        vertical-align: middle;
+    }
+
+    .koszyk_form .row .col-sm-8, .koszyk_form .row .col-sm-4, .content_koszyk .edd_form .row .col-sm-8, .content_koszyk .edd_form .row .col-sm-4 {
+        width: 50%;
+        float: left;
+    }
+
+    button#edd-payu-button-pay-for-all-standard, 
+    button#edd-tpay-button-pay-for-all-standard,
+    #edd-purchase-button, 
+    .edd-payu-submit-button, 
+    .edd-tpay-submit-button {
+        text-align: center;
+    }
+    
+    .podsumowanie_koszyk tr {
+        border-bottom: 1px solid var(--cart-border-color);
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+
+    .pliki_do_pobrania {
+        margin-bottom: 0;
+    }
+
+    .lekcja_top_opis {
+        padding-right: 10px;
+    }
+
+    #menu li ul li a .fa {
+        right: -2px;
+        top: 0;
+    }
+
+    #header {
+        /* position: absolute; */
+    }
+    
+    .admin-bar #header{
+        top: 0;
+    }
+
+    .admin-bar .lekcja_top--sticky{
+        top: 62px;
+    }
+
+    #header,
+    .admin-bar #header{
+        margin-top: 0;
+    }
+
+    #menu li.active > ul,
+    #menu li.active .sub-menu-scroll-wrapper > ul {
+        display: block;
+    }
+
+    .quiz .quizy_contenter_postep .postep_contenter_postep {
+        background: none;
+        width: initial !important;
+    }
+
+    .quiz .quizy_contenter_postep .postep_contenter {
+        width: 38px;
+        background: none;
+    }
+
+    .quizy_contenter_paginacja {
+        margin-top: 20px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    #quizy_contenter_paginacja_prev {
+        margin: 0 5px;
+    }
+
+    .quiz .postep_liczba {
+        font-size: 14px;
+        line-height: 15px;
+        padding-left: 2px;
+        color: var(--main-color);;
+        font-weight: 600;
+        font-family: var(--secondary-font);
+    }
+
+    .quiz .quizy_contenter_postep .lekcja_top_postep span {
+        padding-right: 0;
+    }
+
+    .strona_kursu_sidebar.fixed, .strona_kursu_sidebar {
+        position: initial;
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .krotki_slider > div > div {
+        font-size: 34px;
+        line-height: 38px;
+        max-width: calc(100% - 50px);
+    }
+
+    .panel-kursu .etapy_kursu.col-sm-6:last-child {
+        margin-bottom: 50px;
+    }
+
+    .modul .contenter_tresci .col-sm-4, .panel_kursu_moduly .col-sm-4 {
+        width: 100%;
+    }
+
+    #content .kontakt_left, #content .kontakt_right {
+        width: 100%;
+        float: none;
+        margin-top: 0;
+    }
+
+    .text_ikona {
+        padding: 0 0 45px 0;
+        overflow: hidden;
+    }
+
+    #content h1, #content .lekcje_tytul h1 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .contenter_lekcji.contenter {
+        padding-bottom: 77px;
+        position: relative;
+    }
+
+    .lekcje_tytul {
+        display: initial;
+    }
+
+    .lekcje_tytul .col-sm-7, .pliki_do_pobrania .col-sm-12 {
+        display: block;
+        width: 100%;
+        float: none;
+        padding: 0;
+    }
+
+    .pliki_do_pobrania .row {
+        margin: 0;
+    }
+
+    .lekcje_tytul .col-sm-5.lekcje_paginacja {
+        position: absolute;
+        width: 100%;
+        display: block;
+        left: 0;
+        bottom: 40px;
+        text-align: center;
+    }
+
+    #tab_cont_komentarze ul ul li > div {
+        padding-left: 30px;
+    }
+
+    .tab_cont h3 span {
+        display: block;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    #tab_cont_komentarze .komentarz p:nth-child(3) {
+        max-width: 100%;
+    }
+
+    .notatka_tresc {
+        width: calc(100% - 60px);
+    }
+
+    .notatka_opcje {
+        width: 50px;
+    }
+
+    .notatka_opcje a {
+        display: block;
+        padding: 17px 0;
+    }
+
+    #tab_cont_komentarze .komentarz a.comment-reply-link {
+        float: none;
+        padding-left: 10px;
+    }
+
+    .lekcja_nast_pop {
+        font-size: 11px;
+        width: initial;
+    }
+
+    .lekcja_nas i {
+        padding-left: 10px;
+        position: relative;
+        top: 2px;
+    }
+
+    .lekcja_pop i {
+        padding-right: 10px;
+        position: relative;
+        top: 2px;
+    }
+
+    .breadcrumbs {
+        margin-bottom: 40px;
+    }
+
+    #stopka .col-sm-7, #stopka .col-sm-5 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #stopka .col-sm-7 {
+        margin-bottom: 20px;
+    }
+
+    #stopka .col-sm-7 ul {
+        text-align: center;
+    }
+
+    #stopka ul li a {
+        color: white;
+        line-height: 15px;
+    }
+
+    #stopka {
+        margin-top: 0;
+    }
+
+    #formularz_konto .col-sm-4:nth-child(1) {
+        width: 100%;
+        float: none;
+        position: initial;
+    }
+
+    #formularz_konto {
+        position: relative;
+        padding-bottom: 90px;
+    }
+
+    #formularz_konto .col-sm-4:nth-child(2) {
+        width: 100%;
+        float: none;
+        margin-top: 20px;
+    }
+
+    .koszyk_right {
+        width: 100%;
+        float: none;
+        margin-bottom: 50px;
+    }
+
+    .koszyk_form, .content_koszyk .edd_form {
+        width: 100%;
+        float: none;
+    }
+
+    .podsumowanie_contenter {
+        padding: 20px 0;
+    }
+
+    .podsumowanie_contenter .col-sm-6:nth-child(1) {
+        float: none;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .podsumowanie_contenter .col-sm-6 {
+        float: none;
+        width: 100%;
+    }
+
+    .podsumowanie_contenter .podsumowanie {
+        text-align: left;
+    }
+
+    .podsumowanie_koszyk td:nth-child(1) {
+        border-right: none;
+        display: block;
+        border-bottom: none;
+        padding-top: 20px;
+        overflow: hidden;
+        padding-bottom: 25px;
+    }
+
+    .podsumowanie_koszyk td img {
+        float: left;
+    }
+
+    .podsumowanie_koszyk .edd_cart_item_price_net, .podsumowanie_koszyk .edd_cart_item_price {
+        width: 100%;
+        display: initial;
+        border: none;
+        text-align: left;
+        margin-top: 0;
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .podsumowanie_koszyk .edd_cart_actions {
+        border: none;
+    }
+
+    .podsumowanie_koszyk thead {
+        /*display: none;*/
+    }
+
+    .podsumowanie_koszyk td .podsumowanie_koszyk_promo_price {
+        display: inline-block;
+        margin: 0;
+        width: initial;
+    }
+
+    .podsumowanie_koszyk td .podsumowanie_koszyk_price {
+        width: initial;
+        margin-right: 10px;
+    }
+
+    .podsumowanie_koszyk tr {
+        border-bottom: 1px solid var(--cart-border-color);
+    }
+
+    .lekcja_top {
+        /* position: relative; */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .lekcja_top[data-progress="enabled"] {
+        /*padding-bottom: 50px;*/
+    }
+
+    .panel-kursu .lekcja_top {
+        padding-bottom: 13px;
+    }
+
+    .lekcja_top .row .col-sm-6:last-child {
+        width: initial;
+        position: initial;
+    }
+
+    .koszyk_right.col-sm-4 {
+        width: 100%;
+        float: none;
+    }
+
+    .quiz_podsumowanie {
+        margin-bottom: 50px;
+    }
+
+    #menu_mobile {
+        color: var(--link-color);
+        font-size: 18px;
+        display: inline-block !important;
+        vertical-align: middle;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+
+    #header .col-sm-8 {
+        position: initial;
+        padding-top: 20px;
+    }
+
+    .menu_glowne {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        background: var(--menu-bg-color);
+        display: none;
+        padding: 0;
+        max-height: calc(100vh - 60px);
+        overflow: auto;
+    }
+
+    #menu {
+        display: block;
+        text-align: left;
+        padding: 0;
+    }
+
+    #menu li.active > a {
+        background: var(--menu-active-link-color) !important;
+    }
+
+    #menu li a, #menu li ul li a:hover, #menu li ul li:hover > a {
+        display: block;
+        padding: 15px 30px;
+        color: var(--menu-bg-color-inverted);
+        border-left: none !important;
+        border-bottom: none;
+    }
+
+    #menu > li {
+        border-bottom: 1px solid var(--menu-border-color);
+    }
+
+    #menu li a .fa {
+        position: absolute;
+        top: -4px;
+        color: white;
+        right: 0;
+        height: 50px;
+        width: 50px;
+        vertical-align: middle;
+        padding: 20px;
+        z-index: 9;
+        cursor: pointer;
+        text-align: right;
+    }
+
+    #menu li ul {
+        display: none;
+        width: 100%;
+        left: 0;
+        position: initial;
+        margin-top: 0;
+        max-height: initial;
+    }
+
+    #menu li ul li {
+        position: relative;
+        /* padding: 0 30px; */
+        border-bottom: 1px solid var(--menu-border-color);
+    }
+
+    #menu li ul li a, #menu li ul li a:hover, #menu li ul li:hover > a {
+        width: 100%;
+        background: var(--menu-bg-color);
+        color: white;
+        padding: 15px 30px 15px 50px;
+        border-left: none !important;
+        border-bottom: none;
+    }
+
+    #menu li ul li a .fa {
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    #menu li ul li ul {
+        left: 0;
+        position: initial;
+        display: none;
+        padding: 0;
+    }
+
+    #menu li ul li ul li a, #menu li ul li ul li a:hover, #menu li ul li ul li:hover > a {
+        padding: 15px 30px 15px 70px;
+        border-bottom: none;
+    }
+
+    .user {
+        width: 100%;
+        background: var(--menu-bg-color);
+        color: white;
+        padding: 15px 30px 15px 30px;
+        border-left: none !important;
+        display: block;
+        text-align: left;
+        position: relative;
+    }
+
+    .user p .fa {
+        position: absolute;
+        top: 0;
+        color: white;
+        right: 0;
+        height: 50px;
+        width: 50px;
+        vertical-align: middle;
+        padding: 20px;
+        z-index: 9;
+        cursor: pointer;
+        text-align: right;
+        line-height: 4px;
+    }
+
+    #user_menu {
+        position: initial;
+        display: none;
+        padding: 0;
+    }
+
+    #user_menu li {
+        border-bottom: 1px solid var(--menu-border-color);
+    }
+
+    #user_menu li a {
+        background: var(--menu-bg-color);
+        width: 100%;
+        color: white;
+        border-bottom: 1px solid var(--menu-border-color);
+        padding: 15px 0;
+    }
+
+    .glowna_boxy .row > div {
+        width: 100%;
+        float: none;
+    }
+
+    .box_glowna_add_to_cart {
+        position: initial;
+        margin-top: 20px;
+    }
+
+    #home-page-slider .box_glowna_add_to_cart {
+        position: absolute;
+    }
+
+    .box_glowna_add_to_cart a {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .glowna_boxy .row > div > div {
+        height: initial;
+        padding-bottom: 20px;
+    }
+
+    .paginacja_boxy {
+        margin-bottom: 50px;
+    }
+
+    .breadcrumbs ul li:first-child {
+        padding-left: 5px;
+    }
+
+    .modul_lekcja_tytul {
+        height: initial;
+    }
+
+    .slider {
+        background-position: top center;
+    }
+
+    .breadcrumbs {
+        margin-left: -5px;
+    }
+
+    .contenter_lekcji .lekcja_nast_pop {
+        width: calc(50% - 23px);
+        padding: 11px 5px;
+    }
+    
+    .edd_cart_item_name .wp-post-title {
+        margin: 0 0 10px 70px;
+    }
+}
+
+#menu_mobile {
+    display: none;
+}
+
+.lekcja_nast_pop.lekcja_pop {
+    margin: 0 12px 0 0;
+}
+
+.lekcja_nast_pop.lekcja_nas {
+    margin: 0 0 0 12px;
+}
+
+@media(max-width: 691px) {
+    .ukonczony_material {
+        position: static;
+        float: left;
+        width: auto;
+    }
+}
+
+@media(max-width: 690px){
+
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:80%;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:78%;
+    }
+
+    .lekcja_top .col-sm-6:nth-child(1) {
+        width: 100%;
+        display: block;
+        min-height: 0;
+    }
+}
+
+@media(max-width: 600px){
+
+    .lekcja_top .flexbox {
+        padding: 0;
+    }    
+
+    .hide-on-mobile{
+        display: none;
+    }
+
+    .lekcja_top_postep--hide-on-mobile {
+        display: none;
+    }
+
+    .quiz_podsumowanie_tekst {
+        margin-bottom: 20px;
+    }
+
+    .quiz_podsumowanie_nastepna_lekcja.prev,
+    .quiz_podsumowanie .lekcja_nast_pop.lekcja_nas,
+    .quiz-big-button,
+    .quiz_podsumowanie_nastepna_lekcja, .nastepna_lekcja_off {
+        margin: 10px auto !important;
+        display: block;
+    }
+
+    .czas_lekcji.quiz-time-left {
+        width: 100%;
+        text-align: left;
+        margin: 10px 0 0;
+    }
+
+    .quizy_contenter_postep .postep_contenter {
+        width: auto;
+    }
+
+    .niepoprawne_odp.quizy_contenter .quizy_contenter_quiz {
+        padding: 0;
+    }
+
+    .single-answer-preview__answer {
+        width: 100%;
+    }
+}
+
+@media(max-width: 599px) {
+    .course-navigation-section--mode-compact {
+        display: none;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:75%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:75%;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:72%;
+    }
+
+    .contenter_lekcji .lekcja_nast_pop {
+        width: calc(50% - 18px);
+    }
+
+    .lekcje_tytul .col-sm-5.lekcje_paginacja {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .quiz .postep_liczba {
+        color: var(--main-color);;
+    }
+
+    .quizy_contenter_postep .lekcja_top_postep span {
+        padding-right: 0;
+    }
+
+    .quizy_contenter_quiz_odp.picture input[type="submit"], .quizy_contenter_quiz_odp textarea {
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .quizy_contenter_quiz_odp ul li label {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        max-width: calc(100% - 35px);
+    }
+
+    .niepoprawne_odp.komunikat {
+        height: 190px;
+    }
+
+    #stopka .col-sm-6 {
+        text-align: center;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    #stopka ul {
+        text-align: center;
+    }
+
+    .button_prawy_slider {
+        max-width: calc(100% - 108px);
+    }
+
+    .button_prawy_slider:after {
+        right: -9px;
+        content: ' ';
+        background: var(--main-color);;
+        height: calc(100% + 2px);
+        position: absolute;
+        width: 16px;
+        top: 0;
+        border-bottom: 2px solid var(--main-color-hover);
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    .quizy_contenter_postep .czas_lekcji br {
+        display: block;
+    }
+
+}
+
+
+@media(max-width: 460px) {    
+    .lekcja_top--low-padding div#course-progress {
+        margin: 0;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:70%;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .experimental-cart #edd_checkout_cart_wrap, .experimental-cart #edd_purchase_form {
+        padding: 15px;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:66%;
+    }
+
+    #home-page-slider .glowna_box_cena_promocyjna , #home-page-slider .paginacja {
+        display: none;
+    }
+
+    #home-page-slider .box_glowna_add_to_cart {
+        left: 121px;
+    }
+    
+    .lekcja_top--nav-in-bar .lekcja_top_opis__label--short {
+        max-width: 70px;
+    }
+    
+    .lekcja_top_opis__label--short {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:70%;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:65%;
+    }
+
+    .hide-on-tiny{
+        display: none;
+    }
+    
+    .lekcja_top_opis__label--short {
+        max-width: 55px;
+    }
+    
+    .lekcja_top__right{
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    .contenter_lekcji .lekcja_nast_pop {
+        width: calc(50% - 18px);
+        padding: 11px 5px;
+    }
+
+    form input[type="submit"].kontakt_submit,
+    form input[type="submit"]#submit_konto {
+        width: 100%;
+        padding: 12px 20px;
+        text-align: center;
+    }
+    
+    form input[type="submit"].dodaj_notke {
+        width: 100%;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .koszyk_form #edd-purchase-button, .content_koszyk .edd_form #edd-purchase-button {
+        width: 100%;
+        padding: 12px 20px;
+        text-align: center;
+    }
+
+    .glowna_box_cena, .glowna_box_cena_promo, .glowna_box_cena_promocyjna, .glowna_box_cena_dostepny {
+        top: 160px;
+    }
+
+    .contenter {
+        padding: 0 10px;
+    }
+
+    .lekcja_top_opis {
+        padding-right: 15px;
+        padding-left: 0;
+    }
+
+    .contenter.contenter_lekcji {
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .contenter_lekcji .col-sm-7, .contenter_lekcji .col-sm-5 {
+        padding: 0;
+    }
+
+    .lekcje_tytul .col-sm-5.lekcje_paginacja {
+        bottom: 0;
+    }
+
+    #stopka ul li {
+        display: inline-block;
+        padding: 0 5px;
+        border-right: 1px solid white;
+        margin-right: -3px;
+    }
+
+    .quizy_contenter_quiz_odp.select {
+        display: block;
+    }
+
+    .modul .lekcja_top_opis:nth-child(3), .panel-kursu .lekcja_top_opis:nth-child(3) {
+        display: table;
+        padding-top: 10px;
+    }
+
+    .modul .lekcja_top .row .col-sm-6:last-child, .panel-kursu .lekcja_top .row .col-sm-6:last-child {
+        vertical-align: top;
+    }
+
+    .modul .lekcja_top_opis:nth-child(3) span:nth-child(3), .panel-kursu .lekcja_top_opis:nth-child(3) span:nth-child(3) {
+        padding-left: 6px;
+    }
+
+    .krotki_slider {
+        height: 330px;
+    }
+
+    .lekcja_top_opis:nth-child(3) span a:after {
+        display: none;
+    }
+
+    .lekcja_nast_pop {
+        width: calc(50% - 14px);
+        padding: 11px 10px;
+    }
+
+    .lekcja_nast_pop.lekcja_pop {
+        margin: 0 12px 0 0;
+    }
+
+    .lekcja_nast_pop.lekcja_nas {
+        margin: 0 0 0 12px;
+    }
+
+    .quizy_contenter_quiz {
+        padding: 0 25px 0 25px;
+    }
+
+    .quiz .quizy_contenter_postep {
+        margin: 0 25px 25px 25px;
+    }
+    
+    .podsumowanie_contenter .kod_rabatowy_input input {
+        width: 110px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:66%;
+    }
+
+    .podsumowanie_contenter .kod_rabatowy_input {
+        margin-left: 0;
+    }
+    
+    #home-page-slider .glowna_box_cena_promocyjna, #home-page-slider .glowna_box_cena_promo , #home-page-slider .paginacja {
+        display: none;
+    }
+
+    #home-page-slider .glowna_box_cena,
+    #home-page-slider .glowna_box_cena_dostepny {
+        padding: 9px 0 20px;
+        height: 40px;
+        width: 100%;
+    }
+
+    #home-page-slider .glowna_box_cena_dostepny_opis i {
+        margin: 0 10px 0 0;
+    }
+
+    #home-page-slider .box_glowna_add_to_cart {
+        height: 40px;
+        width: 100%;
+        left: 0;
+        top: 34px;
+    }
+}
+
+@media (max-width: 300px) {
+    .podsumowanie_koszyk td .checkout_cart_title, .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:100%;
+    }
+
+    .experimental-cart .podsumowanie_koszyk td .checkout_cart_title, .experimental-cart .podsumowanie_koszyk td .checkout_cart_price_button{
+        width:100%;
+    }
+
+    .podsumowanie_koszyk td .checkout_cart_img, .experimental-cart .podsumowanie_koszyk td .checkout_cart_img{
+        display:none;
+    }
+}
+
+@media (min-width: 768px) {
+    /* FIX: modules on Safari */
+    .contenter  .col-sm-4 {
+        width: 33.3%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .glowna_box_zdjecie {
+        height: initial;
+        max-height: initial;
+    }
+    .glowna_box_product_details {
+        min-height: 180px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .glowna_boxy .row > div {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media (max-width: 1200px){
+    .glowna_box_zdjecie {
+        padding-bottom: 55%;
+        position: relative;
+    }
+    
+    .glowna_box_zdjecie img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .course-thumbnail-default {
+        position: absolute;
+        height: 100%;
+        top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenter {
+        padding: 0 10px;
+    }
+
+    .lekcja_top_postep {
+        margin-right: 0;
+    }
+
+    .duzy_tekst_slider {
+        font-size: 34px;
+        line-height: 34px;
+        max-width: 100%;
+    }
+}
+
+@media (max-height: 780px), (max-width: 300px) {
+    #panel_logowania {
+        position: initial;
+        margin-top: 0;
+        padding: 30px 10px;
+        transform: none;
+    }
+
+    #strona_logowania {
+        height: initial;
+        min-height: 100%;
+    }
+}
+
+
+/* fix: stylowanie belki nad kursem */
+/* wycofane do weryfikacji
+@media (max-width: 991px){
+    .lekcja_top_opis,
+    .lekcja_top_postep{
+        margin-bottom: 5px;
+    }
+    .ukonczony_material{
+        position: relative;
+        top: initial;
+        left: 0px;
+        margin-top: 2px;
+    }
+    .lekcja_top[data-progress="enabled"]{
+        padding-bottom: 15px;
+    }
+
+    .lekcja_top_opis i {
+        width: 27px;
+        text-align: left;
+    }
+
+    .lekcja_top_opis {
+        line-height: 1.7;
+    }
+
+    .lekcja_top_postep i {
+        width: 27px;
+        text-align: left;
+    }
+}
+*/
+
+@media(min-width: 1131px) and (max-width: 1280px){
+    .lekcja_top_postep {
+        margin-right: 0;
+    }
+    
+    .ukonczony_material {
+        margin-left: 20px;
+    }
+}
+/* endfix */
