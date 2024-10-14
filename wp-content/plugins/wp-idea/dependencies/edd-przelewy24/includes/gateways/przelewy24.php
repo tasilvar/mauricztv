@@ -102,7 +102,13 @@ function bpmj_p24_edd_process_payment( $purchase_data ) {
 		}
 
 		// URL powrotny klienta
-		$return_url = add_query_arg( 'payment-confirmation', 'przelewy24', get_permalink( $edd_options[ 'success_page' ] ) );
+		//$return_url = add_query_arg( 'payment-confirmation', 'przelewy24', get_permalink( $edd_options[ 'success_page' ] ) );
+
+		$return_url = add_query_arg( ['payment-confirmation' => 'przelewy24', 'payment' => 'completed'],get_permalink( $edd_options[ 'success_page' ] ) );
+		// echo $return_url;
+
+		// echo "vs ".$return_url2;
+		// exit();
 
 		// wyn_url - wynikowy adres zwrotny URL, na który Przelewy24 wyślę tablice POST
 		$listener_url = add_query_arg( 'payment-status', 'przelewy24', home_url('/') );

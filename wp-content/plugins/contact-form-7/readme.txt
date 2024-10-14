@@ -4,8 +4,13 @@ Donate link: https://contactform7.com/donate/
 Tags: contact form, schema-woven validation
 Requires at least: 6.3
 Requires PHP: 7.4
+<<<<<<< HEAD
 Tested up to: 6.6
 Stable tag: 5.9.8
+=======
+Tested up to: 6.5
+Stable tag: 5.9.5
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,7 +41,11 @@ If you activate certain features in this plugin, the contact form submitter's pe
 
 * reCAPTCHA ([Google](https://policies.google.com/?hl=en))
 * Akismet ([Automattic](https://automattic.com/privacy/))
+<<<<<<< HEAD
 * [Constant Contact](https://www.constantcontact.com/legal/privacy-center)
+=======
+* Constant Contact ([Endurance International Group](https://www.endurance.com/privacy))
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 * [Brevo](https://www.brevo.com/legal/privacypolicy/)
 * [Stripe](https://stripe.com/privacy)
 
@@ -78,6 +87,7 @@ Do you have questions or issues with Contact Form 7? Use these support channels 
 
 For more information, see [Releases](https://contactform7.com/category/releases/).
 
+<<<<<<< HEAD
 = 5.9.8 =
 
 * Fixes a bug that prevents the contact form selector block from working on 6.3-6.5 versions of WordPress.
@@ -90,6 +100,8 @@ For more information, see [Releases](https://contactform7.com/category/releases/
 
 [https://contactform7.com/contact-form-7-596/](https://contactform7.com/contact-form-7-596/)
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 5.9.5 =
 
 [https://contactform7.com/contact-form-7-595/](https://contactform7.com/contact-form-7-595/)

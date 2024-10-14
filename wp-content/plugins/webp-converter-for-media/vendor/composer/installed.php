@@ -3,7 +3,11 @@
         'name' => 'gbiorczyk/webp-converter-for-media',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
+<<<<<<< HEAD
         'reference' => '18e8588d651d6b852e85fe721e116fde44264c77',
+=======
+        'reference' => '0a5d960ece929e5f09e3a054557a39cb719bfc38',
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +17,11 @@
         'gbiorczyk/webp-converter-for-media' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
+<<<<<<< HEAD
             'reference' => '18e8588d651d6b852e85fe721e116fde44264c77',
+=======
+            'reference' => '0a5d960ece929e5f09e3a054557a39cb719bfc38',
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

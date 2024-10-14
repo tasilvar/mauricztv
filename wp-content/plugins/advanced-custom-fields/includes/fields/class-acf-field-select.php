@@ -123,6 +123,7 @@ if ( ! class_exists( 'acf_field_select' ) ) :
 			$nonce = acf_request_arg( 'nonce', '' );
 			$key   = acf_request_arg( 'field_key', '' );
 
+<<<<<<< HEAD
 			// Back-compat for field settings.
 			if ( ! acf_is_field_key( $key ) ) {
 				$nonce = '';
@@ -134,6 +135,30 @@ if ( ! class_exists( 'acf_field_select' ) ) :
 			}
 
 			acf_send_ajax_results( $this->get_ajax_query( $_POST ) );
+=======
+		/**
+		 * description
+		 *
+		 * @type    function
+		 * @date    24/10/13
+		 * @since   5.0.0
+		 *
+		 * @param   $post_id (int)
+		 * @return  $post_id (int)
+		 */
+		function ajax_query() {
+
+			// validate
+			if ( ! acf_verify_ajax() ) {
+				die();
+			}
+
+			// get choices
+			$response = $this->get_ajax_query( $_POST );
+
+			// return
+			acf_send_ajax_results( $response );
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		}
 
 		/**

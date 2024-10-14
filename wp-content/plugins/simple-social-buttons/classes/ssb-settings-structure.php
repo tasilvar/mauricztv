@@ -541,7 +541,11 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade&utm_content=text-link" target="_blank" title="Related Posts Thumbnails">Related Posts Thumbnails</a>
 			  </li>
 			  <li>
+<<<<<<< HEAD
 				<a href="https://wpbrigade.com/recommend/maintenance-mode&utm_content=text-link" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
+=======
+				<a href="https://wpbrigade.com/recommend/maintenance-mode" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 				</a>
 			  </li>
 			</ul>

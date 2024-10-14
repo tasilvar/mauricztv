@@ -5,7 +5,11 @@
  * Description: Migration tool for all your blog data. Import or Export your blog content with a single click.
  * Author: ServMask
  * Author URI: https://servmask.com/
+<<<<<<< HEAD
  * Version: 7.84
+=======
+ * Version: 7.82
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * Text Domain: all-in-one-wp-migration
  * Domain Path: /languages
  * Network: True

@@ -60,6 +60,7 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 			$key               = acf_request_arg( 'field_key', '' );
 			$conditional_logic = (bool) acf_request_arg( 'conditional_logic', false );
 
+<<<<<<< HEAD
 			if ( $conditional_logic ) {
 				if ( ! acf_current_user_can_admin() ) {
 					die();
@@ -69,14 +70,38 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 				$nonce = '';
 				$key   = '';
 			}
+=======
+		/**
+		 * description
+		 *
+		 * @type    function
+		 * @date    24/10/13
+		 * @since   5.0.0
+		 *
+		 * @param   $post_id (int)
+		 * @return  $post_id (int)
+		 */
+		function ajax_query() {
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 			if ( ! acf_verify_ajax( $nonce, $key ) ) {
 				die();
 			}
 
+<<<<<<< HEAD
 			acf_send_ajax_results( $this->get_ajax_query( $_POST ) );
 		}
 
+=======
+			// get choices
+			$response = $this->get_ajax_query( $_POST );
+
+			// return
+			acf_send_ajax_results( $response );
+		}
+
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		/**
 		 * This function will return an array of data formatted for use in a select2 AJAX response
 		 *
@@ -200,10 +225,16 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 		 *
 		 * @since   5.0.0
 		 *
+<<<<<<< HEAD
 		 * @param   WP_Term $term     The term object.
 		 * @param   array   $field    The field settings.
 		 * @param   mixed   $post_id  The post_id being edited.
 		 * @param   boolean $unescape Should we return an unescaped post title.
+=======
+		 * @param   WP_Term $term    The term object.
+		 * @param   array   $field   The field settings.
+		 * @param   mixed   $post_id The post_id being edited.
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		 * @return  string
 		 */
 		function get_term_title( $term, $field, $post_id = 0, $unescape = false ) {
@@ -458,6 +489,7 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 			return $value;
 		}
 
+<<<<<<< HEAD
 		/**
 		 * Renders the Taxonomy field.
 		 *
@@ -467,6 +499,20 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 		 * @return void
 		 */
 		public function render_field( $field ) {
+=======
+
+		/**
+		 * Create the HTML interface for your field
+		 *
+		 * @type    action
+		 * @since   3.6
+		 * @date    23/01/13
+		 *
+		 * @param   $field - an array holding all the field's data
+		 */
+		function render_field( $field ) {
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			// force value to array
 			$field['value'] = acf_get_array( $field['value'] );
 
@@ -515,6 +561,10 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 			<?php
 		}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		/**
 		 * Create the HTML interface for your field
 		 *
@@ -744,6 +794,29 @@ if ( ! class_exists( 'acf_field_taxonomy' ) ) :
 					$term    = get_term( $rule_value );
 					$choices = array( $rule_value => $term->name );
 				}
+<<<<<<< HEAD
+=======
+			}
+			return $choices;
+		}
+
+
+		/**
+		 * ajax_add_term
+		 *
+		 * @since  5.2.3
+		 *
+		 * @type   function
+		 * @date   17/04/2015
+		 *
+		 * @return void
+		 */
+		function ajax_add_term() {
+
+			// verify nonce
+			if ( ! acf_verify_ajax() ) {
+				die();
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			}
 			return $choices;
 		}

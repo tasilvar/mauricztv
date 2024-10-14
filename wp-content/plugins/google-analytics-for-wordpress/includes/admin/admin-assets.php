@@ -243,8 +243,11 @@ class MonsterInsights_Admin_Assets {
 				array(
 					'ajax'                => admin_url('admin-ajax.php'),
 					'nonce'               => wp_create_nonce('mi-admin-nonce'),
+<<<<<<< HEAD
 					'rest_nonce'          => wp_create_nonce('wp_rest'),
 					'rest_url'            => get_rest_url(),
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 					'network'             => is_network_admin(),
 					'translations'        => wp_get_jed_locale_data(monsterinsights_is_pro_version() ? 'ga-premium' : 'google-analytics-for-wordpress'),
 					'assets'              => plugins_url($version_path . '/assets/vue', MONSTERINSIGHTS_PLUGIN_FILE),
@@ -269,10 +272,13 @@ class MonsterInsights_Admin_Assets {
 					'migrated'            => monsterinsights_get_option('gadwp_migrated', 0),
 					'yearinreview'        => monsterinsights_yearinreview_dates(),
 					'reports_url'         => add_query_arg('page', 'monsterinsights_reports', admin_url('admin.php')),
+<<<<<<< HEAD
 					'feedback'            => MonsterInsights_Feature_Feedback::get_settings(),
 					'addons_pre_check'	  => [
 						'ai_insights'	=> is_plugin_active('monsterinsights-ai-insights/monsterinsights-ai-insights.php'),
 					]
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 				)
 			);
 

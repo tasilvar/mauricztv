@@ -5,7 +5,11 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+<<<<<<< HEAD
         'reference' => 'b1e19830351c053ee7c5d4ea7c4203c1a3b5bfd4',
+=======
+        'reference' => '94db08a5e45b0c74a17c00051dfb3423535615b7',
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
         'name' => 'yoast/wordpress-seo',
         'dev' => false,
     ),
@@ -34,7 +38,11 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+<<<<<<< HEAD
             'reference' => 'b1e19830351c053ee7c5d4ea7c4203c1a3b5bfd4',
+=======
+            'reference' => '94db08a5e45b0c74a17c00051dfb3423535615b7',
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
             'dev_requirement' => false,
         ),
     ),

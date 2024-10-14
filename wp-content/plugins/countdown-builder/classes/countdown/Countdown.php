@@ -139,7 +139,10 @@ abstract class Countdown {
 	public function includeGeneralScripts() {
 		$isAdmin = is_admin();
 		wp_enqueue_script( 'moment' );
+<<<<<<< HEAD
 		wp_enqueue_script( 'moment', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', array(), '2.29.1', true );
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		wp_enqueue_script( 'jquery' );
 
 		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment', 'jquery')));

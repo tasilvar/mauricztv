@@ -2,8 +2,13 @@
 Contributors: megamenu
 Tags: menu, responsive menu, mega menu, navigation, mobile menu
 Requires at least: 5.0
+<<<<<<< HEAD
 Tested up to: 6.6
 Stable tag: 3.3.1
+=======
+Tested up to: 6.4
+Stable tag: 3.3
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -132,6 +137,7 @@ See https://www.megamenu.com for more screenshots
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.3.2 =
 
 * Fix: CSS validation error (move @charset rule to first line)
@@ -140,6 +146,8 @@ See https://www.megamenu.com for more screenshots
 * Fix: PHP warning when activating plugin for first time using PHP 8.2
 * Fix: When CSS Output has been set to 'Disabled', do not automatically set it back to 'Output in Head' if generation of the CSS file fails
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 3.3.1 =
 
 * Accessibility Improvement: Ensure items within hidden off canvas menu cannot be focused using keyboard

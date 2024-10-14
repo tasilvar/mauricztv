@@ -24,7 +24,11 @@ if ( $page_title ) {
 	echo esc_html( $page_title );
 	?>
 	<?php if ( $acf_is_options_page_preview ) { ?>
+<<<<<<< HEAD
 			<div class="acf-pro-label"><img src="<?php echo esc_url( acf_get_url( 'assets/images/pro-chip.svg' ) ); ?>" alt="<?php esc_attr_e( 'ACF PRO logo', 'acf' ); ?>"></div>
+=======
+			<div class="acf-pro-label">PRO</div>
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		<?php
 	}
 	?>

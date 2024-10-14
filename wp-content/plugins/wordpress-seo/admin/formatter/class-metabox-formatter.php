@@ -58,6 +58,13 @@ class WPSEO_Metabox_Formatter {
 			'keyword_usage'                      => [],
 			'title_template'                     => '',
 			'metadesc_template'                  => '',
+<<<<<<< HEAD
+=======
+			'intl'                               => $this->get_content_analysis_component_translations(),
+			'isRtl'                              => is_rtl(),
+			'isPremium'                          => YoastSEO()->helpers->product->is_premium(),
+			'siteIconUrl'                        => get_site_icon_url(),
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			'showSocial'                         => [
 				'facebook' => WPSEO_Options::get( 'opengraph', false ),
 				'twitter'  => WPSEO_Options::get( 'twitter', false ),
@@ -168,13 +175,21 @@ class WPSEO_Metabox_Formatter {
 			 * @param bool $showMarkers Should the markers being enabled. Default = true.
 			 */
 			'show_markers'                       => apply_filters( 'wpseo_enable_assessment_markers', true ),
+<<<<<<< HEAD
 			'zapierIntegrationActive'            => WPSEO_Options::get( 'zapier_integration_active', false ) ? 1 : 0,
 			'zapierConnectedStatus'              => ! empty( WPSEO_Options::get( 'zapier_subscription', [] ) ) ? 1 : 0,
+=======
+			'analysisHeadingTitle'               => __( 'Analysis', 'wordpress-seo' ),
+			'zapierIntegrationActive'            => WPSEO_Options::get( 'zapier_integration_active', false ) ? 1 : 0,
+			'zapierConnectedStatus'              => ! empty( WPSEO_Options::get( 'zapier_subscription', [] ) ) ? 1 : 0,
+			'wordproofIntegrationActive'         => YoastSEO()->helpers->wordproof->is_active() ? 1 : 0,
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			'getJetpackBoostPrePublishLink'      => WPSEO_Shortlinker::get( 'https://yoa.st/jetpack-boost-get-prepublish?domain=' . $host ),
 			'upgradeJetpackBoostPrePublishLink'  => WPSEO_Shortlinker::get( 'https://yoa.st/jetpack-boost-upgrade-prepublish?domain=' . $host ),
 			'woocommerceUpsellSchemaLink'        => WPSEO_Shortlinker::get( 'https://yoa.st/product-schema-metabox' ),
 			'woocommerceUpsellGooglePreviewLink' => WPSEO_Shortlinker::get( 'https://yoa.st/product-google-preview-metabox' ),
 		];
+<<<<<<< HEAD
 
 		$integration_information_repo = YoastSEO()->classes->get( Integration_Information_Repository::class );
 
@@ -184,6 +199,39 @@ class WPSEO_Metabox_Formatter {
 
 		$enabled_features = $enabled_features_repo->get_enabled_features()->parse_to_legacy_array();
 		return array_merge( $defaults, $enabled_features );
+=======
+
+		$integration_information_repo = YoastSEO()->classes->get( Integration_Information_Repository::class );
+
+		$enabled_integrations  = $integration_information_repo->get_integration_information();
+		$defaults              = array_merge( $defaults, $enabled_integrations );
+		$enabled_features_repo = YoastSEO()->classes->get( Enabled_Analysis_Features_Repository::class );
+
+		$enabled_features = $enabled_features_repo->get_enabled_features()->parse_to_legacy_array();
+		return array_merge( $defaults, $enabled_features );
+	}
+
+	/**
+	 * Returns required yoast-component translations.
+	 *
+	 * @return string[]
+	 */
+	private function get_content_analysis_component_translations() {
+		// Esc_html is not needed because React already handles HTML in the (translations of) these strings.
+		return [
+			'locale'                                         => get_user_locale(),
+			'content-analysis.errors'                        => __( 'Errors', 'wordpress-seo' ),
+			'content-analysis.problems'                      => __( 'Problems', 'wordpress-seo' ),
+			'content-analysis.improvements'                  => __( 'Improvements', 'wordpress-seo' ),
+			'content-analysis.considerations'                => __( 'Considerations', 'wordpress-seo' ),
+			'content-analysis.good'                          => __( 'Good results', 'wordpress-seo' ),
+			'content-analysis.highlight'                     => __( 'Highlight this result in the text', 'wordpress-seo' ),
+			'content-analysis.nohighlight'                   => __( 'Remove highlight from the text', 'wordpress-seo' ),
+			'content-analysis.disabledButton'                => __( 'Marks are disabled in current view', 'wordpress-seo' ),
+			/* translators: Hidden accessibility text. */
+			'a11yNotice.opensInNewTab'                       => __( '(Opens in a new browser tab)', 'wordpress-seo' ),
+		];
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	}
 
 	/**

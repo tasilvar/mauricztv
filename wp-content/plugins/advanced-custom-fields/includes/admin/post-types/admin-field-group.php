@@ -512,8 +512,11 @@ if ( ! class_exists( 'acf_admin_field_group' ) ) :
 		 * Moves fields between field groups via AJAX.
 		 *
 		 * @since 5.0.0
+<<<<<<< HEAD
 		 *
 		 * @return void
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		 */
 		public function ajax_move_field() {
 			// Disable filters to ensure ACF loads raw data from DB.
@@ -604,9 +607,19 @@ if ( ! class_exists( 'acf_admin_field_group' ) ) :
 			);
 
 			echo '<p>' . esc_html__( 'Please select the destination for this field', 'acf' ) . '</p>';
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			echo '<form id="acf-move-field-form">';
 				acf_render_field_wrap( $field );
+<<<<<<< HEAD
 				echo '<button type="submit" class="acf-btn">' . esc_html__( 'Move Field', 'acf' ) . '</button>';
+=======
+
+				echo '<button type="submit" class="acf-btn">' . esc_html__( 'Move Field', 'acf' ) . '</button>';
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			echo '</form>';
 
 			die();

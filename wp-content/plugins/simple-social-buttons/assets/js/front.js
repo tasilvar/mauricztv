@@ -103,7 +103,11 @@ var ssbPlugin = ssbPlugin || {};
 
 		var sidebarwidth = $('div[class*="simplesocialbuttons-float"]>a:first-child').outerWidth(true);
 		$('div[class*="simplesocialbuttons-float"]').css('width', sidebarwidth + 'px');
+<<<<<<< HEAD
 		$('.simplesocialbuttons.ssb_counter-activate:not(.simplesocial-round-txt):not(.simplesocial-round-icon):not(.simplesocial-simple-icons) button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-copy-link):not(.simplesocial-linkedin-share)').each(function () {
+=======
+		$('.simplesocialbuttons.ssb_counter-activate:not(.simplesocial-round-txt):not(.simplesocial-round-icon):not(.simplesocial-simple-icons) button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share)').each(function () {
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			var $el = $(this);
 			setTimeout(function () {
 				var $elWidth = $el.children('.ssb_counter').innerWidth();
@@ -128,6 +132,7 @@ var ssbPlugin = ssbPlugin || {};
 	document.addEventListener('DOMContentLoaded', docLoadedFun);
 
 })(window.jQuery, window, document);
+<<<<<<< HEAD
 
 // function to copy the current link to clipboard
 function ssb_copy_share_link(clickedButton) {
@@ -161,3 +166,5 @@ function ssb_copy_share_link(clickedButton) {
         document.body.removeChild(textArea); 
     }
 }
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62

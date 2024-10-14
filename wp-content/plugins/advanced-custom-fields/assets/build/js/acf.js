@@ -3325,6 +3325,10 @@
 
     // Filter for 3rd party customization.
     data = acf.applyFilters('prepare_for_ajax', data);
+<<<<<<< HEAD
+=======
+    // return
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
     return data;
   };
 

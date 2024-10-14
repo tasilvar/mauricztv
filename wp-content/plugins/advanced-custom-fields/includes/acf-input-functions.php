@@ -89,9 +89,15 @@ function acf_esc_html( $string = '' ) {
  *
  * @since   5.9.6
  *
+<<<<<<< HEAD
  * @param  array  $tags    An array of allowed tags.
  * @param  string $context The context name.
  * @return array
+=======
+ * @param   array  $tags    An array of allowed tags.
+ * @param   string $context The context name.
+ * @return  array.
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  */
 function _acf_kses_allowed_html( $tags, $context ) {
 	global $allowedposttags;

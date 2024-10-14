@@ -1,5 +1,6 @@
 == Changelog ==
 
+<<<<<<< HEAD
 = 5.13.1 (2024-08-04) =
 * `[Changed]` Optimization statistics in Media Library
 
@@ -7,6 +8,8 @@
 * `[Fixed]` Filter `webpc_option_quality_levels` to change conversion quality levels
 * `[Added]` Support for WordPress 6.6
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 5.12.5 (2024-04-15) =
 * `[Fixed]` Modification of plugin settings via filters
 

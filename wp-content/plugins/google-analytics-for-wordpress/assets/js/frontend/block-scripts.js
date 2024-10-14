@@ -1,4 +1,8 @@
 /******/ (() => { // webpackBootstrap
+<<<<<<< HEAD
+=======
+var __webpack_exports__ = {};
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 /*!**********************************************!*\
   !*** ./src/blocks/site-insights/frontend.js ***!
   \**********************************************/

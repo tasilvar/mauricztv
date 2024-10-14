@@ -304,6 +304,89 @@ function wpcf7_swv_add_checkbox_enum_rules( $schema, $contact_form ) {
 }
 
 
+<<<<<<< HEAD
+=======
+add_action(
+	'wpcf7_swv_create_schema',
+	'wpcf7_swv_add_checkbox_enum_rules',
+	20, 2
+);
+
+function wpcf7_swv_add_checkbox_enum_rules( $schema, $contact_form ) {
+	$tags = $contact_form->scan_form_tags( array(
+		'basetype' => array( 'checkbox', 'radio' ),
+	) );
+
+	$values = array_reduce(
+		$tags,
+		function ( $values, $tag ) {
+			if ( $tag->has_option( 'free_text' ) ) {
+				$values[$tag->name] = 'free_text';
+			}
+
+			if (
+				isset( $values[$tag->name] ) and
+				! is_array( $values[$tag->name] ) // Maybe 'free_text'
+			) {
+				return $values;
+			}
+
+			if ( ! isset( $values[$tag->name] ) ) {
+				$values[$tag->name] = array();
+			}
+
+			$tag_values = array_merge(
+				(array) $tag->values,
+				(array) $tag->get_data_option()
+			);
+
+			$values[$tag->name] = array_merge(
+				$values[$tag->name],
+				$tag_values
+			);
+
+			return $values;
+		},
+		array()
+	);
+
+	foreach ( $values as $field => $field_values ) {
+		if ( ! is_array( $field_values ) ) { // Maybe 'free_text'
+			continue;
+		}
+
+		$field_values = array_map(
+			static function ( $value ) {
+				return html_entity_decode(
+					(string) $value,
+					ENT_QUOTES | ENT_HTML5,
+					'UTF-8'
+				);
+			},
+			$field_values
+		);
+
+		$field_values = array_filter(
+			array_unique( $field_values ),
+			static function ( $value ) {
+				return '' !== $value;
+			}
+		);
+
+		$schema->add_rule(
+			wpcf7_swv_create_rule( 'enum', array(
+				'field' => $field,
+				'accept' => array_values( $field_values ),
+				'error' => $contact_form->filter_message(
+					__( "Undefined value was submitted through this field.", 'contact-form-7' )
+				),
+			) )
+		);
+	}
+}
+
+
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 add_filter( 'wpcf7_posted_data_checkbox',
 	'wpcf7_posted_data_checkbox',
 	10, 3

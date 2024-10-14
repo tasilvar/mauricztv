@@ -959,6 +959,29 @@ class MauriczCrosselingFileds {
 
         register_setting( 'general', 'mauricz_crosseling_category', 'esc_attr' );
          add_settings_field('mauricz_crosseling_category', '<label for="mauricz_crosseling_category">'.__('Wybierz kategorię z której mają być pokazywane produkty w sekcji crosseling' , 'mauricz_crosseling_category' ).'</label>' , array(&$this, 'fields_mauricz_categoryID') , 'general' );
+
+         /**
+          * Podstrona aktywacji uzytkownika
+          */
+          register_setting( 'general', 'mauricz_activation_page', 'esc_attr' );
+
+          add_settings_field('mauricz_activation_page', '<label for="mauricz_activation_page">'.__('Wybierz stronę z informacją o aktywacji konta' , 'mauricz_activation_page' ).'</label>' , array(&$this, 'fields_mauricz_activation_pages') , 'general' );
+
+          /**
+           * Podstrona błędnej aktywacji uzytkownika
+           */
+
+          register_setting( 'general', 'mauricz_error_activation_page', 'esc_attr' );
+
+          add_settings_field('mauricz_error_activation_page', '<label for="mauricz_error_activation_page">'.__('Wybierz stronę z informacją niepomyślnej aktywacji konta' , 'mauricz_error_activation_page' ).'</label>' , array(&$this, 'fields_mauricz_error_activation_pages') , 'general' );
+
+           /**
+            * Podstrona moje konto klienta
+            */
+
+            register_setting( 'general', 'mauricz_myaccount', 'esc_attr' );
+
+            add_settings_field('mauricz_myaccount', '<label for="mauricz_myaccount">'.__('Wybierz stronę z informacją o koncie klienta (Moje konto)' , 'mauricz_myaccount' ).'</label>' , array(&$this, 'fields_mauricz_myaccount_pages') , 'general' );
     }
     function fields_html() {
         $getDiscounts = edd_get_discounts(); // opcjonalnie dodaj  array( 'posts_per_page' => $per_page, 'paged' => $paged
@@ -979,6 +1002,68 @@ class MauriczCrosselingFileds {
             echo $optionsDiscounts;
         echo '</select>';
         echo ' <p class="description">Mauricz - wybierz rabat do bloku crosseling</p>';
+    }
+
+    function fields_mauricz_activation_pages() { 
+        $instance = 'mauricz_activation_page';
+        $value = get_option($instance);
+        $getPages = get_pages();
+        // print_r($getPages);
+
+        $optionsPages = '';
+        
+        foreach ($getPages as $key => $page) {
+            if($value == $page->ID) { 
+                $optionsPages .= '<option selected="selected" value="'.$page->ID.'">'.$page->post_title.'</option>';  
+            } else { 
+                $optionsPages .= '<option value="'.$page->ID.'">'.$page->post_title.'</option>';   
+            }
+        }
+
+        echo '<select id="'.$instance.'" name="'.$instance.'">';
+            echo $optionsPages;
+        echo '</select>';
+    }
+    function fields_mauricz_error_activation_pages() { 
+        $instance = 'mauricz_error_activation_page';
+        $value = get_option($instance);
+        $getPages = get_pages();
+        // print_r($getPages);
+
+        $optionsPages = '';
+        
+        foreach ($getPages as $key => $page) {
+            if($value == $page->ID) { 
+                $optionsPages .= '<option selected="selected" value="'.$page->ID.'">'.$page->post_title.'</option>';  
+            } else { 
+                $optionsPages .= '<option value="'.$page->ID.'">'.$page->post_title.'</option>';   
+            }
+        }
+
+        echo '<select id="'.$instance.'" name="'.$instance.'">';
+            echo $optionsPages;
+        echo '</select>';
+    }
+    function fields_mauricz_myaccount_pages() { 
+        $instance = 'mauricz_myaccount';
+
+        $getPages = get_pages();
+        // print_r($getPages);
+        $value = get_option($instance);
+
+        $optionsPages = '';
+        
+        foreach ($getPages as $key => $page) {
+            if($value == $page->ID) { 
+                $optionsPages .= '<option selected="selected" value="'.$page->ID.'">'.$page->post_title.'</option>';  
+            } else { 
+                $optionsPages .= '<option value="'.$page->ID.'">'.$page->post_title.'</option>';   
+            }
+        }
+
+        echo '<select id="'.$instance.'" name="'.$instance.'">';
+            echo $optionsPages;
+        echo '</select>';
     }
 
     function fields_mauricz_categoryID() { 

@@ -795,6 +795,7 @@ class MonsterInsights_Rest_Routes {
 		wp_send_json( $parsed_addons );
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Wrapper around the monsterinsights_get_addon function.
 	 * Kept for backwards compatibility.
@@ -808,6 +809,43 @@ class MonsterInsights_Rest_Routes {
 	 */
 	public function get_addon( $installed_plugins, $addons_type, $addon, $slug ) {
 		return monsterinsights_get_addon($installed_plugins, $addons_type, $addon, $slug);
+=======
+	public function get_addon( $installed_plugins, $addons_type, $addon, $slug ) {
+		$active          = false;
+		$installed       = false;
+
+        $slug = apply_filters( 'monsterinsights_addon_slug', $slug );
+
+		$plugin_basename = monsterinsights_get_plugin_basename_from_slug( $slug );
+
+		if ( isset( $installed_plugins[ $plugin_basename ] ) ) {
+			$installed = true;
+
+			if ( is_multisite() && is_network_admin() ) {
+				$active = is_plugin_active_for_network( $plugin_basename );
+			} else {
+				$active = is_plugin_active( $plugin_basename );
+			}
+		}
+		if ( empty( $addon->url ) ) {
+			$addon->url = '';
+		}
+
+		$active_version = false;
+		if ( $active ) {
+			if ( ! empty( $installed_plugins[ $plugin_basename ]['Version'] ) ) {
+				$active_version = $installed_plugins[ $plugin_basename ]['Version'];
+			}
+		}
+
+		$addon->type           = $addons_type;
+		$addon->installed      = $installed;
+		$addon->active_version = $active_version;
+		$addon->active         = $active;
+		$addon->basename       = $plugin_basename;
+
+		return $addon;
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	}
 
 	/**

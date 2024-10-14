@@ -15,12 +15,17 @@ if ( ! class_exists( 'ACF_Ajax_User_Setting' ) ) :
 		 */
 		public $action = 'acf/ajax/user_setting';
 
+<<<<<<< HEAD
 		/**
 		 * Prevents access for non-logged in users.
 		 *
 		 * @var boolean
 		 */
 		public $public = false;
+=======
+		/** @var boolean Prevents access for non-logged in users. */
+		var $public = true;
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 		/**
 		 * get_response

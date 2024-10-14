@@ -3,7 +3,11 @@
  * Plugin Name: Max Mega Menu
  * Plugin URI:  https://www.megamenu.com
  * Description: An easy to use mega menu plugin. Written the WordPress way.
+<<<<<<< HEAD
  * Version:     3.3.2
+=======
+ * Version:     3.3.1
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * Author:      megamenu.com
  * Author URI:  https://www.megamenu.com
  * License:     GPL-2.0+
@@ -35,7 +39,11 @@ if ( ! class_exists( 'Mega_Menu' ) ) :
 		 *
 		 * @var string
 		 */
+<<<<<<< HEAD
 		public $version = '3.3.1.2';
+=======
+		public $version = '3.3.1';
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 
 		/**

@@ -33,9 +33,16 @@ class Ai1wm_Backups_Controller {
 		Ai1wm_Template::render(
 			'backups/index',
 			array(
+<<<<<<< HEAD
 				'backups'      => Ai1wm_Backups::get_files(),
 				'labels'       => Ai1wm_Backups::get_labels(),
 				'downloadable' => Ai1wm_Backups::are_downloadable(),
+=======
+				'backups'                   => Ai1wm_Backups::get_files(),
+				'labels'                    => Ai1wm_Backups::get_labels(),
+				'direct_download_supported' => Ai1wm_Backups::direct_download_supported(),
+				'downloadable'              => Ai1wm_Backups::are_downloadable(),
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			)
 		);
 	}
@@ -215,11 +222,16 @@ class Ai1wm_Backups_Controller {
 		$file_bytes = 0;
 
 		try {
+<<<<<<< HEAD
 			if ( $handle  = ai1wm_open( ai1wm_backup_path( $params ), 'rb' ) ) {
+=======
+			if ( $handle  = ai1wm_open( ai1wm_backup_path( $params ), 'r' ) ) {
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 				if ( ! isset( $params['file_size'] ) ) {
 					$params['file_size'] = filesize( ai1wm_backup_path( $params ) );
 				}
 
+<<<<<<< HEAD
 				if ( ! isset( $params['offset'] ) ) {
 					$params['offset'] = 0;
 				}
@@ -227,6 +239,14 @@ class Ai1wm_Backups_Controller {
 				ai1wm_seek( $handle, $params['offset'] );
 				while ( ! feof( $handle ) && $file_bytes < $params['file_size'] ) {
 					$buffer = ai1wm_read( $handle, min( $chunk_size, $params['file_size'] - $file_bytes ) );
+=======
+				if ( $params['offset'] ) {
+					ai1wm_seek( $handle, $params['offset'] );
+				}
+
+				while ( ! feof( $handle ) && $read < $params['file_size'] ) {
+					$buffer = ai1wm_read( $handle, min( $chunk_size, $params['file_size'] - $read ) );
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 					echo $buffer;
 					ob_flush();
 					flush();

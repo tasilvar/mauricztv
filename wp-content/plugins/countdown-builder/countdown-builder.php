@@ -2,7 +2,11 @@
 /**
  * Plugin Name: Countdown builder
  * Description: The best countdown plugin by Adam skaat
+<<<<<<< HEAD
  * Version: 2.8.0.2
+=======
+ * Version: 2.7.8
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * Author: Adam Skaat
  * Author URI: https://edmonsoft.com/countdown
  * License: GPLv2

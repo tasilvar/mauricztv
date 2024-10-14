@@ -35,7 +35,11 @@ define( 'AI1WM_DEBUG', false );
 // ==================
 // = Plugin Version =
 // ==================
+<<<<<<< HEAD
 define( 'AI1WM_VERSION', '7.84' );
+=======
+define( 'AI1WM_VERSION', '7.82' );
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 // ===============
 // = Plugin Name =
@@ -267,11 +271,14 @@ define( 'AI1WM_WP_COMSH_HELPER_NAME', 'wpcomsh' );
 // ====================================
 define( 'AI1WM_SQLITE_DATABASE_INTEGRATION_NAME', 'sqlite-database-integration' );
 
+<<<<<<< HEAD
 // =============================
 // = SQLite Database Zero Name =
 // =============================
 define( 'AI1WM_SQLITE_DATABASE_ZERO_NAME', '0-sqlite.php' );
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 // ================================
 // = WP Engine System Plugin Name =
 // ================================

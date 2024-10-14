@@ -68,6 +68,7 @@ Yes you can, we have Circle and Flipclock countdown popups.
 You need to select the .zip file, there is no need to extract the zip file, just upload it.
 
 == Changelog ==
+<<<<<<< HEAD
 = 2.8.0.2 =
 * Fixed Send newslatters
 * After Countdown Expiration Send a newslatter
@@ -82,6 +83,8 @@ You need to select the .zip file, there is no need to extract the zip file, just
 = 2.7.8.1 =
 * Added Security check for display rules
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 2.7.8 =
 * Added Security fix
 

@@ -21,7 +21,11 @@ require_once(dirname(__FILE__) . '/includes/block_direct_access.php');
 class bcn_breadcrumb_trail
 {
 	//Our member variables
+<<<<<<< HEAD
 	const version = '7.3.1';
+=======
+	const version = '7.3.0';
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	//An array of breadcrumbs
 	public $breadcrumbs = array();
 	public $trail = array();
@@ -1046,7 +1050,11 @@ class bcn_breadcrumb_trail
 			$this->do_paged($page_number);
 		}
 		//For the front page, as it may also validate as a page, do it first
+<<<<<<< HEAD
 		if(is_front_page() && !$force)
+=======
+		if(is_front_page() && !$force && !in_the_loop())
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		{
 			//Must have two seperate branches so that we don't evaluate it as a page
 			if($this->opt['bhome_display'])

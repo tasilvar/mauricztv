@@ -307,8 +307,39 @@ if ( !class_exists( 'MediaSync' ) ) :
                         <?php endif; ?>
                     </form>
                 </div>
+
+                <?= self::fetch_promo_content('/promo-content/') ?>
             </div>
             <?php
+        }
+
+
+        /**
+         * Fetch remote content to promote Pro version.
+         * It is external to allow easier promotion changes.
+         *
+         * @param string $page
+         * @return string
+         * @since 1.4.0
+         */
+        static private function fetch_promo_content($page)
+        {
+            $url = 'https://mediasyncplugin.com' . $page;
+
+            // This is not essential content so don't wait too long for this request
+            $response = wp_remote_get($url, array('timeout' => 5));
+
+            if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+                // In case of error or non-200 response, output nothing
+                return '';
+            }
+
+            $content = wp_remote_retrieve_body($response);
+            if (empty($content)) {
+                return '';
+            }
+
+            return $content;
         }
 
 
@@ -411,6 +442,8 @@ if ( !class_exists( 'MediaSync' ) ) :
 
                     <?php submit_button(); ?>
                 </form>
+
+                <?= self::fetch_promo_content('/promo-content-at-options/') ?>
             </div>
             <?php
         }
@@ -1163,6 +1196,14 @@ if ( !class_exists( 'MediaSync' ) ) :
 
                 // Since this path is always using forward slashes, that's what we'll use here
                 $parents = !empty($parents_path) ? explode('/', $parents_path) : array();
+<<<<<<< HEAD
+=======
+
+                // Replace forward slash with "_" and do other cleanup since this will be used as HTML attribute
+                $parent_alias = !empty($parents_path) ? sanitize_title(str_replace('/', '_', $parents_path), $file_uid) : '';
+
+                $alias = sanitize_title($file_name, $file_uid);
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
                 $item = array(
                     'display_name' => $file_name,

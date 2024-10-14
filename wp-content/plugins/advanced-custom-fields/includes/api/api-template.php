@@ -115,6 +115,7 @@ function the_field( $selector, $post_id = false, $format_value = true ) {
 		$unescaped_value = implode( ', ', $unescaped_value );
 	}
 
+<<<<<<< HEAD
 	if ( ! is_scalar( $unescaped_value ) ) {
 		$unescaped_value = false;
 	}
@@ -123,6 +124,12 @@ function the_field( $selector, $post_id = false, $format_value = true ) {
 	if ( apply_filters( 'acf/the_field/allow_unsafe_html', false, $selector, $post_id, $field_type, $field ) ) {
 		$value = $unescaped_value;
 	} elseif ( $unescaped_value !== false && (string) $value !== (string) $unescaped_value ) {
+=======
+	$field_type = is_array( $field ) && isset( $field['type'] ) ? $field['type'] : 'text';
+	if ( apply_filters( 'acf/the_field/allow_unsafe_html', false, $selector, $post_id, $field_type, $field ) ) {
+		$value = $unescaped_value;
+	} elseif ( (string) $value !== (string) $unescaped_value ) {
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		do_action( 'acf/removed_unsafe_html', __FUNCTION__, $selector, $field, $post_id );
 	}
 
@@ -893,6 +900,7 @@ function the_sub_field( $field_name, $format_value = true ) {
 		$unescaped_value = implode( ', ', $unescaped_value );
 	}
 
+<<<<<<< HEAD
 	if ( ! is_scalar( $unescaped_value ) ) {
 		$unescaped_value = false;
 	}
@@ -901,6 +909,12 @@ function the_sub_field( $field_name, $format_value = true ) {
 	if ( apply_filters( 'acf/the_field/allow_unsafe_html', false, $field_name, 'sub_field', $field_type, $field ) ) {
 		$value = $unescaped_value;
 	} elseif ( $unescaped_value !== false && (string) $value !== (string) $unescaped_value ) {
+=======
+	$field_type = is_array( $field ) && isset( $field['type'] ) ? $field['type'] : 'text';
+	if ( apply_filters( 'acf/the_field/allow_unsafe_html', false, $field_name, 'sub_field', $field_type, $field ) ) {
+		$value = $unescaped_value;
+	} elseif ( (string) $value !== (string) $unescaped_value ) {
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 		do_action( 'acf/removed_unsafe_html', __FUNCTION__, $field_name, $field, false );
 	}
 
@@ -1066,6 +1080,15 @@ function acf_shortcode( $atts ) {
 		add_filter( 'acf/prevent_access_to_unknown_fields', '__return_true' );
 	}
 
+<<<<<<< HEAD
+	// Try to get the field value, ensuring any non-safe HTML is stripped from wysiwyg fields via `acf_the_content`
+	$field = get_field_object( $atts['field'], $post_id, $atts['format_value'], true, true );
+	$value = $field ? $field['value'] : get_field( $atts['field'], $post_id, $atts['format_value'], true );
+=======
+	// Decode the post ID for filtering.
+	$post_id         = acf_get_valid_post_id( $atts['post_id'] );
+	$decoded_post_id = acf_decode_post_id( $post_id );
+
 	// Try to get the field value, ensuring any non-safe HTML is stripped from wysiwyg fields via `acf_the_content`
 	$field = get_field_object( $atts['field'], $post_id, $atts['format_value'], true, true );
 	$value = $field ? $field['value'] : get_field( $atts['field'], $post_id, $atts['format_value'], true );
@@ -1078,6 +1101,32 @@ function acf_shortcode( $atts ) {
 
 	if ( is_array( $value ) ) {
 		$value = implode( ', ', $value );
+	}
+
+	// Temporarily always get the unescaped version for action comparison.
+	$unescaped_value = get_field( $atts['field'], $post_id, $atts['format_value'], false );
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
+
+	$field_type = is_array( $field ) && isset( $field['type'] ) ? $field['type'] : 'text';
+
+	if ( apply_filters( 'acf/shortcode/prevent_access', false, $atts, $decoded_post_id['id'], $decoded_post_id['type'], $field_type, $field ) ) {
+		return;
+	}
+
+	// Remove the filter preventing access to unknown filters now we've got all the values.
+	if ( $filter_applied ) {
+		remove_filter( 'acf/prevent_access_to_unknown_fields', '__return_true' );
+	}
+
+	if ( is_array( $unescaped_value ) ) {
+		$unescaped_value = implode( ', ', $unescaped_value );
+	}
+
+	// Handle getting the unescaped version if we're allowed unsafe html.
+	if ( apply_filters( 'acf/shortcode/allow_unsafe_html', false, $atts, $field_type, $field ) ) {
+		$value = $unescaped_value;
+	} elseif ( (string) $value !== (string) $unescaped_value ) {
+		do_action( 'acf/removed_unsafe_html', __FUNCTION__, $atts['field'], $field, $post_id );
 	}
 
 	// Temporarily always get the unescaped version for action comparison.

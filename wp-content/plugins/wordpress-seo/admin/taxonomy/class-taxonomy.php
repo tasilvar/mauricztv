@@ -5,7 +5,11 @@
  * @package WPSEO\Admin
  */
 
+<<<<<<< HEAD
 use Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository;
+=======
+use Yoast\WP\SEO\Introductions\Infrastructure\Wistia_Embed_Permission_Repository;
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 use Yoast\WP\SEO\Presenters\Admin\Alert_Presenter;
 
 /**
@@ -192,6 +196,12 @@ class WPSEO_Taxonomy {
 				'postId'                => $tag_id,
 				'termType'              => $this->get_taxonomy(),
 				'usedKeywordsNonce'     => wp_create_nonce( 'wpseo-keyword-usage' ),
+<<<<<<< HEAD
+=======
+				'linkParams'            => WPSEO_Shortlinker::get_query_params(),
+				'pluginUrl'             => plugins_url( '', WPSEO_FILE ),
+				'wistiaEmbedPermission' => YoastSEO()->classes->get( Wistia_Embed_Permission_Repository::class )->get_value_for_user( get_current_user_id() ),
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 			];
 
 			/**

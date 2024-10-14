@@ -1,11 +1,19 @@
 === Media Sync ===
 Contributors: erolsk8, simonkane
 Donate link: https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=donate_link
+<<<<<<< HEAD
 Tags: media, uploads, import, ftp, server
 Requires at least: 5.3
 Tested up to: 6.6.1
 Requires PHP: 7.1
 Stable tag: 1.4.6
+=======
+Tags: media, uploads, import, ftp, server, migration, automate, sync, library
+Requires at least: 5.3
+Tested up to: 6.5.3
+Requires PHP: 7.1
+Stable tag: 1.4.2
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +86,7 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 1.4.6 =
 * Minor maintenance adjustment to prepare promo banner for upcoming redesign
 * Tested for WordPress 6.6.1
@@ -96,6 +105,8 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 * Tested for WordPress 6.5.4
 * Get proper error message from `wp_insert_attachment` function
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 1.4.2 =
 * Fix enabling or disabling debugging option
 * Fix various issues with paths on Windows servers

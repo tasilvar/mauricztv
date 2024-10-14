@@ -777,7 +777,10 @@
       ajaxData: function (data) {
         ajaxData.paged = data.paged;
         ajaxData.s = data.s;
+<<<<<<< HEAD
         ajaxData.conditional_logic = true;
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
         ajaxData.include = $.isNumeric(data.s) ? Number(data.s) : '';
         return acf.prepareForAjax(ajaxData);
       },
@@ -3737,6 +3740,11 @@
     type: 'icon_picker',
     wait: 'load',
     events: {
+<<<<<<< HEAD
+=======
+      removeField: 'onRemove',
+      duplicateField: 'onDuplicate',
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
       showField: 'scrollToSelectedDashicon',
       'input .acf-icon_url': 'onUrlChange',
       'click .acf-icon-picker-dashicon': 'onDashiconClick',
@@ -3774,10 +3782,23 @@
       this.addActions();
 
       // Initialize the state of the icon picker.
+<<<<<<< HEAD
       let typeAndValue = {
         type: this.$typeInput().val(),
         value: this.$valueInput().val()
       };
+=======
+      let typeAndValue = {};
+      this.$tabButton().each((index, tabButton) => {
+        // If the previously-saved type matches this tab, assign the value to that type.
+        if (tabButton.dataset.uniqueTabKey === this.$typeInput().val()) {
+          typeAndValue = {
+            type: tabButton.dataset.uniqueTabKey,
+            value: this.$valueInput().val()
+          };
+        }
+      });
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
       // Store the type and value object.
       this.set('typeAndValue', typeAndValue);
@@ -6113,6 +6134,19 @@
     type: 'user'
   });
   acf.registerFieldType(Field);
+<<<<<<< HEAD
+=======
+  acf.addFilter('select2_ajax_data', function (data, args, $input, field, select2) {
+    if (!field || 'user' !== field.get('type')) {
+      return data;
+    }
+    const query_nonce = field.get('queryNonce');
+    if (query_nonce && query_nonce.toString().length) {
+      data.user_query_nonce = query_nonce;
+    }
+    return data;
+  });
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 })(jQuery);
 
 /***/ }),
@@ -11308,7 +11342,11 @@
               const acfBlockState = acf.blockInstances[selectedBlockId];
               if (acfBlockState.validation_errors) {
                 // Deselect the block to show the error and lock the save.
+<<<<<<< HEAD
                 acf.debug('Rejecting save because the block editor has a invalid ACF block selected.');
+=======
+                console.log('Rejecting save because the block editor has a invalid ACF block selected.');
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
                 notices.createErrorNotice(acf.__('An ACF Block on this page requires attention before you can save.'), {
                   id: 'acf-validation',
                   isDismissible: true

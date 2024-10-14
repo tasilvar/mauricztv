@@ -34,7 +34,11 @@ if ( acf_is_pro() && acf_get_field_type_prop( $field['type'], 'pro' ) ) {
 }
 
 if ( acf_is_pro() && acf_get_field_type_prop( $field['type'], 'pro' ) && ! acf_pro_is_license_active() ) {
+<<<<<<< HEAD
 	$field_type_label .= '<span class="acf-pro-label-field-type"><img src="' . esc_url( acf_get_url( 'assets/images/pro-chip.svg' ) ) . '" alt="' . esc_attr__( 'ACF PRO Logo', 'acf' ) . '"></span>';
+=======
+	$field_type_label .= '<span class="acf-pro-label acf-pro-label-field-type">PRO</span>';
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 	if ( ! acf_pro_is_license_expired() ) {
 		$inactive_field_class = ' acf-js-tooltip';

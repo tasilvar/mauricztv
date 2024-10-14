@@ -77,6 +77,14 @@ class WPCF7_Submission {
 
 
 	/**
+	 * Destructor.
+	 */
+	public function __destruct() {
+		$this->remove_uploaded_files();
+	}
+
+
+	/**
 	 * The main logic of submission.
 	 */
 	private function proceed() {

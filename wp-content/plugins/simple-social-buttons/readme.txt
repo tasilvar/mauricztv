@@ -3,8 +3,13 @@ Contributors: hiddenpearls, WPBrigade, desideveloper
 Donate link: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=donate-link
 Tags: Social Share, Social buttons, Social Media Share, Social Sharing, Share buttons
 Requires at least: 4.0
+<<<<<<< HEAD
 Tested up to: 6.6
 Stable tag: 5.2.0
+=======
+Tested up to: 6.5
+Stable tag: 5.1.3
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -161,6 +166,7 @@ like_button_size = small(default), large
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 5.2.0 - 2024-07-24 =
 * Bugfix: Remove the depreciated PHP code warning.
 * Enhancement: Introduced `Copy Link` Button.
@@ -169,6 +175,8 @@ like_button_size = small(default), large
 * Compatibility: Elementor Templates Compatibility.
 * Compatibility: Compatible with WordPress 6.6
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 = 5.1.3 - 2024-03-18 =
 * Enhancement: Update the JS code to resolve the console error.
 * Compatibility: Compatible with WordPress 6.5

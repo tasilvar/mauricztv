@@ -7,7 +7,11 @@
  * Author:              MonsterInsights
  * Author URI:          https://www.monsterinsights.com/lite/?utm_source=liteplugin&utm_medium=pluginheader&utm_campaign=authoruri&utm_content=7%2E0%2E0
  *
+<<<<<<< HEAD
  * Version:             9.0.0
+=======
+ * Version:             8.28.0
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
  * Requires at least:   5.6.0
  * Requires PHP:        7.2
  *
@@ -71,7 +75,11 @@ final class MonsterInsights_Lite {
 	 * @access public
 	 * @var string $version Plugin version.
 	 */
+<<<<<<< HEAD
 	public $version = '9.0.0';
+=======
+	public $version = '8.28.0';
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 	/**
 	 * Plugin file.
@@ -577,7 +585,10 @@ final class MonsterInsights_Lite {
 		require_once MONSTERINSIGHTS_PLUGIN_DIR . 'includes/frontend/frontend.php';
 		require_once MONSTERINSIGHTS_PLUGIN_DIR . 'includes/frontend/seedprod.php';
 		require_once MONSTERINSIGHTS_PLUGIN_DIR . 'includes/measurement-protocol-v4.php';
+<<<<<<< HEAD
 		require_once MONSTERINSIGHTS_PLUGIN_DIR . 'includes/admin/feature-feedback/class-monsterInsights-feature-feedback.php';
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 	}
 
 	/**

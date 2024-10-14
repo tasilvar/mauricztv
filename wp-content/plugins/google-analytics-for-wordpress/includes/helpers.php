@@ -1249,6 +1249,7 @@ function monsterinsights_get_inline_menu_icon() {
 	}
 }
 
+<<<<<<< HEAD
 function monsterinsights_get_ai_menu_icon() {
     return '
         <span class="monsterinsights-sidebar-icon">
@@ -1257,6 +1258,8 @@ function monsterinsights_get_ai_menu_icon() {
     ';
 }
 
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 function monsterinsights_get_shareasale_id() {
 	// Check if there's a constant.

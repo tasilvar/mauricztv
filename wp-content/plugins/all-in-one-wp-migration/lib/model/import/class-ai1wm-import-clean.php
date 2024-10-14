@@ -36,12 +36,15 @@ class Ai1wm_Import_Clean {
 		// Flush mainsite tables
 		$db_client->add_table_prefix_filter( ai1wm_table_prefix( 'mainsite' ) );
 		$db_client->flush();
+<<<<<<< HEAD
 
 		if ( isset( $params['ai1wm_import_cancel'] ) ) {
 			do_action( 'ai1wm_status_import_canceled', $params );
 		} else {
 			do_action( 'ai1wm_status_import_done', $params );
 		}
+=======
+>>>>>>> ef700b4b391d00bdccb8f089fe79280fa6c1ef62
 
 		// Delete storage files
 		Ai1wm_Directory::delete( ai1wm_storage_path( $params ) );
