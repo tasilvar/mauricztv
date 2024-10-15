@@ -1,4 +1,8 @@
-on: push
+on: 
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -19,6 +23,8 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/wp-includes/**
+          **/wp-admin/**
           **/wp-content/plugins/wp-idea/vendor/airbrake/**
           **/wp-content/plugins/wp-idea/vendor/aws/**
           **/wp-content/plugins/wp-idea/vendor/bin/**
