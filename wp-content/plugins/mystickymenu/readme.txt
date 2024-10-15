@@ -2,9 +2,9 @@
 Contributors: tomeraharon, galdub, premio
 Tags:notification bar, floating bar, sticky menu, sticky header, sticky bar
 Requires at least: 3.5.1
-Tested up to: 6.5
-Stable tag: 2.7
-License: GPLv2 or later
+Tested up to: 6.6
+Stable tag: 2.7.7
+License: GPLv3
 
 🔔 Create a welcome notification bar for your website. Also, My Sticky Bar plugin can make your menu or header sticky to the top when scrolled 📌
 
@@ -26,7 +26,7 @@ By default, My Sticky Bar should make your menu sticky without any adjustments o
 = 💪 BENEFITS =
 * Improve user experience by letting your visitors access the navigation menu and navigate to the pages they want when they want to.
 * Make your website look more modern with the sticky menu on desktop and mobile.
-* Increase number of pageviews and visitors' time on your website
+* Increase number of page views and visitors' time on your website
 * Create your own floating Welcome Bar and let your visitors know about your latest deals, announcements, or any other important information
 * The My Sticky Bar dashboard makes it easy for you to manage your top bars and sticky menus in one place!
 
@@ -370,6 +370,35 @@ After installing the plugin, you’ll have the option to turn on the welcome bar
 
 
 == Changelog ==
+
+= 2.7.7 =
+WordPress admin panel CSS bug fixed
+
+= 2.7.6 =
+Option to add Poptin pop ups to your website
+Improved flow to align the button compared to the text position
+Various bugs fixed
+
+= 2.7.5 =
+Sticky menu settings bug fixed
+
+= 2.7.4 =
+Various bugs were fixed
+
+= 2.7.3 =
+Notification bar analytics: track the number of visitors and clicks
+Option to add a background image to the notification bar
+Show the bar only for logged-in or logged-out users
+Option to show the coupon code right away
+Improved preview for notification bar (full screen)
+Set a specific date & time for your notification bar to appear
+Various bugs were fixed
+
+= 2.7.2 =
+JavaScript in notification bar text bug fixed
+
+= 2.7.1 =
+Button bug fixed
 
 = 2.7 =
 Bar text bug fixed

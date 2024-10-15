@@ -798,7 +798,7 @@ table.product-feature td {
 }
 .product .product-price.sale {
 	color: #ff133e;
-	margin-right: 15px;
+	margin-right: 14px;
 }
 
 .product { 
@@ -921,6 +921,12 @@ ul.levels{padding-left:0;margin-bottom:52px;}
 	display: flex;
 	align-items: center;
 
+}
+
+@media(max-width: 768px) {
+	#header > .contenter .row .col-sm-11 {
+		display: block;
+	}
 }
 
 #header {

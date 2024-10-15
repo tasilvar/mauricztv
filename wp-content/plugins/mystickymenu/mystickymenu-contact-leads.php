@@ -1,8 +1,10 @@
 <?php
+$path1 = preg_replace('/wp-content(?!.*wp-content).*/','',__DIR__);
+include($path1.'wp-load.php');
+	
 if ( isset($_GET['mystickymenu_nonce']) && wp_verify_nonce($_GET['mystickymenu_nonce'], 'MSB_file_download')) {
 	
-	$path1 = preg_replace('/wp-content(?!.*wp-content).*/','',__DIR__);
-	include($path1.'wp-load.php');
+	
 
 
 	if (current_user_can('activate_plugins')) {

@@ -8,6 +8,8 @@
 /**
  * Renders the `core/comments-pagination-previous` block on the server.
  *
+ * @since 6.0.0
+ *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
  * @param WP_Block $block      Block instance.
@@ -22,7 +24,7 @@ function gutenberg_render_block_core_comments_pagination_previous( $attributes, 
 		$label = $pagination_arrow . $label;
 	}
 
-	$filter_link_attributes = static function() {
+	$filter_link_attributes = static function () {
 		return get_block_wrapper_attributes();
 	};
 	add_filter( 'previous_comments_link_attributes', $filter_link_attributes );
@@ -40,6 +42,8 @@ function gutenberg_render_block_core_comments_pagination_previous( $attributes, 
 
 /**
  * Registers the `core/comments-pagination-previous` block on the server.
+ *
+ * @since 6.0.0
  */
 function gutenberg_register_block_core_comments_pagination_previous() {
 	register_block_type_from_metadata(

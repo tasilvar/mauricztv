@@ -490,7 +490,37 @@ if (YCD_PKG_VERSION > YCD_FREE_VERSION) {
                         </div>
                     </div>
                 </div>
-
+                <div class="row form-group">
+                    <div class="col-md-5">
+                        <label for="ycd-countdown-last-seconds" class="ycd-label-of-switch"><?php _e('Last seconds color', YCD_TEXT_DOMAIN); ?></label>
+                    </div>
+                    <div class="col-md-7">
+                        <label class="ycd-switch">
+                            <input type="checkbox"  id="ycd-countdown-last-seconds" name="ycd-countdown-last-seconds" class="ycd-accordion-checkbox" <?php echo esc_attr($typeObj->getOptionValue('ycd-countdown-last-seconds')); ?>>
+                            <span class="ycd-slider ycd-round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="ycd-accordion-content ycd-hide-content">
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label for="ycd-countdown-last-seconds-duration" class="ycd-label-of-color"><?php _e('Last seconds', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html);  ?></label>
+                        </div>
+                        <div class="col-md-7 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+                            <input type="text" id="ycd-countdown-last-seconds-duration" name="ycd-countdown-last-seconds-duration" class="form-control" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-countdown-last-seconds-duration')); ?>">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label for="ycd-countdown-last-seconds-color" class="ycd-label-of-color"><?php _e('text color', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html);  ?></label>
+                        </div>
+                        <div class="col-md-7 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+                            <div class="minicolors minicolors-theme-default minicolors-position-bottom minicolors-position-left">
+                                <input type="text" id="ycd-countdown-last-seconds-color"  placeholder="<?php _e('Select color', YCD_TEXT_DOMAIN)?>" name="ycd-countdown-last-seconds-color" class="generalColors" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-countdown-last-seconds-color')); ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Countdown formats Seconds end -->
 
             </div>

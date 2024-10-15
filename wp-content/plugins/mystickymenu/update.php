@@ -10,7 +10,7 @@ $email = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == "playground.w
 <div class="myStickymenu-updates-form">
     <div class="updates-form-form-left">
         <div class="updates-form-form-left-text">premio</div> 
-        <img src="<?php echo MYSTICKYMENU_URL ?>/images/wcupdate_email.svg" style="width: 230px;margin: 60px 0px 20px 0px;" />
+        <img src="<?php echo esc_url(MYSTICKYMENU_URL) ?>/images/wcupdate_email.svg" style="width: 230px;margin: 60px 0px 20px 0px;" />
 		<p>Grow your WordPress websites with our plugins</p>
     </div>
     <div class="updates-form-form-right">
@@ -30,6 +30,7 @@ $email = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == "playground.w
                 </div>
                 <input id="myStickymenu_update_email" autocomplete="off" value="<?php echo esc_attr($email) ?>" placeholder="Email address">
                 <button href="javascript:;" class="button button-primary form-submit-btn yes">Sign Up</button>
+				<p id="suggestion"></p>
             </div>
            <!-- <div class="update-form-skip-button">
                 <button href="javascript:;" class="button button-secondary form-cancel-btn no">Skip</button>
@@ -37,24 +38,24 @@ $email = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == "playground.w
         </div>
 		
 		<div class="update-notice-latter">
-			<span><a href="javascript:;" class="skip-dolatter form-cancel-btn no">No, I will do it later</a></span>
+			<span><a href="javascript:;" class="form-cancel-btn no">No, I will do it later</a></span>
 		</div>
 		
         <div class="update-notice">
             You can remove yourself from the list whenever you want, no strings attached
         </div>
-        <input type="hidden" id="myStickymenu_update_nonce" value="<?php echo wp_create_nonce("myStickymenu_update_nonce") ?>">
+        <input type="hidden" id="myStickymenu_update_nonce" value="<?php echo esc_html(wp_create_nonce("myStickymenu_update_nonce")); ?>">
     </div>
 </div>
 <style>
 
 @font-face {
    font-family: 'Lato';
-   src: url('<?php echo MYSTICKYMENU_URL."fonts/Lato-Regular.ttf";?>');
+   src: url('<?php echo esc_url(MYSTICKYMENU_URL."fonts/Lato-Regular.ttf");?>');
 }
 
 #wpwrap{
-	background: url('<?php echo MYSTICKYMENU_URL;?>images/update-bg.jpg');
+	background: url('<?php echo esc_url(MYSTICKYMENU_URL);?>images/update-bg.jpg');
     background-position: bottom center;
     background-size: cover;		
 }
@@ -236,7 +237,82 @@ $email = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == "playground.w
     bottom: -16px;
 	left: 0;
 }
-
-
+#suggestion {
+	margin: 10px 0 0;
+	padding: 0;
+	font-size: 14px;
+	color: #970029;
+}
+#suggestion i {
+	color: #2596be;
+	font-weight: bold;
+	cursor: pointer;
+}
+.eac-sugg{
+	color:#c1c1c1;
+	margin-left: -4px;
+}
 
 </style>
+<script>
+	jQuery(document).ready(function($) {
+		var mailcheck_flg = false;
+		$(document).on("click", ".updates-form button, a.form-cancel-btn", function () {
+			//$('#myStickymenu_update_email').trigger( 'blur' );
+			msbmailcheck();
+			if ( $('#suggestion').html() != '' && mailcheck_flg == false ) {
+				mailcheck_flg = true;
+				return false;
+			}
+			
+			var updateStatus = 0;
+			if ($(this).hasClass("yes")) {
+				updateStatus = 1;
+			}
+			$(".updates-form button").attr("disabled", true);			
+			$.ajax({
+				url: ajaxurl,
+				type: 'post',
+                data: {
+                    action: "sticky_menu_update_status",
+					status: updateStatus,
+					nonce: $("#myStickymenu_update_nonce").val(),
+					email: $("#myStickymenu_update_email").val()
+                },
+                type: 'post',
+				cache: false,
+				success: function () {
+					mailcheck_flg = false;
+					window.location.reload();
+				}
+			})
+		});
+		
+		var checkdomains = ["yahoo.com" ,"hotmail.com" ,"gmail.com" ,"me.com" ,"aol.com" ,"mac.com" ,"live.com" ,"comcast.net" ,"googlemail.com" ,"msn.com" ,"hotmail.co.uk" ,"facebook.com" ,"verizon.net" ,"sbcglobal.net" ,"att.net" ,"gmx.com" ,"outlook.com" ,"icloud.com" ,"protonmail.com"];
+        var topLevelDomains = ["com", "net", "org", "me", "io"];
+		
+		function msbmailcheck() {
+			jQuery('#myStickymenu_update_email').mailcheck({
+                domains: checkdomains,                  // optional
+                topLevelDomains: topLevelDomains,       // optional
+                suggested: function(element, suggestion) {
+                    // callback code                    
+                    jQuery('#suggestion').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
+                },
+                empty: function(element) {
+                    // callback code
+                    jQuery('#suggestion').html('');
+                }
+            });
+		}
+
+        $("#myStickymenu_update_email").emailautocomplete({            
+			domains: ["yahoo.com" ,"hotmail.com" ,"gmail.com" ,"me.com" ,"aol.com" ,"mac.com" ,"live.com" ,"comcast.net" ,"googlemail.com" ,"msn.com" ,"hotmail.co.uk" ,"facebook.com" ,"verizon.net" ,"sbcglobal.net" ,"att.net" ,"gmx.com" ,"outlook.com" ,"icloud.com" ,"protonmail.com"]
+        });
+
+        $(document).on("click", "#suggestion i", function (){
+            $("#myStickymenu_update_email").val($(this).text());
+			setTimeout(function(){ jQuery('#suggestion').html(''); }, 1000);
+        });
+	});
+</script>

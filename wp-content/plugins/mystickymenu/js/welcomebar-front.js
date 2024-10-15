@@ -48,7 +48,10 @@ jQuery(document).ready(function($){
 							jQuery( '#mysticky_divi_style' ).remove();
 							jQuery( '.et_fixed_nav #top-header' ).css( 'top', welcombar_height + 'px' );
 							jQuery( 'head' ).append( '<style id="mysticky_divi_style" type="text/css">.et_fixed_nav #main-header {top: ' + welcombar_height + 'px !important}.et_fixed_nav #top-header + #main-header{top: ' + divi_total_height + 'px !important}</style>' );
-							$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+							//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+							$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+								$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+							});
 							$( '#mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 						} else {
 							jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -77,7 +80,10 @@ jQuery(document).ready(function($){
 							jQuery( '.mysticky-welcomebar-fixed' ).css( 'top', ( adminBarHeight + 0) + 'px' );
 							jQuery( '.mysticky-welcomebar-fixed' ).css( 'opacity', '1' );
 							$( 'html' ).css( 'margin-bottom', '' );
-							$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+							//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+							$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+								$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+							});
 							$( '#mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 						} else {
 							jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -125,7 +131,10 @@ jQuery(document).ready(function($){
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'top', ( adminBarHeight +  0) + 'px' );
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'opacity', '1' );
 								$( 'html' ).css( 'margin-bottom', '' );
-								$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+									$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+								});
 								$( '.mysticky-welcomebar-apper #mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 							} else {
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -147,7 +156,10 @@ jQuery(document).ready(function($){
 								jQuery( '#mysticky_divi_style' ).remove();
 								jQuery( '.mysticky-welcomebar-apper.et_fixed_nav #top-header' ).css( 'top', welcombar_height + 'px' );
 								jQuery( 'head' ).append( '<style id="mysticky_divi_style" type="text/css">.mysticky-welcomebar-apper.et_fixed_nav #main-header {top: ' + welcombar_height + 'px !important}.mysticky-welcomebar-apper.et_fixed_nav #top-header + #main-header{top: ' + divi_total_height + 'px !important}</style>' );
-								$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+									$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+								});
 								$( '.mysticky-welcomebar-apper #mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 							} else {
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -195,7 +207,10 @@ jQuery(document).ready(function($){
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'top', (adminBarHeight+ 0 ) + 'px' );
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'opacity', '1' );
 								$( 'html' ).css( 'margin-bottom', '' );
-								$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+									$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+								});
 								$( '#mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 							} else {
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -213,7 +228,10 @@ jQuery(document).ready(function($){
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'top', ( adminBarHeight +0 ) + 'px' );
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'opacity', '1' );
 								$( 'html' ).css( 'margin-bottom', '' );
-								$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								//$( 'html' ).attr( 'style', 'margin-top: ' + mysticky_welcomebar_height + 'px !important' );
+								$("html").animate({ "margin-top": mysticky_welcomebar_height + "px" }, 1000, function() {	
+									$("html").css("cssText", "margin-top:" + mysticky_welcomebar_height + "px!important;");
+								});
 								$( '#mysticky-nav' ).css( 'top', mysticky_welcomebar_height + 'px' );
 							} else {
 								jQuery( '.mysticky-welcomebar-fixed' ).css( 'bottom', '0' );
@@ -230,7 +248,10 @@ jQuery(document).ready(function($){
 
 	});
 	
-	jQuery( '.mysticky-welcomebar-close, .mysticky-welcomebar-btn a' ).on( 'click', function(){
+	jQuery( '.mysticky-welcomebar-close, .mysticky-welcomebar-btn a' ).on( 'click', function(e){
+		if ($(this).attr('href') == '') {
+			e.preventDefault();
+		}
 		/* Submit contact lead form */
 		var flag				= true;
 		var trigger_sec 		= 100;
@@ -372,7 +393,10 @@ jQuery(document).ready(function($){
 			if( mystickyelements_show && $( window ).width() <= 1024 && $( '.mystickyelements-fixed' ).hasClass( 'mystickyelements-position-mobile-top' ) && welcombar_position == 'top' ) {
 				var mystickyelements_height = $( '.mystickyelements-fixed' ).height();
 				$( '.mystickyelements-fixed' ).css( 'top', '' );
-				$( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_height + 'px !important' );
+				//$( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_height + 'px !important' );
+				$("html").animate({ "margin-top": mystickyelements_height + "px" }, 1000, function() {	
+					$("html").css("cssText", "margin-top:" + mystickyelements_height + "px!important;");
+				});
 			}
 			
 		}, trigger_sec );
@@ -380,6 +404,13 @@ jQuery(document).ready(function($){
 		jQuery('#contact-lead-email-'+welcomebar_widget).val('');
 		jQuery('#contact-lead-phone-'+welcomebar_widget).val('');
 	} );
+	
+	// JS snippet to allow close button to work with keyboard.
+	$('.mysticky-welcomebar-close').on('keydown', function(e) {
+		if(e.keyCode == '13'){
+			$(this).trigger('click');
+		}
+	});
 });
 function mystickyelements_present() {
 	var after_trigger 		  = jQuery( '.mysticky-welcomebar-fixed' ).data('after-triger');
@@ -419,7 +450,10 @@ function mystickyelements_present() {
 					setTimeout(function(){
 						if ( welcombar_position == 'top' ) {
 							jQuery( '.mystickyelements-fixed' ).css( 'top', welcombar_height );
-							jQuery( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_total_height + 'px !important' );
+							//jQuery( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_total_height + 'px !important' );
+							$("html").animate({ "margin-top": mystickyelements_total_height + "px" }, 1000, function() {	
+								$("html").css("cssText", "margin-top:" + mystickyelements_total_height + "px!important;");
+							});
 						} else {
 							jQuery( '.mystickyelements-fixed' ).css( 'top', '' );
 							jQuery( 'html' ).attr( 'style', 'margin-bottom: ' + welcombar_height + 'px !important' );
@@ -433,7 +467,10 @@ function mystickyelements_present() {
 					if ( jQuery( '.mysticky-welcomebar-fixed' ).hasClass( 'mysticky-welcomebar-display-mobile' ) ) {
 						if ( welcombar_position == 'top' ) {
 							jQuery( '.mystickyelements-fixed' ).css( 'top', welcombar_height );
-							jQuery( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_total_height + 'px !important' );
+							//jQuery( 'html' ).attr( 'style', 'margin-top: ' + mystickyelements_total_height + 'px !important' );
+							$("html").animate({ "margin-top": mystickyelements_total_height + "px" }, 1000, function() {	
+								$("html").css("cssText", "margin-top:" + mystickyelements_total_height + "px!important;");
+							});
 						} else {
 							jQuery( '.mystickyelements-fixed' ).css( 'top', '' );
 							jQuery( 'html' ).attr( 'style', 'margin-bottom: ' + welcombar_height + 'px !important' );

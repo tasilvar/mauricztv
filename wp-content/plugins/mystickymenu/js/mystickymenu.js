@@ -418,6 +418,26 @@
 		
 		// need to test this, it should fire script on mobile orientation change, since onresize is somehow faulty in this case
 		window.addEventListener('orientationchange', OnResizeDocument);
+		
+		if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) != true ) {		
+			$("li.menu-item.menu-item-has-children").hover(
+				function(){					
+					var window_height  = window.innerHeight;
+					var header_height  = $('#mysticky-wrap').outerHeight();
+					
+					var submenu_height = $(this).find('ul.sub-menu').outerHeight();
+
+					if (window_height < submenu_height) {			
+						$(this).find('ul.sub-menu').addClass('stickymenu-item-height');
+						jQuery(this).find('ul.sub-menu.stickymenu-item-height').css({"height": window_height-header_height + 'px'});
+					}
+				},
+				function(){					
+					$(this).find('ul.sub-menu.stickymenu-item-height').css({"height": 'unset'});
+					$(this).find('ul.sub-menu').removeClass('stickymenu-item-height');
+				}
+			);
+		}
 	});
 
 })(jQuery);

@@ -26,7 +26,6 @@ if ( ! function_exists( 'eapro_validate_email' ) ) {
 		if ( ! filter_var( $value, FILTER_VALIDATE_EMAIL ) ) {
 			return esc_html__( 'Please write a valid email address!', 'easy-accordion-free' );
 		}
-
 	}
 }
 
@@ -42,7 +41,6 @@ if ( ! function_exists( 'eapro_validate_numeric' ) ) {
 		if ( ! is_numeric( $value ) ) {
 			return esc_html__( 'Please write a numeric data!', 'easy-accordion-free' );
 		}
-
 	}
 }
 
@@ -60,7 +58,6 @@ if ( ! function_exists( 'eapro_validate_required' ) ) {
 		if ( empty( $value ) ) {
 			return esc_html__( 'Error! This field is required!', 'easy-accordion-free' );
 		}
-
 	}
 }
 
@@ -78,7 +75,6 @@ if ( ! function_exists( 'eapro_validate_url' ) ) {
 		if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
 			return esc_html__( 'Please write a valid url!', 'easy-accordion-free' );
 		}
-
 	}
 }
 
@@ -100,7 +96,6 @@ if ( ! function_exists( 'eapro_customize_validate_email' ) ) {
 		}
 
 		return $validity;
-
 	}
 }
 
@@ -123,7 +118,6 @@ if ( ! function_exists( 'eapro_customize_validate_numeric' ) ) {
 		}
 
 		return $validity;
-
 	}
 }
 
@@ -145,7 +139,6 @@ if ( ! function_exists( 'eapro_customize_validate_required' ) ) {
 		}
 
 		return $validity;
-
 	}
 }
 
@@ -167,6 +160,5 @@ if ( ! function_exists( 'eapro_customize_validate_url' ) ) {
 		}
 
 		return $validity;
-
 	}
 }

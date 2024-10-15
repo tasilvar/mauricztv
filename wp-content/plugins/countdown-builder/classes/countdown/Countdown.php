@@ -139,6 +139,7 @@ abstract class Countdown {
 	public function includeGeneralScripts() {
 		$isAdmin = is_admin();
 		wp_enqueue_script( 'moment' );
+		wp_enqueue_script( 'moment', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', array(), '2.29.1', true );
 		wp_enqueue_script( 'jquery' );
 
 		ScriptsIncluder::registerScript('YcdGeneral.js',array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('moment', 'jquery')));
@@ -860,6 +861,23 @@ abstract class Countdown {
 
 		return $dateString;
 	}
+
+	public static function runNewslatter($contdownPost, $countdownObj) {
+		$id = $countdownObj->getId();
+		$key = "send_newslatter_".$id;
+
+		if (!empty($countdownObj->getOptionValue('ycd-enable-subscribe-form'))) {
+
+			if (
+				!empty($countdownObj->getOptionValue('ycd-enable-send-newslatter')) && 
+				$countdownObj->isExpired() && 
+				!get_option($key)) {
+				update_option($key, 1);
+				YpmSendNewslatterById($countdownObj->getOptionValue('ycd-auto-newslatter'));
+		
+			}
+		}
+	}
 	
 	public static function allowToLoad($contdownPost, $countdownObj) {
 		$isAllow = Checker::isAllow($contdownPost, $countdownObj);
@@ -1145,6 +1163,10 @@ abstract class Countdown {
 		$options['ycd-countdown-showing-limitation'] = $this->getOptionValue('ycd-countdown-showing-limitation');
 		$options['ycd-countdown-expiration-time'] = $this->getOptionValue('ycd-countdown-expiration-time');
 		$options['ycd-countdown-switch-number'] = $this->getOptionValue('ycd-countdown-switch-number');
+
+		$options['ycd-countdown-last-seconds'] = $this->getOptionValue('ycd-countdown-last-seconds');
+		$options['ycd-countdown-last-seconds-duration'] = $this->getOptionValue('ycd-countdown-last-seconds-duration');
+		$options['ycd-countdown-last-seconds-color'] = $this->getOptionValue('ycd-countdown-last-seconds-color');
 
 		$options['time'] = array(
 			'Years' => array(

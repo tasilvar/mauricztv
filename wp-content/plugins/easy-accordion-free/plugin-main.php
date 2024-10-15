@@ -5,7 +5,7 @@
  * Description: The best Responsive and Touch-friendly drag & drop <strong>Accordion FAQ</strong> builder plugin for WordPress.
  * Author:      ShapedPlugin LLC
  * Author URI:  https://shapedplugin.com/
- * Version:     2.3.7
+ * Version:     2.3.9
  * Text Domain: easy-accordion-free
  * Domain Path: /languages/
  *
@@ -51,7 +51,7 @@ class SP_EASY_ACCORDION_FREE {
 	 *
 	 * @var string
 	 */
-	public $version = '2.3.7';
+	public $version = '2.3.9';
 
 	/**
 	 * The name of the plugin.
@@ -115,6 +115,7 @@ class SP_EASY_ACCORDION_FREE {
 		$this->load_dependencies();
 		$this->define_admin_hooks();
 		$this->define_common_hooks();
+		$this->eap_wc_tab();
 	}
 
 	/**
@@ -197,6 +198,23 @@ class SP_EASY_ACCORDION_FREE {
 	}
 
 	/**
+	 * Register WooCommerce hooks.
+	 *
+	 * @since 2.0.2
+	 * @access private
+	 */
+	private function eap_wc_tab() {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		$settings    = get_option( 'sp_eap_settings' );
+		$eap_woo_faq = isset( $settings['eap_woo_faq'] ) ? $settings['eap_woo_faq'] : '';
+		if ( ( $eap_woo_faq ) && ( is_plugin_active( 'woocommerce/woocommerce.php' ) || is_plugin_active_for_network( 'woocommerce/woocommerce.php' ) ) ) {
+			// Product tab.
+			$product_tab = new Easy_Accordion_Free_Product_Tab( SP_PLUGIN_NAME, SP_EA_VERSION );
+			$this->loader->add_filter( 'woocommerce_product_tabs', $product_tab, 'eap_woo_faq_tab', 10, 2 );
+		}
+	}
+
+	/**
 	 * Included required files.
 	 *
 	 * @return void
@@ -205,6 +223,7 @@ class SP_EASY_ACCORDION_FREE {
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-updates.php';
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-loader.php';
 		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-post-types.php';
+		require_once SP_EA_INCLUDES . '/class-easy-accordion-free-product-tab.php';
 		require_once SP_EA_PATH . '/public/views/scripts.php';
 		require_once SP_EA_PATH . '/admin/class-easy-accordion-free-admin.php';
 		require_once SP_EA_PATH . '/admin/help-page/help-page.php';

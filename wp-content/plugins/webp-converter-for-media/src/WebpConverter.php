@@ -28,7 +28,7 @@ class WebpConverter {
 		( new Action\ConvertAttachmentAction( $plugin_data ) )->init_hooks();
 		( new Action\ConvertPathsAction( $plugin_data, $method_factory ) )->init_hooks();
 		( new Action\DeleteFileHandler() )->init_hooks();
-		( new Action\DeletePathsAction( $plugin_data, $format_factory ) )->init_hooks();
+		( new Action\DeletePathsAction( $format_factory ) )->init_hooks();
 		( new Action\UploadFileHandler( $plugin_data, $token_repository, $format_factory ) )->init_hooks();
 		$directory_factory->init_hooks();
 		( new Endpoint\EndpointIntegrator( new Endpoint\CronConversionEndpoint( $plugin_data, $token_repository, $format_factory ) ) )->init_hooks();
@@ -45,6 +45,7 @@ class WebpConverter {
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\ThanksNotice() ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\CloudflareNotice() ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\TokenInactiveNotice( $plugin_data, $token_repository ) ) )->init_hooks();
+		( new Notice\NoticeIntegrator( $plugin_info, new Notice\BlackFridayNotice( $plugin_data ) ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\UpgradeNotice( $plugin_data ) ) )->init_hooks();
 		( new Loader\LoaderIntegrator( new Loader\HtaccessLoader( $plugin_info, $plugin_data, $format_factory ) ) )->init_hooks();
 		( new Loader\LoaderIntegrator( new Loader\HtaccessBypassingLoader( $plugin_info, $plugin_data, $format_factory ) ) )->init_hooks();
@@ -66,6 +67,7 @@ class WebpConverter {
 		( new Service\CloudflareConfigurator( $plugin_info, $plugin_data ) )->init_hooks();
 		( new Service\DeactivationModalLoader( $plugin_info, $plugin_data ) )->init_hooks();
 		( new Service\MediaStatusViewer( $plugin_data, $token_repository, $format_factory ) )->init_hooks();
+		( new Service\SiteHealthDetector( $plugin_data ) )->init_hooks();
 		( new Service\RestApiUnlocker() )->init_hooks();
 		( new Service\WpCliManager( $plugin_data, $token_repository, $method_factory, $format_factory ) )->init_hooks();
 		( new Settings\AdminAssetsLoader( $plugin_info ) )->init_hooks();

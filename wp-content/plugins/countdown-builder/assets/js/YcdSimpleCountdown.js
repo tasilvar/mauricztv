@@ -334,7 +334,7 @@ YcdSimpleCountdown.prototype.countdown = function()
 		// If the count down is finished, write some text
 		distance = that.getFilteredDistance();
 
-		if (distance <= -1 && that.countdownRun) {
+		if (distance <= 0  && that.countdownRun) {
 			clearInterval(x);
 			that.endBehavior(countdownWrapper, that.options);
 			return;

@@ -124,5 +124,14 @@ class Installer {
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8; ';
 
 		$wpdb->query($subscriberTableQuery);
+		
+		$newsLettersQuery = $createTableHeader.YCD_COUNTDOWN_NEWSLETTER_TABLE.' (
+			`id` int(11) NOT NULL AUTO_INCREMENT,
+			`title` varchar(255) NOT NULL,
+			`options` TEXT,
+			PRIMARY KEY (id)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8; ';
+
+		$wpdb->query($newsLettersQuery);
 	}
 }

@@ -177,7 +177,10 @@ class Actions {
 		$script .= "<script>jQuery(document).ready(function() {jQuery('#menu-posts-ycdcountdown a[href*=\"page=supports\"]').css({color: 'yellow'});jQuery('#menu-posts-ycdcountdown a[href*=\"page=supports\"]').bind('click', function(e) {e.preventDefault(); window.open('https://wordpress.org/support/plugin/countdown-builder/')}) });</script>";
         if (YCD_PKG_VERSION == YCD_FREE_VERSION) {
             $script .=  '<script>';
-            $script .= "jQuery(document).ready(function() {jQuery('[href*=\"ycdSubscribers\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank');jQuery('[href*=\"ycdNewsletter\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank')});";
+            $script .= "jQuery(document).ready(function() {
+				jQuery('[href*=\"ycdSubscribers\"]').attr(\"href\", '".YCD_COUNTDOWN_PRO_URL."').attr('target', '_blank');
+				
+			});";
             $script .= '</script>';
         }
 		echo wp_kses($script, AdminHelper::getAllowedTags());

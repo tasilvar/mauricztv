@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-md-6">
 			<label class="ycd-switch">
-				<input type="checkbox" id="ycd-countdown-enable-floating-countdown" name="ycd-countdown-enable-floating-countdown" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-countdown-enable-floating-countdown')); ?>>
+				<input type="checkbox" id="ycd-countdown-enable-floating-countdown" name="ycd-countdown-enable-floating-countdown" <?php echo esc_attr($this->getOptionValue('ycd-countdown-enable-floating-countdown')); ?>>
 				<span class="ycd-slider ycd-round"></span>
 			</label>
 		</div>
@@ -100,6 +100,27 @@
 		</div>
 	</div>
 	<div class="row form-group">
+		<div class="col-xs-4">
+			<label class="control-label"><?php _e('Button Content Padding', YCD_TEXT_DOMAIN);?></label>
+		</div>
+		<div class="col-xs-2">
+			<label for="ycd-countdown-floating-text-padding-top" class="ycd-label">Top</label>
+			<input type="text" id="ycd-countdown-floating-text-padding-top" data-direction="top" name="ycd-countdown-floating-text-padding-top" class="form-control button-padding" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-padding-top')); ?>">
+		</div>
+		<div class="col-xs-2">
+			<label for="ycd-countdown-floating-text-padding-right" class="ycd-label">Right</label>
+			<input type="text" id="ycd-countdown-floating-text-padding-right" data-direction="right" name="ycd-countdown-floating-text-padding-right" class="form-control button-padding" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-padding-right')); ?>">
+		</div>
+		<div class="col-xs-2">
+			<label for="ycd-countdown-floating-text-padding-bottom" class="ycd-label">Bottom</label>
+			<input type="text" id="ycd-countdown-floating-text-padding-bottom" data-direction="bottom" name="ycd-countdown-floating-text-padding-bottom" class="form-control button-padding" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-padding-bottom')); ?>">
+		</div>
+		<div class="col-xs-2">
+			<label for="ycd-countdown-floating-text-padding-left" class="ycd-label">Left</label>
+			<input type="text" id="ycd-countdown-floating-text-padding-left" data-direction="left" name="ycd-countdown-floating-text-padding-left" class="form-control button-padding" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-padding-left')); ?>">
+		</div>
+	</div>
+	<div class="row form-group">
 		<div class="col-md-6">
 			<label for="ycd-countdown-floating-text-size"><?php _e('Font size', YCD_TEXT_DOMAIN); ?></label>
 		</div>
@@ -114,6 +135,16 @@
 		<div class="col-md-6 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
 			<div class="">
 				<input type="text" id="ycd-countdown-floating-text-color" placeholder="<?php _e('Select color', YCD_TEXT_DOMAIN)?>" name="ycd-countdown-floating-text-color" class="minicolors-input form-control generalColors" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-color')); ?>">
+			</div>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-md-6">
+			<label for="ycd-countdown-floating-text-bg-color" class=""><?php _e('Text background color', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html); ?></label>
+		</div>
+		<div class="col-md-6 ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+			<div class="">
+				<input type="text" id="ycd-countdown-floating-text-bg-color" placeholder="<?php _e('Select color', YCD_TEXT_DOMAIN)?>" name="ycd-countdown-floating-text-bg-color" class="minicolors-input form-control generalColors" value="<?php echo esc_attr($this->getOptionValue('ycd-countdown-floating-text-bg-color')); ?>">
 			</div>
 		</div>
 	</div>

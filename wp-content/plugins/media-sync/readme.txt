@@ -1,11 +1,11 @@
 === Media Sync ===
 Contributors: erolsk8, simonkane
 Donate link: https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=donate_link
-Tags: media, uploads, import, ftp, server, migration, automate, sync, library
+Tags: media, uploads, import, ftp, server
 Requires at least: 5.3
-Tested up to: 6.5.3
+Tested up to: 6.6.1
 Requires PHP: 7.1
-Stable tag: 1.4.2
+Stable tag: 1.4.6
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,24 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 
 
 == Changelog ==
+
+= 1.4.6 =
+* Minor maintenance adjustment to prepare promo banner for upcoming redesign
+* Tested for WordPress 6.6.1
+
+= 1.4.5 =
+* Fix DOM IDs when scanning directories or files with special non-latin characters
+* Bring back promo banner without remote fetch
+
+= 1.4.4 =
+* Decode `post_title` and `guid` in attachment data
+* Tested for WordPress 6.5.5
+
+= 1.4.3 =
+* Disable fetching promo banner from remote origin in hopes of resolving 404 errors
+* Load plugin only on admin pages
+* Tested for WordPress 6.5.4
+* Get proper error message from `wp_insert_attachment` function
 
 = 1.4.2 =
 * Fix enabling or disabling debugging option

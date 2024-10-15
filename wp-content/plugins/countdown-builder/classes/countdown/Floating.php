@@ -64,6 +64,13 @@ class Floating {
 		$paddingRight = $typeObj->getOptionValue('ycd-countdown-floating-padding-right');
 		$paddingBottom = $typeObj->getOptionValue('ycd-countdown-floating-padding-bottom');
 		$paddingLeft = $typeObj->getOptionValue('ycd-countdown-floating-padding-left');
+		
+		$textPaddingTop = $typeObj->getOptionValue('ycd-countdown-floating-text-padding-top');
+		$textPaddingRight = $typeObj->getOptionValue('ycd-countdown-floating-text-padding-right');
+		$textPaddingBottom = $typeObj->getOptionValue('ycd-countdown-floating-text-padding-bottom');
+		$textPaddingLeft = $typeObj->getOptionValue('ycd-countdown-floating-text-padding-left');
+
+		$textBgColor = $typeObj->getOptionValue('ycd-countdown-floating-text-bg-color');
 
 		$expandButton = "<div 
 			style='
@@ -107,6 +114,10 @@ class Floating {
 			.ycd-floating-content {
 				background-color: ".esc_attr($contentBgColor).";
 				padding: ".esc_attr($paddingTop)." ".esc_attr($paddingRight)." ".esc_attr($paddingBottom)."  ".esc_attr($paddingLeft).";
+			}
+			.ycd-floating-toggle {
+				background-color: ".esc_attr($textBgColor).";
+				padding: ".esc_attr($textPaddingTop)." ".esc_attr($textPaddingRight)." ".esc_attr($textPaddingBottom)."  ".esc_attr($textPaddingLeft).";
 			}
 			.hidden-floating .ycd-floating-content { padding: 0 !important;}
 		</style>";

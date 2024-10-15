@@ -29,7 +29,7 @@
 						})
 					});
 				});
-				$("#" + accordion_id + " > .ea-card .ea-header a ").on('click', function (event) {
+				$("#" + accordion_id + " > .ea-card .ea-header a").on('click', function (event) {
 					event.preventDefault();
 				});
 			}
