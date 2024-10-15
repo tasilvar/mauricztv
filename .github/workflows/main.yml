@@ -30,10 +30,14 @@ jobs:
           **/wp-content/languages/**
           **/wp-content/lms-data/**
           **/wp-content/uploads/**
-          **/wp-content/cookie-law-info/**
-          **/wp-content/complianz-gdpr/**
-          **/wp-content/gutenberg/**
-          **/wp-content/all-in-one-wp-migration/**
+          **/wp-content/plugins/cookie-law-info/**
+          **/wp-content/plugins/complianz-gdpr/**
+          **/wp-content/plugins/gutenberg/**
+          **/wp-content/plugins/better-search-replace/**
+          **/wp-content/plugins/media-sync/**
+          **/wp-content/plugins/webp-converter-for-media/**
+          **/wp-content/plugins/wp-rocket/**
+          **/wp-content/plugins/all-in-one-wp-migration/**
           **/wp-content/plugins/wp-idea/vendor/airbrake/**
           **/wp-content/plugins/wp-idea/vendor/aws/**
           **/wp-content/plugins/wp-idea/vendor/bin/**
