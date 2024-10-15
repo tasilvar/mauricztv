@@ -26,6 +26,18 @@ jobs:
           **/wp-includes/**
           **/wp-admin/**
           **/wp-content/plugins/to-top/**
+          **/wp-content/plugins/wpfront-notification-bar/**
+          **/wp-content/plugins/add-logo-to-admin/**
+          **/wp-content/plugins/breadcrumb-navxt/**
+          **/wp-content/plugins/contact-form-7/**
+          **/wp-content/plugins/countdown-builder/**
+          **/wp-content/plugins/duplicate-page/**
+          **/wp-content/plugins/easy-accordion-free/**
+          **/wp-content/plugins/facebook-messenger-customer-chat/**
+          **/wp-content/plugins/megamenu/**
+          **/wp-content/plugins/mystickymenu/**
+          **/wp-content/plugins/page-scroll-to-id/**
+          **/wp-content/plugins/posts-in-page/**
           **/wp-content/plugins/bnfw/**
           **/wp-content/plugins/classic-editor/**
           **/wp-content/plugins/classic-widgets/**
@@ -38,7 +50,9 @@ jobs:
           **/wp-content/languages/**
           **/wp-content/lms-data/**
           **/wp-content/uploads/**
-          **/wp-content/regenerate-thumbnails/**
+          **/wp-content/plugins/regenerate-thumbnails/**
+          **/wp-content/plugins/rollback-update-failure/**
+          **/wp-content/plugins/simple-social-buttons/**
           **/wp-content/plugins/wordpress-seo/**
           **/wp-content/plugins/wp-maintenance/**
           **/wp-content/plugins/cookie-law-info/**
