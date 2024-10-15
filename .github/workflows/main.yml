@@ -25,6 +25,7 @@ jobs:
           **/node_modules/**
           **/wp-includes/**
           **/wp-admin/**
+          **/wp-content/plugins/**
           **/wp-content/ai1wm-backups/**
           **/wp-content/cache/**
           **/wp-content/languages/**
