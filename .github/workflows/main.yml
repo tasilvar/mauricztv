@@ -66,6 +66,7 @@ jobs:
           **/wp-content/plugins/webp-converter-for-media/**
           **/wp-content/plugins/wp-rocket/**
           **/wp-content/plugins/all-in-one-wp-migration/**
+          **/wp-content/plugins/wp-idea/dependencies/**
           **/wp-content/plugins/wp-idea/vendor/airbrake/**
           **/wp-content/plugins/wp-idea/vendor/aws/**
           **/wp-content/plugins/wp-idea/vendor/bin/**
