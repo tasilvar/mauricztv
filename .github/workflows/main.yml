@@ -30,6 +30,9 @@ jobs:
           **/wp-content/languages/**
           **/wp-content/lms-data/**
           **/wp-content/uploads/**
+          **/wp-content/regenerate-thumbnails/**
+          **/wp-content/plugins/wordpress-seo/**
+          **/wp-content/plugins/wp-maintenance/**
           **/wp-content/plugins/cookie-law-info/**
           **/wp-content/plugins/complianz-gdpr/**
           **/wp-content/plugins/gutenberg/**
