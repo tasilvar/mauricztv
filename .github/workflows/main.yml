@@ -25,7 +25,14 @@ jobs:
           **/node_modules/**
           **/wp-includes/**
           **/wp-admin/**
-          **/wp-content/plugins/**
+          **/wp-content/plugins/to-top/**
+          **/wp-content/plugins/bnfw/**
+          **/wp-content/plugins/classic-editor/**
+          **/wp-content/plugins/classic-widgets/**
+          **/wp-content/plugins/cb-change-mail-sender/**
+          **/wp-content/plugins/block-specific-plugin-updates/**
+          **/wp-content/plugins/duplicate-page/**
+          **/wp-content/plugins/google-analytics-for-wordpress/**
           **/wp-content/ai1wm-backups/**
           **/wp-content/cache/**
           **/wp-content/languages/**
