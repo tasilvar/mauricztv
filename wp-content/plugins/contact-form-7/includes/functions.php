@@ -210,10 +210,14 @@ function wpcf7_validate_configuration() {
 
 
 /**
- * Returns true if wpcf7_autop() is applied to form content.
+ * Returns true if wpcf7_autop() is applied.
  */
-function wpcf7_autop_or_not() {
-	return (bool) apply_filters( 'wpcf7_autop_or_not', WPCF7_AUTOP );
+function wpcf7_autop_or_not( $options = '' ) {
+	$options = wp_parse_args( $options, array(
+		'for' => 'form',
+	) );
+
+	return (bool) apply_filters( 'wpcf7_autop_or_not', WPCF7_AUTOP, $options );
 }
 
 
@@ -267,6 +271,7 @@ function wpcf7_get_request_uri() {
 
 	if ( empty( $request_uri ) ) {
 		$request_uri = add_query_arg( array() );
+		$request_uri = '/' . ltrim( $request_uri, '/' );
 	}
 
 	return sanitize_url( $request_uri );

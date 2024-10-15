@@ -19,12 +19,22 @@ if(!empty($_POST['cols'])) {
     $cols = 4;
 }
 
-if(!empty($_POST['czas'])) {
+if(!empty($_POST['czas-range-from'])) {
     $filterArgs[] =  array(
         'key' => 'czas_kursu',
-        'value' =>  $_POST['czas'],
+        'value' =>  $_POST['czas-range-from'],
+        'compare' => '>=',
+        'type'      => 'NUMERIC',
+    );
+
+    $filterArgs[] =  array(
+        'key' => 'czas_kursu',
+        'value' =>  $_POST['czas-range-to'],
+        'type'      => 'NUMERIC',
         'compare' => '<='
     );
+
+   
 }
 
 if($getCategoryTag != null) { 
@@ -176,8 +186,7 @@ if($getCategoryTag != null) {
     <?php
     // Dodaj do koszyka
     echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-    <i class="fa fa-shopping-bag"></i> 
-    Sprawdź szkolenie</a>';
+    Szczegóły</a>';
     
         echo "</div>";
         echo "</div>";

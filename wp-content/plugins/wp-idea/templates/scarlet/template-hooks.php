@@ -902,7 +902,8 @@ function bpmj_eddcm_scarlet_edd_discount_field2()
                     $('.kod_rabatowy_input').hide();
                     $('.kod_rabatowy_contener').show();
                     //$('.rabat_dodany').show();
-                    alert('a');
+                    //alert('a');
+                   // window.location.reload();
                 });
             });
         </script>";
@@ -958,6 +959,8 @@ function bpmj_eddcm_scarlet_edd_discount_field()
                     $('.kod_rabatowy_input').hide();
                     $('.kod_rabatowy_contener').show();
                     //$('.rabat_dodany').show();
+                    //alert('a');
+                   //window.location.reload();
                 });
             });
         </script>
@@ -1146,17 +1149,152 @@ add_filter('get_cart_net_vat_total_price', 'calculate_the_net_vat_total_price_an
 function bpmj_eddcm_scarlet_item_price_discount_after($label, $item_id, $options)
 {
     if (edd_is_checkout()) {
+        /**
+         * Jeśli pozycja w koszyku jest w promocji
+         */
         if (false !== strpos($label, '<ins>')) {
-            $label = str_replace('<ins>', '<p class="podsumowanie_koszyk_price">', $label);
-            $label = str_replace('</ins>', '</p>', $label);
-            $label = str_replace('<del>', '<p class="podsumowanie_koszyk_promo_price">', $label);
-            $label .= '</p>';
+
+            /**
+              * Jeśli na pozycję w promocji ma działać rabat (zweryfikuj z aktywnym rabatem i jego regułami względem pozycji)
+              */
+              if(checkIfIsDiscounted($item_id)) { 
+
+                $discounts = edd_get_cart_discounts();
+
+                foreach($discounts as $code) {
+                      $discount = edd_get_discount_id_by_code($code);
+                      $discount_value = edd_get_discount_amount($discount);
+
+                      $discount_type = edd_get_discount_type($discount);
+
+                }
+
+                if($discount_type == 'percent') {
+                $label .= '<p class="podsumowanie_koszyk_price" style="color:#16d778;">'.(number_format(get_post_meta($item_id,  'edd_sale_price', true)*(1-((int)$discount_value/100)),2,'.','')).' PLN</p>';
+                } else {
+                    $label .= '<p class="podsumowanie_koszyk_price" style="color:#16d778;">'.(number_format(get_post_meta($item_id,  'edd_sale_price', true)*(1-((int)$discount_value/edd_get_cart_total( true ))),2,'.','')).' PLN</p>';
+                }
+
+              } else {
+                /**
+                 * Jeśli rabat nie działa na pozycję zwróć ją normalnie
+                 */
+                $label = str_replace('<ins>', '<p class="podsumowanie_koszyk_price">', $label);
+                $label = str_replace('</ins>', '</p>', $label);
+                $label = str_replace('<del>', '<p class="podsumowanie_koszyk_promo_price">', $label);
+                $label .= '</p>';
+              }
         } else {
-            $label = '<p class="podsumowanie_koszyk_price">' . $label . '</p>';
+            /**
+             * Jeśli pozycja w koszyku nie jest w promocji
+             */
+
+             /**
+              * Jeśli na pozycję ma działać rabat (zweryfikuj z aktywnym rabatem i jego regułami względem pozycji)
+              */
+                if(checkIfIsDiscounted($item_id)) { 
+                    $label = '<p class="podsumowanie_koszyk_price" style="text-decoration:line-through;">' . $label . '</p>';
+                    //edd_get_discount_amount(10)
+
+                    $discounts = edd_get_cart_discounts();
+
+                      foreach($discounts as $code) {
+                            $discount = edd_get_discount_id_by_code($code);
+                            $discount_value = edd_get_discount_amount($discount);
+
+                            $discount_type = edd_get_discount_type($discount);
+
+                      }
+
+                      /**
+                       * Jeśli jest to rabat procentowy przelicz
+                       * cena * (1 - (procent/100))
+                       */
+                      if($discount_type == 'percent') {
+                        $label .= '<p class="podsumowanie_koszyk_price" style="color:#16d778;">'.(number_format(get_post_meta($item_id,  'edd_price', true)*(1-((int)$discount_value/100)),2,'.','')).' PLN</p>';
+                      }
+                      else {
+                        /**
+                         * Jeśli jest to rabat kwotowy przelicz
+                         * cena * (1 - (kwota / total))
+                         */
+                        //edd_get_cart_total( true ) + edd_get_cart_discounted_amount();
+                        $label .= '<p class="podsumowanie_koszyk_price" style="color:#16d778;">'.(number_format(get_post_meta($item_id,  'edd_price', true)*(1-((int)$discount_value/edd_get_cart_total( true ))),2,'.','')).' PLN</p>';
+                      }
+                    
+                   // $label .= "-".print_r(get_product_by_page_id( $item_id));
+                } else {
+                    /**
+                     * Jeśli ma nie działać rabat na pozycję zwróć ją normalnie
+                     */
+                    $label = '<p class="podsumowanie_koszyk_price">' . $label . '.</p>';
+                }
+            
         }
+       // $label .= $item_id.' ';
+     
     }
 
     return $label;
+}
+
+/**
+ * Sprawdź czy produkt kwalifikuje się do rabatu
+ */
+function checkIfIsDiscounted($item_id) { 
+
+    $discounts = edd_get_cart_discounts();
+   /// print_r($discounts);
+    foreach($discounts as $code) {
+        $discount = edd_get_discount_id_by_code($code);
+
+        $productsRequirment = edd_get_discount_product_reqs($discount);
+        
+        /**
+         * Jeśli w ustawieniach są wymagane produkty
+         */
+        if(count($productsRequirment) > 0) {
+
+            /**
+             * Jeśli produkt znajduje się w zbiorze wymaganych
+             */
+            if(in_array($item_id, $productsRequirment)) {
+                return true;
+             } else {
+                 return false;
+             }
+
+        }
+
+        $productsIgnore = edd_get_discount_excluded_products($discount);
+
+        /**
+         * Jeśli w ustawieniach rabatu są ignorowane produkty
+         */
+        if(count($productsIgnore) > 0) { 
+
+            /**
+             * Jeśli produkt znajduje się w zbiorze ignorowanych
+             */
+             if(in_array($item_id, $productsIgnore)) {
+                return false;
+             } else  {
+                 return true;
+             }
+        }
+
+        return true;
+        // print_r($productsReq);
+
+        // print_r(edd_get_discount_product_condition(514));
+         
+        // print_r(edd_get_discount_excluded_products(514));
+        // exit();
+    }
+    
+    //edd_get_discount_product_reqs
+   
+    // return true;
 }
 
 add_filter('edd_cart_item_price_label', 'bpmj_eddcm_scarlet_item_price_discount_after', 11, 3);

@@ -489,7 +489,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			<h2><?php _e( 'Spread the Word', 'simple-social-buttons' ); ?></h2>
 			<ul class="ssb_social_links">
 			  <li>
-				<a href="http://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on X', 'simple-social-buttons' ); ?><span class="dashicons ssb-x-icon"></span></a>
+				<a href="https://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on X', 'simple-social-buttons' ); ?><span class="dashicons ssb-x-icon"></span></a>
 			  </li>
 			  <li>
 				<a href="https://www.facebook.com/sharer/sharer.php?u=https://wordpress.org/plugins/simple-social-buttons/" class="button facebook" target="_blank" title="Check out this (FREE) Amazing Social Share Plugin for WordPress"><?php _e( 'Share on Facebook', 'simple-social-buttons' ); ?><span class="dashicons dashicons-facebook"></span>
@@ -541,7 +541,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Related Posts Thumbnails">Related Posts Thumbnails</a>
 			  </li>
 			  <li>
-				<a href="http://wpbrigade.com/recommend/maintenance-mode" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
+				<a href="https://wpbrigade.com/recommend/maintenance-mode" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
 				</a>
 			  </li>
 			</ul>
@@ -995,7 +995,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 								<h3 class="">Instructions</h3>
 								<div class="postbox-content">
 									<h4 class="ssb_instruct_heading">Twitter count tracking requires the following steps:</h4>
-									<p>	' . __( '<span class="ssb_step">Step 1: </span> <a target="_blank" href="http://twitcount.com">Click here </a> to visit twitcount.com', 'simple-social-buttons' ) . '</p>
+									<p>	' . __( '<span class="ssb_step">Step 1: </span> <a target="_blank" href="https://twitcount.com">Click here </a> to visit twitcount.com', 'simple-social-buttons' ) . '</p>
 									<p>	' . __( '<span class="ssb_step">Step 2: </span> Click the Button “Give Me My Twitter Count Back”  on their website to create an account. If you see a prompt to customize your button, ignore to click paste code. ', 'simple-social-buttons' ) . '</p>
 									<p>	' . __( '<span class="ssb_step">Step 3: </span> After creating an account Click “Account and Settings” tab then add your website click save button to track your Twitter share counts.', 'simple-social-buttons' ) . '</p>
 								</div>

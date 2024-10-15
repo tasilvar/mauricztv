@@ -214,11 +214,18 @@ YcgGeneral.prototype.checkWooCondition = function (options) {
 
 YcgGeneral.floatingButton = function () {
 	jQuery(".ycd-floating-toggle").bind("click", function () {
+		var status = jQuery(this).data('change-status');
 		if (jQuery(".ycd-floating-wrapper").hasClass('hidden-floating')) {
 			jQuery(".ycd-floating-wrapper").removeClass('hidden-floating').addClass('show-animation');
+			if (status) {
+				jQuery(this).text(jQuery(this).data('close-text'))
+			}
 		}
 		else {
-			jQuery(".ycd-floating-wrapper").addClass('hidden-floating').removeClass('show-animation')
+			jQuery(".ycd-floating-wrapper").addClass('hidden-floating').removeClass('show-animation');
+			if (status) {
+				jQuery(this).text(jQuery(this).data('text'))
+			}
 		}
 	});
 }

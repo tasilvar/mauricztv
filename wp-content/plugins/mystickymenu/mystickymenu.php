@@ -3,7 +3,7 @@
 Plugin Name: myStickymenu
 Plugin URI: https://premio.io/
 Description: Simple sticky (fixed on top) menu implementation for navigation menu and Welcome bar for announcements and promotion. After install go to Settings / myStickymenu and change Sticky Class to .your_navbar_class or #your_navbar_id.
-Version: 2.6.5
+Version: 2.7
 Author: Premio
 Author URI: https://premio.io/downloads/mystickymenu/
 Text Domain: mystickymenu
@@ -12,7 +12,7 @@ License: GPLv2 or later
 */
 
 defined('ABSPATH') or die("Cannot access pages directly.");
-define( 'MYSTICKY_VERSION', '2.6.5' );
+define( 'MYSTICKY_VERSION', '2.7' );
 define('MYSTICKYMENU_URL', plugins_url('/', __FILE__));  // Define Plugin URL
 define('MYSTICKYMENU_PATH', plugin_dir_path(__FILE__));  // Define Plugin Directory Path
 
@@ -50,6 +50,7 @@ class MyStickyMenuBackend
 		
 		add_action( 'wp_ajax_mystickymenu_review_box', [$this, "mystickymenu_review_box"]);
 		add_action( 'wp_ajax_mystickymenu_review_box_message', [$this, "mystickymenu_review_box_message"]);
+        add_action( 'admin_init' , [$this, 'check_for_redirection']);
 	}
 	
 	
@@ -180,7 +181,7 @@ class MyStickyMenuBackend
 		}
 		check_ajax_referer( 'mystickymenu', 'wpnonce' );
 		if( isset($_POST['wpnonce']) ){
-			$bulks = isset($_POST['bulks']) ? $_POST['bulks'] : array();
+			$bulks = isset($_POST['bulks']) ? esc_attr($_POST['bulks']) : array();
 			foreach( $bulks as $key => $bulk ){
 				$ID = sanitize_text_field($bulk);
 				$table = $wpdb->prefix . 'mystickymenu_contact_lists';
@@ -313,17 +314,28 @@ class MyStickyMenuBackend
             if($option === false) {
                 add_option("mystickymenu_intro_box", "show");
             }
-			
-			$welcomebar_widgets = get_option("mysticky_option_welcomebar");
-			if ( $welcomebar_widgets ) {
-				wp_redirect( admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ) ;
-			} else {
-				wp_redirect( admin_url( 'admin.php?page=my-stickymenu-welcomebar&widget=0' ) ) ;
+			if(!defined( 'DOING_AJAX' )) {
+                add_option("msm_redirection", 1);
 			}
-			
-			exit;
 		}
 	}
+
+    public function check_for_redirection()
+    {
+        if(!defined( 'DOING_AJAX' )) {
+            $status = get_option("msm_redirection");
+            if($status) {
+                delete_option("msm_redirection");
+                $welcomebar_widgets = get_option("mysticky_option_welcomebar");
+                if ($welcomebar_widgets) {
+                    wp_redirect(admin_url('admin.php?page=my-stickymenu-welcomebar'));
+                } else {
+                    wp_redirect(admin_url('admin.php?page=my-stickymenu-welcomebar&widget=0'));
+                }
+                exit;
+            }
+        }
+    }
 
     public function mysticky_admin_script($hook) {
 		
@@ -333,6 +345,9 @@ class MyStickyMenuBackend
 
 		wp_enqueue_style('mystickymenuAdminStyle', plugins_url('/css/mystickymenu-admin.css', __FILE__), array(), MYSTICKY_VERSION );
 		wp_style_add_data( 'mystickymenuAdminStyle', 'rtl', 'replace' );
+		wp_enqueue_style('mystickymenuHelpStyle', plugins_url('/css/mystickymenu-help.css', __FILE__), array(), MYSTICKY_VERSION );
+		wp_style_add_data( 'mystickymenuHelpStyle', 'rtl', 'replace' );
+		
 		wp_enqueue_style( 'wp-color-picker' );				
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
 		wp_enqueue_style('jquery-ui');
@@ -452,6 +467,14 @@ class MyStickyMenuBackend
 	}
 
 	public function create_admin_page(){
+		
+		require_once MYSTICKYMENU_PATH . 'help.php';	
+
+		$is_shown = get_option("mystickymenu_update_message");
+        if($is_shown == 1) {
+			include_once MYSTICKYMENU_PATH . '/update.php';
+			return;
+		} 		
 
 		$upgarde_url = admin_url("admin.php?page=my-stickymenu-upgrade");
 		// Set class property
@@ -691,7 +714,7 @@ class MyStickyMenuBackend
 								<label for="myfixed_textcolor" class="mysticky_title myssticky-remove-hand"><?php _e("Sticky Text Color", 'mystickymenu')?></label>
 							</td>
 							<td>
-								<input type="text" id="myfixed_textcolor" name="mysticky_option_name[myfixed_textcolor]" class="my-color-field" data-alpha="true" value="<?php echo (isset($mysticky_options['myfixed_textcolor'])) ? $mysticky_options['myfixed_textcolor'] : '';?>" />
+								<input type="text" id="myfixed_textcolor" name="mysticky_option_name[myfixed_textcolor]" class="my-color-field" data-alpha="true" value="<?php echo (isset($mysticky_options['myfixed_textcolor'])) ? esc_attr($mysticky_options['myfixed_textcolor']) : '';?>" />
 
 							</td>
 						</tr>
@@ -728,7 +751,7 @@ class MyStickyMenuBackend
 						<div class="mystickymenu-input-section mystickymenu-page-target-wrap">
 							<div class="mysticky-welcomebar-setting-content-right">
 								<div class="mysticky-page-options" id="mysticky-welcomebar-page-options">
-									<?php $page_option = (isset($mysticky_options['mysticky_page_settings'])) ? $mysticky_options['mysticky_page_settings'] : array();
+									<?php $page_option = (isset($mysticky_options['mysticky_page_settings'])) ? esc_attr($mysticky_options['mysticky_page_settings']) : array();
 									$url_options = array(
 										'page_contains' => 'pages that contain',
 										'page_has_url' => 'a specific page',
@@ -972,7 +995,7 @@ class MyStickyMenuBackend
 	
 	
 	public function mystickystickymenu_admin_welcomebar_page() {
-		//require_once MYSTICKYMENU_PATH . 'help.php';
+		require_once MYSTICKYMENU_PATH . 'help.php';
 
 		$is_shown = get_option("mystickymenu_update_message");
         if($is_shown == 1) {
@@ -996,13 +1019,34 @@ class MyStickyMenuBackend
 					$is_first_widget = 1;
 				}
 				
-				
-				
 				$welcomebars_widgets[0] = 'Bar #0';
 				update_option( 'mystickymenu-welcomebars', $welcomebars_widgets );
 				
 				$mysticky_option_welcomebar = $_POST['mysticky_option_welcomebar'];
-				$mysticky_option_welcomebar['mysticky_welcomebar_bar_text'] = wp_kses_post($_POST['mysticky_option_welcomebar']['mysticky_welcomebar_bar_text']);
+				$mysticky_option_welcomebar['mysticky_welcomebar_bar_text'] = wp_kses(stripslashes($_POST['mysticky_option_welcomebar']['mysticky_welcomebar_bar_text']) , [
+													'a' => array(
+														'href' => array(),
+														'title' => array(),
+														'rel' => array(),
+														'target' => array()
+													),
+													'br' => array(),
+													'em' => array(),
+													'u' => array(),
+													'strong' => array(),
+												]);
+				$mysticky_option_welcomebar['mysticky_welcomebar_thankyou_screen_text'] = wp_kses(stripslashes($_POST['mysticky_option_welcomebar']['mysticky_welcomebar_thankyou_screen_text']) , [
+													'a' => array(
+														'href' => array(),
+														'title' => array(),
+														'rel' => array(),
+														'target' => array()
+													),
+													'br' => array(),
+													'em' => array(),
+													'u' => array(),
+													'strong' => array(),
+												]);
 				$mysticky_option_welcomebar['mysticky_welcomebar_height'] = 60;
 				$mysticky_option_welcomebar['mysticky_welcomebar_device_desktop'] = 'desktop';
 				$mysticky_option_welcomebar['mysticky_welcomebar_device_mobile'] = 'mobile';
@@ -1135,7 +1179,15 @@ class MyStickyMenuBackend
 		require_once MYSTICKYMENU_PATH . 'mystickymenu-review-popup.php';
 	}
 	
-	public function mystickystickymenu_admin_new_welcomebar_page() {	
+	public function mystickystickymenu_admin_new_welcomebar_page() {
+		require_once MYSTICKYMENU_PATH . 'help.php';	
+		
+		$is_shown = get_option("mystickymenu_update_message");
+        if($is_shown == 1) {
+			include_once MYSTICKYMENU_PATH . '/update.php';
+			return;
+		} 
+		
 		$welcomebars_widgets = get_option( 'mysticky_option_welcomebar' );
 		if( isset($welcomebars_widgets) && !empty($welcomebars_widgets)){
 			?>
@@ -1155,28 +1207,42 @@ class MyStickyMenuBackend
 	}
 	
 	public function mystickymenu_recommended_plugins() {
-		include_once 'recommended-plugins.php';
+		$is_shown = get_option("mystickymenu_update_message");
+        if($is_shown == 1) {
+			include_once MYSTICKYMENU_PATH . '/update.php';			
+		} else {
+			include_once 'recommended-plugins.php';
+		}
+		require_once MYSTICKYMENU_PATH . 'help.php';		
 	}
 	
 	public function mystickymenu_admin_upgrade_to_pro() {
-        $pro_url = "https://go.premio.io/checkount/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=";
-        ?>
-		<style>
-            div#wpcontent {
-                background: rgba(101,114,219,1);
-                background: -moz-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
-                background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(101,114,219,1)), color-stop(67%, rgba(238,134,198,1)), color-stop(100%, rgba(238,134,198,1)));
-                background: -webkit-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
-                background: -o-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
-                background: -ms-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
-                background: linear-gradient(135deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6572db', endColorstr='#ee86c6', GradientType=1 );
-            }
-        </style>
-		<div id="mystickymenu" class="wrap mystickymenu">
-			<?php include_once "upgrade-to-pro.php"; ?>
-        </div>
-        <?php
+		$is_shown = get_option("mystickymenu_update_message");
+        if($is_shown == 1) {
+			include_once MYSTICKYMENU_PATH . '/update.php';			
+		} else {
+		
+			$pro_url = "https://go.premio.io/checkount/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=";
+			?>
+			<style>
+				div#wpcontent {
+					background: rgba(101,114,219,1);
+					background: -moz-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
+					background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(101,114,219,1)), color-stop(67%, rgba(238,134,198,1)), color-stop(100%, rgba(238,134,198,1)));
+					background: -webkit-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
+					background: -o-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
+					background: -ms-linear-gradient(-45deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
+					background: linear-gradient(135deg, rgba(101,114,219,1) 0%, rgba(238,134,198,1) 67%, rgba(238,134,198,1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6572db', endColorstr='#ee86c6', GradientType=1 );
+				}
+			</style>
+			<div id="mystickymenu" class="wrap mystickymenu">
+				<?php include_once "upgrade-to-pro.php"; ?>
+			</div>
+			<?php
+		}
+		
+		require_once MYSTICKYMENU_PATH . 'help.php';		
 	}
 		
 	public function mysticky_default_options() {
@@ -1496,6 +1562,12 @@ class MyStickyMenuBackend
 
 	public function mystickymenu_admin_leads_page(){
 		global $wpdb;
+		require_once MYSTICKYMENU_PATH . 'help.php';
+		$is_shown = get_option("mystickymenu_update_message");
+        if($is_shown == 1) {
+			include_once MYSTICKYMENU_PATH . '/update.php';
+			return;
+		} 		
 		$where_search = '';
 		$table_name = $wpdb->prefix . "mystickymenu_contact_lists";
 		$elements_widgets = get_option( 'mystickymenu-welcomebars' );
@@ -1509,6 +1581,8 @@ class MyStickyMenuBackend
 				}
 			}
 		}
+		
+		$download_file_url = plugins_url('mystickymenu-contact-leads.php?download_file=mystickybar_contact_leads.csv',__FILE__);
 		?>
 	<!-- /**/ */ -->
 	<div class="wrap mystickymenu-contact-wrap">
@@ -1520,7 +1594,7 @@ class MyStickyMenuBackend
 				<div class="mystickymenu-btnmbox">
 					<div class="mystickymenu-btnbx">
 						<strong><?php esc_html_e('Download & Export All Subscriber to CSV file:','mystickymenu' );?> </strong>
-							<a href="<?php echo plugins_url('mystickymenu-contact-leads.php?download_file=mystickybar_contact_leads.csv',__FILE__); ?>" class="wpappp_buton" id="wpappp_export_to_csv" value="Export to CSV" href="#"><?php esc_html_e('Download & Export to CSV', 'mystickymenu' );?></a>
+							<a href="<?php echo wp_nonce_url($download_file_url,'MSB_file_download', 'mystickymenu_nonce'); ?>" class="wpappp_buton" id="wpappp_export_to_csv" value="Export to CSV" href="#"><?php esc_html_e('Download & Export to CSV', 'mystickymenu' );?></a>
 					</div>
 					<div class="mystickymenu-btnbx">
 						<strong><?php esc_html_e('Delete All Subscibers from Database:','mystickymenu');?> </strong>
@@ -1585,12 +1659,12 @@ class MyStickyMenuBackend
 							foreach ( $result as $res ) { ?>
 								<tr>
 									<td><input id="cb-select-80" class="cb-select-blk" type="checkbox" name="delete_message[]" value="<?php echo esc_attr($res->ID);?>"></td>
-									<td><a href="<?php echo esc_url(admin_url( 'admin.php?page=my-sticky-menu-leads&id=' . $res->ID ));?>"><?php echo $res->ID;?></a></td>
-									<td><a href="<?php echo esc_url(admin_url( 'admin.php?page=my-sticky-menu-leads&id=' . $res->ID ));?>"><?php echo $res->widget_name;?></a></td>
-									<td><?php echo $res->contact_name;?></td>
-									<td><?php echo $res->contact_email;?></td>
-									<td><?php echo $res->contact_phone;?></td>
-									<td><?php echo ( isset($res->message_date) ) ? $res->message_date : '-' ;?></td>
+									<td><a href="<?php echo esc_url(admin_url( 'admin.php?page=my-sticky-menu-leads&id=' . $res->ID ));?>"><?php echo esc_html($res->ID);?></a></td>
+									<td><a href="<?php echo esc_url(admin_url( 'admin.php?page=my-sticky-menu-leads&id=' . $res->ID ));?>"><?php echo esc_html($res->widget_name);?></a></td>
+									<td><?php echo esc_html($res->contact_name);?></td>
+									<td><?php echo esc_html($res->contact_email);?></td>
+									<td><?php echo esc_html($res->contact_phone);?></td>
+									<td><?php echo ( isset($res->message_date) ) ? esc_html($res->message_date) : '-' ;?></td>
 									<td>
 										<?php if ( $res->page_link) :?>
 										<a class="external-link" href="<?php echo esc_url($res->page_link);?>" target="_blank"><span class="dashicons dashicons-external"></span></a>
@@ -1598,7 +1672,7 @@ class MyStickyMenuBackend
 									</td> 
 									
 									<td>
-										<input type="button" data-delete="<?php echo $res->ID;?>" class="mystickymenu-delete-entry" value="<?php esc_attr_e('Delete', 'mystickymenu');?>" />
+										<input type="button" data-delete="<?php echo esc_attr($res->ID);?>" class="mystickymenu-delete-entry" value="<?php esc_attr_e('Delete', 'mystickymenu');?>" />
 									</td>
 								</tr>
 							<?php }
@@ -1757,7 +1831,7 @@ class MyStickyMenuFrontend
 				echo '#mysticky-nav .myfixed { margin:0 auto; float:none; border:0px; background:none; max-width:100%; }';
 			}
 			if ( isset( $mysticky_options['myfixed_cssstyle'] ) && $mysticky_options['myfixed_cssstyle'] != '' )  {
-				echo $mysticky_options ['myfixed_cssstyle'];
+				echo esc_attr($mysticky_options ['myfixed_cssstyle']);
 			}
 			echo '</style>';
 			$template_name = get_template();
@@ -1899,9 +1973,9 @@ class MyStickyMenuFrontend
 		
 		
 
-		$myfixed_disable_scroll_down = isset($mysticky_options['myfixed_disable_scroll_down']) ? $mysticky_options['myfixed_disable_scroll_down'] : 'false';
-		$mystickyTransition = isset($mysticky_options['myfixed_fade']) ? $mysticky_options['myfixed_fade'] : 'fade';
-		$mystickyDisableLarge = isset($mysticky_options['myfixed_disable_large_screen']) ? $mysticky_options['myfixed_disable_large_screen'] : '0';
+		$myfixed_disable_scroll_down = isset($mysticky_options['myfixed_disable_scroll_down']) ? esc_attr($mysticky_options['myfixed_disable_scroll_down']) : 'false';
+		$mystickyTransition = isset($mysticky_options['myfixed_fade']) ? esc_attr($mysticky_options['myfixed_fade']) : 'fade';
+		$mystickyDisableLarge = isset($mysticky_options['myfixed_disable_large_screen']) ? esc_attr($mysticky_options['myfixed_disable_large_screen']) : '0';
 
 		$mystickyClass = ( $mysticky_options['mysticky_class_id_selector'] != 'custom') ? '.menu-' . $mysticky_options['mysticky_class_id_selector'] .'-container' : $mysticky_options['mysticky_class_selector'];
 		
@@ -1981,8 +2055,8 @@ class MyStickyMenuFrontend
 		$mysticky_disable_at_archive = isset($mysticky_options['mysticky_disable_at_archive']);
 		$mysticky_disable_at_search = isset($mysticky_options['mysticky_disable_at_search']);
 		$mysticky_disable_at_404 = isset($mysticky_options['mysticky_disable_at_404']);
-		$mysticky_enable_at_pages = isset($mysticky_options['mysticky_enable_at_pages']) ? $mysticky_options['mysticky_enable_at_pages'] : '';
-		$mysticky_enable_at_posts = isset($mysticky_options['mysticky_enable_at_posts']) ? $mysticky_options['mysticky_enable_at_posts'] : '';
+		$mysticky_enable_at_pages = isset($mysticky_options['mysticky_enable_at_pages']) ? esc_attr($mysticky_options['mysticky_enable_at_pages']) : '';
+		$mysticky_enable_at_posts = isset($mysticky_options['mysticky_enable_at_posts']) ? esc_attr($mysticky_options['mysticky_enable_at_posts']) : '';
 
 		// Trim input to ignore empty spaces
 		$mysticky_enable_at_pages_exp = array_map('trim', explode(',', $mysticky_enable_at_pages));
@@ -2072,7 +2146,7 @@ class MyStickyMenuFrontend
 		$errors = array();
 		$element_widget_no = $_POST['widget_id'];
 
-		$element_widget_name = (isset($stickymenus_widgets[$element_widget_no]) && $stickymenus_widgets[$element_widget_no] != '' ) ? $stickymenus_widgets[$element_widget_no]  : '';
+		$element_widget_name = (isset($stickymenus_widgets[$element_widget_no]) && $stickymenus_widgets[$element_widget_no] != '' ) ? esc_attr($stickymenus_widgets[$element_widget_no])  : '';
 
 		$flag = true;
 		if( isset($element_widget_name) && $element_widget_name != ''){
@@ -2101,7 +2175,7 @@ class MyStickyMenuFrontend
 
 				$params["widget_name"]  = esc_sql( sanitize_text_field($element_widget_name));
 				$params["message_date"] = date('Y-m-d H:i:s');
-				$params["contact_email"] = (isset($params["contact_email"]) && $params["contact_email"] != '' ) ? $params["contact_email"] : '';
+				$params["contact_email"] = (isset($params["contact_email"]) && $params["contact_email"] != '' ) ? esc_attr($params["contact_email"]) : '';
 				
 				if( isset($params) && !empty($params) ){
 					$wpdb->insert($contact_lists_table, $params);

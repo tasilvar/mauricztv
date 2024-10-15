@@ -470,34 +470,7 @@ try {
  try {
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
-    wp_mail("michal.jendraszczyk@gmail.com","Rejestracja konta w myluxe.pl","Twoje konto zostało zarejestrowane<br/><br/>Dane do logowania:<br/><br/>Login: ". $entry->response['email_1']." <br/>Hasło: ".$generatePassword, $headers);
-     /*
-     /*
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'mail.myluxe.pl';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'info@myluxe.pl';                     //SMTP username
-    $mail->Password   = 'GoldLuxe46!';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom('info@myluxe.pl', 'Wordpress');
-
-    //$entry->response['email_1']
-    $mail->addAddress('michal.jendraszczyk@gmail.com', $entry->response['names_1']['first_name'].' '.$entry->response['names_1']['last_name']);      
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Rejestracja konta w myluxe.pl';
-    $mail->Body    = 'Twoje konto zostało zarejestrowane<br/><br/>Dane do logowania:<br/><br/>Login: '.$entry->response['names_1'].'<br/>Hasło:'.$generatePassword;
-    $mail->AltBody = 'Twoje konto zostało zarejestrowane<br/><br/>Dane do logowania:<br/><br/>Login: '.$entry->response['names_1'].'<br/>Hasło:'.$generatePassword;
-
-    $mail->send();
-    echo 'Message has been sent'; 
-    */
+    wp_mail("michal.jendraszczyk@gmail.com","Rejestracja konta w mauricz.tv","Twoje konto zostało zarejestrowane<br/><br/>Dane do logowania:<br/><br/>Login: ". $entry->response['email_1']." <br/>Hasło: ".$generatePassword, $headers);
 } catch (Exception $e) {
     echo "Message could not be sent.";
 }

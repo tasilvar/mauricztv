@@ -49,6 +49,10 @@ class Ajax {
 	}
 
 	public function switchCountdown() {
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('You do not have permission to perform this action.');
+            wp_die();
+        }
 		check_ajax_referer('ycd_ajax_nonce', 'nonce');
 		$postId = (int)$_POST['id'];
 		$checked = $_POST['checked'] == 'true' ? '' : true;
@@ -90,6 +94,10 @@ class Ajax {
 	 }
 
 	 public function conditionsRow() {
+         if (!current_user_can('manage_options')) {
+             wp_send_json_error('You do not have permission to perform this action.');
+             wp_die();
+         }
 		check_ajax_referer('ycd_ajax_nonce', 'nonce');
 		YcdCountdownConfig::displaySettings();
 		$allowed_html = AdminHelper::getAllowedTags();

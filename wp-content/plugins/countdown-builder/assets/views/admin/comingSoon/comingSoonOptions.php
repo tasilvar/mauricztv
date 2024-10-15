@@ -111,6 +111,30 @@ $allowed_html = AdminHelper::getAllowedTags();
 			</div>
 		</div>
 		<!-- end User role options -->
+		<!-- Start Devices  -->
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label for="ycd-coming-soon-for-devices" class="ycd-label-of-switch"><?php _e('Show on selected devices', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html);  ?></label>
+			</div>
+			<div class="col-md-6 ycd-circles-width-wrapper ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+				<label class="ycd-switch">
+					<input type="checkbox" id="ycd-coming-soon-for-devices" name="ycd-coming-soon-for-devices" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-coming-soon-for-devices')); ?>>
+					<span class="ycd-slider ycd-round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="row form-group ycd-accordion-content ycd-hide-content">
+			<div class="col-md-6">
+				<label for="ycd-coming-soon-devices"><?php _e('Select device(s)', YCD_TEXT_DOMAIN)?></label>
+			</div>
+			<div class="col-md-6">
+				<?php
+				$userRoles = HelperFunction::createSelectBox($defaultData['devices'], $this->getOptionValue('ycd-coming-soon-devices'), array('name' => 'ycd-coming-soon-devices[]', 'class' => 'js-ycd-select  ycd-countdowns', 'multiple' => 'multiple', 'id' => 'ycd-coming-soon-user-roles'));
+				echo wp_kses($userRoles, $allowed_html);
+				?>
+			</div>
+		</div>
+		<!-- End Devices  -->
 		<!-- start white list option -->
 		<div class="row form-group">
 			<div class="col-md-6">
@@ -132,5 +156,25 @@ $allowed_html = AdminHelper::getAllowedTags();
 			</div>
 		</div>
 		<!-- end white list option -->
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label for="ycd-coming-soon-exclude-url-enable" class="ycd-label-of-switch"><?php _e('Exclude URL(s)', YCD_TEXT_DOMAIN); echo wp_kses($proSpan, $allowed_html);  ?></label>
+			</div>
+			<div class="col-md-6 ycd-circles-width-wrapper ycd-option-wrapper<?php echo esc_attr($isPro); ?>">
+				<label class="ycd-switch">
+					<input type="checkbox" id="ycd-coming-soon-exclude-url-enable" name="ycd-coming-soon-exclude-url-enable" class="ycd-accordion-checkbox" <?php echo esc_attr($this->getOptionValue('ycd-coming-soon-exclude-url-enable')); ?>>
+					<span class="ycd-slider ycd-round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="ycd-accordion-content ycd-hide-content">
+			<div class="col-md-6">
+				<label for="ycd-coming-soon-exclude-url"><?php _e('URL(s)', YCD_TEXT_DOMAIN);?></label>
+			</div>
+			<div class="col-md-6">
+				<textarea class="form-control" rows="5" name="ycd-coming-soon-exclude-url" id="ycd-coming-soon-exclude-url"><?php esc_attr_e($this->getOptionValue('ycd-coming-soon-exclude-url'))?></textarea>
+				<span>Split URLs by comma</span>
+			</div>
+		</div>
 	</div>
 </div>

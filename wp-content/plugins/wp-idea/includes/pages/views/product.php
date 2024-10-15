@@ -123,7 +123,7 @@ $show_open_padlock = false;
                     </div>
                     
                     <h6 class="price">Cena:</h6>
-                    
+
                     <?php
                     if((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) { 
                         ?>
@@ -150,7 +150,7 @@ $show_open_padlock = false;
         }
     } else {?>
     <?php 
-     if(($sale_price > 0) && ($sale_price  != $product_price)) { 
+      if(((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) && (!is_numeric(get_post_meta($product_id,  'sale_price', true)))) {
         ?>
         <h4 class="crossed"><?php echo $product_price; ?> PLN</h4>
   <h4><?php echo number_format($sale_price,2,'.',''); ?> PLN</h4>
@@ -317,7 +317,7 @@ if($show_open_padlock) {
     // print_r($p);
 ?>
 
-		<?php echo get_the_content(); ?>
+		<?php echo apply_filters('the_content', get_the_content()); ?>
 	
 	</div>
     
@@ -356,7 +356,11 @@ if($show_open_padlock) {
         
     </div>
 	
+    <?php 
+                   $getBundledProducts = edd_get_bundled_products($product_id);
 
+                   if(count($getBundledProducts) == 0) { 
+                            ?>
     <div class="kursy-agenda row-full">
     
         <div class="container">
@@ -365,35 +369,53 @@ if($show_open_padlock) {
                 
                     <h3 class="upper">Agenda szkolenia</h3>
             
-                    <?php the_field('miejsce_na_shortcode'); ?>
+                    <!-- <?php the_field('miejsce_na_shortcode'); ?>
                     
                     <h3 class="lower">Zainteresował Cię ten kurs?</h3>
-                    
-                    <div class="text-center">
-                        <?php 
+                     -->
+                     <?php 
 
-                        ?>
-                        <?php 
-if($show_open_padlock != '1') { 
+$modules = WPI()->courses->get_course_level1_modules_or_lessons( $course_page_id );
+
 ?>
-                          <!--  BEGIN: Dodaj do koszyka -->
-<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
-               'add-to-cart' => (int)$product_id,
-           ) ) ); ?>" class="more">Kup teraz</a>
-          <!--  END: Dodaj do koszyka -->  
-<?php 
-}
-else {
-?>
-<!-- BEGIN: PRZEJDZ DO KURSU -->
-<a href="<?php echo get_permalink($course_page_id); ?>" class="box_glowna_add_to_cart_link more" style=" background: #333;color: #fff;"><i
-    class="fa fa-arrow-right"></i><?php _e( 'GO TO COURSE', BPMJ_EDDCM_DOMAIN ) ?>
-</a>
-<!-- END: PRZEJDZ DO KURSU -->
-<?php 
+<div id="sp-ea-modules" class="sp-ea-one sp-easy-accordion" data-ex-icon="fa-minus" data-col-icon="fa-plus" data-ea-active="ea-click" data-ea-mode="vertical" data-preloader="" data-scroll-active-item="" data-offset-to-scroll="0" style="height:320px;">
+
+<?php
+foreach($modules as $keyModule => $module) { 
+    
+    // print_r($module);
+    // exit();
+    ?>
+
+     
+    <div class="ea-card ea-expand sp-ea-single"><h3 class="ea-header" style="background:#fff;"> <?= $module->post_title ?></h3><div class="sp-collapse spcollapse collapsed show" id="collapse<?= $keyModule ?>" data-parent="#sp-ea-modules"></div></div>
+
+    <?php
 }
 ?>
- 
+</div>
+<?php
+
+?>
+                    <div class="text-center">
+                      
+                    <span class="more btn mt-5" onclick="switchLessionList(this)" id="more_agenda">Zobacz wszystko</span>
+                       
+                         
+ <script type="text/javascript">
+
+var dx = 0;
+     function switchLessionList(obj) {
+         if((dx%2) == 0) {
+         document.querySelector("#sp-ea-modules").style.height = "auto";
+         obj.innerHTML = "Pokaż mniej";
+         } else { 
+            document.querySelector("#sp-ea-modules").style.height = "320px";
+            obj.innerHTML = "Pokaż wszystko"; 
+         }
+         dx++;
+     }
+ </script>
                     </div>	
                     
                 </div>
@@ -401,6 +423,9 @@ else {
         </div>
         
     </div>	
+    <?php 
+                       }
+                        ?>
 
     <div class="kursy-who row-full
 	

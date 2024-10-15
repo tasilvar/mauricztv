@@ -91,7 +91,8 @@
         };
 
         plugin.isDesktopView = function() {
-            return Math.max(window.outerWidth, $(window).width()) > plugin.settings.breakpoint; // account for scrollbars
+            var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            return width > plugin.settings.breakpoint;
         };
 
         plugin.isMobileView = function() {
@@ -250,10 +251,6 @@
             });
 
             clickable_parents.not("[data-has-click-event]").on("click.megamenu", function(e) {
-                if ( $menu.parent().hasClass("mega-keyboard-navigation") ) {
-                    return;
-                }
-                
                 if (plugin.isDesktopView() && $(this).parent().hasClass("mega-toggle-on") && $(this).closest("ul.mega-sub-menu").parent().hasClass("mega-menu-tabbed") ) {
                     if (plugin.settings.second_click === "go") {
                         return;
@@ -337,27 +334,30 @@
             var escape_key = 27;
             var enter_key = 13;
             var left_arrow_key = 37;
+            var up_arrow_key = 38;
             var right_arrow_key = 39;
+            var down_arrow_key = 40;
             var space_key = 32;
 
-            $menu.parent().on("keyup.megamenu", function(e) {
+            $menu.parent().on("keyup.megamenu", ".max-mega-menu, .mega-menu-toggle", function(e) {
                 var keyCode = e.keyCode || e.which;
                 var active_link = $(e.target);
 
                 if (keyCode === tab_key) {
                     $menu.parent().addClass("mega-keyboard-navigation");
-
-                    if ( active_link.parent().parent().is(".max-mega-menu" ) ) {
-                        plugin.hideAllPanels();
-                    }
                 }
             });
 
-            $menu.parent().on("keydown.megamenu", function(e) {
+            $menu.parent().on("keydown.megamenu", "a.mega-menu-link, .mega-indicator, .mega-menu-toggle-block, .mega-menu-toggle-animated-block button", function(e) {
+
+                if ( ! $menu.parent().hasClass("mega-keyboard-navigation") ) {
+                    return;
+                }
+
                 var keyCode = e.keyCode || e.which;
                 var active_link = $(e.target);
 
-                if ( keyCode === space_key && active_link.is(".mega-menu-link") && $menu.parent().hasClass("mega-keyboard-navigation") ) {
+                if ( keyCode === space_key && active_link.is(".mega-menu-link") ) {
                     e.preventDefault();
 
                     // pressing space on a parent item will always toggle the sub menu
@@ -370,7 +370,7 @@
                     }
                 }
 
-                if ( keyCode === space_key && active_link.is("mega-indicator") && $menu.parent().hasClass("mega-keyboard-navigation") ) {
+                if ( keyCode === space_key && active_link.is("mega-indicator") ) {
                     e.preventDefault();
 
                     if ( active_link.parent().parent().hasClass("mega-toggle-on") && ! active_link.closest("ul.mega-sub-menu").parent().hasClass("mega-menu-tabbed") ) {
@@ -380,7 +380,7 @@
                     }
                 }
 
-                if ( keyCode === escape_key && $menu.parent().hasClass("mega-keyboard-navigation") ) {
+                if ( keyCode === escape_key ) {
                     var submenu_open = $("> .mega-toggle-on", $menu).length !== 0;
 
                     $("> .mega-toggle-on", $menu).find("[tabindex]:visible").first().focus();
@@ -393,8 +393,20 @@
                     }
                 }
 
-                if ( keyCode === enter_key && $menu.parent().hasClass("mega-keyboard-navigation") ) {
-                    if ( active_link.hasClass("mega-menu-toggle-block") ) {
+                if ( keyCode === space_key ) {
+                    e.preventDefault();
+
+                    if ( active_link.is(".mega-menu-toggle-block, .mega-menu-toggle-animated-block button") ) {
+                        if ( $toggle_bar.hasClass("mega-menu-open") ) {
+                            plugin.hideMobileMenu();
+                        } else {
+                            plugin.showMobileMenu();
+                        }
+                    }
+                }
+
+                if ( keyCode === enter_key ) {
+                    if ( active_link.is(".mega-menu-toggle-block") ) {
                         if ( $toggle_bar.hasClass("mega-menu-open") ) {
                             plugin.hideMobileMenu();
                         } else {
@@ -403,7 +415,7 @@
                     }
 
                     // pressing enter on an arrow will toggle the sub menu
-                    if ( active_link.hasClass("mega-indicator") ) {
+                    if ( active_link.is(".mega-indicator") ) {
                         if ( active_link.closest("li.mega-menu-item").hasClass("mega-toggle-on") && ! active_link.closest("ul.mega-sub-menu").parent().hasClass("mega-menu-tabbed") ) {
                             plugin.hidePanel(active_link.parent());
                         } else {
@@ -441,34 +453,34 @@
                     }
                 }
 
-                if ( keyCode === right_arrow_key && plugin.isDesktopView() && $menu.parent().hasClass("mega-keyboard-navigation") && $menu.hasClass("mega-menu-horizontal") ) {
+                if ( ( ( keyCode === right_arrow_key && plugin.isDesktopView() ) || ( keyCode === down_arrow_key && plugin.isMobileView() ) ) && $menu.hasClass("mega-menu-horizontal") ) {
                     e.preventDefault();
 
-                    var next_top_level_item = $("> .mega-toggle-on", $menu).nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search input[type=text]").first();
+                    var next_top_level_item = $("> .mega-toggle-on", $menu).nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").first();
 
                     if (next_top_level_item.length === 0) {
-                        next_top_level_item = $(":focus", $menu).parent().nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search input[type=text]").first();
+                        next_top_level_item = $(":focus", $menu).parent().nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").first();
                     }
 
                     if (next_top_level_item.length === 0) {
-                        next_top_level_item = $(":focus", $menu).parent().parent().nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search input[type=text]").first();
+                        next_top_level_item = $(":focus", $menu).parent().parent().parent().nextAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").first();
                     }
 
                     plugin.hideAllPanels();
                     next_top_level_item.focus();
                 }
 
-                if ( keyCode === left_arrow_key && plugin.isDesktopView() && $menu.parent().hasClass("mega-keyboard-navigation") && $menu.hasClass("mega-menu-horizontal") ) {
+                if ( ( ( keyCode === left_arrow_key && plugin.isDesktopView() ) || ( keyCode === up_arrow_key && plugin.isMobileView() ) ) && $menu.hasClass("mega-menu-horizontal") ) {
                     e.preventDefault();
 
-                    var prev_top_level_item = $("> .mega-toggle-on", $menu).prevAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search input[type=text]").last();
+                    var prev_top_level_item = $("> .mega-toggle-on", $menu).prevAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").last();
 
                     if (prev_top_level_item.length === 0) {
-                        prev_top_level_item = $(":focus", $menu).parent().prevAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search input[type=text]").last();
+                        prev_top_level_item = $(":focus", $menu).parent().prevAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").last();
                     }
 
                     if (prev_top_level_item.length === 0) {
-                        prev_top_level_item = $(":focus", $menu).parent();
+                        prev_top_level_item = $(":focus", $menu).parent().parent().parent().prevAll("li.mega-menu-item:visible").find("> a.mega-menu-link, .mega-search span[role=button]").last();
                     }
 
                     plugin.hideAllPanels();
@@ -491,7 +503,7 @@
         };
 
         plugin.unbindAllEvents = function() {
-            $("ul.mega-sub-menu, li.mega-menu-item, li.mega-menu-row, li.mega-menu-column, a.mega-menu-link, .mega-indicator", menu).off().unbind();
+            $("ul.mega-sub-menu, li.mega-menu-item, li.mega-menu-row, li.mega-menu-column, a.mega-menu-link, .mega-indicator", menu).off();
         };
 
         plugin.unbindClickEvents = function() {
@@ -679,7 +691,9 @@
             $(".mega-toggle-label, .mega-toggle-animated", $toggle_bar).attr("aria-expanded", "true");
 
             if (plugin.settings.effect_mobile === "slide") {
-                $menu.animate({"height":"show"}, plugin.settings.effect_speed_mobile);
+                $menu.animate({"height":"show"}, plugin.settings.effect_speed_mobile, function() {
+                    $(this).css("display", "");
+                });
             }
 
             $toggle_bar.addClass("mega-menu-open");
@@ -722,7 +736,7 @@
                 plugin.initMobile();
             }
 
-            $(window).resize(function() {
+            $(window).on("resize", function() {
                 plugin.checkWidth();
             });
 

@@ -9,7 +9,12 @@
 
  if($user_ID) { 
   // Zalogowany
-  $getLinkAccount = get_permalink(57);
+  if(empty(get_option('mauricz_myaccount'))) {
+    $getLinkAccount = get_permalink(57);// 57
+  } else {
+    $getLinkAccount = get_permalink((int)get_option('mauricz_myaccount'));// 57
+  }
+  
   header("Location:".$getLinkAccount);
   //echo "TEST".$getLinkAccount;
  }
@@ -29,11 +34,35 @@ get_header();
  
     <?php 
     if(isset($_POST['wp-submit'])) {
+
         ?>
-        <div class="tml-alerts" style="
+       <div class="tml-alerts" style="
     max-width: 75%;
     margin: auto;
-"><ul class="tml-errors"><li class="tml-error"><strong>Błąd:</strong> proszę wpisać poprawne dane do logowania.</li></ul></div>
+">
+        <?php
+    //    print_r($user);
+    //     print_r($_SESSION);
+        if($_SESSION['inacvite_user'] == '1')  { 
+            ?>
+    <ul class="tml-errors"><li class="tml-message"><strong>Błąd:</strong> użytkownik jest nieaktywny.</li></ul></div>
+            <?php
+        }
+
+        if($_SESSION['user_confirm'] == '1')  { 
+            ?>
+    <ul class="tml-errors"><li class="tml-success"><strong>Informacja:</strong> Na podany email przesłaliśmy link do aktywacji konta.</li></ul></div>
+            <?php
+        }
+        
+        if($_SESSION['authentication_failed'] == '1')  { 
+?>
+<ul class="tml-errors"><li class="tml-error"><strong>Błąd:</strong> proszę wpisać poprawne dane do logowania.</li></ul></div>
+<?php
+        }  
+        ?>
+ 
+<!-- <ul class="tml-errors"><li class="tml-error"><strong>Błąd:</strong> proszę wpisać poprawne dane do logowania.</li></ul></div> -->
         <?php
     }
     ?>

@@ -16,6 +16,9 @@ if ( ! function_exists( 'wp_bootstrap_starter_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function wp_bootstrap_starter_setup() {
+
+wp_enqueue_script(array( 'jquery', 'jquery-ui', 'jquery-ui-dialog', 'jquery-ui-slider'));
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -225,6 +228,8 @@ function wp_bootstrap_starter_scripts() {
         wp_enqueue_script('wp-bootstrap-starter-popper', get_template_directory_uri() . '/inc/assets/js/popper.min.js', array(), '', true );
         wp_enqueue_script('wp-bootstrap-starter-bootstrapjs', get_template_directory_uri() . '/inc/assets/js/bootstrap.min.js', array(), '', true );
     }
+    wp_enqueue_script('wp-bootstrap-starter-popper', get_template_directory_uri() . '/inc/assets/js/popper.min.js', array(), '', true );
+    wp_enqueue_script('wp-bootstrap-starter-bootstrapjs', get_template_directory_uri() . '/inc/assets/js/bootstrap.min.js', array(), '', true );
     wp_enqueue_script('wp-bootstrap-starter-themejs', get_template_directory_uri() . '/inc/assets/js/theme-script.min.js', array(), '', true );
 	wp_enqueue_script( 'wp-bootstrap-starter-skip-link-focus-fix', get_template_directory_uri() . '/inc/assets/js/skip-link-focus-fix.min.js', array(), '20151215', true );
 
@@ -304,13 +309,10 @@ if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 
 
 
-
-
-
-
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
 	wp_enqueue_style('main-styles', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);	
+
 }
 
 add_shortcode('mjtest_shortcode', 'mjtest_shortcode');
@@ -445,5 +447,96 @@ function updateAuthorCourse() {
             }
             //     exit();
         }
+    }
+}
+
+/**
+ * Weryfikacja czy konto jest aktywne
+ */
+
+//remove wordpress authentication
+remove_filter('authenticate', 'wp_authenticate_username_password', 20);
+
+ 
+ add_filter('authenticate',  function($user, $username, $password) {
+    // $email = sanitize_user($email);
+    // $password = trim($password);
+    
+    $_SESSION['user_confirm'] = '';
+    $_SESSION['inacvite_user'] = '';
+    $_SESSION['authentication_failed'] = '';
+
+    $userLogin = get_user_by('login', $username);
+    $userEmail = get_user_by('email', $username);
+
+    if(($userLogin) || ($userEmail)) { 
+
+        if($userLogin) { 
+            // echo "obiekt usera poprzez login";
+            $user = $userLogin;
+        } else {
+            // echo "obiekt usera poprzez email";
+            $user = $userEmail;
+        }
+        
+        // print_r($user);
+        // echo "znaleziono uzytkownika";
+        /**
+         * Sprawdź czy uzytkownik ma aktywowane konto 
+         */
+
+          if ( get_user_meta( $user->ID, 'has_to_be_activated', true ) != false ) {
+     
+                $_SESSION['inacvite_user'] = '1';
+                $user = new WP_Error('inacvite_user', __('<strong>ERROR</strong>: User is not activated.'));
+                return $user;
+            } else { 
+                if(!wp_check_password($password, $user->user_pass, $user->ID)){ //bad password
+                    $_SESSION['authentication_failed'] = '1';
+                    $user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+                    return $user;
+                } else{
+                    return $user; //passed
+                }
+            }
+        
+    } else {
+        $_SESSION['authentication_failed'] = '1';
+        $user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+    }
+
+    return $user;
+     
+    }, 20, 3);
+ 
+
+/**
+ * Aktywacja konta uzytkownika
+ */
+
+add_action( 'template_redirect', 'wpse8170_activate_user' );
+function wpse8170_activate_user() {
+    if ( is_page() && get_the_ID() ==  (int)get_option('mauricz_activation_page') ) {
+
+        $user_id = filter_input( INPUT_GET, 'user', FILTER_VALIDATE_INT, array( 'options' => array( 'min_range' => 1 ) ) );
+        if ( $user_id ) {
+            // echo "OKKKK ". $user_id;
+            // get user meta activation hash field
+            $code = get_user_meta( $user_id, 'has_to_be_activated', true );
+            // echo "blaa ". print_r(get_user_meta( $user_id, 'user_email'));
+            // echo " code ".$code . ' vs '.filter_input( INPUT_GET, 'key' );
+
+
+            if ( $code == filter_input( INPUT_GET, 'key' ) ) {
+                delete_user_meta( $user_id, 'has_to_be_activated' );
+                // echo "odblokowano";
+                update_user_meta($user_id, "role", "subscriber");
+            } else {
+                // Token w requescie nie zgadza sie z tokenem w meta_value
+                wp_redirect(get_permalink((int)get_option('mauricz_error_activation_page'))); 
+            }
+        }
+    } else {
+        // echo "Nieprawidłowy url". (int)get_option('mauricz_activation_page');
     }
 }

@@ -222,7 +222,7 @@ function bpmj_eddcm_purchase_form_custom_user_fields() {
 			}
 		}
 		?>
-        <p>
+        <p class="bpmj-eddcm-phone-no">
             <label class="edd-label"
                    for="bpmj-eddcm-phone-no"><?php _e( 'Phone number', BPMJ_EDDCM_DOMAIN ); ?>
 				<?php if ( $phone_no_required ): ?>

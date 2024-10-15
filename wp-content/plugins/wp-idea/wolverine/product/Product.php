@@ -320,7 +320,7 @@ class Product
 
     public function getPanelLink()
     {
-        return $this->panelLink;
+        return (string)$this->panelLink;
     }
 
     public function setProductLink($link)
@@ -338,7 +338,7 @@ class Product
     public function getPanelOrProductLinkForUser($userId): string
     {
         if($this->getLinkedResourceType() === Resource_Type::COURSE && $this->userHasAccess($userId)) {
-            return $this->getPanelLink();
+            return (string)$this->getPanelLink();
         }
 
         return $this->getProductLink();

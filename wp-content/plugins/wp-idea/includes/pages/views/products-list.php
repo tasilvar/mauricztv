@@ -16,6 +16,8 @@ global $post;
 
 $productTime = [];
 $filterType='';
+$sale_price = "";
+$product_price = "";
 
 $getCategoryTag = getMauriczCategoryTagID(get_the_terms(get_the_ID(), 'download_category'), get_the_terms(get_the_ID(), 'download_tag'));
 //echo "cat ID ".$getCategory;
@@ -65,7 +67,7 @@ if($getCategoryTag != null) {
 			array(
 				'taxonomy' => 'download_category',
 				'field'    => 'term_id',
-				'terms'    => [21, 22],
+				'terms'    => [21],  // 22 -> pakiety
 				'operator' => 'NOT IN'
 			),
 		),
@@ -116,6 +118,12 @@ $args = array(
 			'field'    => 'slug',
 			'terms'    => 'bestsellery',
 		),
+		// array(
+		// 	'taxonomy' => 'download_category',
+		// 	'field'    => 'slug',
+		// 	'terms'    => ['pakiety','bestsellery'],
+		// 	'operator' => 'IN'
+		// ),
 	),
 	'orderby'          => 'date',
 	'order'            => 'DESC',
@@ -226,8 +234,7 @@ echo " PLN</h4>";
 <?php
 // Dodaj do koszyka
 echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-<i class="fa fa-shopping-bag"></i> 
-Sprawdź szkolenie</a>';
+Szczegóły</a>';
 
 	echo "</div>";
 	echo "</div>";
@@ -251,116 +258,214 @@ Sprawdź szkolenie</a>';
 
 <div class="row">
 <div class="col-sm-3 left-sidebar">
-<h5>Kategorie</h5>
+	
+	<div class="categories-list">
+		<div class="categories-lis__title"><h5>Kategorie</h5><i class="fa fa-solid fa-angle-down"></i></div>
+		
+		<!-- BEGIN: Kategorie -->
+		<ul class="product-list-categories">
+			<li>
+				<a href="<?= get_permalink(56); ?>">Wszystkie</a>
+			</li>
+			<?php
+			// Zwrócenie wszystkich kategorii
+		
+				$categories = get_terms( array(
+					'taxonomy' => 'download_category',
+					'hide_empty' => true
+					) );
+		
+				
+			foreach ($categories as $key => $category) {
+				echo "<li>";
+				echo "<a href='".get_term_link($category->term_id)."'>";
+				echo $category->name;
+				echo "</a>";
+				echo "</li>";
+			}
+			?>
+		</ul>
+	
+		<script>
+			jQuery(document).ready(function($) {
+				// Funkcja sprawdzająca rozmiar okna
+				function toggleCategoriesList() {
+					if ($(window).width() < 768) {
+						$('.categories-list ul').hide(); //ukrycie listy kategorii
+						// Ukrywanie i pokazywanie listy kategorii po kliknięciu
+						$('.categories-list > .categories-lis__title').off('click').on('click', function() {
+							$(this).next('ul').slideToggle();
+							$('.categories-list .categories-lis__title i').toggleClass('rotated');
+						});
+					} else {
+						$('.categories-list ul').show();
+						$('.categories-list > .categories-lis__title').off('click'); // Usuwanie handlera kliknięcia na większych ekranach
+					}
+				}
 
-<!-- BEGIN: Kategorie -->
-<ul class="product-list-categories">
-	<li>
-		<a href="<?= get_permalink(56); ?>">Wszystkie</a>
-	</li>
-<?php
-// Zwrócenie wszystkich kategorii
+				// Wywołanie funkcji przy ładowaniu strony
+				toggleCategoriesList();
 
-	$categories = get_terms( array(
-		'taxonomy' => 'download_category',
-		'hide_empty' => true
-		) );
+				// Wywołanie funkcji przy zmianie rozmiaru okna
+				$(window).resize(toggleCategoriesList);
+			});
+		</script>
+
+		<!--  END: Kategorie -->
+	</div>
+
+	<div style="display:none;">
+		<?php 
+		$tags = get_terms( array(
+			'taxonomy' => 'download_tag', 
+			'hide_empty' => true, 
+			) );
+
+
+			if (count($tags) > 0) {
+			?>
+		<h5>Poziom</h5>
+
+		<!-- BEGIN: Poziom -->
+		<ul class="levels">
+		<?php
+
+
+
+		foreach ($tags as $key => $tag) {
+			//print_r($tag);
+			echo "<li>";
+			echo "<a href='".get_tag_link($tag)."'>";
+			echo $tag->name;
+			echo "</a>";
+			echo "</li>";
+		}
+
+		?>
+		</ul>
+		<!-- END: Poziom -->
+		<?php 
+		}
+		?>
+	</div>
+
+	<div class="time-changer">
+		<div class="time-changer__title">
+			<h5>Czas trwania</h5>
+			<i class="fa fa-solid fa-angle-down"></i>
+		</div>
+		<!-- BEGIN: Czas trwania -->
+		<div class="time-changer__content">
+			<form method="POST" class="mjfilter">
+				<div class="range-container" style="display:none;">
+					<label class="left-align">
+						
+					<?= getMinMaxRange($productTime,'min'); ?>min
+					</label>
+					<label class="right-align">
+					<?= getMinMaxRange($productTime,'max'); ?>min
+					</label>
+				</div>
+
+				<!-- <input type="range" id="czas" name="czas" 
+				min="<?= getMinMaxRange($productTime,'min'); ?>" max="<?= getMinMaxRange($productTime,'max'); ?>" value="<?= getMinMaxRange($productTime,'max'); ?>" step="0.5" onchange="setRangeTime(this)"> -->
+				<label class="czas" data-range="czas">do <?= getMinMaxRange($productTime,'max'); ?>min</label>
+				<input type="hidden" id="czas-range" data-min="<?= getMinMaxRange($productTime,'min'); ?>" data-max="<?= getMinMaxRange($productTime,'max'); ?>"/>
+
+				<input type="hidden" id="czas-range-from" name="czas-range-from" value="<?= getMinMaxRange($productTime,'min'); ?>"/>
+				<input type="hidden" id="czas-range-to" name="czas-range-to" value="<?= getMinMaxRange($productTime,'max'); ?>"/>
+
+				<!-- Czas trwania -->
+
+				<div id="time-range-slider"></div>
+
+<script type="text/javascript">
+				jQuery(function($) {
+
+$( "#time-range-slider" ).slider({  
+orientation: "horizontal",                 
+range:true,  
+   min: parseFloat($("#czas-range").attr('data-min')),  
+   max: parseFloat($("#czas-range").attr('data-max')),  
+   values: [ parseFloat($("#czas-range").attr('data-min')), parseFloat($("#czas-range").attr('data-max'))],
+   slide: function( event, ui ) {
+	   console.log(event);
+	$( "#czas-range-from" ).val( ui.values[ 0 ] );  
+	$( "#czas-range-to" ).val(   ui.values[ 1 ] ); 
 
 	
-foreach ($categories as $key => $category) {
-    echo "<li>";
-	echo "<a href='".get_term_link($category->term_id)."'>";
-    echo $category->name;
-	echo "</a>";
-    echo "</li>";
-}
-?>
-</ul>
-<!--  END: Kategorie -->
-<div style="display:none;">
-<?php 
- $tags = get_terms( array(
-	'taxonomy' => 'download_tag', 
-	'hide_empty' => true, 
-	) );
-
-
-if (count($tags) > 0) {
-	?>
-<h5>Poziom</h5>
-
-<!-- BEGIN: Poziom -->
-<ul class="levels">
-<?php
-
-
-
-foreach ($tags as $key => $tag) {
-	//print_r($tag);
-    echo "<li>";
-	echo "<a href='".get_tag_link($tag)."'>";
-    echo $tag->name;
-	echo "</a>";
-    echo "</li>";
-}
-
-?>
-</ul>
-<!-- END: Poziom -->
-<?php 
-}
-?>
-</div>
-
-<h5>Czas trwania</h5>
-<!-- BEGIN: Czas trwania -->
-<div>
-	<form method="POST" class="mjfilter">
-		<div class="range-container">
-			<label class="left-align">
-			<?= getMinMaxRange($productTime,'min'); ?>min
-			</label>
-			<label class="right-align">
-			<?= getMinMaxRange($productTime,'max'); ?>min
-			</label>
-		</div>
-  <input type="range" id="czas" name="czas" 
-         min="<?= getMinMaxRange($productTime,'min'); ?>" max="<?= getMinMaxRange($productTime,'max'); ?>" value="<?= getMinMaxRange($productTime,'max'); ?>" step="0.5" onchange="setRangeTime(this)">
-		 <label class="czas" data-range="czas">do <?= getMinMaxRange($productTime,'max'); ?>min</label>
-		 
-		 <input type="hidden" name="filter_type" id="filter_type" value="<?= $filterType; ?>"/>
-		 <input type="hidden" name="id_category_tag" id="id_category_tag" value="<?= $getCategoryTag; ?>"/>
-
-		 <input type="hidden" name="id_post" id="id_post" value="<?= get_the_ID(); ?>"/>
-		 <input type="hidden" name="url_mjfilter" id="url_mjfilter" value="<?= bloginfo('url'); ?>/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>
-</form>
-		 <script type="text/javascript">
-			 function setRangeTime(obj) { 
-				 document.querySelector("."+obj.getAttribute('name')).innerHTML = "do "+obj.value+"min";
-
-				
-				$.ajax({
-					method:'POST',
-					url:$("#url_mjfilter").val(),
-					data: $(".mjfilter").serialize(),
-					beforeSend: function() {
-						$(".ajax-product-list").css('opacity', '0.5');
-						$(".ajax-product-list").html('Ładowanie...');
-					},
-					success: function(data) {
-						$(".ajax-product-list").css('opacity', '1');
-						$(".ajax-product-list").html(data);
-					},
-					error: function(xhr) {
-						$(".ajax-product-list").css('opacity', '1');
-						$(".ajax-product-list").html("error"+data);
-					}
+	$("label.czas").html("od "+ui.values[ 0 ]+" do "+ui.values[ 1 ]+"min");
+	
+   },
+   stop: function(event, ui) {
+		setRangeTime(null);
+   }
+});  
+//$( "#powierzchnia_content" ).val( "" + $( "#slide" ).slider( "values", 0 ) +  
+//" - " + $( "#slide" ).slider( "values", 1 ) +"m2");  
 				});
-			 }
+</script>
 
-		 </script>
-</div>
-<!-- END: Czas trwania -->
+				<input type="hidden" name="filter_type" id="filter_type" value="<?= $filterType; ?>"/>
+				<input type="hidden" name="id_category_tag" id="id_category_tag" value="<?= $getCategoryTag; ?>"/>
+
+				<input type="hidden" name="id_post" id="id_post" value="<?= get_the_ID(); ?>"/>
+				<input type="hidden" name="url_mjfilter" id="url_mjfilter" value="<?= bloginfo('url'); ?>/wp-content/plugins/wp-idea/includes/pages/views/ajax-filter-result.php"/>
+			</form>
+				<script type="text/javascript">
+					function setRangeTime(obj) { 
+						
+						//document.querySelector("."+obj.getAttribute('name')).innerHTML = "do "+obj.value+"min";
+
+						
+						$.ajax({
+							method:'POST',
+							url:$("#url_mjfilter").val(),
+							data: $(".mjfilter").serialize(),
+							beforeSend: function() {
+								$(".ajax-product-list").css('opacity', '0.5');
+								$(".ajax-product-list").html('Ładowanie...');
+							},
+							success: function(data) {
+								$(".ajax-product-list").css('opacity', '1');
+								$(".ajax-product-list").html(data);
+							},
+							error: function(xhr) {
+								$(".ajax-product-list").css('opacity', '1');
+								$(".ajax-product-list").html("error"+data);
+							}
+						});
+					}
+
+				</script>
+		</div>
+		<!-- END: Czas trwania -->
+
+		<script>
+			jQuery(document).ready(function($) {
+				// Funkcja sprawdzająca rozmiar okna
+				function toogleTimeChange() {
+					if ($(window).width() < 768) {
+						$('.time-changer .time-changer__content').hide(); //ukrycie listy kategorii
+						// Ukrywanie i pokazywanie listy kategorii po kliknięciu
+						$('.time-changer > .time-changer__title').off('click').on('click', function() {
+							$(this).next('.time-changer__content').slideToggle();
+							$('.time-changer .time-changer__title i').toggleClass('rotated');
+						});
+					} else {
+						$('.time-changer .time-changer__content').show();
+						$('.time-changer > .time-changer__title').off('click'); // Usuwanie handlera kliknięcia na większych ekranach
+					}
+				}
+
+				// Wywołanie funkcji przy ładowaniu strony
+				toogleTimeChange();
+
+				// Wywołanie funkcji przy zmianie rozmiaru okna
+				$(window).resize(toogleTimeChange);
+			});
+		</script>
+	</div>
 </div>
 
 <div class="col-sm-9 products-list">
@@ -520,8 +625,7 @@ $all_product = get_posts( $argsAll );
 		  
 	// Dodaj do koszyka
 			echo '<a href="'.get_permalink($product->ID).'" class="more-green">
-			<i class="fa fa-shopping-bag"></i> 
-			Sprawdź szkolenie</a>';
+			Szczegóły</a>';
 			echo "</div>";
 			echo "</div>";
 			

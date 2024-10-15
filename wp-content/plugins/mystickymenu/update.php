@@ -1,4 +1,7 @@
-<?php if (!defined('ABSPATH')) { exit; } ?>
+<?php
+if (!defined('ABSPATH')) { exit; }
+$email = (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == "playground.wordpress.net")?"":get_option('admin_email');
+?>
 <style>
     body {
         background: #ffffff !important;
@@ -11,7 +14,7 @@
 		<p>Grow your WordPress websites with our plugins</p>
     </div>
     <div class="updates-form-form-right">
-        <div class="update-title">Be first</div>
+        <div class="update-title">Be the first to know product updates, tips & discounts</div>
         <p>Be among the first to know about our latest features & what we're working on. Plus insider offers & flash sales</p>
         <div class="updates-form">
             <div class="update-form-input">
@@ -25,7 +28,7 @@
                         </g>
                     </svg>
                 </div>
-                <input id="myStickymenu_update_email" autocomplete="off" value="<?php echo get_option( 'admin_email' ) ?>" placeholder="Email address">
+                <input id="myStickymenu_update_email" autocomplete="off" value="<?php echo esc_attr($email) ?>" placeholder="Email address">
                 <button href="javascript:;" class="button button-primary form-submit-btn yes">Sign Up</button>
             </div>
            <!-- <div class="update-form-skip-button">

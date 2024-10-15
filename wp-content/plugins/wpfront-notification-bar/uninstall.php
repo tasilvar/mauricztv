@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit();
+
 if (defined('WP_UNINSTALL_PLUGIN')) {
     function wpfront_notification_bar_uninstall($is_pro)
     {

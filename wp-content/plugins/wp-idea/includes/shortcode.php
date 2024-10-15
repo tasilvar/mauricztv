@@ -836,8 +836,7 @@ function mjcourses($atts) {
  
 	// Dodaj do koszyka
 	$output .= '<a href="'.get_permalink($product->ID).'" class="more-green">
-			<i class="fa fa-shopping-bag"></i> 
-			Sprawdź szkolenie</a>';
+			Szczegóły</a>';
 	$output .= "</div>";
 	$output .= "</div>";
 	}

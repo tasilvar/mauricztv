@@ -4,7 +4,7 @@ jQuery(document).on('tinymce-editor-setup', function( event, editor ) {
 		text: 'Countdowns',
 		icon: false,
 		onclick: function () {
-			jQuery('#ycd-dialog').dialog({
+			jQuery('#ycd-countdown-dialog').dialog({
 				width: 450,
 				modal: true,
 				title: "Insert the shortcode",

@@ -59,6 +59,12 @@
     bottom: 0px;
 }
 
+.wpfront-notification-bar.keep-closed,
+.wpfront-notification-bar.max-views-reached
+{
+    display: none;
+}
+
 .wpfront-notification-bar div.wpfront-close
 {
     position: absolute;

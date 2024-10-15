@@ -45,7 +45,7 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 		/**
 		 * $sections variable
 		 *
-		 * @var string
+		 * @var array
 		 */
 		public $sections = array();
 		/**
@@ -54,6 +54,18 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 		 * @var string
 		 */
 		public $post_type = array();
+		/**
+		 * Post_formats
+		 *
+		 * @var array
+		 */
+		public $post_formats = array();
+		/**
+		 * Page_templates
+		 *
+		 * @var array
+		 */
+		public $page_templates = array();
 		/**
 		 * $args variable
 		 *
@@ -288,7 +300,6 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 				echo '<ul>';
 				$tab_key = 1;
 				foreach ( $this->sections as $section ) {
-
 					$tab_error = ( ! empty( $errors['sections'][ $tab_key ] ) ) ? '<i class="eapro-label-error eapro-error">!</i>' : '';
 					$tab_icon  = ( ! empty( $section['icon'] ) ) ? '<i class="eapro-tab-icon ' . esc_attr( $section['icon'] ) . '"></i>' : '';
 
@@ -405,15 +416,19 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 
 						foreach ( $section['fields'] as $field ) {
 
-							if ( ! empty( $field['id'] ) ) {
+							if ( ! empty( $field['id'] ) && ! isset( $field['only_pro'] ) ) {
 
-								$field_id    = $field['id'];
+								$field_id    = sanitize_key( $field['id'] );
 								$field_value = isset( $request[ $field_id ] ) ? $request[ $field_id ] : '';
 								// Sanitize "post" request of field.
 								if ( ! empty( $field['sanitize'] ) ) {
 									$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
 								} else {
-									$data[ $field_id ] = $field_value;
+									if ( $field_value && is_array( $field_value ) ) {
+										$data[ $field_id ] = wp_kses_post_deep( $field_value );
+									} else {
+										$data[ $field_id ] = $field_value ? wp_kses_post( $field_value ) : $field_value;
+									}
 								}
 
 								// Validate "post" request of field.
@@ -432,9 +447,7 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 							}
 						}
 					}
-
 					$count++;
-
 				}
 			}
 
@@ -469,7 +482,6 @@ if ( ! class_exists( 'SP_EAP_Metabox' ) ) {
 			do_action( "eapro_{$this->unique}_saved", $data, $post_id, $this );
 
 			do_action( "eapro_{$this->unique}_save_after", $data, $post_id, $this );
-
 		}
 	}
 }

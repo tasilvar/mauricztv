@@ -221,6 +221,12 @@ class AdminHelper {
 		);
 
 		$data['woo-products'] = self::getAllProducts();
+
+		$data['devices'] = array(
+			'desktop' => 'Desktop',
+			'tablet' => 'Tablet',
+			'mobile' => 'Mobile'
+		);
 		
 		$data['countdown-behavior'] =array(
 			'template' => array(
@@ -408,6 +414,47 @@ class AdminHelper {
 					),
 					'label' => array(
 						'name' => __('Show on all selected products', YCD_TEXT_DOMAIN)
+					)
+				)
+			)
+		);
+		$data['sticky_show_condition'] = array(
+			'template' => array(
+				'fieldWrapperAttr' => array(
+					'class' => 'col-md-6 ycd-choice-option-wrapper'
+				),
+				'labelAttr' => array(
+					'class' => 'col-md-6 ycd-choice-option-wrapper'
+				),
+				'groupWrapperAttr' => array(
+					'class' => 'row form-group ycd-choice-wrapper'
+				)
+			),
+			'buttonPosition' => 'right',
+			'nextNewLine' => true,
+			'fields' => array(
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'ycd-sticky-show-condition',
+						'class' => 'ycd-sticky-show-condition',
+                        'data-attr-href' => 'ycd-sticky-show-condition-load',
+						'value' => 'initial'
+					),
+					'label' => array(
+						'name' => __('On load', YCD_TEXT_DOMAIN)
+					)
+				),
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'ycd-sticky-show-condition',
+						'class' => 'ycd-sticky-show-condition',
+						'data-attr-href' => 'ycd-sticky-show-condition-scroll',
+						'value' => 'stickyConditionScroll'
+					),
+					'label' => array(
+						'name' => __('Scroll', YCD_TEXT_DOMAIN)
 					)
 				)
 			)
@@ -1606,6 +1653,10 @@ class AdminHelper {
 		$allowed_html = array(
 			'div' => $generalArray,
              'p' => $generalArray,
+             'h1' => $generalArray,
+             'h2' => $generalArray,
+             'h3' => $generalArray,
+             'h4' => $generalArray,
 			 'ul' => $generalArray,
 			 'li' => $generalArray,
 			 'button' => $generalArray,
@@ -1702,6 +1753,10 @@ class AdminHelper {
 	}
 }
 
+function ycd_is_free()
+{
+    return YCD_PKG_VERSION === YCD_FREE_VERSION;
+}
 function ycd_info($message) {
 	$content = '<div class="ycd-tooltip"><span class="dashicons dashicons-editor-help ycd-info-dashicon"></span>';
 	$content.= '<span class="ycd-tooltiptext">'.esc_attr($message).'</span>';

@@ -76,6 +76,7 @@ class TimerCountdown extends Countdown {
 		$fontSize = $this->getOptionValue('ycd-timer-font-size').'em !important';
 		$labelFontSize = (int)$this->getOptionValue('ycd-timer-font-size-label').'px';
 		$timerColor = $this->getOptionValue('ycd-timer-color');
+		$timerLabelsColor = $this->getOptionValue('ycd-timer-labels-color');
 		$timerContentPadding = (int)$this->getOptionValue('ycd-timer-content-padding').'px';
 		$imageUrl = $this->getOptionValue('ycd-bg-image-url');
 		$bgImageSize = $this->getOptionValue('ycd-bg-image-size');
@@ -123,6 +124,11 @@ class TimerCountdown extends Countdown {
 				.ycd-timer-wrapper-<?php echo esc_attr($id); ?> .ycd-timer-box span {
 					color: <?php echo esc_attr($timerColor); ?> <?php echo esc_attr($important); ?>;
 				}
+               <?php if (!ycd_is_free()): ?>
+                .ycd-timer-wrapper-<?php echo esc_attr($id); ?> .ycd-timer-box div.ycd-timer-unit-text {
+					color: <?php echo esc_attr($timerLabelsColor); ?> <?php echo esc_attr($important); ?>;
+				}
+                <?php endif; ?>
 				.ycd-timer-wrapper-<?php echo esc_attr($id); ?> {
 					<?php echo esc_attr('background-image: url('.esc_attr($imageUrl).'); background-repeat: '.esc_attr($imageRepeat).'; background-size: '.esc_attr($bgImageSize).'; '); ?>
 					text-align: <?php echo esc_attr($textAlign); ?>;

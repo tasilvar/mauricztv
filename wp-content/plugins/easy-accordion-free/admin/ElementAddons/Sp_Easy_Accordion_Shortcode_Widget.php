@@ -46,7 +46,7 @@ class Sp_Easy_Accordion_Shortcode_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-accordion-menu';
+		return 'ea-icon-menu';
 	}
 
 	/**

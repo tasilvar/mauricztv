@@ -147,10 +147,10 @@
 					<div class="col-md-12">
 					
 						<h3 class="upper">Agenda szkolenia</h3>
-				
+<!-- 				
 						<?php the_field('miejsce_na_shortcode'); ?>
 						
-						<h3 class="lower">Zainteresował Cię ten kurs?</h3>
+						<h3 class="lower">Zainteresował Cię ten kurs?</h3> -->
 						
 						<div class="text-center">
 							<a href="<?php the_field('link_do_kursu_w_publigo'); ?>" class="more">Kup teraz</a>

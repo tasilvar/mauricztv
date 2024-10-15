@@ -24,6 +24,7 @@ $defaultData = AdminHelper::defaultData();
 		</div>
 		<div class="col-lg-4">
 			<?php require_once YCD_ADMIN_COMING_VIEWS_PATH.'comingSoonSupport.php'; ?>
+			<?php require_once YCD_ADMIN_COMING_VIEWS_PATH.'comingSoonUpgrade.php'; ?>
 		</div>
 	</div>
     </form>

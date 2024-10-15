@@ -144,6 +144,7 @@ class YcdShowReviewNotice {
 				.ycd-review-wrapper{
 					text-align: center;
 					padding: 20px;
+					background: white;
 				}
 				.ycd-review-wrapper p {
 					color: black;
@@ -192,7 +193,7 @@ class YcdShowReviewNotice {
 				<div class="ycd-review-description">
 					<?php echo wp_kses($firstHeader, $allowedTags); ?>
 					<h2 class="ycd-review-h2">This is really great for your website score.</h2>
-					<p class="ycd-review-mt20">Have your input in the development of our plugin, and we’ll provide better conversions for your site!<br /> Leave your 5-star positive review and help us go further to the perfection!</p>
+					<p class="ycd-review-mt20">Your feedback powers our growth. <b>Leave a 5-star</b> review to influence our plugin's evolution and boost your site's conversions.<br /> Thanks for being part of our journey!</p>
 				</div>
 				<div class="ycd-buttons-wrapper">
 					<button class="press press-grey ycd-button-1 ycd-already-did-review" data-ajaxnonce="<?php echo esc_attr($ajaxNonce); ?>">I already did</button>

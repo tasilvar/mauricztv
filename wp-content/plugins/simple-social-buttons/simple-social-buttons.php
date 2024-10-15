@@ -3,7 +3,7 @@
  * Plugin Name: Simple Social Buttons
  * Plugin URI: https://simplesocialbuttons.com/?utm_source=simple-social-buttons-lite&utm_medium=plugin-url-link
  * Description: Simple Social Buttons adds an advanced set of social media sharing buttons to your WordPress sites, such as: Facebook, Twitter, WhatsApp, Viber, Reddit, LinkedIn and Pinterest. This makes it the most <code>Flexible Social Sharing Plugin ever for Everyone.</code>
- * Version: 5.1.1
+ * Version: 5.1.3
  * Author: WPBrigade
  * Author URI: https://www.WPBrigade.com/?utm_source=simple-social-buttons-lite&utm_medium=author-url-link
  * Text Domain: simple-social-buttons
@@ -11,7 +11,7 @@
  */
 
 /*
-  Copyright 2011 - 2023, Muhammad Adnan (WPBrigade)  (email : support@wpbrigade.com)
+  Copyright 2011 - 2024, Muhammad Adnan (WPBrigade)  (email : support@wpbrigade.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -44,7 +44,7 @@ class SimpleSocialButtonsPR {
 	 * @isnce
 	 * @var string
 	 */
-	public $pluginVersion = '5.1.1';
+	public $pluginVersion = '5.1.3';
 
 	/**
 	 * Plugin Prefix
@@ -815,7 +815,7 @@ class SimpleSocialButtonsPR {
 	 *
 	 * @access public
 	 * @since 1.0.0
-	 * @version 5.0.0
+	 * @version 5.1.2
 	 * @return string
 	 */
 	public function generate_buttons_code( $order = null, $show_count = false, $show_total = false, $extra_data = array(), $image = false ) {
@@ -1017,7 +1017,7 @@ class SimpleSocialButtonsPR {
 
 					if ( $theme == 'simple-icons' ) {
 
-						$_html = '<button class="ssb_tweet-icon" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/share?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;">
+						$_html = '<button class="ssb_tweet-icon" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;">
 						<span class="icon"><svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.9 0H0L5.782 7.7098L0.315 14H2.17L6.6416 8.8557L10.5 14H15.4L9.3744 5.9654L14.56 0H12.705L8.5148 4.8202L4.9 0ZM11.2 12.6L2.8 1.4H4.2L12.6 12.6H11.2Z" fill="#fff"/></svg></span>';
 
 						if ( $show_count ) {
@@ -1031,7 +1031,7 @@ class SimpleSocialButtonsPR {
 
 					} else {
 
-						$_html = '<button class="simplesocial-twt-share" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/share?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;"><span class="simplesocialtxt">Twitter</span> ';
+						$_html = '<button class="simplesocial-twt-share" ' . $ssb_attr_html . ' aria-label="Twitter Share" data-href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $permalink . '' . $via . '" onclick="javascript:window.open(this.dataset.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;"><span class="simplesocialtxt">Twitter</span> ';
 
 						if ( $show_count ) {
 							$_html .= '<span class="ssb_counter ssb_twitter_counter">' . ssb_count_format( $twitter_share ) . '</span>';

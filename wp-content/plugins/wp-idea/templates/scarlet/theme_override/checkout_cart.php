@@ -27,9 +27,15 @@ foreach($discounts as $code) {
 
 	$discounts_ids[] = $discount_id;
 }
-
+// echo "RABAT:".$discount_id."KONFIG:".get_option( 'mauricz_crosseling_discount');
 // print_r($discounts);
-
+/**
+ * Jeśli mamy w koszyku rabat zgodny z ustawieniami crosselingu lub jesli nie mamy w ogole w koszyku rabatu
+ */
+// echo count($discounts);
+// print_r($discounts);
+if(($discount_id == get_option( 'mauricz_crosseling_discount')) || ($discounts[0] == ''))  {
+	// echo "AAA";
 // Jesli mamy skonfigurowana kategorie i dyskont
 if(!empty(get_option( 'mauricz_crosseling_category')) && !empty(get_option( 'mauricz_crosseling_discount')))  {
 
@@ -82,20 +88,23 @@ if (xhr.readyState === 4 && xhr.status === 200) {
 	// Obsłuż odpowiedź serwera tutaj
 	console.log(xhr.responseText);
 	
+	$(".edd_cart_item .cart_price,  .koszyk_right .edd_cart_amount").addClass("placeholder-loading-root placeholder-loading-text placeholder-loading-pulse");
+	
 	var response = JSON.parse(xhr.responseText);
 
 	if(response.msg == 'valid') {
-		document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
+		//document.querySelector('.podsumowanie_lacznie').innerHTML = response.total;
 
 		document.querySelector('.koszyk_right .price.edd_cart_amount.cart_total').innerHTML = response.total;
 		
 		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').style.display = 'block';
-		document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
+		//document.querySelector('.edd_cart_footer_row.edd_cart_discount_row').innerHTML = response.html;
 
 		document.querySelector(".koszyk_cena_bez_rabatu").style.display='';
 		
 	}
 	console.log(JSON.parse(xhr.responseText));
+	window.location.reload();
 	 //window.location.href = window.location.href;
 }
 };
@@ -121,6 +130,7 @@ xhr.send(formData);
 		}
 	}
 
+}
 }
 }
 ?>
@@ -160,6 +170,7 @@ xhr.send(formData);
                         </div>
                         <div class="checkout_cart_price_button">
                             <div class="cart_price">
+								
                                 <?php
                                 echo $item_price;
 							
@@ -332,7 +343,7 @@ echo edd_get_discount_amount((int)get_option('mauricz_crosseling_discount'));
 	echo '30';
 }
 ?>%!</h1>
-<p>(kody rabatowe nie łączą się z tym rabatem)</p>
+<p style="color: red; font-weight: bold;">(Kody rabatowe nie łączą się z tym rabatem oraz nie działają na pakiety szkoleń)</p>
 <?php 
 	}
 ?>

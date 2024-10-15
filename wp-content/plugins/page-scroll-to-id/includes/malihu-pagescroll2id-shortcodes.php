@@ -1,7 +1,9 @@
 <?php
-/*
-Plugin shortcodes for PHP 5.3+
-*/
+/**
+ * Plugin shortcodes for PHP 5.3+
+ *
+ * @package Page scroll to id
+ */
 
 $pl_shortcodes[$i]=function($atts,$content=null) use ($i, $shortcode_class){
     extract(shortcode_atts(array( 
@@ -15,7 +17,7 @@ $pl_shortcodes[$i]=function($atts,$content=null) use ($i, $shortcode_class){
         'aria_label' => '',
     ), $atts));
     $aria_label_markup=isset($aria_label) && !empty($aria_label) ? ' aria-label="'.esc_attr($aria_label).'"' : '';
-    $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.sanitize_text_field($target).'"' : '';
+    $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.esc_attr($target).'"' : '';
     if($id!==""){
         if($content){
             return '<div id="'.esc_attr($id).'"'.$target_markup.$aria_label_markup.'>'.do_shortcode($content).'</div>';
@@ -38,7 +40,7 @@ $pl_shortcodes_b[$i]=function($atts,$content=null) use ($i){
     ), $atts));
     if($id!==''){
         $aria_label_markup=isset($aria_label) && !empty($aria_label) ? ' aria-label="'.esc_attr($aria_label).'"' : '';
-        $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.sanitize_text_field($target).'"' : '';
+        $target_markup=isset($target) && !empty($target) ? ' data-ps2id-target="'.esc_attr($target).'"' : '';
         return '<div id="'.esc_attr($id).'"'.$target_markup.$aria_label_markup.'>'.do_shortcode($content).'</div>';
     }
 };

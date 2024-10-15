@@ -24,6 +24,10 @@ use bpmj\wpidea\modules\app_view\api\App_View_API_Static_Helper;
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/plugins/easy-accordion-free/public/assets/css/font-awesome.min.css?ver=2.2.3"/>
 
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/mauricztv/style.css?v=<?php echo time(); ?>"/>
+
+
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/inc/assets/css/jquery-ui.css" />
+   
 </head>
 <body <?php body_class( array( WPI()->templates->get_body_class() ) ); ?>>
 <?php do_action( 'bpmj_eddc_after_body_open_tag' ); ?>

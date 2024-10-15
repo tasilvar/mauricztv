@@ -39,7 +39,7 @@ class Js {
 	private function gutenbergParams() {
 		$settings = array(
 				'allCountdowns' => Countdown::shapeIdTitleData(),
-				'title'   => __('Countdowns', YCD_TEXT_DOMAIN),
+				'title'   => __('Countdown & Clock', YCD_TEXT_DOMAIN),
 				'description'   => __('This block will help you to add countdown’s shortcode inside the page content', YCD_TEXT_DOMAIN),
 				'logo_classname' => 'ycd-gutenberg-logo',
 				'coountdown_select' => __('Select countdown', YCD_TEXT_DOMAIN)
@@ -86,7 +86,11 @@ class Js {
 			$comingSoonMenuPage,
 			'ycdcountdown_page_ycdcountdown'
 		);
-		$post = (int)@$_GET['post'];
+		$post = null;
+		if (!empty($_GET['post'])) {
+			$post = (int)@$_GET['post'];
+		}
+
 		if(in_array($hook, $allowedPages) || get_post_type($post) == YCD_COUNTDOWN_POST_TYPE || @$_GET['post_type'] == YCD_COUNTDOWN_POST_TYPE) {
 			
 			wp_enqueue_script('jquery-ui-core');

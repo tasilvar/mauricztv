@@ -23,6 +23,8 @@
 
 namespace WPFront\Notification_Bar;
 
+if (!defined('ABSPATH')) exit();
+
 if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Custom_Css_Template')) {
 
     class WPFront_Notification_Bar_Custom_CSS_Template {
@@ -91,7 +93,7 @@ if (!class_exists('\WPFront\Notification_Bar\WPFront_Notification_Bar_Custom_Css
 
         protected function div_wpfront_message_css() {
             $id_suffix = $this->controller->get_html_id_suffix();
-            echo "#wpfront-notification-bar$id_suffix div.wpfront-message, #wpfront-notification-bar-editor li, #wpfront-notification-bar-editor p";
+            echo "#wpfront-notification-bar$id_suffix div.wpfront-message, #wpfront-notification-bar-editor.wpfront-message";
             ?>
             {
             color: <?php echo $this->options->message_color; ?>;

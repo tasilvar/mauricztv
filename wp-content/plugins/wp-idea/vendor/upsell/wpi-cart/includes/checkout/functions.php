@@ -9,6 +9,9 @@
  * @since       1.0
  */
 
+use bpmj\wpidea\admin\pages\customers\Customers;
+
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -78,6 +81,60 @@ function edd_is_success_page() {
 	$is_success_page = edd_get_option( 'success_page', false );
 	$is_success_page = isset( $is_success_page ) ? is_page( $is_success_page ) : false;
 
+
+	// Jesli znajdujemy sie na stronie potwierdzajacej pomyslnie zamowienie - skopiuj dane adresowe z obiektu zamowienia do obiektu klienta (usera)
+	$current_user = wp_get_current_user();
+	$getUser = get_userdata( $current_user->ID);
+ 
+	// 	$offset = 0, $number = 20, $mode = 'live', $orderby = 'ID', $order = 'DESC',
+	//  * $user = null, $status = 'any', $meta_key = null
+	$args = [
+		//Filtruj zamówienia po uzytkowniku
+		'user' => $current_user->ID
+	];
+	$getPayments = edd_get_payments($args);
+	
+	// Jesli klient cokolwiek kupił
+	if(count($getPayments) > 0) { 
+
+		// Pobierz dane adresu rozliczeniowego i skopiuj je do danych uzytkownika
+		# print_r($getPayments);
+		$getLastPaymentID = $getPayments[0]->ID;
+		#echo "last payment ID: ".$getLastPaymentID;
+		
+		#print_r(edd_get_payment('40600'));
+		#$getLastPayment = edd_get_payment($getLastPaymentID)->user_info;
+		$getLastPaymentName = edd_get_payment($getLastPaymentID)->payment_meta['bpmj_edd_invoice_person_name'];
+		 
+		//Pobierz imie i nazwisko 
+		$sliceName = explode(" ",trim($getLastPaymentName));
+
+		$getFirstname = $sliceName[0];
+		if(count($sliceName) > 1) {
+			$getLastname = $sliceName[1];
+		} else{ 
+			$getLastname = $sliceName[0];	
+		}
+		# print_r($getLastPayment);
+
+		$getOldFirstName = get_user_meta( $current_user->ID, 'first_name');
+		$getOldLastName = get_user_meta( $current_user->ID, 'last_name');
+
+		// Jesli uzytkownik nie posiada na koncie ustawionego imienia lub nazwiska do zamowienia zaktualizuj je do obiektu klienta
+		if(empty($getOldFirstName) || empty($getOldFirstName)) {
+				
+			$getEDD_Customer = new EDD_Customer($current_user->ID);
+			$getEDD_Customer->name = $getFirstname.' '.$getLastname;
+					
+			$customer_data = array( 'name' => $getFirstname. ' '.$getLastname );
+		
+			$getEDD_Customer->update( $customer_data );
+		 
+			update_user_meta( $current_user->ID, 'first_name', $getFirstname);
+			update_user_meta( $current_user->ID, 'last_name', $getLastname);
+		}
+
+	}
 	return apply_filters( 'edd_is_success_page', $is_success_page );
 }
 
