@@ -54,6 +54,9 @@ jobs:
           **/wp-content/plugins/rollback-update-failure/**
           **/wp-content/plugins/simple-social-buttons/**
           **/wp-content/plugins/wordpress-seo/**
+          **/wp-content/plugins/advanced-custom-fields/**
+          **/wp-content/plugins/maintenance/**
+          **/wp-content/plugins/smtp-mailer/**
           **/wp-content/plugins/wp-maintenance/**
           **/wp-content/plugins/cookie-law-info/**
           **/wp-content/plugins/complianz-gdpr/**
