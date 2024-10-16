@@ -804,9 +804,21 @@ table.product-feature td {
 .product { 
 	border: 3px solid transparent;
 }
+
+.product.product-id-3024 {
+	border: 3px solid #dd0029;
+}
+.product.product-id-3024 .more-green {
+	background-color: #dd0029;
+}
+.product.product-id-3024:hover {
+	border: 3px solid #dd0029;
+}
+
 .product:hover { 
 	border: 3px solid #1cd779;
 }
+
 .product-thumbnail, .product-thumbnail img {
 	width: 100%;
 }
@@ -1071,6 +1083,10 @@ Etykiety
     z-index: 1;
     font-weight: 600;
     font-size: 11px;
+}
+
+.label-product.all-in::before  {
+	border-left-color: #dd0029;
 }
 
 .menu_glowne {
