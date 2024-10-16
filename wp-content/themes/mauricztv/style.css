@@ -2319,7 +2319,9 @@ margin: auto;
 } */
 
 #menu-item-48968 a{ 
-	border-color:#1c25c0;
+	border-color:#dd0029;
+	background-color: #dd0029;
+	color: #000;
 }
 
 .categories-list .categories-lis__title {
