@@ -821,6 +821,8 @@ table.product-feature td {
 
 .product-thumbnail, .product-thumbnail img {
 	width: 100%;
+	aspect-ratio: 1/1;
+	
 }
 table.product-feature td:last-child {
     text-transform: none;
