@@ -822,7 +822,7 @@ table.product-feature td {
 .product-thumbnail, .product-thumbnail img {
 	width: 100%;
 	aspect-ratio: 1/1;
-	
+
 }
 table.product-feature td:last-child {
     text-transform: none;
@@ -2304,7 +2304,8 @@ ul.home-levels-items.levels .products-list  {
 }
 img.entered.lazyloaded {
     max-height: 400px;
-    width: auto;
+    width: 100%;
+	aspect-ratio: 1/1;
 }
 
 p#reg_passmail {
