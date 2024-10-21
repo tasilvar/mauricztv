@@ -1921,7 +1921,7 @@ width: 100% !important;
 	
 	div#logo-cell{width:100%;max-width:100%;flex:100%;}
 	#mega-menu-wrap-primary{position:static;transform:translateY(0);}
-	.koszyk{/*margin-right:0;position:static;transform:translateY(0);*/right:0;margin-right:25px;top:-45px;position:absolute;transform:none;}
+	.koszyk{/*margin-right:0;position:static;transform:translateY(0);*/right:0;margin-right:26px;top:-45px;position:absolute;transform:none;}
 	.menu_glowne{display:none;}
 	
 	.site-header{background:#F9F9FB;}
