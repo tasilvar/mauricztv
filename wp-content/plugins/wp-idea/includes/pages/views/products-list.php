@@ -21,59 +21,86 @@ $product_price = "";
 
 $getCategoryTag = getMauriczCategoryTagID(get_the_terms(get_the_ID(), 'download_category'), get_the_terms(get_the_ID(), 'download_tag'));
 //echo "cat ID ".$getCategory;
-if($getCategoryTag != null) { 
-	if(is_tax('download_category')) {
-		$filterType = 'category';
-		$argsAll = array(
-			'post_type'      => 'download',
-			'post_status' => 'publish',
-			'posts_per_page' => -1,
-			'meta_key' => 'sales_disabled',
-			'meta_value' => 'off',
-			'tax_query'      => array(
-				array(
-					'taxonomy' => 'download_category',
-					'field'    => 'term_id',
-					'terms'    => $getCategoryTag,
-				),
-			),
-		);
-	} else { 
-		$filterType = 'tag';
-		$argsAll = array(
-			'post_type'      => 'download',
-			'post_status' => 'publish',
-			'posts_per_page' => -1,
-			'meta_key' => 'sales_disabled',
-			'meta_value' => 'off',
-			'tax_query'      => array(
-				array(
-					'taxonomy' => 'download_tag',
-					'field'    => 'term_id',
-					'terms'    => $getCategoryTag,
-				),
-			),
-		);
-	}
-	
+if ($getCategoryTag != null) { 
+    if (is_tax('download_category')) {
+        $filterType = 'category';
+        $argsAll = array(
+            'post_type'      => 'download',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'meta_query'     => array(
+                'relation' => 'AND', // Dodajemy relację, aby obsługiwać wiele meta_query
+                array(
+                    'key'     => 'sales_disabled',
+                    'value'   => 'off',
+                ),
+                array(
+                    'key'     => 'hide_from_lists',
+                    'value'   => 'off',
+                ),
+            ),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'download_category',
+                    'field'    => 'term_id',
+                    'terms'    => $getCategoryTag,
+                ),
+            ),
+        );
+    } else { 
+        $filterType = 'tag';
+        $argsAll = array(
+            'post_type'      => 'download',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'meta_query'     => array(
+                'relation' => 'AND', // Dodajemy relację, aby obsługiwać wiele meta_query
+                array(
+                    'key'     => 'sales_disabled',
+                    'value'   => 'off',
+                ),
+                array(
+                    'key'     => 'hide_from_lists',
+                    'value'   => 'off',
+                ),
+            ),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'download_tag',
+                    'field'    => 'term_id',
+                    'terms'    => $getCategoryTag,
+                ),
+            ),
+        );
+    }
+
 } else {
-	$argsAll = array(
-		'post_type'      => 'download',
-		'post_status' => 'publish',
-		'posts_per_page' => -1,
-		'meta_key' => 'sales_disabled',
-		'meta_value' => 'off',
-		'tax_query'      => array(
-			array(
-				'taxonomy' => 'download_category',
-				'field'    => 'term_id',
-				'terms'    => [21],  // 22 -> pakiety
-				'operator' => 'NOT IN'
-			),
-		),
-		'orderby'          => 'date',
-		'order'            => 'DESC',		
-	);
+    $argsAll = array(
+        'post_type'      => 'download',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'meta_query'     => array(
+            'relation' => 'AND', // Dodajemy relację, aby obsługiwać wiele meta_query
+            array(
+                'key'     => 'sales_disabled',
+                'value'   => 'off',
+            ),
+            array(
+                'key'     => 'hide_from_lists',
+                'value'   => 'off',
+            ),
+        ),
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'download_category',
+                'field'    => 'term_id',
+                'terms'    => [21],  // 22 -> pakiety
+                'operator' => 'NOT IN'
+            ),
+        ),
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
 }
 
 	$getTimesProducts = get_posts( $argsAll );

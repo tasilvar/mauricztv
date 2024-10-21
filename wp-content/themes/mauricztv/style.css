@@ -1720,7 +1720,7 @@ width: 100% !important;
 @media (max-width: 768px){
 	.xs-hidden{display:none!important;}
 	.footer iframe{min-height:315px!important;}
-	.koszyk{right:unset;margin-right:0;top:10px;position:absolute;transform:translateY(0);}
+	.koszyk{right:unset;margin-right:0;top:10px;transform:translateY(0);}
 	.links a {
 		display: flex;align-items: center;justify-content: center;
 	}
