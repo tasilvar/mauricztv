@@ -540,3 +540,78 @@ function wpse8170_activate_user() {
         // echo "Nieprawidłowy url". (int)get_option('mauricz_activation_page');
     }
 }
+
+
+// Przekierowanie użytkownika po zalogowaniu z parametrem w URL
+add_action('wp_login', 'redirect_after_login', 10, 2);
+function redirect_after_login($user_login, $user) {
+    if (edd_get_cart_quantity() > 0) {
+        // Przekieruj użytkownika na stronę główną z parametrem w URL
+        $redirect_to = home_url('/?show_cart_popup=1');
+        wp_safe_redirect($redirect_to);
+        exit();
+    }
+}
+
+add_action('wp_footer', 'show_popup_on_login_redirect');
+function show_popup_on_login_redirect() {
+    if (isset($_GET['show_cart_popup']) && $_GET['show_cart_popup'] == 1) {
+        ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Wyświetl popup i backdrop
+                document.getElementById('cartPopup').style.display = 'block';
+                document.getElementById('backdrop').style.display = 'block';
+
+                // Funkcja usuwająca parametr show_cart_popup=1 z URL
+                function removePopupParamFromURL() {
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('show_cart_popup');
+                    window.history.replaceState({}, document.title, url);
+                }
+
+                // Zamknięcie popupu i usunięcie backdropu
+                function closePopup() {
+                    document.getElementById('cartPopup').style.display = 'none';
+                    document.getElementById('backdrop').style.display = 'none';
+                    removePopupParamFromURL();
+                }
+
+                // Nasłuchuj kliknięcia przycisku "Zamknij" oraz kliknięcia w backdrop
+                document.getElementById('closePopupButton').addEventListener('click', closePopup);
+                document.getElementById('backdrop').addEventListener('click', closePopup);
+            });
+        </script>
+        <?php
+    }
+}
+
+// Wyświetl popup dla zalogowanego użytkownika przy ponownym wejściu na stronę (z ciasteczkiem)
+add_action('wp_loaded', 'check_cart_on_page_load');
+function check_cart_on_page_load() {
+    if (is_user_logged_in() && edd_get_cart_quantity() > 0 && empty($_COOKIE['cartPopupShown'])) {
+        setcookie('cartPopupShown', 'true', time() + DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
+
+        // Dodaj skrypt wyświetlający popup
+        add_action('wp_footer', 'show_popup_script');
+    }
+}
+
+// Funkcja generująca skrypt do pokazania popupu przy ponownym wejściu na stronę
+function show_popup_script() {
+    ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('cartPopup').style.display = 'block';
+        });
+    </script>
+    <?php
+}
+
+// Ustaw ciasteczko przy dodaniu przedmiotu do koszyka, aby blokować popup
+add_action('edd_post_add_to_cart', 'set_cart_popup_cookie');
+function set_cart_popup_cookie() {
+    if (is_user_logged_in()) {
+        setcookie('cartPopupShown', 'true', time() + DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
+    }
+}

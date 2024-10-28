@@ -138,7 +138,15 @@ if(is_page(48)) {
 	</div>
 <?php endif; ?>
 </div><!-- #page -->
-
+<div id="backdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+<div id="cartPopup" style="display: none;">
+    <h2>Nie dokończyłeś/-łaś swoich ostatnich zakupów?</h2>
+	<h3>Zajrzyj do koszyka, nasze szkolenia czekają na Ciebie!</h3>
+	<div class="buttons">
+		<a href="/zamowienie" style="" class="more">Przejdź do koszyka</a>
+		<button id="closePopupButton" class="more">Zamknij</button>
+		</div>
+</div>
 <?php wp_footer(); ?>
 
 
