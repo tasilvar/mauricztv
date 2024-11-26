@@ -390,9 +390,9 @@ if($show_open_padlock) {
      
     <!-- <div class="ea-card ea-expand sp-ea-single"><h3 class="ea-header" style="background:#fff;"> <?= $module->post_title ?></h3><div class="sp-collapse spcollapse collapsed show" id="collapse<?= $keyModule ?>" data-parent="#sp-ea-modules"></div></div> -->
 
-    <?php
+    <!-- <?php
 }
-?>
+?> -->
 </div>
 <?php
 
