@@ -369,7 +369,7 @@ if($show_open_padlock) {
                 
                     <h3 class="upper">Agenda szkolenia</h3>
             
-                    <!-- <?php the_field('miejsce_na_shortcode'); ?> -->
+                    
                     
                     <!-- <h3 class="lower">Zainteresował Cię ten kurs?</h3> -->
                     
