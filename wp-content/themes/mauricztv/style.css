@@ -150,7 +150,7 @@ h3 em{font-style:normal;color:#1AD779;}
 .wpfront-notification-bar .time_circles canvas{display:none;}
 .wpfront-notification-bar .time_circles > div > span{font-family:'Montserrat',sans-serif!important;color:#1E2123!important;width:auto;display:inline-block;}
 .wpfront-notification-bar .time_circles > div > h4{text-transform:unset;font-family:'Montserrat',sans-serif!important;color:#1E2123!important;display:inline-block;margin-left:3px;margin-right:5px;}
-.textDiv_Hours,.textDiv_Minutes,.textDiv_Seconds{position:static!important;width:auto!important;display:inline-block;;font-family:'Montserrat',sans-serif!important;}
+.textDiv_Days,.textDiv_Hours,.textDiv_Minutes,.textDiv_Seconds{position:static!important;width:auto!important;display:inline-block;;font-family:'Montserrat',sans-serif!important;}
 .wpfront-notification-bar #ycd-circle-44 h4{font-family:'Montserrat',sans-serif!important;}
 
 /*top menu*/
