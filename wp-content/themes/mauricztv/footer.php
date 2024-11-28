@@ -147,6 +147,18 @@ if(is_page(48)) {
 		<button id="closePopupButton" class="more">Zamknij</button>
 		</div>
 </div>
+
+<div id="customPopup" style="display: none;">
+    <h2>🎉 BLACK WEEK WIELKA PROMOCJA! 🎉</h2>
+	<p>Tylko teraz zyskaj aż <strong>55% rabatu</strong> na wszystkie szkolenia! (nie dotyczy pakietów)</p>
+	<p>Skorzystaj z kodu: <strong>CZARNY55</strong></p>
+	<div class="countdown-row"><p>📅 Oferta ważna jeszcze przez:</p> <?= do_shortcode( '[ycd_countdown id=44]' ) ?></div>
+	<p>👉 Zrób zakupy już teraz i oszczędzaj!</p>
+	<div class="buttons">
+		<a href="/lista-produktow/" style="" class="more">Szkolenia</a>
+		<button id="customClosePopupButton" class="more">Zamknij</button>
+		</div>
+</div>
 <?php wp_footer(); ?>
 
 
