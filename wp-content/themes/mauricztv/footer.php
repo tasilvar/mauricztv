@@ -148,7 +148,7 @@ if(is_page(48)) {
 		</div>
 </div>
 
-<div id="customPopup" style="display: none;">
+<!-- <div id="customPopup" style="display: none;">
     <h2>🎉 BLACK WEEK WIELKA PROMOCJA! 🎉</h2>
 	<p>Tylko teraz zyskaj aż <strong>55% rabatu</strong> na wszystkie szkolenia! (nie dotyczy pakietów)</p>
 	<p>Skorzystaj z kodu: <strong>CZARNY55</strong></p>
@@ -158,7 +158,7 @@ if(is_page(48)) {
 		<a href="/lista-produktow/" style="" class="more">Szkolenia</a>
 		<button id="customClosePopupButton" class="more">Zamknij</button>
 		</div>
-</div>
+</div> -->
 <?php wp_footer(); ?>
 
 
