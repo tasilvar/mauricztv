@@ -21,11 +21,9 @@ $acc_bottom_margin     = isset( $shortcode_data['accordion_margin_bottom']['all'
 $eap_title_typho       = isset( $shortcode_data['eap_title_typography'] ) ? $shortcode_data['eap_title_typography'] : '';
 $eap_title_typho_color = isset( $eap_title_typho['color'] ) ? $eap_title_typho['color'] : '#444';
 // Section title.
-$acc_section_title         = isset( $shortcode_data['section_title'] ) ? $shortcode_data['section_title'] : '';
-$section_title_typho       = isset( $shortcode_data['eap_section_title_typography'] ) ? $shortcode_data['eap_section_title_typography'] : '';
-$section_title_typho_color = isset( $section_title_typho['color'] ) ? $section_title_typho['color'] : '#444';
-// $old_section_title_margin_bottom = isset( $shortcode_data['section_title_margin_bottom'] ) ? $shortcode_data['section_title_margin_bottom'] : '30';
-// $acc_section_title_margin_bottom = isset( $shortcode_data['section_title_margin_bottom']['all'] ) ? $shortcode_data['section_title_margin_bottom']['all'] : $old_section_title_margin_bottom;
+$acc_section_title               = isset( $shortcode_data['section_title'] ) ? $shortcode_data['section_title'] : '';
+$section_title_typho             = isset( $shortcode_data['eap_section_title_typography'] ) ? $shortcode_data['eap_section_title_typography'] : '';
+$section_title_typho_color       = isset( $section_title_typho['color'] ) ? $section_title_typho['color'] : '#444';
 $acc_section_title_margin_bottom = isset( $section_title_typho['margin-bottom'] ) ? $section_title_typho['margin-bottom'] : '30';
 
 $eap_description_bg                 = isset( $shortcode_data['eap_description_bg_color'] ) ? $shortcode_data['eap_description_bg_color'] : '';

@@ -29,8 +29,6 @@ xmlrpc.php
 /wp-content/upgrade-temp-backup
 /wp-content/ai1wm-backups
 /wp-content/upgrade_temp_backup
-/wp-rocket-config
-/wp-content/plugins/wp-rocket
 _old_wp-login.php
 *.zip
 *.mp4

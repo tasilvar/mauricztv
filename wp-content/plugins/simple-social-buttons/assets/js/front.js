@@ -103,7 +103,7 @@ var ssbPlugin = ssbPlugin || {};
 
 		var sidebarwidth = $('div[class*="simplesocialbuttons-float"]>a:first-child').outerWidth(true);
 		$('div[class*="simplesocialbuttons-float"]').css('width', sidebarwidth + 'px');
-		$('.simplesocialbuttons.ssb_counter-activate:not(.simplesocial-round-txt):not(.simplesocial-round-icon):not(.simplesocial-simple-icons) button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-linkedin-share)').each(function () {
+		$('.simplesocialbuttons.ssb_counter-activate:not(.simplesocial-round-txt):not(.simplesocial-round-icon):not(.simplesocial-simple-icons) button:not(.simplesocial-viber-share):not(.simplesocial-whatsapp-share):not(.simplesocial-msng-share):not(.simplesocial-email-share):not(.simplesocial-print-share):not(.simplesocial-copy-link):not(.simplesocial-linkedin-share)').each(function () {
 			var $el = $(this);
 			setTimeout(function () {
 				var $elWidth = $el.children('.ssb_counter').innerWidth();
@@ -128,3 +128,36 @@ var ssbPlugin = ssbPlugin || {};
 	document.addEventListener('DOMContentLoaded', docLoadedFun);
 
 })(window.jQuery, window, document);
+
+// function to copy the current link to clipboard
+function ssb_copy_share_link(clickedButton) {
+    const textArea = document.createElement('textarea');
+    const url = clickedButton.dataset.href;
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+        const copied = document.execCommand('copy');
+        if (copied) {
+			if(jQuery(clickedButton).closest('.simplesocial-simple-round').length === 0){
+				jQuery(clickedButton).attr('data-tooltip', 'Copied');
+			}else{
+				jQuery(clickedButton).find('.ssb_tooltip').show();
+			}
+			clickedButton.classList.add('ssb_copy_btn');
+			setTimeout(() => {
+				jQuery(clickedButton).removeAttr('data-tooltip');
+				clickedButton.classList.remove('ssb_copy_btn');
+				jQuery(clickedButton).find('.ssb_tooltip').hide();
+			}, 1500);
+            
+        } else {
+            console.warn('Failed to copy URL using text area selection.');
+        }
+    } catch (err) {
+        console.error('Failed to copy URL:', err);
+    } finally {
+        document.body.removeChild(textArea); 
+    }
+}

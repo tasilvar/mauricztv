@@ -91,7 +91,6 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 			}
 
 			return $field_name . $nested_name;
-
 		}
 
 		/**
@@ -127,7 +126,6 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 			}
 
 			return $atts;
-
 		}
 
 		/**
@@ -148,7 +146,6 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 			$output .= ( ! empty( $this->field['_error'] ) ) ? '<div class="eapro-text-error">' . wp_kses_post( $this->field['_error'] ) . '</div>' : '';
 
 			return $output;
-
 		}
 
 		/**
@@ -264,6 +261,20 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 						}
 					}
 
+					break;
+				case 'shortcode_list':
+					$get_specific = array(
+						'post_type' => 'sp_easy_accordion',
+					);
+					$query_args   = array_merge( $query_args, $get_specific );
+					$all_posts    = get_posts( $query_args );
+
+					if ( ! is_wp_error( $all_posts ) && ! empty( $all_posts ) ) {
+						foreach ( $all_posts as $post_obj ) {
+							$options[ $post_obj->ID ] = isset( $post_obj->post_title ) && ! empty( $post_obj->post_title ) ? $post_obj->post_title : '#' . $post_obj->ID;
+						}
+					}
+					wp_reset_postdata();
 					break;
 
 				case 'category':
@@ -411,7 +422,6 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 			}
 
 			return $options;
-
 		}
 
 		/**
@@ -510,8 +520,6 @@ if ( ! class_exists( 'SP_EAP_Fields' ) ) {
 			}
 
 			return $options;
-
 		}
-
 	}
 }

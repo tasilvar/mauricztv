@@ -54,11 +54,14 @@ class MonsterInsights_Onboarding_Wizard {
 	 */
 	public function maybe_load_onboarding_wizard() {
 
-		// Check for wizard-specific parameter
-		// Allow plugins to disable the onboarding wizard
-		// Check if current user is allowed to save settings.
-		if ( ! ( isset( $_GET['page'] ) || 'monsterinsights-onboarding' !== $_GET['page'] || apply_filters( 'monsterinsights_enable_onboarding_wizard', true ) || ! current_user_can( 'monsterinsights_save_settings' ) ) ) { // WPCS: CSRF ok, input var ok.
-			return;
+		// Check if the page is not set, or if it's not the onboarding wizard page
+		if ( empty( $_GET['page'] ) || 'monsterinsights-onboarding' !== $_GET['page'] ) {
+		        return;
+		}
+
+		// Check if the current user is allowed to save settings
+		if ( ! current_user_can( 'monsterinsights_save_settings' ) ) {
+		        return;
 		}
 
 		// Don't load the interface if doing an ajax call.
@@ -108,7 +111,7 @@ class MonsterInsights_Onboarding_Wizard {
 		}
 
 		$app_js_url = MonsterInsights_Admin_Assets::get_js_url( 'src/modules/wizard-onboarding/wizard.js' );
-		wp_register_script( 'monsterinsights-vue-script', $app_js_url, array(), monsterinsights_get_asset_version(), true );
+		wp_register_script( 'monsterinsights-vue-script', $app_js_url, array( 'wp-i18n' ), monsterinsights_get_asset_version(), true );
 		wp_enqueue_script( 'monsterinsights-vue-script' );
 
 		$settings_page = is_network_admin() ? add_query_arg( 'page', 'monsterinsights_network', network_admin_url( 'admin.php' ) ) : add_query_arg( 'page', 'monsterinsights_settings', admin_url( 'admin.php' ) );

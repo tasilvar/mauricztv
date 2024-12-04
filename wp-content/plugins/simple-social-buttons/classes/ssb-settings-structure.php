@@ -213,7 +213,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 				  <?php if ( 'simple-icons' == $key ) : ?>
 				  <ul>
 					<li><a href="#" class="simplesocial-fb-share"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="_1pbq" color="#ffffff"><path fill="#ffffff" fill-rule="evenodd" class="icon" d="M8 14H3.667C2.733 13.9 2 13.167 2 12.233V3.667A1.65 1.65 0 0 1 3.667 2h8.666A1.65 1.65 0 0 1 14 3.667v8.566c0 .934-.733 1.667-1.667 1.767H10v-3.967h1.3l.7-2.066h-2V6.933c0-.466.167-.9.867-.9H12v-1.8c.033 0-.933-.266-1.533-.266-1.267 0-2.434.7-2.467 2.133v1.867H6v2.066h2V14z"></path></svg></span><span class="simplesocial-hidden-text">Share</span></a></li>
-					<li><a href="#" class="simplesocial-twt-share"><span class="icon"><svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.9 0H0L5.782 7.7098L0.315 14H2.17L6.6416 8.8557L10.5 14H15.4L9.3744 5.9654L14.56 0H12.705L8.5148 4.8202L4.9 0ZM11.2 12.6L2.8 1.4H4.2L12.6 12.6H11.2Z" fill="#fff"/></svg></span><span class="simplesocial-hidden-text">Tweet</span></a></li>
+					<li><a href="#" class="simplesocial-twt-share"><span class="icon"><svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.9 0H0L5.782 7.7098L0.315 14H2.17L6.6416 8.8557L10.5 14H15.4L9.3744 5.9654L14.56 0H12.705L8.5148 4.8202L4.9 0ZM11.2 12.6L2.8 1.4H4.2L12.6 12.6H11.2Z" fill="#fff"/></svg></span><span class="simplesocial-hidden-text">Post</span></a></li>
 					<li><a href="#" class="simplesocial-linkedin-share"><span class="icon"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="14.1px" viewBox="-301.4 387.5 15 14.1" enable-background="new -301.4 387.5 15 14.1" xml:space="preserve"> <g id="XMLID_398_"> <path id="XMLID_399_" fill="#FFFFFF" d="M-296.2,401.6c0-3.2,0-6.3,0-9.5h0.1c1,0,2,0,2.9,0c0.1,0,0.1,0,0.1,0.1c0,0.4,0,0.8,0,1.2 c0.1-0.1,0.2-0.3,0.3-0.4c0.5-0.7,1.2-1,2.1-1.1c0.8-0.1,1.5,0,2.2,0.3c0.7,0.4,1.2,0.8,1.5,1.4c0.4,0.8,0.6,1.7,0.6,2.5 c0,1.8,0,3.6,0,5.4v0.1c-1.1,0-2.1,0-3.2,0c0-0.1,0-0.1,0-0.2c0-1.6,0-3.2,0-4.8c0-0.4,0-0.8-0.2-1.2c-0.2-0.7-0.8-1-1.6-1 c-0.8,0.1-1.3,0.5-1.6,1.2c-0.1,0.2-0.1,0.5-0.1,0.8c0,1.7,0,3.4,0,5.1c0,0.2,0,0.2-0.2,0.2c-1,0-1.9,0-2.9,0 C-296.1,401.6-296.2,401.6-296.2,401.6z"></path> <path id="XMLID_400_" fill="#FFFFFF" d="M-298,401.6L-298,401.6c-1.1,0-2.1,0-3,0c-0.1,0-0.1,0-0.1-0.1c0-3.1,0-6.1,0-9.2 c0-0.1,0-0.1,0.1-0.1c1,0,2,0,2.9,0h0.1C-298,395.3-298,398.5-298,401.6z"></path> <path id="XMLID_401_" fill="#FFFFFF" d="M-299.6,390.9c-0.7-0.1-1.2-0.3-1.6-0.8c-0.5-0.8-0.2-2.1,1-2.4c0.6-0.2,1.2-0.1,1.8,0.2 c0.5,0.4,0.7,0.9,0.6,1.5c-0.1,0.7-0.5,1.1-1.1,1.3C-299.1,390.8-299.4,390.8-299.6,390.9L-299.6,390.9z"></path> </g> </svg></span><span class="simplesocial-hidden-text">Share</span></a></li>
 					<li><span style="line-height: 20px; vertical-align: top; font-weight: bold;display: inline-block;">Official Buttons</span></li>
 				  </ul>
@@ -425,7 +425,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			 <ul id="ssb_active_icons" class="items" style="min-height:35px">
 			   <?php
 				 $ssb_icons_order = array();
-				 $arrKnownButtons = array( 'twitter', 'pinterest', 'fbshare', 'linkedin', 'reddit', 'whatsapp', 'viber', 'fblike', 'messenger', 'email', 'print', 'tumblr' );
+				 $arrKnownButtons = array( 'twitter', 'pinterest', 'fbshare', 'linkedin', 'reddit', 'whatsapp', 'viber', 'fblike', 'messenger', 'email' , 'copylink' , 'print', 'tumblr' );
 				foreach ( $arrKnownButtons as $button_name ) {
 					$ssb_icons_order[ $button_name ] = isset( $settings[ $button_name ] ) ? $settings[ $button_name ] : 0;
 				}
@@ -471,7 +471,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 		function settings_header() {
 			?>
 	  <div class="ssb-top-bar">
-		<a href="https://wpbrigade.com/"><img src="<?php echo plugins_url( 'assets/images/ssb_icon.png', plugin_dir_path( __FILE__ ) ); ?>" alt="Simple Social Buttons"></a>
+		<a href="https://wpbrigade.com/"><img src="<?php echo plugins_url( 'assets/images/social_button.svg', plugin_dir_path( __FILE__ ) ); ?>" alt="Simple Social Buttons"></a>
 		<div class="ssb-top-bar-content">
 		  <h2>Simple Social Buttons -->> <?php _e( 'makes Social Sharing easy for everyone' ); ?></h2>
 		  <p><?php _e( '<strong>Simple Social Buttons</strong> by <strong><a href="https://wpbrigade.com/?utm_source=simple-social-buttons-lite&utm_medium=link-header&utm_campaign=pro-upgrade">WPBrigade</a></strong> adds an advanced set of social media sharing buttons to your WordPress sites, such as: <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>LinkedIn</strong>, <strong>WhatsApp</strong>, <strong>Viber</strong>, <strong>Reddit</strong> and <strong>Pinterest</strong>. This makes it the most flexible social sharing plugin ever for Everyone.', 'simplesocialbuttons' ); ?></p>
@@ -484,29 +484,29 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			?>
 	<div class="postbox-container ssb_right_sidebar">
 	  <div id="poststuff">
-		<div class="postbox ssb_social_links_wrapper">
+		<div class="postbox ssb_social_links_wrapper ssb_spread_word">
 		  <div class="sidebar postbox">
 			<h2><?php _e( 'Spread the Word', 'simple-social-buttons' ); ?></h2>
 			<ul class="ssb_social_links">
 			  <li>
-				<a href="https://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on X', 'simple-social-buttons' ); ?><span class="dashicons ssb-x-icon"></span></a>
+				<a href="https://twitter.com/intent/tweet?text=Check out this (FREE) Amazing Social Share Plugin for WordPress&amp;url=https://wordpress.org/plugins/simple-social-buttons/" data-count="none" class="button twitter" target="_blank" title="Post to Twitter Now"><?php _e( 'Share on X/Twitter', 'simple-social-buttons' ); ?><span class="dashicons ssb-x-icon"></span></a>
 			  </li>
 			  <li>
-				<a href="https://www.facebook.com/sharer/sharer.php?u=https://wordpress.org/plugins/simple-social-buttons/" class="button facebook" target="_blank" title="Check out this (FREE) Amazing Social Share Plugin for WordPress"><?php _e( 'Share on Facebook', 'simple-social-buttons' ); ?><span class="dashicons dashicons-facebook"></span>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=https://wordpress.org/plugins/simple-social-buttons/" class="button facebook" target="_blank" title="Check out this (FREE) Amazing Social Share Plugin for WordPress"><?php _e( 'Share on Facebook', 'simple-social-buttons' ); ?><span class="dashicons dashicons-facebook-alt"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="https://wordpress.org/plugins/simple-social-buttons/?filter=5" class="button wordpress" target="_blank" title="Rate on WordPress.org"><?php _e( 'Rate on WordPress.org', 'simple-social-buttons' ); ?><span class="dashicons dashicons-wordpress"></span>
+				<a href="https://wordpress.org/support/plugin/simple-social-buttons/reviews/?filter=5" class="button wordpress" target="_blank" title="Rate on WordPress.org"><?php _e( 'Rate on WordPress.org', 'simple-social-buttons' ); ?><span class="dashicons dashicons-wordpress"></span>
 				</a>
 			  </li>
 			</ul>
 		  </div>
 		</div>
 
-		<div class="postbox ssb_social_links_wrapper">
+		<div class="postbox ssb_social_links_wrapper ssb_newsletter">
 		  <div class="sidebar postbox">
 			<h2><?php _e( 'Subscribe Newsletter', 'simple-social-buttons' ); ?></h2>
-			<ul>
+			<ul class="postbox-newsletter">
 			  <li>
 				<label for=""><?php _e( 'Email', 'simple-social-buttons' ); ?></label>
 				<input type="email" name="subscriber_mail" value="<?php echo get_option( 'admin_email' ); ?>" id="ssb_subscribe_mail">
@@ -527,21 +527,21 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 		  </div>
 		</div>
 
-		<div class="postbox ssb_social_links_wrapper">
+		<div class="postbox ssb_social_links_wrapper ssb_other_plugin">
 		  <div class="sidebar postbox">
 			<h2><?php _e( 'Recommended Plugins', 'simple-social-buttons' ); ?></h2>
 			<ul class="plugins_lists">
 			  <li>
-				<a href="https://loginpress.pro/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Post to Twitter Now">Customize WordPress Login Page</a>
+				<a href="https://loginpress.pro/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade&utm_content=text-link" target="_blank" title="Post to Twitter Now">Customize WordPress Login Page</a>
 			  </li>
 			  <li>
-				<a href="https://analytify.io/ref/73/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Share with your facebook friends about this awesome plugin.">Simplify Google Analytics in WordPress</a>
+				<a href="https://analytify.io/ref/73/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade&utm_content=text-link" target="_blank" title="Share with your facebook friends about this awesome plugin.">Simplify Google Analytics in WordPress</a>
 			  </li>
 			  <li>
-				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank" title="Related Posts Thumbnails">Related Posts Thumbnails</a>
+				<a href="https://wpbrigade.com/wordpress/plugins/related-posts/?utm_source=ssb-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade&utm_content=text-link" target="_blank" title="Related Posts Thumbnails">Related Posts Thumbnails</a>
 			  </li>
 			  <li>
-				<a href="https://wpbrigade.com/recommend/maintenance-mode" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
+				<a href="https://wpbrigade.com/recommend/maintenance-mode&utm_content=text-link" target="_blank" title="Under Construction &amp; Maintenance mode">Under Construction &amp; Maintenance mode
 				</a>
 			  </li>
 			</ul>
@@ -897,7 +897,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 			if( class_exists( 'Simple_Social_Buttons_Pro') ) {
 				$tabs[] = array(
 					'id'    => 'ssb_click_to_tweet',
-					'title' => '<span class="dashicons ssb-x-icon"></span>Click To Tweet',
+					'title' => '<span class="dashicons ssb-x-icon"></span>Click To Post',
 				);
 			}
 
@@ -910,7 +910,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 				$tabs[] = array(
 					'id'    => 'ssb_go_pro',
 					'title' => '<span class="dashicons dashicons-star-filled"></span>Upgrade To Pro For More Features',
-					'link'  => 'https://wpbrigade.com/wordpress/plugins/simple-social-buttons-pro/?utm_source=simple-social-buttons-lite&utm_medium=tab&utm_campaign=pro-upgrade',
+					'link'  => 'https://simplesocialbuttons.com/pricing/?utm_source=simple-social-buttons-lite&utm_medium=tab&utm_campaign=pro-upgrade',
 				);
 			}
 			foreach ( $tabs as $tab ) {
@@ -1005,7 +1005,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 		}
 
 		/**
-		 * Render the click to tweet structure.
+		 * Render the click to post structure.
 		 *
 		 * @since 1.0.0
 		 * @version 4.0.4
@@ -1021,7 +1021,7 @@ if ( ! class_exists( 'Ssb_Settings_Structure' ) ) :
 											<span class="ssb-ctt">
 												<span class="ssb-ctt-text"><?php echo __( 'Social media is about the people! Not about your business. Provide for the people and the people will provide you.' ); ?></span>
 												<span class="ssb-ctt-btn">
-														Click to tweet
+														Click to post
 														<span id="twitter_icon_ctt" class="ssb-x-icon"></span>
 												</span>
 											</span>

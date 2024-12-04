@@ -36,10 +36,11 @@
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "decodeEntities": () => (/* binding */ decodeEntities)
+/* harmony export */   decodeEntities: () => (/* binding */ decodeEntities)
 /* harmony export */ });
 /** @type {HTMLTextAreaElement} */
 let _decodeTextArea;
+
 /**
  * Decodes the HTML entities from a given string.
  *
@@ -47,21 +48,21 @@ let _decodeTextArea;
  *
  * @example
  * ```js
+ * import { decodeEntities } from '@wordpress/html-entities';
+ *
  * const result = decodeEntities( '&aacute;' );
  * console.log( result ); // result will be "á"
  * ```
  *
  * @return {string} The decoded string.
  */
-
-
 function decodeEntities(html) {
   // Not a string, or no entities to decode.
   if ('string' !== typeof html || -1 === html.indexOf('&')) {
     return html;
-  } // Create a textarea for decoding entities, that we can reuse.
+  }
 
-
+  // Create a textarea for decoding entities, that we can reuse.
   if (undefined === _decodeTextArea) {
     if (document.implementation && document.implementation.createHTMLDocument) {
       _decodeTextArea = document.implementation.createHTMLDocument('').createElement('textarea');
@@ -69,10 +70,10 @@ function decodeEntities(html) {
       _decodeTextArea = document.createElement('textarea');
     }
   }
-
   _decodeTextArea.innerHTML = html;
   const decoded = _decodeTextArea.textContent;
   _decodeTextArea.innerHTML = '';
+
   /**
    * Cast to string, HTMLTextAreaElement should always have `string` textContent.
    *
@@ -90,11 +91,7 @@ function decodeEntities(html) {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
    */
-
-  return (
-    /** @type {string} */
-    decoded
-  );
+  return /** @type {string} */decoded;
 }
 
 (window.wp = window.wp || {}).htmlEntities = __webpack_exports__;

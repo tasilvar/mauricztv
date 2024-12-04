@@ -8,9 +8,9 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'WP_ROCKET_ADVANCED_CACHE', true );
 
-$rocket_path        = '/Users/maciejslawinski/Strony/mauricztv/wp-content/plugins/wp-rocket/';
-$rocket_config_path = '/Users/maciejslawinski/Strony/mauricztv/wp-content/wp-rocket-config/';
-$rocket_cache_path  = '/Users/maciejslawinski/Strony/mauricztv/wp-content/cache/wp-rocket/';
+$rocket_path        = '/home/klient.dhosting.pl/mauricztv/mauricz.tv/public_html/wp-content/plugins/_wp-rocket/';
+$rocket_config_path = '/home/klient.dhosting.pl/mauricztv/mauricz.tv/public_html/wp-content/wp-rocket-config/';
+$rocket_cache_path  = '/home/klient.dhosting.pl/mauricztv/mauricz.tv/public_html/wp-content/cache/wp-rocket/';
 
 if (
 	version_compare( phpversion(), '7.3', '<' )

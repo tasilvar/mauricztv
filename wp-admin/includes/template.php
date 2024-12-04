@@ -1018,8 +1018,8 @@ function wp_import_upload_form( $action ) {
 		wp_admin_notice(
 			$upload_directory_error,
 			array(
-				'additional_classes' => array( 'error' ),
-				'paragraph_wrap'     => false,
+				'additonal_classes' => array( 'error' ),
+				'paragraph_wrap'    => false,
 			)
 		);
 	else :

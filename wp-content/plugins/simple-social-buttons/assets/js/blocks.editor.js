@@ -2214,18 +2214,18 @@ var Buttons = function (_Component) {
                     wp.element.createElement("path", {
                       "class": "icon",
                       fill: "#fff",
-                      d: "M68.812 15.14c-2.348 1.04-4.87 1.744-7.52 2.06 2.704-1.62 4.78-4.186 5.757-7.243-2.53 1.5-5.33 2.592-8.314 3.176C56.35 10.59 52.948 9 49.182 9c-7.23 0-13.092 5.86-13.092 13.093 0 1.026.118 2.02.338 2.98C25.543 24.527 15.9 19.318 9.44 11.396c-1.125 1.936-1.77 4.184-1.77 6.58 0 4.543 2.312 8.552 5.824 10.9-2.146-.07-4.165-.658-5.93-1.64-.002.056-.002.11-.002.163 0 6.345 4.513 11.638 10.504 12.84-1.1.298-2.256.457-3.45.457-.845 0-1.666-.078-2.464-.23 1.667 5.2 6.5 8.985 12.23 9.09-4.482 3.51-10.13 5.605-16.26 5.605-1.055 0-2.096-.06-3.122-.184 5.794 3.717 12.676 5.882 20.067 5.882 24.083 0 37.25-19.95 37.25-37.25 0-.565-.013-1.133-.038-1.693 2.558-1.847 4.778-4.15 6.532-6.774z"
+                      d: "M24.4,6.8H4.1l24,32.2L5.4,65.2h7.7l18.5-21.5l16,21.5h20.3l-25-33.6L64.4,6.8h-7.7L39.4,26.9L24.4,6.8z     M50.5,59.4L15.7,12.6h5.8l34.8,46.8H50.5z"
                     })
                   )
                 ),
                 showCounter ? wp.element.createElement(
                   "i",
                   { "class": "simplesocialtxt" },
-                  "Tweet 5 "
+                  "Post 5 "
                 ) : wp.element.createElement(
                   "i",
                   { "class": "simplesocialtxt" },
-                  "Tweet "
+                  "Post "
                 )
               ));
             } else {
@@ -2763,8 +2763,8 @@ var registerBlockType = wp.blocks.registerBlockType;
 
 
 /* harmony default export */ __webpack_exports__["default"] = (registerBlockType("ssb/click-to-tweet", {
-	title: __("Click to Tweet"),
-	description: __("SSB Click to tweet easy way to tweet your content."),
+	title: __("Click to Post"),
+	description: __("SSB Click to post easy way to tweet your content."),
 	category: "common",
 	icon: __WEBPACK_IMPORTED_MODULE_2__icon__["a" /* default */],
 	keywords: [__("twiter"), __("clicktotweet"), __("ssb")],
@@ -2861,7 +2861,7 @@ var registerBlockType = wp.blocks.registerBlockType;
 					showTweetButton && wp.element.createElement(
 						"span",
 						{ "class": "ssb-ctt-btn" },
-						"Click to tweet",
+						"Click to post",
 						__WEBPACK_IMPORTED_MODULE_2__icon__["a" /* default */]
 					)
 				)
@@ -2969,7 +2969,7 @@ var Settings = function (_Component) {
               onChange: function onChange(theme) {
                 return setAttributes({ theme: theme });
               },
-              help: "select the style for click to tweet "
+              help: "select the style for click to post "
             })
           )
         ),

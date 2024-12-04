@@ -584,9 +584,7 @@ if ( ! class_exists( 'SP_EAP' ) ) {
 			echo ( ! empty( $field['title'] ) || ! empty( $field['fancy_title'] ) ) ? '</div>' : '';
 			echo '<div class="clear"></div>';
 			echo '</div>';
-
 		}
-
 	}
 
 	SP_EAP::init();

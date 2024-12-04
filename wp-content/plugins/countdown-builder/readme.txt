@@ -68,6 +68,32 @@ Yes you can, we have Circle and Flipclock countdown popups.
 You need to select the .zip file, there is no need to extract the zip file, just upload it.
 
 == Changelog ==
+= 2.8.0.5 =
+* Fixed Countdown Expiration WooCommerce Condition Stock is not empty function
+* Added info Text
+* Code improvements
+
+= 2.8.0.4 =
+* Added Floadting text padding
+* Added Floadting text background color
+
+= 2.8.0.3 =
+* Added circle after last seconds change seconds color
+
+= 2.8.0.2 =
+* Fixed Send newslatters
+* After Countdown Expiration Send a newslatter
+
+= 2.8.0 =
+* Added posibility save newslatters
+* Design improvements
+
+= 2.7.9 =
+* Fixed Simple countdown end behavior
+
+= 2.7.8.1 =
+* Added Security check for display rules
+
 = 2.7.8 =
 * Added Security fix
 

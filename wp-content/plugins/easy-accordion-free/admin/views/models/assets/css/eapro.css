@@ -906,6 +906,7 @@
 	width: 65px;
 	max-width: 100%;
 	text-align: center;
+	padding: 0;
 }
 
 .eapro-field-border .eapro--color,
@@ -1512,10 +1513,10 @@
 .eapro-field-spinner input {
 	position: relative;
 	z-index: 1;
-	width: 50px;
+	width: 54px;
 	text-align: center;
 	margin: 0;
-	padding: 0 8px;
+	padding: 0;
 	border-radius: 0;
 }
 
@@ -2590,8 +2591,8 @@
 	-moz-appearance: textfield;
 }
 
-.eapro-input-number::-webkit-inner-spin-button,
-.eapro-input-number::-webkit-outer-spin-button {
+.eapro-field-spinner .eapro-input-number::-webkit-inner-spin-button,
+.eapro-field-spinner .eapro-input-number::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
@@ -3073,6 +3074,11 @@
 	user-select: none;
 }
 
+.eap_taxonomy_terms.only-for-pro .eapro-fieldset> .chosen-container,
+.eap_specific_terms.only-for-pro .eapro-fieldset>.chosen-container {
+	max-width: 410px;
+}
+
 .chosen-container * {
 	box-sizing: border-box;
 }
@@ -3088,6 +3094,7 @@
 	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
 	clip: rect(0, 0, 0, 0);
 	clip-path: inset(100% 100%);
+	max-width: 400px;
 }
 
 .chosen-container.chosen-with-drop .chosen-drop {
@@ -4286,14 +4293,6 @@ span.eap-shortcode-selectable::after {
 	pointer-events: none;
 }
 
-.eap-woocommerce-settings.eapro-field {
-	padding: 0;
-}
-
-.eap-woocommerce-settings .sp-eap-pro-field img {
-	width: 100%;
-	opacity: .8;
-}
 
 .eapro-field.eapro-field-notice.only_pro_notice .eapro-notice {
 	padding: 0;
@@ -4353,4 +4352,8 @@ span.eap-shortcode-selectable::after {
 
 [data-slug="eap_settings"] span.tooltip-icon {
 	position: absolute;
+}
+
+.eap-woo-faq-tab-group .ui-accordion-header {
+    text-transform: capitalize;
 }

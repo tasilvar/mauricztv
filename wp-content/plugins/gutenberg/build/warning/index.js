@@ -33,8 +33,6 @@ __webpack_require__.d(__webpack_exports__, {
 /**
  * Object map tracking messages which have been logged, for use in ensuring a
  * message is only logged once.
- *
- * @type {Set<string>}
  */
 const logged = new Set();
 
@@ -43,14 +41,15 @@ const logged = new Set();
  * Internal dependencies
  */
 
-
 function isDev() {
-  return typeof process !== 'undefined' && process.env && "production" !== 'production';
+  // eslint-disable-next-line @wordpress/wp-global-usage
+  return false === true;
 }
+
 /**
  * Shows a warning with `message` if environment is not `production`.
  *
- * @param {string} message Message to show in the warning.
+ * @param message Message to show in the warning.
  *
  * @example
  * ```js
@@ -64,28 +63,27 @@ function isDev() {
  * }
  * ```
  */
-
-
 function warning(message) {
   if (!isDev()) {
     return;
-  } // Skip if already logged.
-
-
-  if (logged.has(message)) {
-    return;
-  } // eslint-disable-next-line no-console
-
-
-  console.warn(message); // Throwing an error and catching it immediately to improve debugging
-  // A consumer can use 'pause on caught exceptions'
-  // https://github.com/facebook/react/issues/4216
-
-  try {
-    throw Error(message);
-  } catch (x) {// Do nothing.
   }
 
+  // Skip if already logged.
+  if (logged.has(message)) {
+    return;
+  }
+
+  // eslint-disable-next-line no-console
+  console.warn(message);
+
+  // Throwing an error and catching it immediately to improve debugging
+  // A consumer can use 'pause on caught exceptions'
+  // https://github.com/facebook/react/issues/4216
+  try {
+    throw Error(message);
+  } catch (x) {
+    // Do nothing.
+  }
   logged.add(message);
 }
 

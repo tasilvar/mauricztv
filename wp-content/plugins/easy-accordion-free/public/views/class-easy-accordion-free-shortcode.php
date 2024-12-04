@@ -113,18 +113,14 @@ class Easy_Accordion_Free_Shortcode {
 
 		$eap_accordion_fillspace_height = isset( $shortcode_data['eap_accordion_fillspace_height']['all'] ) ? $shortcode_data['eap_accordion_fillspace_height']['all'] : $shortcode_data['eap_accordion_fillspace_height'];
 		$acc_section_title              = isset( $shortcode_data['section_title'] ) ? $shortcode_data['section_title'] : '';
-		// $acc_section_title_margin_bottom = isset( $shortcode_data['section_title_margin_bottom']['all'] ) ? $shortcode_data['section_title_margin_bottom']['all'] : $shortcode_data['section_title_margin_bottom'];
-		$accordion_height   = isset( $shortcode_data['accordion_height'] ) ? $shortcode_data['accordion_height'] : '';
-		$eap_animation_time = isset( $shortcode_data['eap_animation_time'] ) ? $shortcode_data['eap_animation_time'] : '';
+		$accordion_height               = isset( $shortcode_data['accordion_height'] ) ? $shortcode_data['accordion_height'] : '';
+		$eap_animation_time             = isset( $shortcode_data['eap_animation_time'] ) ? $shortcode_data['eap_animation_time'] : '';
 
 		$eap_border           = isset( $shortcode_data['eap_border_css'] ) ? $shortcode_data['eap_border_css'] : '';
 		$old_eap_border_width = isset( $eap_border['width'] ) ? $eap_border['width'] : '1';
 		$eap_border_width     = isset( $eap_border['all'] ) ? $eap_border['all'] : $old_eap_border_width;
 		$eap_border_style     = isset( $eap_border['style'] ) ? $eap_border['style'] : '';
 		$eap_border_color     = isset( $eap_border['color'] ) ? $eap_border['color'] : '';
-		// Section title.
-		$section_title_typho       = isset( $shortcode_data['eap_section_title_typography'] ) ? $shortcode_data['eap_section_title_typography'] : '';
-		$section_title_typho_color = isset( $section_title_typho['color'] ) ? $section_title_typho['color'] : '#444';
 		// Accordion title.
 		$eap_title_typho       = isset( $shortcode_data['eap_title_typography'] ) ? $shortcode_data['eap_title_typography'] : '';
 		$eap_title_tag         = isset( $shortcode_data['ea_title_heading_tag'] ) ? $shortcode_data['ea_title_heading_tag'] : '3';
