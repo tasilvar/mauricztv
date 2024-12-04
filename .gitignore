@@ -39,3 +39,4 @@ _old_wp-login.php
 *.mo
 *.pot
 *.md
+.DS_Store

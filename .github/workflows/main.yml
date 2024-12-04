@@ -32,6 +32,11 @@ jobs:
           **/wp-content/plugins/contact-form-7/**
           **/wp-content/plugins/countdown-builder/**
           **/wp-content/plugins/duplicate-page/**
+          **/wp-content/plugins/breadcrumb-navxtOLD/**
+          **/wp-content/plugins/contact-form-7OLD/**
+          **/wp-content/themes/mauricztvOLD/**
+          **/wp-content/plugins/all-in-one-wp-migration-unlimited-extension/**
+          **/wp-content/plugins/countdown-builderOLD/**
           **/wp-content/plugins/easy-accordion-free/**
           **/wp-content/plugins/facebook-messenger-customer-chat/**
           **/wp-content/plugins/megamenu/**
