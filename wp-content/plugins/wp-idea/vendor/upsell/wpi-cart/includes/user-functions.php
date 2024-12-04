@@ -522,6 +522,50 @@ function edd_new_user_notification( $user_id = 0, $user_data = array() ) {
 add_action( 'edd_insert_user', 'edd_new_user_notification', 10, 2 );
 
 /**
+ * Wysłanie dodatkowego powiadomienia email mauricz
+ */
+function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
+
+	if( empty( $user_id ) || empty( $user_data ) ) {
+		return;
+	}
+
+	/**
+	 * Stworzenie obiektu na podstawie klasy EDD_Emails
+	 */
+	$emails     = new EDD_Emails;
+
+	/**
+	 * Definicje nagłówka
+	 */
+	$from_name  = edd_get_option( 'from_name', wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) );
+	$from_email = edd_get_option( 'from_email', get_bloginfo( 'admin_email' ) );
+
+	$emails->__set( 'from_name', $from_name );
+	$emails->__set( 'from_email', $from_email );
+
+	
+	$user_subject  = sprintf( __( '[%s] Temat wiadomości', 'easy-digital-downloads' ), $from_name );
+	$user_heading  = __( 'Przykładowy temat wiadomości <b>pogrubienie</b>', 'easy-digital-downloads' );
+	
+	/**
+	 * Definicje treści
+	 */
+	$user_message  = sprintf( __( 'Przykładowa wiadomość dla: <br> Uzytkownik: %s', 'easy-digital-downloads' ), $user_data['user_login'] ) . "\r\n";
+	$user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
+
+	$emails->__set( 'heading', $user_heading );
+
+	$emails->send( $user_data['user_email'], $user_subject, $user_message );
+
+}
+// Tymczasowo wyłączone
+//add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
+
+//edd_complete_purchase
+//
+
+/**
  * Set a user's status to pending
  *
  * @since  2.4.4
