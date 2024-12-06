@@ -52,7 +52,7 @@ use ycd\MultipleChoiceButton;
 			<label class="ycd-label-of-input" for="ycd-sticky-url"><?php _e('URL', YCD_TEXT_DOMAIN); ?></label>
 		</div>
 		<div class="col-md-5">
-			<input type="url" placeholder="https://www.example.com" name="ycd-sticky-url" id="ycd-sticky-url" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-sticky-url')); ?>">
+			<input type="url" placeholder="https://www.example.com" name="ycd-sticky-url" id="ycd-sticky-url" class="form-control" value="<?php echo esc_url($this->getOptionValue('ycd-sticky-url')); ?>">
 		</div>
 	</div>
 	<div class="row form-group">

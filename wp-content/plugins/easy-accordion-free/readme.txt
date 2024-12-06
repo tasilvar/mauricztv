@@ -2,8 +2,8 @@
 Contributors: shapedplugin, khalilu, rubel_miah, shamimmiashuhagh
 Tags: nested accordion, faq, expand collapse, horizontal accordion, product faq
 Requires at least: 4.7
-Tested up to: 6.6.2
-Stable tag: 2.3.9
+Tested up to: 6.7.1
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -263,9 +263,32 @@ Thank you!
 
 == Changelog ==
 
+= Version 3.0.0 - Dec 04, 2024 =
+* New: The FAQ Custom Post Type feature.
+* New: The FAQ Custom Post Accordion feature.
+* New: The Export and Import feature for FAQ Custom Posts.
+* Improved: The Accordion Theme Style option has been moved to the Theme Settings tab.
+* Improved: The Display Settings options are reorganized into the nested tabs.
+* Improved: Accordion Item Title & Description options moved to the nested tab of the Display Settings.
+* Improved: Expand & Collapse Icon options moved to the nested tab of the Display Settings.
+* Improved: The Accordion Item Title and Description Color option moved to the Display Settings tab.
+* Updated: The Language (.pot) file.
+* Fix: The deprecated warning found with WordPress 6.7.1
+* Tested: WordPress 6.7.1 compatibility.
+
+= Version 2.3.12 - Nov 20, 2024 =
+* Fix: The plugin style issue for RTL sites.
+
+= Version 2.3.11 - Nov 10, 2024 =
+* Updated: The language (.pot) file.
+* Tested: WordPress 6.7 compatibility.
+
+= Version 2.3.10 - Oct 16, 2024 =
+* Fix: The PHP 7.2 compatibility issue.
+
 = Version 2.3.9 - Sep 21, 2024 =
 * New: The Add rel="nofollow" to the Link option.
-* Improved: The accordion item header button tag was replaced by the anchor tag as it was before. 
+* Improved: The accordion item header button tag was replaced by the anchor tag as it was before.
 * Fix: The style issue found in the version 2.3.8
 
 = Version 2.3.8 - Sep 19, 2024 =

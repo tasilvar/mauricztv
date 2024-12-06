@@ -3,9 +3,9 @@ Contributors: erolsk8, simonkane
 Donate link: https://mediasyncplugin.com/?utm_source=readme&utm_medium=base_plugin&utm_campaign=donate_link
 Tags: media, uploads, import, ftp, server
 Requires at least: 5.3
-Tested up to: 6.6.1
+Tested up to: 6.7
 Requires PHP: 7.1
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,10 @@ Please first try to turn on debugging in Settings -> Media Sync and check [Netwo
 
 
 == Changelog ==
+
+= 1.4.7 =
+* Replace loading of external script for purchasing Pro version with simple external link
+* Tested for WordPress 6.7
 
 = 1.4.6 =
 * Minor maintenance adjustment to prepare promo banner for upcoming redesign

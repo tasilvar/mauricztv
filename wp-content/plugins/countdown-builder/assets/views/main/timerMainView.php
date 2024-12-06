@@ -399,7 +399,7 @@ $allowed_html = AdminHelper::getAllowedTags();
 				<input id="js-upload-image-button" class="button js-countdown-image-btn" type="button" value="<?php _e('Select Image', YCD_TEXT_DOMAIN)?>">
 			</div>
 			<div class="col-md-6 ycd-circles-width-wrapper">
-				<input type="url" name="ycd-bg-image-url" id="ycd-bg-image-url" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-bg-image-url')); ?>">
+				<input type="url" name="ycd-bg-image-url" id="ycd-bg-image-url" class="form-control" value="<?php echo esc_url($this->getOptionValue('ycd-bg-image-url')); ?>">
 			</div>
 		</div>
 	</div>

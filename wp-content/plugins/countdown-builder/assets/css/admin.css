@@ -534,7 +534,8 @@ div.ycd-tabs-text-header > div.ycd-toggle-icon-open {
 	margin-top: 20px;
 }
 
-.js-preview-sound {
+.js-preview-sound,
+.js-preview-button-click-sound {
 	color: blue;
 	margin-top: 7px;
 	cursor: pointer;
@@ -848,7 +849,7 @@ div.ycd-tabs-text-header > div.ycd-toggle-icon-open {
 	margin: 0 !important;
 }
 
-.ycd-countdown-show-text label {
+.ycd-countdown-show-text .ycd-sub-label label {
 	padding-left: 40px;
 }
 
@@ -960,3 +961,40 @@ div.ycd-tabs-text-header > div.ycd-toggle-icon-open {
 	text-decoration: none;
 }
 /*Newslatter styles end*/
+
+/*Radio buttons css start*/
+.radio-group {
+    display: flex;
+    gap: 20px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .radio-group label span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.3s;
+	cursor: pointer;
+  }
+
+  input[type="radio"]:checked + .radio-group label span {
+    background-color: #007BFF;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3);
+  }
+
+  label:hover span {
+    border-color: #0056b3;
+  }
+  /*Radio buttons css End*/

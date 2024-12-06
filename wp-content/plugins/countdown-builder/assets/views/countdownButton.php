@@ -61,6 +61,14 @@ $allowed_html = AdminHelper::getAllowedTags();
     </div>
     <div class="row form-group">
         <div class="col-md-5">
+            <label for="ycd-button-border-width"><?php _e('Border type', YCD_TEXT_DOMAIN)?></label>
+        </div>
+        <div class="col-md-7">
+        <?php echo AdminHelper::selectBox(array('solid'), esc_attr($typeObj->getOptionValue('ycd-button-border-types')), array('name' => 'ycd-button-border-types', 'class' => 'js-ycd-select')); ?>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-5">
             <label for="ycd-button-border-width"><?php _e('Border radius', YCD_TEXT_DOMAIN)?></label>
         </div>
         <div class="col-md-7">
@@ -143,6 +151,17 @@ $allowed_html = AdminHelper::getAllowedTags();
             <div class="minicolors minicolors-theme-default minicolors-position-bottom minicolors-position-left">
                 <input type="text" id="ycd-button-border-color" data-type="border-color" placeholder="<?php _e('Select color', YCD_TEXT_DOMAIN)?>" name="ycd-button-border-color" class=" form-control js-ycd-button-color" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-button-border-color')); ?>">
             </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-5">
+            <label for="ycd-button-click-sound" class="ycd-label-of-switch"><?php _e('Click Sound', YCD_TEXT_DOMAIN); ?></label>
+        </div>
+        <div class="col-md-7">
+            <label class="ycd-switch">
+                <input type="checkbox" id="ycd-button-click-sound" name="ycd-button-click-sound" class="ycd-accordion-checkbox" <?php echo esc_attr($typeObj->getOptionValue('ycd-button-click-sound')); ?>>
+                <span class="ycd-slider ycd-round"></span>
+            </label>
         </div>
     </div>
     <div class="row form-group">
@@ -301,7 +320,7 @@ $allowed_html = AdminHelper::getAllowedTags();
                 <input id="js-ycd-target-link" class="btn btn-primary" type="button" value="Select File">
             </div>
             <div class="col-md-4">
-                <input type="url" class="form-control" id="ycd-download-url" name="ycd-download-url" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-download-url')); ?>">
+                <input type="url" class="form-control" id="ycd-download-url" name="ycd-download-url" value="<?php echo esc_url($typeObj->getOptionValue('ycd-download-url')); ?>">
             </div>
         </div>
         <div class="row form-group">

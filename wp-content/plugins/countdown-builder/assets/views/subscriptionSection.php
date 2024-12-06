@@ -52,7 +52,7 @@ if (!$isFree) {
             <label for="ycd-enable-send-newslatter" class="ycd-label-of-input"><?php _e('After Expiration send already send newslatter', YCD_TEXT_DOMAIN); ?></label>
         </div>
         <div class="col-md-6">
-            <p><?php echo $sent == 1 ? '<span class="ypm-autosent-newslatter">Sent a newslatter</span>': '<span class="ypm-active-newslatter">Currently Active</span>';?></p>
+            <p><?php echo ($sent == 1 ) ? '<span class="ypm-autosent-newslatter">Sent a newslatter</span>': '<span class="ypm-active-newslatter">Currently Active</span>';?></p>
             <button class="btn reset-sent-newslatter" data-id="<?php echo esc_attr($id); ?>" <?php echo empty($sent)? 'disabled': ''?>>Reset</button>
         </div>
     </div>

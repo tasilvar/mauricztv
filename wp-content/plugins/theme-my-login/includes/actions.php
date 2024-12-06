@@ -603,53 +603,9 @@ function tml_registration_handler() {
 	if ( tml_is_post_request() ) {
 		$user_login = tml_get_request_value( 'user_login', 'post' );
 		$user_email = tml_get_request_value( 'user_email', 'post' );
-
-		$_SESSION['user_confirm'] = '';
-
-		$user_password = tml_get_request_value('user_pass1', 'post');
-	 
-		// Rejestracja uzytkownika
-		//tml_lost_password_handler
-		// tml_lost_password_handler();
-
-		/**
-		 * Tworzenie uzytkownika 
-		 */
-		$default_newuser = array(
-			'user_pass' =>  trim($user_password), //wp_hash_password user_password
-			'user_login' => trim($user_login),
-			'user_email' => trim($user_email),
-			'first_name' => trim($user_login),
-			'last_name' => trim($user_login),
-			'role' => 'subscriber'
-			//'role' => 'pending' // 'role' => 'customer'subscriber
-		); //subscriber
-	
-		$user_id = wp_insert_user(wp_slash($default_newuser));
-		 
-		// $user_id = register_new_user( $user_login, $user_email );
-
+		$user_id = register_new_user( $user_login, $user_email );
 		if ( ! is_wp_error( $user_id ) ) {
-			
-
-			$code = $user_email;//sha1( $user_email  );//time()
-			$activation_link = add_query_arg( array( 'key' => $code, 'user' => $user_id ), get_permalink( (int)get_option('mauricz_activation_page') ));
-
-			// aktywacja konta
-			add_user_meta( $user_id, 'has_to_be_activated', $code, true );
-			wp_mail( $data['user_email'], 'Aktywacja konta Mauricz.tv', 'Przesyłamy link do aktywacji konta: ' . $activation_link );
-
-			// echo "link: ".$activation_link;
-			// exit();
-			$_SESSION['user_confirm'] = '1';
-
-			tml_add_error( 'confirm', sprintf( __( 'Check your email for the confirmation link, then visit the <a href="%s">login page</a>.'.$activation_link ), wp_login_url() ), 'message' );
-			
-			// tml_send_ajax_success( array(
-			// 		'notice' => tml_get_form()->render_errors(),
-			// 	) );
-
-			$redirect_to = ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : site_url( 'wp-login.php?checkemail=registered' );//registered
+			$redirect_to = ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : site_url( 'wp-login.php?checkemail=registered' );
 
 			/**
 			 * Filter the registration redirect.
@@ -664,7 +620,6 @@ function tml_registration_handler() {
 			if ( tml_is_ajax_request() ) {
 				wp_send_json_success( array(
 					'redirect' => tml_validate_redirect( $redirect_to ),
-					'notice' => tml_get_form()->render_errors(),
 				) );
 			} else {
 				wp_safe_redirect( $redirect_to );

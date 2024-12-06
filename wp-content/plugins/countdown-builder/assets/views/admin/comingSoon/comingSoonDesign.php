@@ -87,7 +87,7 @@ $allowed_html = AdminHelper::getAllowedTags();
 					<input id="js-coming-soon-upload-image-button" class="js-ycd-image-btn btn btn-primary" data-src-id="ycd-coming-soon-bg-image-url" type="button" value="<?php _e('Select Image', YCD_TEXT_DOMAIN)?>">
 				</div>
 				<div class="col-md-6 ycd-circles-width-wrapper">
-					<input type="url" name="ycd-coming-soon-bg-image-url" id="ycd-coming-soon-bg-image-url" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-coming-soon-bg-image-url')); ?>">
+					<input type="url" name="ycd-coming-soon-bg-image-url" id="ycd-coming-soon-bg-image-url" class="form-control" value="<?php echo esc_url($this->getOptionValue('ycd-coming-soon-bg-image-url')); ?>">
 				</div>
 			</div>
 		</div>
@@ -108,7 +108,7 @@ $allowed_html = AdminHelper::getAllowedTags();
                     <input id="js-upload-video-button" class="js-countdown-video-btn btn btn-primary" type="button" value="<?php _e('Select Video', YCD_TEXT_DOMAIN)?>">
                 </div>
                 <div class="col-md-6 ycd-circles-width-wrapper">
-                    <input type="url" name="ycd-coming-soon-bg-video-url" id="ycd-bg-video-url" class="form-control" value="<?php echo esc_attr($this->getOptionValue('ycd-coming-soon-bg-video-url')); ?>">
+                    <input type="url" name="ycd-coming-soon-bg-video-url" id="ycd-bg-video-url" class="form-control" value="<?php echo esc_url($this->getOptionValue('ycd-coming-soon-bg-video-url')); ?>">
                 </div>
             </div>
         </div>

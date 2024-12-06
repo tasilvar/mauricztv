@@ -72,8 +72,8 @@ if(YCD_PKG_VERSION == YCD_FREE_VERSION) {
 		<h2 class="add-new-buttons">
             <?php _e('Newsletters', 'ycdCountdown'); ?>
 			<div class="ycd-option-wrapper">
-            	<a href="<?php echo $isPro? YCD_COUNTDOWN_PRO_URL : esc_attr($url)?>" class="add-new-h2"><?php echo _e('Add New ', 'ycdCountdown'); echo wp_kses($proSpan, $allowed_html); ?></a>
-            	<a href="<?php echo $isPro? YCD_COUNTDOWN_PRO_URL : "#"?>" id="ycd-send-news-latter" class="add-new-h2"><?php echo _e('Send newslatter', 'ycdCountdown'); echo wp_kses($proSpan, $allowed_html); ?></a>
+            	<a href="<?php echo ($isPro? YCD_COUNTDOWN_PRO_URL : esc_attr($url)) ?>" class="add-new-h2"><?php echo _e('Add New ', 'ycdCountdown'); echo wp_kses($proSpan, $allowed_html); ?></a>
+            	<a href="<?php echo ($isPro? YCD_COUNTDOWN_PRO_URL : "#")?>" id="ycd-send-news-latter" class="add-new-h2"><?php echo _e('Send newslatter', 'ycdCountdown'); echo wp_kses($proSpan, $allowed_html); ?></a>
 			</div>
             <?php // echo ReadMoreAdminHelper::reportIssueButton(); ?>
         </h2>

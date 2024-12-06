@@ -79,8 +79,8 @@ class YcdCountdownConfig
 		self::addDefine('YCD_CRON_REPEAT_INTERVAL', 1);
 		self::addDefine('YCD_AJAX_SUCCESS', 1);
 		self::addDefine('YCD_TABLE_LIMIT', 15);
-		self::addDefine('YCD_VERSION_PRO', 2.63);
-		self::addDefine('YCD_VERSION', 2.805);
+		self::addDefine('YCD_VERSION_PRO', 2.69);
+		self::addDefine('YCD_VERSION', 2.81);
 		self::addDefine('YCD_FREE_VERSION', 1);
 		self::addDefine('YCD_SILVER_VERSION', 2);
 		self::addDefine('YCD_GOLD_VERSION', 3);
@@ -88,13 +88,14 @@ class YcdCountdownConfig
 		self::addDefine('YCD_EXTENSION_VERSION', 99);
 		require_once(dirname(__FILE__).'/config-pkg.php');
 		
-		$versionText = '2.8.0.5';
+		$versionText = '2.8.0.9';
 		if (YCD_PKG_VERSION != YCD_FREE_VERSION) {
-			$versionText = '2.6.3';
+			$versionText = '2.6.7';
         }
+		
 		self::addDefine('YCD_VERSION_TEXT', $versionText);
-		self::addDefine('YCD_LAST_UPDATE', 'Sep 27');
-		self::addDefine('YCD_NEXT_UPDATE', 'Oct 14');
+		self::addDefine('YCD_LAST_UPDATE', 'Nov 16');
+		self::addDefine('YCD_NEXT_UPDATE', 'Nov 30');
 	}
 
 	public static function displaySettings()
