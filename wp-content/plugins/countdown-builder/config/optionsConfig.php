@@ -247,6 +247,8 @@ class YcdCountdownOptionsConfig
 		$options[] = array('name' => 'ycd-countdown-hide-mobile', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-show-mobile', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-selected-countries', 'type' => 'checkbox', 'defaultValue' => '', 'available' => YCD_PLATINUM_VERSION);
+		$options[] = array('name' => 'ycd-countdown-show-loggin', 'type' => 'checkbox', 'defaultValue' => '', 'available' => 2);
+		$options[] = array('name' => 'ycd-countdown-show-not-loggin', 'type' => 'checkbox', 'defaultValue' => '', 'available' => 2);
 		$options[] = array('name' => 'ycd-counties-names', 'type' => 'array', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-end-sound', 'type' => 'checkbox', 'defaultValue' => '');
 		$options[] = array('name' => 'ycd-countdown-end-sound-url', 'type' => 'text', 'defaultValue' => YCD_COUNTDOWN_LIB_URL.'alarm.mp3');

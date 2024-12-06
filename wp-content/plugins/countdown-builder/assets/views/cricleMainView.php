@@ -642,7 +642,7 @@ if (YCD_PKG_VERSION > YCD_FREE_VERSION) {
                         <input id="js-upload-image-button" class="button js-countdown-image-btn" type="button" value="<?php _e('Select Image', YCD_TEXT_DOMAIN)?>">
                     </div>
                     <div class="col-md-7 ycd-circles-width-wrapper">
-	                    <input type="url" name="ycd-bg-image-url" id="ycd-bg-image-url" class="form-control" value="<?php echo esc_attr($bgImageUrl); ?>">
+	                    <input type="url" name="ycd-bg-image-url" id="ycd-bg-image-url" class="form-control" value="<?php echo esc_url($bgImageUrl); ?>">
                     </div>
                 </div>
             </div>
@@ -664,7 +664,7 @@ if (YCD_PKG_VERSION > YCD_FREE_VERSION) {
                         <input id="js-upload-video-button" class="button js-countdown-video-btn" type="button" value="<?php _e('Select Video', YCD_TEXT_DOMAIN)?>">
                     </div>
                     <div class="col-md-7 ycd-circles-width-wrapper">
-                        <input type="url" name="ycd-bg-video-url" id="ycd-bg-video-url" class="form-control" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-bg-video-url')); ?>">
+                        <input type="url" name="ycd-bg-video-url" id="ycd-bg-video-url" class="form-control" value="<?php echo esc_url($typeObj->getOptionValue('ycd-bg-video-url')); ?>">
                     </div>
                 </div>
             </div>
@@ -696,7 +696,7 @@ if (YCD_PKG_VERSION > YCD_FREE_VERSION) {
                         <label for="ycd-countdown-content-click-url" class="ycd-label-of-switch"><?php _e('URL', YCD_TEXT_DOMAIN) ?></label>
                     </div>
                     <div class="col-md-7 ycd-circles-width-wrapper">
-                        <input type="url" name="ycd-countdown-content-click-url" id="ycd-countdown-content-click-url" class="form-control" value="<?php echo esc_attr($typeObj->getOptionValue('ycd-countdown-content-click-url')); ?>">
+                        <input type="url" name="ycd-countdown-content-click-url" id="ycd-countdown-content-click-url" class="form-control" value="<?php echo esc_url($typeObj->getOptionValue('ycd-countdown-content-click-url')); ?>">
                     </div>
                 </div>
                 <div class="row form-group">

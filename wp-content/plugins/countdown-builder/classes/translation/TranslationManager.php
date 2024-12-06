@@ -1,6 +1,7 @@
 <?php
 namespace ycd;
 require_once (dirname(__FILE__).'/AbstractTranslationManager.php');
+use \wp_kases;
 
 class TranslationManager extends AbstractTranslationManager {
 	public function renderTranslations() {
@@ -17,14 +18,15 @@ class TranslationManager extends AbstractTranslationManager {
 		return $data;
 	}
 	public function render() {
+		$allowed_html = AdminHelper::getAllowedTags();
 		ob_start();
 		?>
 		<div class="row">
 			<div class="col-md-12 ycd-container-wrapper">
-				<?php echo $this->renderTranslations(); ?>
+				<?php echo wp_kses($this->renderTranslations(), $allowed_html); ?>
 			</div>
 			<div class="col-md-12">
-				<?php echo $this->addTranslationButton(); ?>
+				<?php echo wp_kses($this->addTranslationButton(), $allowed_html); ?>
 			</div>
 		</div>
 		<?php

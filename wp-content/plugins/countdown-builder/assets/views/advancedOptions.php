@@ -1,6 +1,10 @@
 <?php
 use ycd\AdminHelper;
+
+use function ycd\ycd_info;
+
 $defaultData = AdminHelper::defaultData();
+$allowed_html = AdminHelper::getAllowedTags();
 ?>
 <div class="ycd-bootstrap-wrapper">
 <div class="row form-group">
@@ -25,6 +29,38 @@ $defaultData = AdminHelper::defaultData();
         </label>
     </div>
 </div>
+<?php if($this->isAllowOption('ycd-countdown-show-not-loggin')): ?>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="ycd-countdown-show-not-loggin" class="ycd-label-of-switch">
+                <?php _e('Show For Not Loggdin Users', YCD_TEXT_DOMAIN); ?>
+                <?php echo wp_kses(ycd_info('When enabled this option the countdown is displayed exclusively to no logged-in users.'), $allowed_html);?>
+            </label>
+        </div>
+        <div class="col-md-6">
+            <label class="ycd-switch">
+                <input type="checkbox" id="ycd-countdown-show-not-loggin" name="ycd-countdown-show-not-loggin"  <?php echo esc_attr($this->getOptionValue('ycd-countdown-show-not-loggin')); ?>>
+                <span class="ycd-slider ycd-round"></span>
+            </label>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if($this->isAllowOption('ycd-countdown-show-loggin')): ?>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label for="ycd-countdown-show-loggin" class="ycd-label-of-switch">
+                <?php _e('Show For Loggdin Users', YCD_TEXT_DOMAIN); ?>
+                <?php echo wp_kses(ycd_info('When enabled this option the countdown is displayed exclusively to logged-in users.'), $allowed_html);?>
+            </label>
+        </div>
+        <div class="col-md-6">
+            <label class="ycd-switch">
+                <input type="checkbox" id="ycd-countdown-show-loggin" name="ycd-countdown-show-loggin"  <?php echo esc_attr($this->getOptionValue('ycd-countdown-show-loggin')); ?>>
+                <span class="ycd-slider ycd-round"></span>
+            </label>
+        </div>
+    </div>
+<?php endif; ?>
 <?php if($this->isAllowOption('ycd-countdown-selected-countries')): ?>
 <div class="row">
     <div class="col-md-6">
@@ -52,7 +88,7 @@ $defaultData = AdminHelper::defaultData();
 </div>
 <?php endif; ?>
 <?php
-	$allowed_html = AdminHelper::getAllowedTags();
+	
 	echo wp_kses(AdminHelper::upgradeButton(), $allowed_html);
 ?>
 </div>

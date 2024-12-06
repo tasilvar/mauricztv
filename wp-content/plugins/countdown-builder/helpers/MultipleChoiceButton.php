@@ -179,6 +179,7 @@ class MultipleChoiceButton {
 		$inputAttrStr = '';
 		$value = '';
 		$checked = '';
+		$fieldClass = '';
 
 		if(!empty($template['fieldWrapperAttr'])) {
 			$parentAttrsStr = $this->createAttrs($template['fieldWrapperAttr']);
@@ -189,6 +190,9 @@ class MultipleChoiceButton {
 			if(!empty($field['attr']['value'])) {
 				$value = $field['attr']['value'];
 			}
+			if(!empty($field['attr']['class'])) {
+				$fieldClass = $field['attr']['class'];
+			}
 
  			$inputAttrStr = $this->createAttrs($field['attr']);
 		}
@@ -197,9 +201,12 @@ class MultipleChoiceButton {
 			$checked = "checked";
 		}
 		$allowed_html = AdminHelper::getAllowedTags();
-
+	
 		$label = '<div '.wp_kses($parentAttrsStr, $allowed_html).'>';
 		$label .= "<input id='".wp_kses($value, $allowed_html)."' ".wp_kses($inputAttrStr, $allowed_html)." ".esc_attr($checked)." >";
+		$label .=  '<div class="radio-group '.esc_attr($fieldClass).'">
+			<label for='.esc_attr($value).'><span></span></label>
+		</div>';
 		$label .=  '</div>';
 
 		return $label;

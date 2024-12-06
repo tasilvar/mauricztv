@@ -8,7 +8,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}  // if direct access.
+}
 
 /**
  * The help class for the Easy Accordion Free
@@ -54,12 +54,14 @@ class Easy_Accordion_Free_Help {
 	 *
 	 * @var array
 	 */
-	protected static $not_show_plugin_list = array( 'aitasi-coming-soon', 'latest-posts', 'widget-post-slider', 'easy-lightbox-wp' );
+	protected static $not_show_plugin_list = array( 'aitasi-coming-soon', 'latest-posts', 'widget-post-slider', 'easy-lightbox-wp', 'easy-accordion-free' );
 
 	/**
 	 * Easy_Accordion_Free_Help construct function.
 	 */
 	public function __construct() {
+		add_action( 'admin_menu', array( $this, 'analytics_admin_menu' ), 55 );
+		add_action( 'admin_menu', array( $this, 'faq_form_admin_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'help_admin_menu' ), 80 );
 		add_action( 'admin_menu', array( $this, 'lite_to_pro_admin_menu' ), 75 );
 		add_action( 'admin_menu', array( $this, 'recommended_admin_menu' ), 70 );
@@ -146,6 +148,72 @@ class Easy_Accordion_Free_Help {
 				'help_page_callback',
 			)
 		);
+	}
+
+	/**
+	 * Add admin menu analytics sub menu.
+	 *
+	 * @return void
+	 */
+	public function analytics_admin_menu() {
+		add_submenu_page(
+			'edit.php?post_type=sp_easy_accordion',
+			__( 'Easy Accordion Analytics', 'easy-accordion-free' ),
+			__( 'Analytics', 'easy-accordion-free' ) . '<span class="eap-menu-new-indicator" style="color: #f18200;font-size: 9px; padding-left: 3px;">' . __( ' NEW!', 'easy-accordion-free' ) . '</span>',
+			'manage_options',
+			'eap_analytics',
+			array(
+				$this,
+				'analytics_page_callback',
+			)
+		);
+	}
+
+	/**
+	 * The Easy Accordion analytics Callback.
+	 *
+	 * @return void
+	 */
+	public function analytics_page_callback() {
+		?>
+		<div class="sp-eap-indicator-notice">Want to know <a href="https://easyaccordion.io/faq-analytics" target="_blank">valuable insights or analytics</a> into FAQs performance? To track impressions, clicks, and more to optimize engagement, <a href="https://easyaccordion.io/pricing/?ref=1" target="_blank"><b>Upgrade to Pro!</b></a></div>
+		<div class="sp-eap-indicator">
+		<img src="<?php echo esc_url( SP_EA_URL . 'admin/help-page/img/analytics.webp' ); ?>" alt="faqs-indicator">
+		</div>
+		<?php
+	}
+
+	/**
+	 * Add admin menu analytics sub menu.
+	 *
+	 * @return void
+	 */
+	public function faq_form_admin_menu() {
+		add_submenu_page(
+			'edit.php?post_type=sp_easy_accordion',
+			__( 'Easy Accordion Form', 'easy-accordion-free' ),
+			__( 'FAQ Forms', 'easy-accordion-free' ) . '<span class="eap-menu-new-indicator" style="color: #f18200;font-size: 9px; padding-left: 3px;">' . __( ' HOT!', 'easy-accordion-free' ) . '</span>',
+			'manage_options',
+			'eap_form',
+			array(
+				$this,
+				'form_page_callback',
+			)
+		);
+	}
+
+	/**
+	 * The Easy Accordion analytics Callback.
+	 *
+	 * @return void
+	 */
+	public function form_page_callback() {
+		?>
+		<div class="sp-eap-indicator-notice">To allow users to submit FAQ suggestions using the FAQs Form, <a href="https://easyaccordion.io/pricing/?ref=1" target="_blank"><b>Upgrade to Pro!</b></a></div>
+		<div class="eap-faq-form">
+		<img src="<?php echo esc_url( SP_EA_URL . 'admin/help-page/img/form.webp' ); ?>" alt="forms" class="eap-form-img"/>
+		</div>
+		<?php
 	}
 
 	/**
@@ -319,7 +387,12 @@ class Easy_Accordion_Free_Help {
 						?>
 						<div class="column-compatibility">
 							<strong><?php esc_html_e( 'Last Updated:', 'easy-accordion-free' ); ?></strong>
-							<span><?php printf( esc_html__( '%s ago', 'easy-accordion-free' ), esc_html( human_time_diff( $plugin['last_updated'] ) ) ); ?></span>
+							<span>
+							<?php
+							/* translators: %s: property modify last update time. */
+							printf( esc_html__( '%s ago', 'easy-accordion-free' ), esc_html( human_time_diff( $plugin['last_updated'] ) ) );
+							?>
+							</span>
 						</div>
 									<?php
 					}
@@ -779,14 +852,14 @@ class Easy_Accordion_Free_Help {
 							</a>
 							<a target="_blank" href="https://wooproductslider.io/" class="spea-our-plugin-list-box">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/woo-product-slider/assets/icon-256x256.png" alt="">
+								<img src="https://ps.w.org/woo-product-slider/assets/icon-256x256.png" alt="Product Slider for WooCommerce">
 								<h4>Product Slider for WooCommerce</h4>
 								<p>Boost sales by interactive product Slider, Grid, and Table in your WooCommerce website or store.</p>
 							</a>
 							<a target="_blank" class="spea-our-plugin-list-box" href="https://woogallery.io">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.gif" alt="">
-								<h4>Gallery Slider for WooCommerce</h4>
+								<img src="https://ps.w.org/gallery-slider-for-woocommerce/assets/icon-256x256.gif" alt="WooGallery">
+								<h4>WooGallery</h4>
 								<p>Product gallery slider and additional variation images gallery for WooCommerce and boost your sales.</p>
 							</a>
 							<a target="_blank" class="spea-our-plugin-list-box" href="https://getwpteam.com/">
@@ -807,10 +880,10 @@ class Easy_Accordion_Free_Help {
 								<h4>Easy Accordion</h4>
 								<p>Minimize customer support by offering comprehensive FAQs and increasing conversions.</p>
 							</a>
-							<a target="_blank" class="spea-our-plugin-list-box" href="https://shapedplugin.com/plugin/woocommerce-category-slider-pro/">
+							<a target="_blank" class="spea-our-plugin-list-box" href="https://shapedplugin.com/woocategory/">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/woo-category-slider-grid/assets/icon-256x256.png" alt="">
-								<h4>Category Slider for WooCommerce</h4>
+								<img src="https://ps.w.org/woo-category-slider-grid/assets/icon-256x256.png" alt="WooCategory">
+								<h4>WooCategory</h4>
 								<p>Display by filtering the list of categories aesthetically and boosting sales.</p>
 							</a>
 							<a target="_blank" class="spea-our-plugin-list-box" href="https://wptabs.com/">
@@ -825,10 +898,10 @@ class Easy_Accordion_Free_Help {
 								<h4>Quick View for WooCommerce</h4>
 								<p>Quickly view product information with smooth animation via AJAX in a nice Modal without opening the product page.</p>
 							</a>
-							<a target="_blank" class="spea-our-plugin-list-box" href="https://shapedplugin.com/plugin/smart-brands-for-woocommerce/">
+							<a target="_blank" class="spea-our-plugin-list-box" href="https://shapedplugin.com/smart-brands/">
 								<i class="spea-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/smart-brands-for-woocommerce/assets/icon-256x256.png" alt="">
-								<h4>Smart Brands for WooCommerce</h4>
+								<img src="https://ps.w.org/smart-brands-for-woocommerce/assets/icon-256x256.png" alt="Smart Brands">
+								<h4>Smart Brands</h4>
 								<p>Smart Brands for WooCommerce Pro helps you display product brands in an attractive way on your online store.</p>
 							</a>
 						</div>

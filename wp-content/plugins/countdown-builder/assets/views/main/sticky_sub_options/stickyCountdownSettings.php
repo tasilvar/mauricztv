@@ -81,4 +81,14 @@ use ycd\AdminHelper;
 			<?php _e('Px', YCD_TEXT_DOMAIN); ?>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h5>
+				<?php _e('Translations(Synchronized with the browser language)', YCD_TEXT_DOMAIN)?>
+			</h5>
+			<?php
+				require_once (YCD_VIEWS_PATH.'/translations/stickyTranslation.php');
+			?>
+		</div>
+	</div>
 </div>

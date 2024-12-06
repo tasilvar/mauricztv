@@ -21,6 +21,37 @@ class StickyCountdown extends Countdown {
 		return $options;
 	}
 
+	private function filterTranslations($prepareOptions) {
+	    $serverLang = '';
+	    if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+		    $serverLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	    }
+	    $lang = substr($serverLang, 0, 2);
+	    $translations = $this->getOptionValue('ycd-tr');
+	    $currentTranslation = null;
+	    if (empty($translations)) {
+	    	return  $prepareOptions;
+	    }
+	    foreach ($translations as $translation) {
+	    	$isCode = substr($translation['language'], 0, 2);
+	    	if ($lang === $isCode) {
+			    $currentTranslation = $translation;
+		    }
+	    }
+	    if ($currentTranslation) {
+
+	    	unset($currentTranslation['language']);
+		    foreach ($currentTranslation as $unite => $value) {
+		    	if (empty($value)) {
+		    		continue;
+			    }
+		    	$prepareOptions[strtolower($unite)] = $value;
+		    }
+	    }
+
+	    return $prepareOptions;
+    }
+
 	public function includeStyles() {
 		$this->includeGeneralScripts();
 		$data = array(
@@ -30,6 +61,8 @@ class StickyCountdown extends Countdown {
 			'seconds' => esc_attr($this->getOptionValue('ycd-sticky-countdown-seconds')),
 			'double' => esc_attr($this->getOptionValue('ycd-sticky-enable-double-digits'))
 		);
+		$data = $this->filterTranslations($data);
+
 		ScriptsIncluder::registerScript('CountdownProFunctionality.js', array( 'dep' => array('jquery')));
 		ScriptsIncluder::enqueueScript('CountdownProFunctionality.js');
 		ScriptsIncluder::registerScript('Sticky.js', array('dirUrl' => YCD_COUNTDOWN_JS_URL, 'dep' => array('jquery')));

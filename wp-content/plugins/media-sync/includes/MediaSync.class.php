@@ -145,7 +145,7 @@ if ( !class_exists( 'MediaSync' ) ) :
                                 </div>
                                 <div class="card">
                                     <h2 class="title">Media Sync Pro</h2>
-                                    <button id="purchase-media-sync-pro" class="button button-primary">Upgrade Now</button>
+                                    <a id="purchase-media-sync-pro" class="button button-primary" href="https://checkout.freemius.com/mode/dialog/plugin/14503/plan/24225/?show_monthly_switch=1" target="_blank" rel="nofollow noopener">Upgrade Now</a>
                                     &nbsp;
                                     <a class="button button-secondary" href="https://mediasyncplugin.com/?utm_source=base_plugin_banner&amp;utm_medium=init_page&amp;utm_campaign=bip" target="_blank" rel="noopener">Find out more</a>
 
@@ -159,23 +159,6 @@ if ( !class_exists( 'MediaSync' ) ) :
                                         <li><strong>Import logs</strong>: View the history of manual or scheduled imports.</li>
                                         <li><strong>Limit plugin access</strong>: Limit plugin access to a specific role.</li>
                                     </ul>
-                                    <script src="https://checkout.freemius.com/checkout.min.js"></script>
-                                    <script>
-                                        var handler = FS.Checkout.configure({
-                                            show_monthly_switch: true,
-                                            plugin_id:  '14503',
-                                            plan_id:    '24225',
-                                            public_key: 'pk_795c75a9ba75322acb001dd836061',
-                                            image:      'https://mediasyncplugin.com/wp-content/uploads/2023/12/icon-300x300-1.png'
-                                        });
-                                        document.querySelector('#purchase-media-sync-pro').addEventListener('click', function(e) {
-                                            handler.open({
-                                                name     : 'Media Sync Pro',
-                                                licenses : '1',
-                                            });
-                                            e.preventDefault();
-                                        });
-                                    </script>
                                 </div>
                             <?php endif; ?>
 
