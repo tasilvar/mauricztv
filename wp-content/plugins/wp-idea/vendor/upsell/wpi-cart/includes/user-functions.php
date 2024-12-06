@@ -551,8 +551,65 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 	/**
 	 * Definicje treści
 	 */
-	$user_message  = sprintf( __( 'Przykładowa wiadomość dla: <br> Uzytkownik: %s', 'easy-digital-downloads' ), $user_data['user_login'] ) . "\r\n";
-	$user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
+	// $user_message  = sprintf( __( 'Przykładowa wiadomość dla: <br> Uzytkownik: %s', 'easy-digital-downloads' ), $user_data['user_login'] ) . "\r\n";
+	// $user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
+
+	$user_message = '<div style="background-color:#FFFFFF;">
+		<div style="margin:0px auto;max-width:600px;">
+			<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+				<tbody>
+					<tr>
+						<td style="direction:ltr;font-size:0px;padding:10px 0px 10px 0px;text-align:center;">
+							<div style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+									<tbody>
+										<tr>
+											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
+													<p style="font-family: Ubuntu, sans-serif; font-size: 16px;">Cześć ' . esc_html( $user_data['user_login'] ) . ', tu Jakub Mauricz &#x1F44B;&#x1F3FC;</p>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
+													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Mam dla Ciebie prezent w podziękowaniu za Twoje zamówienie na platformie MauriczTV.</p>
+													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">To aż -30% zniżki do wykorzystania na wszystkie produkty Hē Man Power!</p>
+													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Kod rabatowy: <span style="color: rgb(26, 215, 121);"><strong>MTV</strong></span></p>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center" vertical-align="middle" style="font-size:0px;padding:20px 20px 20px 20px;word-break:break-word;">
+												<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#1AD779" role="presentation" style="border:none;border-radius:0px;cursor:auto;font-style:normal;mso-padding-alt:10px 20px 10px 20px;background:#1AD779;" valign="middle">
+																<a href="https://hemanpower.com/sklep" style="display: inline-block; background: #1AD779; color: #ffffff; font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 20px 10px 20px; border-radius: 0px;" target="_blank">
+																	ODBIERZ -30% ZNIŻKI
+																</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
+													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Zdrówka!<br>Jakub Mauricz</p>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>';
 
 	$emails->__set( 'heading', $user_heading );
 
