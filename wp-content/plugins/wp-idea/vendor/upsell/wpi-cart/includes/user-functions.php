@@ -555,7 +555,7 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 	// $user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
 
 	$user_message = '<div style="background-color:#FFFFFF;">
-		<div style="margin:0px auto;max-width:600px;">
+		<div style="margin:0px auto;max-width:610px;">
 			<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
 				<tbody>
 					<tr>
