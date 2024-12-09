@@ -525,7 +525,7 @@ add_action( 'edd_insert_user', 'edd_new_user_notification', 10, 2 );
  * Wysłanie dodatkowego powiadomienia email mauricz
  */
 function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
-
+ 
 	if( empty( $user_id ) || empty( $user_data ) ) {
 		return;
 	}
@@ -545,9 +545,9 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 	$emails->__set( 'from_email', $from_email );
 
 	
-	$user_subject  = sprintf( __( '[%s] Temat wiadomości', 'easy-digital-downloads' ), $from_name );
-	$user_heading  = __( 'Przykładowy temat wiadomości <b>pogrubienie</b>', 'easy-digital-downloads' );
-	
+	$user_subject  = sprintf( __( '[%s] Mamy dla Ciebie prezent', 'easy-digital-downloads' ), $from_name );
+	$user_heading  = __( 'Mamy dla Ciebie prezent', 'easy-digital-downloads' );
+
 	/**
 	 * Definicje treści
 	 */

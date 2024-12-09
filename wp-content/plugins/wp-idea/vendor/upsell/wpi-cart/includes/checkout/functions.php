@@ -134,6 +134,8 @@ function edd_is_success_page() {
 			update_user_meta( $current_user->ID, 'last_name', $getLastname);
 		}
 
+		// Wyślij dodatkowy email jako powiadomienie
+		edd_custom_mauricz_notification( $current_user->ID, (array)$current_user->data);
 	}
 	return apply_filters( 'edd_is_success_page', $is_success_page );
 }
