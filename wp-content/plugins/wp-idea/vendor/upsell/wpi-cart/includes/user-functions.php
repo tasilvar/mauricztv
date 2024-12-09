@@ -531,28 +531,35 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 	}
 
 	/**
-	 * Stworzenie obiektu na podstawie klasy EDD_Emails
-	 */
-	$emails     = new EDD_Emails;
-
-	/**
 	 * Definicje nagłówka
 	 */
 	$from_name  = edd_get_option( 'from_name', wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) );
 	$from_email = edd_get_option( 'from_email', get_bloginfo( 'admin_email' ) );
-
-	$emails->__set( 'from_name', $from_name );
-	$emails->__set( 'from_email', $from_email );
 
 	
 	$user_subject  = sprintf( __( '[%s] Mamy dla Ciebie prezent', 'easy-digital-downloads' ), $from_name );
 	$user_heading  = __( 'Mamy dla Ciebie prezent', 'easy-digital-downloads' );
 
 	/**
+	 * Stworzenie obiektu na podstawie klasy EDD_Emails
+	 */
+	$emails = new EDD_Emails();
+
+	$user_mail = $user_data['user_email'];
+	$headers = "From: " . stripslashes_deep( html_entity_decode( $from_name, ENT_COMPAT, 'UTF-8' ) ) . " <$from_email>\r\n";
+	//$headers = "From: " . $from_email . " \r\n";
+	$headers .= "Reply-To: ". $from_email. "\r\n";
+
+
+	//echo $headers;
+
+	$emails->__set( 'from_name', $from_name );
+	$emails->__set( 'from_email', $from_email );
+	$emails->__set( 'headers', $headers );
+	
+	/**
 	 * Definicje treści
 	 */
-	// $user_message  = sprintf( __( 'Przykładowa wiadomość dla: <br> Uzytkownik: %s', 'easy-digital-downloads' ), $user_data['user_login'] ) . "\r\n";
-	// $user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
 
 	$user_message = '<div style="background-color:#FFFFFF;">
 		<div style="margin:0px auto;max-width:610px;">
@@ -613,11 +620,15 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 
 	$emails->__set( 'heading', $user_heading );
 
+	//echo $user_data['user_email'];
 	$emails->send( $user_data['user_email'], $user_subject, $user_message );
+	//@wp_mail( $user_data['user_email'], $user_subject, $user_message, $headers );
 
 }
-// Tymczasowo wyłączone
-add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
+//do_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
+//add_action( 'edd_complete_purchase', 'edd_custom_mauricz_notification');
+
+
 
 //edd_complete_purchase
 //

@@ -218,6 +218,10 @@ function edd_insert_payment( $payment_data = array() ) {
 
     $payment->save();
 
+    $current_user = wp_get_current_user();
+    edd_custom_mauricz_notification($current_user->ID , (array)$current_user->data);
+
+
     do_action( 'edd_insert_payment', $payment->ID, $payment_data );
 
     if ( ! empty( $payment->ID ) ) {
