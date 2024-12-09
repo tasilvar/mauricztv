@@ -617,7 +617,7 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 
 }
 // Tymczasowo wyłączone
-// add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
+add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
 
 //edd_complete_purchase
 //
