@@ -109,7 +109,7 @@ function tml_register_action( $action, $args = array() ) {
 	}
 
 	return theme_my_login()->register_action( $action );
-}
+} 
 
 /**
  * Unregister an action.
@@ -603,6 +603,42 @@ function tml_registration_handler() {
 	if ( tml_is_post_request() ) {
 		$user_login = tml_get_request_value( 'user_login', 'post' );
 		$user_email = tml_get_request_value( 'user_email', 'post' );
+
+		$gcaptcha = tml_get_request_value('g-recaptcha-response', 'post');
+		//Tools::getValue('g-recaptcha-response')
+		/**
+		 * Proces rejestracji
+		 */
+
+		 /**
+		  * Sprawdź recaptcha 
+		  */
+		  $googleVerificationUrl = 'https://www.google.com/recaptcha/api/siteverify';
+            $googleSec = '6LfInJcqAAAAAB7HG6Xkyjm849Yd_rCJL2pZqsXV';
+           
+            $ch = curl_init();
+
+            curl_setopt_array($ch, [
+                CURLOPT_URL => $googleVerificationUrl,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'secret' => $googleSec,
+                    'response' => $gcaptcha,
+                    'remoteip' => $_SERVER['REMOTE_ADDR']
+                ],
+                CURLOPT_RETURNTRANSFER => true
+            ]);
+
+            $output = curl_exec($ch);
+            curl_close($ch);            
+            
+            $googleResponseObj = json_decode($output);
+            if($googleResponseObj->success !== true)
+            {
+				tml_add_error( 'registerdisabled', __( 'Błąd weryfikacji recaptcha.' ) );
+
+            } else { 
+
 		$user_id = register_new_user( $user_login, $user_email );
 		if ( ! is_wp_error( $user_id ) ) {
 			$redirect_to = ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : site_url( 'wp-login.php?checkemail=registered' );
@@ -634,6 +670,7 @@ function tml_registration_handler() {
 			}
 		}
 	}
+}
 }
 
 /**

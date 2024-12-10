@@ -27,6 +27,10 @@
 
 	<?php } ?>
 
+    <!-- recaptcha google -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+<!-- recaptcha google -->
 	
 <?php wp_head(); ?>
 
