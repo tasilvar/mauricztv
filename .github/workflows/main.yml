@@ -60,6 +60,7 @@ jobs:
           **/wp-content/plugins/simple-social-buttons/**
           **/wp-content/plugins/wordpress-seo/**
           **/wp-content/plugins/advanced-custom-fields/**
+          **/wp-content/plugins/advanced-custom-fields-pro/**
           **/wp-content/plugins/maintenance/**
           **/wp-content/plugins/smtp-mailer/**
           **/wp-content/plugins/wp-maintenance/**
