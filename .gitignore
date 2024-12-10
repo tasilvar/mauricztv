@@ -40,3 +40,4 @@ _old_wp-login.php
 *.pot
 *.md
 .DS_Store
+/wp-content/debug.log
