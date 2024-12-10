@@ -555,61 +555,94 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 	// $user_message .= 'link: <a href="' . wp_login_url() . '"> ' . esc_attr__( 'Click Here to Log In', 'easy-digital-downloads' ) . ' &raquo;</a>' . "\r\n";
 
 	$user_message = '<div style="background-color:#FFFFFF;">
-		<div style="margin:0px auto;max-width:610px;">
-			<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
-				<tbody>
-					<tr>
-						<td style="direction:ltr;font-size:0px;padding:10px 0px 10px 0px;text-align:center;">
-							<div style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-								<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-									<tbody>
-										<tr>
-											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
-													<p style="font-family: Ubuntu, sans-serif; font-size: 16px;">Cześć ' . esc_html( $user_data['user_login'] ) . ', tu Jakub Mauricz &#x1F44B;&#x1F3FC;</p>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
-													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Mam dla Ciebie prezent w podziękowaniu za Twoje zamówienie na platformie MauriczTV.</p>
-													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">To aż -30% zniżki do wykorzystania na wszystkie produkty Hē Man Power!</p>
-													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Kod rabatowy: <span style="color: rgb(26, 215, 121);"><strong>MTV</strong></span></p>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td align="center" vertical-align="middle" style="font-size:0px;padding:20px 20px 20px 20px;word-break:break-word;">
-												<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
-													<tbody>
-														<tr>
-															<td align="center" bgcolor="#1AD779" role="presentation" style="border:none;border-radius:0px;cursor:auto;font-style:normal;mso-padding-alt:10px 20px 10px 20px;background:#1AD779;" valign="middle">
-																<a href="https://hemanpower.com/sklep" style="display: inline-block; background: #1AD779; color: #ffffff; font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 20px 10px 20px; border-radius: 0px;" target="_blank">
-																	ODBIERZ -30% ZNIŻKI
-																</a>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
-													<p style="font-family: Ubuntu, sans-serif; font-size: 14px;">Zdrówka!<br>Jakub Mauricz</p>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>';
+                  <div style="margin:0px auto;max-width:600px;">
+                     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+                        <tbody>
+                           <tr>
+                              <td style="direction:ltr;font-size:0px;padding:10px 0px 10px 0px;text-align:center;">
+                                          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                                             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                                                <tbody>
+                                                   <tr>
+                                                      <td align="left" style="font-size:0px;word-break:break-word;">
+                                                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;text-align:left;color:#000000;">
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 16px;">Cześć ' . esc_html( $user_data['user_login'] ) . ', tu Jakub Mauricz &#x1F44B;&#x1F3FC;</p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td align="left" style="font-size:0px;word-break:break-word;">
+                                                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;text-align:left;color:#000000;">
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">W poprzednim mailu zapomnia&lstrok;em powiedzie&cacute; Ci o jednej bardzo wa&zdot;nej rzeczy.</span></p><p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">&#x1F381; Mam dla Ciebie prezent w podzi&eogon;kowaniu za Twoje zam&oacute;wienie na platformie MauriczTV.</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">To <strong><span style="color: rgb(26, 215, 121);">a&zdot; -30% zni&zdot;ki</span></strong> do wykorzystania na wszystkie produkty H&emacr; Man Power!</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Chcesz je odebra&cacute;?</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Wystarczy, &zdot;e u&zdot;yjesz kodu: <span style="color: rgb(26, 215, 121);"><strong>MTV</strong></span></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td align="center" vertical-align="middle" style="font-size:0px;padding:20px 20px 20px 20px;word-break:break-word;">
+                                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                                                            <tbody>
+                                                               <tr>
+                                                                  <td align="center" bgcolor="#1AD779" role="presentation" style="border:none;border-radius:0px;cursor:auto;font-style:normal;mso-padding-alt:10px 20px 10px 20px;background:#1AD779;" valign="middle">
+                                                                     <a href="https://hemanpower.com/sklep" style="display: inline-block; background: #1AD779; color: #ffffff; font-family: Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: normal; line-height: 1; margin: 0; text-decoration: none; text-transform: none; padding: 10px 20px 10px 20px; mso-padding-alt: 0px; border-radius: 0px;" target="_blank"><span style="font-size: 16px;">ODBIERZ -30% ZNI&Zdot;KI</span></a>
+                                                                  </td>
+                                                               </tr>
+                                                            </tbody>
+                                                         </table>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td align="left" style="font-size:0px;word-break:break-word;">
+                                                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;text-align:left;color:#000000;">
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">' . esc_html( $user_data['user_login'] ) . ', wsp&oacute;lnie z H&emacr; stworzy&lstrok;em 5 formu&lstrok; maj&aogon;cych na celu <strong><span style="color: rgb(26, 215, 121);">wsparcie Twojego zdrowia</span></strong> w kluczowych obszarach.</span></p>
+                                                            <ol style="font-size: 11px; font-family: Ubuntu, sans-serif;">
+                                                               <li style="font-size: 11px; font-family: Ubuntu, sans-serif;"><span style="font-size: 14px;"><strong>Blue Power </strong>poprawi Twoje libido i wzmocni pewno&sacute;&cacute; siebie</span></li>
+                                                               <li style="font-size: 11px; font-family: Ubuntu, sans-serif;"><span style="font-size: 14px;"><strong>Relax Power</strong> g&lstrok;&eogon;boko Ci&eogon; wyciszy i zredukuje stres</span></li>
+                                                               <li style="font-size: 11px; font-family: Ubuntu, sans-serif;"><span style="font-size: 14px;"><strong>Sleep Power</strong> pomo&zdot;e Ci si&eogon; porz&aogon;dnie wyspa&cacute;</span></li>
+                                                               <li style="font-size: 11px; font-family: Ubuntu, sans-serif;"><span style="font-size: 14px;"><strong>Hair Power</strong> zadba o zdrowie Twoich w&lstrok;os&oacute;w, sk&oacute;ry i paznokci</span></li>
+                                                               <li style="font-size: 11px; font-family: Ubuntu, sans-serif;"><span style="font-size: 14px;"><strong>Brain Power</strong> wesprze Twoj&aogon; pami&eogon;&cacute; i koncentracj&eogon;</span></li>
+                                                            </ol>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Najlepsza cz&eogon;&sacute;&cacute;?</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Wszystkie produkty wykazuj&aogon;&nbsp;<strong>skuteczne dzia&lstrok;anie potwierdzone naukowo</strong>, a ekstrakty w nich zawarte pochodz&aogon; z w pe&lstrok;ni naturalnych &zacute;r&oacute;de&lstrok; &#x1F33F;</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Dzisiaj przekazuj&eogon; je w Twoje r&eogon;ce z <strong><span style="color: rgb(26, 215, 121);">rabatem -30%!</span></strong> &#x1F973;</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Pami&eogon;taj, aby u&zdot;y&cacute; kodu: MTV</span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td align="center" vertical-align="middle" style="font-size:0px;padding:20px 20px 20px 20px;word-break:break-word;">
+                                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                                                            <tbody>
+                                                               <tr>
+                                                                  <td align="center" bgcolor="#1AD779" role="presentation" style="border:none;border-radius:0px;cursor:auto;font-style:normal;mso-padding-alt:10px 20px 10px 20px;background:#1AD779;" valign="middle">
+                                                                     <a href="https://hemanpower.com/sklep" style="display: inline-block; background: #1AD779; color: #ffffff; font-family: Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 20px 10px 20px; mso-padding-alt: 0px; border-radius: 0px;" target="_blank"><span style="font-size: 16px;">ODBIERZ -30% ZNI&Zdot;KI</span></a>
+                                                                  </td>
+                                                               </tr>
+                                                            </tbody>
+                                                         </table>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td align="left" style="font-size:0px;word-break:break-word;">
+                                                         <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Zdr&oacute;wka!</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px;"><span style="font-size: 14px;">Jakub Mauricz</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px; text-align: center;"><br><span style="font-size: 14px;">P.S.</span></p>
+                                                            <p style="font-family: Ubuntu, sans-serif; font-size: 11px; text-align: center;"><span style="font-size: 14px;">Uda&lstrok;o Ci si&eogon; ju&zdot; zapozna&cacute; z zakupionym szkoleniem? Je&sacute;li chcesz uzyska&cacute; do niego dost&eogon;p, wystarczy, &zdot;e zalogujesz si&eogon; na swoje konto na MauriczTV i klikniesz na zak&lstrok;adk&eogon; &ldquo;Moje kursy&rdquo;. Udanej nauki!</span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+      </div>';
 
 	$emails->__set( 'heading', $user_heading );
 
@@ -617,7 +650,7 @@ function edd_custom_mauricz_notification( $user_id = 0, $user_data = array() ) {
 
 }
 // Tymczasowo wyłączone
-// add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
+add_action( 'edd_insert_payment', 'edd_custom_mauricz_notification');
 
 //edd_complete_purchase
 //
