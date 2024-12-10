@@ -1,0 +1,12 @@
+{
+  "name": "upsell/wp-vimeo-api",
+  "description": "",
+  "type": "library",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "upsell\\wp\\vimeo\\": "src/"
+    }
+  }
+}

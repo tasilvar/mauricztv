@@ -133,7 +133,6 @@ function edd_is_success_page() {
 			update_user_meta( $current_user->ID, 'first_name', $getFirstname);
 			update_user_meta( $current_user->ID, 'last_name', $getLastname);
 		}
-
 	}
 	return apply_filters( 'edd_is_success_page', $is_success_page );
 }

@@ -75,7 +75,6 @@ jobs:
           **/wp-content/plugins/wp-idea/includes/modules/**
           **/wp-content/plugins/wp-idea/includes/infrastructure/**
           **/wp-content/plugins/wp-idea/dependencies/**
-          **/wp-content/plugins/wp-idea/vendor/**
           **/wp-content/plugins/wp-idea/vendor/airbrake/**
           **/wp-content/plugins/wp-idea/vendor/aws/**
           **/wp-content/plugins/wp-idea/vendor/bin/**
