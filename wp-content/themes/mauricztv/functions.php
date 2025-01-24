@@ -215,6 +215,7 @@ function wp_bootstrap_starter_scripts() {
     }*/
 
 	wp_enqueue_script('jquery');
+    // wp_enqueue_script('wp-bootstrap-starter-jquery', get_template_directory_uri() . '/inc/assets/js/jquery.js', array(), '', true );
 
     // Internet Explorer HTML5 support
     wp_enqueue_script( 'html5hiv',get_template_directory_uri().'/inc/assets/js/html5.js', array(), '3.7.0', false );
