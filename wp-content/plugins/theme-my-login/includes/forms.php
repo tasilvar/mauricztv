@@ -153,16 +153,6 @@ function tml_register_registration_form() {
 			'priority'   => 20,
 		) );
 
-		// google recaptcha v2
-
-		tml_add_form_field( 'register', 'g-recaptcha', array(
-			'type'     => 'custom',
-			'content'  => '<div class="g-recaptcha" data-sitekey="6LfInJcqAAAAADmqtMHbyrSkLMNBorJpQQ3Stq9a"></div>',
-			'priority' => 20,
-		) );
-	 
-		// end recaptcha
-
 		tml_add_form_field( 'register', 'indicator', array(
 			'type'     => 'custom',
 			'content'  => '<div id="pass-strength-result" class="hide-if-no-js" aria-live="polite">' . __( 'Strength indicator' ) . '</div>',

@@ -4,6 +4,9 @@ use ycd\AdminHelper;
 
 $defaultData = AdminHelper::defaultData();
 $allowed_html = AdminHelper::getAllowedTags();
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
 ?>
 <div class="ycd-bootstrap-wrapper">
 	<div class="row form-group">

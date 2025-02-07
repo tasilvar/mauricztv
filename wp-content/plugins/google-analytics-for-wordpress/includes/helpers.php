@@ -1019,11 +1019,9 @@ function monsterinsights_perform_remote_request( $action, $body = array(), $head
             'tgm-updater-is-pro'     => monsterinsights_is_pro_version(),
         )
     );
-
     $args = [
         'headers' => $headers,
     ];
-
     // Perform the query and retrieve the response.
     $response      = wp_remote_get( add_query_arg( $query_params, monsterinsights_get_licensing_url() ), $args );
     $response_code = wp_remote_retrieve_response_code( $response );
@@ -2421,3 +2419,5 @@ if ( ! function_exists( 'monsterinsights_is_authed' ) ) {
 		return isset($site_profile['key']);
 	}
 }
+// Prevents being redirected to Duplicator once plugin is installed through the onboarding wizard.
+add_filter( 'duplicator_disable_onboarding_redirect', '__return_true' );

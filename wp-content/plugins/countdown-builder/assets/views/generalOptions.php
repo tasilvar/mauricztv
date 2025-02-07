@@ -4,6 +4,10 @@ use ycd\AdminHelper;
 use ycd\AdminHelperPro;
 use \ycd\ycd_info as ycd_info_fun;
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
 $proSpan = '';
 $isPro = '';
 if(YCD_PKG_VERSION == YCD_FREE_VERSION) {

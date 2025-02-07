@@ -4,13 +4,15 @@ $id = (int)$_GET['post'];
 $key = "send_newslatter_".$id;
 $sent = get_option($key);
 $newslatters = array();
+
 $isFree = YCD_PKG_VERSION === YCD_FREE_VERSION;
 if (!$isFree) {
     global $wpdb;
-    
-    $newslattersData = $wpdb->get_results("SELECT id, title FROM {$wpdb->prefix}" . YCD_COUNTDOWN_NEWSLETTER_TABLE . " ORDER BY ID DESC", ARRAY_A);
-    foreach($newslattersData as $latter) {
-        $newslatters[$latter['id']] = $latter['title'];
+    $table_name = $wpdb->prefix . YCD_COUNTDOWN_NEWSLETTER_TABLE;
+    $table_name = $wpdb->prefix . YCD_COUNTDOWN_NEWSLETTER_TABLE;
+    $newslattersData = $wpdb->get_results("SELECT id, title FROM {$table_name} ORDER BY id DESC", ARRAY_A);
+    foreach ($newslattersData as $latter) {
+        $newslatters[$latter['id']] = esc_html($latter['title']);
     }
 }
 

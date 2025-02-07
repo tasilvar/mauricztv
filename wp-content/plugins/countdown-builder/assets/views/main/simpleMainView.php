@@ -362,7 +362,7 @@ $allowed_html = AdminHelper::getAllowedTags();
 			</div>
 			<div class="col-md-6">
 				<?php
-				$fontFamily = AdminHelper::selectBox(array(':' => ':', ',' => ',', ';' => ';'), esc_attr($typeObj->getOptionValue('ycd-simple-timer-dotes')), array('name' => 'ycd-simple-timer-dotes', 'class' => 'js-ycd-select js-simple-timer-dotes  ycd-custom-value-accordion', 'data-field-type' => 'label', 'data-custom' => 'customFont'));
+				$fontFamily = AdminHelper::selectBox(array(':' => ':', '-' => '-', ',' => ',', ';' => ';', '' => 'Widthout dotes'), esc_attr($typeObj->getOptionValue('ycd-simple-timer-dotes')), array('name' => 'ycd-simple-timer-dotes', 'class' => 'js-ycd-select js-simple-timer-dotes  ycd-custom-value-accordion', 'data-field-type' => 'label', 'data-custom' => 'customFont'));
 				echo wp_kses($fontFamily, $allowed_html);
 				?>
 			</div>

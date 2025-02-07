@@ -24,16 +24,16 @@ $allowed_html = AdminHelper::getAllowedTags();
         <?php if(!$type->isVisible()): ?>
             <?php continue; ?>
         <?php endif; ?>
-		<a class="create-countdown-link" <?php echo wp_kses(AdminHelper::buildCreateCountdownAttrs($type), $allowed_html); ?> href="<?php echo esc_attr(AdminHelper::buildCreateCountdownUrl($type)); ?>">
+		<a class="create-countdown-link" <?php echo wp_kses(AdminHelper::buildCreateCountdownAttrs($type), $allowed_html); ?> href="<?php echo esc_url(AdminHelper::buildCreateCountdownUrl($type)); ?>">
             <div class="countdowns-div">
-                <div class="ycd-type-div <?php echo wp_kses(AdminHelper::getCountdownThumbClass($type), $allowed_html); ?>"></div>
+                <div class="ycd-type-div <?php echo esc_attr(AdminHelper::getCountdownThumbClass($type), $allowed_html); ?>"></div>
                 <?php  echo wp_kses(AdminHelper::getCountdownThumbText($type), $allowed_html); ?>
                 <div class="ycd-type-view-footer">
                     <span class="ycd-promotion-video"><?php echo wp_kses(AdminHelper::getCountdownDisplayName($type), $allowed_html); ?></span>
                     <?php
                         $videoUrl = AdminHelper::getCountdownYoutubeUrl($type);
                         if(!$type->isAvailable() && !empty($videoUrl)): ?>
-                        <span class="ycd-play-promotion-video" data-href="<?php echo esc_attr($videoUrl); ?>"></span>
+                        <span class="ycd-play-promotion-video" data-href="<?php echo esc_url($videoUrl); ?>"></span>
                     <?php endif; ?>
                 </div> 
             </div>
