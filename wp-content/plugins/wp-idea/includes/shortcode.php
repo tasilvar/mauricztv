@@ -919,8 +919,30 @@ function shortcode_render_lowest_price_information($product_id)
 add_shortcode('dostepne_kursy','getAvailableCourses');
 
 function getAvailableCourses() {
-	$users_courses = WPI()->courses->get_users_accessible_courses();
+	$users_courses = WPI()->courses->get_users_accessible_courses(null, true);
 
+	$access_time            = get_user_meta( get_current_user_id(), "_bpmj_eddpc_access", true );
+
+	//$access = $access_time[ $product_id ];
+	#$output .= print_r($access_time);
+	/**
+	 * 
+	 * Przygotuj tablicę z kursami
+	 */
+	// foreach ( $courses as $key => $course ) {
+	// 	if ( empty( $access_time[ (int) $course[ 'product_id' ] ] ) ) {
+	// 		unset( $courses[ $key ] );
+	// 	} else {
+	// 		foreach ( $not_accessible_courses as $other_key => $other_course ) {
+	// 			if ( $other_course[ 'id' ] === $course[ 'id' ] ) {
+	// 				unset( $not_accessible_courses[ $other_key ] );
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	
+	//$courses                = WPI()->courses->get_users_accessible_courses( $this->get_user_id(), true );
 	$output = '';
 	$output .= '<h1 class="title-section">Moje kursy</h1>';
 	$output .= '<table class="my-certificates-table">';
@@ -930,6 +952,9 @@ function getAvailableCourses() {
 	$output .= 'Nazwa kursu';
 	$output .= '</th>';
 	$output .= '<th>';
+	$output .= 'Data ważności';
+	$output .= '</th>';
+	$output .= '<th>';	
 	$output .= 'Link do kursu';
 	$output .= '</th>';
 			$output .= '</tr>';
@@ -938,6 +963,28 @@ function getAvailableCourses() {
 
 			$output .= '<td>';
 			$output .= $course['title'];
+			$output .= '</td>';
+
+			$output .= '<td>';
+			#$output .= print_r($course);
+			if(bpmj_eddpc_get_access_time_single($course['product_id']) != '0') { 
+				#$output .= bpmj_eddpc_get_access_time_single($course['product_id']);// id //print_r($course);
+			//_bpmj_eddpc_access_time
+
+			// $this->html_access_time_cell( $access[ 'access_time' ], $this->get_user_id(), $course[ 'id' ], $product_id ); 
+			#$output .= '##### ';
+			//$output .= $access_time[481]['last_time'];
+			#$output .= $access_time[$course['product_id']]['last_time'];
+			#$output .= ' #####';
+			
+			$output .= bpmj_eddpc_date_i18n('d.m.Y - H:i:s', $access_time[$course['product_id']]['access_time']);
+			// $output .= bpmj_eddpc_get_access_time($course);
+			// $output .= '|';
+			// $output .= bpmj_eddpc_get_access_time_unit_single($course['product_id']);
+			} else {
+				$output .= '-';
+			}
+			
 			$output .= '</td>';
 
 			$output .= '<td><a href="'.$course['url'].'">';

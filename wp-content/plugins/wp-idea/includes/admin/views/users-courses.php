@@ -96,7 +96,7 @@ foreach ( $courses as $key => $course ) {
 											<?php endif; ?>
 										<?php endif; ?>
                                         <td class="right"
-                                            id="access_time_<?php echo $course[ 'id' ]; ?>"><?php echo $this->html_access_time_cell( $access[ 'access_time' ], $this->get_user_id(), $course[ 'id' ], $product_id ); ?></td>
+                                            id="access_time_<?php echo $course[ 'id' ]; ?>"><?php echo $this->html_access_time_cell( $access[ 'access_time' ], $this->get_user_id(), $course[ 'id' ], $product_id ); ?> </td>
                                         <td class="right"><span
                                                     id="total_time_<?php echo $course[ 'id' ]; ?>">-:-:-:-</span>
                                             <a href="" style="text-decoration: none; float: right;"
