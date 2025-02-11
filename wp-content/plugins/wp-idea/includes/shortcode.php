@@ -982,7 +982,7 @@ function getAvailableCourses() {
 			// $output .= '|';
 			// $output .= bpmj_eddpc_get_access_time_unit_single($course['product_id']);
 			} else {
-				$output .= '-';
+				$output .= 'Bez limitu';
 			}
 			
 			$output .= '</td>';
