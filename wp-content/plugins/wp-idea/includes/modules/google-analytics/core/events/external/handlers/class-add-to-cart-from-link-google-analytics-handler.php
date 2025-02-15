@@ -58,6 +58,6 @@ class Add_To_Cart_From_Link_Google_Analytics_Handler implements Interface_Event_
 
         $event = $this->event_data_provider->get_event_for_add_to_cart($product, $variant_id);
 
-        $this->data_session_setter->add_event_to_session($event);
+        $this->data_session_setter->add_event_to_session($event);    
     }
 }

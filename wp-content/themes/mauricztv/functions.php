@@ -616,3 +616,212 @@ function set_cart_popup_cookie() {
         setcookie('cartPopupShown', 'true', time() + DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
     }
 }
+
+/**
+ * Wywołanie akcji przekaznia zadarzenia do Klaviyo z zdarzeniem dodania zamówienia
+ */
+// add_action( 'edd_insert_payment', 'klavyioSendOrder' , 99 );
+
+ function klavyioSendOrder() {
+    try  {
+           
+        
+$json=[];
+
+$json['data']['type'] = "event";
+
+// Properties
+$json['data']['attributes']['properties']['OrderId'] = '1234';
+$json['data']['attributes']['properties']['Categories'] = [
+    "Fiction",
+    "Classics",
+    "Children"
+];
+
+$json['data']['attributes']['properties']['ItemNames'] = [
+    "Winnie the Pooh",
+    "A Tale of Two Cities"
+];
+$json['data']['attributes']['properties']['Brands'] = ["Mauricz"];
+
+$json['data']['attributes']['properties']['DiscountCode'] = ["Mauricz"];
+$json['data']['attributes']['properties']['DiscountValue'] = 0;
+
+
+//Items
+$json['data']['attributes']['properties']['Items'] = [
+    [
+        "ProductID" => "1111",
+        "SKU" => "WINNIEPOOH",
+        "ProductName" => "Winnie the Pooh",
+        "Quantity" => 1,
+        "ItemPrice" => 9.99,
+        "RowTotal" => 9.99,
+        "ProductURL" => "http://www.example.com/path/to/product",
+        "ImageURL" => "http://www.example.com/path/to/product/image.png",
+        "Categories" => [
+            "Fiction",
+            "Children"
+        ],
+        "Brand" => "Mauricz"
+    ]
+
+];
+//BillingAddress
+$json['data']['attributes']['properties']['BillingAddress'] = [
+    "FirstName" => "John",
+    "LastName" => "Smith",
+    "Address1" => "123 Abc St",
+    "City" => "Boston",
+    "RegionCode" => "MA",
+    "CountryCode" => "US",
+    "Zip" => "02110",
+    "Phone" => "+15551234567"
+];
+
+//ShippingAddress
+$json['data']['attributes']['properties']['ShippingAddress'] = [
+    "FirstName" => "John",
+    "LastName" => "Smith",
+    "Address1" => "123 Abc St",
+    "City" => "Boston",
+    "RegionCode" => "MA",
+    "CountryCode" => "US",
+    "Zip" => "02110",
+    "Phone" => "+15551234567"
+];
+// tim / value / value_currency / unique_id
+
+$json['data']['attributes']['time'] = '2022-11-08T00:00:00';
+$json['data']['attributes']['value'] = 29.98;
+$json['data']['attributes']['value_currency'] = 'USD';
+$json['data']['attributes']['unique_id'] = 'd47aeda5-1751-4483-a81e-6fcc8ad48711';
+
+// Mertic
+$json['data']['attributes']['metric']['data']['type'] = 'metric';
+$json['data']['attributes']['metric']['data']['attributes']['name'] = 'Placed Order';
+
+// Profile
+$json['data']['attributes']['profile']['data']['type'] = 'profile';
+$json['data']['attributes']['profile']['data']['attributes']['email'] = 'sarah.mason@klaviyo-demo.com';
+$json['data']['attributes']['profile']['data']['attributes']['phone_number'] = '+15005550006';
+
+
+// echo json_encode($json);
+
+$json_request = '{
+    "data": {
+        "type": "event",
+        "attributes": {
+            "properties": {
+                "OrderId": "1234",
+                "Categories": [
+                    "Fiction",
+                    "Classics",
+                    "Children"
+                ],
+                "ItemNames": [
+                    "Winnie the Pooh",
+                    "A Tale of Two Cities"
+                ],
+                "DiscountCode": "Free Shipping",
+                "DiscountValue": 5,
+                "Brands": [
+                    "Kids Books",
+                    "Harcourt Classics"
+                ],
+                "Items": [
+                    {
+                        "ProductID": "1111",
+                        "SKU": "WINNIEPOOH",
+                        "ProductName": "Winnie the Pooh",
+                        "Quantity": 1,
+                        "ItemPrice": 9.99,
+                        "RowTotal": 9.99,
+                        "ProductURL": "http://www.example.com/path/to/product",
+                        "ImageURL": "http://www.example.com/path/to/product/image.png",
+                        "Categories": [
+                            "Fiction",
+                            "Children"
+                        ],
+                        "Brand": "Kids Books"
+                    },
+                    {
+                        "ProductID": "1112",
+                        "SKU": "TALEOFTWO",
+                        "ProductName": "A Tale of Two Cities",
+                        "Quantity": 1,
+                        "ItemPrice": 19.99,
+                        "RowTotal": 19.99,
+                        "ProductURL": "http://www.example.com/path/to/product2",
+                        "ImageURL": "http://www.example.com/path/to/product/image2.png",
+                        "Categories": [
+                            "Fiction",
+                            "Classics"
+                        ],
+                        "Brand": "Harcourt Classics"
+                    }
+                ],
+                "BillingAddress": {
+                    "FirstName": "John",
+                    "LastName": "Smith",
+                    "Address1": "123 Abc St",
+                    "City": "Boston",
+                    "RegionCode": "MA",
+                    "CountryCode": "US",
+                    "Zip": "02110",
+                    "Phone": "+15551234567"
+                },
+                "ShippingAddress": {
+                    "Address1": "123 Abc St"
+                }
+            },
+            "time": "2022-11-08T00:00:00",
+            "value": 29.98,
+            "value_currency": "USD",
+            "unique_id": "d47aeda5-1751-4483-a81e-6fcc8ad48711",
+            "metric": {
+                "data": {
+                    "type": "metric",
+                    "attributes": {
+                        "name": "Placed Order"
+                    }
+                }
+            },
+            "profile": {
+                "data": {
+                    "type": "profile",
+                    "attributes": {
+                        "email": "sarah.mason@klaviyo-demo.com",
+                        "phone_number": "+15005550006"
+                    }
+                }
+            }
+        }
+    }
+}';
+
+ 
+
+$c = curl_init();
+curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events/');
+
+$KlaviyoPrivateKey = 'pk_788d358870622e5f3ba8afcea7d675dd02';
+$head[] ='Authorization: Klaviyo-API-Key '.$KlaviyoPrivateKey.'';
+$head[] ='accept: application/json';
+$head[] ='content-Type: application/json';
+$head[] ='revision: 2025-01-15';//.date('Y-m-d');
+curl_setopt($c, CURLOPT_HTTPHEADER, $head);
+curl_setopt($c, CURLOPT_POST, true);
+curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($c, CURLOPT_POSTFIELDS, $json_request);
+ 	
+ 
+ $result =  @json_decode(curl_exec($c),1);
+
+ print_r($result);
+
+    } catch(\Exception $e) {
+
+    }
+ }

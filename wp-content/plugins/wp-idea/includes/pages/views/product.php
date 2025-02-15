@@ -176,7 +176,7 @@ $show_open_padlock = false;
         <?php 
             if($show_open_padlock != '1') { 
         ?>
-        <a href="<?php echo esc_attr( edd_get_checkout_uri( array(
+        <a onclick="eventKlaviyoAddedToCart(this)" href="<?php echo esc_attr( edd_get_checkout_uri( array(
                'add-to-cart' => (int)$product_id,
            ) ) ); ?>" class="more">Kup teraz</a>
        <?php 
@@ -274,7 +274,507 @@ if($show_open_padlock) {
         </div>
 
     </div>
-	
+	####
+
+<?php
+
+/**
+ * Start - integracja Klaviyo
+ */
+
+/**
+ * Thumbnail
+ */
+if(the_field('grafika_zamiast_filmu')) { 
+    $thumbnail = get_the_field('grafika_zamiast_filmu');
+} else {
+    $thumbnail =  get_template_directory_uri()."/img/logo.svg";
+}
+
+/**
+ * Product price
+ */
+
+ if(((date('Y-m-d') >= $sale_price_from_date) && (date('Y-m-d') < $sale_price_to_date)) && (!is_numeric(get_post_meta($product_id,  'sale_price', true)))) {
+   
+    $productPrice = number_format($sale_price,2,'.','');
+ } else { 
+    $productPrice = $product_price;
+ }
+
+ /**
+  * Categories
+  */
+  $categories = [];
+  $categories_terms = get_the_terms($product_id,  'download_category', true);
+
+  foreach($categories_terms as $term) {
+    $categories[] = $term->name;
+  }
+
+
+  /**
+   * Event Viewed Product
+   */
+    $jsonOutputViewed = [];
+    $jsonOutputViewed['ProductName'] = get_the_title(); // tytuł
+    $jsonOutputViewed['ProductID'] = get_the_ID(); // id
+    $jsonOutputViewed['SKU'] = get_the_ID(); // sku = id
+    $jsonOutputViewed['Categories'] = $categories; // categories
+    $jsonOutputViewed['ImageURL'] = $thumbnail; // imageUrl
+    $jsonOutputViewed['URL'] = get_the_permalink(get_the_ID()); // url
+    $jsonOutputViewed['Brand'] = "Mauricz"; // brand
+    $jsonOutputViewed['Price'] = $productPrice; // price
+    $jsonOutputViewed['CompareAtPrice'] = $product_price; // compareAtPrice (regular price)
+
+    $jsonResponseVieved = json_encode($jsonOutputViewed);
+
+/**
+ *  Sesja klienta
+ */
+if(is_user_logged_in()) { 
+    $user =  wp_get_current_user();
+    
+    $fullName = explode(" ",$user->display_name);
+
+    $email = $user->user_email;
+    $first_name =  @$fullName[0];
+    $last_name =  @$fullName[1];
+} else {
+    $email = '';
+    $first_name =  '';
+    $last_name = '';
+}
+
+$jsonOutputCustomer = [];
+$jsonOutputCustomer['email'] = $email;
+$jsonOutputCustomer['first_name'] = $first_name;
+$jsonOutputCustomer['last_name'] = $last_name;
+$jsonReponseCustomer = json_encode($jsonOutputCustomer);
+
+/**
+ * Event Added to Cart
+ */
+
+$getCart = edd_get_cart_contents();
+
+echo "<h1>Zawartosc koszyka</h1>";
+print_r($getCart);
+
+$cartContainer = [];
+$cartItemNames = [];
+
+foreach($getCart as $key => $cartItem) {  
+
+    // Cart item price
+    $item_sale_price_from_date = get_post_meta( $cartItem['id'],  'sale_price_from_date', true);
+    $item_sale_price_to_date = get_post_meta( $cartItem['id'],  'sale_price_to_date', true);
+
+    if(((date('Y-m-d') >= $item_sale_price_from_date) && (date('Y-m-d') < $item_sale_price_to_date)) && (!is_numeric(get_post_meta($cartItem['id'],  'sale_price', true)))) {
+        $cart_product_price =  number_format(get_post_meta( $cartItem['id'],  'sale_price', true),2,'.','');
+     } else { 
+        $cart_product_price = get_post_meta( $cartItem['id'],  'edd_price', true);
+     }
+
+    // $cart_product_price = get_post_meta( $cartItem['id'],  'edd_price', true);
+
+    // Cart item category 
+
+    $cart_item_categories = [];
+    $categories_terms_item = get_the_terms($cartItem['id'],  'download_category', true);
+
+    foreach($categories_terms as $term) {
+        $cart_item_categories[] = $term->name;
+    }
+
+    // Cart item name 
+    $cartItemNames[] =  get_the_title($cartItem['id']);
+
+
+    // Cart item price 
+    $cartItemPrices[] = $cart_product_price;
+
+    $cartContainer[$key]['ProductID'] =  $cartItem['id'];
+    $cartContainer[$key]['SKU'] =  $cartItem['id'];
+    $cartContainer[$key]['ProductName'] =  get_the_title($cartItem['id']);
+    $cartContainer[$key]['Quantity'] =  1;
+    $cartContainer[$key]['ItemPrice'] =  $cart_product_price;
+    $cartContainer[$key]['RowTotal'] =  $cart_product_price;
+    $cartContainer[$key]['ProductURL'] =  get_the_permalink($cartItem['id']);
+    $cartContainer[$key]['ProductCategories'] = $cart_item_categories;
+   
+    
+}
+echo "<h1>Json</h1>";
+$jsonOutputAddedToCart = [];
+
+$jsonOutputAddedToCart['$value'] = array_sum((array)$cartItemPrices); // Suma
+$jsonOutputAddedToCart['AddedItemProductName'] = get_the_title();
+$jsonOutputAddedToCart['AddedItemProductID'] = get_the_ID();
+$jsonOutputAddedToCart['AddedItemSKU'] = get_the_ID();
+$jsonOutputAddedToCart['AddedItemCategories'] = $categories;
+$jsonOutputAddedToCart['AddedItemImageURL'] = $thumbnail;
+$jsonOutputAddedToCart['AddedItemURL'] = get_the_permalink(get_the_ID());
+$jsonOutputAddedToCart['AddedItemPrice'] = $productPrice;
+$jsonOutputAddedToCart['AddedItemQuantity'] = 1;
+$jsonOutputAddedToCart['ItemNames'] = (array)$cartItemNames;
+$jsonOutputAddedToCart['CheckoutURL'] = edd_get_checkout_uri();
+$jsonOutputAddedToCart['Items'] = (array)$cartContainer;
+
+
+$jsonResponseAddedToCart = json_encode($jsonOutputAddedToCart);
+echo $jsonResponseAddedToCart;
+echo "<br/><br/>";
+
+echo $jsonResponseVieved;
+
+echo "<br/><br/>";
+echo $jsonReponseCustomer;
+    ?>
+
+ 	<script type="text/javascript">
+     
+     /**
+      * Event Viewed Product
+      */
+    function klaviyoVieved() {
+        var response = jQuery.parseJSON ( ' <?php echo $jsonResponseVieved; ?> ' );
+
+        var item = {
+        "ProductName": response.ProductName,
+        "ProductID": response.ProductID,
+        "SKU": response.SKU,
+        "Categories": response.Categories,
+        "ImageURL": response.ImageURL,
+        "URL": response.URL,
+        "Brand": response.Brand,
+        "Price": response.Price,
+        "CompareAtPrice": response.CompareAtPrice
+        };
+    
+        klaviyo.track("Viewed Product", item);
+    }
+
+    /**
+     * Event Added to Cart
+     */
+    function klaviyoAddedToCart() {
+        var response = jQuery.parseJSON ( ' <?php echo $jsonResponseAddedToCart; ?> ' );
+
+        var item =  {
+            "$value": response.$value,
+            "AddedItemProductName": response.AddedItemProductName,
+            "AddedItemProductID": response.AddedItemProductID,
+            "AddedItemSKU": response.AddedItemSKU,
+            "AddedItemCategories": response.AddedItemCategories,
+            "AddedItemImageURL": response.AddedItemImageURL,
+            "AddedItemURL": response.AddedItemURL,
+            "AddedItemPrice": response.AddedItemPrice,
+            "AddedItemQuantity": response.AddedItemQuantity,
+            "ItemNames": response.ItemNames,
+            "CheckoutURL": response.CheckoutURL,
+            "Items": response.Items
+        };
+
+        klaviyo.track("Added to Cart", item);
+    }
+ 
+    /**
+     * Odnieś się do właściwego obiektu usera
+     */
+    
+    var responseCustomer = jQuery.parseJSON ( ' <?php echo $jsonReponseCustomer; ?> ' );
+
+    window.onload = function() {
+        klaviyo.identify({
+            'email' : responseCustomer.email,
+            'first_name' : responseCustomer.first_name,
+            'last_name' : responseCustomer.last_name
+        }, klaviyoVieved);
+    }
+
+    /**
+     * Inicjacja eventu Added to Cart
+     */
+    function eventKlaviyoAddedToCart(obj) {
+        event.preventDefault();
+        
+        klaviyo.identify({
+            'email' : responseCustomer.email,
+            'first_name' : responseCustomer.first_name,
+            'last_name' : responseCustomer.last_name
+        }, klaviyoAddedToCart);
+
+        
+        alert("dodano do koszyka");
+
+        // window.location.href = obj.getAttribute("href");
+    }
+
+ </script>
+<?php
+
+	## Viewed Product
+
+// 	<script type="text/javascript">
+//    var item = {
+//      "ProductName": item.ProductName,
+//      "ProductID": item.ProductID,
+//      "SKU": item.SKU,
+//      "Categories": item.Categories,
+//      "ImageURL": item.ImageURL,
+//      "URL": item.URL,
+//      "Brand": item.Brand,
+//      "Price": item.Price,
+//      "CompareAtPrice": item.CompareAtPrice
+//    };
+//    klaviyo.track("Viewed Product", item);
+// </script>
+
+
+
+## Added to Cart
+
+// <script type="text/javascript">
+//    klaviyo.track("Added to Cart", {
+//      "$value": 29.98,
+//      "AddedItemProductName": "A Tale of Two Cities",
+//      "AddedItemProductID": "1112",
+//      "AddedItemSKU": "TALEOFTWO",
+//      "AddedItemCategories": ["Fiction", "Classics", "Children"],
+//      "AddedItemImageURL": "http://www.example.com/path/to/product/image2.png",
+//      "AddedItemURL": "http://www.example.com/path/to/product2",
+//      "AddedItemPrice": 19.99,
+//      "AddedItemQuantity": 1,
+//      "ItemNames": ["Winnie the Pooh", "A Tale of Two Cities"],
+//      "CheckoutURL": "http://www.example.com/path/to/checkout",
+//      "Items": [{
+//          "ProductID": "1111",
+//          "SKU": "WINNIEPOOH",
+//          "ProductName": "Winnie the Pooh",
+//          "Quantity": 1,
+//          "ItemPrice": 9.99,
+//          "RowTotal": 9.99,
+//          "ProductURL": "http://www.example.com/path/to/product",
+//          "ImageURL": "http://www.example.com/path/to/product/image.png",
+//          "ProductCategories": ["Fiction", "Children"]
+//        },
+//        {
+//          "ProductID": "1112",
+//          "SKU": "TALEOFTWO",
+//          "ProductName": "A Tale of Two Cities",
+//          "Quantity": 1,
+//          "ItemPrice": 19.99,
+//          "RowTotal": 19.99,
+//          "ProductURL": "http://www.example.com/path/to/product2",
+//          "ImageURL": "http://www.example.com/path/to/product/image2.png",
+//          "ProductCategories": ["Fiction", "Classics"]
+//        }
+//      ]
+//    });
+//  </script>
+
+$json=[];
+
+$json['data']['type'] = "event";
+
+// Properties
+$json['data']['attributes']['properties']['OrderId'] = '1234';
+$json['data']['attributes']['properties']['Categories'] = [
+    "Fiction",
+    "Classics",
+    "Children"
+];
+
+$json['data']['attributes']['properties']['ItemNames'] = [
+    "Winnie the Pooh",
+    "A Tale of Two Cities"
+];
+$json['data']['attributes']['properties']['Brands'] = ["Mauricz"];
+
+$json['data']['attributes']['properties']['DiscountCode'] = ["Mauricz"];
+$json['data']['attributes']['properties']['DiscountValue'] = 0;
+
+
+//Items
+$json['data']['attributes']['properties']['Items'] = [
+    [
+        "ProductID" => "1111",
+        "SKU" => "WINNIEPOOH",
+        "ProductName" => "Winnie the Pooh",
+        "Quantity" => 1,
+        "ItemPrice" => 9.99,
+        "RowTotal" => 9.99,
+        "ProductURL" => "http://www.example.com/path/to/product",
+        "ImageURL" => "http://www.example.com/path/to/product/image.png",
+        "Categories" => [
+            "Fiction",
+            "Children"
+        ],
+        "Brand" => "Mauricz"
+    ]
+
+];
+//BillingAddress
+$json['data']['attributes']['properties']['BillingAddress'] = [
+    "FirstName" => "John",
+    "LastName" => "Smith",
+    "Address1" => "123 Abc St",
+    "City" => "Boston",
+    "RegionCode" => "MA",
+    "CountryCode" => "US",
+    "Zip" => "02110",
+    "Phone" => "+15551234567"
+];
+
+//ShippingAddress
+$json['data']['attributes']['properties']['ShippingAddress'] = [
+    "FirstName" => "John",
+    "LastName" => "Smith",
+    "Address1" => "123 Abc St",
+    "City" => "Boston",
+    "RegionCode" => "MA",
+    "CountryCode" => "US",
+    "Zip" => "02110",
+    "Phone" => "+15551234567"
+];
+// tim / value / value_currency / unique_id
+
+$json['data']['attributes']['time'] = '2022-11-08T00:00:00';
+$json['data']['attributes']['value'] = 29.98;
+$json['data']['attributes']['value_currency'] = 'USD';
+$json['data']['attributes']['unique_id'] = 'd47aeda5-1751-4483-a81e-6fcc8ad48711';
+
+// Mertic
+$json['data']['attributes']['metric']['data']['type'] = 'metric';
+$json['data']['attributes']['metric']['data']['attributes']['name'] = 'Placed Order';
+
+// Profile
+$json['data']['attributes']['profile']['data']['type'] = 'profile';
+$json['data']['attributes']['profile']['data']['attributes']['email'] = 'sarah.mason@klaviyo-demo.com';
+$json['data']['attributes']['profile']['data']['attributes']['email'] = '+15005550006';
+
+echo "<Br/>====<br/><br/>";
+
+echo json_encode($json);
+exit();
+
+$c = curl_init();
+curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events/');
+
+$KlaviyoPrivateKey = 'pk_788d358870622e5f3ba8afcea7d675dd02';
+$head[] ='Authorization: Klaviyo-API-Key '.$KlaviyoPrivateKey.'';
+$head[] ='Accept: application/json';
+$head[] ='Content-Type: application/json';
+curl_setopt($c, CURLOPT_HTTPHEADER, $head);
+curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($c, CURLOPT_POSTFIELDS, $json);
+ 	
+ 
+ @json_decode(curl_exec($c),1);
+
+## Placed Order
+
+// curl --request POST \
+//      --url https: //a.klaviyo.com/api/events/ \
+//      --header 'Authorization: Klaviyo-API-Key your-private-api-key' \
+//      --header 'accept: application/json' \
+//      --header 'content-type: application/json' \
+//      --header 'revision: 2024-02-15' \
+//      --data '
+// {
+//     "data": {
+//         "type": "event",
+//         "attributes": {
+//             "properties": {
+//                 "OrderId": "1234",
+//                 "Categories": [
+//                     "Fiction",
+//                     "Classics",
+//                     "Children"
+//                 ],
+//                 "ItemNames": [
+//                     "Winnie the Pooh",
+//                     "A Tale of Two Cities"
+//                 ],
+//                 "DiscountCode": "Free Shipping",
+//                 "DiscountValue": 5,
+//                 "Brands": [
+//                     "Kids Books",
+//                     "Harcourt Classics"
+//                 ],
+//                 "Items": [
+//                     {
+//                         "ProductID": "1111",
+//                         "SKU": "WINNIEPOOH",
+//                         "ProductName": "Winnie the Pooh",
+//                         "Quantity": 1,
+//                         "ItemPrice": 9.99,
+//                         "RowTotal": 9.99,
+//                         "ProductURL": "http://www.example.com/path/to/product",
+//                         "ImageURL": "http://www.example.com/path/to/product/image.png",
+//                         "Categories": [
+//                             "Fiction",
+//                             "Children"
+//                         ],
+//                         "Brand": "Kids Books"
+//                     },
+//                     {
+//                         "ProductID": "1112",
+//                         "SKU": "TALEOFTWO",
+//                         "ProductName": "A Tale of Two Cities",
+//                         "Quantity": 1,
+//                         "ItemPrice": 19.99,
+//                         "RowTotal": 19.99,
+//                         "ProductURL": "http://www.example.com/path/to/product2",
+//                         "ImageURL": "http://www.example.com/path/to/product/image2.png",
+//                         "Categories": [
+//                             "Fiction",
+//                             "Classics"
+//                         ],
+//                         "Brand": "Harcourt Classics"
+//                     }
+//                 ],
+//                 "BillingAddress": {
+//                     "FirstName": "John",
+//                     "LastName": "Smith",
+//                     "Address1": "123 Abc St",
+//                     "City": "Boston",
+//                     "RegionCode": "MA",
+//                     "CountryCode": "US",
+//                     "Zip": "02110",
+//                     "Phone": "+15551234567"
+//                 },
+//                 "ShippingAddress": {
+//                     "Address1": "123 Abc St"
+//                 }
+//             },
+//             "time": "2022-11-08T00:00:00",
+//             "value": 29.98,
+//             "value_currency": "USD",
+//             "unique_id": "d47aeda5-1751-4483-a81e-6fcc8ad48711",
+//             "metric": {
+//                 "data": {
+//                     "type": "metric",
+//                     "attributes": {
+//                         "name": "Placed Order"
+//                     }
+//                 }
+//             },
+//             "profile": {
+//                 "data": {
+//                     "type": "profile",
+//                     "attributes": {
+//                         "email": "sarah.mason@klaviyo-demo.com",
+//                         "phone_number": "+15005550006"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// '
+?>
 	<div class="kursy-content row" id="kursy-content">
 	
 		<h3>Opis szkolenia</h3>
@@ -511,7 +1011,7 @@ var dx = 0;
 					if($show_open_padlock != '1') { 
 					?>
 											  <!--  BEGIN: Dodaj do koszyka -->
-					<a href="<?php echo esc_attr( edd_get_checkout_uri( array(
+					<a onclick="eventKlaviyoAddedToCart(this)" href="<?php echo esc_attr( edd_get_checkout_uri( array(
 								   'add-to-cart' => (int)$product_id,
 							   ) ) ); ?>" class="more">Kup teraz</a>
 							  <!--  END: Dodaj do koszyka -->  
@@ -666,7 +1166,7 @@ var dx = 0;
         <?php 
             if($show_open_padlock != '1') { 
         ?>
-        <a href="<?php echo esc_attr( edd_get_checkout_uri( array(
+        <a onclick="eventKlaviyoAddedToCart(this)" href="<?php echo esc_attr( edd_get_checkout_uri( array(
                'add-to-cart' => (int)$product_id,
            ) ) ); ?>" class="more">Kup teraz</a>
        <?php 

@@ -32,6 +32,14 @@
 
 <!-- recaptcha google -->
 	
+<!-- integracja klaviyo -->
+ <!-- public key RAAZX9 -->
+ <?php 
+ // private key pk_788d358870622e5f3ba8afcea7d675dd02 
+   ?>
+<script type="text/javascript" async=""
+src="https://static.klaviyo.com/onsite/js/RAAZX9/klaviyo.js"></script>
+<!-- end integracja klaviyo -->
 <?php wp_head(); ?>
 
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->

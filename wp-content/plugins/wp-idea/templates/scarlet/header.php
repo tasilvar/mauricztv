@@ -28,6 +28,14 @@ use bpmj\wpidea\modules\app_view\api\App_View_API_Static_Helper;
 
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/inc/assets/css/jquery-ui.css" />
    
+    <!-- integracja klaviyo -->
+    <!-- public key RAAZX9 -->
+    <?php 
+    // private key pk_788d358870622e5f3ba8afcea7d675dd02 
+    ?>
+    <script type="text/javascript" async=""
+    src="https://static.klaviyo.com/onsite/js/RAAZX9/klaviyo.js"></script>
+    <!-- end integracja klaviyo -->
 </head>
 <body <?php body_class( array( WPI()->templates->get_body_class() ) ); ?>>
 <?php do_action( 'bpmj_eddc_after_body_open_tag' ); ?>
