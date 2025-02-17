@@ -617,211 +617,428 @@ function set_cart_popup_cookie() {
     }
 }
 
+// add_action( 'edd_insert_payment', 'klavyioSendOrder' , 99 );
+
 /**
  * Wywołanie akcji przekaznia zadarzenia do Klaviyo z zdarzeniem dodania zamówienia
+ * @return bool $result
  */
-// add_action( 'edd_insert_payment', 'klavyioSendOrder' , 99 );
 
  function klavyioSendOrder() {
     try  {
            
-        
-$json=[];
+        /**
+         * Pobierz obiekt zamówienia
+         */
+        $args = [
+			// 'number' => '1',
+			'status' => 'publish',
+            'post__in' => [49841], // 49841 49863
+			'date_query' => array(
+				array(  
+				// 	'after'     => $_POST['raport_sprzedazy_option_name']['raport_data_od'],
+				// 	'before'    => $_POST['raport_sprzedazy_option_name']['raport_data_do'],
+				),
+			),
+			
+		];
+		$getPayments = edd_get_payments($args);
 
-$json['data']['type'] = "event";
+        $orders = getOrders($getPayments);
 
-// Properties
-$json['data']['attributes']['properties']['OrderId'] = '1234';
-$json['data']['attributes']['properties']['Categories'] = [
-    "Fiction",
-    "Classics",
-    "Children"
-];
+        $json=[];
 
-$json['data']['attributes']['properties']['ItemNames'] = [
-    "Winnie the Pooh",
-    "A Tale of Two Cities"
-];
-$json['data']['attributes']['properties']['Brands'] = ["Mauricz"];
+        /**
+         * Ziteruj zamówienia w tablicy
+         */
+        foreach($orders as $key => $order)  {
+            
+            $json['data']['type'] = "event";
+            $json['data']['attributes']['properties']['OrderId'] = $order['id'];
 
-$json['data']['attributes']['properties']['DiscountCode'] = ["Mauricz"];
-$json['data']['attributes']['properties']['DiscountValue'] = 0;
+            $productNames = [];
+            $productCategories = [];
+            
+            $productItems = [];
+            foreach($order['products'] as $position => $item) {
+                $productNames[$position] = $item['name'];
 
-
-//Items
-$json['data']['attributes']['properties']['Items'] = [
-    [
-        "ProductID" => "1111",
-        "SKU" => "WINNIEPOOH",
-        "ProductName" => "Winnie the Pooh",
-        "Quantity" => 1,
-        "ItemPrice" => 9.99,
-        "RowTotal" => 9.99,
-        "ProductURL" => "http://www.example.com/path/to/product",
-        "ImageURL" => "http://www.example.com/path/to/product/image.png",
-        "Categories" => [
-            "Fiction",
-            "Children"
-        ],
-        "Brand" => "Mauricz"
-    ]
-
-];
-//BillingAddress
-$json['data']['attributes']['properties']['BillingAddress'] = [
-    "FirstName" => "John",
-    "LastName" => "Smith",
-    "Address1" => "123 Abc St",
-    "City" => "Boston",
-    "RegionCode" => "MA",
-    "CountryCode" => "US",
-    "Zip" => "02110",
-    "Phone" => "+15551234567"
-];
-
-//ShippingAddress
-$json['data']['attributes']['properties']['ShippingAddress'] = [
-    "FirstName" => "John",
-    "LastName" => "Smith",
-    "Address1" => "123 Abc St",
-    "City" => "Boston",
-    "RegionCode" => "MA",
-    "CountryCode" => "US",
-    "Zip" => "02110",
-    "Phone" => "+15551234567"
-];
-// tim / value / value_currency / unique_id
-
-$json['data']['attributes']['time'] = '2022-11-08T00:00:00';
-$json['data']['attributes']['value'] = 29.98;
-$json['data']['attributes']['value_currency'] = 'USD';
-$json['data']['attributes']['unique_id'] = 'd47aeda5-1751-4483-a81e-6fcc8ad48711';
-
-// Mertic
-$json['data']['attributes']['metric']['data']['type'] = 'metric';
-$json['data']['attributes']['metric']['data']['attributes']['name'] = 'Placed Order';
-
-// Profile
-$json['data']['attributes']['profile']['data']['type'] = 'profile';
-$json['data']['attributes']['profile']['data']['attributes']['email'] = 'sarah.mason@klaviyo-demo.com';
-$json['data']['attributes']['profile']['data']['attributes']['phone_number'] = '+15005550006';
-
-
-// echo json_encode($json);
-
-$json_request = '{
-    "data": {
-        "type": "event",
-        "attributes": {
-            "properties": {
-                "OrderId": "1234",
-                "Categories": [
-                    "Fiction",
-                    "Classics",
-                    "Children"
-                ],
-                "ItemNames": [
-                    "Winnie the Pooh",
-                    "A Tale of Two Cities"
-                ],
-                "DiscountCode": "Free Shipping",
-                "DiscountValue": 5,
-                "Brands": [
-                    "Kids Books",
-                    "Harcourt Classics"
-                ],
-                "Items": [
-                    {
-                        "ProductID": "1111",
-                        "SKU": "WINNIEPOOH",
-                        "ProductName": "Winnie the Pooh",
-                        "Quantity": 1,
-                        "ItemPrice": 9.99,
-                        "RowTotal": 9.99,
-                        "ProductURL": "http://www.example.com/path/to/product",
-                        "ImageURL": "http://www.example.com/path/to/product/image.png",
-                        "Categories": [
-                            "Fiction",
-                            "Children"
-                        ],
-                        "Brand": "Kids Books"
-                    },
-                    {
-                        "ProductID": "1112",
-                        "SKU": "TALEOFTWO",
-                        "ProductName": "A Tale of Two Cities",
-                        "Quantity": 1,
-                        "ItemPrice": 19.99,
-                        "RowTotal": 19.99,
-                        "ProductURL": "http://www.example.com/path/to/product2",
-                        "ImageURL": "http://www.example.com/path/to/product/image2.png",
-                        "Categories": [
-                            "Fiction",
-                            "Classics"
-                        ],
-                        "Brand": "Harcourt Classics"
+                /**
+                 * Categories
+                 */
+                $categories_terms = get_the_terms($item['id'],  'download_category', true);
+                
+                $productCategoriesItem = [];
+                foreach($categories_terms as $term) {
+                    if(!in_array($term->name, $productCategories)) {
+                        $productCategories[] = $term->name;
                     }
-                ],
-                "BillingAddress": {
-                    "FirstName": "John",
-                    "LastName": "Smith",
-                    "Address1": "123 Abc St",
-                    "City": "Boston",
-                    "RegionCode": "MA",
-                    "CountryCode": "US",
-                    "Zip": "02110",
-                    "Phone": "+15551234567"
-                },
-                "ShippingAddress": {
-                    "Address1": "123 Abc St"
+                    $productCategoriesItem[] = $term->name;
                 }
-            },
-            "time": "2022-11-08T00:00:00",
-            "value": 29.98,
-            "value_currency": "USD",
-            "unique_id": "d47aeda5-1751-4483-a81e-6fcc8ad48711",
-            "metric": {
-                "data": {
-                    "type": "metric",
-                    "attributes": {
-                        "name": "Placed Order"
-                    }
+
+                /**
+                 * Thumbnail
+                 */
+                if(!empty(get_the_post_thumbnail_url($item['id']))) { 
+                    $thumbnail = get_the_post_thumbnail_url($item['id']);
+                } else {
+                    $thumbnail =  get_template_directory_uri()."/img/logo.svg";
                 }
-            },
-            "profile": {
-                "data": {
-                    "type": "profile",
-                    "attributes": {
-                        "email": "sarah.mason@klaviyo-demo.com",
-                        "phone_number": "+15005550006"
-                    }
-                }
+
+                $productItems[$position]['ProductID'] = $item['id'];
+                $productItems[$position]['SKU'] = $item['id'];
+                $productItems[$position]['ProductName'] = $item['name'];
+                $productItems[$position]['Quantity'] = 1;
+                $productItems[$position]['ItemPrice'] = $item['amount'];
+                $productItems[$position]['RowTotal'] = $item['amount'];
+                $productItems[$position]['ImageURL'] = $thumbnail;
+                $productItems[$position]['ProductURL'] = get_the_permalink($item['id']);
+                $productItems[$position]['Categories'] = (array)$productCategoriesItem;
+                $productItems[$position]['Brand'] = "Mauricz";
             }
+        
+           
+            // Properties
+            $json['data']['attributes']['properties']['Categories'] = (array)$productCategories;
+
+            $json['data']['attributes']['properties']['ItemNames'] = (array)$productNames;
+
+            $json['data']['attributes']['properties']['Brands'] = ["Mauricz"];
+
+            if(!empty($order['phone'])) {
+                $phone = $order['phone'];
+                if (strpos($phone, "+48") === 0) {
+                } else {
+                    $phone = "+48".$phone;
+                }
+            } else {
+                $phone = '+48000000000';
+            }
+           
+            //Items
+            $json['data']['attributes']['properties']['Items'] = (array)$productItems;
+
+            
+            //BillingAddress
+            $json['data']['attributes']['properties']['BillingAddress'] = [
+                "FirstName" => $order['first'],
+                "LastName" =>  $order['last'],
+                "Address1" => $order['address1'],
+                "City" => $order['city'],
+                "RegionCode" => "",
+                "CountryCode" => "",
+                "Zip" =>  $order['zip'],
+                "Phone" => $phone
+            ];
+
+            //ShippingAddress
+            $json['data']['attributes']['properties']['ShippingAddress'] = [
+                "FirstName" =>  $order['first'],
+                "LastName" =>  $order['last'],
+                "Address1" => $order['address1'],
+                "City" => $order['city'],
+                "RegionCode" => "",
+                "CountryCode" => "",
+                "Zip" => $order['zip'],
+                "Phone" => $phone
+            ];
+
+            // tim / value / value_currency / unique_id
+            $json['data']['attributes']['time'] = date('c', strtotime($order['date']));//date('c', strtotime($order['date']));//'2022-11-08T00:00:00';
+            $json['data']['attributes']['value'] =  $order['amount'];
+            $json['data']['attributes']['value_currency'] = 'PLN';
+            $json['data']['attributes']['unique_id'] = md5($order['id']);//'d47aeda5-1751-4483-a81e-6fcc8ad48711';
+
+            // if(!empty($order['discount'])) {
+            //     $json['data']['attributes']['properties']['DiscountCode'] = [$order['discount']];
+            //     $json['data']['attributes']['properties']['DiscountValue'] = 0;
+            // } else {
+            //     $json['data']['attributes']['properties']['DiscountCode'] = [];
+            //     $json['data']['attributes']['properties']['DiscountValue'] = 0;
+            // }
+           
+            // Mertic
+            $json['data']['attributes']['metric']['data']['type'] = 'metric';
+            $json['data']['attributes']['metric']['data']['attributes']['name'] = 'Placed Order';
+
+            // Profile
+            $json['data']['attributes']['profile']['data']['type'] = 'profile';
+            $json['data']['attributes']['profile']['data']['attributes']['email'] = $order['email'];
+            $json['data']['attributes']['profile']['data']['attributes']['phone_number'] = $phone;
         }
-    }
-}';
 
- 
 
+// $json_request = '{
+//     "data": {
+//         "type": "event",
+//         "attributes": {
+//             "properties": {
+//                 "OrderId": "1",
+//                 "Categories": [
+//                     "Fiction",
+//                     "Classics",
+//                     "Children"
+//                 ],
+//                 "ItemNames": [
+//                     "Winnie the Pooh",
+//                     "A Tale of Two Cities"
+//                 ],
+//                 "DiscountCode": "Free Shipping",
+//                 "DiscountValue": 5,
+//                 "Brands": [
+//                     "Kids Books",
+//                     "Harcourt Classics"
+//                 ],
+//                 "Items": [
+//                     {
+//                         "ProductID": "1111",
+//                         "SKU": "WINNIEPOOH",
+//                         "ProductName": "Winnie the Pooh",
+//                         "Quantity": 1,
+//                         "ItemPrice": 9.99,
+//                         "RowTotal": 9.99,
+//                         "ProductURL": "http://www.example.com/path/to/product",
+//                         "ImageURL": "http://www.example.com/path/to/product/image.png",
+//                         "Categories": [
+//                             "Fiction",
+//                             "Children"
+//                         ],
+//                         "Brand": "Kids Books"
+//                     },
+//                     {
+//                         "ProductID": "1112",
+//                         "SKU": "TALEOFTWO",
+//                         "ProductName": "A Tale of Two Cities",
+//                         "Quantity": 1,
+//                         "ItemPrice": 19.99,
+//                         "RowTotal": 19.99,
+//                         "ProductURL": "http://www.example.com/path/to/product2",
+//                         "ImageURL": "http://www.example.com/path/to/product/image2.png",
+//                         "Categories": [
+//                             "Fiction",
+//                             "Classics"
+//                         ],
+//                         "Brand": "Harcourt Classics"
+//                     }
+//                 ],
+//                 "BillingAddress": {
+//                     "FirstName": "John",
+//                     "LastName": "Smith",
+//                     "Address1": "123 Abc St",
+//                     "City": "Boston",
+//                     "RegionCode": "MA",
+//                     "CountryCode": "US",
+//                     "Zip": "02110",
+//                     "Phone": "+15551234567"
+//                 },
+//                 "ShippingAddress": {
+//                    "FirstName": "John",
+//                     "LastName": "Smith",
+//                     "Address1": "123 Abc St",
+//                     "City": "Boston",
+//                     "RegionCode": "MA",
+//                     "CountryCode": "US",
+//                     "Zip": "02110",
+//                     "Phone": "+15551234567"
+//                 }
+//             },
+//             "time": "2022-11-08T00:00:00",
+//             "value": 29.98,
+//             "value_currency": "USD",
+            
+//             "metric": {
+//                 "data": {
+//                     "type": "metric",
+//                     "attributes": {
+//                         "name": "Placed Order"
+//                     }
+//                 }
+//             },
+//             "profile": {
+//                 "data": {
+//                     "type": "profile",
+//                     "attributes": {
+//                         "email": "sarah.mason@klaviyo-demo.com",
+//                         "phone_number": "+15005550006"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }';
+
+// print_r($json_request);
+
+
+//"unique_id": "d47aeda5-1751-4483-a81e-6fcc8ad48711", // determinuje czy tworzyć nowy event czy nie
+
+// echo "<br/> ==== <br/> ";
+    
+// echo $json_request;
+// echo "<br/> ### <br/>";
+// echo json_encode($json);
+// echo "<br/>";
+// exit();
+
+$json_request = json_encode($json);
+
+print_r($json_request);
 $c = curl_init();
 curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events/');
+
+// date revision
+$revision = '2025-01-15';
 
 $KlaviyoPrivateKey = 'pk_788d358870622e5f3ba8afcea7d675dd02';
 $head[] ='Authorization: Klaviyo-API-Key '.$KlaviyoPrivateKey.'';
 $head[] ='accept: application/json';
 $head[] ='content-Type: application/json';
-$head[] ='revision: 2025-01-15';//.date('Y-m-d');
+$head[] ='revision: '.$revision;
 curl_setopt($c, CURLOPT_HTTPHEADER, $head);
 curl_setopt($c, CURLOPT_POST, true);
 curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($c, CURLOPT_POSTFIELDS, $json_request);
  	
- 
+ //json_request
  $result =  @json_decode(curl_exec($c),1);
 
+ echo "==";
  print_r($result);
+
+ echo "POST";
+    } catch(\Exception $e) {
+
+    }
+    
+ }
+
+
+ /**
+  * Pobranie eventów klavyio
+  * @return array|bool $result
+  */
+ function klavyioGetOrder() {
+    try {
+
+        /**
+         * Zwróć odpowiedź  po api z klavyio
+         */
+            try {
+                $c = curl_init();
+                // curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events/1234');
+                curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events');
+
+                $revision = '2025-01-15';
+                $KlaviyoPrivateKey = 'pk_788d358870622e5f3ba8afcea7d675dd02';
+                $head[] ='Authorization: Klaviyo-API-Key '.$KlaviyoPrivateKey.'';
+                $head[] ='accept: application/json';
+                $head[] ='revision: '.$revision;//.date('Y-m-d');
+                curl_setopt($c, CURLOPT_HTTPHEADER, $head);
+                curl_setopt($c, CURLOPT_POST, false);
+                curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+                
+                $result =  @json_decode(curl_exec($c),1);
+
+                print_r($result);
+            } catch(\Exception $e) {
+            }
+            echo "======";
+            echo "GET";
+        exit();
 
     } catch(\Exception $e) {
 
     }
+ }
+
+ /**
+  * Pobranie danych zamówienia
+  * @param array $payments
+  * @return array $data
+  */
+ function getOrders($payments) {
+     
+    $data = [];
+    if( $payments ) {
+
+        foreach ( $payments as $payment ) {
+            $payment_meta   = edd_get_payment_meta( $payment->ID );
+            $user_info      = edd_get_payment_meta_user_info( $payment->ID );
+            $downloads      = edd_get_payment_meta_cart_details( $payment->ID );
+            $total          = edd_get_payment_amount( $payment->ID );
+            $user_id        = isset( $user_info['id'] ) && $user_info['id'] != -1 ? $user_info['id'] : $user_info['email'];
+            $products       = [];
+            $skus           = '';
+
+            if ( $downloads ) {
+                foreach ( $downloads as $key => $download ) {
+
+                    // Download ID
+                    $id  = isset( $payment_meta['cart_details'] ) ? $download['id'] : $download;
+                    $qty = isset( $download['quantity'] ) ? $download['quantity'] : 1;
+
+                    if ( isset( $download['price'] ) ) {
+                        $price = $download['price'];
+                    } else {
+                        // If the download has variable prices, override the default price
+                        $price_override = isset( $payment_meta['cart_details'] ) ? $download['price'] : null;
+                        $price = edd_get_download_final_price( $id, $user_info, $price_override );
+                    }
+
+                    // Display the Downoad Name
+                    $products[$key]['id'] = $id ;
+
+                    $products[$key]['name'] = html_entity_decode( get_the_title( $id ) );
+
+                    $products[$key]['qty'] = $qty;
+
+                    $products[$key]['amount'] = $price;
+                    
+                    $products[$key]['price'] = html_entity_decode( edd_currency_filter( edd_format_amount( $price ) ) );
+
+                }
+            }
+
+            if ( is_numeric( $user_id ) ) {
+                $user = get_userdata( $user_id );
+            } else {
+                $user = false;
+            }
+
+            $eddcm_purchase_data = edd_get_payment_meta( $payment->ID, 'bpmj_eddcm_purchase_data' );
+
+            // print_r($eddcm_purchase_data);
+            // echo "<br/><br>===<br/><br>";
+            // print_r(edd_get_payment_meta_user_info( $payment->ID ));
+            // exit();
+            $data[] = array(
+                'id'       => $payment->ID,
+                'id_customer' => $payment->post_author,
+                'seq_id'   => edd_get_payment_number( $payment->ID ),
+                'email'    => $payment_meta['email'],
+                'first'    => $user_info['first_name'],
+                'last'     => $user_info['last_name'],
+                'address1' => isset( $user_info['address']['line1'] )   ? $user_info['address']['line1']   : '',
+                'address2' => isset( $user_info['address']['line2'] )   ? $user_info['address']['line2']   : '',
+                'city'     => isset( $user_info['address']['city'] )    ? $user_info['address']['city']    : '',
+                'state'    => isset( $user_info['address']['state'] )   ? $user_info['address']['state']   : '',
+                'country'  => isset( $user_info['address']['country'] ) ? $user_info['address']['country'] : '',
+                'zip'      => isset( $user_info['address']['zip'] )     ? $user_info['address']['zip']     : '',
+                'phone' => (string)$eddcm_purchase_data['bpmj_eddcm_phone_no'],
+                'products' => $products,
+                'amount'   => html_entity_decode( edd_format_amount( $total ) ), // The non-discounted item price
+                'tax'      => html_entity_decode( edd_format_amount( edd_get_payment_tax( $payment->ID, $payment_meta ) ) ),
+                'discount' => isset( $user_info['discount'] ) && $user_info['discount'] != 'none' ? $user_info['discount'] : '',
+                'gateway'  => edd_get_gateway_admin_label( get_post_meta( $payment->ID, '_edd_payment_gateway', true ) ),
+                'trans_id' => edd_get_payment_transaction_id( $payment->ID ),
+                'key'      => $payment_meta['key'],
+                'date'     => $payment->post_date,
+                'user'     => $user ? $user->display_name : __( 'guest', 'easy-digital-downloads' ),
+                'status'   => edd_get_payment_status( $payment, true )
+            );
+
+        }
+
+    }
+        return (array)$data;
  }

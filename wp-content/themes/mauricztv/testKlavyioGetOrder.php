@@ -2,7 +2,6 @@
 require_once("../../../wp-load.php");
  
 
-klavyioSendOrder();
-
+klavyioGetOrder();
 echo "OK";
 exit();
