@@ -636,7 +636,7 @@ function set_cart_popup_cookie() {
             // 'post__in' => [49841], // 49841 49863
 			'date_query' => array(
 				array(  
-                    'after'     => '-3 months',
+                    'after'     => '-12 months',
 					// 'before'    => '+5 years',
 				// 	'after'     => $_POST['raport_sprzedazy_option_name']['raport_data_od'],
 				// 	'before'    => $_POST['raport_sprzedazy_option_name']['raport_data_do'],
