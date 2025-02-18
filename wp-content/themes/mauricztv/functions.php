@@ -633,9 +633,11 @@ function set_cart_popup_cookie() {
         $args = [
 			// 'number' => '1',
 			'status' => 'publish',
-            'post__in' => [49841], // 49841 49863
+            // 'post__in' => [49841], // 49841 49863
 			'date_query' => array(
 				array(  
+                    'after'     => '-3 months',
+					// 'before'    => '+5 years',
 				// 	'after'     => $_POST['raport_sprzedazy_option_name']['raport_data_od'],
 				// 	'before'    => $_POST['raport_sprzedazy_option_name']['raport_data_do'],
 				),
@@ -644,6 +646,8 @@ function set_cart_popup_cookie() {
 		];
 		$getPayments = edd_get_payments($args);
 
+        // print_r($getPayments);
+        // exit();
         $orders = getOrders($getPayments);
 
         $json=[];
@@ -882,7 +886,6 @@ function set_cart_popup_cookie() {
 
 $json_request = json_encode($json);
 
-print_r($json_request);
 $c = curl_init();
 curl_setopt($c, CURLOPT_URL, 'https://a.klaviyo.com/api/events/');
 
@@ -902,6 +905,8 @@ curl_setopt($c, CURLOPT_POSTFIELDS, $json_request);
  //json_request
  $result =  @json_decode(curl_exec($c),1);
 
+ echo "==";
+ // print_r($json_request);
  echo "==";
  print_r($result);
 

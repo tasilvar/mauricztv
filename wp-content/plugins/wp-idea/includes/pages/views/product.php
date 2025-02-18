@@ -274,12 +274,13 @@ if($show_open_padlock) {
         </div>
 
     </div>
-	####
 
 <?php
 
 /**
+ * ======================================
  * Start - integracja Klaviyo
+ * ======================================
  */
 
 /**
@@ -363,8 +364,6 @@ $jsonReponseCustomer = json_encode($jsonOutputCustomer);
 
 $getCart = edd_get_cart_contents();
 
-echo "<h1>Zawartosc koszyka</h1>";
-print_r($getCart);
 
 $cartContainer = [];
 $cartItemNames = [];
@@ -410,7 +409,6 @@ foreach($getCart as $key => $cartItem) {
    
     
 }
-echo "<h1>Json</h1>";
 $jsonOutputAddedToCart = [];
 
 $jsonOutputAddedToCart['$value'] = array_sum((array)$cartItemPrices); // Suma
@@ -428,13 +426,16 @@ $jsonOutputAddedToCart['Items'] = (array)$cartContainer;
 
 
 $jsonResponseAddedToCart = json_encode($jsonOutputAddedToCart);
-echo $jsonResponseAddedToCart;
-echo "<br/><br/>";
+// echo "<h1>Zawartosc koszyka</h1>";
+// print_r($getCart);
+// echo "<h1>Json</h1>";
+// echo $jsonResponseAddedToCart;
+// echo "<br/><br/>";
 
-echo $jsonResponseVieved;
+// echo $jsonResponseVieved;
 
-echo "<br/><br/>";
-echo $jsonReponseCustomer;
+// echo "<br/><br/>";
+// echo $jsonReponseCustomer;
     ?>
 
  	<script type="text/javascript">
@@ -512,75 +513,19 @@ echo $jsonReponseCustomer;
         }, klaviyoAddedToCart);
 
         
-        alert("dodano do koszyka");
 
-        // window.location.href = obj.getAttribute("href");
+        window.location.href = obj.getAttribute("href");
     }
 
  </script>
-<?php
-
-	## Viewed Product
-
-// 	<script type="text/javascript">
-//    var item = {
-//      "ProductName": item.ProductName,
-//      "ProductID": item.ProductID,
-//      "SKU": item.SKU,
-//      "Categories": item.Categories,
-//      "ImageURL": item.ImageURL,
-//      "URL": item.URL,
-//      "Brand": item.Brand,
-//      "Price": item.Price,
-//      "CompareAtPrice": item.CompareAtPrice
-//    };
-//    klaviyo.track("Viewed Product", item);
-// </script>
-
-
-
-## Added to Cart
-
-// <script type="text/javascript">
-//    klaviyo.track("Added to Cart", {
-//      "$value": 29.98,
-//      "AddedItemProductName": "A Tale of Two Cities",
-//      "AddedItemProductID": "1112",
-//      "AddedItemSKU": "TALEOFTWO",
-//      "AddedItemCategories": ["Fiction", "Classics", "Children"],
-//      "AddedItemImageURL": "http://www.example.com/path/to/product/image2.png",
-//      "AddedItemURL": "http://www.example.com/path/to/product2",
-//      "AddedItemPrice": 19.99,
-//      "AddedItemQuantity": 1,
-//      "ItemNames": ["Winnie the Pooh", "A Tale of Two Cities"],
-//      "CheckoutURL": "http://www.example.com/path/to/checkout",
-//      "Items": [{
-//          "ProductID": "1111",
-//          "SKU": "WINNIEPOOH",
-//          "ProductName": "Winnie the Pooh",
-//          "Quantity": 1,
-//          "ItemPrice": 9.99,
-//          "RowTotal": 9.99,
-//          "ProductURL": "http://www.example.com/path/to/product",
-//          "ImageURL": "http://www.example.com/path/to/product/image.png",
-//          "ProductCategories": ["Fiction", "Children"]
-//        },
-//        {
-//          "ProductID": "1112",
-//          "SKU": "TALEOFTWO",
-//          "ProductName": "A Tale of Two Cities",
-//          "Quantity": 1,
-//          "ItemPrice": 19.99,
-//          "RowTotal": 19.99,
-//          "ProductURL": "http://www.example.com/path/to/product2",
-//          "ImageURL": "http://www.example.com/path/to/product/image2.png",
-//          "ProductCategories": ["Fiction", "Classics"]
-//        }
-//      ]
-//    });
-//  </script>
-  
+ <?php
+ /**
+ * ======================================
+ * End - integracja Klaviyo
+ * ======================================
+ */
 ?>
+
 	<div class="kursy-content row" id="kursy-content">
 	
 		<h3>Opis szkolenia</h3>
